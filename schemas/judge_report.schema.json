@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AEOS Judge Report",
+  "type": "object",
+  "required": [
+    "judge",
+    "decision",
+    "deductions"
+  ],
+  "properties": {
+    "judge": {
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "accept",
+        "reject",
+        "block",
+        "needs_rework"
+      ]
+    },
+    "score": {
+      "type": "number"
+    },
+    "deductions": {
+      "type": "array"
+    },
+    "missing_evidence": {
+      "type": "array"
+    },
+    "risks": {
+      "type": "array"
+    }
+  }
+}

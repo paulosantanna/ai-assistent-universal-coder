@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AEOS Evidence",
+  "type": "object",
+  "required": [
+    "evidence_id",
+    "type",
+    "claim",
+    "reference",
+    "verified"
+  ],
+  "properties": {
+    "evidence_id": {
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "code",
+        "command",
+        "test",
+        "config",
+        "diff",
+        "source",
+        "benchmark",
+        "security",
+        "clinical",
+        "regulatory"
+      ]
+    },
+    "claim": {
+      "type": "string"
+    },
+    "reference": {
+      "type": "string"
+    },
+    "verified": {
+      "type": "boolean"
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
