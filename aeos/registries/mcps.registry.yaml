@@ -1,0 +1,107 @@
+# =============================================================================
+# AEOS MCPs Registry
+# =============================================================================
+# Registro central de todos os Model Context Providers disponíveis.
+# MCPs são conectores padronizados para ferramentas externas.
+# Nenhum MCP pode ser usado sem registro e autorização explícita.
+# =============================================================================
+
+mcps:
+  - id: filesystem-readonly
+    type: filesystem
+    config: aeos/mcps/filesystem.mcp.yaml
+    risk_level: low
+    capabilities:
+      - READ_FILES
+      - LIST_DIRECTORIES
+    write_allowed: false
+    approval_required: false
+
+  - id: filesystem-write-sandbox
+    type: filesystem
+    config: aeos/mcps/filesystem.mcp.yaml
+    risk_level: medium
+    capabilities:
+      - READ_FILES
+      - WRITE_SANDBOX_FILES
+    write_allowed: true
+    approval_required: false
+    sandbox_required: true
+
+  - id: git-readonly
+    type: git
+    config: aeos/mcps/git.mcp.yaml
+    risk_level: low
+    capabilities:
+      - GIT_STATUS
+      - GIT_DIFF
+      - GIT_LOG
+    approval_required: false
+
+  - id: git-write-branch
+    type: git
+    config: aeos/mcps/git.mcp.yaml
+    risk_level: high
+    capabilities:
+      - CREATE_BRANCH
+      - COMMIT_ON_BRANCH
+      - OPEN_PULL_REQUEST
+    approval_required: true
+
+  - id: shell-controlled
+    type: shell
+    config: aeos/mcps/shell.mcp.yaml
+    risk_level: high
+    capabilities:
+      - RUN_SAFE_COMMANDS
+    approval_required: true
+    destructive_commands_blocked: true
+
+  - id: github
+    type: github
+    config: aeos/mcps/github.mcp.yaml
+    risk_level: high
+    capabilities:
+      - READ_REPOSITORY
+      - OPEN_PULL_REQUEST
+      - MANAGE_ISSUES
+    approval_required: true
+
+  - id: browser
+    type: browser
+    config: aeos/mcps/browser.mcp.yaml
+    risk_level: medium
+    capabilities:
+      - WEB_NAVIGATION
+      - SCREENSHOT
+      - READ_PAGE
+    approval_required: true
+
+  - id: database-readonly
+    type: database
+    config: aeos/mcps/database-readonly.mcp.yaml
+    risk_level: high
+    capabilities:
+      - READ_QUERY
+      - LIST_TABLES
+      - DESCRIBE_SCHEMA
+    approval_required: true
+    write_allowed: false
+
+  - id: secrets-runtime
+    type: secrets
+    config: aeos/mcps/secrets.mcp.yaml
+    risk_level: critical
+    capabilities:
+      - READ_RUNTIME_SECRET
+    approval_required: true
+    log_redaction_required: true
+
+  - id: test-runner
+    type: test-runner
+    config: aeos/mcps/test-runner.mcp.yaml
+    risk_level: medium
+    capabilities:
+      - RUN_TESTS
+      - COLLECT_RESULTS
+    approval_required: false

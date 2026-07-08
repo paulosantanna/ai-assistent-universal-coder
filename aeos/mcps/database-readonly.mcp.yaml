@@ -1,0 +1,74 @@
+# =============================================================================
+# MCP: Database (Read-Only)
+# =============================================================================
+# Model Context Protocol connector for read-only database queries.
+# Only SELECT queries are allowed. Write operations are blocked at the MCP level.
+# =============================================================================
+
+mcp:
+  id: database-readonly
+  name: Database Read-Only MCP
+  protocol: model-context-protocol
+  version: "2025-03-26"
+
+  transport:
+    type: stdio
+    command: aeos-kernel
+    args:
+      - "mcp"
+      - "database"
+
+  capabilities:
+    tools:
+      - name: run_query
+        description: Execute a read-only SQL query
+        security: read-only
+        input:
+          connection: string
+          query: string
+        output:
+          type: json
+        constraints:
+          - approval_required: true
+          - read_only: true
+
+      - name: list_tables
+        description: List database tables
+        security: read-only
+        input:
+          connection: string
+        output:
+          type: json
+
+      - name: describe_schema
+        description: Describe database schema
+        security: read-only
+        input:
+          connection: string
+          table: string (optional)
+        output:
+          type: json
+
+  security:
+    query_restrictions:
+      block_statements:
+        - INSERT
+        - UPDATE
+        - DELETE
+        - DROP
+        - ALTER
+        - CREATE
+        - TRUNCATE
+        - GRANT
+        - REVOKE
+        - EXEC
+        - CALL
+      max_rows: 1000
+      timeout_seconds: 30
+    connection:
+      never_store_credentials: true
+      resolve_at_runtime: true
+    audit:
+      log_all_queries: true
+      log_schema_only: true
+      never_log_data: true

@@ -1,0 +1,59 @@
+# =============================================================================
+# LCP: Python AI
+# =============================================================================
+# Local Context Pack for Python AI projects (FastAPI, RAG, training).
+# Provides AI-specific safety rules and RAG pipeline constraints.
+# Priority: 80
+# Scope: stack
+# =============================================================================
+
+id: python-ai
+name: Python AI Context Pack
+version: 1.0.0
+
+context_type: stack
+priority: 80
+
+applies_when:
+  languages:
+    - python
+  frameworks:
+    - fastapi
+    - langchain
+    - llamaindex
+    - huggingface
+  domains:
+    - rag
+    - training
+    - scraper
+
+load_order:
+  - global-rules
+  - security-governance
+  - python-ai
+
+rules:
+  - never_use_eval_or_exec_on_untrusted_input
+  - always_sanitize_prompt_templates
+  - never_log_prompt_inputs_with_pii
+  - always_validate_model_inputs
+  - never_expose_model_weights_in_reports
+  - always_pin_dependency_versions
+  - use_environment_variables_for_configuration
+  - never_hardcode_api_keys_or_endpoints
+  - always_validate_data_pipeline_inputs
+  - never_disable_content_filters
+
+required_evidence:
+  - dependency_list
+  - pipeline_steps
+  - data_sources
+  - model_configuration
+  - security_scan
+
+forbidden:
+  - disable_safety_guardrails
+  - expose_training_data_in_output
+  - skip_input_validation
+  - use_deprecated_or_unmaintained_packages
+  - ignore_prompt_injection_risks

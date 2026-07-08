@@ -1,0 +1,64 @@
+# =============================================================================
+# MCP: Test Runner
+# =============================================================================
+# Model Context Protocol connector for running test suites and collecting results.
+# =============================================================================
+
+mcp:
+  id: test-runner
+  name: Test Runner MCP
+  protocol: model-context-protocol
+  version: "2025-03-26"
+
+  transport:
+    type: stdio
+    command: aeos-kernel
+    args:
+      - "mcp"
+      - "test-runner"
+
+  capabilities:
+    tools:
+      - name: run_tests
+        description: Run a test suite
+        security: controlled
+        input:
+          framework: string
+          path: string (optional)
+          args: array (optional)
+        output:
+          type: text
+        constraints:
+          - timeout_seconds: 600
+
+      - name: collect_results
+        description: Collect test results from last run
+        security: read-only
+        output:
+          type: json
+
+      - name: list_test_files
+        description: List test files in the project
+        security: read-only
+        input:
+          pattern: string (optional)
+        output:
+          type: json
+
+  security:
+    supported_frameworks:
+      - jest
+      - mocha
+      - vitest
+      - pytest
+      - unittest
+      - junit
+      - testng
+      - nunit
+      - xunit
+    restrictions:
+      block_destructive_test_args: true
+      timeout_seconds: 600
+    audit:
+      log_all_test_runs: true
+      log_test_results: true

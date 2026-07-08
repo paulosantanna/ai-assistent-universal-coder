@@ -1,0 +1,142 @@
+# =============================================================================
+# AEOS Capabilities Registry
+# =============================================================================
+# Define todas as capacidades  disponíveis no sistema.
+# Capacidades são ações atômicas que skills e agents podem executar.
+# Nenhuma ação pode ser executada sem uma capability registrada.
+# =============================================================================
+
+capabilities:
+  - id: READ_REPOSITORY
+    name: Read Repository
+    description: Read files and list directories in the workspace
+    risk_level: low
+    requires_mcp: filesystem-readonly
+
+  - id: WRITE_SANDBOX
+    name: Write to Sandbox
+    description: Write files to sandbox directory only
+    risk_level: medium
+    requires_mcp: filesystem-write-sandbox
+
+  - id: EDIT_FILES
+    name: Edit Source Files
+    description: Modify existing source files in the repository
+    risk_level: high
+    requires_mcp: filesystem-write-sandbox
+    requires_approval: true
+
+  - id: DELETE_FILES
+    name: Delete Files
+    description: Remove files from the repository
+    risk_level: critical
+    requires_mcp: filesystem-write-sandbox
+    requires_approval: true
+    requires_rollback: true
+
+  - id: DETECT_STACK
+    name: Detect Technology Stack
+    description: Identify languages, frameworks, and build tools
+    risk_level: low
+    requires_mcp: filesystem-readonly
+
+  - id: MAP_ARCHITECTURE
+    name: Map Architecture
+    description: Analyze and document architectural structure
+    risk_level: medium
+    requires_mcp: filesystem-readonly
+
+  - id: ANALYZE_DEPENDENCIES
+    name: Analyze Dependencies
+    description: Inspect dependency trees and detect vulnerabilities
+    risk_level: medium
+    requires_mcp: filesystem-readonly
+
+  - id: SCAN_SECRETS
+    name: Scan for Secrets
+    description: Detect exposed secrets in repository without reading values
+    risk_level: medium
+    requires_mcp: filesystem-readonly
+
+  - id: SCAN_DEPENDENCIES
+    name: Scan Dependencies
+    description: Check dependencies for known vulnerabilities
+    risk_level: medium
+    requires_mcp: filesystem-readonly
+
+  - id: RUN_TESTS
+    name: Run Tests
+    description: Execute test suites and collect results
+    risk_level: medium
+    requires_mcp: test-runner
+
+  - id: GIT_STATUS
+    name: Git Status
+    description: Check repository status, branch, and changes
+    risk_level: low
+    requires_mcp: git-readonly
+
+  - id: GIT_DIFF
+    name: Git Diff
+    description: Show differences between commits and working tree
+    risk_level: low
+    requires_mcp: git-readonly
+
+  - id: GIT_LOG
+    name: Git Log
+    description: Show commit history
+    risk_level: low
+    requires_mcp: git-readonly
+
+  - id: CREATE_BRANCH
+    name: Create Branch
+    description: Create a new branch for code changes
+    risk_level: medium
+    requires_mcp: git-write-branch
+
+  - id: COMMIT_ON_BRANCH
+    name: Commit on Branch
+    description: Commit changes to a feature branch
+    risk_level: high
+    requires_mcp: git-write-branch
+    requires_approval: true
+
+  - id: OPEN_PULL_REQUEST
+    name: Open Pull Request
+    description: Create a pull request for review
+    risk_level: high
+    requires_mcp: git-write-branch
+    requires_approval: true
+
+  - id: RUN_SAFE_COMMANDS
+    name: Run Safe Commands
+    description: Execute non-destructive shell commands
+    risk_level: high
+    requires_mcp: shell-controlled
+    requires_approval: true
+
+  - id: READ_RUNTIME_SECRET
+    name: Read Runtime Secret
+    description: Resolve a secret value from an authorized source at runtime
+    risk_level: critical
+    requires_mcp: secrets-runtime
+    requires_approval: true
+    log_redaction_required: true
+
+  - id: GENERATE_REPORT
+    name: Generate Report
+    description: Create a markdown report file
+    risk_level: low
+    requires_mcp: filesystem-write-sandbox
+
+  - id: GENERATE_ADR
+    name: Generate ADR
+    description: Create an Architecture Decision Record
+    risk_level: medium
+    requires_mcp: filesystem-write-sandbox
+
+  - id: GENERATE_SECURITY_REPORT
+    name: Generate Security Report
+    description: Create a security audit report
+    risk_level: medium
+    requires_mcp: filesystem-write-sandbox

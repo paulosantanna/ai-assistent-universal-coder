@@ -1,0 +1,58 @@
+# =============================================================================
+# LCP: Java Backend
+# =============================================================================
+# Local Context Pack for Java backend projects.
+# Provides stack-specific rules, patterns, and constraints.
+# Priority: 80
+# Scope: stack
+# =============================================================================
+
+id: java-backend
+name: Java Backend Context Pack
+version: 1.0.0
+
+context_type: stack
+priority: 80
+
+applies_when:
+  languages:
+    - java
+  build_tools:
+    - maven
+    - gradle
+  frameworks:
+    - spring
+    - jakarta
+    - quarkus
+
+load_order:
+  - global-rules
+  - security-governance
+  - java-backend
+
+rules:
+  - preserve_existing_architecture
+  - prefer_small_diffs
+  - require_tests_for_behavior_change
+  - do_not_change_public_api_without_contract_test
+  - do_not_upgrade_major_dependencies_without_compatibility_report
+  - maintain_existing_build_tool
+  - follow_existing_package_conventions
+  - respect_layer_boundaries
+  - use_existing_exception_hierarchy
+  - keep_application_properties_compatible
+
+required_evidence:
+  - dependency_tree
+  - build_result
+  - test_result
+  - changed_files
+  - rollback_plan
+
+forbidden:
+  - delete_business_code_without_evidence
+  - hide_failing_tests
+  - bypass_security_scan
+  - commit_secrets
+  - change_lombok_configuration_without_review
+  - remove_existing_logging_without_replacement

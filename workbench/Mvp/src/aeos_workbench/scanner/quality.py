@@ -245,4 +245,186 @@ MODULE_INDICATORS = {
 class CodeQualityAnalyzer:
     def __init__(self, scan_result):
         self.scan_result = scan_result
-        self.files
+        self.files = scan_result.get("files", [])
+        self.languages = scan_result.get("languages", {})
+        self.linter_score = 0.0
+        self.type_checker_score = 0.0
+        self.documentation_score = 0.0
+        self.module_score = 0.0
+
+    def _has_file(self, name_variants):
+        names = set(f["name"] for f in self.files)
+        for v in name_variants:
+            if v in names:
+                return True
+        return False
+
+    def _check_linters(self):
+        if not self.languages:
+            return 5.0
+
+        detected = 0
+        possible = 0
+        for lang in self.languages:
+            for tool, configs in LINTER_CONFIGS.items():
+                if self._has_file(configs):
+                    detected += 1
+                    break
+
+        total_langs = len(self.languages)
+        if total_langs == 0:
+            return 5.0
+
+        ratio = min(detected / total_langs, 1.0) if total_langs > 0 else 0
+        return 2.0 + ratio * 8.0
+
+    def _check_type_checkers(self):
+        detected = 0
+        for lang in self.languages:
+            if lang == "typescript":
+                files = [f for f in self.files if f["language"] == "typescript"]
+                tsconfigs = [f for f in files if f["name"] == "tsconfig.json"]
+                for tc in tsconfigs:
+                    try:
+                        full_path = os.path.join(self.scan_result.get("project_root", ""), tc["path"])
+                        if os.path.isfile(full_path):
+                            content = open(full_path, "r", encoding="utf-8", errors="replace").read()
+                            if '"strict"' in content or '"strictNullChecks"' in content:
+                                detected += 2
+                                break
+                    except Exception:
+                        pass
+                if detected == 0 and tsconfigs:
+                    detected += 1
+
+            for tool, configs in TYPE_CHECKER_CONFIGS.items():
+                if lang in ("python", "typescript", "javascript") or tool == lang:
+                    if self._has_file(configs):
+                        detected += 1
+
+        total = len(self.languages)
+        if total == 0:
+            return 5.0
+        ratio = min(detected / max(total, 1), 1.0)
+        return 2.0 + ratio * 8.0
+
+    def _check_documentation(self):
+        score = 2.0
+        has_readme = self._has_file(["README.md", "README.txt", "README.rst", "README"])
+        if has_readme:
+            score += 2.0
+
+        documented_langs = 0
+        total_langs_with_src = 0
+        for lang, patterns in DOC_PATTERNS.items():
+            lang_files = [f for f in self.files if f["language"] == lang]
+            if not lang_files:
+                continue
+            total_langs_with_src += 1
+            has_docs = False
+            examined = 0
+            for f in lang_files:
+                if examined >= 10:
+                    break
+                full_path = os.path.join(self.scan_result.get("project_root", ""), f["path"])
+                if not os.path.isfile(full_path) or f.get("size", 0) > 512 * 1024:
+                    continue
+                try:
+                    content = open(full_path, "r", encoding="utf-8", errors="replace").read()
+                    for pat in patterns:
+                        if re.search(pat, content, re.MULTILINE):
+                            has_docs = True
+                            break
+                except Exception:
+                    pass
+                examined += 1
+                if has_docs:
+                    break
+            if has_docs:
+                documented_langs += 1
+
+        if total_langs_with_src > 0:
+            ratio = documented_langs / total_langs_with_src
+            score += ratio * 6.0
+
+        return min(score, 10.0)
+
+    def _check_module_organization(self):
+        if not self.languages:
+            return 5.0
+
+        total_score = 0.0
+        lang_count = 0
+        for lang, indicators in MODULE_INDICATORS.items():
+            if lang not in self.languages:
+                continue
+            lang_count += 1
+            lang_files = [f for f in self.files if f["language"] == lang]
+            if not lang_files:
+                continue
+
+            has_module_indicators = self._has_file(indicators)
+            if has_module_indicators:
+                total_score += 4.0
+
+            dirs_used = set(os.path.dirname(f["path"]) for f in lang_files)
+            if len(dirs_used) > 1:
+                total_score += 3.0
+
+            if len(lang_files) > 3 and len(dirs_used) >= 2:
+                total_score += 3.0
+
+        if lang_count == 0:
+            return 5.0
+        return min(total_score / lang_count, 10.0)
+
+    def analyze(self):
+        self.linter_score = self._check_linters()
+        self.type_checker_score = self._check_type_checkers()
+        self.documentation_score = self._check_documentation()
+        self.module_score = self._check_module_organization()
+
+        overall = round(
+            self.linter_score * 0.30
+            + self.type_checker_score * 0.25
+            + self.documentation_score * 0.25
+            + self.module_score * 0.20,
+            2,
+        )
+
+        completeness_bonus = 0.0
+        all_perfect = (
+            round(self.linter_score, 1) >= 10.0
+            and round(self.type_checker_score, 1) >= 10.0
+            and round(self.documentation_score, 1) >= 10.0
+            and round(self.module_score, 1) >= 10.0
+        )
+
+        if all_perfect:
+            completeness_bonus = 1.0
+            overall = 10.0
+
+        return {
+            "overall": overall,
+            "dimensions": {
+                "linter": {"score": round(self.linter_score, 1), "weight": 0.30},
+                "type_checker": {"score": round(self.type_checker_score, 1), "weight": 0.25},
+                "documentation": {"score": round(self.documentation_score, 1), "weight": 0.25},
+                "module_organization": {"score": round(self.module_score, 1), "weight": 0.20},
+            },
+            "details": {
+                "linter_configs_found": [
+                    tool for tool in LINTER_CONFIGS if self._has_file(LINTER_CONFIGS[tool])
+                ],
+                "has_readme": self._has_file(["README.md", "README.txt", "README.rst", "README"]),
+                "documented_languages": [
+                    lang for lang in DOC_PATTERNS
+                    if any(f["language"] == lang for f in self.files)
+                ],
+                "module_indicators": [
+                    ind for ind_group in MODULE_INDICATORS.values()
+                    for ind in ind_group
+                    if ind in set(f["name"] for f in self.files)
+                ],
+            },
+        }

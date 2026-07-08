@@ -1,0 +1,73 @@
+# =============================================================================
+# MCP: Browser
+# =============================================================================
+# Model Context Protocol connector for web browsing and content retrieval.
+# Navigation requires human approval and is logged for audit.
+# =============================================================================
+
+mcp:
+  id: browser
+  name: Browser MCP
+  protocol: model-context-protocol
+  version: "2025-03-26"
+
+  transport:
+    type: stdio
+    command: aeos-kernel
+    args:
+      - "mcp"
+      - "browser"
+
+  capabilities:
+    tools:
+      - name: navigate
+        description: Navigate to a URL
+        security: controlled
+        input:
+          url: string
+        output:
+          type: text
+        constraints:
+          - approval_required: true
+
+      - name: screenshot
+        description: Take a screenshot of current page
+        security: controlled
+        output:
+          type: image
+        constraints:
+          - approval_required: true
+
+      - name: read_page
+        description: Extract text content from current page
+        security: read-only
+        output:
+          type: text
+
+  security:
+    allowed_domains:
+      - "*.github.com"
+      - "*.gitlab.com"
+      - "docs.*"
+      - "registry.npmjs.org"
+      - "pypi.org"
+      - "mvnrepository.com"
+      - "hub.docker.com"
+      - "learn.microsoft.com"
+      - "developer.mozilla.org"
+      - "stackoverflow.com"
+    blocked_domains:
+      - "*.malicious.*"
+      - "*.phishing.*"
+      - "localhost"
+      - "127.0.0.1"
+      - "10.*"
+      - "172.16.*"
+      - "192.168.*"
+    redaction:
+      enabled: true
+      patterns:
+        - "(?i)(password|secret|token|key|credential)[=:]\s*\S+"
+    audit:
+      log_all_navigations: true
+      log_all_inputs: true

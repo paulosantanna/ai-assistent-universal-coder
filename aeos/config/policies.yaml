@@ -1,0 +1,77 @@
+# =============================================================================
+# AEOS Governance Policies
+# =============================================================================
+# Define políticas globais de governança, segurança e auditoria.
+# Essas políticas são carregadas pelo Kernel antes de qualquer execução.
+# =============================================================================
+
+policies:
+  security:
+    secrets:
+      never_in_code: true
+      never_in_logs: true
+      never_in_prompts: true
+      never_in_traces: true
+      never_in_reports: true
+      never_in_versioned_files: true
+      only_runtime_resolution: true
+
+    destructive_actions:
+      require_human_approval: true
+      require_rollback_plan: true
+      require_impact_analysis: true
+      require_test_evidence: true
+      actions:
+        - DELETE_MODULE
+        - DELETE_FILE
+        - DROP_DATABASE
+        - MODIFY_PRODUCTION_PIPELINE
+        - CHANGE_AUTHENTICATION
+        - CHANGE_SECRETS
+        - CHANGE_DB_SCHEMA
+        - DEPLOY
+
+    network:
+      block_exfiltration: true
+      allow_only_approved_endpoints: true
+      require_approval_for_external_calls: true
+
+  audit:
+    log_all_tool_calls: true
+    log_all_decisions: true
+    log_all_approvals: true
+    log_all_denials: true
+    retention_days: 365
+    immutable: true
+    audit_file: "aeos/evidence/audit.log"
+
+  evidence:
+    minimum_evidence_per_action: 1
+    require_source_citation: true
+    require_timestamp: true
+    require_agent_id: true
+    evidence_dir: "aeos/evidence"
+
+  approvals:
+    human_approval_required_for:
+      - capability: DELETE_FILES
+      - capability: COMMIT_ON_BRANCH
+      - capability: OPEN_PULL_REQUEST
+      - capability: RUN_SAFE_COMMANDS
+      - capability: READ_RUNTIME_SECRET
+      - capability: EDIT_FILES
+      - risk_level: critical
+      - risk_level: high
+        when: destructive_action
+
+  isolation:
+    agent_isolation: true
+    no_direct_filesystem_access: true
+    no_direct_git_access: true
+    no_direct_shell_access: true
+    no_direct_network_access: true
+    no_direct_browser_access: true
+    no_direct_db_access: true
+    all_access_through_mcp: true
+    all_mcp_through_permission_engine: true
+    all_permission_through_policy_check: true

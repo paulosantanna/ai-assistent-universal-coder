@@ -1,0 +1,123 @@
+# =============================================================================
+# AEOS Permission Engine
+# =============================================================================
+# Define regras de permissão entre agents, skills e MCPs.
+# O Permission Engine verifica cada ação antes de ser roteada.
+# Toda ação precisa de: agent authorized + skill authorized + mcp available.
+# =============================================================================
+
+permissions:
+  default_policy: deny-all
+
+  agent_to_mcp:
+    - agent: root
+      mcps:
+        - filesystem-readonly
+        - git-readonly
+      allow: true
+
+    - agent: architect
+      mcps:
+        - filesystem-readonly
+        - git-readonly
+        - filesystem-write-sandbox
+      allow: true
+
+    - agent: coder
+      mcps:
+        - filesystem-readonly
+        - filesystem-write-sandbox
+        - git-readonly
+        - git-write-branch
+        - shell-controlled
+        - test-runner
+      allow: true
+
+    - agent: tester
+      mcps:
+        - filesystem-readonly
+        - test-runner
+      allow: true
+
+    - agent: security
+      mcps:
+        - filesystem-readonly
+        - git-readonly
+        - secrets-runtime
+      allow: true
+
+    - agent: documenter
+      mcps:
+        - filesystem-readonly
+        - filesystem-write-sandbox
+      allow: true
+
+    - agent: devops
+      mcps:
+        - filesystem-readonly
+        - filesystem-write-sandbox
+        - git-readonly
+        - git-write-branch
+        - shell-controlled
+      allow: true
+
+    - agent: judge
+      mcps:
+        - filesystem-readonly
+      allow: true
+
+  agent_to_skill:
+    - agent: root
+      skills:
+        - repo-scanner
+        - architecture-mapper
+      allow: true
+
+    - agent: architect
+      skills:
+        - repo-scanner
+        - architecture-mapper
+      allow: true
+
+    - agent: coder
+      skills:
+        - java-migration
+        - python-rag-audit
+        - test-generation
+      allow: true
+
+    - agent: tester
+      skills:
+        - test-generation
+      allow: true
+
+    - agent: security
+      skills:
+        - security-audit
+      allow: true
+
+    - agent: documenter
+      skills:
+        - documentation
+      allow: true
+
+    - agent: devops
+      skills:
+        - repo-scanner
+      allow: true
+
+  escalation_rules:
+    - when: capability_requires_approval
+      then: route_to_human
+
+    - when: risk_level_critical
+      then: block_until_human_approval
+
+    - when: mcp_not_in_agent_allowlist
+      then: deny_with_message
+
+    - when: skill_not_in_agent_allowlist
+      then: deny_with_message
+
+    - when: playbook_outside_bounds
+      then: route_to_root_for_review

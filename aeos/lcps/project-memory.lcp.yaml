@@ -1,0 +1,50 @@
+# =============================================================================
+# LCP: Project Memory
+# =============================================================================
+# Local Context Pack for project-specific memory and context.
+# Stores decisions, patterns, and learnings across sessions.
+# Priority: 75
+# Scope: project
+# =============================================================================
+
+id: project-memory
+name: Project Memory Context Pack
+version: 1.0.0
+
+context_type: project
+priority: 75
+
+applies_when:
+  always: true
+
+load_order:
+  - global-rules
+  - project-memory
+
+memory_sources:
+  - path: aeos/memory/architecture-decisions.md
+    type: adr
+    required: false
+  - path: aeos/memory/learned-patterns.md
+    type: patterns
+    required: false
+  - path: aeos/memory/known-issues.md
+    type: issues
+    required: false
+  - path: aeos/memory/team-conventions.md
+    type: conventions
+    required: false
+  - path: aeos/memory/glossary.md
+    type: glossary
+    required: false
+
+rules:
+  - always_check_project_memory_before_architecture_decisions
+  - update_memory_when_new_pattern_is_established
+  - never_contradict_existing_adr_without_explicit_deprecation
+  - respect_team_conventions_from_memory
+  - reference_known_issues_in_analysis_reports
+
+required_evidence:
+  - memory_files_consulted
+  - relevant_decisions_cited

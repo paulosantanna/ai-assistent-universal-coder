@@ -1,0 +1,75 @@
+# =============================================================================
+# MCP: Filesystem
+# =============================================================================
+# Model Context Protocol connector for local filesystem operations.
+# Two instances registered: filesystem-readonly and filesystem-write-sandbox.
+# =============================================================================
+
+mcp:
+  id: filesystem
+  name: Filesystem MCP
+  protocol: model-context-protocol
+  version: "2025-03-26"
+
+  transport:
+    type: stdio
+    command: aeos-kernel
+    args:
+      - "mcp"
+      - "filesystem"
+
+  capabilities:
+    tools:
+      - name: read_file
+        description: Read the contents of a file
+        security: read-only
+        input:
+          path: string
+        output:
+          type: text
+
+      - name: list_directory
+        description: List directory contents
+        security: read-only
+        input:
+          path: string
+        output:
+          type: directory_listing
+
+      - name: write_file
+        description: Write content to a file
+        security: write-sandbox-only
+        input:
+          path: string
+          content: string
+        constraints:
+          - sandbox_required: true
+          - path_must_be_within: ${workspace_root}/.aeos
+
+      - name: file_exists
+        description: Check if a file exists
+        security: read-only
+        input:
+          path: string
+        output:
+          type: boolean
+
+  security:
+    sandbox:
+      enabled: true
+      allowed_paths:
+        - "${workspace_root}"
+      blocked_paths:
+        - "${workspace_root}/.git"
+        - "${workspace_root}/node_modules"
+        - "**/.env"
+        - "**/.env.*"
+        - "**/secrets/**"
+        - "**/credentials/**"
+    write_restrictions:
+      write_only_to: "${workspace_root}/.aeos"
+      never_overwrite: true
+    redaction:
+      enabled: true
+      patterns:
+        - "(?i)(password|secret|token|key|credential)[=:]\s*\S+"

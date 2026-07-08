@@ -1,0 +1,83 @@
+# =============================================================================
+# MCP: GitHub
+# =============================================================================
+# Model Context Protocol connector for GitHub API operations.
+# Requires authentication and human approval for write operations.
+# =============================================================================
+
+mcp:
+  id: github
+  name: GitHub MCP
+  protocol: model-context-protocol
+  version: "2025-03-26"
+
+  transport:
+    type: stdio
+    command: aeos-kernel
+    args:
+      - "mcp"
+      - "github"
+
+  capabilities:
+    tools:
+      - name: list_pull_requests
+        description: List open pull requests
+        security: read-only
+        input:
+          state: string (optional)
+        output:
+          type: json
+
+      - name: get_pull_request
+        description: Get pull request details
+        security: read-only
+        input:
+          number: integer
+        output:
+          type: json
+
+      - name: create_pull_request
+        description: Create a new pull request
+        security: write
+        input:
+          title: string
+          body: string
+          head: string
+          base: string
+        constraints:
+          - approval_required: true
+
+      - name: list_issues
+        description: List repository issues
+        security: read-only
+        input:
+          state: string (optional)
+        output:
+          type: json
+
+      - name: create_issue
+        description: Create a new issue
+        security: write
+        input:
+          title: string
+          body: string
+        constraints:
+          - approval_required: true
+
+      - name: list_workflows
+        description: List GitHub Actions workflows
+        security: read-only
+        output:
+          type: json
+
+  security:
+    authentication:
+      method: token
+      source: runtime
+      never_in_logs: true
+    approval_required_for:
+      - create_pull_request
+      - create_issue
+      - merge_pull_request
+      - update_branch_protection
+      - manage_secrets

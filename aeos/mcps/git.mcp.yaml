@@ -1,0 +1,87 @@
+# =============================================================================
+# MCP: Git
+# =============================================================================
+# Model Context Protocol connector for Git operations.
+# Two instances registered: git-readonly and git-write-branch.
+# =============================================================================
+
+mcp:
+  id: git
+  name: Git MCP
+  protocol: model-context-protocol
+  version: "2025-03-26"
+
+  transport:
+    type: stdio
+    command: aeos-kernel
+    args:
+      - "mcp"
+      - "git"
+
+  capabilities:
+    tools:
+      - name: git_status
+        description: Show repository status
+        security: read-only
+        output:
+          type: text
+
+      - name: git_diff
+        description: Show working tree diff
+        security: read-only
+        input:
+          path: string (optional)
+        output:
+          type: text
+
+      - name: git_log
+        description: Show commit history
+        security: read-only
+        input:
+          max_count: integer (optional)
+        output:
+          type: text
+
+      - name: git_branch
+        description: List or create branches
+        security: write
+        input:
+          action: list|create
+          name: string (required for create)
+        constraints:
+          - approval_required: true
+
+      - name: git_commit
+        description: Commit staged changes
+        security: write
+        input:
+          message: string
+        constraints:
+          - approval_required: true
+          - branch_only: true
+
+      - name: git_push
+        description: Push commits to remote
+        security: write
+        input:
+          remote: string
+          branch: string
+        constraints:
+          - approval_required: true
+          - not_main_branch: true
+
+  security:
+    branch_protection:
+      blocked_branches:
+        - main
+        - master
+        - production
+        - release/*
+      require_feature_branch: true
+    commit_restrictions:
+      require_evidence: true
+      require_signoff: true
+    redaction:
+      enabled: true
+      patterns:
+        - "(?i)(password|secret|token|key|credential)[=:]\s*\S+"

@@ -1,0 +1,150 @@
+# =============================================================================
+# AEOS Playbooks Registry
+# =============================================================================
+# Registro central de todos os playbooks disponíveis no ambiente.
+# Cada playbook define um procedimento operacional completo.
+# =============================================================================
+
+playbooks:
+  - id: project-analysis
+    name: Project Analysis
+    path: aeos/playbooks/project-analysis.playbook.md
+    risk_level: low
+    required_agents:
+      - root
+      - architect
+      - security
+      - judge
+    required_skills:
+      - repo-scanner
+      - architecture-mapper
+      - security-audit
+    required_lcps:
+      - global-rules
+      - security-governance
+    allowed_mcps:
+      - filesystem-readonly
+      - git-readonly
+
+  - id: documentation-generation
+    name: Documentation Generation
+    path: aeos/playbooks/documentation-generation.playbook.md
+    risk_level: medium
+    required_agents:
+      - documenter
+      - architect
+      - judge
+    required_skills:
+      - documentation
+      - architecture-mapper
+    required_lcps:
+      - global-rules
+      - documentation-standards
+    allowed_mcps:
+      - filesystem-readonly
+      - filesystem-write-sandbox
+
+  - id: java21-migration
+    name: Java 21 Migration
+    path: aeos/playbooks/java21-migration.playbook.md
+    risk_level: high
+    required_agents:
+      - root
+      - architect
+      - coder
+      - tester
+      - security
+      - judge
+    required_skills:
+      - java-migration
+      - test-generation
+      - security-audit
+    required_lcps:
+      - global-rules
+      - java-backend
+      - security-governance
+    allowed_mcps:
+      - filesystem-readonly
+      - filesystem-write-sandbox
+      - git-readonly
+      - git-write-branch
+      - shell-controlled
+      - test-runner
+
+  - id: python-ai-hardening
+    name: Python AI Hardening
+    path: aeos/playbooks/python-ai-hardening.playbook.md
+    risk_level: high
+    required_agents:
+      - root
+      - architect
+      - coder
+      - security
+      - judge
+    required_skills:
+      - python-rag-audit
+      - security-audit
+    required_lcps:
+      - global-rules
+      - python-ai
+      - security-governance
+    allowed_mcps:
+      - filesystem-readonly
+      - filesystem-write-sandbox
+      - git-readonly
+      - git-write-branch
+
+  - id: security-secrets-audit
+    name: Security Secrets Audit
+    path: aeos/playbooks/security-secrets-audit.playbook.md
+    risk_level: high
+    required_agents:
+      - security
+      - judge
+    required_skills:
+      - security-audit
+    required_lcps:
+      - global-rules
+      - security-governance
+    allowed_mcps:
+      - filesystem-readonly
+      - git-readonly
+
+  - id: test-recovery
+    name: Test Recovery
+    path: aeos/playbooks/test-recovery.playbook.md
+    risk_level: medium
+    required_agents:
+      - root
+      - tester
+      - coder
+      - judge
+    required_skills:
+      - test-generation
+      - repo-scanner
+    required_lcps:
+      - global-rules
+    allowed_mcps:
+      - filesystem-readonly
+      - filesystem-write-sandbox
+      - git-readonly
+      - shell-controlled
+      - test-runner
+
+  - id: devcontainer-generation
+    name: Devcontainer Generation
+    path: aeos/playbooks/devcontainer-generation.playbook.md
+    risk_level: low
+    required_agents:
+      - devops
+      - root
+      - judge
+    required_skills:
+      - repo-scanner
+      - architecture-mapper
+    required_lcps:
+      - global-rules
+    allowed_mcps:
+      - filesystem-readonly
+      - filesystem-write-sandbox
+      - shell-controlled

@@ -1,0 +1,58 @@
+# =============================================================================
+# LCP: Security Governance
+# =============================================================================
+# Local Context Pack for security and compliance operations.
+# Applies to security agents, MCP operations, secrets handling, and shell access.
+# Priority: 95
+# Scope: global
+# =============================================================================
+
+id: security-governance
+name: Security Governance Context Pack
+version: 1.0.0
+
+context_type: global
+priority: 95
+
+applies_when:
+  agents:
+    - security
+  domains:
+    - security
+    - compliance
+  operations:
+    - secrets
+    - shell
+    - git
+    - mcp
+
+load_order:
+  - global-rules
+  - security-governance
+
+rules:
+  - never_expose_secret_values_in_output
+  - never_log_secret_values
+  - never_store_secrets_in_versioned_files
+  - always_redact_secrets_in_logs
+  - always_require_approval_for_secret_access
+  - always_scan_for_secrets_before_commit
+  - always_validate_dependency_security
+  - never_disable_security_controls
+  - never_allow_unauthenticated_access
+  - always_report_security_findings
+  - classify_findings_by_severity
+  - require_remediation_plan_for_critical_findings
+
+required_evidence:
+  - security_scan_results
+  - dependency_scan_results
+  - secret_scan_results
+  - compliance_check_results
+
+forbidden:
+  - bypass_security_scan
+  - commit_known_secrets
+  - disable_audit_logging
+  - hide_security_findings
+  - ignore_critical_vulnerabilities

@@ -1,0 +1,94 @@
+# =============================================================================
+# MCP: Shell
+# =============================================================================
+# Model Context Protocol connector for controlled shell command execution.
+# Only safe, non-destructive commands are allowed by default.
+# All commands require approval.
+# =============================================================================
+
+mcp:
+  id: shell
+  name: Shell MCP
+  protocol: model-context-protocol
+  version: "2025-03-26"
+
+  transport:
+    type: stdio
+    command: aeos-kernel
+    args:
+      - "mcp"
+      - "shell"
+
+  capabilities:
+    tools:
+      - name: run_command
+        description: Execute a shell command
+        security: controlled
+        input:
+          command: string
+          args: array
+          workdir: string (optional)
+        output:
+          type: text
+        constraints:
+          - approval_required: true
+          - no_destructive_commands: true
+          - timeout_seconds: 300
+
+  security:
+    allowed_commands:
+      - npm
+      - node
+      - python
+      - pip
+      - mvn
+      - gradle
+      - java
+      - dotnet
+      - docker
+      - terraform
+      - kubectl
+      - curl
+      - wget
+      - echo
+      - cat
+      - head
+      - tail
+      - grep
+      - find
+      - ls
+      - dir
+      - pwd
+      - whoami
+    blocked_commands:
+      - rm
+      - del
+      - rmdir
+      - Remove-Item
+      - deltree
+      - format
+      - dd
+      - chmod
+      - chown
+      - sudo
+      - su
+      - passwd
+      - useradd
+      - userdel
+      - groupadd
+      - groupdel
+      - iptables
+      - ufw
+      - firewall
+      - shutdown
+      - reboot
+      - poweroff
+    destructive_patterns:
+      - "\\brm\\s+-rf\\b"
+      - "\\bRemove-Item\\b.*\\b-Recurse\\b"
+      - "\\bformat\\b"
+      - "\\bdd\\b"
+      - ">\\s*/dev/"
+    timeout: 300
+    max_output_lines: 10000
+    environment_isolation: true

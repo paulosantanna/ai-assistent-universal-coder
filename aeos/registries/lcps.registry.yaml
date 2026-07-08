@@ -1,0 +1,62 @@
+# =============================================================================
+# AEOS LCPs Registry
+# =============================================================================
+# Registro central de todos os Local Context Packs disponíveis.
+# LCPs entregam contexto controlado: regras, padrões, memórias e restrições.
+# =============================================================================
+
+lcps:
+  - id: global-rules
+    path: aeos/lcps/global-rules.lcp.yaml
+    priority: 100
+    scope: global
+    applies_to:
+      - all
+
+  - id: security-governance
+    path: aeos/lcps/security-governance.lcp.yaml
+    priority: 95
+    scope: global
+    applies_to:
+      - security
+      - mcp
+      - secrets
+      - shell
+      - git
+
+  - id: java-backend
+    path: aeos/lcps/java-backend.lcp.yaml
+    priority: 80
+    scope: stack
+    applies_to:
+      - java
+      - spring
+      - maven
+      - gradle
+
+  - id: python-ai
+    path: aeos/lcps/python-ai.lcp.yaml
+    priority: 80
+    scope: stack
+    applies_to:
+      - python
+      - fastapi
+      - rag
+      - training
+      - scraper
+
+  - id: project-memory
+    path: aeos/lcps/project-memory.lcp.yaml
+    priority: 75
+    scope: project
+    applies_to:
+      - all
+
+  - id: documentation-standards
+    path: aeos/lcps/documentation-standards.lcp.yaml
+    priority: 70
+    scope: output
+    applies_to:
+      - documentation
+      - adr
+      - runbook

@@ -1,0 +1,138 @@
+# =============================================================================
+# AEOS Agents Registry
+# =============================================================================
+# Registro central de todos os agentes disponíveis no ambiente.
+# Cada agente tem escopo, skills autorizadas e MCPs autorizados.
+# =============================================================================
+
+agents:
+  - id: root
+    name: Root Agent
+    role: orchestrator
+    description: Orchestrator agent that coordinates playbooks and sub-agents
+    max_subagents: 7
+    allowed_domains:
+      - all
+    allowed_skills:
+      - repo-scanner
+      - architecture-mapper
+    allowed_mcps:
+      - filesystem-readonly
+      - git-readonly
+    path: aeos/agents/root.agent.md
+
+  - id: architect
+    name: Architect Agent
+    role: specialist
+    description: Analyzes architecture, detects patterns, and generates ADRs
+    max_subagents: 3
+    allowed_domains:
+      - architecture
+      - design
+      - tech-debt
+    allowed_skills:
+      - repo-scanner
+      - architecture-mapper
+    allowed_mcps:
+      - filesystem-readonly
+      - git-readonly
+      - filesystem-write-sandbox
+    path: aeos/agents/architect.agent.md
+
+  - id: coder
+    name: Coder Agent
+    role: specialist
+    description: Implements code changes, refactoring, and migrations
+    max_subagents: 3
+    allowed_domains:
+      - implementation
+      - refactoring
+    allowed_skills:
+      - java-migration
+      - python-rag-audit
+      - test-generation
+    allowed_mcps:
+      - filesystem-readonly
+      - filesystem-write-sandbox
+      - git-readonly
+      - git-write-branch
+      - shell-controlled
+      - test-runner
+    path: aeos/agents/coder.agent.md
+
+  - id: tester
+    name: Tester Agent
+    role: specialist
+    description: Creates and runs tests, validates quality
+    max_subagents: 2
+    allowed_domains:
+      - testing
+      - quality
+    allowed_skills:
+      - test-generation
+    allowed_mcps:
+      - filesystem-readonly
+      - test-runner
+    path: aeos/agents/tester.agent.md
+
+  - id: security
+    name: Security Agent
+    role: specialist
+    description: Audits security, detects secrets, validates compliance
+    max_subagents: 2
+    allowed_domains:
+      - security
+      - compliance
+    allowed_skills:
+      - security-audit
+    allowed_mcps:
+      - filesystem-readonly
+      - git-readonly
+      - secrets-runtime
+    path: aeos/agents/security.agent.md
+
+  - id: documenter
+    name: Documenter Agent
+    role: specialist
+    description: Generates documentation, ADRs, and runbooks
+    max_subagents: 1
+    allowed_domains:
+      - documentation
+    allowed_skills:
+      - documentation
+    allowed_mcps:
+      - filesystem-readonly
+      - filesystem-write-sandbox
+    path: aeos/agents/documenter.agent.md
+
+  - id: devops
+    name: DevOps Agent
+    role: specialist
+    description: Manages infrastructure, CI/CD, and devcontainers
+    max_subagents: 2
+    allowed_domains:
+      - infrastructure
+      - ci-cd
+    allowed_skills:
+      - repo-scanner
+    allowed_mcps:
+      - filesystem-readonly
+      - filesystem-write-sandbox
+      - git-readonly
+      - git-write-branch
+      - shell-controlled
+    path: aeos/agents/devops.agent.md
+
+  - id: judge
+    name: Judge Agent
+    role: judge
+    description: Evaluates execution results and blocks or approves outcomes
+    max_subagents: 0
+    allowed_domains:
+      - evaluation
+    allowed_skills: []
+    allowed_mcps:
+      - filesystem-readonly
+    independence: strict
+    cannot_be_same_as_implementer: true
+    path: aeos/agents/judge.agent.md
