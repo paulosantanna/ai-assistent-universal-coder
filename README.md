@@ -1,8 +1,10 @@
-# AEOS Chief/Staff Edition
+# AEOS Chief/Staff Edition + Workbench
 
-AI Engineering Operating System — Chief/Staff Edition.
+AI Engineering Operating System — Chief/Staff Edition + Portable AI-First Engineering Environment.
 
 AEOS is a specification-first operating system for AI agents. It treats the LLM as a reasoning component inside a governed engineering runtime, not as the entire system.
+
+The **AEOS Workbench** extends this into a portable, governed, evidence-driven environment that can scan, analyze, and automate software ecosystems.
 
 ## Objective
 
@@ -25,6 +27,18 @@ flowchart TD
     J --> C[Consensus Engine]
     C --> M[Memory / Knowledge System]
     C --> R[Final Result]
+    subgraph WB[AEOS Workbench]
+        SC[Scanner] --> SD[Stack Detector]
+        SD --> EM[Ecosystem Map]
+        SD --> RR[Risk Report]
+        SD --> PB[Playbook Recs]
+        SD --> SK[Skills]
+        EM --> JG[Judge]
+        RR --> JG
+        PB --> JG
+        SK --> JG
+        JG --> BL[BLOCKED / PASS]
+    end
 ```
 
 ## Included modules
@@ -38,10 +52,11 @@ flowchart TD
 - Governance: clinical, regulatory, risk, security governance, human-in-the-loop.
 - Operations: commands, playbook, self-improvement, runtime.
 - Protocols, schemas, templates and examples.
+- **Workbench**: ecosystem scanner, stack detector, risk analysis, skill factory, playbook engine, judge layer.
 
 ## Installation
 
-Recommended repository layout:
+### Specification-first layout
 
 ```text
 .aeos/
@@ -61,6 +76,21 @@ Recommended repository layout:
 ```
 
 Point your AI coding agent to `.aeos/AGENT.md`.
+
+### Workbench MVP (Python)
+
+```bash
+cd workbench/Mvp
+pip install -e .
+aeos full-scan --path /path/to/project
+```
+
+### Runtime Core (TypeScript)
+
+```bash
+cd runtime
+npm install && npm run build
+```
 
 ## Operating posture
 

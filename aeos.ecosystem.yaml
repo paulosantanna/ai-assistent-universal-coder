@@ -1,0 +1,223 @@
+# =============================================================================
+# AEOS Workbench - Ecosystem Configuration
+# Version: 1.0.0
+# =============================================================================
+# Este arquivo define a configuração mestra do ambiente AEOS Workbench.
+# Toda inicialização de kernel, agente, skill, playbook e política
+# é derivada deste manifesto.
+# =============================================================================
+
+aeos:
+  version: "1.0.0"
+  workspace:
+    mode: "ai-first"
+    root: "."
+    name: "AEOS Workbench"
+    description: "Portable AI-First Engineering Environment"
+
+  portability:
+    targets:
+      - os: ["windows", "linux", "macos"]
+      - shell: ["pwsh", "bash", "zsh"]
+      - container: ["docker", "devcontainer"]
+      - wsl: true
+      - ci: ["github-actions", "gitlab-ci"]
+
+  kernel:
+    policy:
+      tool_router: "mandatory"
+      no_direct_access: true
+      destructive_actions_require_approval: true
+      evidence_required: true
+      diff_summary_required: true
+      rollback_plan_required: true
+      secrets_blocked: true
+      judge_separation: true
+    scheduler:
+      max_concurrent_tasks: 5
+      queue_persistence: true
+      retry_on_failure: 3
+    context:
+      max_tokens: 128000
+      windowing: "sliding"
+
+  agent_registry:
+    root:
+      role: "orchestrator"
+      max_subagents: 7
+      allowed_domains: ["all"]
+    architect:
+      role: "specialist"
+      max_subagents: 3
+      allowed_domains: ["architecture", "design", "tech-debt"]
+    coder:
+      role: "specialist"
+      max_subagents: 3
+      allowed_domains: ["implementation", "refactoring"]
+    tester:
+      role: "specialist"
+      max_subagents: 2
+      allowed_domains: ["testing", "quality"]
+    security:
+      role: "specialist"
+      max_subagents: 2
+      allowed_domains: ["security", "compliance"]
+    devops:
+      role: "specialist"
+      max_subagents: 2
+      allowed_domains: ["infrastructure", "ci-cd"]
+    documenter:
+      role: "specialist"
+      max_subagents: 1
+      allowed_domains: ["documentation"]
+    incident:
+      role: "specialist"
+      max_subagents: 2
+      allowed_domains: ["incident-response"]
+    researcher:
+      role: "specialist"
+      max_subagents: 2
+      allowed_domains: ["research"]
+    scraper:
+      role: "specialist"
+      max_subagents: 1
+      allowed_domains: ["web-scraping"]
+    judge:
+      role: "judge"
+      max_subagents: 0
+      allowed_domains: ["evaluation"]
+      independence: "strict"
+      cannot_be_same_as_implementer: true
+
+  skill_factory:
+    enabled: true
+    auto_generate: true
+    templates_dir: "workbench/Skills/Templates"
+    registry_dir: "workbench/Skills/Registry"
+    generated_dir: "workbench/Skills/Generated"
+    evaluator: "workbench/Skills/Evaluator"
+    max_skills_per_stack: 5
+    validate_on_generate: true
+    required_fields:
+      - skill_id
+      - name
+      - description
+      - stack
+      - objective
+      - steps
+      - evidence_requirements
+
+  playbook_engine:
+    enabled: true
+    auto_recommend: true
+    registry_dir: "workbench/Playbooks/Registry"
+    templates_dir: "workbench/Playbooks/Templates"
+    reports_dir: "workbench/Playbooks/Reports"
+    executor: "workbench/Playbooks/Executor"
+    max_playbooks_per_scan: 10
+    require_evidence: true
+    require_approval_before_execution: true
+    require_rollback_plan: true
+
+  guardrails:
+    destructive_actions:
+      - "delete_file"
+      - "delete_directory"
+      - "overwrite_file"
+      - "drop_database"
+      - "remove_service"
+      - "modify_production"
+      require: ["human_approval", "evidence", "rollback_plan", "impact_analysis"]
+    secrets_detection:
+      enabled: true
+      patterns:
+        - "(?i)(api[_-]?key|apikey|secret|token|password|credential|auth[_-]?token)"
+      block_on_match: true
+      require_redaction: true
+      never_log: true
+    unsafe_operations:
+      - "eval"
+      - "exec_dynamic"
+      - "download_from_unverified"
+      - "network_scan"
+      require: ["human_approval", "security_review"]
+
+  security_policy:
+    secrets:
+      never_in_code: true
+      never_in_logs: true
+      never_in_prompts: true
+      never_in_traces: true
+      never_in_reports: true
+      never_in_versioned_files: true
+    approvals:
+      destructive_actions: "human"
+      policy_changes: "human"
+      permission_escalation: "human"
+      new_tool_register: "human"
+    redaction:
+      enabled: true
+      mask_char: "*"
+      mask_length: 0.75
+      patterns:
+        - regex: "(?i)(password|secret|token|key|credential)[=:]\s*\S+"
+          replacement: "$1=***REDACTED***"
+    audit:
+      log_all_tool_calls: true
+      log_all_decisions: true
+      log_all_approvals: true
+      retention_days: 365
+      immutable: true
+
+  judge_requirements:
+    min_score_to_pass: 7.0
+    max_score: 10.0
+    categories:
+      - evidence_completeness
+      - test_coverage
+      - security_validation
+      - rollback_readiness
+      - diff_quality
+    blocking_conditions:
+      - "missing_evidence"
+      - "missing_tests"
+      - "missing_rollback_plan"
+      - "missing_diff_summary"
+      - "secrets_detected"
+      - "unsafe_operation_detected"
+      - "score_below_minimum"
+      - "judge_is_implementer"
+    required_evidence_types:
+      - "code"
+      - "command"
+      - "test"
+      - "config"
+      - "diff"
+      - "source"
+    pass_on_first_judge_run: false
+
+  observability:
+    logs:
+      level: "info"
+      format: "json"
+      output: ["file", "stdout"]
+      directory: "workbench/Observability/Logs"
+    traces:
+      enabled: true
+      sampling_rate: 1.0
+      directory: "workbench/Observability/Traces"
+    metrics:
+      enabled: true
+      collect: ["token_usage", "tool_calls", "execution_time", "agent_runs", "judge_scores"]
+    token_usage:
+      track_per_agent: true
+      track_per_task: true
+      directory: "workbench/Observability/TokenUsage"
+    tool_calls:
+      log_all: true
+      log_parameters: true
+      log_results: true
+      directory: "workbench/Observability/ToolCalls"
+    execution_reports:
+      auto_generate: true
+      directory: "workbench/Observability/ExecutionReports"

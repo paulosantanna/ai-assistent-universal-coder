@@ -1,0 +1,22 @@
+{
+  "name": "@aeos/runtime-core",
+  "version": "0.9.1",
+  "description": "AEOS Runtime Core v9.1 - Ollama model discovery and local agent execution",
+  "type": "module",
+  "bin": {
+    "aeos": "./dist/cli/index.js"
+  },
+  "scripts": {
+    "dev": "tsx src/cli/index.ts",
+    "build": "tsc",
+    "start": "node dist/cli/index.js",
+    "smoke": "tsx src/cli/index.ts help"
+  },
+  "author": "AEOS Project",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.0"
+  }
+}

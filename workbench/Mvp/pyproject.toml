@@ -1,0 +1,19 @@
+[project]
+name = "aeos-workbench"
+version = "1.0.0"
+description = "AEOS Workbench - Portable AI-First Engineering Environment"
+authors = [{name = "AEOS Team"}]
+requires-python = ">=3.8"
+dependencies = [
+    "pyyaml>=6.0",
+]
+
+[project.scripts]
+aeos = "aeos_workbench.cli.main:main"
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]

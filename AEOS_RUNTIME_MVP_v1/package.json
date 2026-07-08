@@ -1,0 +1,22 @@
+{
+  "name": "@aeos/runtime-mvp",
+  "version": "0.1.0",
+  "description": "AEOS Runtime MVP - local kernel, task, evidence and judge CLI",
+  "type": "module",
+  "bin": {
+    "aeos": "./dist/cli/index.js"
+  },
+  "scripts": {
+    "dev": "tsx src/cli/index.ts",
+    "build": "tsc",
+    "start": "node dist/cli/index.js"
+  },
+  "keywords": ["aeos", "ai-agent", "agent-os", "engineering-os", "ai-engineering"],
+  "author": "AEOS Project",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.0"
+  }
+}
