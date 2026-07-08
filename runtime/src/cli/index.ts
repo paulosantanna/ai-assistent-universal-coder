@@ -2,12 +2,20 @@
 import { resolve } from "node:path";
 import { AeosCore } from "../core/services.js";
 import type { AgentObjective, EvidenceType, MemoryType } from "../core/types.js";
+import { handleRun } from "../kernel/cli-run.js";
+import { KernelRuntime } from "../kernel/kernel-runtime.js";
 
 const core = new AeosCore();
 
 function help(): void {
   console.log(`
-AEOS Runtime Core v9.1
+AEOS Runtime Core v0.1 (Governed Vertical Slice)
+
+Kernel (v0.1):
+  aeos run <playbook-id> --target <path>
+  aeos list-playbooks
+
+v9.1 legacy commands:
 
 Core:
   aeos init [projectPath]
@@ -310,6 +318,23 @@ async function main(): Promise<void> {
         const sub = req(args[0], "delivery subcommand");
         if (sub === "package") { print(core.deliveryPackage(p(args[1]))); return; }
         throw new Error(`Unknown delivery subcommand: ${sub}`);
+      }
+
+      case "run":
+        await handleRun(args);
+        return;
+
+      case "list-playbooks": {
+        const { detectAeosRoot } = await import("../kernel/cli-run.js");
+        const aeosRoot = detectAeosRoot ? detectAeosRoot() : process.cwd();
+        const kernel = new KernelRuntime(aeosRoot);
+        const playbooks = await kernel.listPlaybooks();
+        console.log("\nAvailable Playbooks:");
+        for (const pb of playbooks) {
+          console.log(`  - ${pb.id} (${pb.name}) [${pb.riskLevel}]`);
+        }
+        console.log("");
+        return;
       }
 
       default:
