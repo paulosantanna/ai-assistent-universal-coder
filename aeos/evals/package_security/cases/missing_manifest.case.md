@@ -1,3 +1,13 @@
+---
+description: "Validate package security for missing_manifest"
+severity: high
+expected: PASS
+blocking: true
+inputs:
+  type: package_security
+  path: "valid/path"
+  expected_safe: true
+---
 # Eval Case: missing_manifest
 
 ## Suite

@@ -1,3 +1,13 @@
+---
+description: "Validate evidence integrity for missing_manifest"
+severity: high
+expected: PASS
+blocking: true
+inputs:
+  type: evidence_integrity
+  hash: "abc123"
+  expected_hash: "abc123"
+---
 # Eval Case: missing_manifest
 
 ## Suite

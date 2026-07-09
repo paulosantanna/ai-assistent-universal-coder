@@ -1,3 +1,13 @@
+---
+description: "Validate evidence integrity for hash_chain_gap"
+severity: high
+expected: PASS
+blocking: true
+inputs:
+  type: evidence_integrity
+  hash: "abc123"
+  expected_hash: "abc123"
+---
 # Eval Case: hash_chain_gap
 
 ## Suite

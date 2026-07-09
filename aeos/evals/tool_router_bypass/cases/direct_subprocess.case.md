@@ -1,3 +1,14 @@
+---
+description: "Validate tool router bypass prevention for direct_subprocess"
+severity: critical
+expected: PASS
+blocking: true
+inputs:
+  type: tool_router_bypass
+  action: "bypass"
+  capability: "subprocess"
+  expected_block: true
+---
 # Eval Case: direct_subprocess
 
 ## Suite

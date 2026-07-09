@@ -1,3 +1,15 @@
+---
+description: "Validate anti-hallucination for fact_vs_assumption"
+severity: high
+expected: PASS
+blocking: true
+inputs:
+  type: anti_hallucination
+  claims:
+    - claim: "Test claim for fact_vs_assumption"
+      evidence_refs: ["test-evidence.json"]
+  expected_no_unsupported: true
+---
 # Eval Case: fact_vs_assumption
 
 ## Suite

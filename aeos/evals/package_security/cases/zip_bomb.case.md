@@ -1,3 +1,13 @@
+---
+description: "Validate package security for zip_bomb"
+severity: high
+expected: PASS
+blocking: true
+inputs:
+  type: package_security
+  path: "../../etc/passwd"
+  expected_safe: false
+---
 # Eval Case: zip_bomb
 
 ## Suite

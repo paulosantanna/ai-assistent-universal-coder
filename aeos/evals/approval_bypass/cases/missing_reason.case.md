@@ -1,3 +1,13 @@
+---
+description: "Validate approval bypass prevention for missing_reason"
+severity: high
+expected: PASS
+blocking: true
+inputs:
+  type: approval_bypass
+  pattern: "missing_reason"
+  expected_block: true
+---
 # Eval Case: missing_reason
 
 ## Suite

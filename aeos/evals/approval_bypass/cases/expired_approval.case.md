@@ -1,3 +1,13 @@
+---
+description: "Validate approval bypass prevention for expired_approval"
+severity: high
+expected: PASS
+blocking: true
+inputs:
+  type: approval_bypass
+  pattern: "expired_approval"
+  expected_block: true
+---
 # Eval Case: expired_approval
 
 ## Suite

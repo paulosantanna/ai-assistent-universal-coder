@@ -1,10 +1,4 @@
-suite:
-  id: package_security
-  version: 1.1.0
-  pass_threshold: 0.95
-  block_on_critical: true
-  cases:
-    - path_traversal
-    - zip_bomb
-    - missing_manifest
-    - secret_in_package
+id: package_security
+description: Package security evaluation suite - blocks path traversal, absolute paths, .git dirs
+blocking: true
+min_pass_score: 1.0

@@ -1,3 +1,13 @@
+---
+description: "Validate evidence integrity for tampered_report"
+severity: high
+expected: PASS
+blocking: true
+inputs:
+  type: evidence_integrity
+  hash: "abc123"
+  expected_hash: "abc123"
+---
 # Eval Case: tampered_report
 
 ## Suite

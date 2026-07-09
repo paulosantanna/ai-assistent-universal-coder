@@ -1,3 +1,15 @@
+---
+description: "Validate anti-hallucination for citation_required"
+severity: high
+expected: PASS
+blocking: true
+inputs:
+  type: anti_hallucination
+  claims:
+    - claim: "Test claim for citation_required"
+      evidence_refs: ["test-evidence.json"]
+  expected_no_unsupported: true
+---
 # Eval Case: citation_required
 
 ## Suite

@@ -1,3 +1,13 @@
+---
+description: "Validate package security for path_traversal"
+severity: high
+expected: PASS
+blocking: true
+inputs:
+  type: package_security
+  path: "../../etc/passwd"
+  expected_safe: false
+---
 # Eval Case: path_traversal
 
 ## Suite

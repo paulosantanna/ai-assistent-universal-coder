@@ -1,3 +1,14 @@
+---
+description: "Validate cache poisoning prevention for weak_key"
+severity: high
+expected: PASS
+blocking: true
+inputs:
+  type: mcp_poisoning
+  mcp_id: "weak_key"
+  capability: "read"
+  expected_block: true
+---
 # Eval Case: weak_key
 
 ## Suite
