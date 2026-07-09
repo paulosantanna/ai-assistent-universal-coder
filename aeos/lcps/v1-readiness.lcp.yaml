@@ -1,0 +1,14 @@
+id: v1-readiness
+name: AEOS v1.0 Readiness Context Pack
+version: 1.0.0
+priority: 99
+
+rules:
+  - require_all_release_gates
+  - no_critical_gate_can_be_skipped
+  - judge_deterministic_failure_blocks_release
+  - evidence_verify_required
+  - package_verify_required
+  - no_auto_merge
+  - no_auto_deploy
+  - no_raw_secret_persistence

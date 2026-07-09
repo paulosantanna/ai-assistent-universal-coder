@@ -1,0 +1,23 @@
+ci_gates:
+  required:
+    - lint
+    - unit_tests
+    - policy_tests
+    - permission_tests
+    - judge_tests
+    - package_security_tests
+    - secret_redaction_tests
+    - tool_router_tests
+    - mcp_registry_tests
+    - evidence_integrity_tests
+
+  blockers:
+    - secret_exposed
+    - policy_bypass
+    - permission_bypass
+    - tool_router_bypass
+    - package_path_traversal
+    - package_hash_mismatch
+    - wildcard_approval
+    - auto_merge_enabled
+    - auto_deploy_enabled

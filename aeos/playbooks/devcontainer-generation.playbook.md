@@ -1,59 +1,52 @@
-# Playbook: Devcontainer Generation
+# Playbook: devcontainer-generation
 
 ## Objective
 
-Generate a complete devcontainer.json and Docker configuration for a portable, reproducible development environment based on the detected project stack.
+Execute the `devcontainer-generation` operation under AEOS governance.
 
-## Preconditions
-
-- Workspace path exists.
-- Project stack has been analyzed.
-- MCPs for filesystem read/write and shell available.
-- Global rules LCP loaded.
-
-## Agents
-
-- DevOps Agent
-- Root Agent
-- Judge Agent
-
-## Skills
+## Required Skills
 
 - repo-scanner
-- architecture-mapper
+- documentation
 
-## MCPs
+## Required MCPs
 
 - filesystem-readonly
-- filesystem-write-sandbox
-- shell-controlled
+- git-readonly, when applicable
+- filesystem-write-sandbox, when generating artifacts
+
+## Required LCPs
+
+- global-rules
+- security-governance
 
 ## Steps
 
-1. Load project stack information.
-2. Detect required languages, tools, and runtimes.
-3. Detect Docker/Compose files already present.
-4. Generate Dockerfile with appropriate base images.
-5. Generate devcontainer.json with features and extensions.
-6. Generate docker-compose.yml if services needed.
-7. Generate post-create script for environment setup.
-8. Test container configuration (validate syntax).
-9. Generate devcontainer report.
-10. Send outputs to Judge Agent.
-11. Generate judge-report.md.
+1. Load AEOS config.
+2. Validate registries.
+3. Resolve required LCPs.
+4. Resolve required skills.
+5. Resolve allowed MCPs.
+6. Validate permissions.
+1. Execute `repo-scanner` skill.
+2. Execute `documentation` skill.
+7. Collect evidence.
+8. Generate reports.
+9. Generate evidence manifest and hash-chain.
+10. Run Judge.
 
 ## Blocking Conditions
 
-- Project stack not identified.
-- Generated Dockerfile has syntax errors.
-- Missing required tool for development.
-- Incompatible base image selected.
+- Missing evidence.
+- Missing permission decision.
+- Secret value exposure.
+- Direct tool bypass.
+- Hash mismatch.
+- Output outside allowed scope.
+- Unsupported claim.
 
 ## Outputs
 
-- .aeos/devcontainer/Dockerfile
-- .aeos/devcontainer/devcontainer.json
-- .aeos/devcontainer/docker-compose.yml (if needed)
-- .aeos/devcontainer/post-create.sh
-- .aeos/devcontainer-report.md
-- .aeos/judge-report.md
+- `.aeos/evidence/{execution_id}/`
+- `.aeos/reports/{execution_id}/`
+- `.aeos/sandbox/{execution_id}/`, when applicable

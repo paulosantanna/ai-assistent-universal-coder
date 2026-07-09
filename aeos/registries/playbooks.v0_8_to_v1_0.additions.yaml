@@ -1,0 +1,48 @@
+playbooks:
+  - id: parallel-execution-smoke-test
+    path: aeos/playbooks/parallel-execution-smoke-test.playbook.md
+    risk_level: medium
+    required_agents: [root, planner, security, judge]
+    required_skills: [parallel-scheduler, conflict-detector, agent-trace-validator]
+    required_lcps: [global-rules, security-governance]
+    allowed_mcps: [filesystem-readonly]
+
+  - id: evidence-cache-audit
+    path: aeos/playbooks/evidence-cache-audit.playbook.md
+    risk_level: medium
+    required_agents: [security, judge]
+    required_skills: [evidence-cache-auditor, evidence-integrity]
+    required_lcps: [global-rules, security-governance]
+    allowed_mcps: [filesystem-readonly]
+
+  - id: observability-report
+    path: aeos/playbooks/observability-report.playbook.md
+    risk_level: low
+    required_agents: [root, judge]
+    required_skills: [observability-reporter]
+    required_lcps: [global-rules]
+    allowed_mcps: [filesystem-readonly]
+
+  - id: pack-marketplace-audit
+    path: aeos/playbooks/pack-marketplace-audit.playbook.md
+    risk_level: high
+    required_agents: [security, judge]
+    required_skills: [pack-marketplace-auditor, security-audit]
+    required_lcps: [global-rules, security-governance, packaging-standards]
+    allowed_mcps: [filesystem-readonly, package-local]
+
+  - id: security-hardening-audit
+    path: aeos/playbooks/security-hardening-audit.playbook.md
+    risk_level: high
+    required_agents: [security, architect, judge]
+    required_skills: [threat-modeler, policy-hardening-auditor, security-audit]
+    required_lcps: [global-rules, security-governance]
+    allowed_mcps: [filesystem-readonly, git-readonly]
+
+  - id: v1-readiness-audit
+    path: aeos/playbooks/v1-readiness-audit.playbook.md
+    risk_level: high
+    required_agents: [root, architect, security, devops, judge]
+    required_skills: [v1-readiness-auditor, policy-hardening-auditor, observability-reporter]
+    required_lcps: [global-rules, security-governance]
+    allowed_mcps: [filesystem-readonly, git-readonly, package-local]

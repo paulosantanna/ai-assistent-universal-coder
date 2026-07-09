@@ -1,0 +1,28 @@
+mcp:
+  id: git-readonly
+  type: git
+  transport: stdio
+  command: "aeos-mcp-git"
+  args: ["--mode", "readonly"]
+  risk_level: low
+  timeout_seconds: 30
+  retries: 1
+  approval_required: false
+  redaction_required: true
+
+capabilities:
+  - GIT_STATUS
+  - GIT_DIFF
+  - GIT_LOG
+
+tools:
+  - name: git.status
+  - name: git.diff
+  - name: git.log
+  - name: git.branch_current
+
+rules:
+  commit_allowed: false
+  push_allowed: false
+  merge_allowed: false
+  force_push_allowed: false

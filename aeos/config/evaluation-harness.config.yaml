@@ -1,0 +1,20 @@
+evaluation_harness:
+  enabled: true
+  version: 1.1.0
+  fixtures_dir: "aeos/fixtures"
+  evals_dir: "aeos/evals"
+  reports_dir: ".aeos/evals/{execution_id}"
+
+  suites:
+    - anti_hallucination
+    - evidence_integrity
+    - secret_redaction
+    - package_security
+    - tool_router_bypass
+    - agent_scope
+    - approval_bypass
+    - cache_poisoning
+    - mcp_tool_poisoning
+
+  pass_threshold: 0.95
+  block_on_critical_failure: true

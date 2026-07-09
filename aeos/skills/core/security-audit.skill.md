@@ -1,54 +1,41 @@
-# Skill: Security Audit
+# Skill: security-audit
 
 ## Mission
 
-Audit a repository for security vulnerabilities, exposed secrets, dependency risks, and compliance gaps.
+Detect security risks and possible secrets without exposing values.
 
 ## Allowed Actions
 
-- Read files (excluding resolved secret values).
-- List directories.
-- Scan for secret patterns without revealing values.
-- Scan dependency manifests for CVEs.
-- Scan git history for committed secrets.
-- Scan configuration files for security misconfigurations.
-- Generate security reports.
+- Read authorized files through Tool Router.
+- Generate reports in `.aeos/reports`.
+- Generate evidence in `.aeos/evidence`.
+- Generate sandbox artifacts when permitted.
+- Never bypass permissions.
 
 ## Forbidden Actions
 
-- Print or log secret values.
-- Write secrets to any file.
-- Execute code from repository.
-- Access production environments.
-- Disable or bypass security controls.
-- Modify security configurations without approval.
+- Direct filesystem access.
+- Direct Git mutation.
+- Secret value exposure.
+- Destructive shell.
+- Unapproved writes outside `.aeos`.
+- Unsupported factual claims.
+- Silent failure.
 
-## Inputs
+## Required Evidence
 
-- workspace path
-- scan scope (files, git history, dependencies)
-- severity threshold
-
-## Outputs
-
-- secrets-audit-report.md
-- dependency-audit-report.md
-- configuration-audit-report.md
-- compliance-report.md
-- remediation-recommendations.md
-
-## Evidence Required
-
-- matched pattern locations (file + line, no value)
-- dependency names and versions
-- configuration files inspected
-- git history commits inspected
-- severity classification for each finding
+- files inspected
+- tool calls
+- permission decisions
+- generated artifacts
+- risk classification
+- Judge input when applicable
 
 ## Quality Gates
 
-- Must never expose secret values.
-- Must classify each finding by severity.
-- Must distinguish confirmed from potential findings.
-- Must provide remediation steps for each finding.
-- Must pass redaction validation.
+- Facts cite evidence.
+- Assumptions are explicitly marked.
+- Risks are classified.
+- Outputs follow schema.
+- No secrets are printed.
+- Required artifacts are hashed.

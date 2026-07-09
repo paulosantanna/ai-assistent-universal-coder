@@ -1,0 +1,6 @@
+services:
+  otel-collector:
+    image: otel/opentelemetry-collector:latest
+    command: ["--config=/etc/otelcol/config.yaml"]
+    volumes:
+      - ./aeos/templates/observability/otel-collector-config.yaml:/etc/otelcol/config.yaml:ro

@@ -1,0 +1,22 @@
+enterprise_security:
+  enabled: true
+  version: 1.1.0
+
+  controls:
+    deny_all_default: true
+    least_privilege: true
+    explicit_capability_allowlist: true
+    tool_router_required: true
+    mcp_gateway_required: true
+    judge_required: true
+    evidence_required: true
+    rollback_required_for_mutation: true
+
+  disabled:
+    auto_merge: true
+    auto_deploy: true
+    force_push: true
+    unrestricted_shell: true
+    raw_secret_memory: true
+    direct_pack_activation: true
+    unverified_package_extract: true

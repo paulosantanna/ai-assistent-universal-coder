@@ -1,0 +1,43 @@
+tool_router:
+  enabled: true
+  version: 0.6.0
+  fail_closed: true
+  direct_tool_access_blocked: true
+
+  routing_order:
+    - validate_execution_context
+    - resolve_agent
+    - resolve_skill
+    - resolve_playbook
+    - resolve_capability
+    - check_permission
+    - check_policy
+    - resolve_mcp
+    - validate_tool_allowlist
+    - validate_input_schema
+    - execute_mcp
+    - redact_output
+    - validate_output_schema
+    - scan_output_for_secrets
+    - register_evidence
+    - return_result
+
+  default_result_on_denied: blocked
+
+  output_security:
+    redact_secrets: true
+    block_secret_values: true
+    max_output_bytes: 1048576
+    persist_raw_output: false
+    persist_redacted_output: true
+
+  path_security:
+    normalize_paths: true
+    block_path_traversal: true
+    block_absolute_paths_outside_target: true
+
+  evidence:
+    tool_calls_file: ".aeos/evidence/{execution_id}/tool-calls.jsonl"
+    mcp_calls_file: ".aeos/evidence/{execution_id}/mcp-calls.jsonl"
+    permission_decisions_file: ".aeos/evidence/{execution_id}/permission-decisions.jsonl"
+    policy_decisions_file: ".aeos/evidence/{execution_id}/policy-decisions.jsonl"

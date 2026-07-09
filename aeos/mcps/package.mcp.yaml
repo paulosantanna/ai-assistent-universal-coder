@@ -1,0 +1,21 @@
+id: package-local
+transport: local
+mode: controlled
+risk_level: medium
+
+package_types:
+  - evidence
+  - sandbox
+  - patch
+  - full-review
+  - skills-pack
+  - playbooks-pack
+
+rules:
+  require_manifest: true
+  require_sha256: true
+  block_path_traversal: true
+  block_absolute_paths: true
+  block_zip_bomb: true
+  block_secrets: true
+  extract_requires_verify_pass: true

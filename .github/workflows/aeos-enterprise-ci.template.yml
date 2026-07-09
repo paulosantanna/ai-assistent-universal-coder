@@ -1,0 +1,22 @@
+name: AEOS Enterprise CI
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  aeos-quality-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: AEOS policy tests
+        run: echo "Run AEOS policy tests"
+      - name: AEOS permission tests
+        run: echo "Run AEOS permission tests"
+      - name: AEOS evidence integrity tests
+        run: echo "Run evidence verify"
+      - name: AEOS package security tests
+        run: echo "Run package verify fixtures"
+      - name: AEOS Judge tests
+        run: echo "Run deterministic Judge tests"

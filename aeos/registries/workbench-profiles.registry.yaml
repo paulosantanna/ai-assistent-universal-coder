@@ -1,0 +1,21 @@
+profiles:
+  - id: java-enterprise
+    path: aeos/profiles/java-enterprise.profile.yaml
+  - id: python-ai-rag
+    path: aeos/profiles/python-ai-rag.profile.yaml
+  - id: fullstack-docker
+    path: aeos/profiles/fullstack-docker.profile.yaml
+  - id: devops-platform
+    path: aeos/profiles/devops-platform.profile.yaml
+  - id: security-audit
+    path: aeos/profiles/security-audit.profile.yaml
+  - id: documentation-factory
+    path: aeos/profiles/documentation-factory.profile.yaml
+  - id: incident-response
+    path: aeos/profiles/incident-response.profile.yaml
+  - id: legacy-modernization
+    path: aeos/profiles/legacy-modernization.profile.yaml
+  - id: ai-research
+    path: aeos/profiles/ai-research.profile.yaml
+  - id: clinical-ai-governance
+    path: aeos/profiles/clinical-ai-governance.profile.yaml

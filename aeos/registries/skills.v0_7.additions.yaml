@@ -1,0 +1,35 @@
+skills:
+  - id: task-graph-builder
+    path: aeos/skills/core/task-graph-builder.skill.md
+    version: 1.0.0
+    owner_agent: planner
+    risk_level: low
+    capabilities: [GENERATE_REPORT, GENERATE_EVIDENCE]
+
+  - id: context-router
+    path: aeos/skills/core/context-router.skill.md
+    version: 1.0.0
+    owner_agent: root
+    risk_level: medium
+    capabilities: [READ_REPOSITORY, READ_FILES, GENERATE_REPORT]
+
+  - id: delegation-auditor
+    path: aeos/skills/core/delegation-auditor.skill.md
+    version: 1.0.0
+    owner_agent: security
+    risk_level: high
+    capabilities: [READ_REPOSITORY, READ_FILES, GENERATE_REPORT]
+
+  - id: agent-trace-validator
+    path: aeos/skills/core/agent-trace-validator.skill.md
+    version: 1.0.0
+    owner_agent: judge
+    risk_level: medium
+    capabilities: [READ_FILES, GENERATE_REPORT]
+
+  - id: memory-governance-auditor
+    path: aeos/skills/core/memory-governance-auditor.skill.md
+    version: 1.0.0
+    owner_agent: security
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT]

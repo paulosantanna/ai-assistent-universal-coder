@@ -1,0 +1,21 @@
+compliance:
+  enabled: true
+  version: 1.1.0
+
+  frameworks:
+    - lgpd
+    - gdpr
+    - soc2-inspired
+    - owasp-llm-inspired
+    - secure-sdlc
+
+  retention:
+    default_days: 90
+    evidence_days: 180
+    approval_days: 365
+    security_reports_days: 365
+
+  audit_export:
+    enabled: true
+    formats: [jsonl, markdown, zip]
+    redact_sensitive_data: true

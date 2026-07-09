@@ -1,0 +1,362 @@
+{
+  "package": "aeos_bootstrap_pack_v0_5",
+  "created_at": "2026-07-08T21:47:04.932839Z",
+  "file_count": 71,
+  "files": [
+    {
+      "path": "AEOS_AGENT_CONTRACT.md",
+      "sha256": "7aa5bae1517ea14896bc14a396138fc5d14d81eef121c8758fcb16d1f9ec9be3",
+      "size_bytes": 724
+    },
+    {
+      "path": "AEOS_CONSTITUTION.md",
+      "sha256": "4f7a766136b428e5b576690f4abd7e26503ca6482648d994e094480c45dd4668",
+      "size_bytes": 2456
+    },
+    {
+      "path": "AEOS_ECOSYSTEM_SCHEMA.md",
+      "sha256": "bf39372de9a95c482ac9d2d4a947d277c2b1296427a352d9b5503aa39821bd94",
+      "size_bytes": 500
+    },
+    {
+      "path": "AEOS_JUDGE_LAYER.md",
+      "sha256": "bf0f0c0f35240bb96e7dba443260fbc2544c4975772a68f5699254c1492d9c51",
+      "size_bytes": 662
+    },
+    {
+      "path": "AEOS_KERNEL.md",
+      "sha256": "0bcdb88f6a92131120483466a4b6baff6d150472df1e32c6d0c635b98035e468",
+      "size_bytes": 1144
+    },
+    {
+      "path": "AEOS_MEMORY_MODEL.md",
+      "sha256": "ead1ddd55d3b57820ba9f79b4dc239385a7aad8e6af4ef1cf41ca8632679b6f4",
+      "size_bytes": 619
+    },
+    {
+      "path": "AEOS_MVP_ROADMAP.md",
+      "sha256": "e3c3da4b95d53f680f1dded5d73904255735ef7c79e040ac950445d63fa6eb42",
+      "size_bytes": 1332
+    },
+    {
+      "path": "AEOS_PERMISSION_MODEL.md",
+      "sha256": "f1de2c2ca1976dcc6850e32d433105237e99c5dae699fbe16a88007c5fd87692",
+      "size_bytes": 756
+    },
+    {
+      "path": "AEOS_PLAYBOOK_CONTRACT.md",
+      "sha256": "af6668e177022c0bb2a41f86c345805d195f8c38ae1ced8b04b2bb1b4dff2d9d",
+      "size_bytes": 673
+    },
+    {
+      "path": "AEOS_POLICY_ENGINE.md",
+      "sha256": "2fa41b04658d6b99eb56fa8074aafaa9e0e7f7b4b35627519c3fc7d18d6434bf",
+      "size_bytes": 869
+    },
+    {
+      "path": "AEOS_SECURITY_MODEL.md",
+      "sha256": "b413e515fc5b4f7a0849c692b9950b6d5d33282f104d1d5733ff70f6a3c36e52",
+      "size_bytes": 618
+    },
+    {
+      "path": "AEOS_SKILL_CONTRACT.md",
+      "sha256": "06aa398025414e6a65861422cb4553a24e0a5131b22c5915aa6129157a3a1af2",
+      "size_bytes": 667
+    },
+    {
+      "path": "INSTALL.md",
+      "sha256": "a58a61e9a657936d412198646c1c776261e2fab5a1bb682f0159af34ef315104",
+      "size_bytes": 1342
+    },
+    {
+      "path": "README.md",
+      "sha256": "5a0a1fa42de612d5af80d71afc815c7e255fc4ac3e85f298bec7894e02dee68c",
+      "size_bytes": 987
+    },
+    {
+      "path": "aeos/agents/architect.agent.md",
+      "sha256": "9f33d4bf6d1a65363794b2b11dcfc383662007d87776e3befa2bad63cb2bd7d3",
+      "size_bytes": 489
+    },
+    {
+      "path": "aeos/agents/coder.agent.md",
+      "sha256": "7c02665a88a01a55c38f3a6d2e561da27aa4b82a91303f9886ef8edcc25119bc",
+      "size_bytes": 505
+    },
+    {
+      "path": "aeos/agents/devops.agent.md",
+      "sha256": "4842020afa7cdf5ef4fcc1983eea9f98eca7544dc3c02f813e73f01e2c2a5310",
+      "size_bytes": 503
+    },
+    {
+      "path": "aeos/agents/documenter.agent.md",
+      "sha256": "09150c00b14692ba51992cef48d28fcc247d7cef6696a93b453ca02f8b0265a9",
+      "size_bytes": 474
+    },
+    {
+      "path": "aeos/agents/judge.agent.md",
+      "sha256": "2a4bfd779d60b3efe79d9d3efba851309a8595532594126200e3a8295d4d1180",
+      "size_bytes": 511
+    },
+    {
+      "path": "aeos/agents/root.agent.md",
+      "sha256": "b32e977fe61bdcf8ad20dd22963fd0c758e4eae9b04871505729d46c8c77d70a",
+      "size_bytes": 485
+    },
+    {
+      "path": "aeos/agents/security.agent.md",
+      "sha256": "45080e93ff59e9aa8f6110ac42fb448facee07f3288b1c4a6a0e3982c3ceb47b",
+      "size_bytes": 499
+    },
+    {
+      "path": "aeos/agents/tester.agent.md",
+      "sha256": "7328515c3dff0d97f0a4690e441a7a74a3cbb3518e4c1417e4b61ae4f8b26f29",
+      "size_bytes": 506
+    },
+    {
+      "path": "aeos/config/aeos.config.yaml",
+      "sha256": "c2975e004f6d4cba108f5886156693ac01fa258631bde602f897366dc7c87102",
+      "size_bytes": 1717
+    },
+    {
+      "path": "aeos/config/capabilities.yaml",
+      "sha256": "8bc9a92898bc13e6cbd31ec1cf8b52bc516a39d9e0c33b395f5602a930244716",
+      "size_bytes": 412
+    },
+    {
+      "path": "aeos/config/permissions.yaml",
+      "sha256": "791a913fb7828f6294c30fcc98a0f18f48cd16bce9f2f1046a4051194339e4ec",
+      "size_bytes": 1206
+    },
+    {
+      "path": "aeos/config/policies.yaml",
+      "sha256": "d5ef48e886fa89587fdb2fe5c1b6795f7d9a8f8b74855896c9ddc5960d8f8cb7",
+      "size_bytes": 1171
+    },
+    {
+      "path": "aeos/docs/HOW_TO_ADD_PLAYBOOK.md",
+      "sha256": "a3628adf74442d06de55e30d13d8d174cdc14fb63fc341dddc505211134aae99",
+      "size_bytes": 308
+    },
+    {
+      "path": "aeos/docs/HOW_TO_ADD_SKILL.md",
+      "sha256": "052872bbf1bf6d4b0da43d4a3e76f427386c03fb7b8681665910640f87195af9",
+      "size_bytes": 312
+    },
+    {
+      "path": "aeos/docs/HOW_TO_USE_PACKAGES.md",
+      "sha256": "ef8d107396e9f97dfce187119d1e0ee5f9d26642ad25f2cc3c88fb16f5db8f8e",
+      "size_bytes": 592
+    },
+    {
+      "path": "aeos/evidence/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/lcps/documentation-standards.lcp.yaml",
+      "sha256": "bbc00751a370337818c5c087b92128bbeb5f367e48295ddd9308a561d355e814",
+      "size_bytes": 328
+    },
+    {
+      "path": "aeos/lcps/global-rules.lcp.yaml",
+      "sha256": "faccfce094961c32b3977ee39e819f3c87871f6cca29ad0324bcd78254271550",
+      "size_bytes": 390
+    },
+    {
+      "path": "aeos/lcps/java-backend.lcp.yaml",
+      "sha256": "60de4a8a078070003722fe5a5124ed7533d33c2d098604c490eb2809673c3308",
+      "size_bytes": 515
+    },
+    {
+      "path": "aeos/lcps/packaging-standards.lcp.yaml",
+      "sha256": "9427aa57871fd6fbebf907178c0a823c84300a2ea37a8fa28cb810aded739487",
+      "size_bytes": 474
+    },
+    {
+      "path": "aeos/lcps/python-ai.lcp.yaml",
+      "sha256": "5e082c7e522b4840fb085c90ab1103815c269597308df30951f940142a128889",
+      "size_bytes": 512
+    },
+    {
+      "path": "aeos/lcps/security-governance.lcp.yaml",
+      "sha256": "731af1db8388764d7b439253f0d9b8b1328b029667babd1169798e35371fd461",
+      "size_bytes": 402
+    },
+    {
+      "path": "aeos/mcps/filesystem.mcp.yaml",
+      "sha256": "866fe4ded442c46698bdd2db450873f3830e52a90cdff293a4075c992162d425",
+      "size_bytes": 403
+    },
+    {
+      "path": "aeos/mcps/git.mcp.yaml",
+      "sha256": "d579617ff4911545d7f823d40cc57841b0ca959e19f00fe2e023a4fc965272e3",
+      "size_bytes": 438
+    },
+    {
+      "path": "aeos/mcps/package.mcp.yaml",
+      "sha256": "5fdc0d56582bf6efce80308309b927b02adab287448ca663292ac4f22963dca4",
+      "size_bytes": 369
+    },
+    {
+      "path": "aeos/mcps/test-runner.mcp.yaml",
+      "sha256": "af97b59009e5cc38f9ee72d2125b92dbcf3425816e50903918cd933ae0627642",
+      "size_bytes": 273
+    },
+    {
+      "path": "aeos/memory/architectural/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/memory/episodic/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/memory/lessons_learned/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/memory/procedural/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/memory/semantic/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/playbooks/code-change-proposal.playbook.md",
+      "sha256": "dff7918d49b7ba2f78610a6792b4739e70e9b4564db915ee753e9014ca6f7b40",
+      "size_bytes": 1115
+    },
+    {
+      "path": "aeos/playbooks/devcontainer-generation.playbook.md",
+      "sha256": "4f93f5a05aa8005cd0b15d5dead7b1c3dd2100141ecc2da2eb428f34f1de6358",
+      "size_bytes": 1013
+    },
+    {
+      "path": "aeos/playbooks/documentation-generation.playbook.md",
+      "sha256": "a28168415447c2f29572cfea1c97a68f63a25ff206bfbb399de8740089d4ca10",
+      "size_bytes": 1077
+    },
+    {
+      "path": "aeos/playbooks/imported/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/playbooks/package-full-review.playbook.md",
+      "sha256": "9c0df01c4542dd14dbff6d4a07ee1d5cc8b1b7a116df4aa1addf12b765c7d119",
+      "size_bytes": 1001
+    },
+    {
+      "path": "aeos/playbooks/project-analysis.playbook.md",
+      "sha256": "5528c4ba5a8b07bc02cf3d1472a5f9dcfe8f0a823df7a3e2d349126de07c3172",
+      "size_bytes": 1063
+    },
+    {
+      "path": "aeos/playbooks/security-secrets-audit.playbook.md",
+      "sha256": "3769a6368bdce8c44605887bced9ba721d34161e2be669d6531c9e1e63b79f54",
+      "size_bytes": 965
+    },
+    {
+      "path": "aeos/playbooks/test-recovery.playbook.md",
+      "sha256": "ee267f031ef422e202bab765f94078a949161ed9f7edbb45487d5d877420afed",
+      "size_bytes": 997
+    },
+    {
+      "path": "aeos/registries/agents.registry.yaml",
+      "sha256": "e79c228ab0521393e692f4f12fb85bd5128f6677fa86d7e9178b8defe2f3e3b2",
+      "size_bytes": 583
+    },
+    {
+      "path": "aeos/registries/lcps.registry.yaml",
+      "sha256": "f03175e09e399733021bcb9fbf91807b8550014d63b7b82dec8aef547312c920",
+      "size_bytes": 928
+    },
+    {
+      "path": "aeos/registries/mcps.registry.yaml",
+      "sha256": "022c4cfdacb100feae313d11ed1f954fa0022c9424e5295303211870b5ec5930",
+      "size_bytes": 1239
+    },
+    {
+      "path": "aeos/registries/playbooks.registry.yaml",
+      "sha256": "621b036b8fd06232b607455abc3817cbfc454bb2c8898412feeaf653038b117e",
+      "size_bytes": 2379
+    },
+    {
+      "path": "aeos/registries/skills.registry.yaml",
+      "sha256": "9ad9dfdc520824a29d31f84831b88210f49a8bb52081e74dfaa5e3479b9f4ebf",
+      "size_bytes": 2015
+    },
+    {
+      "path": "aeos/reports/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/skills/core/architecture-mapper.skill.md",
+      "sha256": "1b821a037bfd81fa9c6e6aa84c2be01a03effb4e56bfa293224726a5523fa037",
+      "size_bytes": 868
+    },
+    {
+      "path": "aeos/skills/core/code-analyzer.skill.md",
+      "sha256": "636e107223bff8dfd7d561cf1f1e0dfa6cc766e63ee16071c118eeb4febcd3fa",
+      "size_bytes": 862
+    },
+    {
+      "path": "aeos/skills/core/dependency-analyzer.skill.md",
+      "sha256": "7b27306750bceec5be7be1aaae20409f3cf94827bf208614c9a6b07ec394b8d2",
+      "size_bytes": 872
+    },
+    {
+      "path": "aeos/skills/core/documentation.skill.md",
+      "sha256": "83433ee9e4095a70c0192b4fc4d92bf0f5baad955ea86ef70c76488a46ff1f63",
+      "size_bytes": 848
+    },
+    {
+      "path": "aeos/skills/core/packaging.skill.md",
+      "sha256": "d40aa5e89feec3660e2c85a1234725bcafa666fd5a647ada2a642f561ebbd757",
+      "size_bytes": 866
+    },
+    {
+      "path": "aeos/skills/core/patch-planner.skill.md",
+      "sha256": "79560eaf00aea2aa712d1a203c9a07886bea90416ae0e0313a30f3c0ee5bc06b",
+      "size_bytes": 865
+    },
+    {
+      "path": "aeos/skills/core/repo-scanner.skill.md",
+      "sha256": "1d5e4ae8a5919150f06b42db436f8f1c5405e22fbb7c6fb8c66297c863d543c8",
+      "size_bytes": 854
+    },
+    {
+      "path": "aeos/skills/core/security-audit.skill.md",
+      "sha256": "3cd9e157fb67edc31b20b7f94206cbf10c449f31bdd42e8edf714535d3dbdab9",
+      "size_bytes": 867
+    },
+    {
+      "path": "aeos/skills/core/test-generation.skill.md",
+      "sha256": "59a2d89ea778b20f9fb2163d4c954b1c165cec8a626e995db973f385f60fe0c1",
+      "size_bytes": 857
+    },
+    {
+      "path": "aeos/skills/generated/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/skills/imported/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/skills/templates/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    }
+  ]
+}

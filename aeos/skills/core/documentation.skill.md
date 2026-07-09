@@ -1,52 +1,41 @@
-# Skill: Documentation
+# Skill: documentation
 
 ## Mission
 
-Generate comprehensive, accurate, and maintainable documentation for a codebase, including architecture, APIs, and operational procedures.
+Generate evidence-based documentation in sandbox.
 
 ## Allowed Actions
 
-- Read source files and project structure.
-- Read existing documentation.
-- Generate Markdown documentation files.
-- Generate ADR documents.
-- Generate runbooks.
-- Generate API reference documentation.
-- Validate documentation against standards.
+- Read authorized files through Tool Router.
+- Generate reports in `.aeos/reports`.
+- Generate evidence in `.aeos/evidence`.
+- Generate sandbox artifacts when permitted.
+- Never bypass permissions.
 
 ## Forbidden Actions
 
-- Edit source code.
-- Delete existing documentation without evidence.
-- Generate documentation that contradicts code.
-- Include secrets or credentials in output.
-- Claim functionality not present in code.
+- Direct filesystem access.
+- Direct Git mutation.
+- Secret value exposure.
+- Destructive shell.
+- Unapproved writes outside `.aeos`.
+- Unsupported factual claims.
+- Silent failure.
 
-## Inputs
+## Required Evidence
 
-- workspace path
-- documentation scope
-- output directory
-- style guide / standards LCP
-
-## Outputs
-
-- architecture-documentation.md
-- adr-directory/*.md
-- api-reference.md
-- runbook.md
-- operational-guide.md
-
-## Evidence Required
-
-- source files cited for each documented component
-- architecture map
-- detected patterns
-- public API signatures
+- files inspected
+- tool calls
+- permission decisions
+- generated artifacts
+- risk classification
+- Judge input when applicable
 
 ## Quality Gates
 
-- Must reflect actual code, not intent.
-- Must cover all public APIs.
-- Must include at least one diagram (ASCII or Mermaid).
-- Must pass documentation standards validation.
+- Facts cite evidence.
+- Assumptions are explicitly marked.
+- Risks are classified.
+- Outputs follow schema.
+- No secrets are printed.
+- Required artifacts are hashed.

@@ -1,0 +1,39 @@
+performance_budgets:
+  repo_scan:
+    p50_seconds: 30
+    p95_seconds: 180
+    max_files_default: 250000
+    max_file_mb_default: 5
+  stack_detection:
+    p50_seconds: 10
+    p95_seconds: 60
+  dependency_analysis:
+    p50_seconds: 45
+    p95_seconds: 300
+  evidence_verify:
+    p50_seconds: 15
+    p95_seconds: 120
+  package_verify:
+    p50_seconds: 20
+    p95_seconds: 180
+  judge_deterministic:
+    p50_seconds: 5
+    p95_seconds: 30
+
+skip_dirs:
+  - .git
+  - node_modules
+  - target
+  - build
+  - dist
+  - .venv
+  - venv
+  - __pycache__
+  - .gradle
+  - .m2
+  - coverage
+
+large_file_policy:
+  default_max_mb: 5
+  binary_scan: metadata_only
+  hash_streaming: true

@@ -1,0 +1,22 @@
+v1_release_gates:
+  required:
+    - constitution_present
+    - kernel_contract_present
+    - permission_engine_deny_all
+    - policy_engine_present
+    - tool_router_required
+    - mcp_critical_disabled_by_default
+    - agent_runtime_scope_enforced
+    - judge_deterministic_blocks
+    - evidence_manifest_required
+    - evidence_verify_command
+    - package_verify_command
+    - approval_granular_expiring
+    - rollback_patch_supported
+    - no_auto_merge
+    - no_auto_deploy
+    - no_raw_secret_persistence
+    - observability_enabled
+    - docs_present
+    - runbooks_present
+    - tests_for_blocking_policies

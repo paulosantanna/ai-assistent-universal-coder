@@ -1,0 +1,12 @@
+blueprint:
+  id: fullstack-docker-compose
+  version: 1.1.0
+  generated_files:
+    - docker-compose.yml
+    - .devcontainer/devcontainer.json
+    - Makefile
+  rules:
+    - generate_to_sandbox_first
+    - require_evidence
+    - require_judge
+    - require_approval_to_apply

@@ -1,107 +1,92 @@
-# =============================================================================
-# AEOS MCPs Registry
-# =============================================================================
-# Registro central de todos os Model Context Providers disponíveis.
-# MCPs são conectores padronizados para ferramentas externas.
-# Nenhum MCP pode ser usado sem registro e autorização explícita.
-# =============================================================================
-
 mcps:
   - id: filesystem-readonly
     type: filesystem
-    config: aeos/mcps/filesystem.mcp.yaml
+    transport: stdio
+    config: aeos/mcps/filesystem-readonly.mcp.yaml
     risk_level: low
     capabilities:
       - READ_FILES
       - LIST_DIRECTORIES
+    tools:
+      - filesystem.list
+      - filesystem.read
+      - filesystem.exists
+      - filesystem.stat
     write_allowed: false
     approval_required: false
+    enabled: true
 
   - id: filesystem-write-sandbox
     type: filesystem
-    config: aeos/mcps/filesystem.mcp.yaml
+    transport: stdio
+    config: aeos/mcps/filesystem-write-sandbox.mcp.yaml
     risk_level: medium
     capabilities:
-      - READ_FILES
       - WRITE_SANDBOX_FILES
+    tools:
+      - filesystem.write_sandbox
+      - filesystem.mkdir_sandbox
     write_allowed: true
-    approval_required: false
     sandbox_required: true
+    approval_required: false
+    enabled: true
 
   - id: git-readonly
     type: git
-    config: aeos/mcps/git.mcp.yaml
+    transport: stdio
+    config: aeos/mcps/git-readonly.mcp.yaml
     risk_level: low
     capabilities:
       - GIT_STATUS
       - GIT_DIFF
       - GIT_LOG
+    tools:
+      - git.status
+      - git.diff
+      - git.log
+      - git.branch_current
     approval_required: false
+    enabled: true
 
-  - id: git-write-branch
-    type: git
-    config: aeos/mcps/git.mcp.yaml
-    risk_level: high
-    capabilities:
-      - CREATE_BRANCH
-      - COMMIT_ON_BRANCH
-      - OPEN_PULL_REQUEST
-    approval_required: true
-
-  - id: shell-controlled
-    type: shell
-    config: aeos/mcps/shell.mcp.yaml
-    risk_level: high
-    capabilities:
-      - RUN_SAFE_COMMANDS
-    approval_required: true
-    destructive_commands_blocked: true
-
-  - id: github
-    type: github
-    config: aeos/mcps/github.mcp.yaml
-    risk_level: high
-    capabilities:
-      - READ_REPOSITORY
-      - OPEN_PULL_REQUEST
-      - MANAGE_ISSUES
-    approval_required: true
-
-  - id: browser
-    type: browser
-    config: aeos/mcps/browser.mcp.yaml
+  - id: test-runner-controlled
+    type: test-runner
+    transport: stdio
+    config: aeos/mcps/test-runner-controlled.mcp.yaml
     risk_level: medium
     capabilities:
-      - WEB_NAVIGATION
-      - SCREENSHOT
-      - READ_PAGE
-    approval_required: true
+      - RUN_TESTS
+    tools:
+      - test.detect
+      - test.run_allowlisted
+    approval_required: false
+    allowlist_required: true
+    enabled: true
 
-  - id: database-readonly
-    type: database
-    config: aeos/mcps/database-readonly.mcp.yaml
-    risk_level: high
+  - id: package-local
+    type: packaging
+    transport: local
+    config: aeos/mcps/package-local.mcp.yaml
+    risk_level: medium
     capabilities:
-      - READ_QUERY
-      - LIST_TABLES
-      - DESCRIBE_SCHEMA
-    approval_required: true
-    write_allowed: false
+      - PACKAGE_CREATE
+      - PACKAGE_VERIFY
+      - PACKAGE_INSPECT
+      - PACKAGE_EXTRACT
+    tools:
+      - package.create
+      - package.verify
+      - package.inspect
+      - package.extract_staging
+    approval_required: false
+    enabled: true
 
   - id: secrets-runtime
     type: secrets
-    config: aeos/mcps/secrets.mcp.yaml
+    transport: stdio
+    config: aeos/mcps/secrets-runtime.disabled.mcp.yaml
     risk_level: critical
     capabilities:
       - READ_RUNTIME_SECRET
     approval_required: true
-    log_redaction_required: true
-
-  - id: test-runner
-    type: test-runner
-    config: aeos/mcps/test-runner.mcp.yaml
-    risk_level: medium
-    capabilities:
-      - RUN_TESTS
-      - COLLECT_RESULTS
-    approval_required: false
+    enabled: false
+    reason: "Disabled until post-v0.6 security hardening."

@@ -1,0 +1,42 @@
+workbench_profiles:
+  enabled: true
+  default_profile: "auto-detect"
+  fail_closed: true
+
+  profiles:
+    - id: java-enterprise
+      priority: 90
+      indicators:
+        - pom.xml
+        - build.gradle
+        - src/main/java
+      lcps: [global-rules, security-governance, java-backend]
+      playbooks: [project-analysis, dependency-analysis, test-recovery, code-change-proposal]
+      forbidden_actions: [auto_merge, auto_deploy, secret_read]
+
+    - id: python-ai-rag
+      priority: 90
+      indicators:
+        - requirements.txt
+        - pyproject.toml
+        - src
+        - data
+      lcps: [global-rules, security-governance, python-ai]
+      playbooks: [project-analysis, security-secrets-audit, test-recovery, dependency-analysis]
+      forbidden_actions: [medical_claim_without_source, scrape_without_governance, secret_read]
+
+    - id: fullstack-docker
+      priority: 80
+      indicators:
+        - package.json
+        - Dockerfile
+        - docker-compose.yml
+      lcps: [global-rules, security-governance]
+      playbooks: [project-analysis, devcontainer-generation, test-recovery]
+      forbidden_actions: [auto_deploy, secret_read]
+
+    - id: security-audit
+      priority: 100
+      lcps: [global-rules, security-governance]
+      playbooks: [security-secrets-audit, security-hardening-audit]
+      forbidden_actions: [mutation, secret_read_values]

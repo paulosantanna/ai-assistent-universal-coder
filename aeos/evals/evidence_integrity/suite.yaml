@@ -1,0 +1,10 @@
+suite:
+  id: evidence_integrity
+  version: 1.1.0
+  pass_threshold: 0.95
+  block_on_critical: true
+  cases:
+    - hash_mismatch
+    - missing_manifest
+    - tampered_report
+    - hash_chain_gap

@@ -1,0 +1,19 @@
+blueprints:
+  - id: java-spring-enterprise
+    type: project
+    path: aeos/blueprints/java-spring-enterprise.blueprint.yaml
+  - id: python-fastapi-rag
+    type: project
+    path: aeos/blueprints/python-fastapi-rag.blueprint.yaml
+  - id: fullstack-docker-compose
+    type: environment
+    path: aeos/blueprints/fullstack-docker-compose.blueprint.yaml
+  - id: observability-local-stack
+    type: observability
+    path: aeos/blueprints/observability-local-stack.blueprint.yaml
+  - id: secure-ci-github-actions
+    type: ci
+    path: aeos/blueprints/secure-ci-github-actions.blueprint.yaml
+  - id: incident-response-standard
+    type: incident-response
+    path: aeos/blueprints/incident-response-standard.blueprint.yaml

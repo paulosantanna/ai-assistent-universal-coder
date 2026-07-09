@@ -1,0 +1,219 @@
+{
+  "package": "aeos_evolution_pack_v0_6_mcp_runtime",
+  "version": "0.6.0",
+  "created_at": "2026-07-08T22:10:05.396748+00:00",
+  "purpose": "MCP Runtime Expansion Layer overlay for AEOS",
+  "file_count": 42,
+  "files": [
+    {
+      "path": "AEOS_JUDGE_V6_MCP_RULES.md",
+      "sha256": "72990f4f290a8e82b04f4dac40da80246599fd36386ab38d94a20a27e79e6acc",
+      "size_bytes": 815
+    },
+    {
+      "path": "AEOS_MCP_CONNECTOR_SPEC.md",
+      "sha256": "2e8e5b67e11dbc82075d3d0847d90925d192cf6c88a43a72fe31170c3457cadc",
+      "size_bytes": 779
+    },
+    {
+      "path": "AEOS_MCP_RUNTIME_CONTRACT.md",
+      "sha256": "eeb8287e9b78636d6e5021dd42fcbc8c495f75603cf30593d668bea3f393d521",
+      "size_bytes": 1041
+    },
+    {
+      "path": "AEOS_MCP_SECURITY_PROFILE.md",
+      "sha256": "e7c13e6d9a9a7e2666225ae0d4040349a373a2109d382dfce3a249f52fb60e1b",
+      "size_bytes": 878
+    },
+    {
+      "path": "AEOS_TOOL_ROUTER_RUNTIME.md",
+      "sha256": "7f85dde75c14eecebaf2201590b9fb498b1dd14384f8e07563517b0de2944590",
+      "size_bytes": 1216
+    },
+    {
+      "path": "AEOS_V0_6_MCP_RUNTIME.md",
+      "sha256": "d4ea0c583c0924b8266516e964689ac92070cff6b0f3c730d810cce92d3993d0",
+      "size_bytes": 1741
+    },
+    {
+      "path": "AEOS_V0_6_ROADMAP.md",
+      "sha256": "0aa0273b280d323b32fff96b6bead876a5f888996493922444339dd53ffe003e",
+      "size_bytes": 828
+    },
+    {
+      "path": "INSTALL_v0_6.md",
+      "sha256": "c33c2ee5e3d0adf36245e21e314d770ef0734cf620b8238f87ab4fa0f5f54413",
+      "size_bytes": 1749
+    },
+    {
+      "path": "aeos/config/mcp-tools.allowlist.yaml",
+      "sha256": "1ad9e292343d3a0aca0a7dd22b54eff95ac1f21e955039282dc13d44fe1fff5d",
+      "size_bytes": 712
+    },
+    {
+      "path": "aeos/config/mcp.runtime.yaml",
+      "sha256": "fa70d3f3d53975d8a477bc2ebd42dc1545f74928b126a235f9bd8da82681a489",
+      "size_bytes": 979
+    },
+    {
+      "path": "aeos/config/tool-router.config.yaml",
+      "sha256": "94dab57cbd82ef13bb1603c88a0f44e8440644c6f75b514db1241c62e0086054",
+      "size_bytes": 1149
+    },
+    {
+      "path": "aeos/core/evidence/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/core/mcp_registry/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/core/mcp_runtime/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/core/mcp_runtime/README.md",
+      "sha256": "3fe450e775d75242e69021e5a01f857d3dbdeae64967b80de632ee7065c363ae",
+      "size_bytes": 256
+    },
+    {
+      "path": "aeos/core/mcp_runtime/contracts.py",
+      "sha256": "353e1b86bd65d339a1944c8c2a4d961190d41857f90132f2f5604775a7aa385d",
+      "size_bytes": 838
+    },
+    {
+      "path": "aeos/core/mcp_runtime/runtime.py",
+      "sha256": "7760beb24418f9247d075a7711fff4e5f572089e21ed6e9cfb97dab18f9923f2",
+      "size_bytes": 1400
+    },
+    {
+      "path": "aeos/core/mcp_runtime/stdio_client.py",
+      "sha256": "95d0f7fd4a8c74e18deca1f332030afcd24c901cae007f5af5b312f0003090f3",
+      "size_bytes": 732
+    },
+    {
+      "path": "aeos/core/redaction/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/core/tool_router/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/core/tool_router/README.md",
+      "sha256": "028a0dd8fcf3e1f6d15235fa5c3fae4c68a932efd7da9c623217b4b4401b3517",
+      "size_bytes": 220
+    },
+    {
+      "path": "aeos/core/tool_router/contracts.py",
+      "sha256": "f468c8b89ffca4527cb695ada4f634a561ec6830a318f49500902b980719916d",
+      "size_bytes": 1087
+    },
+    {
+      "path": "aeos/core/tool_router/router.py",
+      "sha256": "9934caa8c5cfa863b0a00eb528b69e181dcde8ee0d32229c5891f0a2c10dccc1",
+      "size_bytes": 3386
+    },
+    {
+      "path": "aeos/docs/HOW_TO_ADD_MCP.md",
+      "sha256": "711d49dd7c48ffbe39b72f545c4c94701a75fd30a1b16158db64b1d2fa8a2c9b",
+      "size_bytes": 739
+    },
+    {
+      "path": "aeos/docs/MCP_RUNTIME_IMPLEMENTATION_GUIDE.md",
+      "sha256": "48894a755e93359ba68c96420e4f60603b5d63b377df778c7c981dbcf0141a60",
+      "size_bytes": 787
+    },
+    {
+      "path": "aeos/mcps/filesystem-readonly.mcp.yaml",
+      "sha256": "cdcf7317e3ab6f92caefe5bfa6943aa4a8cdbcd648eefae23f83b65d3ebb340a",
+      "size_bytes": 735
+    },
+    {
+      "path": "aeos/mcps/filesystem-write-sandbox.mcp.yaml",
+      "sha256": "d132a0ecbda6b82c6bf3fa19f84a39dc275ed693c003172b574d35fac70a5149",
+      "size_bytes": 841
+    },
+    {
+      "path": "aeos/mcps/git-readonly.mcp.yaml",
+      "sha256": "938f4ed5e2c991ec4e5b8463ec04f620e7f562bc808e1961c2d5b674db1f63f0",
+      "size_bytes": 474
+    },
+    {
+      "path": "aeos/mcps/package-local.mcp.yaml",
+      "sha256": "3d2c5a4139ae98a32d0f95bf360f2b3aaed82731a74bab1485d63a2133286e36",
+      "size_bytes": 545
+    },
+    {
+      "path": "aeos/mcps/secrets-runtime.disabled.mcp.yaml",
+      "sha256": "b4454b0c8c204baa389d8f89bc85e05e11c328a260ad49de574000df90454742",
+      "size_bytes": 280
+    },
+    {
+      "path": "aeos/mcps/test-runner-controlled.mcp.yaml",
+      "sha256": "7c37f31459f8206175ab41695102a5bece1c1e676ad169e95695795e022be005",
+      "size_bytes": 673
+    },
+    {
+      "path": "aeos/playbooks/mcp-discovery.playbook.md",
+      "sha256": "4f5317c1b84f1aac5cc7ce4501ac3363ec3457d9ed79270ebf33ab9591450a85",
+      "size_bytes": 446
+    },
+    {
+      "path": "aeos/playbooks/mcp-health-check.playbook.md",
+      "sha256": "b0728302a79793e8376ae681ad630c536350ec61c3393a8407d360d741c03937",
+      "size_bytes": 658
+    },
+    {
+      "path": "aeos/playbooks/tool-router-audit.playbook.md",
+      "sha256": "60fb52fd154ab8e03a1a5f0978f239bab4c7940130933e3f5d83f5053d8e8b2e",
+      "size_bytes": 429
+    },
+    {
+      "path": "aeos/registries/mcps.registry.yaml",
+      "sha256": "58e0a3e3a8666fd529050e4c45f56e59f4184fe84089f2577f69b4c69f7afa31",
+      "size_bytes": 2119
+    },
+    {
+      "path": "aeos/registries/playbooks.v0_6.additions.yaml",
+      "sha256": "20fc80e6ecd9de071c5bc7a885a6124362addd22ce0f67feae8add7337ec4969",
+      "size_bytes": 956
+    },
+    {
+      "path": "aeos/registries/skills.v0_6.additions.yaml",
+      "sha256": "d89e8833009465b89477fc20d10da504554896599104d731ccdbb3ccbe07bfc2",
+      "size_bytes": 634
+    },
+    {
+      "path": "aeos/skills/core/mcp-discovery.skill.md",
+      "sha256": "f0e92cf872d0427df88c3fdbeec765bc25901411545e80ea202f45a0cbe6fdc8",
+      "size_bytes": 341
+    },
+    {
+      "path": "aeos/skills/core/mcp-health-check.skill.md",
+      "sha256": "d5c28de712e4fb8710638d988ec332d26a2b20aab7e94ad4fc3d3944b583668a",
+      "size_bytes": 644
+    },
+    {
+      "path": "aeos/skills/core/tool-router-audit.skill.md",
+      "sha256": "41c5fdbf26ec516da06774208e33eae1bfdc61ad5a77ce4603fd9e55602268ca",
+      "size_bytes": 436
+    },
+    {
+      "path": "aeos/tests/mcp_runtime/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/tests/tool_router/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    }
+  ]
+}

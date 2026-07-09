@@ -1,71 +1,17 @@
-# =============================================================================
-# LCP: Documentation Standards
-# =============================================================================
-# Local Context Pack for documentation generation standards.
-# Ensures all generated documentation follows consistent patterns.
-# Priority: 70
-# Scope: output
-# =============================================================================
-
 id: documentation-standards
 name: Documentation Standards Context Pack
 version: 1.0.0
-
-context_type: output
 priority: 70
 
-applies_when:
-  operations:
-    - documentation
-    - adr
-    - runbook
-
-load_order:
-  - global-rules
-  - documentation-standards
+output_standards:
+  - README
+  - Architecture Summary
+  - ADR
+  - Runbook
+  - Risk Summary
 
 rules:
-  - use_markdown_for_all_documentation
-  - include_diagrams_as_mermaid_or_ascii_art
-  - always_cite_source_files
-  - distinguish_facts_from_recommendations
-  - include_date_and_version_in_document_header
-  - use_adr_template_for_architecture_decisions
-  - include_prerequisites_in_runbooks
-  - include_troubleshooting_section_in_runbooks
-  - never_include_secrets_or_credentials
-  - always_include_examples_for_api_documentation
-  - maintain_table_of_contents_for_large_documents
-
-documentation_templates:
-  adr:
-    required_sections:
-      - Title
-      - Status
-      - Context
-      - Decision
-      - Consequences
-      - Compliance
-
-  runbook:
-    required_sections:
-      - Title
-      - Purpose
-      - Prerequisites
-      - Steps
-      - Troubleshooting
-      - Rollback
-
-  api_reference:
-    required_sections:
-      - Endpoint
-      - Method
-      - Parameters
-      - Request Body
-      - Response
-      - Error Codes
-
-required_evidence:
-  - template_validation
-  - source_file_references
-  - completeness_check
+  - documentation_must_be_evidence_based
+  - assumptions_must_be_marked
+  - no_fake_architecture_claims
+  - cite_files_inspected

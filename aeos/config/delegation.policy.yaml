@@ -1,0 +1,69 @@
+delegation_policy:
+  default: deny
+
+  allowed:
+    root:
+      can_delegate_to:
+        - planner
+        - architect
+        - coder
+        - tester
+        - security
+        - devops
+        - documenter
+        - researcher
+        - incident
+        - judge
+
+    planner:
+      can_delegate_to:
+        - architect
+        - coder
+        - tester
+        - security
+        - devops
+        - documenter
+      cannot_delegate_to:
+        - judge
+
+    architect:
+      can_delegate_to:
+        - java-analyzer
+        - python-rag-analyzer
+        - dependency-risk-analyzer
+        - docs-adr-writer
+
+    coder:
+      can_delegate_to:
+        - code-analyzer
+        - patch-risk-reviewer
+        - rollback-reviewer
+      cannot_delegate_to:
+        - judge
+
+    tester:
+      can_delegate_to:
+        - test-gap-analyzer
+
+    security:
+      can_delegate_to:
+        - security-secret-detector
+
+  blocked_patterns:
+    - parent_agent: coder
+      child_agent: judge
+      reason: "implementing_agent_cannot_delegate_to_judge"
+
+    - parent_agent: any
+      child_agent: secrets-runtime
+      reason: "secrets_runtime_disabled"
+
+  escalation_required:
+    - high_risk_task
+    - critical_risk_task
+    - approval_required_action
+    - architecture_change
+    - public_api_change
+    - dependency_major_upgrade
+    - security_risk
+    - missing_evidence

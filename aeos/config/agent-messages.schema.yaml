@@ -1,0 +1,38 @@
+message_schema:
+  required:
+    - message_id
+    - execution_id
+    - task_id
+    - from_agent
+    - message_type
+    - payload
+    - created_at
+
+  forbidden_fields:
+    - raw_secret
+    - password
+    - token_value
+    - cookie_value
+    - api_key_value
+    - private_key
+
+  allowed_message_types:
+    - goal.received
+    - plan.proposed
+    - task.created
+    - task.assigned
+    - task.started
+    - context.requested
+    - context.delivered
+    - tool.requested
+    - tool.result_observed
+    - evidence.submitted
+    - risk.reported
+    - approval.requested
+    - approval.received
+    - judge.requested
+    - judge.result
+    - task.completed
+    - task.blocked
+    - task.failed
+    - escalation.requested

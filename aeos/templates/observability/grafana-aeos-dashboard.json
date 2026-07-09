@@ -1,0 +1,50 @@
+{
+  "title": "AEOS Production Dashboard",
+  "panels": [
+    {
+      "title": "Execution Duration",
+      "type": "timeseries",
+      "targets": [
+        {
+          "expr": "aeos_execution_duration_ms"
+        }
+      ]
+    },
+    {
+      "title": "Judge Blocks",
+      "type": "stat",
+      "targets": [
+        {
+          "expr": "aeos_judge_blocks_total"
+        }
+      ]
+    },
+    {
+      "title": "Policy Denials",
+      "type": "stat",
+      "targets": [
+        {
+          "expr": "aeos_policy_denials_total"
+        }
+      ]
+    },
+    {
+      "title": "Evidence Verify Failures",
+      "type": "stat",
+      "targets": [
+        {
+          "expr": "aeos_evidence_verify_failures_total"
+        }
+      ]
+    },
+    {
+      "title": "Tool Router Calls",
+      "type": "timeseries",
+      "targets": [
+        {
+          "expr": "aeos_tool_router_calls_total"
+        }
+      ]
+    }
+  ]
+}

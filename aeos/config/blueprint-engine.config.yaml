@@ -1,0 +1,21 @@
+blueprint_engine:
+  enabled: true
+  version: 1.1.0
+  output_dir: ".aeos/blueprints/{execution_id}"
+  require_evidence: true
+  require_judge: true
+
+  blueprint_types:
+    - project
+    - environment
+    - devcontainer
+    - ci
+    - test
+    - observability
+    - security
+    - documentation
+    - incident-response
+
+  write_policy:
+    write_to_sandbox_only: true
+    require_approval_to_apply: true

@@ -1,0 +1,43 @@
+mcp_runtime:
+  enabled: true
+  version: 0.6.0
+  default_transport: stdio
+  default_timeout_seconds: 30
+  max_timeout_seconds: 600
+  max_retries: 1
+  require_tool_allowlist: true
+  require_capability_check: true
+  require_permission_check: true
+  require_policy_check: true
+  require_evidence_logging: true
+  require_redaction: true
+  block_critical_by_default: true
+
+  lifecycle:
+    startup_timeout_seconds: 10
+    shutdown_timeout_seconds: 5
+    health_check_required: true
+    fail_closed: true
+
+  transports:
+    stdio:
+      enabled: true
+      local_only: true
+    streamable_http:
+      enabled: false
+      reason: "Reserved for future remote MCP runtime."
+
+  disabled_mcp_categories:
+    - secrets-runtime
+    - browser-authenticated
+    - database-write
+    - cloud-write
+    - deploy
+    - shell-unrestricted
+
+  evidence:
+    write_mcp_calls: true
+    write_tool_calls: true
+    write_permission_decisions: true
+    write_policy_decisions: true
+    hash_outputs: true

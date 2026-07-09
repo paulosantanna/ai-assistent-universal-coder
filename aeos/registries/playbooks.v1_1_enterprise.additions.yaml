@@ -1,0 +1,71 @@
+playbooks:
+  - id: workbench-profile-detection
+    path: aeos/playbooks/workbench-profile-detection.playbook.md
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [workbench-profile-resolver, blueprint-generator, evaluation-runner, enterprise-security-auditor]
+    required_lcps: [global-rules, security-governance]
+    allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, package-local]
+  - id: blueprint-generation
+    path: aeos/playbooks/blueprint-generation.playbook.md
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [workbench-profile-resolver, blueprint-generator, evaluation-runner, enterprise-security-auditor]
+    required_lcps: [global-rules, security-governance]
+    allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, package-local]
+  - id: skill-factory-generation
+    path: aeos/playbooks/skill-factory-generation.playbook.md
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [workbench-profile-resolver, blueprint-generator, evaluation-runner, enterprise-security-auditor]
+    required_lcps: [global-rules, security-governance]
+    allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, package-local]
+  - id: playbook-factory-generation
+    path: aeos/playbooks/playbook-factory-generation.playbook.md
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [workbench-profile-resolver, blueprint-generator, evaluation-runner, enterprise-security-auditor]
+    required_lcps: [global-rules, security-governance]
+    allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, package-local]
+  - id: evaluation-harness-run
+    path: aeos/playbooks/evaluation-harness-run.playbook.md
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [workbench-profile-resolver, blueprint-generator, evaluation-runner, enterprise-security-auditor]
+    required_lcps: [global-rules, security-governance]
+    allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, package-local]
+  - id: enterprise-security-audit
+    path: aeos/playbooks/enterprise-security-audit.playbook.md
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [workbench-profile-resolver, blueprint-generator, evaluation-runner, enterprise-security-auditor]
+    required_lcps: [global-rules, security-governance]
+    allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, package-local]
+  - id: compliance-audit-export
+    path: aeos/playbooks/compliance-audit-export.playbook.md
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [workbench-profile-resolver, blueprint-generator, evaluation-runner, enterprise-security-auditor]
+    required_lcps: [global-rules, security-governance]
+    allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, package-local]
+  - id: local-marketplace-full-audit
+    path: aeos/playbooks/local-marketplace-full-audit.playbook.md
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [workbench-profile-resolver, blueprint-generator, evaluation-runner, enterprise-security-auditor]
+    required_lcps: [global-rules, security-governance]
+    allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, package-local]
+  - id: unique-environment-readiness
+    path: aeos/playbooks/unique-environment-readiness.playbook.md
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [workbench-profile-resolver, blueprint-generator, evaluation-runner, enterprise-security-auditor]
+    required_lcps: [global-rules, security-governance]
+    allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, package-local]
+  - id: full-workbench-bootstrap
+    path: aeos/playbooks/full-workbench-bootstrap.playbook.md
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [workbench-profile-resolver, blueprint-generator, evaluation-runner, enterprise-security-auditor]
+    required_lcps: [global-rules, security-governance]
+    allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, package-local]

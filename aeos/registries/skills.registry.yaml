@@ -1,87 +1,63 @@
-# =============================================================================
-# AEOS Skills Registry
-# =============================================================================
-# Registro central de todas as skills disponíveis no ambiente.
-# Skills são capacidades especializadas reutilizáveis com contrato explícito.
-# =============================================================================
-
 skills:
   - id: repo-scanner
     path: aeos/skills/core/repo-scanner.skill.md
     version: 1.0.0
     owner_agent: architect
     risk_level: low
-    capabilities:
-      - READ_REPOSITORY
-      - DETECT_STACK
-      - GENERATE_REPORT
+    capabilities: [READ_REPOSITORY, READ_FILES, DETECT_STACK, GENERATE_REPORT]
 
   - id: architecture-mapper
     path: aeos/skills/core/architecture-mapper.skill.md
     version: 1.0.0
     owner_agent: architect
     risk_level: medium
-    capabilities:
-      - READ_REPOSITORY
-      - MAP_ARCHITECTURE
-      - GENERATE_ADR
-      - GENERATE_REPORT
-
-  - id: java-migration
-    path: aeos/skills/core/java-migration.skill.md
-    version: 1.0.0
-    owner_agent: coder
-    risk_level: high
-    capabilities:
-      - READ_REPOSITORY
-      - ANALYZE_DEPENDENCIES
-      - EDIT_FILES
-      - RUN_TESTS
-      - GENERATE_REPORT
-    requires_human_approval_for:
-      - CHANGE_PUBLIC_API
-      - DELETE_MODULE
-      - MERGE_PULL_REQUEST
-      - DEPLOY
-
-  - id: python-rag-audit
-    path: aeos/skills/core/python-rag-audit.skill.md
-    version: 1.0.0
-    owner_agent: coder
-    risk_level: high
-    capabilities:
-      - READ_REPOSITORY
-      - ANALYZE_DEPENDENCIES
-      - EDIT_FILES
-      - GENERATE_REPORT
+    capabilities: [READ_REPOSITORY, READ_FILES, MAP_ARCHITECTURE, GENERATE_REPORT]
 
   - id: documentation
     path: aeos/skills/core/documentation.skill.md
     version: 1.0.0
     owner_agent: documenter
-    risk_level: low
-    capabilities:
-      - READ_REPOSITORY
-      - MAP_ARCHITECTURE
-      - GENERATE_REPORT
+    risk_level: medium
+    capabilities: [READ_REPOSITORY, READ_FILES, WRITE_SANDBOX_FILES, GENERATE_REPORT]
 
   - id: security-audit
     path: aeos/skills/core/security-audit.skill.md
     version: 1.0.0
     owner_agent: security
     risk_level: high
-    capabilities:
-      - READ_REPOSITORY
-      - SCAN_SECRETS
-      - SCAN_DEPENDENCIES
-      - GENERATE_SECURITY_REPORT
+    capabilities: [READ_REPOSITORY, READ_FILES, SCAN_SECRETS, SCAN_DEPENDENCIES, GENERATE_REPORT]
 
   - id: test-generation
     path: aeos/skills/core/test-generation.skill.md
     version: 1.0.0
     owner_agent: tester
     risk_level: medium
-    capabilities:
-      - READ_REPOSITORY
-      - RUN_TESTS
-      - GENERATE_REPORT
+    capabilities: [READ_REPOSITORY, READ_FILES, WRITE_SANDBOX_FILES, GENERATE_REPORT]
+
+  - id: code-analyzer
+    path: aeos/skills/core/code-analyzer.skill.md
+    version: 1.0.0
+    owner_agent: coder
+    risk_level: medium
+    capabilities: [READ_REPOSITORY, READ_FILES, GENERATE_REPORT]
+
+  - id: patch-planner
+    path: aeos/skills/core/patch-planner.skill.md
+    version: 1.0.0
+    owner_agent: coder
+    risk_level: high
+    capabilities: [READ_REPOSITORY, READ_FILES, GENERATE_PATCH, GENERATE_ROLLBACK]
+
+  - id: dependency-analyzer
+    path: aeos/skills/core/dependency-analyzer.skill.md
+    version: 1.0.0
+    owner_agent: architect
+    risk_level: medium
+    capabilities: [READ_REPOSITORY, READ_FILES, SCAN_DEPENDENCIES, GENERATE_REPORT]
+
+  - id: packaging
+    path: aeos/skills/core/packaging.skill.md
+    version: 1.0.0
+    owner_agent: judge
+    risk_level: medium
+    capabilities: [PACKAGE_CREATE, PACKAGE_VERIFY, PACKAGE_INSPECT]

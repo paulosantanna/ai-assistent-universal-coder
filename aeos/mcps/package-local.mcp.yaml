@@ -1,0 +1,26 @@
+mcp:
+  id: package-local
+  type: packaging
+  transport: local
+  command: "aeos-package"
+  risk_level: medium
+  timeout_seconds: 120
+  retries: 0
+  approval_required: false
+  redaction_required: true
+
+tools:
+  - name: package.create
+  - name: package.verify
+  - name: package.inspect
+  - name: package.extract_staging
+
+rules:
+  require_manifest: true
+  require_sha256: true
+  block_path_traversal: true
+  block_absolute_paths: true
+  block_zip_bomb: true
+  block_secrets: true
+  extract_requires_verify_pass: true
+  extract_to_staging_only: true

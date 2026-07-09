@@ -1,0 +1,23 @@
+﻿# AEOS Overlay Registry Index
+
+generated_at: "2026-07-08T19:46:37.6750057-03:00"
+note: "Registry fragments created by AEOS overlay packs. Merge into active registries only through audited AEOS playbook."
+registry_fragments:
+  - path: aeos/registries/agents.registry.yaml
+  - path: aeos/registries/agents.v0_7.registry.yaml
+  - path: aeos/registries/blueprints.registry.yaml
+  - path: aeos/registries/enterprise-playbooks.registry.yaml
+  - path: aeos/registries/enterprise-skills.registry.yaml
+  - path: aeos/registries/lcps.registry.yaml
+  - path: aeos/registries/mcps.registry.yaml
+  - path: aeos/registries/playbooks.registry.yaml
+  - path: aeos/registries/playbooks.v0_6.additions.yaml
+  - path: aeos/registries/playbooks.v0_7.additions.yaml
+  - path: aeos/registries/playbooks.v0_8_to_v1_0.additions.yaml
+  - path: aeos/registries/playbooks.v1_1_enterprise.additions.yaml
+  - path: aeos/registries/skills.registry.yaml
+  - path: aeos/registries/skills.v0_6.additions.yaml
+  - path: aeos/registries/skills.v0_7.additions.yaml
+  - path: aeos/registries/skills.v0_8_to_v1_0.additions.yaml
+  - path: aeos/registries/skills.v1_1_enterprise.additions.yaml
+  - path: aeos/registries/workbench-profiles.registry.yaml

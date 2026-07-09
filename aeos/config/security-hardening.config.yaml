@@ -1,0 +1,30 @@
+security_hardening:
+  enabled: true
+  version: 0.95.0
+
+  threat_model_required: true
+  trust_policy_required: true
+  redaction_required: true
+  package_quarantine_required: true
+  judge_deterministic_required: true
+
+  block:
+    prompt_injection_tool_execution: true
+    tool_poisoning: true
+    mcp_unregistered_tools: true
+    secret_leakage: true
+    package_tampering: true
+    evidence_tampering: true
+    approval_forgery: true
+    policy_bypass: true
+    cache_poisoning: true
+    dependency_confusion: true
+    unsafe_shell_execution: true
+
+  disabled_by_default:
+    - secrets-runtime
+    - browser-authenticated
+    - database-write
+    - cloud-write
+    - deploy
+    - shell-unrestricted

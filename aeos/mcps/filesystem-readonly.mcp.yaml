@@ -1,0 +1,38 @@
+mcp:
+  id: filesystem-readonly
+  type: filesystem
+  transport: stdio
+  command: "aeos-mcp-filesystem"
+  args: ["--mode", "readonly"]
+  risk_level: low
+  timeout_seconds: 30
+  retries: 1
+  approval_required: false
+  redaction_required: true
+
+capabilities:
+  - READ_FILES
+  - LIST_DIRECTORIES
+
+tools:
+  - name: filesystem.list
+    input_schema:
+      path: string
+      recursive: boolean
+    output_schema:
+      entries: list
+
+  - name: filesystem.read
+    input_schema:
+      path: string
+      max_bytes: integer
+    output_schema:
+      content_ref: string
+      truncated: boolean
+
+rules:
+  write_allowed: false
+  delete_allowed: false
+  block_path_traversal: true
+  block_absolute_paths_outside_target: true
+  redact_output: true

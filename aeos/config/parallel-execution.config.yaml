@@ -1,0 +1,27 @@
+parallel_execution:
+  enabled: true
+  version: 0.8.0
+  fail_closed: true
+  max_parallel_steps: 4
+  require_read_write_sets: true
+  require_conflict_detection: true
+  high_risk_steps_sequential: true
+  critical_risk_steps_sequential: true
+  preserve_deterministic_order: true
+
+  conflict_types:
+    - WRITE_WRITE
+    - READ_WRITE
+    - TOOL_SIDE_EFFECT
+    - APPROVAL_SCOPE
+    - RESOURCE_LOCK
+    - EVIDENCE_CHAIN
+    - AGENT_AUTHORITY
+
+  default_locks:
+    - evidence_manifest
+    - hash_chain
+    - approvals
+    - package_create
+    - patch_apply
+    - git_mutation

@@ -1,0 +1,48 @@
+# =============================================================================
+# Controlled Change Rules LCP
+# =============================================================================
+# Rules for AEOS v0.3 Controlled Change Proposal Layer.
+# Applied to: code-change-proposal, test-generation-sandbox, dependency-analysis, refactoring-proposal
+# =============================================================================
+
+controls:
+  - rule: "Patches must never be applied automatically"
+    severity: blocking
+    applies_to:
+      - code-change-proposal
+      - refactoring-proposal
+
+  - rule: "All artifact generation must go to .aeos/ subdirectories"
+    severity: blocking
+    applies_to:
+      - all
+
+  - rule: "Every generated artifact must have SHA-256 hash"
+    severity: blocking
+    applies_to:
+      - all
+
+  - rule: "Tests must only be generated in .aeos/sandbox/"
+    severity: blocking
+    applies_to:
+      - test-generation-sandbox
+
+  - rule: "Dependencies must never be modified"
+    severity: blocking
+    applies_to:
+      - dependency-analysis
+
+  - rule: "Refactoring must have objective justification"
+    severity: blocking
+    applies_to:
+      - refactoring-proposal
+
+  - rule: "All reports must differentiate Fact, Assumption, Risk, Recommendation"
+    severity: warning
+    applies_to:
+      - all
+
+  - rule: "Global unrestricted approval (scope=**) is prohibited"
+    severity: blocking
+    applies_to:
+      - all

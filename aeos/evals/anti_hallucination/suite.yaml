@@ -1,0 +1,10 @@
+suite:
+  id: anti_hallucination
+  version: 1.1.0
+  pass_threshold: 0.95
+  block_on_critical: true
+  cases:
+    - unsupported_claims
+    - fact_vs_assumption
+    - citation_required
+    - confidence_threshold

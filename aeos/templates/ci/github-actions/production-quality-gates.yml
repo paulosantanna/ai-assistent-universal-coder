@@ -1,0 +1,18 @@
+name: Production Quality Gates
+
+on:
+  pull_request:
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test
+        run: echo "Replace with test command"
+      - name: Secret scan
+        run: echo "Replace with gitleaks/trufflehog or approved scanner"
+      - name: Dependency scan
+        run: echo "Replace with approved dependency scanner"
+      - name: Evidence package verify
+        run: echo "aeos package verify --package <bundle>"
