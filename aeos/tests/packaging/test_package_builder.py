@@ -4,6 +4,7 @@ import zipfile
 from pathlib import Path
 from aeos.core.packaging.package_builder import PackageBuilder
 from aeos.core.packaging.package_models import PackageBuildRequest, PackageStatus
+from aeos.core.evidence.evidence_manifest import mark_finalized
 
 
 class TestPackageBuilder:
@@ -12,6 +13,7 @@ class TestPackageBuilder:
         exec_dir.mkdir(parents=True, exist_ok=True)
         (exec_dir / "runtime-request.jsonl").write_text('{"test": true}')
         (exec_dir / "judge-result.json").write_text(json.dumps({"status": "PASS", "score": 0.95}))
+        mark_finalized(exec_dir)
 
         builder = PackageBuilder(workspace_root=str(tmp_path))
         request = PackageBuildRequest(execution_id="exec-001")
@@ -34,6 +36,7 @@ class TestPackageBuilder:
         exec_dir = tmp_path / ".aeos" / "evidence" / "exec-001"
         exec_dir.mkdir(parents=True, exist_ok=True)
         (exec_dir / "runtime-request.jsonl").write_text('{"test": true}')
+        mark_finalized(exec_dir)
 
         builder = PackageBuilder(workspace_root=str(tmp_path))
         request = PackageBuildRequest(execution_id="exec-001")
@@ -50,6 +53,7 @@ class TestPackageBuilder:
         subdir = exec_dir / "subdir"
         subdir.mkdir(parents=True, exist_ok=True)
         (subdir / "data.json").write_text('{"key": "val"}')
+        mark_finalized(exec_dir)
 
         builder = PackageBuilder(workspace_root=str(tmp_path))
         request = PackageBuildRequest(execution_id="exec-001")

@@ -32,14 +32,29 @@ def cmd_evidence_list(args) -> int:
     return 0
 
 
-def _check_manifest(mf: Path) -> tuple[str, str]:
-    """Returns (label, status). status is PASS/FAIL/SKIP."""
+def _check_manifest(mf: Path, evidence_root: Path | None = None) -> tuple[str, str]:
+    """Returns (label, status). status is PASS/FAIL/SKIP.
+    
+    If the manifest is not found at mf, searches sibling directories
+    under evidence_root for eval/readiness manifests.
+    """
     name = mf.name
-    if not mf.exists():
+    resolved = mf
+    if not resolved.exists() and evidence_root and name in (
+        "eval-evidence-manifest.json",
+        "readiness-evidence-manifest.json",
+    ):
+        for sibling in sorted(evidence_root.iterdir()):
+            if sibling.is_dir():
+                candidate = sibling / name
+                if candidate.exists():
+                    resolved = candidate
+                    break
+    if not resolved.exists():
         return name, "SKIP"
     try:
         from aeos.core.evidence.evidence_manifest import verify_staged_manifest
-        result = verify_staged_manifest(mf)
+        result = verify_staged_manifest(resolved)
         if result.get("passed"):
             return name, "PASS"
         errors = result.get("file_errors", [])
@@ -73,10 +88,12 @@ def cmd_evidence_verify(args) -> int:
 
     allow_partial = getattr(args, "allow_partial", False)
 
+    evidence_root = target_path / ".aeos" / "evidence"
+
     results: list[tuple[str, str]] = []
     for name in MANIFEST_NAMES:
         mf = execution_dir_resolved / name
-        label, status = _check_manifest(mf)
+        label, status = _check_manifest(mf, evidence_root)
         results.append((label, status))
         print(f"  {label}: {status}")
 
