@@ -1,0 +1,32 @@
+agent_runtime:
+  enabled: true
+  version: 0.7.0
+  fail_closed: true
+  require_task_graph: true
+  require_agent_trace: true
+  require_context_routing: true
+  require_delegation_policy: true
+  require_memory_gateway: true
+  require_judge_validation: true
+
+  default_timeout_seconds: 900
+  max_subagents_per_task: 5
+  max_delegation_depth: 2
+
+  prohibited:
+    direct_tool_access: true
+    self_judging: true
+    raw_secret_context: true
+    scope_expansion_without_approval: true
+    autonomous_production_mutation: true
+
+  trace:
+    file: ".aeos/evidence/{execution_id}/agent-trace.jsonl"
+    hash_trace_entries: true
+    include_context_refs: true
+    include_evidence_refs: true
+
+  task_results:
+    dir: ".aeos/evidence/{execution_id}/tasks"
+    require_json: true
+    require_sha256: true

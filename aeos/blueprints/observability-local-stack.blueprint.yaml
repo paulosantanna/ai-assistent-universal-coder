@@ -1,0 +1,12 @@
+blueprint:
+  id: observability-local-stack
+  version: 1.1.0
+  generated_files:
+    - docker-compose.observability.yml
+    - prometheus.yml
+    - grafana-dashboard.json
+  rules:
+    - generate_to_sandbox_first
+    - require_evidence
+    - require_judge
+    - require_approval_to_apply

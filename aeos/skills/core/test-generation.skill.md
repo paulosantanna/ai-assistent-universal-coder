@@ -1,52 +1,41 @@
-# Skill: Test Generation
+# Skill: test-generation
 
 ## Mission
 
-Analyze production code and generate test cases, test suites, and test infrastructure to improve coverage and reliability.
+Detect test gaps and generate proposed tests in sandbox.
 
 ## Allowed Actions
 
-- Read source files.
-- Read existing test files.
-- Detect testing frameworks in use.
-- Generate test files in sandbox.
-- Run test commands.
-- Collect test results.
-- Generate test coverage reports.
+- Read authorized files through Tool Router.
+- Generate reports in `.aeos/reports`.
+- Generate evidence in `.aeos/evidence`.
+- Generate sandbox artifacts when permitted.
+- Never bypass permissions.
 
 ## Forbidden Actions
 
-- Delete existing tests without evidence.
-- Generate tests that always pass.
-- Modify production code without associated test.
-- Disable or skip failing tests.
-- Commit incomplete test suites.
+- Direct filesystem access.
+- Direct Git mutation.
+- Secret value exposure.
+- Destructive shell.
+- Unapproved writes outside `.aeos`.
+- Unsupported factual claims.
+- Silent failure.
 
-## Inputs
+## Required Evidence
 
-- workspace path
-- target modules
-- testing framework
-- coverage threshold
-
-## Outputs
-
-- generated-tests/*.test.*
-- test-coverage-report.md
-- test-results.md
-- test-gap-analysis.md
-
-## Evidence Required
-
-- source files analyzed
-- existing tests analyzed
-- test results before/after
-- coverage metrics
+- files inspected
+- tool calls
+- permission decisions
+- generated artifacts
+- risk classification
+- Judge input when applicable
 
 ## Quality Gates
 
-- Generated tests must pass.
-- Each test must assert a specific behavior.
-- Must not reduce existing test coverage.
-- Must follow existing test conventions.
-- Must produce coverage report.
+- Facts cite evidence.
+- Assumptions are explicitly marked.
+- Risks are classified.
+- Outputs follow schema.
+- No secrets are printed.
+- Required artifacts are hashed.

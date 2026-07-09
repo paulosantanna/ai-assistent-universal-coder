@@ -1,54 +1,20 @@
-# =============================================================================
-# LCP: Global Rules
-# =============================================================================
-# Local Context Pack that applies to ALL operations.
-# These are the foundational rules for every agent in the system.
-# Priority: 100 (highest)
-# Scope: global
-# =============================================================================
-
 id: global-rules
-name: Global Rules Context Pack
+name: Global AEOS Rules
 version: 1.0.0
-
-context_type: global
 priority: 100
 
-applies_when:
-  always: true
-
-load_order:
-  - global-rules
-
 rules:
-  - never_execute_destructive_actions_without_approval
-  - never_read_or_log_secrets
-  - never_commit_to_main_branch
-  - never_bypass_security_controls
-  - always_collect_evidence
-  - always_cite_sources
-  - always_distinguish_facts_from_assumptions
-  - always_generate_diff_summary
-  - always_provide_rollback_plan
-  - always_run_tests_for_behavior_changes
-  - always_respect_workspace_boundaries
-  - always_use_mcp_for_external_access
-  - never_access_filesystem_directly
-  - never_access_git_directly
-  - never_access_shell_directly
-  - never_access_network_directly
+  - no_context_no_decision
+  - no_permission_no_execution
+  - no_evidence_no_assertion
+  - no_test_no_completion
+  - no_rollback_no_mutation
+  - no_logs_no_existence
+  - no_judge_no_delivery
 
 required_evidence:
-  - operation_log
-  - files_changed
-  - test_results
-  - diff_summary
-
-forbidden:
-  - delete_code_without_evidence
-  - hide_failing_tests
-  - bypass_permission_check
-  - bypass_policy_check
-  - bypass_judge
-  - forge_evidence
-  - impersonate_another_agent
+  - execution_state
+  - permission_decisions
+  - tool_calls
+  - generated_artifacts
+  - judge_report

@@ -1,0 +1,12 @@
+blueprint:
+  id: incident-response-standard
+  version: 1.1.0
+  generated_files:
+    - RUNBOOK.md
+    - POSTMORTEM_TEMPLATE.md
+    - INCIDENT_CHECKLIST.md
+  rules:
+    - generate_to_sandbox_first
+    - require_evidence
+    - require_judge
+    - require_approval_to_apply

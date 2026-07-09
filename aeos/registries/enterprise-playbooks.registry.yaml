@@ -1,0 +1,226 @@
+playbooks:
+  - id: enterprise-project-onboarding
+    path: aeos/playbooks/enterprise/enterprise-project-onboarding.playbook.md
+    version: 1.2.0
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [enterprise-repo-intelligence, performance-profiler, supply-chain-auditor, release-readiness-judge]
+    required_lcps: [global-rules, security-governance, enterprise-production]
+    allowed_mcps: [filesystem-readonly, git-readonly, package-local, test-runner-controlled]
+    production_ready: true
+  - id: multirepo-ecosystem-analysis
+    path: aeos/playbooks/enterprise/multirepo-ecosystem-analysis.playbook.md
+    version: 1.2.0
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [enterprise-repo-intelligence, performance-profiler, supply-chain-auditor, release-readiness-judge]
+    required_lcps: [global-rules, security-governance, enterprise-production]
+    allowed_mcps: [filesystem-readonly, git-readonly, package-local, test-runner-controlled]
+    production_ready: true
+  - id: production-readiness-audit
+    path: aeos/playbooks/enterprise/production-readiness-audit.playbook.md
+    version: 1.2.0
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [enterprise-repo-intelligence, performance-profiler, supply-chain-auditor, release-readiness-judge]
+    required_lcps: [global-rules, security-governance, enterprise-production]
+    allowed_mcps: [filesystem-readonly, git-readonly, package-local, test-runner-controlled]
+    production_ready: true
+  - id: security-hardening-production
+    path: aeos/playbooks/enterprise/security-hardening-production.playbook.md
+    version: 1.2.0
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [enterprise-repo-intelligence, performance-profiler, supply-chain-auditor, release-readiness-judge]
+    required_lcps: [global-rules, security-governance, enterprise-production]
+    allowed_mcps: [filesystem-readonly, git-readonly, package-local, test-runner-controlled]
+    production_ready: true
+  - id: supply-chain-integrity-audit
+    path: aeos/playbooks/enterprise/supply-chain-integrity-audit.playbook.md
+    version: 1.2.0
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [enterprise-repo-intelligence, performance-profiler, supply-chain-auditor, release-readiness-judge]
+    required_lcps: [global-rules, security-governance, enterprise-production]
+    allowed_mcps: [filesystem-readonly, git-readonly, package-local, test-runner-controlled]
+    production_ready: true
+  - id: slo-sla-readiness
+    path: aeos/playbooks/enterprise/slo-sla-readiness.playbook.md
+    version: 1.2.0
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [enterprise-repo-intelligence, performance-profiler, supply-chain-auditor, release-readiness-judge]
+    required_lcps: [global-rules, security-governance, enterprise-production]
+    allowed_mcps: [filesystem-readonly, git-readonly, package-local, test-runner-controlled]
+    production_ready: true
+  - id: performance-budget-audit
+    path: aeos/playbooks/enterprise/performance-budget-audit.playbook.md
+    version: 1.2.0
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [enterprise-repo-intelligence, performance-profiler, supply-chain-auditor, release-readiness-judge]
+    required_lcps: [global-rules, security-governance, enterprise-production]
+    allowed_mcps: [filesystem-readonly, git-readonly, package-local, test-runner-controlled]
+    production_ready: true
+  - id: observability-stack-generation
+    path: aeos/playbooks/enterprise/observability-stack-generation.playbook.md
+    version: 1.2.0
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [enterprise-repo-intelligence, performance-profiler, supply-chain-auditor, release-readiness-judge]
+    required_lcps: [global-rules, security-governance, enterprise-production]
+    allowed_mcps: [filesystem-readonly, git-readonly, package-local, test-runner-controlled]
+    production_ready: true
+  - id: ci-quality-gates-generation
+    path: aeos/playbooks/enterprise/ci-quality-gates-generation.playbook.md
+    version: 1.2.0
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [enterprise-repo-intelligence, performance-profiler, supply-chain-auditor, release-readiness-judge]
+    required_lcps: [global-rules, security-governance, enterprise-production]
+    allowed_mcps: [filesystem-readonly, git-readonly, package-local, test-runner-controlled]
+    production_ready: true
+  - id: incident-response-bootstrap
+    path: aeos/playbooks/enterprise/incident-response-bootstrap.playbook.md
+    version: 1.2.0
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [enterprise-repo-intelligence, performance-profiler, supply-chain-auditor, release-readiness-judge]
+    required_lcps: [global-rules, security-governance, enterprise-production]
+    allowed_mcps: [filesystem-readonly, git-readonly, package-local, test-runner-controlled]
+    production_ready: true
+  - id: rollback-and-recovery-validation
+    path: aeos/playbooks/enterprise/rollback-and-recovery-validation.playbook.md
+    version: 1.2.0
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [enterprise-repo-intelligence, performance-profiler, supply-chain-auditor, release-readiness-judge]
+    required_lcps: [global-rules, security-governance, enterprise-production]
+    allowed_mcps: [filesystem-readonly, git-readonly, package-local, test-runner-controlled]
+    production_ready: true
+  - id: controlled-release-candidate
+    path: aeos/playbooks/enterprise/controlled-release-candidate.playbook.md
+    version: 1.2.0
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [enterprise-repo-intelligence, performance-profiler, supply-chain-auditor, release-readiness-judge]
+    required_lcps: [global-rules, security-governance, enterprise-production]
+    allowed_mcps: [filesystem-readonly, git-readonly, package-local, test-runner-controlled]
+    production_ready: true
+  - id: agentic-risk-review
+    path: aeos/playbooks/enterprise/agentic-risk-review.playbook.md
+    version: 1.2.0
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [enterprise-repo-intelligence, performance-profiler, supply-chain-auditor, release-readiness-judge]
+    required_lcps: [global-rules, security-governance, enterprise-production]
+    allowed_mcps: [filesystem-readonly, git-readonly, package-local, test-runner-controlled]
+    production_ready: true
+  - id: mcp-production-readiness
+    path: aeos/playbooks/enterprise/mcp-production-readiness.playbook.md
+    version: 1.2.0
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [enterprise-repo-intelligence, performance-profiler, supply-chain-auditor, release-readiness-judge]
+    required_lcps: [global-rules, security-governance, enterprise-production]
+    allowed_mcps: [filesystem-readonly, git-readonly, package-local, test-runner-controlled]
+    production_ready: true
+  - id: prompt-pack-optimization
+    path: aeos/playbooks/enterprise/prompt-pack-optimization.playbook.md
+    version: 1.2.0
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [enterprise-repo-intelligence, performance-profiler, supply-chain-auditor, release-readiness-judge]
+    required_lcps: [global-rules, security-governance, enterprise-production]
+    allowed_mcps: [filesystem-readonly, git-readonly, package-local, test-runner-controlled]
+    production_ready: true
+  - id: skill-library-hardening
+    path: aeos/playbooks/enterprise/skill-library-hardening.playbook.md
+    version: 1.2.0
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [enterprise-repo-intelligence, performance-profiler, supply-chain-auditor, release-readiness-judge]
+    required_lcps: [global-rules, security-governance, enterprise-production]
+    allowed_mcps: [filesystem-readonly, git-readonly, package-local, test-runner-controlled]
+    production_ready: true
+  - id: playbook-library-hardening
+    path: aeos/playbooks/enterprise/playbook-library-hardening.playbook.md
+    version: 1.2.0
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [enterprise-repo-intelligence, performance-profiler, supply-chain-auditor, release-readiness-judge]
+    required_lcps: [global-rules, security-governance, enterprise-production]
+    allowed_mcps: [filesystem-readonly, git-readonly, package-local, test-runner-controlled]
+    production_ready: true
+  - id: enterprise-compliance-export
+    path: aeos/playbooks/enterprise/enterprise-compliance-export.playbook.md
+    version: 1.2.0
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [enterprise-repo-intelligence, performance-profiler, supply-chain-auditor, release-readiness-judge]
+    required_lcps: [global-rules, security-governance, enterprise-production]
+    allowed_mcps: [filesystem-readonly, git-readonly, package-local, test-runner-controlled]
+    production_ready: true
+  - id: large-repo-fast-scan
+    path: aeos/playbooks/enterprise/large-repo-fast-scan.playbook.md
+    version: 1.2.0
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [enterprise-repo-intelligence, performance-profiler, supply-chain-auditor, release-readiness-judge]
+    required_lcps: [global-rules, security-governance, enterprise-production]
+    allowed_mcps: [filesystem-readonly, git-readonly, package-local, test-runner-controlled]
+    production_ready: true
+  - id: java-modernization-assessment
+    path: aeos/playbooks/enterprise/java-modernization-assessment.playbook.md
+    version: 1.2.0
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [enterprise-repo-intelligence, performance-profiler, supply-chain-auditor, release-readiness-judge]
+    required_lcps: [global-rules, security-governance, enterprise-production]
+    allowed_mcps: [filesystem-readonly, git-readonly, package-local, test-runner-controlled]
+    production_ready: true
+  - id: python-ai-rag-production-audit
+    path: aeos/playbooks/enterprise/python-ai-rag-production-audit.playbook.md
+    version: 1.2.0
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [enterprise-repo-intelligence, performance-profiler, supply-chain-auditor, release-readiness-judge]
+    required_lcps: [global-rules, security-governance, enterprise-production]
+    allowed_mcps: [filesystem-readonly, git-readonly, package-local, test-runner-controlled]
+    production_ready: true
+  - id: devcontainer-prod-like-generation
+    path: aeos/playbooks/enterprise/devcontainer-prod-like-generation.playbook.md
+    version: 1.2.0
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [enterprise-repo-intelligence, performance-profiler, supply-chain-auditor, release-readiness-judge]
+    required_lcps: [global-rules, security-governance, enterprise-production]
+    allowed_mcps: [filesystem-readonly, git-readonly, package-local, test-runner-controlled]
+    production_ready: true
+  - id: test-recovery-enterprise
+    path: aeos/playbooks/enterprise/test-recovery-enterprise.playbook.md
+    version: 1.2.0
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [enterprise-repo-intelligence, performance-profiler, supply-chain-auditor, release-readiness-judge]
+    required_lcps: [global-rules, security-governance, enterprise-production]
+    allowed_mcps: [filesystem-readonly, git-readonly, package-local, test-runner-controlled]
+    production_ready: true
+  - id: package-trust-quarantine-review
+    path: aeos/playbooks/enterprise/package-trust-quarantine-review.playbook.md
+    version: 1.2.0
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [enterprise-repo-intelligence, performance-profiler, supply-chain-auditor, release-readiness-judge]
+    required_lcps: [global-rules, security-governance, enterprise-production]
+    allowed_mcps: [filesystem-readonly, git-readonly, package-local, test-runner-controlled]
+    production_ready: true
+  - id: executive-technical-report
+    path: aeos/playbooks/enterprise/executive-technical-report.playbook.md
+    version: 1.2.0
+    risk_level: high
+    required_agents: [root, planner, architect, security, judge]
+    required_skills: [enterprise-repo-intelligence, performance-profiler, supply-chain-auditor, release-readiness-judge]
+    required_lcps: [global-rules, security-governance, enterprise-production]
+    allowed_mcps: [filesystem-readonly, git-readonly, package-local, test-runner-controlled]
+    production_ready: true

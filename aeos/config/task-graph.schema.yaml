@@ -1,0 +1,35 @@
+task_graph_schema:
+  required:
+    - graph_id
+    - execution_id
+    - playbook_id
+    - root_task_id
+    - tasks
+    - dependencies
+
+  task_required_fields:
+    - task_id
+    - assigned_agent
+    - objective
+    - scope
+    - allowed_skills
+    - required_evidence
+    - status
+
+  allowed_statuses:
+    - PENDING
+    - READY
+    - ASSIGNED
+    - RUNNING
+    - WAITING_CONTEXT
+    - WAITING_TOOL_RESULT
+    - WAITING_APPROVAL
+    - COMPLETED
+    - BLOCKED
+    - FAILED
+    - ESCALATED
+
+  blocking:
+    unresolved_required_task_blocks_finalization: true
+    failed_required_task_blocks_finalization: true
+    missing_evidence_blocks_finalization: true

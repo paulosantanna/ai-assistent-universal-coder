@@ -1,0 +1,90 @@
+agents:
+  - id: root
+    path: aeos/agents/root.agent.md
+    role: root
+    can_delegate: true
+
+  - id: planner
+    path: aeos/agents/planner.agent.md
+    role: planner
+    can_delegate: true
+
+  - id: architect
+    path: aeos/agents/architect.agent.md
+    role: architect
+    can_delegate: true
+
+  - id: coder
+    path: aeos/agents/coder.agent.md
+    role: coder
+    can_delegate: true
+
+  - id: tester
+    path: aeos/agents/tester.agent.md
+    role: tester
+    can_delegate: true
+
+  - id: security
+    path: aeos/agents/security.agent.md
+    role: security
+    can_delegate: true
+    can_block: true
+
+  - id: devops
+    path: aeos/agents/devops.agent.md
+    role: devops
+    can_delegate: true
+
+  - id: documenter
+    path: aeos/agents/documenter.agent.md
+    role: documenter
+    can_delegate: false
+
+  - id: researcher
+    path: aeos/agents/researcher.agent.md
+    role: researcher
+    can_delegate: false
+
+  - id: incident
+    path: aeos/agents/incident.agent.md
+    role: incident
+    can_delegate: true
+
+  - id: judge
+    path: aeos/agents/judge.agent.md
+    role: judge
+    can_delegate: false
+    independent: true
+
+subagents:
+  - id: java-analyzer
+    parent_roles: [architect]
+    path: aeos/agents/subagents/java-analyzer.subagent.md
+
+  - id: python-rag-analyzer
+    parent_roles: [architect]
+    path: aeos/agents/subagents/python-rag-analyzer.subagent.md
+
+  - id: test-gap-analyzer
+    parent_roles: [tester]
+    path: aeos/agents/subagents/test-gap-analyzer.subagent.md
+
+  - id: dependency-risk-analyzer
+    parent_roles: [architect]
+    path: aeos/agents/subagents/dependency-risk-analyzer.subagent.md
+
+  - id: security-secret-detector
+    parent_roles: [security]
+    path: aeos/agents/subagents/security-secret-detector.subagent.md
+
+  - id: docs-adr-writer
+    parent_roles: [architect]
+    path: aeos/agents/subagents/docs-adr-writer.subagent.md
+
+  - id: patch-risk-reviewer
+    parent_roles: [coder]
+    path: aeos/agents/subagents/patch-risk-reviewer.subagent.md
+
+  - id: rollback-reviewer
+    parent_roles: [coder]
+    path: aeos/agents/subagents/rollback-reviewer.subagent.md

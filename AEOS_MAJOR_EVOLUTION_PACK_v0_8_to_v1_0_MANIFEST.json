@@ -1,0 +1,389 @@
+{
+  "package": "aeos_major_evolution_pack_v0_8_to_v1_0",
+  "version": "0.8-to-1.0",
+  "created_at": "2026-07-08T22:17:26.003718+00:00",
+  "purpose": "Major overlay for AEOS parallel execution, approval, cache, observability, security hardening, marketplace and v1 readiness.",
+  "file_count": 76,
+  "files": [
+    {
+      "path": "AEOS_V0_8_CONFLICT_DETECTION.md",
+      "sha256": "b27be4fc94861ffee059cb8da8fae3bcc082541a35ad5caf59b6ff97f801e64c",
+      "size_bytes": 879
+    },
+    {
+      "path": "AEOS_V0_8_PARALLEL_EXECUTION.md",
+      "sha256": "76053c730cb0dfd21487b23484e5424682ac74dc87d639ba796ca3371dfcb3a5",
+      "size_bytes": 1510
+    },
+    {
+      "path": "AEOS_V0_95_PACK_MARKETPLACE.md",
+      "sha256": "6d2eaa7d9f893e0c4cc9a2d526d98ec087849e1f73a58f75af9710ddb9ac91e0",
+      "size_bytes": 969
+    },
+    {
+      "path": "AEOS_V0_95_SECURITY_HARDENING.md",
+      "sha256": "3deb899ab605440807291059d1068bf38e5bad913e689ad057e8b66dfff9b434",
+      "size_bytes": 944
+    },
+    {
+      "path": "AEOS_V0_9_APPROVAL_GATEWAY_ADVANCED.md",
+      "sha256": "fc17be523ebe466130cd829042a95f1a915806e905e2ceedc9a6cef6c37afd0f",
+      "size_bytes": 1221
+    },
+    {
+      "path": "AEOS_V0_9_EVIDENCE_CACHE.md",
+      "sha256": "b7cfd90aee232077828c0528117cd70fcc1159ff151b452257c13f25e1500771",
+      "size_bytes": 1106
+    },
+    {
+      "path": "AEOS_V0_9_OBSERVABILITY.md",
+      "sha256": "3e67558474a8ad4b001928611ca07f254e582bc7324b07da544ed608b8d3d14c",
+      "size_bytes": 1117
+    },
+    {
+      "path": "AEOS_V1_0_WORKBENCH_SPEC.md",
+      "sha256": "f611f4109a868b4dee54ccb013264501ec768e972e500af9b5ae3d271d3ada79",
+      "size_bytes": 2324
+    },
+    {
+      "path": "INSTALL_v0_8_to_v1_0.md",
+      "sha256": "24c493905e127f58b5f63c0ebf1968f1abb6fcd8ffcbd10dd437ba174d4a15a7",
+      "size_bytes": 2585
+    },
+    {
+      "path": "PROMPT_IMPLEMENT_MAJOR_PACK_v0_8_to_v1_0.md",
+      "sha256": "7d12fffed98a68381104bb4c71e83bf0888051c8a6c5ab4e78692265102094fe",
+      "size_bytes": 1800
+    },
+    {
+      "path": "README_MAJOR_PACK.md",
+      "sha256": "1e53ddc30ed5cb6789531465673a86774f9712282f2b3d30d38442953134ee62",
+      "size_bytes": 869
+    },
+    {
+      "path": "aeos/config/approval.advanced.yaml",
+      "sha256": "6aeba7d07162d88050ed09a441dcd708bbd0bcec73e3d5ccdea7fdb89cc69c4b",
+      "size_bytes": 547
+    },
+    {
+      "path": "aeos/config/evidence-cache.config.yaml",
+      "sha256": "94dff8f8ba3fb4cdeb363fb39c20f68b301c50df197e912557b36101ee787848",
+      "size_bytes": 861
+    },
+    {
+      "path": "aeos/config/observability.config.yaml",
+      "sha256": "2ff2b4dc60ff0bf3d1b6380ba49c70ec7f9c2e739ee41d8fdee79c5b68ad5ff9",
+      "size_bytes": 522
+    },
+    {
+      "path": "aeos/config/pack-marketplace.config.yaml",
+      "sha256": "aacddec2501df23b4465f08d848fc7497eb8439a0fd79ee050bbe95458d02b37",
+      "size_bytes": 681
+    },
+    {
+      "path": "aeos/config/parallel-execution.config.yaml",
+      "sha256": "c51b88358db13513ef22e7aba9908c32333afce6eb18aaf3b6dc21efc62a7117",
+      "size_bytes": 569
+    },
+    {
+      "path": "aeos/config/security-hardening.config.yaml",
+      "sha256": "67814aef0c1de116e1dbb7401c864cd58260713a5259e717001965bc9e981a80",
+      "size_bytes": 699
+    },
+    {
+      "path": "aeos/config/v1-release-gates.yaml",
+      "sha256": "ea41d111d0ea6f233624068846c1861e8e066f11734b02bcaf51b3413ccab2f6",
+      "size_bytes": 615
+    },
+    {
+      "path": "aeos/core/approval/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/core/approval/advanced_approval.py",
+      "sha256": "fc9f99dbf910ed73c3116a52565ff0064a39217faef6f62c98beaefd5b51ba27",
+      "size_bytes": 1223
+    },
+    {
+      "path": "aeos/core/evidence_cache/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/core/evidence_cache/cache_key.py",
+      "sha256": "2fa30cbb4f6d1d7fbeb328bc93f7651da723c4be3e182881e09641c53de13444",
+      "size_bytes": 943
+    },
+    {
+      "path": "aeos/core/evidence_cache/cache_store.py",
+      "sha256": "05b8186048ffd7db96025291de86bffcd884c032e8e46a1e3071bf6be003bc2d",
+      "size_bytes": 756
+    },
+    {
+      "path": "aeos/core/observability/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/core/observability/contracts.py",
+      "sha256": "cdec8fe2b57d33998896931b91d0e2a4a010a1171686be77d3dd789bf8fe21df",
+      "size_bytes": 611
+    },
+    {
+      "path": "aeos/core/observability/observer.py",
+      "sha256": "be0c24415b8fa7832ef50295409c9a49186bcc28080e27e9ab4f4a7ec4eed5d7",
+      "size_bytes": 1067
+    },
+    {
+      "path": "aeos/core/pack_marketplace/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/core/pack_marketplace/contracts.py",
+      "sha256": "5f7c0463818dcf3210d514d233dc53f55571656a2db34dba22146d5c7f3d2ad6",
+      "size_bytes": 526
+    },
+    {
+      "path": "aeos/core/pack_marketplace/marketplace.py",
+      "sha256": "a77d527678f68fe7c0c225aab90ee5419db509cd526fa04747a15fdeaaa5a608",
+      "size_bytes": 534
+    },
+    {
+      "path": "aeos/core/parallel_execution/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/core/parallel_execution/conflict_detector.py",
+      "sha256": "039a49548602d566b346cf1e07fefacdec118e72ad2081144a7782f1d75fd548",
+      "size_bytes": 1495
+    },
+    {
+      "path": "aeos/core/parallel_execution/contracts.py",
+      "sha256": "79c75d983faea9b790cb6e8d3ce3be6963256d449dfc9abac94a8eaae3ab2647",
+      "size_bytes": 741
+    },
+    {
+      "path": "aeos/core/parallel_execution/scheduler.py",
+      "sha256": "59f070a5af5f62c6ed54d2eb0779d033a2903710a13b08f759e43109c58f6607",
+      "size_bytes": 550
+    },
+    {
+      "path": "aeos/core/security/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/core/security/threat_model.py",
+      "sha256": "c150ba1b1086d924faf9587e711922988c10d63a48ae44fd0f5607bde820e48f",
+      "size_bytes": 534
+    },
+    {
+      "path": "aeos/docs/EVIDENCE_CACHE_GUIDE.md",
+      "sha256": "7a0f03946015eb54dc381c8bbbedc4835077c65a849f1c43fdd371644672ae66",
+      "size_bytes": 412
+    },
+    {
+      "path": "aeos/docs/OBSERVABILITY_GUIDE.md",
+      "sha256": "6a1c93f12763c84d4d864964b3b5657ec28f2d8dee898aba860890042b1baa78",
+      "size_bytes": 433
+    },
+    {
+      "path": "aeos/docs/PACK_MARKETPLACE_GUIDE.md",
+      "sha256": "fa3fd3fdf932a8e9972d2ece75ddff496ad0e3cdb81b51c8f22520fd7580ac72",
+      "size_bytes": 502
+    },
+    {
+      "path": "aeos/docs/PARALLEL_EXECUTION_GUIDE.md",
+      "sha256": "108d17d62fce22ab8b7184a4f7a170954d2e3f7185db98a38e84fd7f5d56ef1f",
+      "size_bytes": 578
+    },
+    {
+      "path": "aeos/docs/V1_RELEASE_GUIDE.md",
+      "sha256": "4a44c94290be1a5de67e79c6b33230411f39553c1223e5fed7428d210818e66b",
+      "size_bytes": 418
+    },
+    {
+      "path": "aeos/lcps/observability.lcp.yaml",
+      "sha256": "fdfe6d180473d12971b3a4d2ceaafbed5691c0c96c14a7470206bd9078da7bf1",
+      "size_bytes": 305
+    },
+    {
+      "path": "aeos/lcps/parallel-execution.lcp.yaml",
+      "sha256": "b17f04bbf268a33c4196c4ab3a772d1535e02ab069f44ff106eaaeec6aec2986",
+      "size_bytes": 365
+    },
+    {
+      "path": "aeos/lcps/v1-readiness.lcp.yaml",
+      "sha256": "82583c7b2e0ab2adb5232f3036b3faf1de7551b8cb5f1cdf42e076e04323a3b0",
+      "size_bytes": 329
+    },
+    {
+      "path": "aeos/packs/active/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/packs/archived/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/packs/quarantine/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/packs/rejected/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/packs/staging/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/playbooks/evidence-cache-audit.playbook.md",
+      "sha256": "61e2dda5ecc6440b2a3852981c0265460e92878d9817199df072308b01e3fdb6",
+      "size_bytes": 531
+    },
+    {
+      "path": "aeos/playbooks/observability-report.playbook.md",
+      "sha256": "2be088c314b4ed6018a6ac8dadd78e014d694a510addf41cc6aea24bf744abcb",
+      "size_bytes": 411
+    },
+    {
+      "path": "aeos/playbooks/pack-marketplace-audit.playbook.md",
+      "sha256": "c108ac0b762122d1193bb2824631484f0a325ea899c9922089388c5aaa0a26ed",
+      "size_bytes": 534
+    },
+    {
+      "path": "aeos/playbooks/parallel-execution-smoke-test.playbook.md",
+      "sha256": "a71ce1fe6e33046964a0379e8279b4d14a71af6987502e63833576d855c11a84",
+      "size_bytes": 768
+    },
+    {
+      "path": "aeos/playbooks/security-hardening-audit.playbook.md",
+      "sha256": "3a74baaaefb9c878ea92489199b75536fcd0e174225159ba175adb3612abb589",
+      "size_bytes": 662
+    },
+    {
+      "path": "aeos/playbooks/v1-readiness-audit.playbook.md",
+      "sha256": "10164151980b61108b51d0749bfc58bb3ae42ba081ea6e79e9717047b86ad398",
+      "size_bytes": 731
+    },
+    {
+      "path": "aeos/registries/playbooks.v0_8_to_v1_0.additions.yaml",
+      "sha256": "68e53de9f65836548a98c7386fd95530254642917250f9f05ba38d9d0a5aa9b5",
+      "size_bytes": 2036
+    },
+    {
+      "path": "aeos/registries/skills.v0_8_to_v1_0.additions.yaml",
+      "sha256": "caae0913f96a53a6919e6a2ab7fa7e84b4ba9ba02eed84c9b17d9c4a7833f2b9",
+      "size_bytes": 1635
+    },
+    {
+      "path": "aeos/runbooks/RUNBOOK_CACHE_POISONING_SUSPECTED.md",
+      "sha256": "676a64844734c7fea71a66b2d252d11131eada6262c0d3d3d72a86bf72514203",
+      "size_bytes": 224
+    },
+    {
+      "path": "aeos/runbooks/RUNBOOK_PACKAGE_IMPORT_REJECTED.md",
+      "sha256": "9c8c5529560ba506d98c8e5bd5cdc35a7469e861ee18462322df072f8cf61099",
+      "size_bytes": 256
+    },
+    {
+      "path": "aeos/runbooks/RUNBOOK_PARALLEL_EXECUTION_FAILURE.md",
+      "sha256": "16f2875fc2211da1f827fed115430b99b98d391af1db2a18ae87128515bef5eb",
+      "size_bytes": 350
+    },
+    {
+      "path": "aeos/runbooks/RUNBOOK_SECURITY_BLOCK.md",
+      "sha256": "40a1f79576611d80a3404f4ebc75426b9034e6169b113d13b12c034b49e151ed",
+      "size_bytes": 224
+    },
+    {
+      "path": "aeos/skills/core/conflict-detector.skill.md",
+      "sha256": "991cb63dd7793b197fe4fe1f9ad17bf56a32522110f0cf6aec96a49fe7e1186e",
+      "size_bytes": 856
+    },
+    {
+      "path": "aeos/skills/core/evidence-cache-auditor.skill.md",
+      "sha256": "934fa554c11624f6bef7f11479439decbaa1f8390d608c8d1c838a2cc51ec566",
+      "size_bytes": 861
+    },
+    {
+      "path": "aeos/skills/core/observability-reporter.skill.md",
+      "sha256": "213ee0b66fd6823cc9f64bb8fb8f99e58c8a0bd5cb8117574141bae68ced19ff",
+      "size_bytes": 859
+    },
+    {
+      "path": "aeos/skills/core/pack-marketplace-auditor.skill.md",
+      "sha256": "aeadf664e595f73776152e82effb7f7b3f0820b12237482e05e00773dfca134b",
+      "size_bytes": 866
+    },
+    {
+      "path": "aeos/skills/core/parallel-scheduler.skill.md",
+      "sha256": "807d392e1e7ba5fcacfed53df138ba7a2f96a1dc8ff9a65462440e5d5d29e413",
+      "size_bytes": 878
+    },
+    {
+      "path": "aeos/skills/core/policy-hardening-auditor.skill.md",
+      "sha256": "bc18900256796bab96d645469071baa6d19391b6f2d9a940932138355431ff18",
+      "size_bytes": 853
+    },
+    {
+      "path": "aeos/skills/core/threat-modeler.skill.md",
+      "sha256": "f30268f27827a4201aecd891c6d8fb0d9b6bfb2dd3966a3f8bac662423920d7b",
+      "size_bytes": 878
+    },
+    {
+      "path": "aeos/skills/core/v1-readiness-auditor.skill.md",
+      "sha256": "8e981c34b1514180ee9f57c9e9cab29986527779d18f0e68c6af9e8ea131bab7",
+      "size_bytes": 852
+    },
+    {
+      "path": "aeos/tests/README_TEST_PLAN_v1.md",
+      "sha256": "f6a53fd7a3f4dc9c1b382bb2b012d55de60429328ceadb84bf187c76126c603c",
+      "size_bytes": 633
+    },
+    {
+      "path": "aeos/tests/approval/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/tests/evidence_cache/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/tests/observability/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/tests/pack_marketplace/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/tests/parallel_execution/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/tests/security/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/tests/v1_readiness/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    }
+  ]
+}

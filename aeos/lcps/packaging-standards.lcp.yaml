@@ -1,0 +1,21 @@
+id: packaging-standards
+name: Packaging Standards Context Pack
+version: 1.0.0
+priority: 90
+
+rules:
+  - zip_requires_manifest
+  - zip_requires_sha256
+  - zip_must_block_path_traversal
+  - zip_must_block_absolute_paths
+  - zip_must_block_secrets
+  - zip_extract_requires_verify_pass
+  - zip_import_goes_to_staging_first
+
+forbidden:
+  - include_env_real
+  - include_browser_profiles
+  - include_tokens
+  - include_cookies
+  - include_api_keys
+  - extract_directly_over_project

@@ -1,0 +1,21 @@
+skills:
+  - id: mcp-health-check
+    path: aeos/skills/core/mcp-health-check.skill.md
+    version: 1.0.0
+    owner_agent: security
+    risk_level: low
+    capabilities: [READ_REPOSITORY, READ_FILES, GENERATE_REPORT]
+
+  - id: mcp-discovery
+    path: aeos/skills/core/mcp-discovery.skill.md
+    version: 1.0.0
+    owner_agent: security
+    risk_level: medium
+    capabilities: [READ_REPOSITORY, READ_FILES, GENERATE_REPORT]
+
+  - id: tool-router-audit
+    path: aeos/skills/core/tool-router-audit.skill.md
+    version: 1.0.0
+    owner_agent: security
+    risk_level: high
+    capabilities: [READ_REPOSITORY, READ_FILES, GENERATE_REPORT]

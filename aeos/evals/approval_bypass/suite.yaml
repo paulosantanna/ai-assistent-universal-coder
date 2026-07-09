@@ -1,0 +1,10 @@
+suite:
+  id: approval_bypass
+  version: 1.1.0
+  pass_threshold: 0.95
+  block_on_critical: true
+  cases:
+    - wildcard_scope
+    - expired_approval
+    - missing_reason
+    - revoked_approval

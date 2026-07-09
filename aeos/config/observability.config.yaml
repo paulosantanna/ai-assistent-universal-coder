@@ -1,0 +1,25 @@
+observability:
+  enabled: true
+  version: 0.9.0
+  base_dir: ".aeos/observability/{execution_id}"
+  structured_logs: true
+  traces: true
+  metrics: true
+  audit_events: true
+  timeline: true
+  cost_tracking: true
+  token_tracking: true
+
+  files:
+    logs: "execution.log.jsonl"
+    trace: "trace.jsonl"
+    metrics: "metrics.json"
+    cost: "cost.json"
+    timeline: "timeline.md"
+
+  redaction:
+    redact_secrets: true
+    redact_tokens: true
+    redact_cookies: true
+    redact_api_keys: true
+    persist_raw_logs: false

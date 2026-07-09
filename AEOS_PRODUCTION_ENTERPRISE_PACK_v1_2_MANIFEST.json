@@ -1,0 +1,1514 @@
+{
+  "package": "aeos_production_enterprise_pack_v1_2_multinational",
+  "version": "1.2.0",
+  "created_at": "2026-07-08T22:29:56.966661+00:00",
+  "purpose": "Production enterprise overlay for AEOS, focused on multinational-grade skills, playbooks, prompts, performance, security, observability and governance.",
+  "file_count": 301,
+  "files": [
+    {
+      "path": ".devcontainer/aeos-production/devcontainer.json",
+      "sha256": "c2f382f2911d674c992d38b817f38f68ca2ef2dcdb405f66f70f4406484fc3c7",
+      "size_bytes": 285
+    },
+    {
+      "path": ".github/workflows/aeos-enterprise-ci.template.yml",
+      "sha256": "157573ac746ba82aa0a930b8bc4a7829894f43d4edb8e4794d12c9564383ddde",
+      "size_bytes": 589
+    },
+    {
+      "path": "AEOS_ENTERPRISE_SECURITY_GOVERNANCE.md",
+      "sha256": "eca9c9076edaa7be7399150da40afe3c24c1cfaa93f7758358cc4a4316062b68",
+      "size_bytes": 1357
+    },
+    {
+      "path": "AEOS_PERFORMANCE_ENGINEERING.md",
+      "sha256": "02b46c2e7ea9822d710c3100c64c381b2b2ba473b72ed1a200f44731f9f5a922",
+      "size_bytes": 1273
+    },
+    {
+      "path": "AEOS_PRODUCTION_ARCHITECTURE.md",
+      "sha256": "cec12119b0c81263ddb0a36962c14e5983cb39b16443a46747e4bdf168a19869",
+      "size_bytes": 1242
+    },
+    {
+      "path": "AEOS_PRODUCTION_ENTERPRISE_PACK_v1_2_MANIFEST.json",
+      "sha256": "8eb0fca347b78e7e2a7016e6fdd972bf74da93744b49b7e89be169c067ea1722",
+      "size_bytes": 60517
+    },
+    {
+      "path": "AEOS_PRODUCTION_ENTERPRISE_SPEC.md",
+      "sha256": "7e03be36f181e33955765964742f59d4c17f0a732f300f0a0e6feae35f644fbc",
+      "size_bytes": 1436
+    },
+    {
+      "path": "AEOS_PRODUCTION_READY_CHECKLIST.md",
+      "sha256": "fddc80204a954bedeed9a7dfdd73bbee50414694843a2a897636ea9628885052",
+      "size_bytes": 865
+    },
+    {
+      "path": "INSTALL_PRODUCTION_ENTERPRISE_v1_2.md",
+      "sha256": "99e30749ae9b9dd1606ae39e6bc9b3512a6db7f172cc885f35d23fa35117761a",
+      "size_bytes": 2039
+    },
+    {
+      "path": "aeos/compliance/enterprise/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/compliance/enterprise/AI_RISK_MANAGEMENT_TEMPLATE.md",
+      "sha256": "671d4c90fbea8b0c127a26e7ba271ad07feeb52e165825b9b74addbcee00d929",
+      "size_bytes": 429
+    },
+    {
+      "path": "aeos/compliance/enterprise/CHANGE_ADVISORY_BOARD_TEMPLATE.md",
+      "sha256": "427653642efcbbabc2a9008f5e0ed2c5cccea77189952b49e5878e9606953d41",
+      "size_bytes": 398
+    },
+    {
+      "path": "aeos/compliance/enterprise/DATA_RETENTION_AND_REDACTION_POLICY.md",
+      "sha256": "90a3d91cd2be2af1b62031ce5778676fb5e3fdbb478c4ef0c825be5efde99717",
+      "size_bytes": 411
+    },
+    {
+      "path": "aeos/compliance/enterprise/ENTERPRISE_AUDIT_EXPORT_TEMPLATE.md",
+      "sha256": "7537caf3ceaa25337864068f39504fcbd8a3381476ce383cc374e1442d0a1403",
+      "size_bytes": 418
+    },
+    {
+      "path": "aeos/compliance/enterprise/OBSERVABILITY_EVIDENCE_TEMPLATE.md",
+      "sha256": "01ac22741b23ec42defda806dcc574a9e7854566f01274e390aabbf6735f4d8e",
+      "size_bytes": 406
+    },
+    {
+      "path": "aeos/compliance/enterprise/RELEASE_APPROVAL_TEMPLATE.md",
+      "sha256": "792d7aa670ed0ea6b1913ef178ed850f3bae3622f4c146398de015161e59ac65",
+      "size_bytes": 404
+    },
+    {
+      "path": "aeos/compliance/enterprise/SUPPLY_CHAIN_ATTESTATION_TEMPLATE.md",
+      "sha256": "c5050b6b5611d3d3c20a3382e6f663051224f93d179df88a71116c36202c2633",
+      "size_bytes": 417
+    },
+    {
+      "path": "aeos/config/enterprise-ci-gates.yaml",
+      "sha256": "7c062c9666da61624d87843275837e3b39bfcf95ff43bdfc6d78bbfa3951cdcb",
+      "size_bytes": 483
+    },
+    {
+      "path": "aeos/config/optimized-prompt-policy.yaml",
+      "sha256": "d76a2f9dfb38da953e4c49bbfa6de4e82cccd2a27e7caab5bd9e52ee42d39266",
+      "size_bytes": 539
+    },
+    {
+      "path": "aeos/config/performance-budgets.yaml",
+      "sha256": "9e476534f4b216e78997535d5ca747ef2b11a74232b3f502b0afc4cb270ab77c",
+      "size_bytes": 664
+    },
+    {
+      "path": "aeos/config/production-enterprise.config.yaml",
+      "sha256": "c51d7dd4bed5dc88d60250c166646d716a911c27cbfc0772c1ae2dca77c160fa",
+      "size_bytes": 727
+    },
+    {
+      "path": "aeos/config/slo-sla.config.yaml",
+      "sha256": "f0b1f5dc0ba15a9f38594c44303a54d95b6e75d620ef90ab3b8214324ed36092",
+      "size_bytes": 581
+    },
+    {
+      "path": "aeos/core/judge/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/core/judge/enterprise_judge_gates.py",
+      "sha256": "7bde40aee97fa470ca205efd6d45bfb967d11f855c1eabb87225eb8da834b631",
+      "size_bytes": 491
+    },
+    {
+      "path": "aeos/core/performance/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/core/performance/performance_budget.py",
+      "sha256": "ff4fa2e670be420282a6332eb3d611869f45bad45ab4edcc80e4956fa21c0f52",
+      "size_bytes": 676
+    },
+    {
+      "path": "aeos/core/prompts/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/core/prompts/prompt_optimizer.py",
+      "sha256": "ab3f6f7e2021514c31a74c22f41ad847d86ec2d3e657f455463725e5be9baf4b",
+      "size_bytes": 415
+    },
+    {
+      "path": "aeos/core/scanner/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/core/scanner/fast_repo_scanner.py",
+      "sha256": "d601cf0a14384bbd05ec8061c95ee6c8c84e3517c69017876fd8f63ec048e8e0",
+      "size_bytes": 1057
+    },
+    {
+      "path": "aeos/core/security/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/core/security/enterprise_redactor.py",
+      "sha256": "56e9f264968ce77654d409e8bb840bc39acc122e8ae0c6652ba0a7158491f990",
+      "size_bytes": 657
+    },
+    {
+      "path": "aeos/core/supply_chain/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/core/supply_chain/provenance.py",
+      "sha256": "2389dc120df6de70e559ed4fdae0246da065370fa86f42c99676baaf75ec5d37",
+      "size_bytes": 677
+    },
+    {
+      "path": "aeos/docs/production/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/docs/production/AEOS_ENTERPRISE_PLAYBOOKS_LIBRARY.md",
+      "sha256": "08f9012b6eb8ac92e70e9bf32ac0c6c1d22dc4a32e2a89c7c27454ac3eb2f115",
+      "size_bytes": 312844
+    },
+    {
+      "path": "aeos/docs/production/AEOS_ENTERPRISE_SKILLS_LIBRARY.md",
+      "sha256": "ec35d38717a6db750f89845404b91d176891101697eb425356710476fe553e14",
+      "size_bytes": 313553
+    },
+    {
+      "path": "aeos/docs/production/AEOS_PERFORMANCE_AND_OBSERVABILITY_MANUAL.md",
+      "sha256": "41a49721ffbba54e450fc05bc6dd372adad35c1eff9b034a446aa0b823ae0dd3",
+      "size_bytes": 313425
+    },
+    {
+      "path": "aeos/docs/production/AEOS_PRODUCTION_OPERATIONS_MANUAL.md",
+      "sha256": "46c3b3a3cec451cae137bccde7f88b1f73e78159d2c7aa3ee16816dd3ac1ca07",
+      "size_bytes": 312618
+    },
+    {
+      "path": "aeos/docs/production/AEOS_SECURITY_GOVERNANCE_MANUAL.md",
+      "sha256": "eb03c68986ea7c0e274088ee77b19f6785fbc45fc4bd06d4604af2845efeb880",
+      "size_bytes": 312961
+    },
+    {
+      "path": "aeos/fixtures/performance_traces/trace_shard_00.json",
+      "sha256": "2cbfbca5af50596a2dc818f568bf12b737237f86626948a60b03b8f55501a31c",
+      "size_bytes": 782974
+    },
+    {
+      "path": "aeos/fixtures/performance_traces/trace_shard_01.json",
+      "sha256": "162f7319f6f3b59c04e3eab314e826c763095647adce017601e295a5114a3da7",
+      "size_bytes": 782317
+    },
+    {
+      "path": "aeos/fixtures/performance_traces/trace_shard_02.json",
+      "sha256": "bcf8a9941fe2bdb49c80f295c9613b9c9e76d88cb16d625084ba1e1d900e6570",
+      "size_bytes": 782278
+    },
+    {
+      "path": "aeos/fixtures/performance_traces/trace_shard_03.json",
+      "sha256": "256163a98792d03b01d90acdcde98a019db6c404e583673e0f178fb76803ef2d",
+      "size_bytes": 782195
+    },
+    {
+      "path": "aeos/fixtures/performance_traces/trace_shard_04.json",
+      "sha256": "075d04a73301575dd94f630ff001d2ab8906aa876f91256f04ade78e4705bc22",
+      "size_bytes": 782516
+    },
+    {
+      "path": "aeos/fixtures/performance_traces/trace_shard_05.json",
+      "sha256": "5346ab38dabf7fb7cd1dfc7bbcf6f99ddf26e683203b2a7af17e964a515c3d21",
+      "size_bytes": 782751
+    },
+    {
+      "path": "aeos/fixtures/performance_traces/trace_shard_06.json",
+      "sha256": "4887a720558950ae46271e87030e1f127d139b1337528fe973079bfdffc4cc25",
+      "size_bytes": 782091
+    },
+    {
+      "path": "aeos/fixtures/performance_traces/trace_shard_07.json",
+      "sha256": "e0996f63fe5e12d921f1340e983f47f5e7f8a2e540887e03036045496f5e06bc",
+      "size_bytes": 782347
+    },
+    {
+      "path": "aeos/fixtures/performance_traces/trace_shard_08.json",
+      "sha256": "42cb7ccb215ba8a2dd55f604dc840878a30a18a791aa1ed1194529bdacf78544",
+      "size_bytes": 782070
+    },
+    {
+      "path": "aeos/fixtures/performance_traces/trace_shard_09.json",
+      "sha256": "f319182f09451f8880bb39c69f9ba62fac197c1340ba65eb782f43734a745534",
+      "size_bytes": 782550
+    },
+    {
+      "path": "aeos/fixtures/performance_traces/trace_shard_10.json",
+      "sha256": "746bf07c277cf77e9e487da14e347404474f6839e104f2cf0270f92dfd38e15f",
+      "size_bytes": 781978
+    },
+    {
+      "path": "aeos/fixtures/performance_traces/trace_shard_11.json",
+      "sha256": "adbc5943d399bd15694b860a6ddcb39fc9cb7a07e7af1c01cc4bdff9a8463f94",
+      "size_bytes": 782725
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/approval_governance/approval_governance_00.jsonl",
+      "sha256": "85c596c78768b5ca7de94e8b0341a22badf1c18f6607cb05557ac296a7a71e55",
+      "size_bytes": 530785
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/approval_governance/approval_governance_01.jsonl",
+      "sha256": "44b32d2099331820bafc997f3422968bb0174c8747b6dad28bba59854ffb866c",
+      "size_bytes": 530904
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/approval_governance/approval_governance_02.jsonl",
+      "sha256": "d83caafb4a719c6a8d9c33fa8ae1b685b377fe6a1199abafdb6f56c762eeedc7",
+      "size_bytes": 531438
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/approval_governance/approval_governance_03.jsonl",
+      "sha256": "ff7efeba9af9fb3d49ede007bf9b286fd54681eb810ca71e972efa17448d29f3",
+      "size_bytes": 531453
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/approval_governance/approval_governance_04.jsonl",
+      "sha256": "b1507a76b522971746a417b563ea254a7aad7c57a687306a09feb4eab313d493",
+      "size_bytes": 531235
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/approval_governance/approval_governance_05.jsonl",
+      "sha256": "57cc3056fd18adcdb2cde48f25620afcd1dabc83befeae36572e8f714d0fafeb",
+      "size_bytes": 531564
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/approval_governance/approval_governance_06.jsonl",
+      "sha256": "84a5a64aedf9063b2b648414572e59b4f3d9425b7559c983ce4a4456c9f79bc6",
+      "size_bytes": 531453
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/approval_governance/approval_governance_07.jsonl",
+      "sha256": "458fb7209b0ff83020f19e6228294a2bcdc64347f221d69252893b2ee150aec3",
+      "size_bytes": 531039
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/judge_release/judge_release_00.jsonl",
+      "sha256": "89ed674503259e4983ff1e3bc760365541a23d6d1a9804ab0edab3a613d109a0",
+      "size_bytes": 529467
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/judge_release/judge_release_01.jsonl",
+      "sha256": "298614ba78ac52cb15706078a61b4348d5b35f1a966f1cc7c8083c4727404d13",
+      "size_bytes": 529417
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/judge_release/judge_release_02.jsonl",
+      "sha256": "261a06326f510752ebd69264ed0be191b1e1fb7107bd1ae2a7357bc4ed685757",
+      "size_bytes": 530096
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/judge_release/judge_release_03.jsonl",
+      "sha256": "a1876318d2560a1fe9a986f247178cf6a072308c927a6605850b56f4621658d5",
+      "size_bytes": 529995
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/judge_release/judge_release_04.jsonl",
+      "sha256": "e57a2196d7159e8558d2cb8778776a89dc92d8afd7bc2e1fc73a702baa02397a",
+      "size_bytes": 529453
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/judge_release/judge_release_05.jsonl",
+      "sha256": "d0c48a3381c6e199459dae6155c0ab44543c57974b508358cee167a6fcc54269",
+      "size_bytes": 530104
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/judge_release/judge_release_06.jsonl",
+      "sha256": "8fca67ab4a1d202dc1cd2c45de07892e0da76c9b73a0bcf511691c571be564aa",
+      "size_bytes": 528916
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/judge_release/judge_release_07.jsonl",
+      "sha256": "18c6cb3bdf7b78161e90c4ad3dbc17da825178429ee26113de926a500caa9e96",
+      "size_bytes": 529970
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/large_repo_scan/large_repo_scan_00.jsonl",
+      "sha256": "bae1a139e9d9dcd5d213b92bcd1ca42b5a1a892751009e6b9f9e9f8390c18d94",
+      "size_bytes": 530066
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/large_repo_scan/large_repo_scan_01.jsonl",
+      "sha256": "750475058f32c183c7e616d304447ac84bc6689f3d94696958a283e0fd2cb52e",
+      "size_bytes": 530364
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/large_repo_scan/large_repo_scan_02.jsonl",
+      "sha256": "5021b5b282b58213abe5f97cbd0e18679773b0c34e02a310a8961a67edaa6dee",
+      "size_bytes": 530076
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/large_repo_scan/large_repo_scan_03.jsonl",
+      "sha256": "1865e7162e6c6e45e80803b0fcb408386e96aa784a7ec46d2ef04fd44bed554b",
+      "size_bytes": 530229
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/large_repo_scan/large_repo_scan_04.jsonl",
+      "sha256": "570e9702cdb36f2ee78fb0538c6549d14e9b5377ac0d6b8c0a582754c51beb36",
+      "size_bytes": 530791
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/large_repo_scan/large_repo_scan_05.jsonl",
+      "sha256": "05f4151ffcc0a841e90c0e869321bf4c9337d474b117a92415534b3b07e7aa73",
+      "size_bytes": 529912
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/large_repo_scan/large_repo_scan_06.jsonl",
+      "sha256": "ae0ed7005358e5038f3584be2a7dd66670da9c3b04183636d4782f5f49151bc6",
+      "size_bytes": 529819
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/large_repo_scan/large_repo_scan_07.jsonl",
+      "sha256": "4448f0cbdbf49e7b0bf18da5029000582323f05aefcf3b83e8021020b623bd4b",
+      "size_bytes": 530081
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/mcp_risk/mcp_risk_00.jsonl",
+      "sha256": "9d6bd6fdf0d8ac9b77a7cab3527f3f35b33e16e2614c20a4efa63775fbf5cf1c",
+      "size_bytes": 528681
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/mcp_risk/mcp_risk_01.jsonl",
+      "sha256": "04e0eec8d4de088282c259b4b146ef8d177dec9c7163f7ffb986531dbb392395",
+      "size_bytes": 528295
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/mcp_risk/mcp_risk_02.jsonl",
+      "sha256": "2834dbb787b66757d994f039c06ce48b3f2801e67bcc677290218065ddb3f7ae",
+      "size_bytes": 528640
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/mcp_risk/mcp_risk_03.jsonl",
+      "sha256": "bbbf164525adfd634c52b310f9ad4e9ca7769e66b809f80da24125e0f60d006e",
+      "size_bytes": 528293
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/mcp_risk/mcp_risk_04.jsonl",
+      "sha256": "e875bd30f13e6f0eaf68256a10c30b674d223ddb279c1cbd7766cd34ea266939",
+      "size_bytes": 528589
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/mcp_risk/mcp_risk_05.jsonl",
+      "sha256": "e9e5209e97bccc6ff629ce4ea40e3ad09e3f5f2927ae056ea3311ab148630c42",
+      "size_bytes": 528201
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/mcp_risk/mcp_risk_06.jsonl",
+      "sha256": "689fbbf904ef7d5c7f166cd907ef5ed6d0e80f42c0ff661a74700f5dc1259b8d",
+      "size_bytes": 528740
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/mcp_risk/mcp_risk_07.jsonl",
+      "sha256": "ddbeb907880796038c5ce36f01f250fd5610e8adfa6ea9d0a1aa757b2703a961",
+      "size_bytes": 528703
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/observability_trace/observability_trace_00.jsonl",
+      "sha256": "677d308707ed54f6e354fe344e4b4a43954b46a43b826d08d6ba011322d42e00",
+      "size_bytes": 530784
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/observability_trace/observability_trace_01.jsonl",
+      "sha256": "c48718cd035feecd150fdd6a9c1dd8e5d158d98737cc5dc61ab536e82ccfc683",
+      "size_bytes": 531136
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/observability_trace/observability_trace_02.jsonl",
+      "sha256": "ee564ec569c172edc9d8cbff1f038ebac6b3fed228a24f16d435e40ec75242c7",
+      "size_bytes": 531309
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/observability_trace/observability_trace_03.jsonl",
+      "sha256": "470f1f720a5ee5320ff93a82d68c3dbabe589a8f58d944bde1994026dd282b37",
+      "size_bytes": 531314
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/observability_trace/observability_trace_04.jsonl",
+      "sha256": "68ff1fb61cf9b8956571b3852580395cc6fe06557d3530c64c3e037ba77e8e19",
+      "size_bytes": 531175
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/observability_trace/observability_trace_05.jsonl",
+      "sha256": "74471d5359d4fa97d155b8a3f899ead2d6e449b3420f44d4b6061f7ae1ba78d1",
+      "size_bytes": 530872
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/observability_trace/observability_trace_06.jsonl",
+      "sha256": "d32360bd0d0f2ad464e1b159885217ba1239103e87cfa82a64130b78acc96b69",
+      "size_bytes": 531135
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/observability_trace/observability_trace_07.jsonl",
+      "sha256": "ba67e27cb9b4ba0afb4a461f128b66f0d6d468f565cd6cb821636c3e040b283a",
+      "size_bytes": 530986
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/performance_budget/performance_budget_00.jsonl",
+      "sha256": "77d113ea321b66fbee2580b6e8eef6159485b104cd72d4413c16ad41d581f7ea",
+      "size_bytes": 531277
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/performance_budget/performance_budget_01.jsonl",
+      "sha256": "60a9f1e45a160fb72b70956b57bf3cf7687bc910b30f5b5b67259ac73237d647",
+      "size_bytes": 531073
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/performance_budget/performance_budget_02.jsonl",
+      "sha256": "424fcb208b3f3fb8805f4636424120c52a260c7e8b5ae8c89c21aaac1831e10a",
+      "size_bytes": 530522
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/performance_budget/performance_budget_03.jsonl",
+      "sha256": "2a3394dc92f346fa21396924ceebd3a730f945721b382aef51549ff259bf7e58",
+      "size_bytes": 530988
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/performance_budget/performance_budget_04.jsonl",
+      "sha256": "85bb8b73c75a64e6821ed6470d33e1bc2142f5eed64d70bf39394d243203feb6",
+      "size_bytes": 530609
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/performance_budget/performance_budget_05.jsonl",
+      "sha256": "d0cf06e8df4e39f23ba2e5bd36726438198fca598882b7647653ff14201444f9",
+      "size_bytes": 530605
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/performance_budget/performance_budget_06.jsonl",
+      "sha256": "1b0dde705f26cb1691d2728948d9e06f2fbf079f278bb01eac3788478f443fa3",
+      "size_bytes": 531392
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/performance_budget/performance_budget_07.jsonl",
+      "sha256": "a6c26aaa4d7c58bbeafb22cc36cc7fcd42c2026a0eaee7b1c22fff6fa3260ab8",
+      "size_bytes": 530942
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/playbook_hardening/playbook_hardening_00.jsonl",
+      "sha256": "1e883f6d9b6cc2f0b2eb3355e420a0dd35a3397b327026e541dcc8089086473e",
+      "size_bytes": 531111
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/playbook_hardening/playbook_hardening_01.jsonl",
+      "sha256": "edc9ea119f015b7e9e85cb1f381af6b9651c497460d838a3135b66ae6ec218c9",
+      "size_bytes": 531547
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/playbook_hardening/playbook_hardening_02.jsonl",
+      "sha256": "67502568e932277283d0b04b7eed799d928f25fdeab9ff7bde3e8bf6aab53380",
+      "size_bytes": 530837
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/playbook_hardening/playbook_hardening_03.jsonl",
+      "sha256": "ee833dd7673fb51bde1cda28047330cf308b89f90cd5bc1f4bd3acc97ba3e826",
+      "size_bytes": 530886
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/playbook_hardening/playbook_hardening_04.jsonl",
+      "sha256": "03a761a4d291cb5e92aaf97e3e36c6fdaa19c42853cbc17c4afa02d9ee3705f9",
+      "size_bytes": 531298
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/playbook_hardening/playbook_hardening_05.jsonl",
+      "sha256": "b1a3de4dfc072be68c8e2e41ba81786cc3566ef52903c2c10e085f2cf0025ec6",
+      "size_bytes": 531543
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/playbook_hardening/playbook_hardening_06.jsonl",
+      "sha256": "14295fc7d1e594f3eada8a8c889deb9d87b5ea048780d38707479839c90b5398",
+      "size_bytes": 530780
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/playbook_hardening/playbook_hardening_07.jsonl",
+      "sha256": "97bf295802d36843569b34fa105d523ec242b8c9071704cc833f259ff198293c",
+      "size_bytes": 531619
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/policy_bypass/policy_bypass_00.jsonl",
+      "sha256": "bade891cf996e24a8f30c2d11433d4366baffb852f850176d8afac736452bfc6",
+      "size_bytes": 529667
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/policy_bypass/policy_bypass_01.jsonl",
+      "sha256": "308539437dc77825576c1ced5a04a59b72ebf87537bd5a85b8cf3694b20c70b4",
+      "size_bytes": 529641
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/policy_bypass/policy_bypass_02.jsonl",
+      "sha256": "84727cdb065aba27c2b6023c7a740a80c2f0e8a292c009dc0bbf140eb12d21c2",
+      "size_bytes": 530021
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/policy_bypass/policy_bypass_03.jsonl",
+      "sha256": "e3357df1c752d55196a611323039f07cb72d95e7f00aad86d971f58328f93496",
+      "size_bytes": 529287
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/policy_bypass/policy_bypass_04.jsonl",
+      "sha256": "ac68d4a99efc85181f776a96e170baa26867b0f6bc172b32636117a16d71a720",
+      "size_bytes": 529598
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/policy_bypass/policy_bypass_05.jsonl",
+      "sha256": "5c93375320553e8fb40280ef3266231d231758542bcd87e0267a394c913b3a3f",
+      "size_bytes": 529685
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/policy_bypass/policy_bypass_06.jsonl",
+      "sha256": "aa9aaadc25c224283e51eeaf0e91986d454284da876838c4864c0871ac512d6f",
+      "size_bytes": 529415
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/policy_bypass/policy_bypass_07.jsonl",
+      "sha256": "56b23969902f1cc8ccd0c3c83f7907bd3f14f09effde5fe702d98a051abb53fb",
+      "size_bytes": 529883
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/prompt_optimization/prompt_optimization_00.jsonl",
+      "sha256": "6148f8b4c304a212bc1d5364020a343628302fd6a14f83b6bd735397d242e580",
+      "size_bytes": 530913
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/prompt_optimization/prompt_optimization_01.jsonl",
+      "sha256": "02c65973d618e0baa55389c908164b5bd64eca057afa584ee22174400606bc76",
+      "size_bytes": 531445
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/prompt_optimization/prompt_optimization_02.jsonl",
+      "sha256": "1eae62886408eeb27699378d36f8c2f05ba6b770310ab9320d7830432e95ab48",
+      "size_bytes": 531062
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/prompt_optimization/prompt_optimization_03.jsonl",
+      "sha256": "0f804fcd4a1a84f0749c89117e3bf8e00284b58b2fd5771771f846ba90b53a4c",
+      "size_bytes": 531287
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/prompt_optimization/prompt_optimization_04.jsonl",
+      "sha256": "62a98064301b1fe112de9bf01f8e33ffea4bac5ae59e915ac4a195be9b00ba0e",
+      "size_bytes": 531593
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/prompt_optimization/prompt_optimization_05.jsonl",
+      "sha256": "da1780291fa8df7c9948efe2a708d4188e2a80f211668540685c4a38e9d496b2",
+      "size_bytes": 531362
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/prompt_optimization/prompt_optimization_06.jsonl",
+      "sha256": "c4165ff572f058021f433a2c76e1d889b2256be3fcdc6b18b51b507bf2b0a0eb",
+      "size_bytes": 531086
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/prompt_optimization/prompt_optimization_07.jsonl",
+      "sha256": "01709ae64d2eee268a15c35978945268f1bae07cf8ced1f05ad4b67e72bd0d0b",
+      "size_bytes": 531458
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/secret_redaction/secret_redaction_00.jsonl",
+      "sha256": "83a2fbf18004a1974e4e0233667cdc0fd614c528d80a09a7ad426c0a6974c1c9",
+      "size_bytes": 530391
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/secret_redaction/secret_redaction_01.jsonl",
+      "sha256": "92b56e8f85e897d8bfa370a15ea9072b6fc77079155d281274c7b7aadeaa0388",
+      "size_bytes": 530152
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/secret_redaction/secret_redaction_02.jsonl",
+      "sha256": "e62dd838f427fa4f7760780e3599bb7af3a1876816e444c9b494a130b3fd43c0",
+      "size_bytes": 530400
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/secret_redaction/secret_redaction_03.jsonl",
+      "sha256": "245b768360c7983af5cf54a92fc933a3aeadb03dbd8fe24dd81ea57b0e503b37",
+      "size_bytes": 530749
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/secret_redaction/secret_redaction_04.jsonl",
+      "sha256": "0d1411db8d2cfbb434454b3672d893bb013b34208f320b02c65e03880123dc7e",
+      "size_bytes": 530541
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/secret_redaction/secret_redaction_05.jsonl",
+      "sha256": "1897e814af0b0b411591733c8bc02197bf279b9311fa5780418922ce449ab57c",
+      "size_bytes": 530580
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/secret_redaction/secret_redaction_06.jsonl",
+      "sha256": "25499ec8689511bde5ea6db795c7b55e41f76fcb2aca6e95abf19dca8c8509e5",
+      "size_bytes": 530093
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/secret_redaction/secret_redaction_07.jsonl",
+      "sha256": "ef8a37b56282c952da7b49f8812627b9c98fd7603e94723f416ba910b03a030f",
+      "size_bytes": 530768
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/supply_chain/supply_chain_00.jsonl",
+      "sha256": "7438390166bdccaa667ab82d4bd72f0b6b89522e69955f50bc04d8bb4feb0501",
+      "size_bytes": 529246
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/supply_chain/supply_chain_01.jsonl",
+      "sha256": "01d7d149e18d0c255896024dcd7d4a62d8ac5b55ecd329ea87948dbbd55d367b",
+      "size_bytes": 529714
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/supply_chain/supply_chain_02.jsonl",
+      "sha256": "ef38eba8328d749a2d7ad4e1c5d3f6f928da908723569854c8e91297778a643e",
+      "size_bytes": 528723
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/supply_chain/supply_chain_03.jsonl",
+      "sha256": "05c436268f70618157dcb3a402f9ed39caec936202d30acf3c0587093d1d3466",
+      "size_bytes": 529766
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/supply_chain/supply_chain_04.jsonl",
+      "sha256": "ef8c2533a8b68c4076e6bedb94437955e689a98da788ed8840b0a0ec459b589b",
+      "size_bytes": 529621
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/supply_chain/supply_chain_05.jsonl",
+      "sha256": "9fb3ff719df829dc4b2ab980a857828f8d25448716feb7d35f3cf70c5db85bd3",
+      "size_bytes": 529950
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/supply_chain/supply_chain_06.jsonl",
+      "sha256": "45492d1ce7c52616d9f26d8e38c1f98029d520dff2e00bc3581770fe666a2189",
+      "size_bytes": 529714
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/supply_chain/supply_chain_07.jsonl",
+      "sha256": "92c4f7ecf46aff3f0c427b4b63cd9b1396224b5eead7019ada338157f44f970c",
+      "size_bytes": 530138
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/tool_router_bypass/tool_router_bypass_00.jsonl",
+      "sha256": "30f5017b04992458c65ff26771cf9603f9bc516bbf924c62959f2a1e1fa37fad",
+      "size_bytes": 531201
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/tool_router_bypass/tool_router_bypass_01.jsonl",
+      "sha256": "b37263592654bec08a9f5276c07f72115b03e5959b0ae07f6b0508c88e707bf3",
+      "size_bytes": 530891
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/tool_router_bypass/tool_router_bypass_02.jsonl",
+      "sha256": "8441d49ccc26bc791fed95e542427b853e72b8429b6835a42eb63395918a24a2",
+      "size_bytes": 531331
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/tool_router_bypass/tool_router_bypass_03.jsonl",
+      "sha256": "bb6ec2f87469117b39fb519e47a9622878d5702a37e043aa579e8488c73d5c55",
+      "size_bytes": 531764
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/tool_router_bypass/tool_router_bypass_04.jsonl",
+      "sha256": "3d891608fdc20b113e3f7b707f6a9c4f9428f7e1dc77263bc193a4ffd41f2a51",
+      "size_bytes": 530864
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/tool_router_bypass/tool_router_bypass_05.jsonl",
+      "sha256": "5bc7a9311eb0fa153e6eda2e46e4ee53f38dcf35d81fa513632fd42a311c9e12",
+      "size_bytes": 531041
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/tool_router_bypass/tool_router_bypass_06.jsonl",
+      "sha256": "52368f105f78ca4fd035b9530850cd268669012ed088f054183d0ba4cc093d60",
+      "size_bytes": 531205
+    },
+    {
+      "path": "aeos/fixtures/production_benchmarks/tool_router_bypass/tool_router_bypass_07.jsonl",
+      "sha256": "0747f4509f1048ae0096abd8ab756d81a35f28fdca54828707d34c60b97013cb",
+      "size_bytes": 531008
+    },
+    {
+      "path": "aeos/lcps/enterprise-production.lcp.yaml",
+      "sha256": "f443a340b203469636a8c1c232a191ef706d04fb4dbc9bb20b58cd168f058c56",
+      "size_bytes": 641
+    },
+    {
+      "path": "aeos/playbooks/enterprise/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/playbooks/enterprise/agentic-risk-review.playbook.md",
+      "sha256": "8a510c5fcefecaa7d2e741a2b37281f39511fa8df6bd638a27b341c339aa7577",
+      "size_bytes": 1801
+    },
+    {
+      "path": "aeos/playbooks/enterprise/ci-quality-gates-generation.playbook.md",
+      "sha256": "bdd6bf9b8fc26df281586c3d7028b9fb412cc352f59596a97474382bfdf2e610",
+      "size_bytes": 1815
+    },
+    {
+      "path": "aeos/playbooks/enterprise/controlled-release-candidate.playbook.md",
+      "sha256": "1303ad9b4024831021e02f5f10f206633f35b8ea9abf8ea6569a489669af9f7e",
+      "size_bytes": 1831
+    },
+    {
+      "path": "aeos/playbooks/enterprise/devcontainer-prod-like-generation.playbook.md",
+      "sha256": "df38a68ea27863760f744d52080463ccae241cd5ba7a39d4c9f52734474f04b9",
+      "size_bytes": 1834
+    },
+    {
+      "path": "aeos/playbooks/enterprise/enterprise-compliance-export.playbook.md",
+      "sha256": "1fc2692b82803943b691995209b9cb4b62ea17ce494575f96d23a9ccf8c510ed",
+      "size_bytes": 1816
+    },
+    {
+      "path": "aeos/playbooks/enterprise/enterprise-project-onboarding.playbook.md",
+      "sha256": "c850f46452aab48fc340b8cdb9528d0ac542fb8867780f859f3ae251f52df255",
+      "size_bytes": 1834
+    },
+    {
+      "path": "aeos/playbooks/enterprise/executive-technical-report.playbook.md",
+      "sha256": "74655d04368841e6bfc182d085ef1e207316725407f7823daa754f230bdb7957",
+      "size_bytes": 1825
+    },
+    {
+      "path": "aeos/playbooks/enterprise/incident-response-bootstrap.playbook.md",
+      "sha256": "e016a99ab434043a75f7f8ea4cbbec2432e781b1e7d72ab2c6bb6b79b8b789bb",
+      "size_bytes": 1832
+    },
+    {
+      "path": "aeos/playbooks/enterprise/java-modernization-assessment.playbook.md",
+      "sha256": "2c2d592cd74d42c59038c7cc328ec2752184d761334ddc408e934b750436a851",
+      "size_bytes": 1829
+    },
+    {
+      "path": "aeos/playbooks/enterprise/large-repo-fast-scan.playbook.md",
+      "sha256": "218f6e5e3f99e20175c6c57377b601cdd5a1435c3c911a00c9a5c9f6e56caa71",
+      "size_bytes": 1801
+    },
+    {
+      "path": "aeos/playbooks/enterprise/mcp-production-readiness.playbook.md",
+      "sha256": "6a30398d8f84293f0202ee28ac816168d637e29bfd51d6d3e23c518d1db101a9",
+      "size_bytes": 1814
+    },
+    {
+      "path": "aeos/playbooks/enterprise/multirepo-ecosystem-analysis.playbook.md",
+      "sha256": "dd07542759fd00403114596fb6f88e81ff818a43e55aa61164ceee9db422cbad",
+      "size_bytes": 1819
+    },
+    {
+      "path": "aeos/playbooks/enterprise/observability-stack-generation.playbook.md",
+      "sha256": "a3fb020431081fdb61200f9479901732207bbac451f2926aef9ef79d9cd3d296",
+      "size_bytes": 1836
+    },
+    {
+      "path": "aeos/playbooks/enterprise/package-trust-quarantine-review.playbook.md",
+      "sha256": "91a433e3a4cb167ca75a64730458fe09e044ea21030bc4be526f4e92bbe194db",
+      "size_bytes": 1817
+    },
+    {
+      "path": "aeos/playbooks/enterprise/performance-budget-audit.playbook.md",
+      "sha256": "9475b35197a47461bb7fe22697baeb8b69984179551c696b055c81717a2072d1",
+      "size_bytes": 1816
+    },
+    {
+      "path": "aeos/playbooks/enterprise/playbook-library-hardening.playbook.md",
+      "sha256": "9c9a3b9408292bcf62aeaed271057d38536d16fa1f40b2868ae9d64626a1ab6a",
+      "size_bytes": 1814
+    },
+    {
+      "path": "aeos/playbooks/enterprise/production-readiness-audit.playbook.md",
+      "sha256": "ebef8e4154402fd221b274154244001d80c94cb3a95bf4a69cd2a4e606b0d331",
+      "size_bytes": 1819
+    },
+    {
+      "path": "aeos/playbooks/enterprise/prompt-pack-optimization.playbook.md",
+      "sha256": "cce7415b62fdbf0ad4e5a750231c006c82247d30f7c1ce0e26770eeadfe69ce1",
+      "size_bytes": 1824
+    },
+    {
+      "path": "aeos/playbooks/enterprise/python-ai-rag-production-audit.playbook.md",
+      "sha256": "13444f27c08170f88aac2fbea791e2a015c0945624e7965dc84fb4e30d0a88de",
+      "size_bytes": 1828
+    },
+    {
+      "path": "aeos/playbooks/enterprise/rollback-and-recovery-validation.playbook.md",
+      "sha256": "75fa2923657543ebd30dd8be511db61ecf4440b0c1adddfd170761106be4f4e3",
+      "size_bytes": 1836
+    },
+    {
+      "path": "aeos/playbooks/enterprise/security-hardening-production.playbook.md",
+      "sha256": "c930311dff8bbd0a2ec56dce48c63dca96010b6bea154529d29cc28b225fe8ab",
+      "size_bytes": 1831
+    },
+    {
+      "path": "aeos/playbooks/enterprise/skill-library-hardening.playbook.md",
+      "sha256": "521ea954f12aa02b8eececc425882a3754e04b13f33d0bfc5b66e34e33cdc62e",
+      "size_bytes": 1805
+    },
+    {
+      "path": "aeos/playbooks/enterprise/slo-sla-readiness.playbook.md",
+      "sha256": "83a4fe5fb3f445c8919c0e177548aa14c5e930381965d2ec325d8f9775567299",
+      "size_bytes": 1808
+    },
+    {
+      "path": "aeos/playbooks/enterprise/supply-chain-integrity-audit.playbook.md",
+      "sha256": "e278e6f6f89e0990e6ffe062481785853be3d95be389ddecaac6664dd431477d",
+      "size_bytes": 1822
+    },
+    {
+      "path": "aeos/playbooks/enterprise/test-recovery-enterprise.playbook.md",
+      "sha256": "d17420ae1f228896a1dd5aa4f16545fc66ae46a4aa374992733da2270294b270",
+      "size_bytes": 1819
+    },
+    {
+      "path": "aeos/prompts/micro/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_00.prompt.md",
+      "sha256": "aeb6c1314b88f929470b3ed35e99e73e886ab6c1467f8cd1eb9ba45e68a41fe7",
+      "size_bytes": 751
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_01.prompt.md",
+      "sha256": "8a3e658d98bcfb6401835a8cc3d8f8ba251bf653b888a5aeeeb94047d156a7df",
+      "size_bytes": 759
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_02.prompt.md",
+      "sha256": "c49af7aa1d145dfb700686672828579dba354ec0a2226cca2fa6c68cbb0e0f0b",
+      "size_bytes": 780
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_03.prompt.md",
+      "sha256": "6e2a2cd17e91385cfd581590c43af0030ba4f51891942c42c1abd8d14d67f332",
+      "size_bytes": 780
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_04.prompt.md",
+      "sha256": "fe660cb14ede95629907a4a2ae4131b54ac62388d993f377f8563cf780235c88",
+      "size_bytes": 790
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_05.prompt.md",
+      "sha256": "7609c423c672144573d8703ebcb5f569ac6ef32953ed142494f1beb3f0caa31f",
+      "size_bytes": 761
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_06.prompt.md",
+      "sha256": "6af85ddd718c97e97c789b9771171b914584bbd0dcf8647583909a95da897faa",
+      "size_bytes": 771
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_07.prompt.md",
+      "sha256": "4b07f5fe5aa6169966866ae975e54ab7a84e20d1cc64e761be2df0581193b41d",
+      "size_bytes": 784
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_08.prompt.md",
+      "sha256": "7fb3ac0be42f86c1560794def7cae6a31f4414bb9e6c2ef98d69e98b0d09e8cc",
+      "size_bytes": 739
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_09.prompt.md",
+      "sha256": "8370dee723ccd34e6f24d5220d37097863326ddeb80d8e5bbf7fd3648735933e",
+      "size_bytes": 786
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_10.prompt.md",
+      "sha256": "92d8d985924c2a30e28a2cfae11486efb4c60c3a40d43fa2d8d17f8acdf06356",
+      "size_bytes": 792
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_11.prompt.md",
+      "sha256": "a3de23c24ae7dd99512fdbe61b6910f96d6ece095f05ad233de1809e14487aba",
+      "size_bytes": 764
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_12.prompt.md",
+      "sha256": "fc0df54b24e47d2604e5ed47183f7c4b98189987000a16969d4b81b73f592fb6",
+      "size_bytes": 781
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_13.prompt.md",
+      "sha256": "cae735b93d2b1348c2e6707fc4891cb2bf8897a802f350c727ff88bee047ab93",
+      "size_bytes": 789
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_14.prompt.md",
+      "sha256": "99f24e974f0c2653d52944a9e80b12c5ec7a6ca97cd32141c18b3eb52bc220c8",
+      "size_bytes": 771
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_15.prompt.md",
+      "sha256": "1595508e3f849e1d03ac63ece9c7914f1f940433ea2cee76daf81024426de6fc",
+      "size_bytes": 783
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_16.prompt.md",
+      "sha256": "bd1e36d16fdd113eead6bc10edc0e40c13281110d284d276486a61f99595b527",
+      "size_bytes": 761
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_17.prompt.md",
+      "sha256": "76713265cb4cb54a687ceca1f82c09210f6f9b00811f1cf45db05905fa173442",
+      "size_bytes": 769
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_18.prompt.md",
+      "sha256": "4ae4f56e1ecd20dbd337b0d5173c3ecfa2ee40c6bb3fa45293f1b4bf70b56de6",
+      "size_bytes": 767
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_19.prompt.md",
+      "sha256": "2fa22bfbd5ffa1611e9cb5cfb776e78b273bcee82e59a60022b400437dd37216",
+      "size_bytes": 775
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_20.prompt.md",
+      "sha256": "14f574776cfdc36cb3419dec34f25445b5541db342bbd748929ed127b8378db2",
+      "size_bytes": 770
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_21.prompt.md",
+      "sha256": "60d10efb824dc0bb17cff19b94cc66c7e3eff13cdb9527ef7884bd08c9644b3f",
+      "size_bytes": 770
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_22.prompt.md",
+      "sha256": "9dbabfc2c93cd24825ece9cb8f218dbfd8dce33945dc58a997632e5c42b15d12",
+      "size_bytes": 771
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_23.prompt.md",
+      "sha256": "9c54478eefe1b2f6fd10e33b550df796ee97bef524f23011440df0d6d84620db",
+      "size_bytes": 759
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_24.prompt.md",
+      "sha256": "3b0b65def176f3f86c2e4501d97dcbf0ff11256d37fe1d92752ed1fecab98489",
+      "size_bytes": 793
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_25.prompt.md",
+      "sha256": "279fc98a9be4fecd4da3c35181d967275f88d6d2840811f57d79ad3591178dac",
+      "size_bytes": 764
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_26.prompt.md",
+      "sha256": "f0d8134a3cd058d7ccbb7eb3e605d03b6f1a819c3e96e9df76e08ff5fb8b9435",
+      "size_bytes": 767
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_27.prompt.md",
+      "sha256": "57d1270b19e61941295760ea8f853d823e942f11abaee9aa94e042a1602a1995",
+      "size_bytes": 768
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_28.prompt.md",
+      "sha256": "e3b0df518a2f4cb12e07bf2b2f7064760d8d86a9410ac210be9ccbc9cb7b0f69",
+      "size_bytes": 769
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_29.prompt.md",
+      "sha256": "49085601c790df18b8b30264c856c81f2e6dd851c5e8949d0ad52e05ff18e046",
+      "size_bytes": 771
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_30.prompt.md",
+      "sha256": "0509511c793f6eaf4e435270de05aec7e4591872097a81ae74213863723f1e7c",
+      "size_bytes": 778
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_31.prompt.md",
+      "sha256": "fa01c35cf162c330f545295880f077735cd06496ae1d4b6def4953228c7a091f",
+      "size_bytes": 755
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_32.prompt.md",
+      "sha256": "e6957308acec885f255abfcdcf6baf4e40daf034174b51d6f6f4130c2fe097bc",
+      "size_bytes": 775
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_33.prompt.md",
+      "sha256": "f315572665819101783b97f3454ff7e1d20d83f8305c2b1456ce0f760aeef7c2",
+      "size_bytes": 751
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_34.prompt.md",
+      "sha256": "87508c2899ef626ca89cbf724658021a0b6d48072bd9b0edef7395da48a5e42b",
+      "size_bytes": 768
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_35.prompt.md",
+      "sha256": "8d13f913f0c200d4a048dbebcd0f8d79e40ac33f0bc5c0e6b707692394910d78",
+      "size_bytes": 759
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_36.prompt.md",
+      "sha256": "50261c352dea24f7c69b2f99f77840e5dced2c67d2b0ea8727214fdc1a79dddf",
+      "size_bytes": 771
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_37.prompt.md",
+      "sha256": "5ae573a5009cbde01866ef89ba8806da70553d244ab1bf84d6c53eb30a1ce185",
+      "size_bytes": 751
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_38.prompt.md",
+      "sha256": "54e6ce7442ce19cbbf18413bc819880e32da38b70f9b2b37a867d5859373d1aa",
+      "size_bytes": 785
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_39.prompt.md",
+      "sha256": "320950ff2f3bc9d3642a7cc6bb30c521dd4989628ffcb8fcf5b6ecb98047c4e0",
+      "size_bytes": 754
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_40.prompt.md",
+      "sha256": "b8fbdd4523e7350b2817cdaf827c3fd395787f1660bd7f69480bb64775b6c94a",
+      "size_bytes": 771
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_41.prompt.md",
+      "sha256": "34943bcad2ab402bd263ac68084e1b3359e060bcc56217becdfa7c252015556e",
+      "size_bytes": 766
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_42.prompt.md",
+      "sha256": "1422c4abddf4689e37f9606f251c93d522d7fe1af7e6bcde19ecd20a47645a9b",
+      "size_bytes": 739
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_43.prompt.md",
+      "sha256": "d55559d505a6fbd57f54efd3edbee2410705a2be1a66d718ab8b5ab321b7305c",
+      "size_bytes": 769
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_44.prompt.md",
+      "sha256": "c99b5e37838c876c57cd2158296cf1c92c72565a6c551cb352011702253cea41",
+      "size_bytes": 776
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_45.prompt.md",
+      "sha256": "0fc14543edb9366173f13720031f2cd2698000acf6876745dd09502740b93b72",
+      "size_bytes": 750
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_46.prompt.md",
+      "sha256": "ce5c45ddc93a577aef440686b2e87b01c32a41d79825d6f5e60e3d2d29ebb59b",
+      "size_bytes": 772
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_47.prompt.md",
+      "sha256": "41b681cf433e4d863aa671d43940f53338e9d9891a546a8b9cfee66029d50baa",
+      "size_bytes": 752
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_48.prompt.md",
+      "sha256": "ce53dbdaf39e9ea069f74767d5ff5f6612538dd503aa22e9eb465c63c189f797",
+      "size_bytes": 764
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_49.prompt.md",
+      "sha256": "9b010a40c60488308a78cbd5ff1d24e7a4fe205f81049e1693353618bdb6ca2b",
+      "size_bytes": 791
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_50.prompt.md",
+      "sha256": "76753fa47634a5d88696f403787177bc1c2fd85316a379e04d66e224c726e33b",
+      "size_bytes": 753
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_51.prompt.md",
+      "sha256": "7966f120ce9b1a1b84db5e80c23483c1de86f8db88f0a9ed90cc9eaac7168ffd",
+      "size_bytes": 765
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_52.prompt.md",
+      "sha256": "2772dbe7e7c406b5c596279fe85f1315f918d10a0529b5cfbd5e05d87bca38e0",
+      "size_bytes": 774
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_53.prompt.md",
+      "sha256": "d1b2a4e3a825a18c692cce38010ba970b6ba5e3fe99b2e1bda60f9490cb934ec",
+      "size_bytes": 764
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_54.prompt.md",
+      "sha256": "aee2169b670762c1357ac05e3c7312568ec586bc76f09189f341890d3c049772",
+      "size_bytes": 745
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_55.prompt.md",
+      "sha256": "077a7896f07c9b77ca84ced5f2d1e8e5ff4a349fc2f5fffa7a475bfeb9acf6a2",
+      "size_bytes": 774
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_56.prompt.md",
+      "sha256": "39bd44ed10e58b8f08334a59b0a76b5d23bcf0dbaa93e9ec1e0f97cccd76dd2f",
+      "size_bytes": 787
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_57.prompt.md",
+      "sha256": "551e322d1dc56082d9e06154375b907ff0eea57220808898a8c42dad87c1df44",
+      "size_bytes": 764
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_58.prompt.md",
+      "sha256": "bb138c3bc2f56d24ad1e40beb290032d52e68038adf2660b079df888f37e1ee3",
+      "size_bytes": 743
+    },
+    {
+      "path": "aeos/prompts/micro/enterprise_micro_prompt_59.prompt.md",
+      "sha256": "5fe5d71e7801a7c61e3213adf960cb64d82c6d0d803986fbb44de3dc7227011f",
+      "size_bytes": 771
+    },
+    {
+      "path": "aeos/prompts/production/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/prompts/production/enterprise_project_onboarding.prompt.md",
+      "sha256": "65ddcfa3d0898c250aff185881bf86a31d77e327b30f43a4b852de5ef8eff795",
+      "size_bytes": 1344
+    },
+    {
+      "path": "aeos/prompts/production/executive_report.prompt.md",
+      "sha256": "571177b6094dc15f81b890d896740ed00bac3454067c661c5c3806a4acdaeae4",
+      "size_bytes": 1288
+    },
+    {
+      "path": "aeos/prompts/production/incident_response.prompt.md",
+      "sha256": "9bf7c584f0a2794392b5bd865b33bc2bd9f51b7a9cf3108080b3dbe3d5f4acce",
+      "size_bytes": 1290
+    },
+    {
+      "path": "aeos/prompts/production/java_modernization.prompt.md",
+      "sha256": "832293cc2250548b2c546add00b3efa16354e25114aa1e13b06c713c52fee78a",
+      "size_bytes": 1317
+    },
+    {
+      "path": "aeos/prompts/production/large_repo_fast_scan.prompt.md",
+      "sha256": "40afd3da767c28c9ae3ba0e7347c270ef20b6a2059dda47b24447130071f5bb5",
+      "size_bytes": 1308
+    },
+    {
+      "path": "aeos/prompts/production/mcp_risk_review.prompt.md",
+      "sha256": "7e7840bb49b1c354c3c9c4e06841e0527b98e0f4a5764d06c3d49c0f290f25e8",
+      "size_bytes": 1311
+    },
+    {
+      "path": "aeos/prompts/production/observability_design.prompt.md",
+      "sha256": "11ca23583d521f1ad6d530c0f53a13113d09ee6f0d774de013ea2d8ff1f646d3",
+      "size_bytes": 1311
+    },
+    {
+      "path": "aeos/prompts/production/performance_budget_audit.prompt.md",
+      "sha256": "d793fb2f163aeacde23643fa03b1fa2f861750fd400b3864f540cb537f9e3b6e",
+      "size_bytes": 1293
+    },
+    {
+      "path": "aeos/prompts/production/playbook_optimizer.prompt.md",
+      "sha256": "4729415bf71953d9a9823394465466f2af2c05ff261d260c03f604f7a01c0055",
+      "size_bytes": 1313
+    },
+    {
+      "path": "aeos/prompts/production/prompt_optimizer.prompt.md",
+      "sha256": "dea87caae796a5409a55c3d383cc4b5f2a0b8b013e427b8ae62be8e11e0e8214",
+      "size_bytes": 1315
+    },
+    {
+      "path": "aeos/prompts/production/python_ai_rag_production.prompt.md",
+      "sha256": "d1b46a7d53e15c7c86561135552a811d46dba6d93fa572016c62d8fbdb3990ca",
+      "size_bytes": 1325
+    },
+    {
+      "path": "aeos/prompts/production/release_readiness.prompt.md",
+      "sha256": "38e6704f6c864cb06e99f90a9ed8e2126ecbb780ba2732a6f2868b6ab9a9a62b",
+      "size_bytes": 1298
+    },
+    {
+      "path": "aeos/prompts/production/security_secrets_audit.prompt.md",
+      "sha256": "a635372cc65d964a7bccf56598014bd34dba071d0be7dc8aa4e622e4fe29b21e",
+      "size_bytes": 1308
+    },
+    {
+      "path": "aeos/prompts/production/skill_optimizer.prompt.md",
+      "sha256": "e4abd63d2d7f3ced0d9bf160ddb7ace75c04a15d508705a57d5b26ca8c1253eb",
+      "size_bytes": 1311
+    },
+    {
+      "path": "aeos/prompts/production/supply_chain_audit.prompt.md",
+      "sha256": "53b915090c2ee2adbc4ee8c0227498c99ee3006338549c11a4beb47b68034b56",
+      "size_bytes": 1308
+    },
+    {
+      "path": "aeos/registries/enterprise-playbooks.registry.yaml",
+      "sha256": "720ad4b1d72f3204fe380a15beaeba1a9cc77f0a230412549ef24d04f7975f4f",
+      "size_bytes": 13385
+    },
+    {
+      "path": "aeos/registries/enterprise-skills.registry.yaml",
+      "sha256": "70402c4e38f2a02730aa60b45b9cd73decf3c092df1104ac8f0e5964444ef314",
+      "size_bytes": 6468
+    },
+    {
+      "path": "aeos/runbooks/production/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/runbooks/production/RUNBOOK_COMPLIANCE_AUDIT_REQUEST.md",
+      "sha256": "d65d1aaac1b659f35435d3225e78f98d144ca396074a7e02521006d89f6ba295",
+      "size_bytes": 486
+    },
+    {
+      "path": "aeos/runbooks/production/RUNBOOK_MULTIREPO_SCAN_FAILURE.md",
+      "sha256": "4e2e19f2eb5149251423692bcfc390b20714478c3f8e0e506afb56e53276baf5",
+      "size_bytes": 493
+    },
+    {
+      "path": "aeos/runbooks/production/RUNBOOK_PACKAGE_TAMPERING.md",
+      "sha256": "bc1118220a014af1d2722a54c290c81ff676317c91d02249b0f4b39c87f329fe",
+      "size_bytes": 496
+    },
+    {
+      "path": "aeos/runbooks/production/RUNBOOK_PERFORMANCE_BUDGET_BREACH.md",
+      "sha256": "7755cc0c162cee13dc7a1855eb148b888a0302d3f826ca97401a5e7ec0d04717",
+      "size_bytes": 506
+    },
+    {
+      "path": "aeos/runbooks/production/RUNBOOK_POLICY_BYPASS_ATTEMPT.md",
+      "sha256": "4d5a760585cec19e3c0ce20d299d165beac67094b35727d033fb532cbc380b26",
+      "size_bytes": 490
+    },
+    {
+      "path": "aeos/runbooks/production/RUNBOOK_PRODUCTION_INCIDENT.md",
+      "sha256": "6b550449cca945b1a4f4d37285fbabe343056563533e26a8f8121cb392d2a389",
+      "size_bytes": 514
+    },
+    {
+      "path": "aeos/runbooks/production/RUNBOOK_RELEASE_BLOCKED_BY_JUDGE.md",
+      "sha256": "49bbb8c027185a88f14958c0938800e4aa75e1660ce8ae7921c156d120624b3c",
+      "size_bytes": 490
+    },
+    {
+      "path": "aeos/runbooks/production/RUNBOOK_SECRET_EXPOSURE.md",
+      "sha256": "ed8cb50c2eca01e4fca028d9badefc5cdd0801ab250d41f01db9ea5e0a7c4365",
+      "size_bytes": 527
+    },
+    {
+      "path": "aeos/runbooks/production/RUNBOOK_SUPPLY_CHAIN_RISK.md",
+      "sha256": "19128e840f093f4da0bf44cdb59782feb2c3d1a4cd6bfec6ee3c00549c1fc459",
+      "size_bytes": 471
+    },
+    {
+      "path": "aeos/runbooks/production/RUNBOOK_TOOL_ROUTER_BYPASS.md",
+      "sha256": "75b2eff9a701774e63ade734c1253d68655e4541d495b80a18080d36ffeca693",
+      "size_bytes": 488
+    },
+    {
+      "path": "aeos/skills/enterprise/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/skills/enterprise/adr-decision-writer.skill.md",
+      "sha256": "ffd00e1645928cd35831f9d706a24bcef6377a016635df34bec4df9f3451f331",
+      "size_bytes": 1875
+    },
+    {
+      "path": "aeos/skills/enterprise/approval-governance-auditor.skill.md",
+      "sha256": "84ea20e401c5ef1c3500e512a0e53efb42ad8a792236ae505fd67cb756c826f7",
+      "size_bytes": 1896
+    },
+    {
+      "path": "aeos/skills/enterprise/ci-quality-gate-engineer.skill.md",
+      "sha256": "4bc12f74254b6896c78c9b246bd2d3917de718fd6571e1ad28a44d491c4a90e5",
+      "size_bytes": 1894
+    },
+    {
+      "path": "aeos/skills/enterprise/compliance-evidence-exporter.skill.md",
+      "sha256": "3628315c3917c6a97cb17cc7b9bb0cff92d4a64acf9894fcc6c13f81f7400d3a",
+      "size_bytes": 1897
+    },
+    {
+      "path": "aeos/skills/enterprise/cost-token-optimizer.skill.md",
+      "sha256": "a93d36bcbc86cdda064a5ac2e28c6e9ff364dd6dc2bb8e732f204fa140bbb599",
+      "size_bytes": 1898
+    },
+    {
+      "path": "aeos/skills/enterprise/docker-devcontainer-engineer.skill.md",
+      "sha256": "dfbc12a1bb11d1bef29f2b77ab6a7a040239bf501c0de3b9c9fe37978f471c17",
+      "size_bytes": 1896
+    },
+    {
+      "path": "aeos/skills/enterprise/enterprise-repo-intelligence.skill.md",
+      "sha256": "7ff5db95f7f2248c8d8c8e5424de401f3e2b2ac5c39bb84b8e8adbca942ffc91",
+      "size_bytes": 1918
+    },
+    {
+      "path": "aeos/skills/enterprise/evidence-integrity-engineer.skill.md",
+      "sha256": "00f674ae5cc3f438732d3b6442e31cd51dbecccb07a29de4a7bb187a794a8860",
+      "size_bytes": 1898
+    },
+    {
+      "path": "aeos/skills/enterprise/incident-commander.skill.md",
+      "sha256": "92ca3c61a09f41c1663a007c5e193b6177cdef027b98a572e0f73086c51d4472",
+      "size_bytes": 1886
+    },
+    {
+      "path": "aeos/skills/enterprise/java-enterprise-modernizer.skill.md",
+      "sha256": "a36f3b54283c319a8e14bab865393699c495554df672040647a33d991203f0af",
+      "size_bytes": 1908
+    },
+    {
+      "path": "aeos/skills/enterprise/legacy-risk-mapper.skill.md",
+      "sha256": "47c0ea21f8feb4ca835063caccafa32ac676517c66b1df0f7bb29a7e6243996f",
+      "size_bytes": 1890
+    },
+    {
+      "path": "aeos/skills/enterprise/mcp-risk-controller.skill.md",
+      "sha256": "f4b0f22f8adac5de859166f109151e4eb9c7eed6d02d552d244c447ac88ca813",
+      "size_bytes": 1892
+    },
+    {
+      "path": "aeos/skills/enterprise/multirepo-ecosystem-mapper.skill.md",
+      "sha256": "15527a29f1da172f40d27fc179329f9bd09c922c1e6e9a1e67908b9a111eceb0",
+      "size_bytes": 1907
+    },
+    {
+      "path": "aeos/skills/enterprise/observability-architect.skill.md",
+      "sha256": "0025675495d061b02c73ecaf5f9c20499584a884a23d7cb9396d84b6f0ef4aa6",
+      "size_bytes": 1890
+    },
+    {
+      "path": "aeos/skills/enterprise/package-trust-engineer.skill.md",
+      "sha256": "e4c77078fb2b7be161a5527c17e3b04c13f848f8457e8813edcfba2c00727c88",
+      "size_bytes": 1887
+    },
+    {
+      "path": "aeos/skills/enterprise/performance-profiler.skill.md",
+      "sha256": "0df8563860dd4aaa0c57ea8883152219aea87d9cc3eb11394b3f9c42f23f79a9",
+      "size_bytes": 1915
+    },
+    {
+      "path": "aeos/skills/enterprise/playbook-optimizer.skill.md",
+      "sha256": "33fea2053a2ff132e79cca76b3418b66977a42e4072af4af547bf3a2786dd924",
+      "size_bytes": 1893
+    },
+    {
+      "path": "aeos/skills/enterprise/prompt-optimizer.skill.md",
+      "sha256": "e54a4a3dd079cdd1e84ccc1caea23454c7dc767f43a94d05f7294b4426de9e81",
+      "size_bytes": 1886
+    },
+    {
+      "path": "aeos/skills/enterprise/python-ai-productionizer.skill.md",
+      "sha256": "96430e194cb7d961f05949a239f3b2b21de8a87df68f9c55cfe67fc92b92e6bb",
+      "size_bytes": 1893
+    },
+    {
+      "path": "aeos/skills/enterprise/release-readiness-judge.skill.md",
+      "sha256": "77869265faa1125ec6b429a0290f0436ad5a8e2edf5acd2f173a88a1a0a7d375",
+      "size_bytes": 1889
+    },
+    {
+      "path": "aeos/skills/enterprise/secret-redaction-specialist.skill.md",
+      "sha256": "759cebe0458cc5172054f973cc9215536189e1d40d1473b821ba15586d7d4b10",
+      "size_bytes": 1905
+    },
+    {
+      "path": "aeos/skills/enterprise/skill-hardener.skill.md",
+      "sha256": "d5176b97afe7f2c9892b2ce640abb97f6f5e925032484a0038845314514adc16",
+      "size_bytes": 1884
+    },
+    {
+      "path": "aeos/skills/enterprise/slo-risk-analyzer.skill.md",
+      "sha256": "bdbeaaa50169d7a5bfdff39658806ba4e066d17ce3ad21556fcf1d43004061fb",
+      "size_bytes": 1886
+    },
+    {
+      "path": "aeos/skills/enterprise/supply-chain-auditor.skill.md",
+      "sha256": "344a9498c57646baff935b243b548b1bc7e7c884cd7a33bc1bd558170161bc89",
+      "size_bytes": 1898
+    },
+    {
+      "path": "aeos/skills/enterprise/test-strategy-architect.skill.md",
+      "sha256": "aebcb18d08a5f0b90aa3fcbc14057b5062c1f930af19b0377ba8e8bf7d660a8e",
+      "size_bytes": 1914
+    },
+    {
+      "path": "aeos/templates/ci/github-actions/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/templates/ci/github-actions/production-quality-gates.yml",
+      "sha256": "52c04fc727958efb3246ffd9621f310ffea60d69885137022617bd76cd08f964",
+      "size_bytes": 494
+    },
+    {
+      "path": "aeos/templates/observability/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/templates/observability/grafana-aeos-dashboard.json",
+      "sha256": "48ddbe12c9d258929c95104e43ad610a5d378e0d96b4ba68cb4591a3431c773f",
+      "size_bytes": 905
+    },
+    {
+      "path": "aeos/templates/observability/otel-collector-config.yaml",
+      "sha256": "815fb5d6ce9c5922aec91f66e1945a117ad62539696d8bdebe0ce5d2f990f9e6",
+      "size_bytes": 413
+    },
+    {
+      "path": "aeos/tests/enterprise/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/tests/enterprise/test_performance_budget.py",
+      "sha256": "207063476dff8f20e05ddc5301c626d9673f3a02f426106acec2893aef727888",
+      "size_bytes": 436
+    },
+    {
+      "path": "aeos/tests/enterprise/test_provenance.py",
+      "sha256": "1bd54c12deeae618955f9c7dafbba2d19e3f70f6da4783a241700ae1b56a87d0",
+      "size_bytes": 280
+    },
+    {
+      "path": "aeos/tests/enterprise/test_redactor.py",
+      "sha256": "9bd54872bd5be61757fdc652c4aae8a717cc444e8d946722947b4bebb4ee03d5",
+      "size_bytes": 244
+    },
+    {
+      "path": "docker-compose.aeos-observability.template.yml",
+      "sha256": "a3d96ba4f448f42f31df73ff9ae8648f9d32bbd3a496a4e76a21f843e83388cf",
+      "size_bytes": 233
+    }
+  ]
+}

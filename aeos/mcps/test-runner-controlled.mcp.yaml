@@ -1,0 +1,40 @@
+mcp:
+  id: test-runner-controlled
+  type: test-runner
+  transport: stdio
+  command: "aeos-mcp-test-runner"
+  args: ["--mode", "controlled"]
+  risk_level: medium
+  timeout_seconds: 600
+  retries: 0
+  approval_required: false
+  redaction_required: true
+
+tools:
+  - name: test.detect
+  - name: test.run_allowlisted
+
+allowed_commands:
+  - "mvn test"
+  - "./mvnw test"
+  - "gradle test"
+  - "./gradlew test"
+  - "pytest"
+  - "npm test"
+  - "pnpm test"
+
+blocked_patterns:
+  - "rm -rf"
+  - "del /s"
+  - "format"
+  - "sudo"
+  - "curl | sh"
+  - "wget | sh"
+  - "&&"
+  - ";"
+  - "|"
+
+rules:
+  shell_chaining_allowed: false
+  persist_raw_output: false
+  persist_redacted_output: true

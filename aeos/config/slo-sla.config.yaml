@@ -1,0 +1,22 @@
+slo:
+  availability_target: "99.5%"
+  evidence_integrity_target: "100%"
+  secret_redaction_target: "100%"
+  judge_deterministic_gate_target: "100%"
+  package_verify_target: "100%"
+  tool_router_bypass_tolerance: "0"
+  policy_bypass_tolerance: "0"
+
+error_budgets:
+  failed_noncritical_evals_monthly: 5
+  performance_budget_breaches_weekly: 3
+  blocked_unsafe_action_tolerance: unlimited
+
+sla_templates:
+  enterprise_internal:
+    support_window: business_hours
+    response:
+      critical: "4h"
+      high: "1 business day"
+      medium: "3 business days"
+      low: "best effort"

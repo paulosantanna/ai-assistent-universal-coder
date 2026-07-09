@@ -1,0 +1,20 @@
+profile:
+  id: incident-response
+  version: 1.1.0
+  lcps: ["global-rules", "security-governance"]
+  default_playbooks:
+    - project-analysis
+    - documentation-generation
+    - security-secrets-audit
+    - test-recovery
+  forbidden_actions:
+    - auto_merge
+    - auto_deploy
+    - unrestricted_shell
+    - raw_secret_read
+  required_judge_gates:
+    - evidence_present
+    - policy_pass
+    - permission_pass
+    - secret_redaction_pass
+    - rollback_when_mutation

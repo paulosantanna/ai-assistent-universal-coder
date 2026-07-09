@@ -1,0 +1,56 @@
+skills:
+  - id: parallel-scheduler
+    path: aeos/skills/core/parallel-scheduler.skill.md
+    version: 1.0.0
+    owner_agent: planner
+    risk_level: medium
+    capabilities: [GENERATE_REPORT, GENERATE_EVIDENCE]
+
+  - id: conflict-detector
+    path: aeos/skills/core/conflict-detector.skill.md
+    version: 1.0.0
+    owner_agent: security
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT]
+
+  - id: evidence-cache-auditor
+    path: aeos/skills/core/evidence-cache-auditor.skill.md
+    version: 1.0.0
+    owner_agent: security
+    risk_level: medium
+    capabilities: [READ_FILES, GENERATE_REPORT]
+
+  - id: observability-reporter
+    path: aeos/skills/core/observability-reporter.skill.md
+    version: 1.0.0
+    owner_agent: root
+    risk_level: low
+    capabilities: [READ_FILES, GENERATE_REPORT]
+
+  - id: pack-marketplace-auditor
+    path: aeos/skills/core/pack-marketplace-auditor.skill.md
+    version: 1.0.0
+    owner_agent: security
+    risk_level: high
+    capabilities: [PACKAGE_VERIFY, READ_FILES, GENERATE_REPORT]
+
+  - id: threat-modeler
+    path: aeos/skills/core/threat-modeler.skill.md
+    version: 1.0.0
+    owner_agent: security
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT]
+
+  - id: policy-hardening-auditor
+    path: aeos/skills/core/policy-hardening-auditor.skill.md
+    version: 1.0.0
+    owner_agent: security
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT]
+
+  - id: v1-readiness-auditor
+    path: aeos/skills/core/v1-readiness-auditor.skill.md
+    version: 1.0.0
+    owner_agent: judge
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT]

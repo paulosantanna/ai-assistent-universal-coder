@@ -1,0 +1,91 @@
+skills:
+  - id: workbench-profile-resolver
+    path: aeos/skills/core/workbench-profile-resolver.skill.md
+    version: 1.1.0
+    owner_agent: security
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: blueprint-generator
+    path: aeos/skills/core/blueprint-generator.skill.md
+    version: 1.1.0
+    owner_agent: security
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: skill-factory-generator
+    path: aeos/skills/core/skill-factory-generator.skill.md
+    version: 1.1.0
+    owner_agent: security
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: playbook-factory-generator
+    path: aeos/skills/core/playbook-factory-generator.skill.md
+    version: 1.1.0
+    owner_agent: security
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: evaluation-runner
+    path: aeos/skills/core/evaluation-runner.skill.md
+    version: 1.1.0
+    owner_agent: security
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: enterprise-security-auditor
+    path: aeos/skills/core/enterprise-security-auditor.skill.md
+    version: 1.1.0
+    owner_agent: security
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: compliance-audit-exporter
+    path: aeos/skills/core/compliance-audit-exporter.skill.md
+    version: 1.1.0
+    owner_agent: security
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: marketplace-curator
+    path: aeos/skills/core/marketplace-curator.skill.md
+    version: 1.1.0
+    owner_agent: security
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: unique-environment-auditor
+    path: aeos/skills/core/unique-environment-auditor.skill.md
+    version: 1.1.0
+    owner_agent: security
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: fixture-corpus-validator
+    path: aeos/skills/core/fixture-corpus-validator.skill.md
+    version: 1.1.0
+    owner_agent: security
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: redaction-evaluator
+    path: aeos/skills/core/redaction-evaluator.skill.md
+    version: 1.1.0
+    owner_agent: security
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: anti-hallucination-evaluator
+    path: aeos/skills/core/anti-hallucination-evaluator.skill.md
+    version: 1.1.0
+    owner_agent: security
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: mcp-poisoning-evaluator
+    path: aeos/skills/core/mcp-poisoning-evaluator.skill.md
+    version: 1.1.0
+    owner_agent: security
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: policy-bypass-evaluator
+    path: aeos/skills/core/policy-bypass-evaluator.skill.md
+    version: 1.1.0
+    owner_agent: security
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: judge-benchmark-runner
+    path: aeos/skills/core/judge-benchmark-runner.skill.md
+    version: 1.1.0
+    owner_agent: security
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]

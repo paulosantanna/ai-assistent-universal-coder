@@ -1,0 +1,1434 @@
+{
+  "package": "aeos_unique_environment_pack_v1_1_enterprise",
+  "version": "1.1.0",
+  "created_at": "2026-07-08T22:23:31.730545+00:00",
+  "purpose": "Large enterprise overlay for AEOS unique AI-first engineering environment.",
+  "file_count": 285,
+  "files": [
+    {
+      "path": "AEOS_ENTERPRISE_ARCHITECTURE.md",
+      "sha256": "6a0a8423c0bce3b03316015db5757dd35a8eed055688e3043c5834c14870fde8",
+      "size_bytes": 1088
+    },
+    {
+      "path": "AEOS_UNIQUE_ENVIRONMENT_PACK_v1_1_MANIFEST.json",
+      "sha256": "d3b3f18f773aa6e47d4fe2ac0a230387e7ad402e2413dbaa5f95726ff38f11a4",
+      "size_bytes": 56379
+    },
+    {
+      "path": "AEOS_UNIQUE_ENVIRONMENT_SPEC.md",
+      "sha256": "68bf1fecb282278a6f72f6b9d03d2ce66aec6755759392841a710a1782232f94",
+      "size_bytes": 1582
+    },
+    {
+      "path": "AEOS_V1_1_ROADMAP.md",
+      "sha256": "05b48f795468f553a860faa92cde22c0f891c163a03908bf4432dc45ecbbdbc9",
+      "size_bytes": 1101
+    },
+    {
+      "path": "AEOS_WORKBENCH_PROFILES.md",
+      "sha256": "9599a8988e751af880faf30c78d5edda21094d2d6ecb166cd2008654dcf4f0b3",
+      "size_bytes": 793
+    },
+    {
+      "path": "INSTALL_v1_1_ENTERPRISE.md",
+      "sha256": "2dc7b6ba01e9ada8e5707f3ad70fd9f9b2393d8d770af89f74dc6129ac27b190",
+      "size_bytes": 2060
+    },
+    {
+      "path": "aeos/blueprints/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/blueprints/fullstack-docker-compose.blueprint.yaml",
+      "sha256": "f2a402f1ba33d0888477d350ccc3c9e42fdf71f26b958d425c11b839a7f0ceeb",
+      "size_bytes": 272
+    },
+    {
+      "path": "aeos/blueprints/incident-response-standard.blueprint.yaml",
+      "sha256": "a5a5210c55acac0fea2772fb795d2fb9160919892a1be92609a0ed8188ebd012",
+      "size_bytes": 270
+    },
+    {
+      "path": "aeos/blueprints/java-spring-enterprise.blueprint.yaml",
+      "sha256": "1f0fed7acf6999bfcf1db7b3666e96f05d765de5a20b415c4f4e79ac2cc32b1f",
+      "size_bytes": 294
+    },
+    {
+      "path": "aeos/blueprints/observability-local-stack.blueprint.yaml",
+      "sha256": "9deeee6ad62285132e8017ffd93eb60b31c6969eac81a56963e828be3df61969",
+      "size_bytes": 284
+    },
+    {
+      "path": "aeos/blueprints/python-fastapi-rag.blueprint.yaml",
+      "sha256": "72844e6b38b00b3ba81aa2aac38a652d08bd485a51a994a983524b2adeb5b687",
+      "size_bytes": 266
+    },
+    {
+      "path": "aeos/blueprints/secure-ci-github-actions.blueprint.yaml",
+      "sha256": "6668c2d3712ae3447f12a6f9d62cfcf41a0004ad09d9eefd6d103b20a25d98ea",
+      "size_bytes": 279
+    },
+    {
+      "path": "aeos/compliance/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/compliance/AUDIT_LOG_RETENTION_POLICY.md",
+      "sha256": "9577291b9cfbe49dfec15bd98ffa839351aabcc0b0c9a6057bafc239583ae0af",
+      "size_bytes": 336
+    },
+    {
+      "path": "aeos/compliance/LGPD_GDPR_AUDIT_TEMPLATE.md",
+      "sha256": "22ec031ff22b4dce74c70d46c5a179c3ad1db53ca80cdd50aa4f72971bca39b9",
+      "size_bytes": 406
+    },
+    {
+      "path": "aeos/compliance/SECURE_SDLC_CHECKLIST.md",
+      "sha256": "42d48ccac67b72feda247880bc9d2c949af4fb668c0317f1f55ccf20c46a635d",
+      "size_bytes": 256
+    },
+    {
+      "path": "aeos/config/blueprint-engine.config.yaml",
+      "sha256": "a7a7d4bb4db891d75ad697430446977aec164b0de84b45710cf50da4cdf79c95",
+      "size_bytes": 401
+    },
+    {
+      "path": "aeos/config/compliance.config.yaml",
+      "sha256": "bf2725d1a190aa70255dedb35c328f77c15364e92f73a6b3cd00633ac3eafd00",
+      "size_bytes": 360
+    },
+    {
+      "path": "aeos/config/enterprise-security.config.yaml",
+      "sha256": "95d31968f47d055e0493d146da8d3919115beba9e6ab19bbc986a12191b2dc04",
+      "size_bytes": 520
+    },
+    {
+      "path": "aeos/config/evaluation-harness.config.yaml",
+      "sha256": "f036c3fdd8b2fb55a7d47be0414c7f17c17dd49191f721395c59f85a478a8be2",
+      "size_bytes": 432
+    },
+    {
+      "path": "aeos/config/workbench-profiles.config.yaml",
+      "sha256": "7466baec6b6e7a8906d39a5756c6017cd3510e38d7225d2a143d547348dead7c",
+      "size_bytes": 1376
+    },
+    {
+      "path": "aeos/core/blueprints/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/core/blueprints/blueprint_engine.py",
+      "sha256": "f5c9a6a8a12be6acb47f5227720623ebb9e465fb28318caf767e147bfe6ffa1a",
+      "size_bytes": 693
+    },
+    {
+      "path": "aeos/core/compliance/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/core/compliance/audit_exporter.py",
+      "sha256": "07b9b1f925d47dd5ace1ffcee3a153756ea89bb6d9143f56fde7b29163327a7f",
+      "size_bytes": 539
+    },
+    {
+      "path": "aeos/core/evals/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/core/evals/evaluation_runner.py",
+      "sha256": "f953be0ee2f87f3ad6a27306f2582a486ff4de5632072897637981cd500a535f",
+      "size_bytes": 436
+    },
+    {
+      "path": "aeos/core/judge/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/core/judge/judge_enterprise_gates.py",
+      "sha256": "2ff6e5cdf2e833c3380768b50911e4ffea0b4ec4cc83db76de8a79a69787dc7e",
+      "size_bytes": 421
+    },
+    {
+      "path": "aeos/core/profiles/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/core/profiles/profile_resolver.py",
+      "sha256": "6011036aa80d65b3be8dbd4f6fd9e959a07c604fa85bd2197cc8d63715bc6244",
+      "size_bytes": 760
+    },
+    {
+      "path": "aeos/core/security/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/core/security/redaction_patterns.py",
+      "sha256": "324be946fa99be645522b698c69cdcf52d3be6d5d5b720fc119cfe8328f30761",
+      "size_bytes": 289
+    },
+    {
+      "path": "aeos/docs/manuals/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/docs/manuals/AEOS_ENTERPRISE_PLAYBOOK_LIBRARY.md",
+      "sha256": "8afc6d87a85e2c559d82dbd778ee15af98cdb9c1984f43e1cb3a35dd0b6b9da5",
+      "size_bytes": 338185
+    },
+    {
+      "path": "aeos/docs/manuals/AEOS_SECURITY_AND_JUDGE_MEGA_GUIDE.md",
+      "sha256": "ea198a73794c807e63a5f080ad819deb9f60de6b8ceef9d3df7333f3b914bf3c",
+      "size_bytes": 338423
+    },
+    {
+      "path": "aeos/docs/manuals/AEOS_SKILL_FACTORY_LIBRARY.md",
+      "sha256": "0ee424edeac11cfc77367086b2d4409fcca18c1f84afbde56cc23bf7a24e59d8",
+      "size_bytes": 339384
+    },
+    {
+      "path": "aeos/docs/manuals/AEOS_UNIQUE_ENVIRONMENT_MANUAL.md",
+      "sha256": "313906f4373b5958057801ddb3bf8fe94a8db343b7291ae8d7161513e7433d56",
+      "size_bytes": 337659
+    },
+    {
+      "path": "aeos/evals/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/evals/agent_scope/cases/missing_trace.case.md",
+      "sha256": "4194d58827cd64c67183da0cda167dfab81d9483ae23574b2817f8a8246df866",
+      "size_bytes": 400
+    },
+    {
+      "path": "aeos/evals/agent_scope/cases/scope_expansion.case.md",
+      "sha256": "84a7e01f3c2929f987984a32d92def74046ed3f98ae4227089954df8bfb0c6eb",
+      "size_bytes": 404
+    },
+    {
+      "path": "aeos/evals/agent_scope/cases/self_judging.case.md",
+      "sha256": "70e9e38b927cfdb8763c77b6bcce7d4cab87e3196aa1eedbbc9e9bfc9849903d",
+      "size_bytes": 398
+    },
+    {
+      "path": "aeos/evals/agent_scope/cases/unauthorized_delegation.case.md",
+      "sha256": "9ee88edf3f880f024b293325dac1ed880b08cde88f073109c36261ecad1b1ced",
+      "size_bytes": 420
+    },
+    {
+      "path": "aeos/evals/agent_scope/suite.yaml",
+      "sha256": "4bb05628a4570c90f33ced05985d0e89db45d4b09267b83679076088bae9a26d",
+      "size_bytes": 191
+    },
+    {
+      "path": "aeos/evals/anti_hallucination/cases/citation_required.case.md",
+      "sha256": "685c452059d090d5a9269a1c1949badbb7545121ce1da285c81bf72234ff31a8",
+      "size_bytes": 415
+    },
+    {
+      "path": "aeos/evals/anti_hallucination/cases/confidence_threshold.case.md",
+      "sha256": "b032933e6171f13ad053a6ed39a69b6453b5078637df4b372dfccf78d2ec44c4",
+      "size_bytes": 421
+    },
+    {
+      "path": "aeos/evals/anti_hallucination/cases/fact_vs_assumption.case.md",
+      "sha256": "25a83836308cc5c3cf3d0275111750fd5100cbf07fd7c61095cb190961263c7f",
+      "size_bytes": 417
+    },
+    {
+      "path": "aeos/evals/anti_hallucination/cases/unsupported_claims.case.md",
+      "sha256": "acb7a6118d2e67e7b81b2f366c7990a03d8be606496ea9246f109920d1d6e747",
+      "size_bytes": 417
+    },
+    {
+      "path": "aeos/evals/anti_hallucination/suite.yaml",
+      "sha256": "62d1c80531952332f7c7102a8f7b4371d4b3e1659b2afd45610c5297fe65be0e",
+      "size_bytes": 208
+    },
+    {
+      "path": "aeos/evals/approval_bypass/cases/expired_approval.case.md",
+      "sha256": "f50804df0643d5f2ac340c72ef23f75b9e8e5a2791ba25cb41d9fbe04e7ed782",
+      "size_bytes": 410
+    },
+    {
+      "path": "aeos/evals/approval_bypass/cases/missing_reason.case.md",
+      "sha256": "26872fe783d47a2bd80302bd78abc77f62601eb5a5f3346a7c43c8c695acf2ca",
+      "size_bytes": 406
+    },
+    {
+      "path": "aeos/evals/approval_bypass/cases/revoked_approval.case.md",
+      "sha256": "fd5086f93f936c301fc37d67c720a1aebca25099689b90d4ba85009157dad1ec",
+      "size_bytes": 410
+    },
+    {
+      "path": "aeos/evals/approval_bypass/cases/wildcard_scope.case.md",
+      "sha256": "7a99c4c7bc354c7ec5dd928488ff7d5372b7fb219e96d93e16411e0550857326",
+      "size_bytes": 406
+    },
+    {
+      "path": "aeos/evals/approval_bypass/suite.yaml",
+      "sha256": "8a8dd927d644dfeab8c016c723456350708cbbd3a03ca5add9740b9a180f8a47",
+      "size_bytes": 192
+    },
+    {
+      "path": "aeos/evals/cache_poisoning/cases/policy_change_ignored.case.md",
+      "sha256": "eb78cb8c43b6c88632ffc5d236d4413218b80afca25f944123203b731c4975de",
+      "size_bytes": 420
+    },
+    {
+      "path": "aeos/evals/cache_poisoning/cases/secret_cached.case.md",
+      "sha256": "0d5686afaab6467cbb21d80313da846c43c42c763859555e385982196a5e090a",
+      "size_bytes": 404
+    },
+    {
+      "path": "aeos/evals/cache_poisoning/cases/stale_input.case.md",
+      "sha256": "e6dd24092ed262ee487e0ce9a2e7359e38caa2b349f5dda13af8401c7d41d90e",
+      "size_bytes": 400
+    },
+    {
+      "path": "aeos/evals/cache_poisoning/cases/weak_key.case.md",
+      "sha256": "16c425086925296e1d0cf39eb4612730b4db5c3e0f4f750459efbc745e5ec732",
+      "size_bytes": 394
+    },
+    {
+      "path": "aeos/evals/cache_poisoning/suite.yaml",
+      "sha256": "e107c3a53cbc76c445fec06b9354f5b0b3f666a117cb98b9d2f1a67282ccb17e",
+      "size_bytes": 185
+    },
+    {
+      "path": "aeos/evals/evidence_integrity/cases/hash_chain_gap.case.md",
+      "sha256": "59a9404265b97bdd678713adcfaf96c3f73f8cc0bdd11c2d6b61adeebfb478d7",
+      "size_bytes": 409
+    },
+    {
+      "path": "aeos/evals/evidence_integrity/cases/hash_mismatch.case.md",
+      "sha256": "ac6d6ba97e59747926c305588a70fff014984b9171c6ade475f3ac2d65919204",
+      "size_bytes": 407
+    },
+    {
+      "path": "aeos/evals/evidence_integrity/cases/missing_manifest.case.md",
+      "sha256": "5d2f4b4d7a30b185b97527e8e244cd932d7d41336c0cf4a1a334f5ba976f37bc",
+      "size_bytes": 413
+    },
+    {
+      "path": "aeos/evals/evidence_integrity/cases/tampered_report.case.md",
+      "sha256": "14d92964f9423e842e2d6838f0b81d543474b17c5e897e8ac81845399090febc",
+      "size_bytes": 411
+    },
+    {
+      "path": "aeos/evals/evidence_integrity/suite.yaml",
+      "sha256": "480534a2124721b1debe51b98a475ba389e4666f34b48db851adfe28646047e7",
+      "size_bytes": 193
+    },
+    {
+      "path": "aeos/evals/mcp_tool_poisoning/cases/critical_enabled.case.md",
+      "sha256": "9f815ca49a03e8b1dd173ce35226af038cd0b80d42445afee45b97231974d39d",
+      "size_bytes": 413
+    },
+    {
+      "path": "aeos/evals/mcp_tool_poisoning/cases/forbidden_capability.case.md",
+      "sha256": "88aa1bd670c3364379d8cfba38dc074b1986074e5fd2bd13165465d2c6a5e4e3",
+      "size_bytes": 421
+    },
+    {
+      "path": "aeos/evals/mcp_tool_poisoning/cases/tool_description_injection.case.md",
+      "sha256": "ad38698cd75dbf17a20b529e6f56c1702a93353b118f8e1659cd312fedfc536c",
+      "size_bytes": 433
+    },
+    {
+      "path": "aeos/evals/mcp_tool_poisoning/cases/unregistered_tool.case.md",
+      "sha256": "19af7183b8a6c03f27170cf707a3d5fbdb3d72fb135bbec77455353a983845b8",
+      "size_bytes": 415
+    },
+    {
+      "path": "aeos/evals/mcp_tool_poisoning/suite.yaml",
+      "sha256": "e975c19f8b420085eb62ebabc97519833ea6b94e844f32f59c0f392b8b88f410",
+      "size_bytes": 214
+    },
+    {
+      "path": "aeos/evals/package_security/cases/missing_manifest.case.md",
+      "sha256": "814573d4bc495fb547773a7957e315c8143b86b7f86f6ece82cead448cbdc3ae",
+      "size_bytes": 411
+    },
+    {
+      "path": "aeos/evals/package_security/cases/path_traversal.case.md",
+      "sha256": "636b55581e47119333afcd9923f4da6f7c3bc22f6e4db30b98a221c68265d476",
+      "size_bytes": 407
+    },
+    {
+      "path": "aeos/evals/package_security/cases/secret_in_package.case.md",
+      "sha256": "bef0faa53898cdb440814322426fcad8fca5d1e1f86e67dfc66fbaed3942c1ba",
+      "size_bytes": 413
+    },
+    {
+      "path": "aeos/evals/package_security/cases/zip_bomb.case.md",
+      "sha256": "05e28cc0895c5c7e525bde9590a7836386b9dfae9088810efc6789a5482a16a7",
+      "size_bytes": 395
+    },
+    {
+      "path": "aeos/evals/package_security/suite.yaml",
+      "sha256": "4833577ea9b47ac62c79c51f4afd66609436999a4bb68b8808ac2bb34747ac81",
+      "size_bytes": 188
+    },
+    {
+      "path": "aeos/evals/secret_redaction/cases/api_key_pattern.case.md",
+      "sha256": "53861bd2ec2997014cf4a25658f029b216e8fca5382b01c923f8bec7ffefea66",
+      "size_bytes": 409
+    },
+    {
+      "path": "aeos/evals/secret_redaction/cases/cookie_pattern.case.md",
+      "sha256": "db60afeca6cfd6fc6ef019ab66a4ed27b20a640504e1c528be78d8bd61d5a3a7",
+      "size_bytes": 407
+    },
+    {
+      "path": "aeos/evals/secret_redaction/cases/jwt_pattern.case.md",
+      "sha256": "bb4061baa99cf4d0507268c7a6b8408efef6065c7774e384528bfc319ae3e0dd",
+      "size_bytes": 401
+    },
+    {
+      "path": "aeos/evals/secret_redaction/cases/private_key_pattern.case.md",
+      "sha256": "5604f07282e3a6671125c0b4f8195a4570bd935a5ac764c92a7e17ea560e2895",
+      "size_bytes": 417
+    },
+    {
+      "path": "aeos/evals/secret_redaction/suite.yaml",
+      "sha256": "b44a1486e4ff3a9d6c37b9370a6ad4aaa317dfb8f998ce9948eb106f7871e6a3",
+      "size_bytes": 192
+    },
+    {
+      "path": "aeos/evals/tool_router_bypass/cases/direct_filesystem.case.md",
+      "sha256": "b5c3172a2d5b0f95d33547162effdd7192ba1ef4a3b3091f1d05dd764692d52c",
+      "size_bytes": 415
+    },
+    {
+      "path": "aeos/evals/tool_router_bypass/cases/direct_git.case.md",
+      "sha256": "c75cb7d096a01cff32f1d60f2e81f2b7e2fd87842e492f10788419bdc361143c",
+      "size_bytes": 401
+    },
+    {
+      "path": "aeos/evals/tool_router_bypass/cases/direct_mcp.case.md",
+      "sha256": "653b738f0946fb18e1d246b0ec6db833b410968825488f3ec6f108025b28389a",
+      "size_bytes": 401
+    },
+    {
+      "path": "aeos/evals/tool_router_bypass/cases/direct_subprocess.case.md",
+      "sha256": "b07c0973f507aecbb53f191338b91411143313ed6aa80590962da8b81538461b",
+      "size_bytes": 415
+    },
+    {
+      "path": "aeos/evals/tool_router_bypass/suite.yaml",
+      "sha256": "f3c5a01dc1eae1db31957b852d22ca4f0300f01493492a551a09184744da5fa2",
+      "size_bytes": 189
+    },
+    {
+      "path": "aeos/fixtures/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/fixtures/benchmarks/agent_scope_benchmark.json",
+      "sha256": "3c52f9e1aeddbea82f611f01f955c3b0beffcc3993ecc2e68919cd8619e5becb",
+      "size_bytes": 1137603
+    },
+    {
+      "path": "aeos/fixtures/benchmarks/anti_hallucination_benchmark.json",
+      "sha256": "dc184e9b54844cd40957c4ff8de548b88d0dd823f17f0b03ae206e3aea345d73",
+      "size_bytes": 1142896
+    },
+    {
+      "path": "aeos/fixtures/benchmarks/approval_bypass_benchmark.json",
+      "sha256": "b2c7d81b6bcef3687d0c249a70b16bda51e0b46ef313b3a38a254c444acd77c1",
+      "size_bytes": 1140056
+    },
+    {
+      "path": "aeos/fixtures/benchmarks/cache_poisoning_benchmark.json",
+      "sha256": "80b1506bf2399e8e5be5da43e3862ad3929deaef41900b72b656c823a6f4b6a5",
+      "size_bytes": 1139836
+    },
+    {
+      "path": "aeos/fixtures/benchmarks/evidence_integrity_benchmark.json",
+      "sha256": "fe4cb8c86e8abc3a1a1be94b7664102bf7abbb7db7de4f0c492f80eb40f0385a",
+      "size_bytes": 1142988
+    },
+    {
+      "path": "aeos/fixtures/benchmarks/mcp_tool_poisoning_benchmark.json",
+      "sha256": "00fa130129ddf481b7473a6f2afe3b6a8fe9c537e62fd31c5d18f404ae7dc46b",
+      "size_bytes": 1142814
+    },
+    {
+      "path": "aeos/fixtures/benchmarks/package_security_benchmark.json",
+      "sha256": "adfdef6d3952fd221f87e2768a5a9a4c5e37f562f9d2bc4f0c868e725de4f5ac",
+      "size_bytes": 1141637
+    },
+    {
+      "path": "aeos/fixtures/benchmarks/secret_redaction_benchmark.json",
+      "sha256": "ed93d374d294677825b07bb9f49367731d93cf2ab8263cd52ea82c4c7bec65c9",
+      "size_bytes": 1140456
+    },
+    {
+      "path": "aeos/fixtures/benchmarks/tool_router_bypass_benchmark.json",
+      "sha256": "a1a4da87fcb06a4b21cb9a056a48df06519312ea4f90b9bb562fc53fe369248b",
+      "size_bytes": 1143018
+    },
+    {
+      "path": "aeos/fixtures/package_security/zip_path_cases.json",
+      "sha256": "063dd4131d386778c404218eb23ee92328a2947d970ece1bda4e0c731b7d976d",
+      "size_bytes": 1811847
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/agent_runtime/agent_runtime_00.jsonl",
+      "sha256": "69d59e29505bda06c63d13fcf16a00f1b96b33c6bdf1390ebf0b00c3abdc857a",
+      "size_bytes": 416460
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/agent_runtime/agent_runtime_01.jsonl",
+      "sha256": "9414946ab9db59c7ff48e82952153ebad0b7b5ef111eb1d3946b9f98fd2405fb",
+      "size_bytes": 417672
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/agent_runtime/agent_runtime_02.jsonl",
+      "sha256": "0f6654ff8cbee2da7fcf489530e78c662870f4d2b1b42c0256a62d56296a98ef",
+      "size_bytes": 417147
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/agent_runtime/agent_runtime_03.jsonl",
+      "sha256": "66e1c9882d0130e4211f67bf284e7cd2fd6e428336f53911ef6a0c8adbfd2b5a",
+      "size_bytes": 417567
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/agent_runtime/agent_runtime_04.jsonl",
+      "sha256": "d1ac0f7e01148d9d16018f3b4b16907b59dc5460b396dcef5a6039110637e38c",
+      "size_bytes": 417072
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/agent_runtime/agent_runtime_05.jsonl",
+      "sha256": "d5fc6cd93e1d978589ecdd4492484b8e43ad9143cc9da420a82451ff282e98e6",
+      "size_bytes": 417841
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/agent_runtime/agent_runtime_06.jsonl",
+      "sha256": "571dede02343b4ff7c24aebcd434f4ccced6226f08e7463d55cbf6141a024e27",
+      "size_bytes": 417489
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/agent_runtime/agent_runtime_07.jsonl",
+      "sha256": "6f09a44e746aea07082f5bdbd8a5dc4bcb550fb3158712af68bc9ef990a00620",
+      "size_bytes": 417712
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/agent_runtime/agent_runtime_08.jsonl",
+      "sha256": "0581931bd1cb053dc029622703335e447391ee91dffae669ff89e5ec3e0da88e",
+      "size_bytes": 417664
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/agent_runtime/agent_runtime_09.jsonl",
+      "sha256": "7a473bbcd59c3aff985da85dfbf23e13371bf2b9d493dc1a8248374abc775990",
+      "size_bytes": 416958
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/approval_gateway/approval_gateway_00.jsonl",
+      "sha256": "29401be0da187ae99ea0146ca0e9743fde3aabe383daf55e05c96baab69468e4",
+      "size_bytes": 419395
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/approval_gateway/approval_gateway_01.jsonl",
+      "sha256": "7ef1cd040945502c05e2c3c5138d8198d00d9adbd67259de9d2cf2ca17a2d451",
+      "size_bytes": 419662
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/approval_gateway/approval_gateway_02.jsonl",
+      "sha256": "0e9da247828db3a83ef32e12e161d2be0ca61ce716422b436998d3c3f1105098",
+      "size_bytes": 419458
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/approval_gateway/approval_gateway_03.jsonl",
+      "sha256": "2baf09b4252fbf332bf4670a2ea4cdc41d61f094ec8713f77c9af2049ca7f004",
+      "size_bytes": 418892
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/approval_gateway/approval_gateway_04.jsonl",
+      "sha256": "ca4916cbd1ae0be3e8600860bfabd7688a2612cfd7640503e0c98c7d11ba14fa",
+      "size_bytes": 419684
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/approval_gateway/approval_gateway_05.jsonl",
+      "sha256": "de61d256337831211b45508d8ababead630dc89e4c6d4af3afc3a695b98462c8",
+      "size_bytes": 419128
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/approval_gateway/approval_gateway_06.jsonl",
+      "sha256": "0f5bdc06439059ce103708466e770b0f9828139910142729262ebce19b553da7",
+      "size_bytes": 419624
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/approval_gateway/approval_gateway_07.jsonl",
+      "sha256": "19130419e6fc62ab13a593e850dc1fbb58ccb91cf22142642faf149780786c3c",
+      "size_bytes": 419548
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/approval_gateway/approval_gateway_08.jsonl",
+      "sha256": "f927f38ec8b4f087a0c662598e1eebd0be568434df165e302c330d10ee373ea3",
+      "size_bytes": 419301
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/approval_gateway/approval_gateway_09.jsonl",
+      "sha256": "27cd01dbac79d2eef96b558cedb0156d5ec3a67102eb1f16c5b19d9f9b3c58dd",
+      "size_bytes": 419470
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/cache_poisoning/cache_poisoning_00.jsonl",
+      "sha256": "73ad57003c9d2708cb204ea1aace9e989179b938754811ab6c0e0ad5e5a09a46",
+      "size_bytes": 418336
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/cache_poisoning/cache_poisoning_01.jsonl",
+      "sha256": "2b32cb405795535899e629b098ed02189f18b8f78fd45674f7318f85f368d8ec",
+      "size_bytes": 418673
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/cache_poisoning/cache_poisoning_02.jsonl",
+      "sha256": "45826fe571a9c6d45a8ea74e427b773758959ef644b20bd83de6a7ddd8ed9b94",
+      "size_bytes": 418914
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/cache_poisoning/cache_poisoning_03.jsonl",
+      "sha256": "0136eea9f9ed340426afa32b60e2001dc493732f770e897a580b658ccd1c4aa9",
+      "size_bytes": 418948
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/cache_poisoning/cache_poisoning_04.jsonl",
+      "sha256": "fb62a25b03a092ee400cfe92d434ced18df01360a4cfa8bf4dc49f04f9211fae",
+      "size_bytes": 418971
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/cache_poisoning/cache_poisoning_05.jsonl",
+      "sha256": "e2982baad7d55a7001ba23374fcb3f54988135216367aaf04edcb818d87e0fc8",
+      "size_bytes": 418884
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/cache_poisoning/cache_poisoning_06.jsonl",
+      "sha256": "04771056a5ea197a84cffcfb4653117639985f36a3192a694e5303e16314f44c",
+      "size_bytes": 419623
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/cache_poisoning/cache_poisoning_07.jsonl",
+      "sha256": "2b4bf90b2b1f0f902f9ffbf499a0b6fd8fdb4e11ad52625e9bf1726587e7e962",
+      "size_bytes": 418771
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/cache_poisoning/cache_poisoning_08.jsonl",
+      "sha256": "7a74a3194e333954d43bd44571b65777daaf393d55b0a8c1aad6f0de98819147",
+      "size_bytes": 418931
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/cache_poisoning/cache_poisoning_09.jsonl",
+      "sha256": "babfdf0e7059b3598fcca20da87bce3c79d4122da40b94613d9917ccb92196b6",
+      "size_bytes": 418239
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/evidence_integrity/evidence_integrity_00.jsonl",
+      "sha256": "40bcd63701d3cc03e76086f08587b9614a19d1362cd77f91de5b31bae304aee1",
+      "size_bytes": 420793
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/evidence_integrity/evidence_integrity_01.jsonl",
+      "sha256": "5112a46810e7db85968e125d3b53af48693c16b2fc00278a01f11eeb5703e7bd",
+      "size_bytes": 420579
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/evidence_integrity/evidence_integrity_02.jsonl",
+      "sha256": "09263826ef0745e0d5681582da8c973201b63b22bed9535fbe3e399d63195c91",
+      "size_bytes": 420488
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/evidence_integrity/evidence_integrity_03.jsonl",
+      "sha256": "af6ea8f1f145146be31bc6af55c122c677d389f4e95d597bedbdcdc638abc040",
+      "size_bytes": 420602
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/evidence_integrity/evidence_integrity_04.jsonl",
+      "sha256": "d6cd898813de6f83f85e1eea1b7751df191e47378e8e6bdca784fd6942370b22",
+      "size_bytes": 420283
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/evidence_integrity/evidence_integrity_05.jsonl",
+      "sha256": "b749973c6d659aeecad27699946a6539df01767bf3f9d4571b6e73a380f9aa3f",
+      "size_bytes": 420994
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/evidence_integrity/evidence_integrity_06.jsonl",
+      "sha256": "2faecf4ce90d810359372aa5a81cc382cc06c272f5368872825d2c0b519356d8",
+      "size_bytes": 421150
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/evidence_integrity/evidence_integrity_07.jsonl",
+      "sha256": "ef31a4a758331db5eede18cad6106b81030f7fbb3bd0bdff62a58d6523a8fc0f",
+      "size_bytes": 420761
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/evidence_integrity/evidence_integrity_08.jsonl",
+      "sha256": "965b8ec0603fa50a3635129d89798649d1d7f9b61ee6412c857000ee2fc5aa9d",
+      "size_bytes": 420503
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/evidence_integrity/evidence_integrity_09.jsonl",
+      "sha256": "44f7314f00f8af7d0fd80cf2a453371679787c188c10d1b57f266884227f25ec",
+      "size_bytes": 420374
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/judge_benchmark/judge_benchmark_00.jsonl",
+      "sha256": "a9dc89b1ea8f360c9d6d4447f08c057f967805b91f825a4427f9eeccbbbaf336",
+      "size_bytes": 418083
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/judge_benchmark/judge_benchmark_01.jsonl",
+      "sha256": "74024d6e31e2d7b2bf143227fdc715952887ec679bd177e7cb0d1b248adb19c0",
+      "size_bytes": 418842
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/judge_benchmark/judge_benchmark_02.jsonl",
+      "sha256": "e3bb5d4d129f4b3fcb65ae642f1b49c2223a23205b9197da6c56a34b18e61cb5",
+      "size_bytes": 418260
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/judge_benchmark/judge_benchmark_03.jsonl",
+      "sha256": "1659d8ae58c43225b727fdc45e64349e4c4c331d2f3e08c88b6ab4b12d1ae074",
+      "size_bytes": 418853
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/judge_benchmark/judge_benchmark_04.jsonl",
+      "sha256": "53231ff1d76991959b51e1f47ec48548366ef3ef2f921e5f4c2be04c7c4f83fc",
+      "size_bytes": 417805
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/judge_benchmark/judge_benchmark_05.jsonl",
+      "sha256": "e92e98c80ee6bb5006739cb320776ecb1a0d1f8d7cca3beac21e2f1912ebc49a",
+      "size_bytes": 418535
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/judge_benchmark/judge_benchmark_06.jsonl",
+      "sha256": "dc63fd3a705062ffe6a7b40392ea2f00c59aea0027da1f5db502a6cc1a42322f",
+      "size_bytes": 418559
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/judge_benchmark/judge_benchmark_07.jsonl",
+      "sha256": "cdaaaf328e60accbdd64ee3a3df17ee5edf509e31f97232f6364ea2e3e0b2c08",
+      "size_bytes": 418484
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/judge_benchmark/judge_benchmark_08.jsonl",
+      "sha256": "4f811eab39c31ecafd20270f0c4f11c63fab41929b3cf5c6b609f27e0fff30bf",
+      "size_bytes": 418528
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/judge_benchmark/judge_benchmark_09.jsonl",
+      "sha256": "0e36a0d3a454b2d3ad5596d050ca2fc3e0703220aa204bec2a3ebc939b49dac7",
+      "size_bytes": 418510
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/mcp_gateway/mcp_gateway_00.jsonl",
+      "sha256": "0a99d09f27d128d6fdb2edc3a2ddbe17aad55e8857b38938074d6da60dc133b8",
+      "size_bytes": 415405
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/mcp_gateway/mcp_gateway_01.jsonl",
+      "sha256": "d0b5479ea35b5bf728384a39582f9dd0019532c97e8efb003e12acf392168333",
+      "size_bytes": 415636
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/mcp_gateway/mcp_gateway_02.jsonl",
+      "sha256": "a8a29f3c03dea2c1cc10f477faa31faad3668c2034f306f1ed7b69cb4fcfccf8",
+      "size_bytes": 415876
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/mcp_gateway/mcp_gateway_03.jsonl",
+      "sha256": "930cd6e60d64ee97fc478a6c3dec7eff476bb8f78a545a8f6b5c4d1b63f2bf32",
+      "size_bytes": 416155
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/mcp_gateway/mcp_gateway_04.jsonl",
+      "sha256": "ea813762f83e4e7016528beea8ac6b4911da72e7b77c5ccf83adcb1e706e886c",
+      "size_bytes": 416294
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/mcp_gateway/mcp_gateway_05.jsonl",
+      "sha256": "a96ef65bb38093f5eb04df2d79d256a66b902a0ec07114468a1885b7575c14ac",
+      "size_bytes": 416105
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/mcp_gateway/mcp_gateway_06.jsonl",
+      "sha256": "7617c5e22d2ce68dd96f8188e17f329301f9868aecb7dc8058fb86d675cfaf00",
+      "size_bytes": 415303
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/mcp_gateway/mcp_gateway_07.jsonl",
+      "sha256": "6203ae665a16248f8a563129052c1790beaff09e7949ce1ea0d075f52151a992",
+      "size_bytes": 415325
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/mcp_gateway/mcp_gateway_08.jsonl",
+      "sha256": "ad8da51226c28f571d44bd630acb71ac377a67d2d6b21b9f73d3dfcf6d318072",
+      "size_bytes": 415889
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/mcp_gateway/mcp_gateway_09.jsonl",
+      "sha256": "a903efc2201c08d6121bf2d892a30d25518f3b0d2b0c04fa9476e7c04968d015",
+      "size_bytes": 416126
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/package_security/package_security_00.jsonl",
+      "sha256": "5a896fe001776a68c3c97d55b3a1a7a84b45681bc2630d461f26ce5b2ac07af9",
+      "size_bytes": 419164
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/package_security/package_security_01.jsonl",
+      "sha256": "4ec02f25e10b77785c055890b3a78b8c86a8884bc373fd1247051f2ff89571cb",
+      "size_bytes": 419097
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/package_security/package_security_02.jsonl",
+      "sha256": "8825877374486447d86dda10aaff43c786093bbaf08661333f77c3f7ddaa4719",
+      "size_bytes": 419279
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/package_security/package_security_03.jsonl",
+      "sha256": "e7eff08070304e748de6c3b54baf0762c4e4365a2b57f1fa805d8b752b101f03",
+      "size_bytes": 419377
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/package_security/package_security_04.jsonl",
+      "sha256": "a0a2cab6ce37e830a2babd34a33bca36f67ddec072b550763b63d8692eff97e9",
+      "size_bytes": 419915
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/package_security/package_security_05.jsonl",
+      "sha256": "2f259df120b6bccd9157b34d97f0fc2d7898b8abc0d4d54131a43bf833fa1bb2",
+      "size_bytes": 419571
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/package_security/package_security_06.jsonl",
+      "sha256": "8dab36fe7f781d4e41abac6d2ef9177745ee535dbd81a0f149c6259986968e2f",
+      "size_bytes": 419093
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/package_security/package_security_07.jsonl",
+      "sha256": "75e7f4de23a9c84e631b114d932242386959b7c937c0846072f3b3bc272baa52",
+      "size_bytes": 419165
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/package_security/package_security_08.jsonl",
+      "sha256": "9ef4ca303954eedf3bc276cd611ca3a0d1c40e7b0dd2c121d5e0a1e52b07d486",
+      "size_bytes": 418584
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/package_security/package_security_09.jsonl",
+      "sha256": "3d55bb521d7147c72addfb88602e65f7d051034341f7da3f54e4d72e19bb451a",
+      "size_bytes": 419558
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/playbook_execution/playbook_execution_00.jsonl",
+      "sha256": "bc20608d157891ec8e091458270ceb7cb02856c9fa61984dac24a7e31dd0e760",
+      "size_bytes": 420763
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/playbook_execution/playbook_execution_01.jsonl",
+      "sha256": "cfeaf706af1f4ec0f24ff0fb196bfa91b435ffc7d3d8d074a2a26d840c58b591",
+      "size_bytes": 420350
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/playbook_execution/playbook_execution_02.jsonl",
+      "sha256": "425d452929d708db196a1641aab8b3097799eb102d04769818cc0382ba88604a",
+      "size_bytes": 420624
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/playbook_execution/playbook_execution_03.jsonl",
+      "sha256": "774b10e793760ab9b8723817497df2c43cea1ec09968b57e2b0951053df85718",
+      "size_bytes": 419839
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/playbook_execution/playbook_execution_04.jsonl",
+      "sha256": "7fb7235ad469f34b40f396e439064f8b13fd11f5e9740b2123cfc95b933c87db",
+      "size_bytes": 420470
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/playbook_execution/playbook_execution_05.jsonl",
+      "sha256": "739f4556654dd164b710d68b6801b658d245643d26d2fd6d15d50890b6f6b4c8",
+      "size_bytes": 421022
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/playbook_execution/playbook_execution_06.jsonl",
+      "sha256": "4dc14c82b623e82fc6bc02899a97e1d1171bd672107fc0e309185d3b7af43a77",
+      "size_bytes": 420420
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/playbook_execution/playbook_execution_07.jsonl",
+      "sha256": "257098c016f0d646986c70ada21d4f1c6a46eaa734b6d7a31f7f6294d70cc23b",
+      "size_bytes": 419478
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/playbook_execution/playbook_execution_08.jsonl",
+      "sha256": "c8b40e0695508bbffe54d48b87ad598fc2244fdd7bf3842f252d3a9630004f47",
+      "size_bytes": 420785
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/playbook_execution/playbook_execution_09.jsonl",
+      "sha256": "1fa9503cd45e643fb1f5a53c572edae5a72baba916f720f2e49b0fa36a5ddab3",
+      "size_bytes": 420769
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/repo_scanner/repo_scanner_00.jsonl",
+      "sha256": "6f4c5b337a2327ab57a3bfeb916ecdb24d1ea68abcdbd40a37f7752c468e8b06",
+      "size_bytes": 416581
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/repo_scanner/repo_scanner_01.jsonl",
+      "sha256": "cc1dc8b33f8477042623fd50b7ad47ef7d5e0693aaa0b2c0cbeacb8950f9f6fb",
+      "size_bytes": 417133
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/repo_scanner/repo_scanner_02.jsonl",
+      "sha256": "a48c2c79cb2066034db49a6689a56be76121b82a391808866bd02c78c1064e33",
+      "size_bytes": 416371
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/repo_scanner/repo_scanner_03.jsonl",
+      "sha256": "3b2c054d69e7dd931e73ffce06f9be63cef22c4d22629e9397332b24801a4501",
+      "size_bytes": 417347
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/repo_scanner/repo_scanner_04.jsonl",
+      "sha256": "520c2ab9c83d5c580cb4d7eb5b82264f6ed2206abe38cba6f7c890fd6c54c22b",
+      "size_bytes": 416719
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/repo_scanner/repo_scanner_05.jsonl",
+      "sha256": "ad1d50e1f86a50addaed1421aeeb78dba182af33e45cbd608e631d74f8184df9",
+      "size_bytes": 417207
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/repo_scanner/repo_scanner_06.jsonl",
+      "sha256": "99760990ab731b73683bb256dcf09270c08a815f195ca0ea9474c7ef006df840",
+      "size_bytes": 416352
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/repo_scanner/repo_scanner_07.jsonl",
+      "sha256": "e6deae7f194f76cca727134daec2f79d1e8ba4c6ebac9c972403402ed4d805de",
+      "size_bytes": 416213
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/repo_scanner/repo_scanner_08.jsonl",
+      "sha256": "838559f1e1d22842f0e06500a2f63cb240aa81ef70d126f37d23699c44830a78",
+      "size_bytes": 416986
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/repo_scanner/repo_scanner_09.jsonl",
+      "sha256": "9e3bae01c3fcf7705c4a6fee25442ed88f5a273df3a89358ea548ac200f10061",
+      "size_bytes": 416021
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/secret_redaction/secret_redaction_00.jsonl",
+      "sha256": "9ed1ecf69b563a4e872a961f8b3d45b43792b4f6fa836ad83288eec655c12bb1",
+      "size_bytes": 419408
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/secret_redaction/secret_redaction_01.jsonl",
+      "sha256": "fec1b1e1b90915a2c2b836f47a91bd5cb4568a11303eb4d63fac4512833adae4",
+      "size_bytes": 418863
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/secret_redaction/secret_redaction_02.jsonl",
+      "sha256": "7883d562b55c87d6c6270cedb3162d1a25771012b2780041a5676156f526ccc2",
+      "size_bytes": 419171
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/secret_redaction/secret_redaction_03.jsonl",
+      "sha256": "13d178023c242b6910fd0dbec714a48e008c293872bed2ef162e297603de1dae",
+      "size_bytes": 419132
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/secret_redaction/secret_redaction_04.jsonl",
+      "sha256": "ce2d2ac8cd4bc9390b03345e831ad34bff312dc768af938798c8fd2321f3e37f",
+      "size_bytes": 418888
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/secret_redaction/secret_redaction_05.jsonl",
+      "sha256": "cba710af928190175e16383138133fa363307eba4eefe553341bf9b97e13631e",
+      "size_bytes": 418565
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/secret_redaction/secret_redaction_06.jsonl",
+      "sha256": "b4adcd3952442074ddf71f50e64739ff84c4a35b8eda1cb0f8d9ac7f166761bf",
+      "size_bytes": 419489
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/secret_redaction/secret_redaction_07.jsonl",
+      "sha256": "c728f7a9892aecc729f6986a7c3fbad21702dbc89c2c0ceddf2a801e10c38a0d",
+      "size_bytes": 419236
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/secret_redaction/secret_redaction_08.jsonl",
+      "sha256": "2c72128c3a683e93d2a8c40d48e6924ac15070d6f60f667708100d35c763e6db",
+      "size_bytes": 419557
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/secret_redaction/secret_redaction_09.jsonl",
+      "sha256": "c41c468ffa18640e5d3de3e9055fe7a94ab7c8467e969f733998aeca8199dedf",
+      "size_bytes": 419416
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/skill_factory/skill_factory_00.jsonl",
+      "sha256": "eff28a1b134a4efb283e41c7f5866a496fecdcba8fd6a2b6cb4293ad774ea24e",
+      "size_bytes": 417315
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/skill_factory/skill_factory_01.jsonl",
+      "sha256": "9e474ac9e692eced6a33ac6fc0d11a16a3f959d0f322ab7daae53b5641aa9f2f",
+      "size_bytes": 417587
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/skill_factory/skill_factory_02.jsonl",
+      "sha256": "a23fcf91e163288a9aaf629ed52dd6329013b0a8cbef8cb8b5ad88425de1501c",
+      "size_bytes": 417289
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/skill_factory/skill_factory_03.jsonl",
+      "sha256": "4f253ce91b2c4d462e955929f5614e86302698859d30b6ee7d67fa786864c9d2",
+      "size_bytes": 417019
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/skill_factory/skill_factory_04.jsonl",
+      "sha256": "d74949d438e763fcc13cadd5e5b7da80dd91715ce769da6109ff83e82dbf37a9",
+      "size_bytes": 417204
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/skill_factory/skill_factory_05.jsonl",
+      "sha256": "e4d818ab5cc29b67a08efc729558fccacc9c38a559d88d5d2f71571e27604bf0",
+      "size_bytes": 417241
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/skill_factory/skill_factory_06.jsonl",
+      "sha256": "ce6f43076702cae1acbf2852e9f4e8bec3e7a457b18f21986a6eda9be6088214",
+      "size_bytes": 417658
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/skill_factory/skill_factory_07.jsonl",
+      "sha256": "0baedb43a9e27d9549bd366aabe61a0a003b994429ae75c73bbf1bdbabcbefe4",
+      "size_bytes": 416665
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/skill_factory/skill_factory_08.jsonl",
+      "sha256": "3c6ad84216c08b73f8a0baab6fcd219a32483b792c0f56a2fcac9e1cb29f503e",
+      "size_bytes": 416650
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/skill_factory/skill_factory_09.jsonl",
+      "sha256": "dfbb5b6034bcb1e37f32e7a2d4885772ce7280babfa76ef559729657af382c2b",
+      "size_bytes": 417033
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/stack_detector/stack_detector_00.jsonl",
+      "sha256": "375054c7ce44703828c8f4a384615a216cc53de932e34df4400ee6594175faa4",
+      "size_bytes": 417851
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/stack_detector/stack_detector_01.jsonl",
+      "sha256": "ef253a98191b632c012d103df1365c99731616e62644540ec36f14c413abde8d",
+      "size_bytes": 417795
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/stack_detector/stack_detector_02.jsonl",
+      "sha256": "2ccb8485b1fd4f5cefb6a64098e2df53d3e70a6c1dee4844adf67a44c4747885",
+      "size_bytes": 418592
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/stack_detector/stack_detector_03.jsonl",
+      "sha256": "c97fba5be7f1a19bf125acc22bc558866b4385d85b9fb1fab5510c800a4e0eb5",
+      "size_bytes": 417788
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/stack_detector/stack_detector_04.jsonl",
+      "sha256": "2226e46a683b9588285bfa1d8cbd0cbaa673d8ff7f12397594b36edf1a67dae2",
+      "size_bytes": 418096
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/stack_detector/stack_detector_05.jsonl",
+      "sha256": "2cfcaa6f222c1f531da57d1f241d047b8639ea93d96865ac8e76afa2f361e1e9",
+      "size_bytes": 418550
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/stack_detector/stack_detector_06.jsonl",
+      "sha256": "c767852de629d3884e13c4a29c0158d96833450fd5257dc36ff8b390681dce6f",
+      "size_bytes": 418159
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/stack_detector/stack_detector_07.jsonl",
+      "sha256": "8a1b8f9f4088f78538ae4bd150b9841fe266e9b5e3ebaccf38e542a4f16b8495",
+      "size_bytes": 417521
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/stack_detector/stack_detector_08.jsonl",
+      "sha256": "872aa236b2bd64877180a43329e7de96d99c6440340bfbeb781b13476d15f9e5",
+      "size_bytes": 417352
+    },
+    {
+      "path": "aeos/fixtures/synthetic_corpus/stack_detector/stack_detector_09.jsonl",
+      "sha256": "280896f1620f7d3300acea9d9c5874e935cc27e66b314a8aacd24805057d9140",
+      "size_bytes": 418140
+    },
+    {
+      "path": "aeos/playbooks/blueprint-generation.playbook.md",
+      "sha256": "86f32e639088ac435e59005a9625a8a5e1ef00b6ffc09de355a875df6e831379",
+      "size_bytes": 912
+    },
+    {
+      "path": "aeos/playbooks/compliance-audit-export.playbook.md",
+      "sha256": "2f030a912e41a525b37ba154a7d0003ccc475d64645a711b9aad0a6e45bc7595",
+      "size_bytes": 921
+    },
+    {
+      "path": "aeos/playbooks/enterprise-security-audit.playbook.md",
+      "sha256": "309c1e6a43f606e14c2fee34f162f7f22b6d17067447a8c4732e1114624f03bd",
+      "size_bytes": 927
+    },
+    {
+      "path": "aeos/playbooks/evaluation-harness-run.playbook.md",
+      "sha256": "98e77ca5856232b027ae18245c0ab76e86e6c3dd74a0ee1943c17d93c746cc3f",
+      "size_bytes": 918
+    },
+    {
+      "path": "aeos/playbooks/full-workbench-bootstrap.playbook.md",
+      "sha256": "b03e2f4c62743d44822ae02a95ca18b20424ebe941f2ac51aacb830a80c5b126",
+      "size_bytes": 924
+    },
+    {
+      "path": "aeos/playbooks/local-marketplace-full-audit.playbook.md",
+      "sha256": "f702d8e9f30842ecf0e210762be19fc8fe44bf29ff091302a38f908315fb492c",
+      "size_bytes": 936
+    },
+    {
+      "path": "aeos/playbooks/playbook-factory-generation.playbook.md",
+      "sha256": "7e7dfc8cdceb36c7789043c023a59fa1d597467572485bea4b0ac912741c5002",
+      "size_bytes": 933
+    },
+    {
+      "path": "aeos/playbooks/skill-factory-generation.playbook.md",
+      "sha256": "e4b37440332bc8c411b5f1b737ab9db6e55af0111a11b45f4eadd32beb9c078d",
+      "size_bytes": 924
+    },
+    {
+      "path": "aeos/playbooks/unique-environment-readiness.playbook.md",
+      "sha256": "bace48c8ba7526169a8c0d9bfcff383b5f2e86082ea815e88add439cb7fbeebe",
+      "size_bytes": 936
+    },
+    {
+      "path": "aeos/playbooks/workbench-profile-detection.playbook.md",
+      "sha256": "584cd8e773b9d23f6ebf1dd9230494916ef0f36ecad4f6b68394fbf3abb6bde1",
+      "size_bytes": 933
+    },
+    {
+      "path": "aeos/profiles/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/profiles/ai-research.profile.yaml",
+      "sha256": "46b0580e349838b7852ec2269fe602ceee72f1bc749ee5e21f3153c49ab52cf2",
+      "size_bytes": 476
+    },
+    {
+      "path": "aeos/profiles/clinical-ai-governance.profile.yaml",
+      "sha256": "fd4bdae9c3e278546c1cc83f6df5e1fc6c7c5a663f6b2cb1d5ee71d94d93fb6c",
+      "size_bytes": 487
+    },
+    {
+      "path": "aeos/profiles/devops-platform.profile.yaml",
+      "sha256": "57147d4e1a0dd5abc760e991bd5a6c9b22c9c6a378ae37d02c2b6f44383655c3",
+      "size_bytes": 467
+    },
+    {
+      "path": "aeos/profiles/documentation-factory.profile.yaml",
+      "sha256": "cab49d71122f1adb8af1b2e4df366c11d2a949086273514827dfd68229a8e51a",
+      "size_bytes": 477
+    },
+    {
+      "path": "aeos/profiles/fullstack-docker.profile.yaml",
+      "sha256": "1f84e16d40686e07e4660131fa77589d2106e140b044bc592151ff24224213d8",
+      "size_bytes": 468
+    },
+    {
+      "path": "aeos/profiles/incident-response.profile.yaml",
+      "sha256": "cf50a57fccee9708717f34ad15af0acc0e4b1f5649af409465e160becc5f90d5",
+      "size_bytes": 469
+    },
+    {
+      "path": "aeos/profiles/java-enterprise.profile.yaml",
+      "sha256": "2f7f48056e52a34c59f46e89a5c61ea4ef112b7422e02110c163369e2eb72932",
+      "size_bytes": 483
+    },
+    {
+      "path": "aeos/profiles/legacy-modernization.profile.yaml",
+      "sha256": "bab95fbbf4e5758e36b9f9b568b699fe999e8061cbe435793b5ce6ea365ac89e",
+      "size_bytes": 488
+    },
+    {
+      "path": "aeos/profiles/python-ai-rag.profile.yaml",
+      "sha256": "6a046c2dbabca559a7ef73a944d4b64759a174796f69b6c39d04d3757ed9a987",
+      "size_bytes": 478
+    },
+    {
+      "path": "aeos/profiles/security-audit.profile.yaml",
+      "sha256": "d01dabf05ee0362c698bc0a2fd7807ef9a8764c81039c2b58b336aa71e580af4",
+      "size_bytes": 466
+    },
+    {
+      "path": "aeos/registries/blueprints.registry.yaml",
+      "sha256": "f5a89f70bb87edd6b2ae77e0c83522de45f00ebeeb80a62116fd22e47924236a",
+      "size_bytes": 719
+    },
+    {
+      "path": "aeos/registries/playbooks.v1_1_enterprise.additions.yaml",
+      "sha256": "d4ec5e8553a3659be0104929689b51c3f540a324b337ccf197cb9ef577811bd4",
+      "size_bytes": 4387
+    },
+    {
+      "path": "aeos/registries/skills.v1_1_enterprise.additions.yaml",
+      "sha256": "cb6583d031a1b1233ebdad9ba95a1ff58086ee4ef6baa0a3cff3c8d67974ff32",
+      "size_bytes": 3387
+    },
+    {
+      "path": "aeos/registries/workbench-profiles.registry.yaml",
+      "sha256": "dec372dcb0cfae4a6e82c883d18c3c137f610e6cb11850e4624b3eae9dd83be6",
+      "size_bytes": 808
+    },
+    {
+      "path": "aeos/runbooks/RUNBOOK_AEOS_FULL_BOOTSTRAP.md",
+      "sha256": "5f4bf98e47dc73388771bf4769a0d789c15fb4c1ca9705ab703509602c851f62",
+      "size_bytes": 510
+    },
+    {
+      "path": "aeos/runbooks/RUNBOOK_AGENT_SCOPE_CREEP.md",
+      "sha256": "77278faeb31070d65ac286a9c5c332b3e125432af3f093848a21d310ac7c65c1",
+      "size_bytes": 506
+    },
+    {
+      "path": "aeos/runbooks/RUNBOOK_BLUEPRINT_GENERATION_FAILURE.md",
+      "sha256": "9e5b1dab66942c3108073335fe61306cdc8b0f20e803342280a6191cb8bbbd6f",
+      "size_bytes": 528
+    },
+    {
+      "path": "aeos/runbooks/RUNBOOK_COMPLIANCE_AUDIT_EXPORT.md",
+      "sha256": "8aa6baeb560b0d85d0d1c8c9e02c11a042cb4dfd4077bf3b16111160293def3a",
+      "size_bytes": 518
+    },
+    {
+      "path": "aeos/runbooks/RUNBOOK_EVAL_FAILURE.md",
+      "sha256": "863dd7a9ce07fa2847253a2436254fd2a34d51c36cb1b92d7128c0a61715a587",
+      "size_bytes": 496
+    },
+    {
+      "path": "aeos/runbooks/RUNBOOK_EVIDENCE_CACHE_INVALIDATION.md",
+      "sha256": "903e2e974d6c875e121308bc00b03ed3829838a8a6f45452975245e3eaf4571f",
+      "size_bytes": 526
+    },
+    {
+      "path": "aeos/runbooks/RUNBOOK_JUDGE_CRITICAL_BLOCK.md",
+      "sha256": "c6b9e2858734b7919f9dcc8f9286e0e952b66571b002d8300a4925e5b3652f0a",
+      "size_bytes": 512
+    },
+    {
+      "path": "aeos/runbooks/RUNBOOK_MARKETPLACE_QUARANTINE.md",
+      "sha256": "de8be3a8b7bb284bdb6e4b9d74d81d16c9280e7bbee9117b116431ac4787e576",
+      "size_bytes": 516
+    },
+    {
+      "path": "aeos/runbooks/RUNBOOK_MCP_TOOL_POISONING.md",
+      "sha256": "d548066d6e31fe7050e0ebab2b5de6504bfd9fd6c64b57900be4ef58c13f0569",
+      "size_bytes": 508
+    },
+    {
+      "path": "aeos/runbooks/RUNBOOK_SECRET_REDACTION_FAILURE.md",
+      "sha256": "fb458740389f9db5267d974a1e829da461d9335552ea719ad1f88e0b95d05707",
+      "size_bytes": 520
+    },
+    {
+      "path": "aeos/runbooks/RUNBOOK_V1_1_READINESS_FAILURE.md",
+      "sha256": "519d05c53152ff0dd9f0442efb44c302369e4126179f628be554a7bd352a17d0",
+      "size_bytes": 516
+    },
+    {
+      "path": "aeos/runbooks/RUNBOOK_WORKBENCH_PROFILE_FAILURE.md",
+      "sha256": "34f7ade556aa3f4948d6359b1c708ef36db64f0685fb2cb08d79e492cd51aa71",
+      "size_bytes": 522
+    },
+    {
+      "path": "aeos/skills/core/anti-hallucination-evaluator.skill.md",
+      "sha256": "cd5a429f49e36f34f1bfb1e527abad0a13ae41cbaeca591e959ff577f1b38d2d",
+      "size_bytes": 889
+    },
+    {
+      "path": "aeos/skills/core/blueprint-generator.skill.md",
+      "sha256": "58d77e1b861fc7aae5293af6ea9344c398536d0cee4103580e33488a08010546",
+      "size_bytes": 871
+    },
+    {
+      "path": "aeos/skills/core/compliance-audit-exporter.skill.md",
+      "sha256": "5c67b32c8024d098e28a07de69eaac75a4b8e728c35dc342f9f5ef38195d8eba",
+      "size_bytes": 883
+    },
+    {
+      "path": "aeos/skills/core/enterprise-security-auditor.skill.md",
+      "sha256": "bf152f5d49694edefdd5da0709c61c6ed10e0086bdb58cac40baa7195cf57814",
+      "size_bytes": 887
+    },
+    {
+      "path": "aeos/skills/core/evaluation-runner.skill.md",
+      "sha256": "8abafe40894e61d40b55c5714d33b5017a36eb7b3503febddf41d0791b89c261",
+      "size_bytes": 867
+    },
+    {
+      "path": "aeos/skills/core/fixture-corpus-validator.skill.md",
+      "sha256": "9b1e96897aee4379f25e2e81dd647cd540b212571f6ea88f7ffe57c422b336e6",
+      "size_bytes": 881
+    },
+    {
+      "path": "aeos/skills/core/judge-benchmark-runner.skill.md",
+      "sha256": "c32654fcc10181e7ca491f56fc22b531640e4acf6bb8b4453270f159a00c028b",
+      "size_bytes": 877
+    },
+    {
+      "path": "aeos/skills/core/marketplace-curator.skill.md",
+      "sha256": "6a49b1ab5fb350e8c76a9c3dd08b693a3acaeddb105d4c7fa1f250b1259a16df",
+      "size_bytes": 871
+    },
+    {
+      "path": "aeos/skills/core/mcp-poisoning-evaluator.skill.md",
+      "sha256": "6ee0e3fc8d9d72c734640a462984043d3d84b48a064e4a0fcff82a1b0cdb4908",
+      "size_bytes": 879
+    },
+    {
+      "path": "aeos/skills/core/playbook-factory-generator.skill.md",
+      "sha256": "70a31f61e3095e1d39756e31ed9c6f399cd29cb6dd32d767843893838fe7640e",
+      "size_bytes": 885
+    },
+    {
+      "path": "aeos/skills/core/policy-bypass-evaluator.skill.md",
+      "sha256": "eecbc46141d6774b3c487b3ee0522b251bdf6fd98ac0513c4d8adcd20b3c7b20",
+      "size_bytes": 879
+    },
+    {
+      "path": "aeos/skills/core/redaction-evaluator.skill.md",
+      "sha256": "96de0dc78c0e23f46568d98ec9c0be3b3c30d0568dc1054c20fc5388211c236c",
+      "size_bytes": 871
+    },
+    {
+      "path": "aeos/skills/core/skill-factory-generator.skill.md",
+      "sha256": "441e71eec22573827f8e29e867bd6f012b7cb0f4b42f732dc0f1f93ac8310b4b",
+      "size_bytes": 879
+    },
+    {
+      "path": "aeos/skills/core/unique-environment-auditor.skill.md",
+      "sha256": "83c2250d9cf810e88f2e13275e083bc757b13e53c969bde417782ed4d799d03a",
+      "size_bytes": 885
+    },
+    {
+      "path": "aeos/skills/core/workbench-profile-resolver.skill.md",
+      "sha256": "9b855a26926a126eb6edaf00daf841c4834a3f048fd45e06c3e54e5e8e948ef5",
+      "size_bytes": 885
+    },
+    {
+      "path": "aeos/templates/projects/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/templates/projects/fullstack-docker/.devcontainer/devcontainer.json",
+      "sha256": "0fc43b30fc32eeb38175d561b09ff0a2252d773dcb0b460b74c097d00177ee17",
+      "size_bytes": 70
+    },
+    {
+      "path": "aeos/templates/projects/fullstack-docker/README.md",
+      "sha256": "2f0cd6856e905f4aaef808fb3f493254d70dc3b90bade9d4aa905cc1241173dc",
+      "size_bytes": 27
+    },
+    {
+      "path": "aeos/templates/projects/fullstack-docker/docker-compose.yml",
+      "sha256": "2936bfbb8da37ab7c9577f41796bc565cf40f26e5f48c15927540196472fc79b",
+      "size_bytes": 58
+    },
+    {
+      "path": "aeos/templates/projects/fullstack-docker/package.json",
+      "sha256": "1f30049aa685d52788ce0eae48b76116256a66096db46eb510521c2555bf0b53",
+      "size_bytes": 49
+    },
+    {
+      "path": "aeos/templates/projects/java-enterprise/README.md",
+      "sha256": "7c0a34b224a8625244afb89c2eacb130f4a813122c9adc9671065aabe932e1a2",
+      "size_bytes": 56
+    },
+    {
+      "path": "aeos/templates/projects/java-enterprise/pom.xml",
+      "sha256": "dd36e5eb979a721acea1e0d7d749ebe5bff4ceae07bf860b11bf922c6e2db3d4",
+      "size_bytes": 138
+    },
+    {
+      "path": "aeos/templates/projects/java-enterprise/src/main/java/app/Application.java",
+      "sha256": "af08262f34d3c5ec644fdb47acc895044d600aaeb67373e763313d4effe01b1d",
+      "size_bytes": 84
+    },
+    {
+      "path": "aeos/templates/projects/java-enterprise/src/test/java/app/ApplicationTest.java",
+      "sha256": "c7e03ca434b600331a1d1f00ab091ef0b40be6ae610a3f1cc4680e2948b4d334",
+      "size_bytes": 38
+    },
+    {
+      "path": "aeos/templates/projects/python-ai-rag/README.md",
+      "sha256": "7c85b99a256d1f3ec04867451bac76414f7db8dd66793ba94cd04bb288f1859b",
+      "size_bytes": 54
+    },
+    {
+      "path": "aeos/templates/projects/python-ai-rag/pyproject.toml",
+      "sha256": "187948dfee1e9386d3b1bb9fa6ef0d177e8977aa83ff92c766f9d7f3914b9767",
+      "size_bytes": 52
+    },
+    {
+      "path": "aeos/templates/projects/python-ai-rag/src/api/main.py",
+      "sha256": "3a6f89895bbe0dd43e03dd5cb6467f3f3eb191d15d0cdf72c42f8d8867c9fca3",
+      "size_bytes": 29
+    },
+    {
+      "path": "aeos/templates/projects/python-ai-rag/src/rag/pipeline.py",
+      "sha256": "3973e8b1a4a8a9666ea4c5a31051dc7f09c9714d67bf38b1096fb94b9dd62432",
+      "size_bytes": 28
+    },
+    {
+      "path": "aeos/templates/projects/python-ai-rag/tests/test_pipeline.py",
+      "sha256": "f4e054e275adbb4aeb276542e9a752144476e34e618695553074ed7acefc40e7",
+      "size_bytes": 40
+    },
+    {
+      "path": "aeos/tests/enterprise/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/tests/evals/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/tests/fixtures/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    }
+  ]
+}

@@ -1,55 +1,54 @@
-# Playbook: Documentation Generation
+# Playbook: documentation-generation
 
 ## Objective
 
-Generate comprehensive documentation for a project including architecture decisions, API docs, and runbooks.
+Execute the `documentation-generation` operation under AEOS governance.
 
-## Preconditions
+## Required Skills
 
-- Workspace path exists.
-- Read-only and sandbox-write MCPs available.
-- Global rules and documentation-standards LCPs loaded.
-
-## Agents
-
-- Documenter Agent
-- Architect Agent
-- Judge Agent
-
-## Skills
-
-- documentation
+- repo-scanner
 - architecture-mapper
+- documentation
 
-## MCPs
+## Required MCPs
 
 - filesystem-readonly
-- filesystem-write-sandbox
+- git-readonly, when applicable
+- filesystem-write-sandbox, when generating artifacts
+
+## Required LCPs
+
+- global-rules
+- security-governance
 
 ## Steps
 
-1. Load project context and existing documentation.
-2. Scan repository structure and map architecture.
-3. Identify public APIs, modules, and entry points.
-4. Generate Architecture Decision Records (ADRs) for key patterns.
-5. Generate module-level documentation.
-6. Generate API reference documentation.
-7. Generate runbook for common operations.
-8. Validate documentation against standards LCP.
-9. Send outputs to Judge Agent.
-10. Generate judge-report.md.
+1. Load AEOS config.
+2. Validate registries.
+3. Resolve required LCPs.
+4. Resolve required skills.
+5. Resolve allowed MCPs.
+6. Validate permissions.
+1. Execute `repo-scanner` skill.
+2. Execute `architecture-mapper` skill.
+3. Execute `documentation` skill.
+7. Collect evidence.
+8. Generate reports.
+9. Generate evidence manifest and hash-chain.
+10. Run Judge.
 
 ## Blocking Conditions
 
-- No architecture map generated.
-- Documentation does not match actual code.
-- Missing ADR for documented decisions.
-- Incomplete coverage of public APIs.
+- Missing evidence.
+- Missing permission decision.
+- Secret value exposure.
+- Direct tool bypass.
+- Hash mismatch.
+- Output outside allowed scope.
+- Unsupported claim.
 
 ## Outputs
 
-- .aeos/docs/architecture.md
-- .aeos/docs/adr/*.md
-- .aeos/docs/api-reference.md
-- .aeos/docs/runbook.md
-- .aeos/judge-report.md
+- `.aeos/evidence/{execution_id}/`
+- `.aeos/reports/{execution_id}/`
+- `.aeos/sandbox/{execution_id}/`, when applicable

@@ -1,0 +1,176 @@
+skills:
+  - id: enterprise-repo-intelligence
+    path: aeos/skills/enterprise/enterprise-repo-intelligence.skill.md
+    version: 1.2.0
+    owner_agent: enterprise
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+    production_ready: true
+  - id: performance-profiler
+    path: aeos/skills/enterprise/performance-profiler.skill.md
+    version: 1.2.0
+    owner_agent: enterprise
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+    production_ready: true
+  - id: slo-risk-analyzer
+    path: aeos/skills/enterprise/slo-risk-analyzer.skill.md
+    version: 1.2.0
+    owner_agent: enterprise
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+    production_ready: true
+  - id: supply-chain-auditor
+    path: aeos/skills/enterprise/supply-chain-auditor.skill.md
+    version: 1.2.0
+    owner_agent: enterprise
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+    production_ready: true
+  - id: secret-redaction-specialist
+    path: aeos/skills/enterprise/secret-redaction-specialist.skill.md
+    version: 1.2.0
+    owner_agent: enterprise
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+    production_ready: true
+  - id: java-enterprise-modernizer
+    path: aeos/skills/enterprise/java-enterprise-modernizer.skill.md
+    version: 1.2.0
+    owner_agent: enterprise
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+    production_ready: true
+  - id: python-ai-productionizer
+    path: aeos/skills/enterprise/python-ai-productionizer.skill.md
+    version: 1.2.0
+    owner_agent: enterprise
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+    production_ready: true
+  - id: docker-devcontainer-engineer
+    path: aeos/skills/enterprise/docker-devcontainer-engineer.skill.md
+    version: 1.2.0
+    owner_agent: enterprise
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+    production_ready: true
+  - id: ci-quality-gate-engineer
+    path: aeos/skills/enterprise/ci-quality-gate-engineer.skill.md
+    version: 1.2.0
+    owner_agent: enterprise
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+    production_ready: true
+  - id: observability-architect
+    path: aeos/skills/enterprise/observability-architect.skill.md
+    version: 1.2.0
+    owner_agent: enterprise
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+    production_ready: true
+  - id: incident-commander
+    path: aeos/skills/enterprise/incident-commander.skill.md
+    version: 1.2.0
+    owner_agent: enterprise
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+    production_ready: true
+  - id: release-readiness-judge
+    path: aeos/skills/enterprise/release-readiness-judge.skill.md
+    version: 1.2.0
+    owner_agent: enterprise
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+    production_ready: true
+  - id: prompt-optimizer
+    path: aeos/skills/enterprise/prompt-optimizer.skill.md
+    version: 1.2.0
+    owner_agent: enterprise
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+    production_ready: true
+  - id: playbook-optimizer
+    path: aeos/skills/enterprise/playbook-optimizer.skill.md
+    version: 1.2.0
+    owner_agent: enterprise
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+    production_ready: true
+  - id: skill-hardener
+    path: aeos/skills/enterprise/skill-hardener.skill.md
+    version: 1.2.0
+    owner_agent: enterprise
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+    production_ready: true
+  - id: mcp-risk-controller
+    path: aeos/skills/enterprise/mcp-risk-controller.skill.md
+    version: 1.2.0
+    owner_agent: enterprise
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+    production_ready: true
+  - id: approval-governance-auditor
+    path: aeos/skills/enterprise/approval-governance-auditor.skill.md
+    version: 1.2.0
+    owner_agent: enterprise
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+    production_ready: true
+  - id: evidence-integrity-engineer
+    path: aeos/skills/enterprise/evidence-integrity-engineer.skill.md
+    version: 1.2.0
+    owner_agent: enterprise
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+    production_ready: true
+  - id: package-trust-engineer
+    path: aeos/skills/enterprise/package-trust-engineer.skill.md
+    version: 1.2.0
+    owner_agent: enterprise
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+    production_ready: true
+  - id: multirepo-ecosystem-mapper
+    path: aeos/skills/enterprise/multirepo-ecosystem-mapper.skill.md
+    version: 1.2.0
+    owner_agent: enterprise
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+    production_ready: true
+  - id: adr-decision-writer
+    path: aeos/skills/enterprise/adr-decision-writer.skill.md
+    version: 1.2.0
+    owner_agent: enterprise
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+    production_ready: true
+  - id: test-strategy-architect
+    path: aeos/skills/enterprise/test-strategy-architect.skill.md
+    version: 1.2.0
+    owner_agent: enterprise
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+    production_ready: true
+  - id: legacy-risk-mapper
+    path: aeos/skills/enterprise/legacy-risk-mapper.skill.md
+    version: 1.2.0
+    owner_agent: enterprise
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+    production_ready: true
+  - id: cost-token-optimizer
+    path: aeos/skills/enterprise/cost-token-optimizer.skill.md
+    version: 1.2.0
+    owner_agent: enterprise
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+    production_ready: true
+  - id: compliance-evidence-exporter
+    path: aeos/skills/enterprise/compliance-evidence-exporter.skill.md
+    version: 1.2.0
+    owner_agent: enterprise
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+    production_ready: true

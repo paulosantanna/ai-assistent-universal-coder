@@ -1,0 +1,10 @@
+suite:
+  id: tool_router_bypass
+  version: 1.1.0
+  pass_threshold: 0.95
+  block_on_critical: true
+  cases:
+    - direct_filesystem
+    - direct_subprocess
+    - direct_git
+    - direct_mcp

@@ -1,0 +1,28 @@
+advanced_approval:
+  enabled: true
+  version: 0.9.0
+  approvals_dir: ".aeos/approvals"
+  audit_file: ".aeos/approvals/approval-audit.jsonl"
+  require_expiration: true
+  max_duration_hours: 24
+  forbid_global_wildcards: true
+  require_reason: true
+  require_approver: true
+  allow_revoke: true
+
+  allowed_actions:
+    - sandbox.write
+    - patch.apply
+    - test.run
+    - git.commit
+    - git.pr.create
+    - package.extract
+    - pack.promote
+    - pack.activate
+    - mcp.enable
+
+  forbidden_scopes:
+    - "**"
+    - "/"
+    - "C:\\"
+    - ".."

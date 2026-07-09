@@ -1,0 +1,36 @@
+evidence_cache:
+  enabled: true
+  version: 0.9.0
+  cache_dir: ".aeos/cache"
+  require_strong_cache_key: true
+  require_input_hashes: true
+  require_policy_hash: true
+  require_skill_version_hash: true
+  require_playbook_version_hash: true
+  require_lcp_version_hash: true
+  require_target_file_hashes: true
+
+  allowed_cache_types:
+    - stack_detection_cache
+    - dependency_analysis_cache
+    - architecture_map_cache
+    - test_detection_cache
+
+  forbidden_cache_types:
+    - raw_secrets
+    - raw_credentials
+    - approval_authorization
+    - production_mutation_result
+    - browser_session
+    - token
+    - cookie
+
+  invalidation:
+    on_file_change: true
+    on_config_change: true
+    on_policy_change: true
+    on_permission_change: true
+    on_skill_change: true
+    on_playbook_change: true
+    on_lcp_change: true
+    on_aeos_version_change: true

@@ -1,0 +1,27 @@
+pack_marketplace:
+  enabled: true
+  version: 0.95.0
+  dirs:
+    quarantine: "aeos/packs/quarantine"
+    staging: "aeos/packs/staging"
+    active: "aeos/packs/active"
+    archived: "aeos/packs/archived"
+    rejected: "aeos/packs/rejected"
+
+  require_verify_before_import: true
+  require_quarantine: true
+  require_contract_validation: true
+  require_capability_validation: true
+  require_secret_scan: true
+  require_manual_promotion: true
+  require_manual_activation: true
+  allow_direct_active_import: false
+
+  allowed_pack_types:
+    - skill-pack
+    - playbook-pack
+    - lcp-pack
+    - mcp-profile-pack
+    - environment-pack
+    - security-policy-pack
+    - observability-pack

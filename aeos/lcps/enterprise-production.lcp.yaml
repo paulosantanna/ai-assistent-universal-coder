@@ -1,0 +1,27 @@
+id: enterprise-production
+name: Enterprise Production Context Pack
+version: 1.2.0
+priority: 100
+
+rules:
+  - deny_all_default
+  - tool_router_required
+  - mcp_allowlist_required
+  - evidence_required
+  - judge_required
+  - approval_required_for_mutation
+  - rollback_required_for_mutation
+  - tests_required_for_behavior_change
+  - observability_required
+  - performance_budget_required
+  - no_raw_secret_persistence
+  - no_auto_merge
+  - no_auto_deploy
+  - no_wildcard_approval
+
+required_outputs:
+  - production-readiness-report.md
+  - security-risk-report.md
+  - performance-budget-report.md
+  - observability-report.md
+  - judge-report.md

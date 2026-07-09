@@ -1,53 +1,50 @@
-# Playbook: Security Secrets Audit
+# Playbook: security-secrets-audit
 
 ## Objective
 
-Scan a repository for exposed secrets, credentials, tokens, and sensitive configuration without reading their values.
+Execute the `security-secrets-audit` operation under AEOS governance.
 
-## Preconditions
-
-- Workspace path exists.
-- Read-only filesystem and git MCPs available.
-- Security governance LCP loaded.
-
-## Agents
-
-- Security Agent
-- Judge Agent
-
-## Skills
+## Required Skills
 
 - security-audit
 
-## MCPs
+## Required MCPs
 
 - filesystem-readonly
-- git-readonly
+- git-readonly, when applicable
+- filesystem-write-sandbox, when generating artifacts
+
+## Required LCPs
+
+- global-rules
+- security-governance
 
 ## Steps
 
-1. Load security governance LCP.
-2. Scan entire repository for secret patterns.
-3. Scan git history for committed secrets.
-4. Scan configuration files for credential patterns.
-5. Check .gitignore and .dockerignore for coverage gaps.
-6. Scan CI/CD pipeline definitions for embedded secrets.
-7. Generate secrets audit report without exposing values.
-8. Classify findings by severity.
-9. Recommend remediation actions.
-10. Send outputs to Judge Agent.
-11. Generate judge-report.md.
+1. Load AEOS config.
+2. Validate registries.
+3. Resolve required LCPs.
+4. Resolve required skills.
+5. Resolve allowed MCPs.
+6. Validate permissions.
+1. Execute `security-audit` skill.
+7. Collect evidence.
+8. Generate reports.
+9. Generate evidence manifest and hash-chain.
+10. Run Judge.
 
 ## Blocking Conditions
 
-- Secret values printed or logged.
-- Audit report contains plaintext secrets.
-- Critical severity secrets found without remediation plan.
-- Missing evidence of scan coverage.
+- Missing evidence.
+- Missing permission decision.
+- Secret value exposure.
+- Direct tool bypass.
+- Hash mismatch.
+- Output outside allowed scope.
+- Unsupported claim.
 
 ## Outputs
 
-- .aeos/secrets-audit-report.md
-- .aeos/secrets-evidence-index.md
-- .aeos/remediation-recommendations.md
-- .aeos/judge-report.md
+- `.aeos/evidence/{execution_id}/`
+- `.aeos/reports/{execution_id}/`
+- `.aeos/sandbox/{execution_id}/`, when applicable

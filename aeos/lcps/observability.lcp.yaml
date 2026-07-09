@@ -1,0 +1,17 @@
+id: observability
+name: Observability Context Pack
+version: 1.0.0
+priority: 75
+
+required_outputs:
+  - execution.log.jsonl
+  - trace.jsonl
+  - metrics.json
+  - timeline.md
+
+rules:
+  - structured_logs_only
+  - redact_sensitive_outputs
+  - trace_tool_calls
+  - trace_agent_messages
+  - trace_judge_decisions

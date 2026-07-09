@@ -1,0 +1,24 @@
+playbooks:
+  - id: mcp-health-check
+    path: aeos/playbooks/mcp-health-check.playbook.md
+    risk_level: low
+    required_agents: [security, judge]
+    required_skills: [mcp-health-check, security-audit]
+    required_lcps: [global-rules, security-governance]
+    allowed_mcps: [filesystem-readonly, git-readonly, test-runner-controlled, package-local]
+
+  - id: mcp-discovery
+    path: aeos/playbooks/mcp-discovery.playbook.md
+    risk_level: medium
+    required_agents: [security, judge]
+    required_skills: [mcp-discovery, security-audit]
+    required_lcps: [global-rules, security-governance]
+    allowed_mcps: [filesystem-readonly]
+
+  - id: tool-router-audit
+    path: aeos/playbooks/tool-router-audit.playbook.md
+    risk_level: high
+    required_agents: [security, architect, judge]
+    required_skills: [tool-router-audit, security-audit]
+    required_lcps: [global-rules, security-governance]
+    allowed_mcps: [filesystem-readonly, git-readonly]

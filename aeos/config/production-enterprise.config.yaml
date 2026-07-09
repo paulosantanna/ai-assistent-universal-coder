@@ -1,0 +1,33 @@
+production_enterprise:
+  enabled: true
+  version: 1.2.0
+  operating_mode: governed-production
+  fail_closed: true
+
+  mandatory_planes:
+    - control
+    - execution
+    - evidence
+    - governance
+
+  default_profile: enterprise-production
+
+  forbidden:
+    auto_merge: true
+    auto_deploy: true
+    unrestricted_shell: true
+    raw_secret_read: true
+    direct_tool_access: true
+    direct_mcp_access: true
+    wildcard_approval: true
+    unverified_package_extract: true
+    direct_active_pack_import: true
+
+  required:
+    policy_decision: true
+    permission_decision: true
+    evidence_manifest: true
+    judge_report: true
+    observability_trace: true
+    rollback_for_mutation: true
+    tests_for_behavior_change: true

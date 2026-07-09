@@ -1,62 +1,54 @@
-# Playbook: Project Analysis
+# Playbook: project-analysis
 
 ## Objective
 
-Analyze a project or ecosystem and generate a factual, evidence-based technical map.
+Execute the `project-analysis` operation under AEOS governance.
 
-## Preconditions
-
-- Workspace path exists.
-- Read-only filesystem MCP is available.
-- Global rules LCP is loaded.
-- Security governance LCP is loaded.
-
-## Agents
-
-- Root Agent
-- Architect Agent
-- Security Agent
-- Judge Agent
-
-## Skills
+## Required Skills
 
 - repo-scanner
 - architecture-mapper
 - security-audit
 
-## MCPs
+## Required MCPs
 
 - filesystem-readonly
-- git-readonly
+- git-readonly, when applicable
+- filesystem-write-sandbox, when generating artifacts
+
+## Required LCPs
+
+- global-rules
+- security-governance
 
 ## Steps
 
-1. Load aeos.config.yaml.
-2. Load registries.
-3. Load global LCPs.
-4. Validate permissions.
-5. Scan repository structure.
-6. Detect languages and build tools.
-7. Detect frameworks.
-8. Detect Docker and CI/CD files.
-9. Detect tests.
-10. Detect likely secrets without exposing values.
-11. Generate ecosystem-map.md.
-12. Generate risk-report.md.
-13. Generate recommended-playbooks.md.
-14. Send outputs to Judge Agent.
-15. Generate judge-report.md.
+1. Load AEOS config.
+2. Validate registries.
+3. Resolve required LCPs.
+4. Resolve required skills.
+5. Resolve allowed MCPs.
+6. Validate permissions.
+1. Execute `repo-scanner` skill.
+2. Execute `architecture-mapper` skill.
+3. Execute `security-audit` skill.
+7. Collect evidence.
+8. Generate reports.
+9. Generate evidence manifest and hash-chain.
+10. Run Judge.
 
 ## Blocking Conditions
 
 - Missing evidence.
-- Secret values printed.
-- Unsupported destructive command attempted.
-- Report contains unsupported claims.
+- Missing permission decision.
+- Secret value exposure.
+- Direct tool bypass.
+- Hash mismatch.
+- Output outside allowed scope.
+- Unsupported claim.
 
 ## Outputs
 
-- .aeos/ecosystem-map.md
-- .aeos/risk-report.md
-- .aeos/recommended-playbooks.md
-- .aeos/judge-report.md
+- `.aeos/evidence/{execution_id}/`
+- `.aeos/reports/{execution_id}/`
+- `.aeos/sandbox/{execution_id}/`, when applicable

@@ -1,0 +1,22 @@
+optimized_prompt_policy:
+  version: 1.2.0
+  goals:
+    - reduce_context_size
+    - prefer_file_refs
+    - require_evidence
+    - forbid_unbounded_reasoning
+    - separate_facts_assumptions_risks_recommendations
+
+  max_prompt_sections: 8
+  require_task_contract: true
+  require_output_schema: true
+  require_stop_conditions: true
+  require_forbidden_actions: true
+
+  anti_patterns:
+    - vague_superagent_prompt
+    - unlimited_autonomy
+    - no_evidence_required
+    - no_output_schema
+    - no_permission_boundaries
+    - no_token_budget

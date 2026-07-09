@@ -1,0 +1,16 @@
+ENTERPRISE_BLOCKING_GATES = [
+    "missing_evidence",
+    "hash_mismatch",
+    "secret_exposed",
+    "tool_router_bypass",
+    "policy_bypass",
+    "permission_bypass",
+    "wildcard_approval",
+    "auto_merge_enabled",
+    "auto_deploy_enabled",
+    "critical_mcp_enabled_by_default",
+    "pack_import_direct_to_active",
+    "package_extract_without_verify",
+    "agent_self_judging",
+    "unsupported_factual_claim",
+]

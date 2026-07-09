@@ -1,0 +1,259 @@
+{
+  "package": "aeos_evolution_pack_v0_7_agent_runtime",
+  "version": "0.7.0",
+  "created_at": "2026-07-08T22:13:20.530087+00:00",
+  "purpose": "Agent Runtime & Delegation Layer overlay for AEOS",
+  "file_count": 50,
+  "files": [
+    {
+      "path": "AEOS_AGENT_MESSAGE_PROTOCOL.md",
+      "sha256": "ebc537e873406331afb429917622f3320d619111387f8005796a9bcb9fade597",
+      "size_bytes": 1120
+    },
+    {
+      "path": "AEOS_AGENT_ORCHESTRATION.md",
+      "sha256": "b78a9cfd2c2ce3f945e7dbf1a2d6589832bc99a21c6738a74cd31b1a7d52b568",
+      "size_bytes": 1382
+    },
+    {
+      "path": "AEOS_CONTEXT_ROUTING.md",
+      "sha256": "b9e7c6fc2fc68418738a6a062a00cc8ba464ad934e248db3d760b146d1845622",
+      "size_bytes": 913
+    },
+    {
+      "path": "AEOS_JUDGE_V7_AGENT_RULES.md",
+      "sha256": "9e28d40b630eb47103c48ad69c6b29e84d63372631350393e43e3b7e47d431a8",
+      "size_bytes": 940
+    },
+    {
+      "path": "AEOS_MEMORY_GOVERNANCE.md",
+      "sha256": "4a86d4936e17725d145a60875e66bd51fbb1764def00b64bbf6350c480630dcf",
+      "size_bytes": 815
+    },
+    {
+      "path": "AEOS_SUBAGENT_SYSTEM.md",
+      "sha256": "18a0d85cd980b137148a0b54edac5abcc1e1e056f9508e30777fd30356048af9",
+      "size_bytes": 1099
+    },
+    {
+      "path": "AEOS_TASK_DELEGATION_CONTRACT.md",
+      "sha256": "4e6bb7c5ddc1abe22d476f879222a696691a6a6102425086f1994d0302e8dec7",
+      "size_bytes": 1129
+    },
+    {
+      "path": "AEOS_V0_7_AGENT_RUNTIME.md",
+      "sha256": "4b3cc24316f6e3282bf13b2fa0cba6101affe51e467f2680831272af97d1130f",
+      "size_bytes": 1539
+    },
+    {
+      "path": "AEOS_V0_7_ROADMAP.md",
+      "sha256": "7a7c4bfe8173b0826bdca59cac7464e9a7ee50d64706fdcf80429b6d5dc1168c",
+      "size_bytes": 984
+    },
+    {
+      "path": "INSTALL_v0_7.md",
+      "sha256": "9999aad215743d9731ec3656ddcd4594fd9b343f60db848ee6992c8ed16b55bb",
+      "size_bytes": 1869
+    },
+    {
+      "path": "aeos/agents/planner.agent.md",
+      "sha256": "17820fbfa9ce6cd74ebbae05ca4463346f99e2898846f10749f4bc84b482924d",
+      "size_bytes": 438
+    },
+    {
+      "path": "aeos/agents/subagents/dependency-risk-analyzer.subagent.md",
+      "sha256": "879ce7e7fe778d78f07c914b03d441a61460d15afd8cf3d67a88f9d37e38b2d5",
+      "size_bytes": 621
+    },
+    {
+      "path": "aeos/agents/subagents/docs-adr-writer.subagent.md",
+      "sha256": "520b8a656909ea6476dc934811243248dd3fcde381c4826116c45776d8fbb6b4",
+      "size_bytes": 583
+    },
+    {
+      "path": "aeos/agents/subagents/java-analyzer.subagent.md",
+      "sha256": "3baeba38015d9e9d683d8478611b0fc54712ae3e684fafe3c10071303473336a",
+      "size_bytes": 607
+    },
+    {
+      "path": "aeos/agents/subagents/patch-risk-reviewer.subagent.md",
+      "sha256": "4f3a24ed1290921799e0d5aac266cc777bedc11863cbe076fdfaa7a6c8a5b4e1",
+      "size_bytes": 606
+    },
+    {
+      "path": "aeos/agents/subagents/python-rag-analyzer.subagent.md",
+      "sha256": "0b61b6f678ece2a37a6671b79433a5b13d0c9900570dedfd4d6351ac9e9c52d0",
+      "size_bytes": 609
+    },
+    {
+      "path": "aeos/agents/subagents/rollback-reviewer.subagent.md",
+      "sha256": "ff438bd0ef47d6cdb6a3d3c447ce92245557e7ef42834b84f59f9bbfc535e359",
+      "size_bytes": 576
+    },
+    {
+      "path": "aeos/agents/subagents/security-secret-detector.subagent.md",
+      "sha256": "3997186acfe6b259e5b5ced599db32647d917908c8920a0975e72cb876dfa854",
+      "size_bytes": 610
+    },
+    {
+      "path": "aeos/agents/subagents/test-gap-analyzer.subagent.md",
+      "sha256": "b55cd0bd0cd66acd0e972bff760fc9fe02b5f065d9c75eaa52817ed444667143",
+      "size_bytes": 606
+    },
+    {
+      "path": "aeos/config/agent-messages.schema.yaml",
+      "sha256": "e94782aa3f87241145447a8cbc16d80508b848c3a661dfdc9ff3ff63c26c3b54",
+      "size_bytes": 713
+    },
+    {
+      "path": "aeos/config/agent.runtime.yaml",
+      "sha256": "802b3fc5e38cf28cc909f9fa4c7adedd6389bfd94005fad58054481c552219f1",
+      "size_bytes": 793
+    },
+    {
+      "path": "aeos/config/delegation.policy.yaml",
+      "sha256": "028dd0d5251a3f884bdb606711eefc8f5ec62ef997610ba3cc0592a26ac2ff79",
+      "size_bytes": 1361
+    },
+    {
+      "path": "aeos/config/task-graph.schema.yaml",
+      "sha256": "93c28604c442a420159b5a8a9e14cad2e7a3f6602d726dd0165af49323fa84a7",
+      "size_bytes": 651
+    },
+    {
+      "path": "aeos/core/agent_runtime/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/core/agent_runtime/agent_runtime.py",
+      "sha256": "f77ad0744157b6d082de0c00d3b5b416d3883485b0aec9e8aa151be509bf5ea4",
+      "size_bytes": 1516
+    },
+    {
+      "path": "aeos/core/agent_runtime/context_router.py",
+      "sha256": "efd9d5f45f63b9c324411f011733a558d1a69189ba47586975fd50ea915537ec",
+      "size_bytes": 1117
+    },
+    {
+      "path": "aeos/core/agent_runtime/contracts.py",
+      "sha256": "2cf982c9be84ded6b96ff398af63fc52a8aea177a9dffb3f0fc2a673ef9f38b7",
+      "size_bytes": 2309
+    },
+    {
+      "path": "aeos/core/agent_runtime/delegation_policy.py",
+      "sha256": "2bdcde09918c08f8723fdcabb49c6713b15956559fe4c077ff77f1daf5509b56",
+      "size_bytes": 1097
+    },
+    {
+      "path": "aeos/core/agent_runtime/task_graph.py",
+      "sha256": "5e1830fe31985b1d2c9c7de6fe259b97e5da9391ed67e3a60a1c6b89a884f7b3",
+      "size_bytes": 1466
+    },
+    {
+      "path": "aeos/core/agent_runtime/trace_store.py",
+      "sha256": "17f6edf61dc0839961664dbb2d8439005d08907d5ddf0fc3d255f28a51cec43a",
+      "size_bytes": 665
+    },
+    {
+      "path": "aeos/core/context_routing/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/core/delegation/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/core/memory_gateway/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/docs/AGENT_RUNTIME_IMPLEMENTATION_GUIDE.md",
+      "sha256": "85734d5ed6453db2cef37770a0c8a411a274d2af250fbe30d538927a467a9235",
+      "size_bytes": 896
+    },
+    {
+      "path": "aeos/docs/HOW_TO_ADD_AGENT.md",
+      "sha256": "729e00cf18b2a8446a270a59deb79414d262c9818301fd1c13927bbb9ea0d9ac",
+      "size_bytes": 710
+    },
+    {
+      "path": "aeos/docs/HOW_TO_ADD_SUBAGENT.md",
+      "sha256": "7c31ad224567ce8e99cf0970f43ff4c858bbeedd464a100e9d14949659e88f26",
+      "size_bytes": 474
+    },
+    {
+      "path": "aeos/playbooks/agent-delegated-project-analysis.playbook.md",
+      "sha256": "c7c24861a61b17613a98d17f9bdb8ab655c5c47fc5653149cc53052ff15c39d7",
+      "size_bytes": 876
+    },
+    {
+      "path": "aeos/playbooks/agent-runtime-smoke-test.playbook.md",
+      "sha256": "dc5a01ddf7af2c9ce48bc5e5750344a8fff143abda839577b87dfe2c0919b644",
+      "size_bytes": 754
+    },
+    {
+      "path": "aeos/playbooks/subagent-risk-review.playbook.md",
+      "sha256": "f749f3b516cace2c828fa27348fb3a78922e1e7390b493c92defc552aca04d86",
+      "size_bytes": 546
+    },
+    {
+      "path": "aeos/registries/agents.v0_7.registry.yaml",
+      "sha256": "6cf498833505f4a807d6c93cf1d19f20bde2b740ca569669ddf27e9911a6d11f",
+      "size_bytes": 2097
+    },
+    {
+      "path": "aeos/registries/playbooks.v0_7.additions.yaml",
+      "sha256": "264eb55385225b3c72c0508bce85cdc15ed5a5ff03d2d1cab8b7b9c18d09f6b5",
+      "size_bytes": 1171
+    },
+    {
+      "path": "aeos/registries/skills.v0_7.additions.yaml",
+      "sha256": "9b26fd4cb806ef41ec8659f7af449fefa176c2925f887724e3371db96539bc24",
+      "size_bytes": 1040
+    },
+    {
+      "path": "aeos/skills/core/agent-trace-validator.skill.md",
+      "sha256": "43320628fb3e969c33ecd053a2bd182966e1be7fcada33c4bf681ef6180e0592",
+      "size_bytes": 671
+    },
+    {
+      "path": "aeos/skills/core/context-router.skill.md",
+      "sha256": "6bb6c7be7d7f302ef090aec8762529203428acf19064d27bd072989433b514f8",
+      "size_bytes": 696
+    },
+    {
+      "path": "aeos/skills/core/delegation-auditor.skill.md",
+      "sha256": "472b6e58dfb9aa0c070c61293009f45b45cae265fcbe88c0ecbc7c642f463fd2",
+      "size_bytes": 685
+    },
+    {
+      "path": "aeos/skills/core/memory-governance-auditor.skill.md",
+      "sha256": "ffefc073b4403bc967d570629b21eed78531bebe92bf4ae8bbda4ef827c8aa90",
+      "size_bytes": 691
+    },
+    {
+      "path": "aeos/skills/core/task-graph-builder.skill.md",
+      "sha256": "4197a907c584d2cca235d8d2e60ae3bec59fa5842fb46d13e652d85ae2a094f4",
+      "size_bytes": 683
+    },
+    {
+      "path": "aeos/tests/agent_runtime/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/tests/context_routing/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "aeos/tests/delegation/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    }
+  ]
+}

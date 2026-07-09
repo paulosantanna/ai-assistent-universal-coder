@@ -1,0 +1,16 @@
+id: parallel-execution
+name: Parallel Execution Context Pack
+version: 1.0.0
+priority: 88
+
+rules:
+  - require_read_write_sets
+  - block_unresolved_conflicts
+  - preserve_deterministic_order
+  - high_risk_tasks_sequential
+  - evidence_chain_must_remain_valid
+
+forbidden:
+  - parallel_write_same_path
+  - parallel_run_without_conflict_detector
+  - missing_task_result

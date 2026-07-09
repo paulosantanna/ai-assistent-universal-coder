@@ -1,0 +1,39 @@
+allowlist:
+  filesystem-readonly:
+    - filesystem.list
+    - filesystem.read
+    - filesystem.exists
+    - filesystem.stat
+
+  filesystem-write-sandbox:
+    - filesystem.write_sandbox
+    - filesystem.mkdir_sandbox
+
+  git-readonly:
+    - git.status
+    - git.diff
+    - git.log
+    - git.branch_current
+
+  test-runner-controlled:
+    - test.detect
+    - test.run_allowlisted
+
+  package-local:
+    - package.create
+    - package.verify
+    - package.inspect
+    - package.extract_staging
+
+blocked_tools:
+  - shell.exec
+  - shell.unrestricted
+  - secrets.read_value
+  - secrets.dump
+  - browser.export_cookies
+  - browser.use_profile
+  - git.force_push
+  - git.merge
+  - git.push
+  - deploy.run
+  - database.write

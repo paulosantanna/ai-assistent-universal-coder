@@ -1,51 +1,41 @@
-# Skill: Architecture Mapper
+# Skill: architecture-mapper
 
 ## Mission
 
-Analyze a codebase structure and produce an architectural map including modules, dependencies, layers, and patterns.
+Map architecture based on detected files and explicit evidence.
 
 ## Allowed Actions
 
-- Read source files.
-- List directories and module structures.
-- Detect architectural patterns (MVC, hexagonal, layered, etc.).
-- Map module dependencies.
-- Detect configuration and routing files.
-- Generate Architecture Decision Records (ADRs).
-- Generate Markdown reports.
+- Read authorized files through Tool Router.
+- Generate reports in `.aeos/reports`.
+- Generate evidence in `.aeos/evidence`.
+- Generate sandbox artifacts when permitted.
+- Never bypass permissions.
 
 ## Forbidden Actions
 
-- Edit source files.
-- Delete files.
-- Execute commands.
-- Access runtime environments.
-- Declare architectural degradation without evidence.
+- Direct filesystem access.
+- Direct Git mutation.
+- Secret value exposure.
+- Destructive shell.
+- Unapproved writes outside `.aeos`.
+- Unsupported factual claims.
+- Silent failure.
 
-## Inputs
+## Required Evidence
 
-- workspace path
-- scan depth
-- existing ADR directory
-
-## Outputs
-
-- architecture-map.md
-- module-dependency-graph.md
-- adr/*.md
-- tech-debt-report.md
-
-## Evidence Required
-
-- module structure
-- dependency declarations
-- framework configuration files
-- detected patterns with file citations
-- routing/endpoint definitions
+- files inspected
+- tool calls
+- permission decisions
+- generated artifacts
+- risk classification
+- Judge input when applicable
 
 ## Quality Gates
 
-- Must cite specific files for each architectural claim.
-- Must distinguish observed patterns from inferred intent.
-- Must flag inconsistent patterns.
-- Must produce actionable ADR proposals.
+- Facts cite evidence.
+- Assumptions are explicitly marked.
+- Risks are classified.
+- Outputs follow schema.
+- No secrets are printed.
+- Required artifacts are hashed.

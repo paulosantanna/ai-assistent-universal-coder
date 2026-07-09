@@ -1,0 +1,41 @@
+mcp:
+  id: filesystem-write-sandbox
+  type: filesystem
+  transport: stdio
+  command: "aeos-mcp-filesystem"
+  args: ["--mode", "write-sandbox"]
+  risk_level: medium
+  timeout_seconds: 30
+  retries: 1
+  approval_required: false
+  sandbox_required: true
+  redaction_required: true
+
+capabilities:
+  - WRITE_SANDBOX_FILES
+
+tools:
+  - name: filesystem.write_sandbox
+    input_schema:
+      path: string
+      content: string
+    output_schema:
+      artifact_path: string
+      sha256: string
+
+  - name: filesystem.mkdir_sandbox
+    input_schema:
+      path: string
+    output_schema:
+      created: boolean
+
+rules:
+  write_allowed_only:
+    - ".aeos/sandbox/**"
+    - ".aeos/reports/**"
+    - ".aeos/evidence/**"
+    - ".aeos/patches/**"
+    - ".aeos/packages/**"
+  delete_allowed: false
+  overwrite_requires_approval: true
+  redact_output: true

@@ -1,54 +1,41 @@
-# Skill: Repo Scanner
+# Skill: repo-scanner
 
 ## Mission
 
-Analyze a local repository or ecosystem folder and generate a factual technical map.
+Analyze repositories and produce factual ecosystem maps.
 
 ## Allowed Actions
 
-- Read files.
-- List directories.
-- Detect languages.
-- Detect build tools.
-- Detect frameworks.
-- Detect Docker/CI/test files.
-- Generate Markdown reports.
+- Read authorized files through Tool Router.
+- Generate reports in `.aeos/reports`.
+- Generate evidence in `.aeos/evidence`.
+- Generate sandbox artifacts when permitted.
+- Never bypass permissions.
 
 ## Forbidden Actions
 
-- Edit source files.
-- Delete files.
-- Execute destructive commands.
-- Read secrets values.
-- Persist credentials.
-- Declare conclusions without evidence.
+- Direct filesystem access.
+- Direct Git mutation.
+- Secret value exposure.
+- Destructive shell.
+- Unapproved writes outside `.aeos`.
+- Unsupported factual claims.
+- Silent failure.
 
-## Inputs
-
-- workspace path
-- scan depth
-- ignored directories
-- output directory
-
-## Outputs
-
-- ecosystem-map.md
-- stack-report.md
-- risk-report.md
-- recommended-playbooks.md
-- evidence/index.md
-
-## Evidence Required
+## Required Evidence
 
 - files inspected
-- stack indicators
-- dependency files
-- detected risks
-- confidence level
+- tool calls
+- permission decisions
+- generated artifacts
+- risk classification
+- Judge input when applicable
 
 ## Quality Gates
 
-- Must cite detected files.
-- Must distinguish facts from assumptions.
-- Must produce risk report.
-- Must produce recommended next actions.
+- Facts cite evidence.
+- Assumptions are explicitly marked.
+- Risks are classified.
+- Outputs follow schema.
+- No secrets are printed.
+- Required artifacts are hashed.
