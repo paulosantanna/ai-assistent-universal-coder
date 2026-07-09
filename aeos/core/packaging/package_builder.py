@@ -4,6 +4,7 @@ import hashlib
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
+from aeos.core.evidence.evidence_manifest import is_finalized, FINALIZED_MARKER
 from aeos.core.packaging.package_models import (
     PackageBuildRequest, PackageBuildResult, PackageStatus, PackageManifest,
 )
@@ -30,6 +31,15 @@ class PackageBuilder:
                 error=f"Execution directory not found: {execution_dir}",
             )
 
+        if not is_finalized(execution_dir):
+            return PackageBuildResult(
+                package_path="",
+                manifest=PackageManifest(execution_id=request.execution_id, package_id="", created_at=""),
+                status=PackageStatus.FAILED,
+                error=f"Execution {request.execution_id} is not finalized (no .finalized marker). "
+                      "Run 'judge run --execution-id <id>' first to finalize evidence.",
+            )
+
         output_dir = self.workspace_root / request.output_dir
         output_dir.mkdir(parents=True, exist_ok=True)
         package_name = f"aeos-package-{request.execution_id}.zip"
@@ -40,7 +50,7 @@ class PackageBuilder:
 
         if request.include_evidence:
             for f in sorted(execution_dir.rglob("*")):
-                if f.is_file():
+                if f.is_file() and f.name != FINALIZED_MARKER:
                     files_to_include.append(f)
 
         reports_dir = self.workspace_root / self.REPORTS_DIR

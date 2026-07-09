@@ -42,10 +42,28 @@ class JudgeEngine:
         return result
 
     def _finalize_judge_manifest(self, execution_id: str) -> None:
-        """Finalize judge evidence manifest AFTER all judge outputs are written."""
-        evidence_dir = self.workspace_root / ".aeos" / "evidence" / execution_id
+        """Finalize judge evidence manifest AFTER all judge outputs are written.
+        
+        Also regenerates the final evidence-manifest.json so it reflects the
+        updated judge data. This prevents hash mismatches when judge is re-run
+        on an already-finalized execution.
+        
+        Scans sibling evidence directories for eval and readiness manifests
+        so they are included in the regenerated evidence-manifest.json.
+        """
+        evidence_root = self.workspace_root / ".aeos" / "evidence"
+        evidence_dir = evidence_root / execution_id
+        extra_dirs: list[str] = []
+        if evidence_root.exists():
+            for sibling in sorted(evidence_root.iterdir()):
+                if sibling.is_dir() and sibling.name != execution_id:
+                    if (sibling / "eval-evidence-manifest.json").exists() or \
+                       (sibling / "readiness-evidence-manifest.json").exists():
+                        extra_dirs.append(str(sibling))
+
         builder = StagedManifestBuilder(execution_id, str(evidence_dir), str(self.workspace_root))
         builder.finalize_judge_manifest()
+        builder.finalize_evidence_manifest(extra_evidence_dirs=extra_dirs if extra_dirs else None)
 
     def evaluate_from_dict(self, data: dict[str, Any]) -> JudgeResult:
         judge_input = self.input_builder.build_from_dict(data)

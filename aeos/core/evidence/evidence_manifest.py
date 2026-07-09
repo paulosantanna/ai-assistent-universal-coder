@@ -26,6 +26,26 @@ IMMUTABLE_EXTENSIONS = {".json", ".md"}
 MUTABLE_BEFORE_FINALIZE = {"hash-chain.jsonl", "audit-log.jsonl"}
 EXCLUDED_FROM_SELF_HASH = {"evidence-manifest.json", "runtime-evidence-manifest.json", "eval-evidence-manifest.json", "judge-evidence-manifest.json", "readiness-evidence-manifest.json"}
 
+FINALIZED_MARKER = ".finalized"
+
+
+def is_finalized(evidence_dir: str | Path) -> bool:
+    return (Path(evidence_dir) / FINALIZED_MARKER).exists()
+
+
+def mark_finalized(evidence_dir: str | Path) -> str:
+    p = Path(evidence_dir)
+    p.mkdir(parents=True, exist_ok=True)
+    marker = p / FINALIZED_MARKER
+    marker.write_text("")
+    return str(marker)
+
+
+def unmark_finalized(evidence_dir: str | Path) -> None:
+    marker = Path(evidence_dir) / FINALIZED_MARKER
+    if marker.exists():
+        marker.unlink()
+
 
 def _infer_workspace_root(evidence_dir: Path) -> Path:
     """Walk up from evidence_dir to find the directory containing .aeos."""
@@ -284,6 +304,7 @@ class StagedManifestBuilder:
         """Stage E: Final bundle manifest.
         
         Includes all staged manifests, but NOT itself (evidence-manifest.json).
+        After successful generation, creates .finalized marker to prevent mutation.
         
         Args:
             extra_evidence_dirs: Additional evidence directories to search
@@ -310,7 +331,9 @@ class StagedManifestBuilder:
         if audit_log.exists():
             gen.add_file(str(audit_log))
 
-        return gen.generate(self._output_path(STAGE_FINAL))
+        result = gen.generate(self._output_path(STAGE_FINAL))
+        mark_finalized(self.evidence_dir)
+        return result
 
     def verify_all_manifests(self) -> dict[str, Any]:
         """Verify all staged manifests plus final."""
