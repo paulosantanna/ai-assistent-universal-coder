@@ -1,0 +1,4 @@
+id: performance_traces
+description: Performance trace evaluation suite
+blocking: false
+min_pass_score: 0.85

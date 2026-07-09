@@ -1,3 +1,15 @@
+---
+description: "Validate anti-hallucination for unsupported_claims"
+severity: high
+expected: PASS
+blocking: true
+inputs:
+  type: anti_hallucination
+  claims:
+    - claim: "Test claim for unsupported_claims"
+      evidence_refs: ["test-evidence.json"]
+  expected_no_unsupported: true
+---
 # Eval Case: unsupported_claims
 
 ## Suite

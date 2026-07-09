@@ -1,3 +1,13 @@
+---
+description: "Validate approval bypass prevention for revoked_approval"
+severity: high
+expected: PASS
+blocking: true
+inputs:
+  type: approval_bypass
+  pattern: "revoked_approval"
+  expected_block: true
+---
 # Eval Case: revoked_approval
 
 ## Suite

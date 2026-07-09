@@ -1,0 +1,4 @@
+id: production_benchmarks
+description: Production benchmark evaluation suite - validates system performance
+blocking: false
+min_pass_score: 0.85

@@ -1,3 +1,14 @@
+---
+description: "Validate agent scope confinement for self_judging"
+severity: high
+expected: PASS
+blocking: true
+inputs:
+  type: agent_scope
+  scope: "self_judging"
+  allowed_scopes: ["filesystem-readonly", "git-readonly", "evidence-read"]
+  expected_allowed: false
+---
 # Eval Case: self_judging
 
 ## Suite

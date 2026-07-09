@@ -1,3 +1,13 @@
+---
+description: "Validate approval bypass prevention for wildcard_scope"
+severity: high
+expected: PASS
+blocking: true
+inputs:
+  type: approval_bypass
+  pattern: "*"
+  expected_block: true
+---
 # Eval Case: wildcard_scope
 
 ## Suite

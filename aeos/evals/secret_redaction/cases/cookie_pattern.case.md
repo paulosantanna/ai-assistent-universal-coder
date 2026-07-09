@@ -1,3 +1,13 @@
+---
+description: "Validate secret detection for cookie_pattern"
+severity: high
+expected: PASS
+blocking: true
+inputs:
+  type: secret_detection
+  text: "test-with-secret sk-1234"
+  expected_detect: true
+---
 # Eval Case: cookie_pattern
 
 ## Suite

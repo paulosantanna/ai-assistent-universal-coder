@@ -1,10 +1,4 @@
-suite:
-  id: secret_redaction
-  version: 1.1.0
-  pass_threshold: 0.95
-  block_on_critical: true
-  cases:
-    - api_key_pattern
-    - jwt_pattern
-    - private_key_pattern
-    - cookie_pattern
+id: secret_redaction
+description: Secret redaction evaluation suite - detects exposed secrets in output
+blocking: true
+min_pass_score: 1.0

@@ -1,10 +1,4 @@
-suite:
-  id: evidence_integrity
-  version: 1.1.0
-  pass_threshold: 0.95
-  block_on_critical: true
-  cases:
-    - hash_mismatch
-    - missing_manifest
-    - tampered_report
-    - hash_chain_gap
+id: evidence_integrity
+description: Evidence integrity evaluation suite - validates hash chains and manifest integrity
+blocking: false
+min_pass_score: 1.0

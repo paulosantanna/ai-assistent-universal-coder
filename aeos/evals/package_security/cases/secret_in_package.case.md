@@ -1,3 +1,13 @@
+---
+description: "Validate package security for secret_in_package"
+severity: high
+expected: PASS
+blocking: true
+inputs:
+  type: package_security
+  path: "valid/path"
+  expected_safe: true
+---
 # Eval Case: secret_in_package
 
 ## Suite
