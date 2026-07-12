@@ -1,0 +1,182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aeos.ai/schemas/model-profile.schema.json",
+  "title": "AEOS Model Profile",
+  "description": "Schema for AEOS model profiles. Model profiles define the capabilities, costs, and constraints of AI models used by agents and skills.",
+  "type": "object",
+  "required": [
+    "$id",
+    "name",
+    "provider",
+    "context_window",
+    "max_tokens",
+    "cost"
+  ],
+  "properties": {
+    "$id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z][a-zA-Z0-9._-]*$",
+      "description": "Unique identifier for the model profile."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name (e.g., Claude Sonnet 4, GPT-4o)."
+    },
+    "provider": {
+      "type": "string",
+      "description": "Model provider (e.g., anthropic, openai, azure, google, together, fireworks)."
+    },
+    "model_id": {
+      "type": "string",
+      "description": "Provider-specific model identifier (e.g., claude-sonnet-4-20250514, gpt-4o-2025-05-13)."
+    },
+    "context_window": {
+      "type": "integer",
+      "minimum": 1024,
+      "maximum": 10000000,
+      "description": "Maximum context window size in tokens."
+    },
+    "max_tokens": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000000,
+      "description": "Maximum output tokens per request."
+    },
+    "max_input_tokens": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Maximum input tokens per request (if different from context_window)."
+    },
+    "cost": {
+      "type": "object",
+      "description": "Cost per token in USD (per 1K tokens unless overridden).",
+      "required": ["input_per_1k", "output_per_1k"],
+      "properties": {
+        "input_per_1k": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Cost per 1,000 input tokens in USD."
+        },
+        "output_per_1k": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Cost per 1,000 output tokens in USD."
+        },
+        "currency": {
+          "type": "string",
+          "default": "USD",
+          "description": "Currency code."
+        },
+        "unit": {
+          "type": "string",
+          "default": "1K",
+          "description": "Token unit for pricing."
+        },
+        "cached_input_per_1k": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Cost per 1,000 cached input tokens."
+        }
+      },
+      "additionalProperties": false
+    },
+    "capabilities": {
+      "type": "object",
+      "description": "Model capabilities and supported features.",
+      "properties": {
+        "vision": {
+          "type": "boolean",
+          "default": false,
+          "description": "Supports image understanding."
+        },
+        "tool_use": {
+          "type": "boolean",
+          "default": true,
+          "description": "Supports function/tool calling."
+        },
+        "streaming": {
+          "type": "boolean",
+          "default": true,
+          "description": "Supports streaming responses."
+        },
+        "thinking": {
+          "type": "boolean",
+          "default": false,
+          "description": "Supports extended thinking/reasoning."
+        },
+        "code_execution": {
+          "type": "boolean",
+          "default": false,
+          "description": "Supports sandboxed code execution."
+        },
+        "structured_output": {
+          "type": "boolean",
+          "default": true,
+          "description": "Supports structured/JSON output mode."
+        },
+        "parallel_tool_calls": {
+          "type": "boolean",
+          "default": true,
+          "description": "Supports parallel tool calls."
+        },
+        "max_tool_calls_per_step": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "description": "Maximum tool calls per response step."
+        }
+      },
+      "additionalProperties": false
+    },
+    "rate_limits": {
+      "type": "object",
+      "description": "API rate limits for this model.",
+      "properties": {
+        "requests_per_minute": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Maximum requests per minute."
+        },
+        "tokens_per_minute": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Maximum tokens per minute."
+        },
+        "requests_per_day": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Maximum requests per day."
+        }
+      },
+      "additionalProperties": false
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata.",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Description of the model."
+        },
+        "release_date": {
+          "type": "string",
+          "format": "date",
+          "description": "Model release date."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["stable", "beta", "deprecated", "experimental"],
+          "default": "stable",
+          "description": "Model status."
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Tags for categorization."
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

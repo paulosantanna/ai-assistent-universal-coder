@@ -1,0 +1,110 @@
+{
+  "uri": "file:///tests/golden/invalid_token_budget.yaml",
+  "diagnostics": [
+    {
+      "range": { "start": { "line": 9, "character": 0 }, "end": { "line": 9, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0006",
+      "message": "Value 0 is below the allowed range (1-10000000) for property 'max_input_tokens'",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 10, "character": 0 }, "end": { "line": 10, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0006",
+      "message": "Value -500 is below the allowed range (1-1000000) for property 'max_output_tokens'",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 12, "character": 0 }, "end": { "line": 12, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0006",
+      "message": "Value 20000001 is above the allowed range (1-10000000) for property 'max_total_tokens'",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 14, "character": 0 }, "end": { "line": 14, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0006",
+      "message": "Value 0 is below the allowed range (1-999999) for property 'max_requests'",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 16, "character": 0 }, "end": { "line": 16, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0005",
+      "message": "Value 'magic_auto' is not one of the allowed values: hard_limit, soft_limit, truncate, summarize, warn_only, adaptive",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 20, "character": 0 }, "end": { "line": 20, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0005",
+      "message": "Value 'per_decade' is not one of the allowed values: per_request, per_session, per_task, per_hour, per_day, per_month, unlimited",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 23, "character": 0 }, "end": { "line": 23, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0006",
+      "message": "Value 2.5 is above the allowed range (0-1) for property 'soft_limit_threshold'",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 25, "character": 0 }, "end": { "line": 25, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0005",
+      "message": "Value 'random' is not one of the allowed values: oldest_first, newest_first, lowest_relevance, conversation_middle",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 27, "character": 0 }, "end": { "line": 27, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0006",
+      "message": "Value -0.5 is below the allowed range (0-1) for property 'summarize_at'",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 29, "character": 0 }, "end": { "line": 29, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0003",
+      "message": "Expected type 'boolean' but got 'string' for property 'preserve_tool_results'",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 31, "character": 0 }, "end": { "line": 31, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0006",
+      "message": "Value 0.05 is below the allowed range (0.1-2.0) for property 'adaptive_factor'",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 36, "character": 0 }, "end": { "line": 36, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0005",
+      "message": "Value 'invalid-environment' is not one of the allowed values: development, staging, production, sandbox, ci",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 40, "character": 0 }, "end": { "line": 40, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0003",
+      "message": "Expected type 'boolean' but got 'string' for property 'on_warning'",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 42, "character": 0 }, "end": { "line": 42, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0005",
+      "message": "Value 'telegram' is not one of the allowed values: console, log, notification, webhook",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 43, "character": 0 }, "end": { "line": 43, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0005",
+      "message": "Value 'slack' is not one of the allowed values: console, log, notification, webhook",
+      "source": "aeos-language-server"
+    }
+  ]
+}

@@ -1,48 +1,46 @@
-# AEOS Bootstrap Pack v0.5
+# AEOS Hierarchical Agent System
 
-Este pacote materializa a fundação do AEOS como um **Portable AI-First Engineering Environment** governado, auditável e orientado a evidências.
+This package contains the revised AEOS hierarchy and governed learning contracts.
 
-O AEOS não é um sistema operacional tradicional. Ele é uma camada operacional para engenharia de software, dados e automação.
+## Included files
 
-## Componentes incluídos
+- `AGENT.md`
+- `ROOT_AGENT.md`
+- `PARENT_AGENT.md`
+- `CHILD_AGENT.md`
+- `HANDOFF.md`
+- `MEMORY_SCHEMA.md`
+- `KNOWLEDGE_PROMOTION.md`
+- `CONTINUOUS_LEARNING.md`
 
-```text
-AEOS_CONSTITUTION.md
-AEOS_KERNEL.md
-AEOS_AGENT_CONTRACT.md
-AEOS_SKILL_CONTRACT.md
-AEOS_PLAYBOOK_CONTRACT.md
-AEOS_POLICY_ENGINE.md
-AEOS_PERMISSION_MODEL.md
-AEOS_MEMORY_MODEL.md
-AEOS_JUDGE_LAYER.md
-AEOS_SECURITY_MODEL.md
-AEOS_ECOSYSTEM_SCHEMA.md
-AEOS_MVP_ROADMAP.md
-
-aeos/
-  config/
-  registries/
-  agents/
-  skills/
-  playbooks/
-  mcps/
-  lcps/
-  docs/
-  evidence/
-  reports/
-  memory/
-```
-
-## DNA operacional
+## Recommended installation
 
 ```text
-Sem contexto, não decide.
-Sem permissão, não executa.
-Sem evidência, não afirma.
-Sem teste, não conclui.
-Sem rollback, não altera.
-Sem logs, não existiu.
-Sem Judge, não entrega.
-Sem governança, não automatiza.
+AEOS/
+├── AGENT.md
+├── agents/
+│   ├── ROOT_AGENT.md
+│   ├── PARENT_AGENT.md
+│   └── CHILD_AGENT.md
+├── learning/
+│   ├── HANDOFF.md
+│   ├── MEMORY_SCHEMA.md
+│   ├── KNOWLEDGE_PROMOTION.md
+│   └── CONTINUOUS_LEARNING.md
+└── memory/
+    ├── root/
+    ├── parents/
+    ├── children/executions/
+    └── shared/
 ```
+
+Adjust the bootstrap paths in `AGENT.md` if the files are moved into subdirectories.
+
+## Core design
+
+- Three execution levels: Root, Parent and Child.
+- Four operational layers: deep understanding, negative knowledge, validated positive knowledge and continuous learning.
+- Explicit handoffs for every responsibility transfer.
+- Child memory remains execution-local.
+- Parent and Root write candidate memory.
+- Only governed promotion creates shared institutional knowledge.

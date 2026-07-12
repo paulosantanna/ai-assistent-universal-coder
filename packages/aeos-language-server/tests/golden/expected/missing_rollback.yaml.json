@@ -1,0 +1,40 @@
+{
+  "uri": "file:///tests/golden/missing_rollback.yaml",
+  "diagnostics": [
+    {
+      "range": { "start": { "line": 12, "character": 0 }, "end": { "line": 12, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0028",
+      "message": "Step 'checkout-code' performs a destructive action but has no rollback defined",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 17, "character": 0 }, "end": { "line": 17, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0028",
+      "message": "Step 'install-deps' performs a destructive action but has no rollback defined",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 22, "character": 0 }, "end": { "line": 22, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0028",
+      "message": "Step 'modify-source' performs a destructive action but has no rollback defined",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 27, "character": 0 }, "end": { "line": 27, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0028",
+      "message": "Step 'generate-report' performs a destructive action but has no rollback defined",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 32, "character": 0 }, "end": { "line": 32, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0028",
+      "message": "Step 'cleanup-temp' performs a destructive action but has no rollback defined",
+      "source": "aeos-language-server"
+    }
+  ]
+}

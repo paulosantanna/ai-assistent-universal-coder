@@ -1,0 +1,53 @@
+{
+  "playbooks": {
+    "directories": ["aeos/playbooks"]
+  },
+  "mcpServers": {
+    "filesystem-readonly": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["aeos/mcps/filesystem-readonly.mcp.yaml"]
+    },
+    "git-readonly": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["aeos/mcps/git-readonly.mcp.yaml"]
+    }
+  },
+  "registries": {
+    "agents": "aeos/registries/agents.registry.yaml",
+    "skills": "aeos/registries/skills.registry.yaml",
+    "playbooks": "aeos/registries/playbooks.registry.yaml",
+    "mcps": "aeos/registries/mcps.registry.yaml",
+    "lcps": "aeos/registries/lcps.registry.yaml",
+    "blueprints": "aeos/registries/blueprints.registry.yaml",
+    "overlay": "aeos/registries/overlay.registry.index.yaml"
+  },
+  "agents": {
+    "directory": "aeos/agents"
+  },
+  "lcps": {
+    "directory": "aeos/lcps"
+  },
+  "blueprints": {
+    "directory": "aeos/blueprints"
+  },
+  "profiles": {
+    "directory": "aeos/profiles"
+  },
+  "memory": {
+    "directory": "aeos/memory"
+  },
+  "templates": {
+    "directory": "aeos/templates"
+  },
+  "packs": {
+    "staging": "aeos/packs/staging",
+    "active": "aeos/packs/active",
+    "quarantine": "aeos/packs/quarantine",
+    "archived": "aeos/packs/archived"
+  },
+  "evals": {
+    "directory": "aeos/evals"
+  }
+}

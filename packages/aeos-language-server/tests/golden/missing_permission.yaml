@@ -1,0 +1,48 @@
+# missing_permission.yaml -- golden test fixture
+# INTENTIONAL ERROR: Playbook step performs a destructive/write action but
+# the calling agent does not have the required WRITE_FILES capability.
+# Expected diagnostics: AEOS0036 (Insufficient permissions for operation),
+#   AEOS0028 (Missing rollback for destructive step)
+---
+$schema: "https://aeos.ai/schemas/playbook.schema.json"
+$id: "destructive-playbook"
+name: "Destructive Playbook Without Permissions"
+version: "1.0.0"
+description: "This playbook performs a destructive file modification step but the referencing agent lacks WRITE_FILES permission"
+steps:
+  - name: "delete-all-logs"
+    tool: "bash"
+    description: "Delete all log files in the workspace (DESTRUCTIVE - no permission)"
+    inputs:
+      command: "rm -rf /workspace/logs/*.log"
+    # NOTE: No rollback defined for this destructive step (AEOS0028)
+    # NOTE: Agent calling this playbook doesn't have WRITE_FILES (AEOS0036)
+  - name: "modify-config"
+    tool: "bash"
+    description: "Modify sensitive configuration file (requires WRITE_FILES)"
+    inputs:
+      command: "sed -i 's/debug=false/debug=true/' /workspace/config/app.config"
+    rollback:
+      tool: "bash"
+      description: "Revert config change"
+      inputs:
+        command: "sed -i 's/debug=true/debug=false/' /workspace/config/app.config"
+    # NOTE: Rollback is defined but DELETE_FILES capability is still missing
+  - name: "write-test-output"
+    tool: "write"
+    description: "Write test output to logs directory"
+    inputs:
+      path: "/workspace/logs/test-output.txt"
+      content: "Test results here"
+    # NOTE: write tool requires WRITE_FILES capability (AEOS0036)
+---
+$schema: "https://aeos.ai/schemas/agent.schema.json"
+$id: "low-permission-agent"
+name: "Low Permission Agent"
+version: "1.0.0"
+description: "Agent with only read capabilities, cannot execute destructive playbook"
+capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+# NOTE: Missing WRITE_FILES, DELETE_FILES, EXECUTE_COMMANDS capabilities
+# This agent cannot invoke destructive-playbook (AEOS0036)

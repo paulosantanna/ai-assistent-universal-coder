@@ -1,0 +1,53 @@
+# missing_rollback.yaml -- golden test fixture
+# INTENTIONAL ERROR: Playbook has multiple mutating steps without rollback.
+# Expected diagnostics: AEOS0028 (Missing rollback for destructive step)
+---
+$schema: "https://aeos.ai/schemas/playbook.schema.json"
+$id: "no-rollback-playbook"
+name: "Playbook Missing Rollbacks"
+version: "1.0.0"
+description: "This playbook has multiple mutating steps (write, delete, modify) without any rollback defined"
+steps:
+  - name: "checkout-code"
+    tool: "bash"
+    description: "Check out code (creates files, no rollback)"
+    inputs:
+      command: "git clone https://github.com/example/repo.git /workspace/build/"
+    # NOTE: No rollback defined (AEOS0028) - if this fails or later steps fail,
+    # the cloned repository remains in the workspace
+  - name: "install-deps"
+    tool: "bash"
+    description: "Install dependencies (modifies node_modules, no rollback)"
+    inputs:
+      command: "npm install"
+    # NOTE: No rollback defined (AEOS0028)
+  - name: "modify-source"
+    tool: "bash"
+    description: "Apply code modifications (mutates source files, no rollback)"
+    inputs:
+      command: "sed -i 's/old-version/new-version/' /workspace/build/src/version.ts"
+    # NOTE: No rollback defined (AEOS0028)
+  - name: "generate-report"
+    tool: "bash"
+    description: "Generate a report (creates a file, no rollback)"
+    inputs:
+      command: "node scripts/generate-report.js > /workspace/report.html"
+    # NOTE: No rollback defined (AEOS0028)
+  - name: "cleanup-temp"
+    tool: "bash"
+    description: "Clean temporary files (deletes files, no rollback)"
+    inputs:
+      command: "rm -rf /tmp/aeos-build-*"
+    # NOTE: No rollback defined (AEOS0028)
+  - name: "delete-old-backups"
+    tool: "bash"
+    description: "Delete old backup files (TWO rollback violations here)"
+    inputs:
+      command: "rm -rf /workspace/backups/*.bak"
+    rollback:
+      tool: "bash"
+      description: "This rollback just echoes - it doesn't actually restore the deleted files"
+      inputs:
+        command: "echo 'Cannot restore deleted files'"
+    # NOTE: Rollback is defined but doesn't actually restore state (misleading)
+    # The LSP may flag this depending on how deep the analysis goes

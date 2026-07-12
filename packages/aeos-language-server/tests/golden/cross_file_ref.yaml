@@ -1,0 +1,91 @@
+# cross_file_ref.yaml -- golden test fixture
+# INTENTIONAL ERROR: References across files that don't resolve.
+# This file acts as a "workspace" of documents that reference each other
+# incorrectly. The LSP should resolve cross-file references and flag failures.
+#
+# Expected diagnostics: AEOS0012 (Unresolved reference - cross-file),
+#   AEOS0016 (Playbook step references missing artifact)
+#
+# This file defines three artifacts that reference each other in valid ways,
+# plus one that references a non-existent artifact in another file.
+---
+$schema: "https://aeos.ai/schemas/agent.schema.json"
+$id: "cross-file-agent-alpha"
+name: "Cross-File Agent Alpha"
+version: "1.0.0"
+description: "This agent references a skill and playbook defined in OTHER files"
+capabilities:
+  - READ_REPOSITORY
+  - PROCESS_DATA
+skills:
+  - "cross-file-skill"
+  # NOTE: 'cross-file-skill' IS defined in this file below - should resolve OK
+  - "missing-external-skill"
+  # NOTE: 'missing-external-skill' is NOT defined anywhere - expect AEOS0012
+parent: "cross-file-parent"
+  # NOTE: 'cross-file-parent' is NOT defined anywhere - expect AEOS0012
+---
+$schema: "https://aeos.ai/schemas/skill.schema.json"
+$id: "cross-file-skill"
+name: "Cross-File Skill"
+version: "1.0.0"
+description: "This skill IS defined in the same file and should resolve"
+tools:
+  - name: "process"
+    tool_type: "bash"
+    description: "Process data"
+    config:
+      command_template: "echo processing"
+dependencies:
+  skills:
+    - "external-utility-skill"
+    # NOTE: 'external-utility-skill' is referenced but not defined anywhere
+    # in this workspace - expect AEOS0012
+---
+$schema: "https://aeos.ai/schemas/playbook.schema.json"
+$id: "cross-file-playbook"
+name: "Cross-File Playbook"
+version: "1.0.0"
+description: "This playbook references artifacts across multiple files"
+steps:
+  - name: "use-cross-skill"
+    skill: "cross-file-skill"
+    description: "Uses skill defined in this file - should resolve"
+    inputs:
+      data: "test"
+  - name: "use-cross-agent"
+    skill: "cross-file-agent-alpha"
+    # NOTE: This references an agent $id where a skill $id is expected
+    # (step requires skill, not agent) - expect AEOS0016 or similar
+    description: "Incorrectly uses agent $id where skill is expected"
+    inputs:
+      data: "test"
+  - name: "use-missing-playbook"
+    playbook: "non-existent-external-playbook"
+    # NOTE: 'non-existent-external-playbook' is not defined anywhere
+    description: "References a playbook that doesn't exist in any file"
+  - name: "valid-step"
+    tool: "bash"
+    description: "A properly configured step"
+    inputs:
+      command: "echo 'valid'"
+    outputs:
+      result: "$.stdout"
+    rollback:
+      skill: "external-rollback-skill"
+      # NOTE: 'external-rollback-skill' is not defined - expect AEOS0012
+      description: "Rollback references non-existent skill"
+      inputs:
+        action: "undo"
+dependencies:
+  skills:
+    - "cross-file-skill"
+    - "external-utility-skill"
+    # NOTE: 'external-utility-skill' resolves OK? No, it's not defined anywhere
+  playbooks:
+    - "non-existent-external-playbook"
+    # NOTE: Not defined anywhere
+  agents:
+    - "cross-file-agent-alpha"
+    - "cross-file-parent"
+    # NOTE: 'cross-file-parent' is not defined anywhere

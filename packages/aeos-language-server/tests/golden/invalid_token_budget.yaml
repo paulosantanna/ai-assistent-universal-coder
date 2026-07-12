@@ -1,0 +1,52 @@
+# invalid_token_budget.yaml -- golden test fixture
+# INTENTIONAL ERROR: Token budget with invalid configurations.
+# Expected diagnostics: AEOS0006 (Value outside allowed range), AEOS0003 (Invalid property type),
+#   AEOS0005 (Value not in enum)
+---
+$schema: "https://aeos.ai/schemas/token-budget.schema.json"
+$id: "invalid-token-budget"
+name: "Invalid Token Budget Configuration"
+version: "1.0.0"
+description: "This token budget contains multiple invalid field values"
+max_input_tokens: 0
+# NOTE: max_input_tokens: 0 is invalid (minimum is 1 per schema)
+max_output_tokens: -500
+# NOTE: max_output_tokens: -500 is invalid (negative value, minimum is 1)
+max_total_tokens: 20000001
+# NOTE: max_total_tokens exceeds schema maximum of 10,000,000
+max_requests: 0
+# NOTE: max_requests: 0 is invalid (minimum is 1)
+strategy: "magic_auto"
+# NOTE: strategy: 'magic_auto' is not in the allowed enum values
+# Allowed: hard_limit, soft_limit, truncate, summarize, warn_only, adaptive
+budget_period: "per_decade"
+# NOTE: budget_period: 'per_decade' is not in the allowed enum
+# Allowed: per_request, per_session, per_task, per_hour, per_day, per_month, unlimited
+strategy_config:
+  soft_limit_threshold: 2.5
+  # NOTE: soft_limit_threshold: 2.5 is out of range (0.0-1.0)
+  truncate_priority: "random"
+  # NOTE: truncate_priority: 'random' is not in allowed enum
+  summarize_at: -0.5
+  # NOTE: summarize_at: -0.5 is out of range (0.0-1.0)
+  preserve_tool_results: "yes"
+  # NOTE: preserve_tool_results: 'yes' should be boolean, not string
+  adaptive_factor: 0.05
+  # NOTE: adaptive_factor: 0.05 is out of range (0.1-2.0)
+scope:
+  environments:
+    - "production"
+    - "invalid-environment"
+    # NOTE: 'invalid-environment' is not in allowed enum
+    # Allowed: development, staging, production, sandbox, ci
+notifications:
+  on_warning: "yes"
+  # NOTE: on_warning: 'yes' should be boolean
+  channels:
+    - "telegram"
+    - "slack"
+    # NOTE: 'telegram' and 'slack' are not in allowed enum
+    # Allowed: console, log, notification, webhook
+metadata:
+  arbitrary_field: "this is allowed since additionalProperties is true"
+  another_field: 42

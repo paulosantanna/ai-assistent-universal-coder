@@ -1,0 +1,12 @@
+{
+  "uri": "file:///tests/golden/cycle_agent_inheritance.yaml",
+  "diagnostics": [
+    {
+      "range": { "start": { "line": 11, "character": 0 }, "end": { "line": 11, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0013",
+      "message": "Circular dependency detected: alpha-agent -> gamma-agent -> beta-agent -> alpha-agent",
+      "source": "aeos-language-server"
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+# valid_playbook.yaml -- golden test fixture for AEOS LSP validation
+$schema: "https://aeos.ai/schemas/playbook.schema.json"
+$id: "code-review-playbook"
+name: "Code Review Playbook"
+version: "1.2.0"
+description: "Multi-step code review workflow that analyzes changes, checks for issues, generates reports, and requires final approval before completion."
+author: "AEOS LSP Team"
+inputs:
+  properties:
+    branch:
+      type: string
+      description: "Git branch to review"
+    pr_number:
+      type: integer
+      description: "Pull request number"
+    reviewer:
+      type: string
+      description: "Reviewer identifier"
+      default: "auto"
+  required:
+    - branch
+    - pr_number
+variables:
+  analysis_output: null
+  issue_count: 0
+  report_path: ""
+steps:
+  - name: "fetch-changes"
+    tool: "bash"
+    description: "Fetch the diff from the target branch"
+    inputs:
+      command: "git fetch origin && git diff origin/main...{{inputs.branch}}"
+    outputs:
+      diff_content: "$.stdout"
+    timeout: 30000
+    retry:
+      max_attempts: 2
+      delay_ms: 1000
+      backoff_multiplier: 1.5
+  - name: "analyze-code"
+    skill: "skill-analyzer"
+    description: "Run static analysis on the changed files"
+    inputs:
+      path: "{{steps.fetch-changes.diff_content}}"
+      recursive: true
+      max_depth: 5
+    outputs:
+      issues: "$.issues"
+      metrics: "$.metrics"
+    conditions:
+      run_if: "steps.fetch-changes.exit_code == 0"
+      on_failure: "report-failure"
+    timeout: 120000
+  - name: "check-quality-gate"
+    tool: "bash"
+    description: "Verify the analysis passes quality thresholds"
+    inputs:
+      command: >
+        echo '{"passed": true, "score": 8.5, "blockers": 0}'
+    outputs:
+      gate_result: "$.stdout"
+    conditions:
+      run_unless: "steps.analyze-code.issues.length == 0"
+  - name: "request-approval"
+    approval:
+      required: true
+      prompt: "Code review for PR #{{inputs.pr_number}} on branch {{inputs.branch}} requires approval."
+      timeout_ms: 300000
+      auto_approve_if: "steps.check-quality-gate.gate_result.score >= 9.0"
+    description: "Request human approval for the review results"
+  - name: "generate-report"
+    skill: "skill-reporter"
+    description: "Generate a final formatted review report"
+    inputs:
+      template: "code-review"
+      data:
+        branch: "{{inputs.branch}}"
+        pr_number: "{{inputs.pr_number}}"
+        issues: "{{steps.analyze-code.issues}}"
+        gate: "{{steps.check-quality-gate.gate_result}}"
+    outputs:
+      report: "$.content"
+    conditions:
+      run_if: "steps.request-approval.approved == true"
+  - name: "report-failure"
+    tool: "bash"
+    description: "Report analysis failure"
+    inputs:
+      command: "echo 'Analysis failed for PR #{{inputs.pr_number}}'"
+    conditions:
+      on_success: "generate-report"
+  - name: "cleanup"
+    tool: "bash"
+    description: "Clean up temporary files and artifacts"
+    inputs:
+      command: "rm -rf /tmp/aeos-review-{{inputs.pr_number}}"
+    rollback:
+      tool: "bash"
+      description: "Restore temporary directory if cleanup fails"
+      inputs:
+        command: "mkdir -p /tmp/aeos-review-{{inputs.pr_number}}"
+outputs:
+  properties:
+    report:
+      type: object
+      description: "The generated code review report"
+    summary:
+      type: string
+      description: "Summary of the review outcome"
+dependencies:
+  skills:
+    - "skill-analyzer"
+    - "skill-reporter"
+config:
+  default_timeout: 60000
+  default_retry:
+    max_attempts: 3
+    delay_ms: 1000
+    backoff_multiplier: 2.0
+  max_concurrent_steps: 4

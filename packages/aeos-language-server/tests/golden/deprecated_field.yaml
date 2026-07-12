@@ -1,0 +1,76 @@
+# deprecated_field.yaml -- golden test fixture
+# INTENTIONAL ERROR: Uses deprecated fields that should trigger AEOS0020 warnings.
+# Expected diagnostics: AEOS0020 (Deprecated field usage)
+---
+$schema: "https://aeos.ai/schemas/agent.schema.json"
+$id: "deprecated-agent"
+name: "Agent Using Deprecated Fields"
+version: "1.0.0"
+description: "This agent uses fields that have been deprecated in the latest schema"
+capabilities:
+  - READ_REPOSITORY
+# Deprecated singular field names (should use plural forms)
+skill: "legacy-skill-name"
+# NOTE: 'skill' (singular) is deprecated - use 'skills' (plural)
+model: "gpt-3.5-turbo"
+# NOTE: 'model' at top level is deprecated - use 'model_preferences.model' instead
+provider: "openai"
+# NOTE: 'provider' at top level is deprecated - use 'model_preferences.provider' instead
+timeout: 30000
+# NOTE: 'timeout' at agent top level is deprecated - use stop_conditions instead
+temperature: 0.7
+# NOTE: 'temperature' at agent top level is deprecated - use layers[].config instead
+
+# Also using the deprecated 'role' field
+role: "developer"
+# NOTE: 'role' is deprecated - roles are now defined in permissions schema
+
+# Old-style 'dependencies' at agent level
+dependencies:
+  - "some-old-skill"
+# NOTE: Top-level dependencies array on agent is deprecated
+
+---
+$schema: "https://aeos.ai/schemas/skill.schema.json"
+$id: "deprecated-skill"
+name: "Skill Using Deprecated Fields"
+version: "1.0.0"
+description: "This skill uses deprecated fields"
+tools:
+  - name: "old-style-tool"
+    tool_type: "bash"
+    description: "A tool"
+# Deprecated 'type' field instead of 'tool_type'
+type: "bash"
+# NOTE: 'type' in tool definition is deprecated - use 'tool_type' instead
+
+# Deprecated 'command' field at skill level
+command: "echo 'deprecated'"
+# NOTE: 'command' at skill level is deprecated - commands go in tools[].config
+
+# Deprecated 'max_retries' (singular) instead of retry.max_attempts
+max_retries: 5
+# NOTE: 'max_retries' is deprecated - use retry.max_attempts instead
+
+---
+$schema: "https://aeos.ai/schemas/playbook.schema.json"
+$id: "deprecated-playbook"
+name: "Playbook Using Deprecated Fields"
+version: "1.0.0"
+description: "This playbook uses deprecated fields"
+steps:
+  - name: "old-style-step"
+    description: "A step with deprecated fields"
+    # Deprecated 'action' field instead of tool/skill/playbook
+    action: "run"
+    # NOTE: 'action' in step is deprecated - use tool, skill, or playbook
+    # Deprecated 'args' field instead of 'inputs'
+    args:
+      command: "echo 'deprecated'"
+    # NOTE: 'args' is deprecated - use 'inputs' instead
+    # Deprecated 'on_error' field instead of conditions.on_failure
+    on_error: "handle-error"
+    # NOTE: 'on_error' is deprecated - use conditions.on_failure instead
+    # Deprecated 'approval_required' boolean instead of approval object
+    approval_required: true
+    # NOTE: 'approval_required: true' is deprecated - use approval.required instead

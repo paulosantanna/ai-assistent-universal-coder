@@ -1,0 +1,20 @@
+{
+  "id": "skill-factory",
+  "path": "skills/skill-factory/SKILL.md",
+  "priority": 1000,
+  "activation": {
+    "semantic": [
+      "create a new skill",
+      "generate a skill",
+      "add a skill to AEOS",
+      "convert workflow into skill",
+      "improve an existing skill",
+      "audit an existing skill"
+    ]
+  },
+  "exclusions": [
+    "human r\u00e9sum\u00e9 skills",
+    "game abilities",
+    "programming functions named skill"
+  ]
+}

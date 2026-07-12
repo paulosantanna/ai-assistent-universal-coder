@@ -1,0 +1,91 @@
+# unlimited_retry.yaml -- golden test fixture
+# INTENTIONAL ERROR: Steps with retry configurations that could cause infinite retries.
+# Expected diagnostics: AEOS0006 (Value outside allowed range) for retry max_attempts,
+#   or custom diagnostic for potentially unbounded retry
+---
+$schema: "https://aeos.ai/schemas/skill.schema.json"
+$id: "unlimited-retry-skill"
+name: "Skill with Unlimited Retries"
+version: "1.0.0"
+description: "This skill has retry configurations that could cause infinite or near-infinite retry loops"
+tools:
+  - name: "unstable-network-call"
+    tool_type: "mcp"
+    description: "Makes a network call that retries forever"
+    mcp_server: "external-api"
+    config:
+      endpoint: "https://api.example.com/unstable"
+retry:
+  max_attempts: 0
+  # NOTE: max_attempts: 0 means unlimited retries (infinite loop risk)
+  # Schema minimum is 0, but 0 means infinite - LSP should warn
+  delay_ms: 100
+  backoff_multiplier: 1.0
+  # NOTE: backoff_multiplier: 1.0 means constant delay - no exponential backoff
+  # Combined with max_attempts: 0, this could retry indefinitely at high rate
+  retryable_errors:
+    - "TimeoutError"
+    - "NetworkError"
+    - "RateLimitError"
+    - "ServerError"
+    - "*"
+  # NOTE: '*' catches ALL errors, making EVERY failure retryable
+
+---
+$schema: "https://aeos.ai/schemas/playbook.schema.json"
+$id: "unlimited-retry-playbook"
+name: "Playbook with Unlimited Retries"
+version: "1.0.0"
+description: "This playbook has steps with dangerous retry configurations"
+steps:
+  - name: "infinite-retry-step"
+    tool: "bash"
+    description: "Step with no retry limit"
+    inputs:
+      command: "node scripts/unreliable.js"
+    retry:
+      max_attempts: 0
+      # NOTE: 0 means unlimited retries - dangerous pattern
+      delay_ms: 500
+      backoff_multiplier: 1.0
+      # NOTE: No backoff means hammering the system at 500ms intervals forever
+
+  - name: "near-infinite-retry"
+    tool: "bash"
+    description: "Step with very high retry count that could effectively be infinite"
+    inputs:
+      command: "npm run flaky-test"
+    timeout: 10000
+    retry:
+      max_attempts: 100
+      # NOTE: 100 retries with 10s timeout each = up to 1000s of retrying
+      delay_ms: 0
+      # NOTE: delay_ms: 0 means no delay between retries - spin loop
+      backoff_multiplier: 1.0
+      # NOTE: No backoff
+
+  - name: "excessive-delay-retry"
+    tool: "bash"
+    description: "Step with very long cumulative retry time"
+    inputs:
+      command: "node scripts/slow-task.js"
+    timeout: 5000
+    retry:
+      max_attempts: 10
+      delay_ms: 60000
+      # NOTE: 60s delay between retries, 10 attempts = 10 minutes of waiting
+      backoff_multiplier: 3.0
+      # NOTE: 3x backoff means delays grow exponentially: 1min, 3min, 9min, 27min...
+
+  - name: "aggressive-retry"
+    tool: "bash"
+    description: "Step with extremely aggressive retry policy"
+    inputs:
+      command: "node scripts/critical-job.js"
+    retry:
+      max_attempts: 50
+      delay_ms: 100
+      backoff_multiplier: 1.0
+      retryable_errors:
+        - "*"
+      # NOTE: ALL errors are retryable, 50 attempts with 100ms delay = 5s of hammering

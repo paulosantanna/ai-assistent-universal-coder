@@ -1,0 +1,57 @@
+# cycle_playbooks.yaml -- golden test fixture
+# INTENTIONAL ERROR: Circular dependency between playbooks via step references.
+# Expected diagnostics: AEOS0013 (Circular dependency detected)
+---
+$schema: "https://aeos.ai/schemas/playbook.schema.json"
+$id: "playbook-aaa"
+name: "Playbook AAA"
+version: "1.0.0"
+description: "First playbook in a cycle: AAA -> BBB -> CCC -> AAA"
+steps:
+  - name: "step-1"
+    tool: "bash"
+    description: "Initial step"
+    inputs:
+      command: "echo 'Starting AAA'"
+  - name: "invoke-bbb"
+    playbook: "playbook-bbb"
+    description: "Invokes playbook BBB, creating a cycle back through CCC"
+dependencies:
+  playbooks:
+    - "playbook-bbb"
+---
+$schema: "https://aeos.ai/schemas/playbook.schema.json"
+$id: "playbook-bbb"
+name: "Playbook BBB"
+version: "1.0.0"
+description: "Second playbook in the cycle"
+steps:
+  - name: "start-bbb"
+    tool: "bash"
+    description: "BBB starting step"
+    inputs:
+      command: "echo 'Starting BBB'"
+  - name: "invoke-ccc"
+    playbook: "playbook-ccc"
+    description: "Invokes playbook CCC, which references back to AAA"
+dependencies:
+  playbooks:
+    - "playbook-ccc"
+---
+$schema: "https://aeos.ai/schemas/playbook.schema.json"
+$id: "playbook-ccc"
+name: "Playbook CCC"
+version: "1.0.0"
+description: "Third playbook that completes the cycle back to AAA"
+steps:
+  - name: "start-ccc"
+    tool: "bash"
+    description: "CCC starting step"
+    inputs:
+      command: "echo 'Starting CCC'"
+  - name: "invoke-aaa"
+    playbook: "playbook-aaa"
+    description: "Invokes playbook AAA, completing the cycle"
+dependencies:
+  playbooks:
+    - "playbook-aaa"

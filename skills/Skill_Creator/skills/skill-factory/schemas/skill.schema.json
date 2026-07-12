@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AEOS Skill Metadata",
+  "type": "object",
+  "required": [
+    "name",
+    "slug",
+    "version",
+    "description",
+    "category",
+    "architecture_level",
+    "risk_level"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 10
+    },
+    "category": {
+      "type": "string"
+    },
+    "architecture_level": {
+      "type": "integer",
+      "enum": [
+        1,
+        2,
+        3
+      ]
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "CRITICAL"
+      ]
+    },
+    "memory_enabled": {
+      "type": "boolean"
+    },
+    "human_approval": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": true
+}

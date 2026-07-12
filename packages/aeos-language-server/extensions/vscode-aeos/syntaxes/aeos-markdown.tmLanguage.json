@@ -1,0 +1,196 @@
+{
+  "name": "AEOS Markdown",
+  "scopeName": "text.html.markdown.aeos",
+  "fileTypes": ["agent.md", "skill.md", "playbook.md", "AGENT.md", "SKILL.md", "PLAYBOOK.md"],
+  "injectionSelector": "L:text.html.markdown",
+  "patterns": [
+    { "include": "#front-matter" },
+    { "include": "#aeos-directives" },
+    { "include": "#aeos-references" },
+    { "include": "#aeos-expressions" },
+    { "include": "#aeos-fenced-code" },
+    { "include": "#standard-markdown" }
+  ],
+  "repository": {
+    "front-matter": {
+      "patterns": [
+        {
+          "begin": "^---$",
+          "end": "^---$|^\\.\\.\\.$",
+          "name": "meta.embedded.block.frontmatter.yaml",
+          "patterns": [
+            {
+              "include": "source.yaml"
+            }
+          ]
+        }
+      ]
+    },
+    "aeos-directives": {
+      "patterns": [
+        {
+          "match": "(?<=^|\\s)(@agent|@skill|@playbook|@tool|@policy|@permission|@evidence|@gate|@model|@step|@variable|@input|@output|@dependency|@rollback)\\b",
+          "name": "entity.name.tag.aeos.directive",
+          "captures": {
+            "1": {
+              "name": "keyword.directive.aeos"
+            }
+          }
+        },
+        {
+          "match": "(?<=^|\\s)@[a-zA-Z_][a-zA-Z0-9_]*\\b",
+          "name": "entity.name.tag.aeos.reference"
+        }
+      ]
+    },
+    "aeos-references": {
+      "patterns": [
+        {
+          "match": "(?<=^|\\s|\\()([a-zA-Z_][a-zA-Z0-9_-]*)\\s*:\\s*([a-zA-Z0-9_.*-]+)\\b",
+          "name": "meta.reference.aeos",
+          "captures": {
+            "1": {
+              "name": "entity.name.type.aeos.ref-type"
+            },
+            "2": {
+              "name": "constant.other.aeos.ref-value"
+            }
+          }
+        },
+        {
+          "match": "\\b(agents|skills|playbooks|mcps|lcps|blueprints)\\s*::\\s*([a-zA-Z_][a-zA-Z0-9_-]*)\\b",
+          "name": "meta.cross-reference.aeos",
+          "captures": {
+            "1": {
+              "name": "entity.name.type.aeos.registry"
+            },
+            "2": {
+              "name": "constant.other.aeos.entry"
+            }
+          }
+        }
+      ]
+    },
+    "aeos-expressions": {
+      "patterns": [
+        {
+          "begin": "\\$\\{",
+          "end": "\\}",
+          "name": "meta.embedded.expression.aeos",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.template-expression.begin.aeos"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.template-expression.end.aeos"
+            }
+          },
+          "patterns": [
+            { "include": "#aeos-expression-contents" }
+          ]
+        },
+        {
+          "begin": "\\{\\{",
+          "end": "\\}\\}",
+          "name": "meta.embedded.mustache.aeos",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.mustache.begin.aeos"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.mustache.end.aeos"
+            }
+          },
+          "patterns": [
+            { "include": "#aeos-expression-contents" }
+          ]
+        }
+      ]
+    },
+    "aeos-expression-contents": {
+      "patterns": [
+        {
+          "match": "(?:\\.\\.\\.|\\|>|\\|)",
+          "name": "keyword.operator.expression.aeos"
+        },
+        {
+          "match": "\\b(true|false|null|undefined|none)\\b",
+          "name": "constant.language.aeos"
+        },
+        {
+          "match": "\\b(and|or|not|in|if|else|then|for|each|as|let|def|return)\\b",
+          "name": "keyword.control.aeos"
+        },
+        {
+          "match": "\\b(\\d+\\.?\\d*)\\b",
+          "name": "constant.numeric.aeos"
+        },
+        {
+          "match": "\"[^\"]*\"|'[^']*'|`[^`]*`",
+          "name": "string.quoted.aeos"
+        },
+        {
+          "match": "\\b(steps|inputs|outputs|context|env|secrets|evidence)\\b\\.?",
+          "name": "variable.language.aeos"
+        },
+        {
+          "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\s*(?=\\()",
+          "name": "support.function.aeos"
+        },
+        {
+          "match": "/[a-zA-Z_][a-zA-Z0-9_-]*(?:/[a-zA-Z_][a-zA-Z0-9_-]*)*",
+          "name": "string.regexp.aeos"
+        },
+        {
+          "match": "==|!=|<=|>=|<|>|&&|\\|\\||!",
+          "name": "keyword.operator.comparison.aeos"
+        }
+      ]
+    },
+    "aeos-fenced-code": {
+      "patterns": [
+        {
+          "begin": "```aeos\\s*$",
+          "end": "^```",
+          "name": "markup.fenced_code.block.aeos",
+          "beginCaptures": {
+            "0": {
+              "name": "markup.fenced_code.block.aeos.begin"
+            }
+          },
+          "patterns": [
+            { "include": "#aeos-directives" },
+            { "include": "#aeos-references" },
+            { "include": "#aeos-expressions" }
+          ]
+        },
+        {
+          "begin": "```\\w+\\s*$",
+          "end": "^```",
+          "name": "markup.fenced_code.block.md",
+          "beginCaptures": {
+            "0": {
+              "name": "markup.fenced_code.block.md.begin"
+            }
+          },
+          "patterns": [
+            {
+              "include": "source.$0"
+            }
+          ]
+        }
+      ]
+    },
+    "standard-markdown": {
+      "patterns": [
+        { "include": "text.html.markdown#inline" },
+        { "include": "text.html.markdown#block" }
+      ]
+    }
+  },
+  "uuid": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+}

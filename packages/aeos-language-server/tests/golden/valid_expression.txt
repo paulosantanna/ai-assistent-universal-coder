@@ -1,0 +1,81 @@
+# valid_expression.txt -- golden test fixture for AEOS LSP expression validation
+# AEOS expressions use CEL (Common Expression Language) syntax for conditions,
+# variable interpolation, and step control flow in playbooks and policies.
+
+# --- Variable Interpolation ---
+# Referencing step outputs
+{{steps.checkout.exit_code}}
+{{steps.analyze-code.issues.length}}
+{{steps.quality-gate.passed}}
+
+# Referencing input variables
+{{inputs.branch}}
+{{inputs.pr_number}}
+{{inputs.environment}}
+
+# Referencing playbook variables
+{{variables.analysis_output}}
+{{variables.issue_count}}
+
+# Nested property access
+{{steps.build.build_output.artifact_path}}
+{{steps.security-scan.security_report.vulnerabilities[0].severity}}
+
+# --- Condition Expressions ---
+# Equality
+steps.checkout.exit_code == 0
+steps.quality-gate.passed == true
+
+# Numeric comparison
+steps.analyze-code.issues.length > 0
+steps.unit-tests.coverage >= 80
+
+# String operations
+inputs.environment != "production"
+inputs.branch.startsWith("feature/")
+inputs.branch.endsWith("/main")
+inputs.branch.contains("release")
+
+# Boolean logic
+steps.lint.exit_code == 0 || steps.lint-fix.exit_code == 0
+steps.unit-tests.exit_code == 0 && steps.integration-tests.exit_code == 0
+steps.approval.approved == true && inputs.dry_run != true
+(steps.lint.exit_code == 0 || steps.lint-fix.exit_code == 0) && steps.build.exit_code == 0
+!inputs.skip_tests
+
+# Array operations
+steps.analyze-code.issues.size() > 0
+steps.analyze-code.issues.findAll(i, i.severity == "critical").size() == 0
+steps.analyze-code.issues.exists(i, i.severity == "blocker")
+
+# Type checks
+type(inputs.branch) == string
+type(inputs.dry_run) == bool
+type(inputs.pr_number) == int
+
+# Ternary / conditional
+inputs.environment == "production" ? 5 : 1
+steps.quality-gate.passed == true ? "deploy" : "blocked"
+
+# --- Policy Conditions ---
+action.tool == "bash"
+action.tool.matches("^(write|edit)$")
+action.path.matches(".*\\.env.*")
+action.type.matches(".*secret.*|.*credential.*")
+action.target.matches(".*(\\?|%3F).*=(?:[A-Za-z0-9+/]{40,}|[A-Za-z0-9+/]{20,}=*).*")
+context.environment in ["development", "staging"]
+context.agent_role == "developer"
+context.risk_level in ["low", "medium"]
+
+# --- Complex Expressions ---
+# Check if any step has failed
+steps.all(s, s.exit_code == 0)
+
+# Check if all critical tests passed
+steps.findAll(s, s.name.startsWith("test-")).all(t, t.exit_code == 0)
+
+# Aggregate quality score
+(steps.unit-tests.coverage * 0.4) + (steps.lint.score * 0.3) + (steps.security-scan.score * 0.3)
+
+# Conditional deployment approval
+inputs.environment == "production" && steps.quality-gate.passed == true && steps.security-scan.critical_findings == 0

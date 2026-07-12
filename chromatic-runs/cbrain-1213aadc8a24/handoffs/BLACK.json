@@ -1,0 +1,18 @@
+{
+  "run_id": "cbrain-1213aadc8a24",
+  "color": "BLACK",
+  "objective": "Analyze the problem from the BLACK perspective.",
+  "problem_frame": "Evaluate the architecture, security and implementation risks of this migration.",
+  "scope": "Assigned color contract only",
+  "excluded_scope": "Final integrated decision",
+  "evidence_available": [],
+  "assumptions": [],
+  "required_questions": [],
+  "expected_output": "Structured color handback",
+  "stop_conditions": [
+    "insufficient evidence",
+    "authority conflict",
+    "unsafe action"
+  ],
+  "memory_scope": "execution-local"
+}

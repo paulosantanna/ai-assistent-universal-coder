@@ -1,0 +1,177 @@
+# =============================================================================
+# MCP: Continuous Training Documentation
+# =============================================================================
+# Model Context Protocol connector for continuous AI training documentation,
+# best practices, and knowledge discovery across the internet.
+# Searches official docs, arXiv, GitHub, Papers with Code, Reddit, and more.
+# =============================================================================
+
+mcp:
+  id: continuous-training
+  name: Continuous Training Documentation MCP
+  protocol: model-context-protocol
+  version: "2025-03-26"
+
+  transport:
+    type: stdio
+    command: continuous-training-mcp
+    args: []
+
+  capabilities:
+    tools:
+      - name: web_search
+        description: Search the web for continuous AI training documentation, best practices, and resources.
+        security: read-only
+        input:
+          query: string
+          max_results: integer
+        output:
+          type: object
+
+      - name: arxiv_search
+        description: Search arXiv for academic papers on continuous training, fine-tuning, and ML training techniques.
+        security: read-only
+        input:
+          query: string
+          max_results: integer
+        output:
+          type: object
+
+      - name: paperswithcode_search
+        description: Search Papers with Code for benchmarks and implementations related to training methodologies.
+        security: read-only
+        input:
+          query: string
+          max_results: integer
+        output:
+          type: object
+
+      - name: github_search
+        description: Search GitHub repositories for training frameworks, fine-tuning tools, and ML infrastructure projects.
+        security: read-only
+        input:
+          query: string
+          max_results: integer
+        output:
+          type: object
+
+      - name: reddit_search
+        description: Search Reddit for community discussions on training techniques, hardware, and best practices.
+        security: read-only
+        input:
+          query: string
+          max_results: integer
+        output:
+          type: object
+
+      - name: web_fetch
+        description: Fetch and extract readable content from a documentation URL or web page.
+        security: read-only
+        input:
+          url: string
+          timeout: integer
+        output:
+          type: object
+
+      - name: curated_sources
+        description: Return governed, curated documentation sources for continuous AI training. Can filter by domain, technique, framework, category, or authority.
+        security: read-only
+        input:
+          filters: object
+        output:
+          type: object
+
+      - name: training_sites
+        description: Return the complete list of high-value training documentation sites across the internet.
+        security: read-only
+        output:
+          type: object
+
+      - name: best_practices
+        description: Return governed best practices for continuous AI training with evidence URLs and priority levels.
+        security: read-only
+        output:
+          type: object
+
+      - name: source_policy
+        description: Return the source screening policy for documentation quality and provenance.
+        security: read-only
+        output:
+          type: object
+
+      - name: source_registry_list
+        description: Return the complete governed source registry with authorities and categories.
+        security: read-only
+        output:
+          type: object
+
+      - name: full_search
+        description: Search across all available sources in parallel for a comprehensive result set.
+        security: read-only
+        input:
+          query: string
+          max_results: integer
+        output:
+          type: object
+
+  security:
+    allowed_domains:
+      - "github.com"
+      - "*.github.com"
+      - "*.githubusercontent.com"
+      - "arxiv.org"
+      - "*.arxiv.org"
+      - "paperswithcode.com"
+      - "*.paperswithcode.com"
+      - "huggingface.co"
+      - "*.huggingface.co"
+      - "pytorch.org"
+      - "*.pytorch.org"
+      - "tensorflow.org"
+      - "*.tensorflow.org"
+      - "deepspeed.ai"
+      - "*.deepspeed.ai"
+      - "docs.unsloth.ai"
+      - "axolotl.ai"
+      - "reddit.com"
+      - "*.reddit.com"
+      - "stackoverflow.com"
+      - "*.stackoverflow.com"
+      - "medium.com"
+      - "*.medium.com"
+      - "youtube.com"
+      - "*.youtube.com"
+      - "nvidia.com"
+      - "*.nvidia.com"
+      - "mlcommons.org"
+      - "jax.readthedocs.io"
+      - "ml-explore.github.io"
+      - "docs.vllm.ai"
+      - "lilianweng.github.io"
+      - "sebastianraschka.com"
+      - "thegradient.pub"
+      - "course.fast.ai"
+      - "dvc.org"
+      - "mlflow.org"
+      - "docs.wandb.ai"
+      - "google.com"
+      - "duckduckgo.com"
+      - "html.duckduckgo.com"
+      - "export.arxiv.org"
+      - "api.github.com"
+    blocked_domains:
+      - "*.malicious.*"
+      - "*.phishing.*"
+      - "localhost"
+      - "127.0.0.1"
+      - "10.*"
+      - "172.16.*"
+      - "192.168.*"
+    redaction:
+      enabled: true
+      patterns:
+        - "(?i)(password|secret|token|key|credential)[=:]\\s*\\S+"
+        - "(?i)(api[_-]?key|access[_-]?key)[=:]\\s*\\S+"
+    audit:
+      log_all_navigations: true
+      log_all_inputs: true

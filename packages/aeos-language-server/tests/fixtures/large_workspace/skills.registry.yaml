@@ -1,0 +1,5 @@
+# large_workspace/skills.registry.yaml -- performance test fixture
+registry: "performance-skills"
+type: "skill"
+version: 1
+entries: []

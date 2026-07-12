@@ -1,0 +1,12 @@
+{
+  "run_id": "cbrain-1213aadc8a24",
+  "problem": "Evaluate the architecture, security and implementation risks of this migration.",
+  "selected_colors": [
+    "RED",
+    "GREEN",
+    "BLUE",
+    "WHITE",
+    "BLACK"
+  ],
+  "status": "ANALYZING"
+}

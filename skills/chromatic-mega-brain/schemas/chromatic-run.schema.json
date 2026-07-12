@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Chromatic Mega Brain Run",
+  "type": "object",
+  "required": [
+    "run_id",
+    "problem",
+    "selected_colors",
+    "status"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "problem": {
+      "type": "string",
+      "minLength": 10
+    },
+    "selected_colors": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 8,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "WHITE",
+          "BLUE",
+          "RED",
+          "GREEN",
+          "YELLOW",
+          "PURPLE",
+          "ORANGE",
+          "BLACK"
+        ]
+      }
+    },
+    "status": {
+      "enum": [
+        "ANALYZING",
+        "SYNTHESIZING",
+        "REWORK_REQUIRED",
+        "BLOCKED",
+        "WAITING_APPROVAL",
+        "COMPLETED"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

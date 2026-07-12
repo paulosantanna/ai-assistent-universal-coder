@@ -1,0 +1,294 @@
+{
+  "name": "vscode-aeos",
+  "displayName": "AEOS Language Support",
+  "description": "AEOS Language Server integration for VS Code — semantic intelligence for AEOS artifacts, governance, and runtime",
+  "version": "1.0.0",
+  "publisher": "AEOS",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters"
+  ],
+  "keywords": [
+    "aeos",
+    "agent",
+    "skill",
+    "playbook",
+    "language-server",
+    "lsp",
+    "workbench"
+  ],
+  "activationEvents": [
+    "onLanguage:aeos",
+    "onLanguage:aeos-markdown",
+    "onLanguage:aeos-yaml",
+    "onLanguage:aeos-json",
+    "onLanguage:aeos-jsonc",
+    "onLanguage:aeos-toml",
+    "workspaceContains:**/aeos.config.yaml"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "aeos",
+        "aliases": ["AEOS Script", "aeos"],
+        "extensions": [".aeos"],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "aeos-markdown",
+        "aliases": ["AEOS Markdown", "AEOS Agent/Skill/Playbook"],
+        "extensions": [
+          ".agent.md",
+          ".skill.md",
+          ".playbook.md"
+        ],
+        "filenames": [
+          "AGENT.md",
+          "AGENTS.md",
+          "SKILL.md",
+          "PLAYBOOK.md"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "aeos-yaml",
+        "aliases": ["AEOS YAML"],
+        "extensions": [
+          ".aeos.yaml",
+          ".aeos.yml"
+        ],
+        "filenames": [
+          "aeos.config.yaml",
+          "agents.registry.yaml",
+          "skills.registry.yaml",
+          "playbooks.registry.yaml",
+          "mcps.registry.yaml",
+          "lcps.registry.yaml",
+          "blueprints.registry.yaml",
+          "enterprise-skills.registry.yaml",
+          "enterprise-playbooks.registry.yaml",
+          "workbench-profiles.registry.yaml",
+          "overlay.registry.index.yaml",
+          "permissions.yaml",
+          "policies.yaml",
+          "overlay.index"
+        ]
+      },
+      {
+        "id": "aeos-json",
+        "aliases": ["AEOS JSON"],
+        "extensions": [".aeos.json"]
+      },
+      {
+        "id": "aeos-jsonc",
+        "aliases": ["AEOS JSONC"],
+        "extensions": [".aeos.jsonc"]
+      },
+      {
+        "id": "aeos-toml",
+        "aliases": ["AEOS TOML"],
+        "extensions": [".aeos.toml"]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "aeos-markdown",
+        "scopeName": "text.html.markdown.aeos",
+        "path": "./syntaxes/aeos-markdown.tmLanguage.json"
+      },
+      {
+        "language": "aeos",
+        "scopeName": "source.aeos-expression",
+        "path": "./syntaxes/aeos-expression.tmLanguage.json"
+      }
+    ],
+    "configuration": {
+      "title": "AEOS Language Server",
+      "properties": {
+        "aeos-lsp.command": {
+          "type": "string",
+          "default": "aeos-lsp",
+          "description": "Path to the AEOS Language Server executable. Override to use a custom build or activate a Python virtual environment (e.g. `.venv/bin/aeos-lsp`)."
+        },
+        "aeos-lsp.args": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Additional command-line arguments passed to the AEOS Language Server."
+        },
+        "aeos-lsp.profile": {
+          "type": "string",
+          "default": "",
+          "description": "Optional AEOS runtime profile name. If set, the server is started with --profile <name>."
+        },
+        "aeos-lsp.logLevel": {
+          "type": "string",
+          "enum": [
+            "DEBUG",
+            "INFO",
+            "WARNING",
+            "ERROR",
+            "CRITICAL"
+          ],
+          "default": "WARNING",
+          "description": "Logging level for the AEOS Language Server process."
+        },
+        "aeos-lsp.maxDiagnosticsPerFile": {
+          "type": "number",
+          "default": 100,
+          "minimum": 1,
+          "maximum": 5000,
+          "description": "Maximum number of diagnostics reported per file."
+        },
+        "aeos-lsp.maxWorkspaceDiagnostics": {
+          "type": "number",
+          "default": 500,
+          "minimum": 1,
+          "maximum": 50000,
+          "description": "Maximum total diagnostics reported across the entire workspace."
+        },
+        "aeos-lsp.enableExperimentalFeatures": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable experimental LSP features (enhanced diagnostics, dependency graphs, dry-run, judge, etc.)."
+        },
+        "aeos-lsp.trace.server": {
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "LSP protocol trace level for debugging."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "aeos-lsp.validateDocument",
+        "title": "AEOS: Validate Current Document"
+      },
+      {
+        "command": "aeos-lsp.validateWorkspace",
+        "title": "AEOS: Validate Entire Workspace"
+      },
+      {
+        "command": "aeos-lsp.refreshIndex",
+        "title": "AEOS: Refresh Workspace Index"
+      },
+      {
+        "command": "aeos-lsp.explainDiagnostic",
+        "title": "AEOS: Explain Diagnostic at Cursor"
+      },
+      {
+        "command": "aeos-lsp.showDependencyGraph",
+        "title": "AEOS: Show Dependency Graph"
+      },
+      {
+        "command": "aeos-lsp.showInheritanceGraph",
+        "title": "AEOS: Show Inheritance Graph"
+      },
+      {
+        "command": "aeos-lsp.estimateTokens",
+        "title": "AEOS: Estimate Token Count"
+      },
+      {
+        "command": "aeos-lsp.judgeArtifact",
+        "title": "AEOS: Judge Current Artifact"
+      },
+      {
+        "command": "aeos-lsp.dryRunSkill",
+        "title": "AEOS: Dry-Run Skill"
+      },
+      {
+        "command": "aeos-lsp.dryRunPlaybook",
+        "title": "AEOS: Dry-Run Playbook"
+      },
+      {
+        "command": "aeos-lsp.openEvidence",
+        "title": "AEOS: Open Evidence Artifact"
+      },
+      {
+        "command": "aeos-lsp.restart",
+        "title": "AEOS: Restart Language Server"
+      },
+      {
+        "command": "aeos-lsp.showIndexStatus",
+        "title": "AEOS: Show Index Status"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "aeos-lsp.validateDocument",
+        "key": "ctrl+alt+v",
+        "when": "editorLangId == aeos || editorLangId == aeos-markdown"
+      },
+      {
+        "command": "aeos-lsp.refreshIndex",
+        "key": "ctrl+alt+r",
+        "when": "editorLangId == aeos || editorLangId == aeos-markdown"
+      },
+      {
+        "command": "aeos-lsp.explainDiagnostic",
+        "key": "ctrl+alt+e",
+        "when": "editorLangId == aeos || editorLangId == aeos-markdown"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "aeos-lsp.validateDocument",
+          "group": "aeos@1",
+          "when": "editorLangId == aeos || editorLangId == aeos-markdown || editorLangId == aeos-yaml || editorLangId == aeos-json || editorLangId == aeos-jsonc || editorLangId == aeos-toml"
+        },
+        {
+          "command": "aeos-lsp.explainDiagnostic",
+          "group": "aeos@2",
+          "when": "editorLangId == aeos || editorLangId == aeos-markdown || editorLangId == aeos-yaml || editorLangId == aeos-json || editorLangId == aeos-jsonc || editorLangId == aeos-toml"
+        },
+        {
+          "command": "aeos-lsp.estimateTokens",
+          "group": "aeos@3",
+          "when": "editorLangId == aeos || editorLangId == aeos-markdown"
+        },
+        {
+          "command": "aeos-lsp.judgeArtifact",
+          "group": "aeos@4",
+          "when": "editorLangId == aeos || editorLangId == aeos-markdown"
+        },
+        {
+          "command": "aeos-lsp.refreshIndex",
+          "group": "aeos@5",
+          "when": "editorLangId == aeos || editorLangId == aeos-markdown || editorLangId == aeos-yaml || editorLangId == aeos-json || editorLangId == aeos-jsonc || editorLangId == aeos-toml"
+        }
+      ]
+    },
+    "snippets": [
+      {
+        "language": "aeos",
+        "path": "./snippets/aeos.json"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./tsconfig.json",
+    "watch": "tsc -watch",
+    "test": "node ./out/test/runTests.js",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.6.0",
+    "vsce": "^2.15.0"
+  },
+  "extensionDependencies": []
+}

@@ -1,0 +1,76 @@
+# valid_skill.yaml -- golden test fixture for AEOS LSP validation
+$schema: "https://aeos.ai/schemas/skill.schema.json"
+$id: "skill-analyzer"
+name: "Code Analyzer Skill"
+version: "2.1.0"
+description: "Static analysis skill that inspects source code for patterns, metrics, and potential issues. Supports multiple languages."
+author: "AEOS LSP Team"
+tools:
+  - name: "analyze-file"
+    tool_type: "custom"
+    description: "Analyze a single source file for code quality metrics"
+    config:
+      supported_languages: ["typescript", "python", "rust", "go"]
+      max_file_size_kb: 512
+  - name: "find-patterns"
+    tool_type: "grep"
+    description: "Search for regex patterns across the codebase"
+  - name: "report-metrics"
+    tool_type: "bash"
+    description: "Generate a structured metrics report"
+    config:
+      command_template: "node scripts/analyze.js --path {{input.path}} --format json"
+dependencies:
+  skills:
+    - "skill-reporter"
+  packages:
+    - name: "typescript"
+      version: ">=5.0.0"
+      manager: "npm"
+  environment:
+    NODE_ENV: "development"
+    LOG_LEVEL: "info"
+inputs:
+  type: object
+  required:
+    - path
+  properties:
+    path:
+      type: string
+      description: "File system path to analyze"
+      pattern: "^[a-zA-Z0-9_/.-]+$"
+    recursive:
+      type: boolean
+      description: "Whether to analyze directories recursively"
+      default: false
+    max_depth:
+      type: integer
+      description: "Maximum directory depth for recursive analysis"
+      minimum: 1
+      maximum: 10
+outputs:
+  type: object
+  description: "Analysis results with metrics and findings"
+  properties:
+    summary:
+      type: object
+    issues:
+      type: array
+    metrics:
+      type: object
+timeout: 60000
+retry:
+  max_attempts: 3
+  delay_ms: 2000
+  backoff_multiplier: 2.0
+  retryable_errors:
+    - "TimeoutError"
+    - "NetworkError"
+    - "RateLimitError"
+model_requirements:
+  min_context_window: 32000
+  min_output_tokens: 4096
+  capabilities:
+    - tool_use
+    - code_execution
+  provider: "anthropic"

@@ -1,0 +1,314 @@
+# valid_playbook_complex.aeos.yaml -- synthetic fixture with all playbook features
+$schema: "https://aeos.ai/schemas/playbook.schema.json"
+$id: "complex-deployment-pipeline"
+name: "Complex Deployment Pipeline"
+version: "3.0.0"
+description: >
+  Enterprise-grade deployment pipeline exercising every playbook feature:
+  parallel steps, conditional branching, approval gates, variable
+  interpolation, retry policies, timeout overrides, rollback on every
+  mutating step, comprehensive input/output schemas, and full dependency
+  declarations.
+author: "AEOS LSP Team"
+inputs:
+  required:
+    - repository
+    - commit_sha
+  properties:
+    repository:
+      type: string
+      description: "Git repository URL (HTTPS or SSH)"
+      pattern: "^(https://|git@).*\\.git$"
+    commit_sha:
+      type: string
+      description: "Full 40-character commit SHA"
+      pattern: "^[a-f0-9]{40}$"
+    branch:
+      type: string
+      description: "Branch name"
+      default: "main"
+      pattern: "^[a-zA-Z0-9_/.-]+$"
+    environment:
+      type: string
+      description: "Target deployment environment"
+      default: "development"
+      enum:
+        - "development"
+        - "staging"
+        - "production"
+    skip_tests:
+      type: boolean
+      description: "Skip test execution"
+      default: false
+    dry_run:
+      type: boolean
+      description: "Simulate deployment without side effects"
+      default: true
+    notification_url:
+      type: string
+      description: "Webhook URL for deployment notifications"
+      default: ""
+    version_tag:
+      type: string
+      description: "Optional version tag for the deployment"
+      pattern: "^v?\\d+\\.\\d+\\.\\d+(-[a-zA-Z0-9.]+)?$"
+variables:
+  checkout_dir: "/workspace/build/{{inputs.commit_sha}}"
+  build_artifacts: {}
+  test_results: {}
+  coverage_data: {}
+  security_findings: []
+  quality_score: 0.0
+  approval_status: ""
+  deploy_result: {}
+  smoke_test_status: ""
+steps:
+  - name: "validate-inputs"
+    tool: "bash"
+    description: "Validate all input parameters before proceeding"
+    inputs:
+      command: >
+        node scripts/validate-inputs.js
+        --repo {{inputs.repository}}
+        --commit {{inputs.commit_sha}}
+        --env {{inputs.environment}}
+        --branch {{inputs.branch}}
+    timeout: 30000
+    retry:
+      max_attempts: 2
+      delay_ms: 1000
+
+  - name: "checkout"
+    tool: "bash"
+    description: "Check out the repository at the specified commit"
+    inputs:
+      command: >
+        git clone --depth 1 {{inputs.repository}}
+        {{variables.checkout_dir}} &&
+        cd {{variables.checkout_dir}} &&
+        git checkout {{inputs.commit_sha}}
+    outputs:
+      checkout_path: "$.stdout"
+    conditions:
+      run_if: "steps.validate-inputs.exit_code == 0"
+    timeout: 120000
+    retry:
+      max_attempts: 3
+      delay_ms: 5000
+      backoff_multiplier: 3.0
+    rollback:
+      tool: "bash"
+      description: "Remove checked-out directory on failure"
+      inputs:
+        command: "rm -rf {{variables.checkout_dir}}"
+
+  - name: "install-deps"
+    tool: "bash"
+    description: "Install project dependencies"
+    inputs:
+      command: "cd {{variables.checkout_dir}} && npm ci --prefer-offline"
+    timeout: 180000
+    retry:
+      max_attempts: 3
+      delay_ms: 10000
+      backoff_multiplier: 2.0
+    rollback:
+      tool: "bash"
+      description: "Clean installed dependencies"
+      inputs:
+        command: "rm -rf {{variables.checkout_dir}}/node_modules"
+
+  - name: "lint-and-format"
+    tool: "bash"
+    description: "Run linter and formatter checks"
+    inputs:
+      command: "cd {{variables.checkout_dir}} && npm run lint && npm run format:check"
+    conditions:
+      on_failure: "lint-fix-attempt"
+
+  - name: "lint-fix-attempt"
+    tool: "bash"
+    description: "Attempt to auto-fix lint issues"
+    inputs:
+      command: "cd {{variables.checkout_dir}} && npm run lint:fix"
+    timeout: 60000
+
+  - name: "build"
+    tool: "bash"
+    description: "Build the project"
+    inputs:
+      command: "cd {{variables.checkout_dir}} && npm run build -- --env {{inputs.environment}}"
+    outputs:
+      build_output: "$.stdout"
+    conditions:
+      run_if: "steps.lint-and-format.exit_code == 0 || steps.lint-fix-attempt.exit_code == 0"
+    timeout: 300000
+    retry:
+      max_attempts: 2
+      delay_ms: 3000
+    rollback:
+      tool: "bash"
+      description: "Clean build artifacts"
+      inputs:
+        command: "cd {{variables.checkout_dir}} && npm run clean"
+
+  - name: "unit-tests"
+    tool: "bash"
+    description: "Execute unit tests with coverage"
+    inputs:
+      command: "cd {{variables.checkout_dir}} && npm run test:unit -- --coverage"
+    outputs:
+      unit_results: "$.stdout"
+    conditions:
+      run_unless: "inputs.skip_tests == true"
+    parallel: true
+    timeout: 180000
+
+  - name: "integration-tests"
+    tool: "bash"
+    description: "Execute integration tests"
+    inputs:
+      command: "cd {{variables.checkout_dir}} && npm run test:integration"
+    outputs:
+      integration_results: "$.stdout"
+    conditions:
+      run_unless: "inputs.skip_tests == true"
+    parallel: true
+    timeout: 300000
+
+  - name: "security-scan"
+    skill: "skill-security-scanner"
+    description: "Run comprehensive security vulnerability scan"
+    inputs:
+      path: "{{variables.checkout_dir}}"
+      scan_type: "full"
+      fail_on_critical: true
+      fail_on_high: false
+    outputs:
+      security_report: "$.report"
+    parallel: true
+    timeout: 120000
+
+  - name: "quality-gate"
+    skill: "skill-quality-gate"
+    description: "Enforce quality thresholds"
+    inputs:
+      coverage_path: "{{variables.checkout_dir}}/coverage/lcov.info"
+      min_coverage: 80
+      max_complexity: 20
+      max_duplication: 5
+    outputs:
+      quality_passed: "$.passed"
+      quality_score: "$.score"
+    conditions:
+      run_if: "steps.unit-tests.exit_code == 0"
+    on_failure: "notify-quality-fail"
+
+  - name: "approval-gate"
+    description: "Human approval for production deployments"
+    approval:
+      required: true
+      prompt: >
+        Deploy commit {{inputs.commit_sha}} (branch: {{inputs.branch}})
+        to {{inputs.environment}}?
+        Quality score: {{variables.quality_score}}
+        Security findings: {{variables.security_findings.length}}
+      timeout_ms: 1800000
+      auto_approve_if: "inputs.environment != 'production' || inputs.dry_run == true"
+    conditions:
+      run_if: "steps.quality-gate.quality_passed == true"
+
+  - name: "deploy"
+    skill: "skill-deployer"
+    description: "Deploy build artifacts to target environment"
+    inputs:
+      environment: "{{inputs.environment}}"
+      commit_sha: "{{inputs.commit_sha}}"
+      artifacts: "{{steps.build.build_output}}"
+      version: "{{inputs.version_tag}}"
+      dry_run: "{{inputs.dry_run}}"
+    outputs:
+      deploy_result: "$.result"
+    conditions:
+      run_if: "steps.approval-gate.approved == true || inputs.dry_run == true"
+    rollback:
+      playbook: "rollback-playbook"
+      description: "Full rollback to previous deployment"
+      inputs:
+        environment: "{{inputs.environment}}"
+        previous_version: "{{steps.build.build_output.version}}"
+
+  - name: "smoke-tests"
+    tool: "bash"
+    description: "Run smoke tests against deployed environment"
+    inputs:
+      command: >
+        node {{variables.checkout_dir}}/scripts/smoke-test.js
+        --env {{inputs.environment}}
+        --endpoint https://{{inputs.environment}}.example.com/health
+    outputs:
+      smoke_test_status: "$.stdout"
+    timeout: 60000
+
+  - name: "post-deploy-tasks"
+    tool: "bash"
+    description: "Post-deployment: tag, notify, cleanup"
+    inputs:
+      command: >
+        cd {{variables.checkout_dir}} &&
+        git tag deploy-{{inputs.environment}}-{{inputs.commit_sha}} &&
+        echo 'Deploy complete' &&
+        {% if inputs.notification_url %}
+        curl -X POST -H 'Content-Type: application/json'
+        -d '{"commit":"{{inputs.commit_sha}}","env":"{{inputs.environment}}","status":"success"}'
+        {{inputs.notification_url}}
+        {% endif %}
+    conditions:
+      run_if: "steps.smoke-tests.exit_code == 0"
+    rollback:
+      tool: "bash"
+      description: "Remove deployment git tag"
+      inputs:
+        command: "git tag -d deploy-{{inputs.environment}}-{{inputs.commit_sha}} || true"
+
+  - name: "notify-quality-fail"
+    tool: "bash"
+    description: "Notify team about quality gate failure"
+    inputs:
+      command: >
+        echo 'Quality gate failed for
+        commit {{inputs.commit_sha}} on branch {{inputs.branch}}'
+
+outputs:
+  properties:
+    deploy_result:
+      type: object
+      description: "Full deployment result with metadata"
+    test_results:
+      type: object
+      description: "Aggregated test results from all test suites"
+    security_report:
+      type: object
+      description: "Security scan findings and remediation suggestions"
+    quality_score:
+      type: number
+      description: "Overall quality score (0-100)"
+    deployment_url:
+      type: string
+      description: "URL to the deployed environment"
+dependencies:
+  skills:
+    - "skill-security-scanner"
+    - "skill-quality-gate"
+    - "skill-deployer"
+  playbooks:
+    - "rollback-playbook"
+  agents:
+    - "complex-analysis-agent"
+config:
+  default_timeout: 600000
+  default_retry:
+    max_attempts: 3
+    delay_ms: 2000
+    backoff_multiplier: 2.0
+  max_concurrent_steps: 4

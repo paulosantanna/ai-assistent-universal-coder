@@ -1,0 +1,97 @@
+{
+  "$schema": "https://aeos.ai/schemas/aeos-config.schema.json",
+  "aeos": {
+    "name": "Test AEOS Workspace",
+    "version": "1.0.0",
+    "mode": "ai-first-governed"
+  },
+  "runtime": {
+    "workspace_root": ".",
+    "default_output_dir": ".aeos",
+    "require_kernel": true,
+    "require_policy_check": true,
+    "require_permission_check": true,
+    "require_evidence": true,
+    "require_judge": true,
+    "require_evidence_integrity": true,
+    "require_tool_router": true,
+    "require_mcp_runtime": true,
+    "require_agent_runtime": true,
+    "require_observability": true,
+    "require_parallel_execution": false
+  },
+  "registries": {
+    "agents": "aeos/registries/agents.registry.yaml",
+    "skills": "aeos/registries/skills.registry.yaml",
+    "playbooks": "aeos/registries/playbooks.registry.yaml"
+  },
+  "execution": {
+    "default_mode": "dry-run-first",
+    "allow_direct_write": false,
+    "require_branch_for_code_changes": true,
+    "require_rollback_plan": true,
+    "require_diff_summary": true,
+    "require_test_evidence": true,
+    "max_parallel_steps": 4,
+    "conflict_detection_enabled": true,
+    "protected_branches": ["main", "master", "develop"]
+  },
+  "security": {
+    "block_plaintext_secrets": true,
+    "block_secret_logging": true,
+    "block_destructive_actions_without_approval": true,
+    "block_network_exfiltration": true,
+    "block_direct_tool_access": true,
+    "block_wildcard_approval": true,
+    "block_auto_merge": true,
+    "redaction_required": true,
+    "threat_model_required": true,
+    "allowed_secret_sources": [
+      "windows_credential_manager",
+      "macos_keychain",
+      "linux_secret_service",
+      "vault_optional",
+      "runtime_memory_only"
+    ]
+  },
+  "judge": {
+    "min_score": 9.0,
+    "deterministic_first": true,
+    "block_on_missing_evidence": true,
+    "block_on_failing_tests": true,
+    "block_on_security_risk": true,
+    "block_on_missing_rollback": true,
+    "block_on_hash_mismatch": true,
+    "block_on_tool_router_bypass": true,
+    "block_on_policy_bypass": true,
+    "block_on_permission_bypass": true,
+    "block_on_wildcard_approval": true,
+    "block_on_auto_merge": true,
+    "block_on_auto_deploy": true,
+    "block_on_unsupported_claim": true,
+    "enterprise_gates_enabled": true
+  },
+  "packaging": {
+    "enabled": true,
+    "require_manifest": true,
+    "require_checksums": true,
+    "max_package_size_mb": 100,
+    "max_files_per_package": 5000,
+    "block_path_traversal": true,
+    "block_absolute_paths": true,
+    "block_zip_bombs": true,
+    "block_secrets": true,
+    "quarantine_required": true,
+    "verify_before_extract": true
+  },
+  "observability": {
+    "logs": true,
+    "traces": true,
+    "metrics": true,
+    "token_usage": true,
+    "tool_call_audit": true,
+    "cost_tracking": true,
+    "audit_export": true,
+    "timeline": true
+  }
+}

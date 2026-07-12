@@ -1,0 +1,82 @@
+{
+  "uri": "file:///tests/golden/dangling_reference.yaml",
+  "diagnostics": [
+    {
+      "range": { "start": { "line": 14, "character": 0 }, "end": { "line": 14, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0012",
+      "message": "Reference 'skill-that-does-not-exist' in 'dangling-agent' does not resolve to any artifact in the workspace",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 15, "character": 0 }, "end": { "line": 15, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0012",
+      "message": "Reference 'another-missing-skill' in 'dangling-agent' does not resolve to any artifact in the workspace",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 16, "character": 0 }, "end": { "line": 16, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0012",
+      "message": "Reference 'non-existent-parent-agent' in 'dangling-agent' does not resolve to any artifact in the workspace",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 17, "character": 0 }, "end": { "line": 17, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0012",
+      "message": "Reference 'missing-profile-reference' in 'dangling-agent' does not resolve to any artifact in the workspace",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 32, "character": 0 }, "end": { "line": 32, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0016",
+      "message": "Playbook step 'step-using-missing-skill' references 'skill-that-does-not-exist' which is not defined in the workspace",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 37, "character": 0 }, "end": { "line": 37, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0016",
+      "message": "Playbook step 'step-using-missing-playbook' references 'non-existent-sub-playbook' which is not defined in the workspace",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 46, "character": 0 }, "end": { "line": 46, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0016",
+      "message": "Playbook step 'step-using-missing-agent' references 'missing-rollback-skill' which is not defined in the workspace",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 51, "character": 0 }, "end": { "line": 51, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0012",
+      "message": "Reference 'missing-skill-in-dependencies' in 'dangling-playbook' does not resolve to any artifact in the workspace",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 53, "character": 0 }, "end": { "line": 53, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0012",
+      "message": "Reference 'missing-playbook-in-dependencies' in 'dangling-playbook' does not resolve to any artifact in the workspace",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 55, "character": 0 }, "end": { "line": 55, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0012",
+      "message": "Reference 'missing-agent-in-dependencies' in 'dangling-playbook' does not resolve to any artifact in the workspace",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 75, "character": 0 }, "end": { "line": 75, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0012",
+      "message": "Reference 'skill-that-does-not-exist' in 'dangling-skill' does not resolve to any artifact in the workspace",
+      "source": "aeos-language-server"
+    }
+  ]
+}

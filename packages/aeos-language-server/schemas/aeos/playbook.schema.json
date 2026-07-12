@@ -1,0 +1,312 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aeos.ai/schemas/playbook.schema.json",
+  "title": "AEOS Playbook Definition",
+  "description": "Schema for AEOS playbook definitions. Playbooks define multi-step workflows composed of skill, tool, or sub-playbook invocations with branching conditions, approvals, and rollback steps.",
+  "type": "object",
+  "required": [
+    "$id",
+    "name",
+    "version",
+    "steps"
+  ],
+  "properties": {
+    "$id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z][a-zA-Z0-9_-]*$",
+      "description": "Unique identifier for the playbook within the workspace."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the playbook."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(-[a-zA-Z0-9.]+)?$",
+      "description": "Semantic version string (semver)."
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of the playbook's purpose and workflow."
+    },
+    "author": {
+      "type": "string",
+      "description": "Author or maintainer of the playbook."
+    },
+    "steps": {
+      "type": "array",
+      "description": "Ordered list of steps in the playbook. Steps execute sequentially unless conditions dictate branching.",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Unique name for this step within the playbook."
+          },
+          "tool": {
+            "type": "string",
+            "description": "Tool name to invoke (mutually exclusive with skill and playbook)."
+          },
+          "skill": {
+            "type": "string",
+            "description": "Skill $id to invoke (mutually exclusive with tool and playbook)."
+          },
+          "playbook": {
+            "type": "string",
+            "description": "Sub-playbook $id to invoke (mutually exclusive with tool and skill)."
+          },
+          "inputs": {
+            "type": "object",
+            "description": "Input values for this step. Supports variable interpolation from step outputs.",
+            "additionalProperties": true
+          },
+          "outputs": {
+            "type": "object",
+            "description": "Output mapping from step result to named variables for downstream steps.",
+            "additionalProperties": {
+              "type": "string",
+              "description": "JSONPath expression to extract from the step result."
+            }
+          },
+          "conditions": {
+            "type": "object",
+            "description": "Conditions controlling step execution.",
+            "properties": {
+              "run_if": {
+                "type": "string",
+                "description": "Expression that must evaluate to true for this step to execute."
+              },
+              "run_unless": {
+                "type": "string",
+                "description": "Expression that must evaluate to false for this step to execute."
+              },
+              "on_success": {
+                "type": "string",
+                "description": "Step name to jump to on success (skip remaining ordered steps)."
+              },
+              "on_failure": {
+                "type": "string",
+                "description": "Step name to jump to on failure."
+              },
+              "retry_on_failure": {
+                "type": "boolean",
+                "default": false,
+                "description": "Automatically retry this step on failure."
+              }
+            },
+            "additionalProperties": false
+          },
+          "timeout": {
+            "type": "integer",
+            "minimum": 1000,
+            "maximum": 600000,
+            "description": "Step timeout in milliseconds. Overrides playbook-level default."
+          },
+          "retry": {
+            "type": "object",
+            "description": "Step-level retry policy. Overrides playbook-level defaults.",
+            "properties": {
+              "max_attempts": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 10,
+                "default": 3
+              },
+              "delay_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "default": 1000
+              },
+              "backoff_multiplier": {
+                "type": "number",
+                "minimum": 1.0,
+                "default": 2.0
+              }
+            },
+            "additionalProperties": false
+          },
+          "approval": {
+            "type": "object",
+            "description": "Approval requirement before this step executes.",
+            "properties": {
+              "required": {
+                "type": "boolean",
+                "default": false,
+                "description": "Whether human approval is required."
+              },
+              "prompt": {
+                "type": "string",
+                "description": "Message to display to the approver."
+              },
+              "timeout_ms": {
+                "type": "integer",
+                "minimum": 10000,
+                "description": "Time to wait for approval before timing out."
+              },
+              "auto_approve_if": {
+                "type": "string",
+                "description": "Expression that, if true, auto-approves without human intervention."
+              }
+            },
+            "additionalProperties": false
+          },
+          "rollback": {
+            "type": "object",
+            "description": "Rollback action to execute if a later step fails.",
+            "properties": {
+              "tool": {
+                "type": "string",
+                "description": "Tool to invoke for rollback."
+              },
+              "skill": {
+                "type": "string",
+                "description": "Skill $id to invoke for rollback."
+              },
+              "playbook": {
+                "type": "string",
+                "description": "Playbook $id to invoke for rollback."
+              },
+              "inputs": {
+                "type": "object",
+                "description": "Inputs for the rollback action.",
+                "additionalProperties": true
+              },
+              "description": {
+                "type": "string",
+                "description": "Description of what this rollback does."
+              }
+            },
+            "additionalProperties": false
+          },
+          "parallel": {
+            "type": "boolean",
+            "default": false,
+            "description": "If true, this step runs in parallel with adjacent parallel steps."
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of what this step does."
+          }
+        },
+        "additionalProperties": false,
+        "oneOf": [
+          { "required": ["tool"] },
+          { "required": ["skill"] },
+          { "required": ["playbook"] }
+        ]
+      },
+      "minItems": 1
+    },
+    "variables": {
+      "type": "object",
+      "description": "Playbook-level variables available to all steps.",
+      "additionalProperties": {
+        "oneOf": [
+          { "type": "string" },
+          { "type": "number" },
+          { "type": "boolean" },
+          { "type": "array" },
+          { "type": "object" }
+        ]
+      }
+    },
+    "inputs": {
+      "type": "object",
+      "description": "Input schema for the playbook. Defines required and optional parameters.",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["string", "number", "integer", "boolean", "array", "object"]
+              },
+              "description": { "type": "string" },
+              "default": {}
+            },
+            "additionalProperties": true
+          }
+        },
+        "required": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "outputs": {
+      "type": "object",
+      "description": "Output schema for the playbook.",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "type": { "type": "string" },
+              "description": { "type": "string" }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "dependencies": {
+      "type": "object",
+      "description": "External dependencies required by this playbook.",
+      "properties": {
+        "skills": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "List of skill $id values used in steps."
+        },
+        "playbooks": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "List of sub-playbook $id values used in steps."
+        },
+        "agents": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "List of agent $id values used in steps."
+        }
+      },
+      "additionalProperties": false
+    },
+    "config": {
+      "type": "object",
+      "description": "Additional playbook-level configuration.",
+      "properties": {
+        "default_timeout": {
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 600000,
+          "description": "Default timeout for steps that don't specify one."
+        },
+        "default_retry": {
+          "type": "object",
+          "description": "Default retry policy inherited by steps.",
+          "properties": {
+            "max_attempts": { "type": "integer", "minimum": 0, "maximum": 10 },
+            "delay_ms": { "type": "integer", "minimum": 0 },
+            "backoff_multiplier": { "type": "number", "minimum": 1.0 }
+          },
+          "additionalProperties": false
+        },
+        "max_concurrent_steps": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20,
+          "default": 4,
+          "description": "Maximum number of parallel steps allowed."
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

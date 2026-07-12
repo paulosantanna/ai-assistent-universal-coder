@@ -1,0 +1,42 @@
+# non_aeos_config.yaml -- synthetic fixture for is_aeos_document rejection
+# Regular YAML configuration file (not AEOS). The LSP should reject this.
+
+server:
+  host: "0.0.0.0"
+  port: 8080
+  ssl: true
+
+database:
+  host: "localhost"
+  port: 5432
+  name: "myapp"
+  pool:
+    min: 2
+    max: 10
+
+logging:
+  level: "info"
+  format: "json"
+  outputs:
+    - type: "console"
+    - type: "file"
+      path: "/var/log/myapp.log"
+
+features:
+  authentication: true
+  authorization: "rbac"
+  rate_limiting:
+    enabled: true
+    requests_per_minute: 100
+  caching:
+    enabled: true
+    provider: "redis"
+    ttl_seconds: 3600
+
+# This file is intentionally NOT an AEOS document:
+# - No $schema key
+# - No $id key
+# - No aeos: top-level key
+# - No YAML front matter (--- delimiters)
+# - The 'name' field is not an AEOS artifact name
+# It's just a regular application configuration file.

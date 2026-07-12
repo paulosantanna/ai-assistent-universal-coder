@@ -1,0 +1,103 @@
+{
+  "uri": "file:///tests/golden/deprecated_field.yaml",
+  "diagnostics": [
+    {
+      "range": { "start": { "line": 13, "character": 0 }, "end": { "line": 13, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0020",
+      "message": "Field 'skill' is deprecated in schema version 1.2.0. Use 'skills' (array) instead.",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 15, "character": 0 }, "end": { "line": 15, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0020",
+      "message": "Field 'model' is deprecated in schema version 1.2.0. Use 'model_preferences.model' instead.",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 17, "character": 0 }, "end": { "line": 17, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0020",
+      "message": "Field 'provider' is deprecated in schema version 1.2.0. Use 'model_preferences.provider' instead.",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 19, "character": 0 }, "end": { "line": 19, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0020",
+      "message": "Field 'timeout' is deprecated in schema version 1.2.0. Use 'stop_conditions' instead.",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 21, "character": 0 }, "end": { "line": 21, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0020",
+      "message": "Field 'temperature' is deprecated in schema version 1.2.0. Use 'layers[].config.temperature' instead.",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 24, "character": 0 }, "end": { "line": 24, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0020",
+      "message": "Field 'role' is deprecated in schema version 1.2.0. Roles are now defined in permissions schema.",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 27, "character": 0 }, "end": { "line": 27, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0020",
+      "message": "Field 'dependencies' (array) is deprecated in schema version 1.2.0. Dependencies are now per-skill or per-playbook.",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 45, "character": 0 }, "end": { "line": 45, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0020",
+      "message": "Field 'type' in tool definition is deprecated. Use 'tool_type' instead.",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 48, "character": 0 }, "end": { "line": 48, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0020",
+      "message": "Field 'command' at skill level is deprecated. Commands go in tools[].config.command_template.",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 51, "character": 0 }, "end": { "line": 51, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0020",
+      "message": "Field 'max_retries' is deprecated. Use 'retry.max_attempts' instead.",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 64, "character": 0 }, "end": { "line": 64, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0020",
+      "message": "Field 'action' in step is deprecated. Use 'tool', 'skill', or 'playbook' instead.",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 66, "character": 0 }, "end": { "line": 66, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0020",
+      "message": "Field 'args' is deprecated. Use 'inputs' instead.",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 69, "character": 0 }, "end": { "line": 69, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0020",
+      "message": "Field 'on_error' is deprecated. Use 'conditions.on_failure' instead.",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 71, "character": 0 }, "end": { "line": 71, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0020",
+      "message": "Field 'approval_required: true' is deprecated. Use 'approval.required: true' instead.",
+      "source": "aeos-language-server"
+    }
+  ]
+}

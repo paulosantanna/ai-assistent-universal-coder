@@ -1,0 +1,12 @@
+{
+  "uri": "file:///tests/fixtures/valid_playbook_complex.aeos.yaml",
+  "diagnostics": [
+    {
+      "range": { "start": { "line": 0, "character": 0 }, "end": { "line": 0, "character": 0 } },
+      "severity": 3,
+      "code": "AEOS0051",
+      "message": "Schema validation passed for 'valid_playbook_complex.aeos.yaml'",
+      "source": "aeos-language-server"
+    }
+  ]
+}

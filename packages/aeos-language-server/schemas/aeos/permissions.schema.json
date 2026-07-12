@@ -1,0 +1,258 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aeos.ai/schemas/permissions.schema.json",
+  "title": "AEOS Permissions Configuration",
+  "description": "Schema for AEOS permissions configuration. Defines roles, capabilities, scopes, and approval requirements that govern what agents can do and who can approve actions.",
+  "type": "object",
+  "required": [
+    "$id",
+    "name",
+    "version",
+    "roles"
+  ],
+  "properties": {
+    "$id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z][a-zA-Z0-9_-]*$",
+      "description": "Unique identifier for the permissions configuration."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name for this permissions configuration."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(-[a-zA-Z0-9.]+)?$",
+      "description": "Semantic version string (semver)."
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of this permissions configuration."
+    },
+    "author": {
+      "type": "string",
+      "description": "Author or maintainer of the permissions configuration."
+    },
+    "roles": {
+      "type": "object",
+      "description": "Map of role names to role definitions.",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["capabilities"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Display name for the role."
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the role's purpose."
+          },
+          "capabilities": {
+            "type": "array",
+            "description": "List of capabilities granted to this role.",
+            "items": {
+              "type": "object",
+              "required": ["name", "effect"],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Capability identifier."
+                },
+                "effect": {
+                  "type": "string",
+                  "enum": ["allow", "deny"],
+                  "description": "Whether this capability is allowed or denied."
+                },
+                "scopes": {
+                  "type": "array",
+                  "items": { "$ref": "#/$defs/scope" },
+                  "description": "Scopes that limit where this capability applies."
+                },
+                "conditions": {
+                  "type": "object",
+                  "description": "Conditions that must be met.",
+                  "additionalProperties": true
+                }
+              },
+              "additionalProperties": false
+            },
+            "uniqueItems": true
+          },
+          "inherits": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Parent roles to inherit capabilities from."
+          },
+          "max_depth": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10,
+            "description": "Maximum delegation depth for this role."
+          },
+          "approval_required": {
+            "$ref": "#/$defs/approvalRequirement",
+            "description": "Approval requirements specific to this role."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "capabilities": {
+      "type": "object",
+      "description": "Capability catalog. Defines what each capability means and its default behavior.",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Display name."
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of what this capability allows."
+          },
+          "category": {
+            "type": "string",
+            "enum": ["read", "write", "execute", "admin", "network", "security", "deployment", "ai"],
+            "description": "Category of capability."
+          },
+          "risk_level": {
+            "type": "string",
+            "enum": ["low", "medium", "high", "critical"],
+            "description": "Risk level of this capability."
+          },
+          "requires_approval": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether this capability always requires approval."
+          },
+          "default_effect": {
+            "type": "string",
+            "enum": ["allow", "deny"],
+            "default": "deny",
+            "description": "Default effect when no explicit rule matches."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "approval_requirements": {
+      "type": "object",
+      "description": "Global approval requirement definitions.",
+      "properties": {
+        "default_approval_level": {
+          "$ref": "#/$defs/approvalLevel",
+          "description": "Default approval level required."
+        },
+        "require_approval_for": {
+          "type": "array",
+          "description": "List of categories or capabilities that always require approval.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "auto_approve": {
+          "type": "array",
+          "description": "Conditions under which approval is automatically granted.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "capability": { "type": "string" },
+              "conditions": {
+                "type": "object",
+                "additionalProperties": true
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "approval_timeout_ms": {
+          "type": "integer",
+          "minimum": 10000,
+          "default": 300000,
+          "description": "Timeout for pending approval requests."
+        },
+        "max_pending_approvals": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 10,
+          "description": "Maximum number of concurrent pending approval requests."
+        }
+      },
+      "additionalProperties": false
+    },
+    "scopes": {
+      "type": "object",
+      "description": "Named scope definitions that can be referenced in capabilities.",
+      "additionalProperties": {
+        "$ref": "#/$defs/scope"
+      }
+    },
+    "default_role": {
+      "type": "string",
+      "description": "Default role assigned when no specific role is configured."
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "scope": {
+      "type": "object",
+      "description": "A scope that limits where a capability applies.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["path", "tool", "skill", "agent", "network", "environment", "custom"],
+          "description": "Type of scope."
+        },
+        "pattern": {
+          "type": "string",
+          "description": "Glob pattern or identifier for the scope target."
+        },
+        "allow": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether this scope allows or denies."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the scope."
+        }
+      },
+      "required": ["type", "pattern"],
+      "additionalProperties": false
+    },
+    "approvalRequirement": {
+      "type": "object",
+      "description": "Approval requirement configuration.",
+      "properties": {
+        "level": {
+          "$ref": "#/$defs/approvalLevel",
+          "description": "Approval level required."
+        },
+        "require_justification": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether justification must be provided."
+        },
+        "required_approvers": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Specific approvers required."
+        },
+        "min_approvals": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 1,
+          "description": "Minimum number of approvals needed."
+        }
+      },
+      "additionalProperties": false
+    },
+    "approvalLevel": {
+      "type": "string",
+      "enum": ["none", "self", "peer", "senior", "admin", "security"],
+      "description": "Level of approval required."
+    }
+  }
+}

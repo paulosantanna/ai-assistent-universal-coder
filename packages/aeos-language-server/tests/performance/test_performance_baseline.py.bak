@@ -1,0 +1,219 @@
+from __future__ import annotations
+
+import time
+from pathlib import Path
+from unittest.mock import MagicMock
+
+import pytest
+
+from aeos_lsp.configuration import LSPClientConfig
+from aeos_lsp.features.completion import CompletionFeature
+from aeos_lsp.features.hover import HoverFeature
+from lsprotocol.types import (
+    CompletionParams,
+    HoverParams,
+    Position,
+    Range,
+    TextDocumentIdentifier,
+)
+
+from aeos_lsp.parsing.dispatcher import ParserDispatcher
+from aeos_lsp.semantic.models import Agent, DeprecationStatus, Visibility
+from aeos_lsp.semantic.semantic_model import SemanticModel
+
+
+@pytest.fixture
+def perf_semantic_model():
+    model = SemanticModel()
+    for i in range(100):
+        agent = Agent(
+            stable_id=f"agent:perf-agent-{i}",
+            name=f"perf-agent-{i}",
+            source_uri=f"file:///perf-{i}.yaml",
+            selection_range=Range(
+                start=Position(line=0, character=0),
+                end=Position(line=2, character=0),
+            ),
+            full_range=Range(
+                start=Position(line=0, character=0),
+                end=Position(line=2, character=0),
+            ),
+            description=f"Performance test agent {i}",
+            visibility=Visibility.PUBLIC,
+        )
+        model.symbol_table.add(agent)
+    return model
+
+
+@pytest.fixture
+def mock_server():
+    server = MagicMock()
+    ws = MagicMock()
+    doc = MagicMock()
+    doc.source = "agent:\n  name: perf\n  skills:\n    - perf-skill\n"
+    ws.text_documents = {"file:///perf.yaml": doc}
+    server.workspace = ws
+    return server
+
+
+class TestPerformanceBaseline:
+    def test_cold_start(self):
+        count = 0
+        total = 0.0
+        for _ in range(3):
+            start = time.perf_counter()
+            model = SemanticModel()
+            duration = time.perf_counter() - start
+            total += duration
+            count += 1
+            assert model is not None
+        avg = total / count
+        assert avg < 1.0, f"Cold start too slow: {avg:.3f}s"
+
+    def test_warm_completion(self, perf_semantic_model, mock_server):
+        feature = CompletionFeature(mock_server, perf_semantic_model)
+        params = CompletionParams(
+            text_document=TextDocumentIdentifier(uri="file:///perf.yaml"),
+            position=Position(line=0, character=0),
+        )
+        N = 10
+        total = 0.0
+        for _ in range(N):
+            start = time.perf_counter()
+            result = feature.provide_completions(params)
+            duration = time.perf_counter() - start
+            total += duration
+            assert result is not None
+        avg = total / N
+        assert avg < 0.5, f"Completion too slow: {avg:.3f}s"
+
+    def test_warm_hover(self, perf_semantic_model, mock_server):
+        test_uri = "file:///perf-0.yaml"
+        agent = Agent(
+            stable_id="perf-agent-hover",
+            name="perf-agent-hover",
+            source_uri=test_uri,
+            selection_range=Range(
+                start=Position(0, 0), end=Position(2, 0)
+            ),
+            full_range=Range(
+                start=Position(0, 0), end=Position(2, 0)
+            ),
+            description="Testing warm hover",
+        )
+        perf_semantic_model.symbol_table.add(agent)
+
+        feature = HoverFeature(mock_server, perf_semantic_model)
+
+        params = HoverParams(
+            text_document=TextDocumentIdentifier(uri=test_uri),
+            position=Position(line=0, character=0),
+        )
+        N = 10
+        total = 0.0
+        for _ in range(N):
+            start = time.perf_counter()
+            result = feature.provide_hover(params)
+            duration = time.perf_counter() - start
+            total += duration
+            assert result is not None
+        avg = total / N
+        assert avg < 0.5, f"Hover too slow: {avg:.3f}s"
+
+    def test_incremental_diagnostics(self):
+        import time
+        start = time.perf_counter()
+        from aeos_lsp.diagnostics import DiagnosticsEngine, DiagnosticRuleRegistry, DiagnosticPublisher
+        from aeos_lsp.diagnostics.suppression import SuppressionManager
+        from aeos_lsp.diagnostics import DiagnosticSeverityMapper
+
+        registry = DiagnosticRuleRegistry()
+        registry.register_defaults()
+
+        engine = DiagnosticsEngine(
+            registry=registry,
+            publisher=MagicMock(),
+            suppression_manager=SuppressionManager(),
+            severity_mapper=DiagnosticSeverityMapper(),
+        )
+
+        model = SemanticModel()
+        agent = Agent(
+            stable_id="diag:test",
+            name="diag-test",
+            source_uri="file:///diag.yaml",
+            selection_range=Range(start=Position(0, 0), end=Position(2, 0)),
+            full_range=Range(start=Position(0, 0), end=Position(2, 0)),
+            visibility=Visibility.PUBLIC,
+        )
+        model.symbol_table.add(agent)
+        duration = time.perf_counter() - start
+        assert duration < 2.0, f"Incremental diagnostic init too slow: {duration:.3f}s"
+
+        N = 10
+        total = 0.0
+        for _ in range(N):
+            s = time.perf_counter()
+            result = engine.run_for_uri("file:///diag.yaml", model)
+            total += time.perf_counter() - s
+        avg = total / N
+        assert avg < 0.5, f"Incremental diagnostic run too slow: {avg:.3f}s"
+
+    def test_full_index_benchmark(self):
+        parser = ParserDispatcher()
+        model = SemanticModel()
+        import time
+        start = time.perf_counter()
+        for i in range(50):
+            uri = f"file:///bench-{i}.yaml"
+            parse_text = (
+                "agent:\n"
+                "  name: bench-{i}\n"
+                "  description: Benchmark test agent number {i}\n"
+                "  skills:\n"
+                "    - some-skill\n"
+            )
+            parse_text = parse_text.format(i=i)
+            result = parser.parse(uri, parse_text)
+            if result:
+                model.update_for_document(uri, result)
+        duration = time.perf_counter() - start
+        assert duration < 10.0, f"Indexing 50 docs too slow: {duration:.3f}s"
+
+    def test_memory_usage(self):
+        import tracemalloc
+        tracemalloc.start()
+        model = SemanticModel()
+        parser = ParserDispatcher()
+        for i in range(20):
+            uri = "file:///mem-{}.yaml".format(i)
+            text = f"skill:\n  name: mem-skill-{i}\n"
+            result = parser.parse(uri, text)
+            if result:
+                model.update_for_document(uri, result)
+        current, peak = tracemalloc.get_traced_memory()
+        tracemalloc.stop()
+        peak_mb = peak / 1024 / 1024
+        assert peak_mb < 50.0, f"Memory usage too high: {peak_mb:.1f}MB"
+
+    def test_output_sizes(self):
+        """Verify that the outputs of various features have reasonable sizes."""
+        model = SemanticModel()
+        agent = Agent(
+            stable_id="agent:output-test",
+            name="output-test",
+            source_uri="file:///output.yaml",
+            selection_range=Range(start=Position(0, 0), end=Position(2, 0)),
+            full_range=Range(start=Position(0, 0), end=Position(2, 0)),
+            description="x" * 100,
+            visibility=Visibility.PUBLIC,
+        )
+        model.symbol_table.add(agent)
+
+        symbols = model.get_symbols_by_kind(SymbolKind.AGENT)
+        assert len(symbols) > 0
+        sym = symbols[0]
+        name_len = len(getattr(sym, "name", ""))
+        desc_len = len(getattr(sym, "description", "") or "")
+        assert name_len < 100
+        assert desc_len < 200

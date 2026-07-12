@@ -1,0 +1,72 @@
+# dangling_reference.yaml -- golden test fixture
+# INTENTIONAL ERROR: References to non-existent agents/skills/playbooks.
+# Expected diagnostics: AEOS0012 (Unresolved reference), AEOS0016 (Step references missing artifact)
+---
+$schema: "https://aeos.ai/schemas/agent.schema.json"
+$id: "dangling-agent"
+name: "Agent with Dangling References"
+version: "1.0.0"
+description: "This agent references skills that do not exist in the workspace"
+capabilities:
+  - READ_REPOSITORY
+  - SPECIAL_ANALYSIS
+skills:
+  - "skill-that-does-not-exist"
+  - "another-missing-skill"
+parent: "non-existent-parent-agent"
+model_preferences:
+  profile: "missing-profile-reference"
+layers:
+  - name: "custom-layer"
+    provider: "non.existent.provider"
+---
+$schema: "https://aeos.ai/schemas/playbook.schema.json"
+$id: "dangling-playbook"
+name: "Playbook with Dangling References"
+version: "1.0.0"
+description: "This playbook references skills and playbooks that do not exist"
+steps:
+  - name: "step-using-missing-skill"
+    skill: "skill-that-does-not-exist"
+    description: "This step references a skill that does not exist"
+    inputs:
+      path: "/workspace"
+  - name: "step-using-missing-playbook"
+    playbook: "non-existent-sub-playbook"
+    description: "This step references a sub-playbook that does not exist"
+  - name: "step-using-missing-agent"
+    tool: "bash"
+    description: "This step runs a command"
+    inputs:
+      command: "echo hello"
+    rollback:
+      skill: "missing-rollback-skill"
+      description: "Rollback references a non-existent skill"
+dependencies:
+  skills:
+    - "missing-skill-in-dependencies"
+  playbooks:
+    - "missing-playbook-in-dependencies"
+  agents:
+    - "missing-agent-in-dependencies"
+---
+$schema: "https://aeos.ai/schemas/skill.schema.json"
+$id: "dangling-skill"
+name: "Skill with Dangling References"
+version: "1.0.0"
+description: "This skill references non-existent dependencies"
+tools:
+  - name: "test-tool"
+    tool_type: "bash"
+    description: "A test tool"
+    config:
+      command_template: "echo test"
+dependencies:
+  skills:
+    - "skill-that-does-not-exist"
+  packages:
+    - name: "non-existent-package"
+      version: ">=999.0.0"
+      manager: "npm"
+  environment:
+    MISSING_ENV_VAR: "should-be-defined-elsewhere"

@@ -1,0 +1,171 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aeos.ai/schemas/agent.schema.json",
+  "title": "AEOS Agent Definition",
+  "description": "Schema for AEOS agent definitions. Agents are autonomous AI workers that execute tasks using skills, tools, and sub-agents.",
+  "type": "object",
+  "required": [
+    "$id",
+    "name",
+    "version",
+    "capabilities"
+  ],
+  "properties": {
+    "$id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z][a-zA-Z0-9_-]*$",
+      "description": "Unique identifier for the agent within the workspace."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name for the agent."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(-[a-zA-Z0-9.]+)?$",
+      "description": "Semantic version string (semver)."
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of the agent's purpose and behavior."
+    },
+    "author": {
+      "type": "string",
+      "description": "Author or maintainer of the agent definition."
+    },
+    "capabilities": {
+      "type": "array",
+      "description": "List of capabilities the agent exposes or requires.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-zA-Z][a-zA-Z0-9_-]*$"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "skills": {
+      "type": "array",
+      "description": "Skills the agent can invoke.",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "layers": {
+      "type": "array",
+      "description": "Ordered list of layers that process agent requests (e.g., routing, security, observability).",
+      "items": {
+        "type": "object",
+        "required": ["name", "provider"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Layer name."
+          },
+          "provider": {
+            "type": "string",
+            "description": "Provider identifier for the layer implementation."
+          },
+          "config": {
+            "type": "object",
+            "description": "Provider-specific configuration.",
+            "additionalProperties": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "uniqueItems": true
+    },
+    "parent": {
+      "type": "string",
+      "description": "Optional parent agent $id from which this agent inherits settings."
+    },
+    "delegation_policy": {
+      "type": "object",
+      "description": "Controls how the agent delegates tasks to sub-agents.",
+      "properties": {
+        "strategy": {
+          "type": "string",
+          "enum": ["round-robin", "random", "capability-match", "load-balanced", "manual"],
+          "description": "Strategy for selecting a sub-agent."
+        },
+        "max_depth": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10,
+          "description": "Maximum delegation chain depth."
+        },
+        "allowed_sub_agents": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Explicit list of sub-agent $id values this agent may delegate to."
+        },
+        "require_approval": {
+          "type": "boolean",
+          "default": false,
+          "description": "If true, delegation requires human or policy approval."
+        }
+      },
+      "additionalProperties": false
+    },
+    "stop_conditions": {
+      "type": "array",
+      "description": "Conditions that cause the agent to stop execution.",
+      "items": {
+        "type": "object",
+        "required": ["type"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["max_iterations", "max_tokens", "max_time", "success", "error", "approval_denied", "human_interrupt"]
+          },
+          "value": {
+            "type": ["integer", "string"],
+            "description": "Threshold or condition value."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "model_preferences": {
+      "type": "object",
+      "description": "Preferred model configuration for this agent.",
+      "properties": {
+        "provider": {
+          "type": "string",
+          "description": "Preferred model provider (e.g., anthropic, openai, azure)."
+        },
+        "model": {
+          "type": "string",
+          "description": "Preferred model identifier (e.g., claude-sonnet-4-20250514)."
+        },
+        "context_window": {
+          "$ref": "#/$defs/tokenCount",
+          "description": "Required minimum context window size."
+        },
+        "max_tokens": {
+          "$ref": "#/$defs/tokenCount",
+          "description": "Maximum output tokens per request."
+        },
+        "profile": {
+          "type": "string",
+          "description": "Reference to a model-profile defined in the workspace."
+        }
+      },
+      "additionalProperties": false
+    },
+    "config": {
+      "type": "object",
+      "description": "Additional agent-specific configuration.",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "tokenCount": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 200000
+    }
+  }
+}

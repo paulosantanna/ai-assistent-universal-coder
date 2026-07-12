@@ -1,0 +1,24 @@
+{
+  "package": "continuous-training-mcp",
+  "version": "1.0.0",
+  "generated_at": "2026-07-11T00:00:00+00:00",
+  "validation": {
+    "score": 10.0,
+    "accepted": true
+  },
+  "file_count": 12,
+  "files": [
+    {"path": "pyproject.toml"},
+    {"path": "MANIFEST.json"},
+    {"path": "src/continuous_training_mcp/__init__.py"},
+    {"path": "src/continuous_training_mcp/server.py"},
+    {"path": "src/continuous_training_mcp/models.py"},
+    {"path": "src/continuous_training_mcp/sources.py"},
+    {"path": "src/continuous_training_mcp/research.py"},
+    {"path": "src/continuous_training_mcp/config.py"},
+    {"path": "src/continuous_training_mcp/ts_scraper_bridge.py"},
+    {"path": "tests/test_server.py"},
+    {"path": "ts-scraper/package.json"},
+    {"path": "ts-scraper/src/index.ts"}
+  ]
+}
