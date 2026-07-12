@@ -1,0 +1,148 @@
+# valid_registry.yaml -- golden test fixture for AEOS LSP validation
+registry: "aeos-agents"
+type: "agent"
+version: 2
+description: "Primary agent registry cataloging all available AI agents in the AEOS workspace. Each entry specifies the agent's stable_id, version, source location, and metadata."
+config:
+  allow_duplicates: false
+  validate_on_load: true
+  auto_install: false
+entries:
+  - stable_id: "root-agent"
+    name: "Root Agent"
+    version: "1.0.0"
+    source: "aeos/agents/root.agent.md"
+    source_type: "file"
+    description: "Top-level orchestrator agent that coordinates all execution"
+    author: "AEOS Team"
+    status: "active"
+    installed: true
+    install_path: "aeos/agents/root.agent.md"
+    metadata:
+      tags:
+        - "orchestrator"
+        - "core"
+      category: "coordination"
+      capabilities:
+        - "DELEGATE"
+        - "MONITOR"
+        - "REPORT"
+      keywords:
+        - "root"
+        - "orchestrator"
+        - "coordinator"
+
+  - stable_id: "planner-agent"
+    name: "Planner Agent"
+    version: "1.2.0"
+    source: "aeos/agents/planner.agent.md"
+    source_type: "file"
+    description: "Converts playbook objectives into task graphs and execution plans"
+    author: "AEOS Team"
+    status: "active"
+    installed: true
+    install_path: "aeos/agents/planner.agent.md"
+    metadata:
+      tags:
+        - "planning"
+        - "scheduling"
+      category: "planning"
+      capabilities:
+        - "PLAN"
+        - "GRAPH"
+        - "SCHEDULE"
+      checksum: "sha256:a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1"
+      size_bytes: 4096
+
+  - stable_id: "architect-agent"
+    name: "Architect Agent"
+    version: "1.0.0"
+    source: "aeos/agents/architect.agent.md"
+    source_type: "file"
+    description: "Maps repository architecture and detects design patterns"
+    author: "AEOS Team"
+    status: "active"
+    installed: true
+    metadata:
+      tags:
+        - "architecture"
+        - "analysis"
+      category: "analysis"
+      capabilities:
+        - "READ_REPOSITORY"
+        - "MAP_ARCHITECTURE"
+      dependencies:
+        - "skill-analyzer"
+        - "skill-reporter"
+
+  - stable_id: "security-agent"
+    name: "Security Agent"
+    version: "1.0.0"
+    source: "aeos/agents/security.agent.md"
+    source_type: "file"
+    description: "Scans for security risks, secrets, and unsafe permissions"
+    author: "AEOS Team"
+    status: "active"
+    installed: true
+    metadata:
+      tags:
+        - "security"
+        - "compliance"
+      category: "security"
+      capabilities:
+        - "SCAN_SECRETS"
+        - "SCAN_PERMISSIONS"
+        - "GENERATE_REPORT"
+
+  - stable_id: "judge-agent"
+    name: "Judge Agent"
+    version: "1.1.0"
+    source: "aeos/agents/judge.agent.md"
+    source_type: "file"
+    description: "Validates execution quality, security, and compliance"
+    author: "AEOS Team"
+    status: "active"
+    installed: true
+    metadata:
+      tags:
+        - "judge"
+        - "quality"
+        - "compliance"
+      category: "governance"
+      capabilities:
+        - "VERIFY_EVIDENCE"
+        - "CHECK_PERMISSION"
+        - "CHECK_POLICY"
+        - "APPROVE_STATUS"
+
+  - stable_id: "legacy-documenter"
+    name: "Legacy Documenter Agent"
+    version: "0.9.0"
+    source: "aeos/agents/legacy/documenter.agent.md"
+    source_type: "file"
+    description: "Deprecated documentation agent. Use documenter-agent instead."
+    author: "AEOS Team"
+    status: "deprecated"
+    deprecated_by: "documenter-agent"
+    installed: false
+    metadata:
+      tags:
+        - "deprecated"
+        - "documentation"
+      category: "documentation"
+
+  - stable_id: "experimental-code-analyzer"
+    name: "Experimental Code Analyzer"
+    version: "0.1.0-beta"
+    source: "https://github.com/aeos/experimental/code-analyzer"
+    source_type: "url"
+    description: "Experimental code analysis agent with cutting-edge algorithms"
+    author: "AEOS Labs"
+    status: "experimental"
+    installed: false
+    metadata:
+      tags:
+        - "experimental"
+        - "analysis"
+        - "beta"
+      category: "analysis"

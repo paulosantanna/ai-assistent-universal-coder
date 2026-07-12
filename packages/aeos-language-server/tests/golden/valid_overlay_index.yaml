@@ -1,0 +1,105 @@
+# valid_overlay_index.yaml -- golden test fixture for AEOS LSP validation
+overlay_index:
+  version: 2
+  description: "Master index for all overlay configurations in the AEOS workspace. Overlays provide layered configuration that can be applied on top of base configurations."
+  default_overlay: "minimal"
+  overlays:
+    - id: "minimal"
+      name: "Minimal Overlay"
+      version: "1.0.0"
+      description: "Minimal overlay with essential security policies only"
+      priority: 100
+      source: "aeos/overlays/minimal.yaml"
+      source_type: "file"
+      status: "active"
+      metadata:
+        tags:
+          - "minimal"
+          - "security"
+          - "core"
+
+    - id: "development"
+      name: "Development Overlay"
+      version: "1.2.0"
+      description: "Development-specific overlay with relaxed policies and additional tooling"
+      priority: 200
+      source: "aeos/overlays/development.yaml"
+      source_type: "file"
+      status: "active"
+      dependencies:
+        - "minimal"
+      metadata:
+        tags:
+          - "development"
+          - "tooling"
+        environments:
+          - "development"
+
+    - id: "staging"
+      name: "Staging Overlay"
+      version: "1.1.0"
+      description: "Staging overlay with production-like policies but relaxed deployment gates"
+      priority: 300
+      source: "aeos/overlays/staging.yaml"
+      source_type: "file"
+      status: "active"
+      dependencies:
+        - "minimal"
+        - "development"
+      metadata:
+        tags:
+          - "staging"
+          - "pre-production"
+        environments:
+          - "staging"
+
+    - id: "production"
+      name: "Production Overlay"
+      version: "2.0.0"
+      description: "Production overlay with strict security, compliance, and approval gates"
+      priority: 400
+      source: "aeos/overlays/production.yaml"
+      source_type: "file"
+      status: "active"
+      dependencies:
+        - "minimal"
+        - "staging"
+      metadata:
+        tags:
+          - "production"
+          - "strict"
+          - "compliance"
+        environments:
+          - "production"
+        regulation:
+          - "SOC2"
+          - "HIPAA"
+          - "GDPR"
+
+    - id: "experimental"
+      name: "Experimental Features Overlay"
+      version: "0.2.0-beta"
+      description: "Experimental overlay with bleeding-edge features for testing"
+      priority: 50
+      source: "aeos/overlays/experimental.yaml"
+      source_type: "file"
+      status: "experimental"
+      metadata:
+        tags:
+          - "experimental"
+          - "testing"
+        category: "research"
+
+    - id: "legacy-v1-compat"
+      name: "Legacy v1 Compatibility Overlay"
+      version: "1.0.0"
+      description: "Compatibility overlay for older v1 agent definitions"
+      priority: 10
+      source: "aeos/overlays/legacy-v1-compat.yaml"
+      source_type: "file"
+      status: "deprecated"
+      metadata:
+        tags:
+          - "deprecated"
+          - "compatibility"
+          - "migration"

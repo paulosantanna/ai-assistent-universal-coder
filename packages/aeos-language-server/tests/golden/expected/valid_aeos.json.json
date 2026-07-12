@@ -1,0 +1,19 @@
+{
+  "uri": "file:///tests/golden/valid_aeos.json",
+  "diagnostics": [
+    {
+      "range": { "start": { "line": 0, "character": 0 }, "end": { "line": 0, "character": 0 } },
+      "severity": 3,
+      "code": "AEOS0051",
+      "message": "Schema validation passed for 'valid_aeos.json'",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 0, "character": 0 }, "end": { "line": 0, "character": 0 } },
+      "severity": 3,
+      "code": "AEOS0052",
+      "message": "Semantic validation passed for 'valid_aeos.json'",
+      "source": "aeos-language-server"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "uri": "file:///tests/golden/unlimited_retry.yaml",
+  "diagnostics": [
+    {
+      "range": { "start": { "line": 14, "character": 0 }, "end": { "line": 14, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0047",
+      "message": "Configuration value 'max_attempts' is 0. Zero means unlimited retries which may cause infinite execution loops.",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 17, "character": 0 }, "end": { "line": 17, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0047",
+      "message": "Configuration value 'backoff_multiplier' is 1.0. No exponential backoff means constant retry rate.",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 30, "character": 0 }, "end": { "line": 30, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0047",
+      "message": "Step 'infinite-retry-step' has max_attempts: 0 which means unlimited retries. Consider setting a finite limit.",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 40, "character": 0 }, "end": { "line": 40, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0006",
+      "message": "Value 100 is above the allowed range (0-10) for property 'max_attempts'",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 43, "character": 0 }, "end": { "line": 43, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0047",
+      "message": "Configuration value 'delay_ms' is 0. No delay between retries may cause a tight spin loop.",
+      "source": "aeos-language-server"
+    }
+  ]
+}

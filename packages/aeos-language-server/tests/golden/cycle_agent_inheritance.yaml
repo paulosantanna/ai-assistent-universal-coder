@@ -1,0 +1,30 @@
+# cycle_agent_inheritance.yaml -- golden test fixture
+# INTENTIONAL ERROR: Circular agent inheritance via parent field.
+# Expected diagnostics: AEOS0013 (Circular dependency detected)
+---
+$schema: "https://aeos.ai/schemas/agent.schema.json"
+$id: "alpha-agent"
+name: "Alpha Agent"
+version: "1.0.0"
+description: "First agent in inheritance cycle: alpha -> beta -> gamma -> alpha"
+capabilities:
+  - READ_REPOSITORY
+parent: "gamma-agent"
+---
+$schema: "https://aeos.ai/schemas/agent.schema.json"
+$id: "beta-agent"
+name: "Beta Agent"
+version: "1.0.0"
+description: "Second agent in the cycle"
+capabilities:
+  - READ_FILES
+parent: "alpha-agent"
+---
+$schema: "https://aeos.ai/schemas/agent.schema.json"
+$id: "gamma-agent"
+name: "Gamma Agent"
+version: "1.0.0"
+description: "Third agent that completes the cycle back to alpha"
+capabilities:
+  - GENERATE_REPORT
+parent: "beta-agent"

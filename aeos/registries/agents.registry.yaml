@@ -2,24 +2,367 @@ agents:
   - id: root
     path: aeos/agents/root.agent.md
     role: root
+    responsibilities:
+      - Coordinate playbook execution
+      - Delegate tasks to appropriate agents
+      - Block premature completion
+      - Ensure evidence generation
+    allowed_actions:
+      - delegate
+      - monitor_execution
+      - generate_report
+      - block_execution
+      - approve_delegation
+    forbidden_actions:
+      - execute tools directly
+      - bypass Judge
+      - expose secrets
+      - access tools directly
+    capabilities:
+      - DELEGATE
+      - MONITOR
+      - REPORT
+      - BLOCK
+      - APPROVE
+    delegation_policy:
+      allowed:
+        root:
+          can_delegate_to:
+            - planner
+            - architect
+            - coder
+            - tester
+            - security
+            - documenter
+            - devops
+            - judge
+    output_schema:
+      type: object
+      properties:
+        summary: { type: string }
+        evidence_refs: { type: array, items: { type: string } }
+        risks: { type: array, items: { type: string } }
+        blocking_conditions: { type: array, items: { type: string } }
+        next_actions: { type: array, items: { type: string } }
+    stop_conditions:
+      - Evidence missing
+      - Permission denied
+      - Policy blocked
+      - Secret exposure detected
+      - Judge failure
+
+  - id: planner
+    path: aeos/agents/planner.agent.md
+    role: planner
+    responsibilities:
+      - Convert playbook objectives into task graphs
+      - Define dependencies and required evidence
+      - Set delegation boundaries
+      - Generate execution plans
+    allowed_actions:
+      - build_task_graph
+      - assign_skills
+      - define_dependencies
+      - generate_delegation_plan
+    forbidden_actions:
+      - execute tools directly
+      - approve actions
+      - judge results
+      - grant capabilities
+      - expand scope without Root approval
+    capabilities:
+      - PLAN
+      - GRAPH
+      - DELEGATE
+      - SCHEDULE
+    delegation_policy:
+      allowed:
+        planner:
+          can_delegate_to:
+            - architect
+            - coder
+            - tester
+            - security
+    output_schema:
+      type: object
+      properties:
+        task_graph: { type: object }
+        risk_summary: { type: string }
+        context_map: { type: object }
+        delegation_plan: { type: object }
+    stop_conditions:
+      - Missing objective
+      - Invalid dependency
+      - Scope exceeds boundary
+
   - id: architect
     path: aeos/agents/architect.agent.md
     role: architect
+    responsibilities:
+      - Map repository architecture
+      - Detect design patterns
+      - Preserve design constraints
+      - Generate architecture reports
+    allowed_actions:
+      - read_files
+      - analyze_structure
+      - detect_patterns
+      - generate_architecture_report
+    forbidden_actions:
+      - execute tools directly
+      - bypass Judge
+      - expose secrets
+      - mutate code directly
+    capabilities:
+      - READ_REPOSITORY
+      - MAP_ARCHITECTURE
+      - ANALYZE_PATTERNS
+      - GENERATE_REPORT
+    delegation_policy:
+      allowed:
+        architect:
+          can_delegate_to: []
+    output_schema:
+      type: object
+      properties:
+        summary: { type: string }
+        evidence_refs: { type: array, items: { type: string } }
+        risks: { type: array, items: { type: string } }
+        blocking_conditions: { type: array, items: { type: string } }
+        next_actions: { type: array, items: { type: string } }
+    stop_conditions:
+      - Architecture not detected
+      - Evidence missing
+
   - id: coder
     path: aeos/agents/coder.agent.md
     role: coder
+    responsibilities:
+      - Analyze code for improvements
+      - Propose controlled patches
+      - Generate code changes in sandbox
+    allowed_actions:
+      - read_files
+      - analyze_code
+      - propose_patch
+      - generate_diff
+    forbidden_actions:
+      - execute tools directly
+      - bypass Judge
+      - expose secrets
+      - mutate code outside sandbox
+    capabilities:
+      - READ_REPOSITORY
+      - ANALYZE_CODE
+      - PROPOSE_PATCH
+      - GENERATE_DIFF
+    delegation_policy:
+      allowed:
+        coder:
+          can_delegate_to: []
+    output_schema:
+      type: object
+      properties:
+        summary: { type: string }
+        evidence_refs: { type: array, items: { type: string } }
+        risks: { type: array, items: { type: string } }
+        blocking_conditions: { type: array, items: { type: string } }
+        next_actions: { type: array, items: { type: string } }
+    stop_conditions:
+      - Analysis incomplete
+      - Evidence missing
+
   - id: tester
     path: aeos/agents/tester.agent.md
     role: tester
+    responsibilities:
+      - Detect test gaps
+      - Generate test cases in sandbox
+      - Execute controlled test commands
+    allowed_actions:
+      - read_files
+      - analyze_test_coverage
+      - generate_test
+      - run_test_sandbox
+    forbidden_actions:
+      - execute tools directly
+      - bypass Judge
+      - expose secrets
+      - mutate production code
+    capabilities:
+      - READ_REPOSITORY
+      - ANALYZE_COVERAGE
+      - GENERATE_TEST
+      - RUN_TEST_SANDBOX
+    delegation_policy:
+      allowed:
+        tester:
+          can_delegate_to: []
+    output_schema:
+      type: object
+      properties:
+        summary: { type: string }
+        evidence_refs: { type: array, items: { type: string } }
+        risks: { type: array, items: { type: string } }
+        blocking_conditions: { type: array, items: { type: string } }
+        next_actions: { type: array, items: { type: string } }
+    stop_conditions:
+      - Test execution failed
+      - Evidence missing
+
   - id: security
     path: aeos/agents/security.agent.md
     role: security
+    responsibilities:
+      - Scan for security risks
+      - Detect secret indicators
+      - Identify unsafe permissions
+      - Flag package hazards
+    allowed_actions:
+      - read_files
+      - scan_secrets
+      - scan_permissions
+      - scan_dependencies
+      - generate_security_report
+    forbidden_actions:
+      - execute tools directly
+      - bypass Judge
+      - expose secrets to unauthorized agents
+      - approve insecure changes
+    capabilities:
+      - READ_REPOSITORY
+      - SCAN_SECRETS
+      - SCAN_PERMISSIONS
+      - SCAN_DEPENDENCIES
+      - GENERATE_REPORT
+    delegation_policy:
+      allowed:
+        security:
+          can_delegate_to: []
+    output_schema:
+      type: object
+      properties:
+        summary: { type: string }
+        evidence_refs: { type: array, items: { type: string } }
+        risks: { type: array, items: { type: string } }
+        blocking_conditions: { type: array, items: { type: string } }
+        next_actions: { type: array, items: { type: string } }
+    stop_conditions:
+      - Critical risk detected
+      - Secret exposure found
+      - Evidence missing
+
   - id: documenter
     path: aeos/agents/documenter.agent.md
     role: documenter
+    responsibilities:
+      - Generate evidence-based documentation
+      - Produce documentation artifacts in sandbox
+    allowed_actions:
+      - read_files
+      - generate_documentation
+      - write_sandbox_files
+    forbidden_actions:
+      - execute tools directly
+      - bypass Judge
+      - expose secrets
+      - write outside sandbox
+    capabilities:
+      - READ_REPOSITORY
+      - WRITE_SANDBOX_FILES
+      - GENERATE_REPORT
+    delegation_policy:
+      allowed:
+        documenter:
+          can_delegate_to: []
+    output_schema:
+      type: object
+      properties:
+        summary: { type: string }
+        evidence_refs: { type: array, items: { type: string } }
+        risks: { type: array, items: { type: string } }
+        blocking_conditions: { type: array, items: { type: string } }
+        next_actions: { type: array, items: { type: string } }
+    stop_conditions:
+      - Documentation incomplete
+      - Evidence missing
+
   - id: devops
     path: aeos/agents/devops.agent.md
     role: devops
+    responsibilities:
+      - Generate environment artifacts
+      - Create devcontainer configurations
+      - Propose CI/CD pipeline suggestions
+    allowed_actions:
+      - read_files
+      - generate_devcontainer
+      - generate_ci_config
+      - write_sandbox_files
+    forbidden_actions:
+      - execute tools directly
+      - bypass Judge
+      - expose secrets
+      - mutate CI/CD directly
+    capabilities:
+      - READ_REPOSITORY
+      - GENERATE_CONFIG
+      - WRITE_SANDBOX_FILES
+      - ANALYZE_INFRASTRUCTURE
+    delegation_policy:
+      allowed:
+        devops:
+          can_delegate_to: []
+    output_schema:
+      type: object
+      properties:
+        summary: { type: string }
+        evidence_refs: { type: array, items: { type: string } }
+        risks: { type: array, items: { type: string } }
+        blocking_conditions: { type: array, items: { type: string } }
+        next_actions: { type: array, items: { type: string } }
+    stop_conditions:
+      - Configuration invalid
+      - Evidence missing
+
   - id: judge
     path: aeos/agents/judge.agent.md
     role: judge
+    responsibilities:
+      - Validate deterministic gates
+      - Verify evidence integrity
+      - Check permissions and policies
+      - Determine final execution status
+    allowed_actions:
+      - read_evidence
+      - verify_integrity
+      - check_permissions
+      - check_policies
+      - approve_final_status
+    forbidden_actions:
+      - delegate tasks
+      - execute tools
+      - modify evidence
+      - expose secrets
+    capabilities:
+      - VERIFY_EVIDENCE
+      - CHECK_PERMISSION
+      - CHECK_POLICY
+      - APPROVE_STATUS
+    delegation_policy:
+      allowed:
+        judge:
+          can_delegate_to: []
+    output_schema:
+      type: object
+      properties:
+        summary: { type: string }
+        evidence_refs: { type: array, items: { type: string } }
+        risks: { type: array, items: { type: string } }
+        blocking_conditions: { type: array, items: { type: string } }
+        next_actions: { type: array, items: { type: string } }
+    stop_conditions:
+      - Evidence integrity failure
+      - Permission denied
+      - Policy violation
+      - Gate check failed

@@ -1,0 +1,35 @@
+# duplicate_ids.yaml -- golden test fixture
+# INTENTIONAL ERROR: Multiple artifacts in the same file have the same $id.
+# Expected diagnostics: AEOS0011 (Duplicate $id in workspace)
+---
+$schema: "https://aeos.ai/schemas/agent.schema.json"
+$id: "duplicated-agent"
+name: "First Duplicate Agent"
+version: "1.0.0"
+description: "First occurrence of duplicated-agent"
+capabilities:
+  - READ_REPOSITORY
+---
+$schema: "https://aeos.ai/schemas/agent.schema.json"
+$id: "duplicated-agent"
+name: "Second Duplicate Agent"
+version: "2.0.0"
+description: "Second occurrence of duplicated-agent (same $id!)"
+capabilities:
+  - GENERATE_REPORT
+---
+$schema: "https://aeos.ai/schemas/agent.schema.json"
+$id: "third-agent"
+name: "Unique Agent"
+version: "1.0.0"
+description: "This agent has a unique ID, no duplication"
+capabilities:
+  - ANALYZE_CODE
+---
+$schema: "https://aeos.ai/schemas/agent.schema.json"
+$id: "duplicated-agent"
+name: "Third Duplicate Agent"
+version: "3.0.0"
+description: "Third occurrence of duplicated-agent (same $id again!)"
+capabilities:
+  - READ_FILES

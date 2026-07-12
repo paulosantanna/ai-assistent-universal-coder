@@ -1,0 +1,5 @@
+{
+  "uri": "file:///tests/fixtures/non_aeos_doc.md",
+  "diagnostics": [],
+  "is_aeos_document": false
+}

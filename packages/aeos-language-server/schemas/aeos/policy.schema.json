@@ -1,0 +1,284 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aeos.ai/schemas/policy.schema.json",
+  "title": "AEOS Policy Definition",
+  "description": "Schema for AEOS policy definitions. Policies define rules that control what actions are allowed, denied, or require approval based on conditions evaluated against execution context.",
+  "type": "object",
+  "required": [
+    "$id",
+    "name",
+    "version",
+    "rules"
+  ],
+  "properties": {
+    "$id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z][a-zA-Z0-9_-]*$",
+      "description": "Unique identifier for the policy within the workspace."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the policy."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(-[a-zA-Z0-9.]+)?$",
+      "description": "Semantic version string (semver)."
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of the policy's purpose and scope."
+    },
+    "author": {
+      "type": "string",
+      "description": "Author or maintainer of the policy."
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether this policy is active."
+    },
+    "priority": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000,
+      "default": 500,
+      "description": "Evaluation priority. Lower values are evaluated first."
+    },
+    "rules": {
+      "type": "array",
+      "description": "List of policy rules evaluated in order.",
+      "items": {
+        "type": "object",
+        "required": ["name", "conditions", "action"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Rule name for identification and logging."
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of what this rule enforces."
+          },
+          "conditions": {
+            "type": "object",
+            "description": "Conditions that trigger this rule. All conditions must match (AND logic).",
+            "properties": {
+              "all": {
+                "type": "array",
+                "description": "All conditions must be true (AND).",
+                "items": { "$ref": "#/$defs/condition" }
+              },
+              "any": {
+                "type": "array",
+                "description": "Any condition must be true (OR).",
+                "items": { "$ref": "#/$defs/condition" }
+              },
+              "not": {
+                "$ref": "#/$defs/condition",
+                "description": "Negation of a condition."
+              }
+            },
+            "additionalProperties": false,
+            "minProperties": 1
+          },
+          "action": {
+            "type": "string",
+            "enum": ["allow", "deny", "require_approval", "log", "warn", "block"],
+            "description": "Action to take when conditions match."
+          },
+          "action_config": {
+            "type": "object",
+            "description": "Additional configuration for the action.",
+            "properties": {
+              "reason": {
+                "type": "string",
+                "description": "Message explaining why the action was taken."
+              },
+              "approval_required": {
+                "type": "string",
+                "description": "Level of approval for require_approval action.",
+                "enum": ["self", "peer", "admin", "security"]
+              },
+              "severity": {
+                "type": "string",
+                "enum": ["low", "medium", "high", "critical"],
+                "description": "Severity level for warn and log actions."
+              }
+            },
+            "additionalProperties": false
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Additional metadata for audit and compliance.",
+            "properties": {
+              "source": { "type": "string" },
+              "regulation": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Regulatory references (e.g., HIPAA, SOC2, GDPR)."
+              },
+              "tags": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "default_action": {
+      "type": "string",
+      "enum": ["allow", "deny", "require_approval"],
+      "default": "deny",
+      "description": "Default action when no rules match. Follows fail-closed principle."
+    },
+    "scope": {
+      "type": "object",
+      "description": "Scope limiting where this policy applies.",
+      "properties": {
+        "agents": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Agent $id values this policy applies to."
+        },
+        "skills": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Skill $id values this policy applies to."
+        },
+        "tools": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Tool names this policy applies to."
+        },
+        "paths": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "pattern": { "type": "string", "description": "Glob pattern for file paths." },
+              "allow": { "type": "boolean", "default": true }
+            },
+            "additionalProperties": false
+          },
+          "description": "Path patterns this policy applies to."
+        },
+        "environments": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["development", "staging", "production", "sandbox", "ci"]
+          },
+          "description": "Environments this policy applies to."
+        }
+      },
+      "additionalProperties": false
+    },
+    "config": {
+      "type": "object",
+      "description": "Additional policy configuration.",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "condition": {
+      "type": "object",
+      "description": "A single condition that can be evaluated against execution context.",
+      "minProperties": 1,
+      "maxProperties": 1,
+      "properties": {
+        "equals": {
+          "type": "object",
+          "description": "Field equals value.",
+          "properties": {
+            "field": { "type": "string" },
+            "value": {}
+          },
+          "required": ["field", "value"],
+          "additionalProperties": false
+        },
+        "not_equals": {
+          "type": "object",
+          "description": "Field does not equal value.",
+          "properties": {
+            "field": { "type": "string" },
+            "value": {}
+          },
+          "required": ["field", "value"],
+          "additionalProperties": false
+        },
+        "contains": {
+          "type": "object",
+          "description": "Field contains value (for strings and arrays).",
+          "properties": {
+            "field": { "type": "string" },
+            "value": {}
+          },
+          "required": ["field", "value"],
+          "additionalProperties": false
+        },
+        "matches": {
+          "type": "object",
+          "description": "Field matches regex pattern.",
+          "properties": {
+            "field": { "type": "string" },
+            "pattern": { "type": "string" }
+          },
+          "required": ["field", "pattern"],
+          "additionalProperties": false
+        },
+        "in": {
+          "type": "object",
+          "description": "Field is in a set of values.",
+          "properties": {
+            "field": { "type": "string" },
+            "values": { "type": "array", "minItems": 1 }
+          },
+          "required": ["field", "values"],
+          "additionalProperties": false
+        },
+        "range": {
+          "type": "object",
+          "description": "Field is within a numeric range.",
+          "properties": {
+            "field": { "type": "string" },
+            "min": { "type": "number" },
+            "max": { "type": "number" }
+          },
+          "required": ["field"],
+          "additionalProperties": false
+        },
+        "exists": {
+          "type": "object",
+          "description": "Field exists (or not) in context.",
+          "properties": {
+            "field": { "type": "string" },
+            "value": { "type": "boolean", "default": true }
+          },
+          "required": ["field"],
+          "additionalProperties": false
+        },
+        "path_in": {
+          "type": "object",
+          "description": "File path matches a glob pattern.",
+          "properties": {
+            "pattern": { "type": "string", "description": "Glob pattern." },
+            "allow": { "type": "boolean", "default": true }
+          },
+          "required": ["pattern"],
+          "additionalProperties": false
+        },
+        "expression": {
+          "type": "string",
+          "description": "Arbitrary expression evaluated by the policy engine (CEL syntax)."
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

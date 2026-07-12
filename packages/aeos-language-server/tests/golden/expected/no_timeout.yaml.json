@@ -1,0 +1,47 @@
+{
+  "uri": "file:///tests/golden/no_timeout.yaml",
+  "diagnostics": [
+    {
+      "range": { "start": { "line": 18, "character": 0 }, "end": { "line": 18, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0047",
+      "message": "Configuration value 'default_timeout' is invalid: missing. Steps may run indefinitely.",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 23, "character": 0 }, "end": { "line": 23, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0047",
+      "message": "Step 'infinite-build' has no timeout configured. Consider setting a timeout to prevent indefinite execution.",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 29, "character": 0 }, "end": { "line": 29, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0047",
+      "message": "Step 'no-timeout-test' has no timeout configured. Consider setting a timeout to prevent indefinite execution.",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 35, "character": 0 }, "end": { "line": 35, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0047",
+      "message": "Step 'deploy-without-timeout' has no timeout configured. Consider setting a timeout to prevent indefinite execution.",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 49, "character": 0 }, "end": { "line": 49, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0047",
+      "message": "Step 'infinite-loop-simulation' has no timeout configured and contains a loop pattern. Consider setting a timeout to prevent indefinite execution.",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 56, "character": 0 }, "end": { "line": 56, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0047",
+      "message": "Step 'long-running-migration' has no timeout configured. Consider setting a timeout to prevent indefinite execution.",
+      "source": "aeos-language-server"
+    }
+  ]
+}

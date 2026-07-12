@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aeos.ai/schemas/registry.schema.json",
+  "title": "AEOS Registry File",
+  "description": "Schema for AEOS registry files. Registries are index files that catalog available agents, skills, playbooks, MCP servers, LCP servers, blueprints, profiles, and overlays within a workspace.",
+  "type": "object",
+  "required": [
+    "registry",
+    "type",
+    "version",
+    "entries"
+  ],
+  "properties": {
+    "registry": {
+      "type": "string",
+      "description": "Name of the registry (e.g., agents, skills, playbooks)."
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "agent",
+        "skill",
+        "playbook",
+        "mcp",
+        "lcp",
+        "blueprint",
+        "workbench-profile",
+        "overlay",
+        "enterprise-skill",
+        "enterprise-playbook"
+      ],
+      "description": "Type of registry entries."
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Registry file format version."
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the registry's purpose."
+    },
+    "entries": {
+      "type": "array",
+      "description": "List of registry entries.",
+      "items": {
+        "type": "object",
+        "required": ["stable_id", "name", "version", "source"],
+        "properties": {
+          "stable_id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z][a-zA-Z0-9._-]*$",
+            "description": "Stable identifier that persists across versions."
+          },
+          "name": {
+            "type": "string",
+            "description": "Display name of the entry."
+          },
+          "version": {
+            "type": "string",
+            "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(-[a-zA-Z0-9.]+)?$",
+            "description": "Semantic version of this entry."
+          },
+          "source": {
+            "type": "string",
+            "description": "Source path or reference (file path, URL, or package reference)."
+          },
+          "source_type": {
+            "type": "string",
+            "enum": ["file", "url", "package", "inline", "mcp", "lcp"],
+            "description": "Type of source reference."
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the entry."
+          },
+          "author": {
+            "type": "string",
+            "description": "Author or maintainer."
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Arbitrary metadata key-value pairs.",
+            "properties": {
+              "tags": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Tags for categorization."
+              },
+              "category": {
+                "type": "string",
+                "description": "Category classification."
+              },
+              "capabilities": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Capabilities provided."
+              },
+              "dependencies": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Dependency stable_ids."
+              },
+              "checksum": {
+                "type": "string",
+                "description": "Content checksum for integrity verification."
+              },
+              "size_bytes": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "Size of the source in bytes."
+              },
+              "icon": {
+                "type": "string",
+                "description": "Icon identifier or URL."
+              },
+              "keywords": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Search keywords."
+              }
+            },
+            "additionalProperties": true
+          },
+          "status": {
+            "type": "string",
+            "enum": ["active", "deprecated", "removed", "experimental"],
+            "default": "active",
+            "description": "Entry lifecycle status."
+          },
+          "deprecated_by": {
+            "type": "string",
+            "description": "stable_id of the entry that replaces this one."
+          },
+          "installed": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether the entry is currently installed."
+          },
+          "install_path": {
+            "type": "string",
+            "description": "Filesystem path where the entry is installed."
+          }
+        },
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "config": {
+      "type": "object",
+      "description": "Registry-level configuration.",
+      "properties": {
+        "allow_duplicates": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether duplicate stable_ids are allowed."
+        },
+        "validate_on_load": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether to validate entries against their schema on load."
+        },
+        "auto_install": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether to auto-install entries on registration."
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

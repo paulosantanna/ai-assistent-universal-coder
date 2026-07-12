@@ -1,0 +1,19 @@
+{
+  "uri": "file:///tests/golden/duplicate_ids.yaml",
+  "diagnostics": [
+    {
+      "range": { "start": { "line": 13, "character": 0 }, "end": { "line": 13, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0011",
+      "message": "Duplicate $id 'duplicated-agent' found in workspace. First defined at 'duplicate_ids.yaml:7', duplicate at 'duplicate_ids.yaml:13'",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 27, "character": 0 }, "end": { "line": 27, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0011",
+      "message": "Duplicate $id 'duplicated-agent' found in workspace. First defined at 'duplicate_ids.yaml:7', duplicate at 'duplicate_ids.yaml:27'",
+      "source": "aeos-language-server"
+    }
+  ]
+}

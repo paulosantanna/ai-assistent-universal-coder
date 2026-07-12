@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aeos.ai/schemas/token-budget.schema.json",
+  "title": "AEOS Token Budget",
+  "description": "Schema for AEOS token budgets. Token budgets control token consumption per task, session, or agent to prevent runaway costs and ensure fair resource allocation.",
+  "type": "object",
+  "required": [
+    "$id",
+    "name",
+    "max_input_tokens",
+    "max_output_tokens",
+    "strategy"
+  ],
+  "properties": {
+    "$id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z][a-zA-Z0-9._-]*$",
+      "description": "Unique identifier for the token budget."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name for this budget (e.g., 'default-agent', 'code-review', 'data-analysis')."
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of when this budget applies."
+    },
+    "max_input_tokens": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10000000,
+      "description": "Maximum input tokens allowed per request or session."
+    },
+    "max_output_tokens": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000000,
+      "description": "Maximum output tokens allowed per request or session."
+    },
+    "max_total_tokens": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10000000,
+      "description": "Maximum total tokens (input + output) per request or session."
+    },
+    "max_requests": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Maximum number of requests allowed within the budget period."
+    },
+    "budget_period": {
+      "type": "string",
+      "enum": ["per_request", "per_session", "per_task", "per_hour", "per_day", "per_month", "unlimited"],
+      "default": "per_session",
+      "description": "Time period over which the budget applies."
+    },
+    "strategy": {
+      "type": "string",
+      "description": "Token management strategy when budget is approached or exceeded.",
+      "enum": ["hard_limit", "soft_limit", "truncate", "summarize", "warn_only", "adaptive"]
+    },
+    "strategy_config": {
+      "type": "object",
+      "description": "Strategy-specific configuration.",
+      "properties": {
+        "soft_limit_threshold": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "default": 0.8,
+          "description": "Fraction of budget that triggers a warning (for soft_limit strategy)."
+        },
+        "summarize_at": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "default": 0.85,
+          "description": "Fraction of budget when summarization kicks in (for summarize strategy)."
+        },
+        "truncate_priority": {
+          "type": "string",
+          "enum": ["oldest_first", "newest_first", "lowest_relevance", "conversation_middle"],
+          "default": "oldest_first",
+          "description": "Truncation priority order (for truncate strategy)."
+        },
+        "preserve_tool_results": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether to preserve tool call results during truncation."
+        },
+        "preserve_system_prompt": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether to preserve system prompt during truncation."
+        },
+        "adaptive_factor": {
+          "type": "number",
+          "minimum": 0.1,
+          "maximum": 2.0,
+          "default": 1.0,
+          "description": "Adaptive scaling factor (for adaptive strategy)."
+        }
+      },
+      "additionalProperties": false
+    },
+    "scope": {
+      "type": "object",
+      "description": "Scope defining where this budget applies.",
+      "properties": {
+        "agents": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Agent $id values this budget applies to."
+        },
+        "skills": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Skill $id values this budget applies to."
+        },
+        "playbooks": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Playbook $id values this budget applies to."
+        },
+        "model_profiles": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Model profile $id values this budget applies to."
+        },
+        "environments": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["development", "staging", "production", "sandbox", "ci"]
+          },
+          "description": "Environments this budget applies to."
+        }
+      },
+      "additionalProperties": false
+    },
+    "notifications": {
+      "type": "object",
+      "description": "Notification settings for budget events.",
+      "properties": {
+        "on_warning": {
+          "type": "boolean",
+          "default": true,
+          "description": "Notify when approaching budget limit."
+        },
+        "on_exceeded": {
+          "type": "boolean",
+          "default": true,
+          "description": "Notify when budget is exceeded."
+        },
+        "on_reset": {
+          "type": "boolean",
+          "default": false,
+          "description": "Notify when budget resets."
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["console", "log", "notification", "webhook"]
+          },
+          "description": "Notification channels."
+        }
+      },
+      "additionalProperties": false
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata.",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

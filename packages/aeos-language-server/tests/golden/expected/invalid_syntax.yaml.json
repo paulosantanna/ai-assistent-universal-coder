@@ -1,0 +1,33 @@
+{
+  "uri": "file:///tests/golden/invalid_syntax.yaml",
+  "diagnostics": [
+    {
+      "range": { "start": { "line": 6, "character": 28 }, "end": { "line": 7, "character": 1 } },
+      "severity": 1,
+      "code": "AEOS0001",
+      "message": "Schema validation failed: YAML parse error - unterminated string at line 6, column 29",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 10, "character": 14 }, "end": { "line": 10, "character": 15 } },
+      "severity": 1,
+      "code": "AEOS0001",
+      "message": "Schema validation failed: YAML parse error - mapping values are not allowed here",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 14, "character": 32 }, "end": { "line": 14, "character": 33 } },
+      "severity": 1,
+      "code": "AEOS0001",
+      "message": "Schema validation failed: YAML parse error - invalid escape sequence",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 15, "character": 0 }, "end": { "line": 15, "character": 1 } },
+      "severity": 1,
+      "code": "AEOS0001",
+      "message": "Schema validation failed: YAML parse error - unexpected mapping key starting with ':'",
+      "source": "aeos-language-server"
+    }
+  ]
+}

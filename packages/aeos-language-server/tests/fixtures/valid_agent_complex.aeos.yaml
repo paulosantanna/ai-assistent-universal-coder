@@ -1,0 +1,117 @@
+# valid_agent_complex.aeos.yaml -- synthetic fixture with all agent features
+$schema: "https://aeos.ai/schemas/agent.schema.json"
+$id: "complex-analysis-agent"
+name: "Complex Analysis Agent"
+version: "3.0.0"
+description: >
+  A comprehensive agent definition exercising every supported feature:
+  multiple layers with provider-specific config, delegation policy with
+  all strategies, model preferences with profile, parent inheritance,
+  extensive stop conditions, and full capability set.
+author: "AEOS LSP Team"
+capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - ANALYZE_CODE
+  - MAP_ARCHITECTURE
+  - SCAN_SECRETS
+  - SCAN_PERMISSIONS
+  - SCAN_DEPENDENCIES
+  - GENERATE_REPORT
+  - VERIFY_EVIDENCE
+  - CHECK_PERMISSION
+  - CHECK_POLICY
+  - APPROVE_STATUS
+  - PLAN
+  - SCHEDULE
+  - DELEGATE
+skills:
+  - "skill-analyzer"
+  - "skill-reporter"
+  - "skill-quality-gate"
+  - "skill-security-scanner"
+  - "skill-arch-mapper"
+  - "skill-deployer"
+layers:
+  - name: "cognition"
+    provider: "aeos.cognition.default"
+    config:
+      model: "claude-sonnet-4-20250514"
+      temperature: 0.1
+      top_p: 0.95
+      top_k: 40
+  - name: "security"
+    provider: "aeos.security.policy-enforcer"
+    config:
+      policies:
+        - "workspace-security-policy"
+        - "data-classification-policy"
+        - "network-security-policy"
+      fail_on_violation: true
+  - name: "observability"
+    provider: "aeos.observability.default"
+    config:
+      enable_tracing: true
+      enable_logging: true
+      log_level: "debug"
+      sampling_rate: 1.0
+      export_endpoint: "http://otel-collector:4318"
+  - name: "evidence"
+    provider: "aeos.evidence.collector"
+    config:
+      hash_required: true
+      chain_to_previous: true
+      algorithm: "sha256"
+      encoding: "hex"
+      storage_path: ".aeos/evidence/{execution_id}"
+  - name: "rate-limiting"
+    provider: "aeos.ratelimit.default"
+    config:
+      max_requests_per_minute: 60
+      max_tokens_per_minute: 100000
+      burst_size: 10
+model_preferences:
+  provider: "anthropic"
+  model: "claude-sonnet-4-20250514"
+  context_window: 200000
+  max_tokens: 16384
+  profile: "default-performance"
+delegation_policy:
+  strategy: "capability-match"
+  max_depth: 5
+  allowed_sub_agents:
+    - "code-review-agent"
+    - "architect-agent"
+    - "security-agent"
+    - "planner-agent"
+    - "documenter-agent"
+  require_approval: false
+parent: "root-agent"
+stop_conditions:
+  - type: max_iterations
+    value: 100
+  - type: max_tokens
+    value: 500000
+  - type: max_time
+    value: 3600000
+  - type: success
+  - type: error
+  - type: approval_denied
+  - type: human_interrupt
+config:
+  log_level: "debug"
+  cache_enabled: true
+  cache_ttl_seconds: 3600
+  max_concurrent_analyses: 4
+  report_format: "markdown"
+  default_language: "typescript"
+  max_file_size_kb: 10240
+  excluded_patterns:
+    - "node_modules/**"
+    - ".git/**"
+    - "dist/**"
+    - "build/**"
+  plugins:
+    - name: "custom-metrics"
+      version: "1.0.0"
+      enabled: true

@@ -1,0 +1,5 @@
+# large_workspace/agents.registry.yaml -- performance test fixture
+registry: "performance-agents"
+type: "agent"
+version: 1
+entries: []

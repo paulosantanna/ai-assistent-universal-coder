@@ -1,0 +1,61 @@
+{
+  "uri": "file:///tests/golden/insecure_command.yaml",
+  "diagnostics": [
+    {
+      "range": { "start": { "line": 12, "character": 0 }, "end": { "line": 12, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0033",
+      "message": "Command 'rm -rf /' is not in the allowed command list or matches a blocked pattern",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 17, "character": 0 }, "end": { "line": 17, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0034",
+      "message": "Potential secret detected in field 'command'. Secrets should not be stored in plaintext in configuration files.",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 23, "character": 0 }, "end": { "line": 23, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0034",
+      "message": "Potential secret detected in field 'command'. Secrets should not be stored in plaintext in configuration files.",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 23, "character": 0 }, "end": { "line": 23, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0033",
+      "message": "Command 'psql' is not in the allowed command list or matches a blocked pattern",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 29, "character": 0 }, "end": { "line": 29, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0032",
+      "message": "Path '../../etc/passwd' is outside the allowed workspace scope. Operation blocked.",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 34, "character": 0 }, "end": { "line": 34, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0032",
+      "message": "Path 'C:/Windows/System32/config/sam' is outside the allowed workspace scope. Operation blocked.",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 39, "character": 0 }, "end": { "line": 39, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0034",
+      "message": "Potential secret detected in field 'command'. Secrets should not be stored in plaintext in configuration files.",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 44, "character": 0 }, "end": { "line": 44, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0033",
+      "message": "Command 'curl' with data exfiltration pattern is not in the allowed command list",
+      "source": "aeos-language-server"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "medical-research-mcp": {
+      "command": "C:\\Users\\paulo\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "args": [
+        "-m",
+        "medical_research_mcp.server"
+      ],
+      "cwd": "E:\\GitHub\\aeos\\AEOS_CHIEF_STAFF_v1\\medical-research-mcp",
+      "env": {
+        "PYTHONUNBUFFERED": "1",
+        "MEDICAL_RESEARCH_MCP_MODE": "research-only"
+      }
+    }
+  }
+}

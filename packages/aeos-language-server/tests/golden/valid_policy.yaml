@@ -1,0 +1,153 @@
+# valid_policy.yaml -- golden test fixture for AEOS LSP validation
+$schema: "https://aeos.ai/schemas/policy.schema.json"
+$id: "workspace-security-policy"
+name: "Workspace Security Policy"
+version: "2.0.0"
+description: "Comprehensive security policy governing code modification, secret handling, network access, and tool execution across the workspace."
+author: "AEOS LSP Team"
+enabled: true
+priority: 100
+default_action: "deny"
+rules:
+  - name: "block-plaintext-secrets"
+    description: "Block any action that writes potential secrets in plaintext"
+    action: "block"
+    conditions:
+      any:
+        - matches:
+            field: "action.tool"
+            pattern: "^(write|edit)$"
+        - matches:
+            field: "action.type"
+            pattern: ".*secret.*|.*credential.*|.*password.*|.*token.*|.*api.?key.*"
+    action_config:
+      reason: "Plaintext secrets are not allowed in workspace files"
+      severity: "critical"
+    metadata:
+      source: "AEOS Security Team"
+      regulation:
+        - "SOC2"
+        - "ISO27001"
+      tags:
+        - "secrets"
+        - "security"
+        - "compliance"
+
+  - name: "require-approval-for-destructive-actions"
+    description: "Destructive file operations require peer approval"
+    action: "require_approval"
+    conditions:
+      any:
+        - matches:
+            field: "action.tool"
+            pattern: "^(delete|remove|rm|wipe|destroy)$"
+        - matches:
+            field: "action.type"
+            pattern: ".*destruct.*|.*delete.*|.*remove.*"
+    action_config:
+      reason: "Destructive actions require peer review"
+      approval_required: "peer"
+      severity: "high"
+    metadata:
+      source: "AEOS Security Team"
+      regulation:
+        - "SOC2"
+      tags:
+        - "destructive"
+        - "approval"
+
+  - name: "allow-read-tools"
+    description: "Read-only tools are generally allowed"
+    action: "allow"
+    conditions:
+      all:
+        - in:
+            field: "action.tool"
+            values: ["read", "glob", "grep", "websearch", "webfetch"]
+        - not:
+            matches:
+              field: "action.path"
+              pattern: "\\.env|\\.credentials|secrets\\.\\w+$"
+    action_config:
+      reason: "Read operations are low risk"
+      severity: "low"
+    metadata:
+      tags:
+        - "read"
+        - "allow"
+
+  - name: "block-network-exfiltration"
+    description: "Block network calls that may exfiltrate data"
+    action: "block"
+    conditions:
+      all:
+        - matches:
+            field: "action.tool"
+            pattern: "^(websearch|webfetch|curl|wget|http)$"
+        - matches:
+            field: "action.target"
+            pattern: ".*(\\?|%3F).*=(?:[A-Za-z0-9+/]{40,}|[A-Za-z0-9+/]{20,}=*).*"
+    action_config:
+      reason: "Potential data exfiltration detected"
+      severity: "critical"
+    metadata:
+      source: "AEOS Security Team"
+      regulation:
+        - "GDPR"
+        - "SOC2"
+      tags:
+        - "network"
+        - "exfiltration"
+
+  - name: "log-sensitive-file-access"
+    description: "Log access to files containing sensitive configuration"
+    action: "log"
+    conditions:
+      any:
+        - matches:
+            field: "action.path"
+            pattern: ".*\\.env.*"
+        - matches:
+            field: "action.path"
+            pattern: ".*credentials.*"
+        - matches:
+            field: "action.path"
+            pattern: ".*\\.pem$|.*\\.key$|.*\\.cert$"
+    action_config:
+      severity: "medium"
+    metadata:
+      tags:
+        - "audit"
+        - "sensitive"
+
+  - name: "warn-untrusted-package-install"
+    description: "Warn when installing packages from untrusted sources"
+    action: "warn"
+    conditions:
+      all:
+        - matches:
+            field: "action.tool"
+            pattern: "^(npm|pip|go|dotnet|choco|brew) install$"
+        - not:
+            in:
+              field: "action.args"
+              values: ["--registry=https://registry.npmjs.org", "--index-url=https://pypi.org/simple"]
+    action_config:
+      reason: "Package may be from an untrusted source"
+      severity: "medium"
+    metadata:
+      tags:
+        - "packages"
+        - "supply-chain"
+scope:
+  agents:
+    - "test-analysis-agent"
+    - "code-review-agent"
+  environments:
+    - "development"
+    - "staging"
+  paths:
+    - pattern: "/workspace/**"
+      allow: true
+    - pattern: "/etc/**"
+      allow: false

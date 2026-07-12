@@ -1,0 +1,193 @@
+{
+  "AEOS Agent": {
+    "prefix": "agent",
+    "body": [
+      "# ${1:agent-name}",
+      "",
+      "@agent ${1:agent-name}",
+      "",
+      "## Description",
+      "${2:Agent description}",
+      "",
+      "## Instructions",
+      "${3:Detailed instructions for the agent}",
+      "",
+      "## Skills",
+      "- ${4:skill-ref}",
+      "",
+      "## Environment",
+      "```yaml",
+      "model: ${5:gpt-4}",
+      "maxTokens: ${6:4096}",
+      "temperature: ${7:0.7}",
+      "```"
+    ],
+    "description": "Create a new AEOS Agent definition"
+  },
+  "AEOS Skill": {
+    "prefix": "skill",
+    "body": [
+      "# ${1:skill-name}",
+      "",
+      "@skill ${1:skill-name}",
+      "",
+      "## Description",
+      "${2:Skill description}",
+      "",
+      "## Inputs",
+      "- `${3:input_name}` (${4:string}): ${5:description}",
+      "",
+      "## Steps",
+      "1. ${6:First step}",
+      "2. ${7:Second step}",
+      "",
+      "## Outputs",
+      "- `${8:output_name}` (${9:string}): ${10:description}"
+    ],
+    "description": "Create a new AEOS Skill definition"
+  },
+  "AEOS Playbook": {
+    "prefix": "playbook",
+    "body": [
+      "# ${1:playbook-name}",
+      "",
+      "@playbook ${1:playbook-name}",
+      "",
+      "## Description",
+      "${2:Playbook description}",
+      "",
+      "## Phases",
+      "### Phase 1: ${3:First phase}",
+      "- execute skill `${4:skill-ref}`",
+      "  with inputs:",
+      "  - `${5:input}`: `${6:value}`",
+      "",
+      "### Phase 2: ${7:Second phase}",
+      "- execute skill `${8:skill-ref}`"
+    ],
+    "description": "Create a new AEOS Playbook definition"
+  },
+  "AEOS Tool": {
+    "prefix": "tool",
+    "body": [
+      "# ${1:tool-name}",
+      "",
+      "@tool ${1:tool-name}",
+      "",
+      "## Description",
+      "${2:Tool description}",
+      "",
+      "## Parameters",
+      "- `${3:param_name}` (${4:string}): ${5:description}",
+      "",
+      "## Implementation",
+      "```${6:language}",
+      "${7:code}",
+      "```"
+    ],
+    "description": "Create a new AEOS Tool definition"
+  },
+  "AEOS Config": {
+    "prefix": "aeos-config",
+    "body": [
+      "aeos:",
+      "  name: ${1:Project Name}",
+      "  version: ${2:1.0.0}",
+      "  mode: ${3:ai-first-governed}",
+      "",
+      "runtime:",
+      "  workspace_root: ${4:.}",
+      "  require_kernel: true",
+      "  require_policy_check: true",
+      "  require_evidence: true"
+    ],
+    "description": "Create an AEOS configuration file"
+  },
+  "AEOS Step Reference": {
+    "prefix": "step-ref",
+    "body": [
+      "steps.${1:step_name}.${2:output}"
+    ],
+    "description": "Reference a step output in an expression"
+  },
+  "AEOS Expression": {
+    "prefix": "expr",
+    "body": [
+      "\\$\\{ ${1:expression} \\}"
+    ],
+    "description": "Insert an AEOS expression"
+  },
+  "AEOS Condition": {
+    "prefix": "if",
+    "body": [
+      "{% if ${1:condition} %}",
+      "\t${2:content}",
+      "{% endif %}"
+    ],
+    "description": "Insert an AEOS conditional block"
+  },
+  "AEOS Each Loop": {
+    "prefix": "each",
+    "body": [
+      "{% each ${1:item} in ${2:collection} %}",
+      "\t${3:content}",
+      "{% endeach %}"
+    ],
+    "description": "Insert an AEOS each loop"
+  },
+  "AEOS Gate": {
+    "prefix": "gate",
+    "body": [
+      "@gate ${1:gate-name}",
+      "",
+      "## Condition",
+      "${2:condition}",
+      "",
+      "## Actions",
+      "- on-pass: ${3:continue}",
+      "- on-fail: ${4:block}"
+    ],
+    "description": "Create an AEOS governance gate"
+  },
+  "AEOS Evidence": {
+    "prefix": "evidence",
+    "body": [
+      "@evidence ${1:evidence-id}",
+      "",
+      "## Type",
+      "${2:test-result|audit-log|approval|measurement}",
+      "",
+      "## Description",
+      "${3:Evidence description}"
+    ],
+    "description": "Create an AEOS evidence declaration"
+  },
+  "AEOS Policy": {
+    "prefix": "policy",
+    "body": [
+      "@policy ${1:policy-name}",
+      "",
+      "## Rule",
+      "${2:policy rule expression}",
+      "",
+      "## Enforcement",
+      "- severity: ${3:error|warning}",
+      "- action: ${4:block|warn|audit}"
+    ],
+    "description": "Create an AEOS policy rule"
+  },
+  "AEOS Dry-Run Block": {
+    "prefix": "dry-run",
+    "body": [
+      "```yaml",
+      "# Dry-run configuration",
+      "mode: ${1:safe}",
+      "max_steps: ${2:10}",
+      "timeout_seconds: ${3:30}",
+      "allowlist:",
+      "  - ${4:allowed-action}",
+      "```"
+    ],
+    "description": "Insert a dry-run block"
+  }
+}

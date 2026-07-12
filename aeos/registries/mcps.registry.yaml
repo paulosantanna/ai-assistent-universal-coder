@@ -80,6 +80,32 @@ mcps:
     approval_required: false
     enabled: true
 
+  - id: continuous-training
+    type: continuous-training
+    transport: stdio
+    config: aeos/mcps/continuous-training.mcp.yaml
+    risk_level: low
+    capabilities:
+      - WEB_SEARCH
+      - WEB_FETCH
+      - KNOWLEDGE_RETRIEVAL
+    tools:
+      - web_search
+      - arxiv_search
+      - paperswithcode_search
+      - github_search
+      - reddit_search
+      - web_fetch
+      - curated_sources
+      - training_sites
+      - best_practices
+      - source_policy
+      - source_registry_list
+      - full_search
+    write_allowed: false
+    approval_required: false
+    enabled: true
+
   - id: secrets-runtime
     type: secrets
     transport: stdio

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "skills": {
+    "paths": ["aeos/skills/core", "aeos/skills/enterprise", "aeos/skills/generated"]
+  },
+  "instructions": [
+    "aeos/config/aeos.config.yaml",
+    "aeos/config/tool-router.config.yaml",
+    "aeos/config/mcp.runtime.yaml"
+  ]
+}

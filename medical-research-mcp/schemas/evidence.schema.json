@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Medical Research Evidence Record",
+  "type": "object",
+  "required": [
+    "id",
+    "source",
+    "source_type",
+    "retrieved_at",
+    "title",
+    "provenance",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 8
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "retrieved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "identifiers": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "disease": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "subgroups": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "comorbidities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "outcomes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "enum": [
+        "RAW",
+        "SCREENED",
+        "EXTRACTED",
+        "VALIDATED",
+        "REJECTED",
+        "SUPERSEDED"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

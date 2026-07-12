@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "medical-research-mcp"
+version = "1.0.0"
+description = "Governed MCP for disease-focused medical AI research engineering."
+requires-python = ">=3.11"
+dependencies = ["mcp>=1.12.0", "httpx>=0.28.0", "pydantic>=2.10.0", "PyYAML>=6.0.2"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3", "pytest-asyncio>=0.25", "ruff>=0.9", "mypy>=1.14", "jsonschema>=4.23"]
+
+[project.scripts]
+medical-research-mcp = "medical_research_mcp.server:main"
+medical-research-audit = "medical_research_mcp.audit:cli"
+medical-research-audit-v2 = "medical_research_mcp.audit.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"

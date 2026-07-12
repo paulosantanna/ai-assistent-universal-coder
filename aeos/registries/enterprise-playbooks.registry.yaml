@@ -4,7 +4,7 @@ playbooks:
     version: 1.2.0
     risk_level: high
     required_agents: [root, planner, architect, security, judge]
-    required_skills: [enterprise-repo-intelligence, performance-profiler, supply-chain-auditor, release-readiness-judge]
+    required_skills: [repo-scanner, enterprise-repo-intelligence, performance-profiler, supply-chain-auditor, release-readiness-judge]
     required_lcps: [global-rules, security-governance, enterprise-production]
     allowed_mcps: [filesystem-readonly, git-readonly, package-local, test-runner-controlled]
     production_ready: true

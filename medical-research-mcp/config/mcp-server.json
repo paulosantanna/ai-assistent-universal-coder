@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "medical-research-mcp": {
+      "command": "python",
+      "args": [
+        "-m",
+        "medical_research_mcp.server"
+      ],
+      "cwd": "${workspaceFolder}/medical-research-mcp",
+      "env": {
+        "PYTHONUNBUFFERED": "1",
+        "MEDICAL_RESEARCH_MCP_MODE": "research-only"
+      }
+    }
+  }
+}

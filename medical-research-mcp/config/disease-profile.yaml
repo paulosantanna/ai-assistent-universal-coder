@@ -1,0 +1,52 @@
+disease: diabetes mellitus
+aliases:
+  - diabetes
+  - diabetes mellitus
+subgroups:
+  - type 1 diabetes
+  - type 2 diabetes
+  - latent autoimmune diabetes in adults
+  - maturity-onset diabetes of the young
+  - gestational diabetes
+  - ketosis-prone diabetes
+comorbidities:
+  - cardiovascular disease
+  - chronic kidney disease
+  - diabetic retinopathy
+  - diabetic neuropathy
+  - diabetic foot disease
+  - obesity
+  - metabolic dysfunction-associated steatotic liver disease
+  - hypertension
+  - dyslipidemia
+  - depression
+biomarkers:
+  - HbA1c
+  - fasting plasma glucose
+  - oral glucose tolerance test
+  - C-peptide
+  - insulin
+  - HOMA-IR
+  - eGFR
+  - urinary albumin-to-creatinine ratio
+outcomes:
+  - glycemic control
+  - remission
+  - preservation of beta-cell function
+  - major adverse cardiovascular events
+  - kidney outcomes
+  - severe hypoglycemia
+  - quality of life
+intervention_classes:
+  - lifestyle
+  - pharmacological
+  - immunological
+  - cell therapy
+  - gene therapy
+  - medical devices
+  - digital interventions
+exclusions:
+  - autonomous diagnosis
+  - autonomous treatment recommendation
+  - unsupported cure claim
+  - unapproved laboratory, animal, or human experimentation

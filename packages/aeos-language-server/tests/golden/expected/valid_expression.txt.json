@@ -1,0 +1,12 @@
+{
+  "uri": "file:///tests/golden/valid_expression.txt",
+  "diagnostics": [
+    {
+      "range": { "start": { "line": 0, "character": 0 }, "end": { "line": 0, "character": 0 } },
+      "severity": 3,
+      "code": "AEOS0051",
+      "message": "Expression validation passed for 'valid_expression.txt'",
+      "source": "aeos-language-server"
+    }
+  ]
+}

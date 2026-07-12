@@ -1,0 +1,20 @@
+default_total_tokens: 60000
+allocation:
+  root_percent: 14
+  evidence_percent: 22
+  specialists_percent: 44
+  synthesis_percent: 8
+  judge_percent: 12
+limits:
+  minimum_agent_context: 768
+  maximum_agent_context: 12000
+  maximum_agent_output: 3500
+  maximum_parallel_agents: 6
+policies:
+  - use repository manifests before reading source
+  - pass symbols and line ranges instead of whole files
+  - cache evidence by content hash
+  - never resend unchanged evidence
+  - summarize only after evidence is indexed
+  - stop duplicate investigations
+  - reserve judge context for claims, evidence, contradictions, and blockers

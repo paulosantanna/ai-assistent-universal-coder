@@ -5,6 +5,43 @@ skills:
     owner_agent: architect
     risk_level: low
     capabilities: [READ_REPOSITORY, READ_FILES, DETECT_STACK, GENERATE_REPORT]
+    mission: "Analyze repositories and produce factual ecosystem maps."
+    allowed_actions:
+      - Read authorized files through Tool Router
+      - Generate reports in .aeos/reports
+      - Generate evidence in .aeos/evidence
+      - Generate sandbox artifacts when permitted
+    forbidden_actions:
+      - Direct filesystem access
+      - Direct Git mutation
+      - Secret value exposure
+      - Destructive shell
+      - Unapproved writes outside .aeos
+      - Unsupported factual claims
+      - Silent failure
+    required_inputs:
+      - repository_path
+      - scan_depth
+    output_schema:
+      type: object
+      properties:
+        files_inspected: { type: array, items: { type: string } }
+        tool_calls: { type: array, items: { type: object } }
+        permission_decisions: { type: array, items: { type: object } }
+        generated_artifacts: { type: array, items: { type: string } }
+        risk_classification: { type: object }
+    quality_gates:
+      - Facts cite evidence
+      - Assumptions are explicitly marked
+      - Risks are classified
+      - Outputs follow schema
+      - No secrets are printed
+      - Required artifacts are hashed
+    stop_conditions:
+      - Required path not found
+      - Permission denied
+      - Secret detected
+      - Unsupported repository format
 
   - id: architecture-mapper
     path: aeos/skills/core/architecture-mapper.skill.md
@@ -12,6 +49,31 @@ skills:
     owner_agent: architect
     risk_level: medium
     capabilities: [READ_REPOSITORY, READ_FILES, MAP_ARCHITECTURE, GENERATE_REPORT]
+    mission: "Map repository architecture, detect patterns, and report structural design."
+    allowed_actions:
+      - Read repository files
+      - Detect architecture patterns
+      - Generate architecture reports
+      - Map module dependencies
+    forbidden_actions:
+      - Modify repository files
+      - Execute arbitrary commands
+      - Expose credentials
+    required_inputs:
+      - repository_path
+    output_schema:
+      type: object
+      properties:
+        architecture: { type: object }
+        patterns: { type: array }
+        dependencies: { type: object }
+    quality_gates:
+      - Reports cite specific files
+      - Patterns are backed by evidence
+      - Dependencies are verified
+    stop_conditions:
+      - Repository not found
+      - Permission denied
 
   - id: documentation
     path: aeos/skills/core/documentation.skill.md
@@ -19,6 +81,30 @@ skills:
     owner_agent: documenter
     risk_level: medium
     capabilities: [READ_REPOSITORY, READ_FILES, WRITE_SANDBOX_FILES, GENERATE_REPORT]
+    mission: "Generate evidence-based documentation artifacts in sandbox."
+    allowed_actions:
+      - Read repository files
+      - Generate documentation
+      - Write sandbox files
+    forbidden_actions:
+      - Modify repository files directly
+      - Execute commands on host
+      - Expose sensitive information
+    required_inputs:
+      - source_path
+      - documentation_type
+    output_schema:
+      type: object
+      properties:
+        documentation: { type: string }
+        evidence_refs: { type: array }
+    quality_gates:
+      - Documentation cites sources
+      - Output is well-structured
+      - No sensitive data exposed
+    stop_conditions:
+      - Source path not found
+      - Permission denied
 
   - id: security-audit
     path: aeos/skills/core/security-audit.skill.md
@@ -26,6 +112,33 @@ skills:
     owner_agent: security
     risk_level: high
     capabilities: [READ_REPOSITORY, READ_FILES, SCAN_SECRETS, SCAN_DEPENDENCIES, GENERATE_REPORT]
+    mission: "Scan repositories for security risks, secrets, and dependency hazards."
+    allowed_actions:
+      - Scan for secrets
+      - Scan dependency vulnerabilities
+      - Review permission configurations
+      - Generate security reports
+    forbidden_actions:
+      - Modify repository files
+      - Expose detected secrets outside audit
+      - Execute untested changes
+    required_inputs:
+      - repository_path
+      - scan_depth
+    output_schema:
+      type: object
+      properties:
+        risks: { type: array }
+        secrets_found: { type: array }
+        vulnerabilities: { type: array }
+        recommendations: { type: array }
+    quality_gates:
+      - All findings are evidence-backed
+      - Risk levels are classified
+      - False positives are minimized
+    stop_conditions:
+      - Repository not accessible
+      - Scan interrupted
 
   - id: test-generation
     path: aeos/skills/core/test-generation.skill.md
@@ -33,6 +146,32 @@ skills:
     owner_agent: tester
     risk_level: medium
     capabilities: [READ_REPOSITORY, READ_FILES, WRITE_SANDBOX_FILES, GENERATE_REPORT]
+    mission: "Analyze code coverage gaps and generate tests in sandbox."
+    allowed_actions:
+      - Read code files
+      - Analyze test coverage
+      - Generate test cases
+      - Write sandbox files
+    forbidden_actions:
+      - Modify production code
+      - Run tests on production
+      - Expose credentials
+    required_inputs:
+      - source_path
+      - test_framework
+    output_schema:
+      type: object
+      properties:
+        tests: { type: array }
+        coverage_analysis: { type: object }
+        evidence_refs: { type: array }
+    quality_gates:
+      - Tests follow project conventions
+      - Coverage gaps are identified
+      - Generated tests are valid
+    stop_conditions:
+      - Source path not found
+      - Permission denied
 
   - id: code-analyzer
     path: aeos/skills/core/code-analyzer.skill.md
@@ -40,6 +179,32 @@ skills:
     owner_agent: coder
     risk_level: medium
     capabilities: [READ_REPOSITORY, READ_FILES, GENERATE_REPORT]
+    mission: "Analyze source code for quality, patterns, and improvement opportunities."
+    allowed_actions:
+      - Read source files
+      - Analyze code quality
+      - Detect code smells
+      - Generate analysis reports
+    forbidden_actions:
+      - Modify source files
+      - Execute arbitrary code
+      - Expose credentials
+    required_inputs:
+      - source_path
+      - analysis_type
+    output_schema:
+      type: object
+      properties:
+        analysis: { type: object }
+        findings: { type: array }
+        recommendations: { type: array }
+    quality_gates:
+      - Findings cite specific lines
+      - Analysis is deterministic
+      - No code is mutated
+    stop_conditions:
+      - Source path not found
+      - Permission denied
 
   - id: patch-planner
     path: aeos/skills/core/patch-planner.skill.md
@@ -47,6 +212,32 @@ skills:
     owner_agent: coder
     risk_level: high
     capabilities: [READ_REPOSITORY, READ_FILES, GENERATE_PATCH, GENERATE_ROLLBACK]
+    mission: "Plan and propose controlled code patches with rollback support."
+    allowed_actions:
+      - Read source files
+      - Analyze change requirements
+      - Generate patch diffs
+      - Generate rollback plans
+    forbidden_actions:
+      - Apply patches directly
+      - Bypass permission engine
+      - Expose credentials
+    required_inputs:
+      - source_path
+      - change_spec
+    output_schema:
+      type: object
+      properties:
+        patch: { type: object }
+        rollback: { type: object }
+        risk_assessment: { type: object }
+    quality_gates:
+      - Patches are minimal and focused
+      - Rollback plan is complete
+      - Risks are assessed
+    stop_conditions:
+      - Change spec incomplete
+      - Source not found
 
   - id: dependency-analyzer
     path: aeos/skills/core/dependency-analyzer.skill.md
@@ -54,6 +245,33 @@ skills:
     owner_agent: architect
     risk_level: medium
     capabilities: [READ_REPOSITORY, READ_FILES, SCAN_DEPENDENCIES, GENERATE_REPORT]
+    mission: "Analyze project dependencies for conflicts, vulnerabilities, and health."
+    allowed_actions:
+      - Read dependency files
+      - Scan for vulnerabilities
+      - Detect version conflicts
+      - Generate dependency reports
+    forbidden_actions:
+      - Modify dependency files
+      - Install packages
+      - Expose credentials
+    required_inputs:
+      - repository_path
+      - manifest_path
+    output_schema:
+      type: object
+      properties:
+        dependencies: { type: array }
+        vulnerabilities: { type: array }
+        conflicts: { type: array }
+        recommendations: { type: array }
+    quality_gates:
+      - Findings cite specific packages
+      - Vulnerabilities are categorized
+      - Conflicts are reproducible
+    stop_conditions:
+      - Manifest not found
+      - Permission denied
 
   - id: packaging
     path: aeos/skills/core/packaging.skill.md
@@ -61,3 +279,27 @@ skills:
     owner_agent: judge
     risk_level: medium
     capabilities: [PACKAGE_CREATE, PACKAGE_VERIFY, PACKAGE_INSPECT]
+    mission: "Create, verify, and inspect review packages for evidence integrity."
+    allowed_actions:
+      - Create review packages
+      - Verify package integrity
+      - Inspect package contents
+    forbidden_actions:
+      - Modify source repository
+      - Expose package contents outside scope
+    required_inputs:
+      - execution_id
+      - artifacts_path
+    output_schema:
+      type: object
+      properties:
+        package: { type: object }
+        integrity_hash: { type: string }
+        contents: { type: array }
+    quality_gates:
+      - Package is complete
+      - Integrity hash matches
+      - Contents are verified
+    stop_conditions:
+      - Artifacts missing
+      - Integrity check failed

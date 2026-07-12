@@ -1,0 +1,66 @@
+{
+  "score": 10.0,
+  "accepted": true,
+  "passed": 11,
+  "total": 11,
+  "results": [
+    {
+      "name": "structure",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "python_syntax",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "json_yaml",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "mcp_tools",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "subagents",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "playbook",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "skill_contracts",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "scientific_boundaries",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "no_placeholders",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "tests",
+      "passed": true,
+      "details": [
+        ".........................                                                [100%]\n25 passed in 0.22s"
+      ]
+    },
+    {
+      "name": "strict_validator",
+      "passed": true,
+      "details": []
+    }
+  ],
+  "scope": "package structure and executable contract validation; not clinical validation"
+}

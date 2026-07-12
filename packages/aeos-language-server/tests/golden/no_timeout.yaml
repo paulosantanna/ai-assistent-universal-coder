@@ -1,0 +1,62 @@
+# no_timeout.yaml -- golden test fixture
+# INTENTIONAL ERROR: Steps without timeout configured.
+# Expected diagnostics: AEOS0025 (Missing timeout for step - implied by schema),
+#   or custom LSP-defined diagnostic for missing timeout
+---
+$schema: "https://aeos.ai/schemas/playbook.schema.json"
+$id: "no-timeout-playbook"
+name: "Playbook Without Timeouts"
+version: "1.0.0"
+description: "This playbook has no timeout configured on any step, which means steps could run indefinitely"
+# NOTE: No playbook-level default_timeout in config
+config:
+  max_concurrent_steps: 2
+  # NOTE: default_timeout is NOT set - steps have no fallback timeout
+steps:
+  - name: "infinite-build"
+    tool: "bash"
+    description: "Build step with no timeout - could hang forever"
+    inputs:
+      command: "npm run build"
+    # NOTE: No timeout set (schema allows this, but LSP may warn for best practice)
+
+  - name: "no-timeout-test"
+    tool: "bash"
+    description: "Test step with no timeout - if tests hang, the playbook hangs"
+    inputs:
+      command: "npm run test:integration"
+    # NOTE: No timeout set
+
+  - name: "deploy-without-timeout"
+    skill: "skill-deployer"
+    description: "Deploy step with no timeout - could block indefinitely"
+    inputs:
+      environment: "production"
+      version: "1.0.0"
+    # NOTE: No timeout set - deployment could hang
+
+  - name: "timeout-configured-here"
+    tool: "bash"
+    description: "This step properly configures a timeout"
+    inputs:
+      command: "echo 'This step has a timeout'"
+    timeout: 30000
+    # NOTE: Timeout is set to 30s - this step is fine
+
+  - name: "infinite-loop-simulation"
+    tool: "bash"
+    description: "Step that could potentially run very long without a timeout bound"
+    inputs:
+      command: >
+        while true; do
+          echo "Running forever without timeout...";
+          sleep 1;
+        done
+    # NOTE: No timeout and an infinite loop! (flag this)
+
+  - name: "long-running-migration"
+    tool: "bash"
+    description: "Long-running database migration with no timeout"
+    inputs:
+      command: "node scripts/migrate.js --production"
+    # NOTE: No timeout on a long-running operation

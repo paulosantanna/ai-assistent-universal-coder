@@ -1,0 +1,19 @@
+[PASS] structure
+[PASS] python_syntax
+[PASS] json_yaml
+[PASS] mcp_tools
+[PASS] subagents
+[PASS] playbook
+[PASS] skill_contracts
+[PASS] scientific_boundaries
+[PASS] no_placeholders
+[PASS] tests
+.........................                                                [100%]
+25 passed in 0.26s
+[PASS] strict_validator
+{
+  "score": 10.0,
+  "accepted": true,
+  "passed": 11,
+  "total": 11
+}

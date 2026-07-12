@@ -1,0 +1,21 @@
+# invalid_syntax.yaml -- golden test fixture
+# INTENTIONAL ERROR: This file contains invalid YAML syntax.
+# Expected diagnostics: YAML parse error (malformed mapping)
+$schema: "https://aeos.ai/schemas/agent.schema.json"
+$id: "invalid-syntax-agent"
+name: "Invalid Syntax Agent
+version: "1.0.0"
+description: This is an agent with broken YAML syntax that should fail parsing.
+capabilities
+  - READ_REPOSITORY
+  - READ_FILES
+unclosed_block:
+  - item1
+  - item2
+  - item3
+  - item1: nested
+      value: broken
+invalid_escape: "This line has a bad escape: \xINVALID"
+: leading colon key
+"  trailing spaces": "value"
+  indentation error

@@ -1,0 +1,33 @@
+{
+  "uri": "file:///tests/golden/missing_permission.yaml",
+  "diagnostics": [
+    {
+      "range": { "start": { "line": 12, "character": 0 }, "end": { "line": 12, "character": 0 } },
+      "severity": 2,
+      "code": "AEOS0028",
+      "message": "Step 'delete-all-logs' performs a destructive action but has no rollback defined",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 12, "character": 0 }, "end": { "line": 12, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0036",
+      "message": "Operation 'delete-all-logs' requires 'DELETE_FILES' capability which is not granted to the current role",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 17, "character": 0 }, "end": { "line": 17, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0036",
+      "message": "Operation 'modify-config' requires 'WRITE_FILES' capability which is not granted to the current role",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 27, "character": 0 }, "end": { "line": 27, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0036",
+      "message": "Operation 'write-test-output' requires 'WRITE_FILES' capability which is not granted to the current role",
+      "source": "aeos-language-server"
+    }
+  ]
+}

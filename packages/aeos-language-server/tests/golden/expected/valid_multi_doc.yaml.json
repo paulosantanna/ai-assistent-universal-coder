@@ -1,0 +1,47 @@
+{
+  "uri": "file:///tests/golden/valid_multi_doc.yaml",
+  "diagnostics": [
+    {
+      "range": { "start": { "line": 7, "character": 0 }, "end": { "line": 7, "character": 0 } },
+      "severity": 3,
+      "code": "AEOS0051",
+      "message": "Schema validation passed for document 1: valid_multi_doc.yaml",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 14, "character": 0 }, "end": { "line": 14, "character": 0 } },
+      "severity": 3,
+      "code": "AEOS0051",
+      "message": "Schema validation passed for document 2: valid_multi_doc.yaml",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 22, "character": 0 }, "end": { "line": 22, "character": 0 } },
+      "severity": 3,
+      "code": "AEOS0051",
+      "message": "Schema validation passed for document 3: valid_multi_doc.yaml",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 30, "character": 0 }, "end": { "line": 30, "character": 0 } },
+      "severity": 3,
+      "code": "AEOS0051",
+      "message": "Schema validation passed for document 4: valid_multi_doc.yaml",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 51, "character": 0 }, "end": { "line": 51, "character": 0 } },
+      "severity": 3,
+      "code": "AEOS0051",
+      "message": "Schema validation passed for document 5: valid_multi_doc.yaml",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 7, "character": 0 }, "end": { "line": 7, "character": 0 } },
+      "severity": 3,
+      "code": "AEOS0052",
+      "message": "Semantic validation passed for 'valid_multi_doc.yaml'",
+      "source": "aeos-language-server"
+    }
+  ]
+}

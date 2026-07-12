@@ -1,0 +1,188 @@
+# valid_permissions.yaml -- golden test fixture for AEOS LSP validation
+$schema: "https://aeos.ai/schemas/permissions.schema.json"
+$id: "workspace-permissions"
+name: "Workspace Permissions Configuration"
+version: "2.0.0"
+description: "Role-based access control configuration for the AEOS workspace. Defines developer, reviewer, admin, and auditor roles with granular capability scopes."
+author: "AEOS LSP Team"
+default_role: "developer"
+roles:
+  developer:
+    name: "Developer"
+    description: "Standard developer role with read and write access to workspace files"
+    capabilities:
+      - name: "READ_REPOSITORY"
+        effect: "allow"
+        scopes:
+          - type: "path"
+            pattern: "/workspace/**"
+            allow: true
+            description: "Read access to workspace files"
+      - name: "WRITE_FILES"
+        effect: "allow"
+        scopes:
+          - type: "path"
+            pattern: "/workspace/src/**"
+            allow: true
+            description: "Write access to source files"
+          - type: "path"
+            pattern: "/workspace/tests/**"
+            allow: true
+            description: "Write access to test files"
+      - name: "DELETE_FILES"
+        effect: "deny"
+      - name: "EXECUTE_COMMANDS"
+        effect: "allow"
+        scopes:
+          - type: "tool"
+            pattern: "npm run *"
+            allow: true
+            description: "Allowed npm scripts"
+          - type: "tool"
+            pattern: "dotnet *"
+            allow: true
+            description: "Allowed dotnet commands"
+    inherits: []
+    max_depth: 3
+    approval_required:
+      level: "peer"
+      require_justification: true
+      min_approvals: 1
+
+  reviewer:
+    name: "Code Reviewer"
+    description: "Reviewer role with read access and approval capabilities"
+    capabilities:
+      - name: "READ_REPOSITORY"
+        effect: "allow"
+      - name: "APPROVE_CHANGES"
+        effect: "allow"
+        scopes:
+          - type: "path"
+            pattern: "/workspace/src/**"
+            allow: true
+      - name: "BLOCK_CHANGES"
+        effect: "allow"
+    inherits:
+      - "developer"
+    max_depth: 5
+    approval_required:
+      level: "peer"
+      require_justification: true
+
+  admin:
+    name: "Administrator"
+    description: "Administrative role with full access"
+    capabilities:
+      - name: "READ_REPOSITORY"
+        effect: "allow"
+      - name: "WRITE_FILES"
+        effect: "allow"
+      - name: "DELETE_FILES"
+        effect: "allow"
+      - name: "EXECUTE_COMMANDS"
+        effect: "allow"
+      - name: "MANAGE_ROLES"
+        effect: "allow"
+      - name: "MANAGE_POLICIES"
+        effect: "allow"
+      - name: "DEPLOY"
+        effect: "allow"
+        conditions:
+          environment: "production"
+          require_approval: true
+    inherits:
+      - "reviewer"
+    max_depth: 10
+
+  auditor:
+    name: "Auditor"
+    description: "Read-only role for compliance auditing"
+    capabilities:
+      - name: "READ_REPOSITORY"
+        effect: "allow"
+      - name: "READ_LOGS"
+        effect: "allow"
+      - name: "READ_EVIDENCE"
+        effect: "allow"
+      - name: "GENERATE_REPORT"
+        effect: "allow"
+      - name: "WRITE_FILES"
+        effect: "deny"
+      - name: "EXECUTE_COMMANDS"
+        effect: "deny"
+capabilities:
+  READ_REPOSITORY:
+    name: "Read Repository"
+    description: "Ability to read files in the repository"
+    category: "read"
+    risk_level: "low"
+    default_effect: "allow"
+  WRITE_FILES:
+    name: "Write Files"
+    description: "Ability to create and modify files"
+    category: "write"
+    risk_level: "medium"
+    requires_approval: false
+    default_effect: "deny"
+  DELETE_FILES:
+    name: "Delete Files"
+    description: "Ability to delete files from the workspace"
+    category: "write"
+    risk_level: "high"
+    requires_approval: true
+    default_effect: "deny"
+  EXECUTE_COMMANDS:
+    name: "Execute Commands"
+    description: "Ability to execute shell commands"
+    category: "execute"
+    risk_level: "high"
+    requires_approval: true
+    default_effect: "deny"
+  APPROVE_CHANGES:
+    name: "Approve Changes"
+    description: "Ability to approve code changes and review decisions"
+    category: "admin"
+    risk_level: "medium"
+    requires_approval: false
+    default_effect: "deny"
+  MANAGE_ROLES:
+    name: "Manage Roles"
+    description: "Ability to create and modify roles"
+    category: "admin"
+    risk_level: "critical"
+    requires_approval: true
+    default_effect: "deny"
+approval_requirements:
+  default_approval_level: "peer"
+  require_approval_for:
+    - "DELETE_FILES"
+    - "EXECUTE_COMMANDS"
+    - "MANAGE_ROLES"
+    - "DEPLOY"
+  auto_approve:
+    - capability: "READ_REPOSITORY"
+      conditions:
+        path_pattern: "/workspace/docs/**"
+    - capability: "WRITE_FILES"
+      conditions:
+        path_pattern: "/workspace/tests/**"
+        file_extension: ".test.ts"
+  approval_timeout_ms: 600000
+  max_pending_approvals: 5
+scopes:
+  workspace-src:
+    type: "path"
+    pattern: "/workspace/src/**"
+    allow: true
+    description: "Workspace source directory"
+  workspace-tests:
+    type: "path"
+    pattern: "/workspace/tests/**"
+    allow: true
+    description: "Workspace test directory"
+  allowed-tools:
+    type: "tool"
+    pattern: "npm run *"
+    allow: true
+    description: "Allowed npm script execution"

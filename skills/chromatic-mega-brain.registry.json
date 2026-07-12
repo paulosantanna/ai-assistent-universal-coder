@@ -1,0 +1,18 @@
+{
+  "id": "chromatic-mega-brain",
+  "path": "skills/chromatic-mega-brain/SKILL.md",
+  "priority": 900,
+  "activation": {
+    "semantic": [
+      "chromatic mega brain",
+      "mega brain",
+      "deep multi-perspective analysis",
+      "compare competing architectures",
+      "adversarial architecture review"
+    ]
+  },
+  "exclusions": [
+    "trivial deterministic tasks",
+    "simple factual questions"
+  ]
+}

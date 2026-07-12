@@ -1,0 +1,40 @@
+# valid_agent.yaml -- golden test fixture for AEOS LSP validation
+$schema: "https://aeos.ai/schemas/agent.schema.json"
+$id: "test-analysis-agent"
+name: "Test Analysis Agent"
+version: "1.0.0"
+description: "A reference agent definition for LSP schema and semantic validation. Provides analysis and reporting capabilities."
+author: "AEOS LSP Team"
+capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  - ANALYZE_CODE
+skills:
+  - "skill-analyzer"
+  - "skill-reporter"
+layers:
+  - name: "cognition"
+    provider: "aeos.cognition.default"
+    config:
+      model: "gpt-4"
+      temperature: 0.2
+  - name: "observability"
+    provider: "aeos.observability.default"
+    config:
+      enable_tracing: true
+      enable_logging: true
+model_preferences:
+  provider: "anthropic"
+  model: "claude-sonnet-4-20250514"
+  context_window: 100000
+  max_tokens: 8192
+stop_conditions:
+  - type: max_iterations
+    value: 50
+  - type: max_tokens
+    value: 100000
+  - type: error
+config:
+  log_level: "info"
+  cache_enabled: true

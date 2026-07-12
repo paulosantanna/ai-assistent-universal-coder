@@ -1,0 +1,12 @@
+# invalid_schema.yaml -- golden test fixture
+# INTENTIONAL ERROR: Valid YAML but invalid schema (missing required fields).
+# Expected diagnostics: AEOS0001, AEOS0002 (missing required properties: $id, version, capabilities)
+$schema: "https://aeos.ai/schemas/agent.schema.json"
+name: "Incomplete Agent"
+description: "This agent is missing required fields $id, version, and capabilities"
+# NOTE: $id is missing (required by agent.schema.json)
+# NOTE: version is missing (required by agent.schema.json)
+# NOTE: capabilities is missing (required by agent.schema.json)
+# skills is optional, but it's here to demonstrate other valid content
+skills:
+  - "non-existent-skill"

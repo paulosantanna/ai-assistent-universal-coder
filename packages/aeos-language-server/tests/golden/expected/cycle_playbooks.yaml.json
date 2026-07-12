@@ -1,0 +1,26 @@
+{
+  "uri": "file:///tests/golden/cycle_playbooks.yaml",
+  "diagnostics": [
+    {
+      "range": { "start": { "line": 14, "character": 0 }, "end": { "line": 14, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0013",
+      "message": "Circular dependency detected: playbook-aaa -> playbook-bbb -> playbook-ccc -> playbook-aaa",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 14, "character": 0 }, "end": { "line": 14, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0013",
+      "message": "Circular dependency detected: playbook-bbb -> playbook-ccc -> playbook-aaa -> playbook-bbb",
+      "source": "aeos-language-server"
+    },
+    {
+      "range": { "start": { "line": 14, "character": 0 }, "end": { "line": 14, "character": 0 } },
+      "severity": 1,
+      "code": "AEOS0013",
+      "message": "Circular dependency detected: playbook-ccc -> playbook-aaa -> playbook-bbb -> playbook-ccc",
+      "source": "aeos-language-server"
+    }
+  ]
+}

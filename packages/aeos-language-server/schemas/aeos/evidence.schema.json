@@ -1,0 +1,268 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aeos.ai/schemas/evidence.schema.json",
+  "title": "AEOS Evidence Configuration",
+  "description": "Schema for AEOS evidence requirements. Evidence is cryptographically verifiable records of execution that prove what happened, when, and by whom. Required for audit, compliance, and the AEOS Judge.",
+  "type": "object",
+  "required": [
+    "$id",
+    "name",
+    "version",
+    "required_evidence"
+  ],
+  "properties": {
+    "$id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z][a-zA-Z0-9._-]*$",
+      "description": "Unique identifier for the evidence configuration."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name for this evidence configuration."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(-[a-zA-Z0-9.]+)?$",
+      "description": "Semantic version string (semver)."
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of this evidence configuration."
+    },
+    "required_evidence": {
+      "type": "array",
+      "description": "List of evidence types that are required for execution.",
+      "items": {
+        "type": "object",
+        "required": ["type", "provenance"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "tool_call",
+              "tool_result",
+              "mcp_call",
+              "mcp_result",
+              "agent_action",
+              "agent_result",
+              "skill_invocation",
+              "skill_result",
+              "playbook_execution",
+              "playbook_step",
+              "permission_decision",
+              "policy_decision",
+              "approval_request",
+              "approval_response",
+              "judge_report",
+              "execution_plan",
+              "rollback_record",
+              "hash_verification",
+              "security_event",
+              "audit_log"
+            ],
+            "description": "Type of evidence record."
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of this evidence requirement."
+          },
+          "required": {
+            "type": "boolean",
+            "default": true,
+            "description": "Whether this evidence type is mandatory."
+          },
+          "hash_required": {
+            "type": "boolean",
+            "default": true,
+            "description": "Whether a cryptographic hash is required for this evidence."
+          },
+          "provenance": {
+            "type": "object",
+            "description": "Provenance tracking requirements.",
+            "required": ["source"],
+            "properties": {
+              "source": {
+                "type": "string",
+                "description": "Source system or component that generated the evidence."
+              },
+              "timestamp_required": {
+                "type": "boolean",
+                "default": true,
+                "description": "Whether a timestamp is required."
+              },
+              "agent_id_required": {
+                "type": "boolean",
+                "default": true,
+                "description": "Whether the agent $id is required."
+              },
+              "execution_id_required": {
+                "type": "boolean",
+                "default": true,
+                "description": "Whether the execution ID is required."
+              },
+              "signature_required": {
+                "type": "boolean",
+                "default": false,
+                "description": "Whether a cryptographic signature is required."
+              },
+              "chain_of_custody": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "entity": { "type": "string" },
+                    "action": { "type": "string" },
+                    "timestamp": { "type": "string", "format": "date-time" }
+                  },
+                  "additionalProperties": false
+                },
+                "description": "Chain of custody records."
+              }
+            },
+            "additionalProperties": false
+          },
+          "hash": {
+            "type": "object",
+            "description": "Hash configuration for evidence integrity.",
+            "properties": {
+              "algorithm": {
+                "type": "string",
+                "enum": ["sha256", "sha384", "sha512", "blake2b", "blake3"],
+                "default": "sha256",
+                "description": "Hash algorithm."
+              },
+              "encoding": {
+                "type": "string",
+                "enum": ["hex", "base64"],
+                "default": "hex",
+                "description": "Hash encoding."
+              },
+              "fields": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Specific fields to include in the hash."
+              },
+              "chain_to_previous": {
+                "type": "boolean",
+                "default": true,
+                "description": "Whether to chain this hash to the previous evidence hash."
+              }
+            },
+            "additionalProperties": false
+          },
+          "storage": {
+            "type": "object",
+            "description": "Storage configuration for this evidence type.",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "Storage path pattern (supports {execution_id}, {type}, {timestamp} variables)."
+              },
+              "format": {
+                "type": "string",
+                "enum": ["jsonl", "json", "ndjson", "binary"],
+                "default": "jsonl",
+                "description": "Storage format."
+              },
+              "retention_days": {
+                "type": "integer",
+                "minimum": 0,
+                "default": 90,
+                "description": "Retention period in days."
+              },
+              "compress": {
+                "type": "boolean",
+                "default": false,
+                "description": "Whether to compress stored evidence."
+              }
+            },
+            "additionalProperties": false
+          },
+          "redaction": {
+            "type": "object",
+            "description": "Redaction rules for this evidence type.",
+            "properties": {
+              "redact_secrets": {
+                "type": "boolean",
+                "default": true,
+                "description": "Whether to redact secrets in evidence."
+              },
+              "fields_to_redact": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Specific field paths to redact."
+              },
+              "redaction_patterns": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Regex patterns for redaction."
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "uniqueItems": true
+    },
+    "integrity": {
+      "type": "object",
+      "description": "Global integrity settings.",
+      "properties": {
+        "verify_on_read": {
+          "type": "boolean",
+          "default": true,
+          "description": "Verify hashes when reading evidence."
+        },
+        "fail_on_hash_mismatch": {
+          "type": "boolean",
+          "default": true,
+          "description": "Fail execution if hash verification fails."
+        },
+        "merkle_tree": {
+          "type": "boolean",
+          "default": false,
+          "description": "Build a Merkle tree of all evidence for tamper detection."
+        },
+        "ledger_integration": {
+          "type": "object",
+          "description": "Optional distributed ledger configuration.",
+          "properties": {
+            "enabled": { "type": "boolean", "default": false },
+            "provider": { "type": "string" },
+            "anchor_frequency": {
+              "type": "string",
+              "enum": ["per_execution", "per_batch", "daily", "weekly"],
+              "default": "daily"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "storage": {
+      "type": "object",
+      "description": "Global storage configuration.",
+      "properties": {
+        "base_path": {
+          "type": "string",
+          "description": "Base path for evidence storage."
+        },
+        "max_size_mb": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 100,
+          "description": "Maximum total evidence storage size in MB."
+        },
+        "auto_purge": {
+          "type": "boolean",
+          "default": true,
+          "description": "Auto-purge evidence beyond retention period."
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

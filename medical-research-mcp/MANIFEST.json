@@ -1,0 +1,499 @@
+{
+  "package": "medical-research-mcp",
+  "version": "1.0.0",
+  "generated_at": "2026-07-11T02:15:04+00:00",
+  "validation": {
+    "score": 10.0,
+    "accepted": true,
+    "passed": 11,
+    "total": 11,
+    "results": [
+      {
+        "name": "structure",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "python_syntax",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "json_yaml",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "mcp_tools",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "subagents",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "playbook",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "skill_contracts",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "scientific_boundaries",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no_placeholders",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "tests",
+        "passed": true,
+        "details": [
+          ".........................                                                [100%]\n25 passed in 0.26s"
+        ]
+      },
+      {
+        "name": "strict_validator",
+        "passed": true,
+        "details": []
+      }
+    ],
+    "scope": "package structure and executable contract validation; not clinical validation"
+  },
+  "file_count": 85,
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "5771ef9d53e3ead81fa90abe9ba39638c65b647cdc5707187fdaef86ebb8aafc",
+      "bytes": 3392
+    },
+    {
+      "path": "SOURCES.md",
+      "sha256": "d443949abb1830f94e9a09495b6845cd53fb9248d30b6244d414ea52285fbe19",
+      "bytes": 2649
+    },
+    {
+      "path": "VALIDATION_REPORT.json",
+      "sha256": "89255fcfdb4d5f4f7346e920f4dad4fa36c4b70347719aa33ed925da8e189f17",
+      "bytes": 1230
+    },
+    {
+      "path": "VALIDATION_REPORT.txt",
+      "sha256": "3355904d5bcef21c2f8f85006f14b67f845e13e3cae0187f4c3de1fd57768114",
+      "bytes": 387
+    },
+    {
+      "path": "config/disease-profile.yaml",
+      "sha256": "9f9bac7f48fd02fe5271ed8f2a37e3f78f64da349a801b68f8d9e16a06e2c6ce",
+      "bytes": 1196
+    },
+    {
+      "path": "config/mcp-server.json",
+      "sha256": "cbbc4ccad53b9ac2a9f7139e89e98e993d55ab4eea48cc0c8e9158efcc622c19",
+      "bytes": 331
+    },
+    {
+      "path": "config/token-budget.yaml",
+      "sha256": "6143ff95c34154f6408677fa0235eab927ad9fbe4b209a48c976aa82d0036edc",
+      "bytes": 621
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "sha256": "400a933ec9b058d9bc1f7e086ac331bd1344ace08bcb4d827c5fe90552d836b6",
+      "bytes": 4142
+    },
+    {
+      "path": "docs/REGULATORY_AND_SCIENTIFIC_BOUNDARIES.md",
+      "sha256": "6c3bc20385610e60d2b89adde3ddcbc5d6441875a5472148d86fd8d244c368ac",
+      "bytes": 2461
+    },
+    {
+      "path": "playbooks/MEDICAL_AI_COMPLETE_PLAYBOOK.md",
+      "sha256": "3bdbf42c7edd91d6439e80c826d63c550e18460a55c7e1937926b422a9a9bc1c",
+      "bytes": 18994
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "58d7b2a122b928e33e2ad34daccda92241034ca0fc5bcaa7ab26725f4d0c5159",
+      "bytes": 743
+    },
+    {
+      "path": "schemas/evidence.schema.json",
+      "sha256": "362ae313a194173e87a59b117674365a23bb06641ddb28ef54eb156d4ef98091",
+      "bytes": 1647
+    },
+    {
+      "path": "scripts/validate_package.py",
+      "sha256": "8201113e654770d9e852d767059f48c911f177171425b74feed809330a6298e0",
+      "bytes": 10998
+    },
+    {
+      "path": "skills/medical-ai-engineering/SKILL.md",
+      "sha256": "02f72352e99a4d80995b91336dc2ac429a8859eebbcee97a3f2ffcaf77782c34",
+      "bytes": 7470
+    },
+    {
+      "path": "skills/medical-ai-engineering/handover/HANDOVER_SCHEMA.md",
+      "sha256": "ed7fda05a371bac462c46ccac7ab2d451d0a09fced0eca067387b27ae5ec7a0b",
+      "bytes": 506
+    },
+    {
+      "path": "skills/medical-ai-engineering/handover/ROOT_TO_SUBAGENT.md",
+      "sha256": "48faddeac0d9444875c838f57bab894b61c05e53219f82a8961cfb669499e2b9",
+      "bytes": 416
+    },
+    {
+      "path": "skills/medical-ai-engineering/handover/SUBAGENT_TO_ROOT.md",
+      "sha256": "163a80e9f72d8e34764b83ac44b3a16a7181926f7443dc1a1578857b54f0702d",
+      "bytes": 345
+    },
+    {
+      "path": "skills/medical-ai-engineering/knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "692e5a7d80fd2374628ab915931262ea8ebd6dfb8e88da871bb0a42aff79cd66",
+      "bytes": 403
+    },
+    {
+      "path": "skills/medical-ai-engineering/knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "9524e05e79c5043e49154d9984a3b4294d3f5d2f7c219b10cbc5464edbdf8be7",
+      "bytes": 550
+    },
+    {
+      "path": "skills/medical-ai-engineering/knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "fa91c87907631c96c95aafdd11309f6aa597ee295307461aa1b6eaadd973dd21",
+      "bytes": 529
+    },
+    {
+      "path": "skills/medical-ai-engineering/learning/ANTI_FORGETTING.md",
+      "sha256": "d0b37a55639b6ebb95a2a113bb6d8043f0188ff2873ff6fc30ff7c01f55bfdb0",
+      "bytes": 422
+    },
+    {
+      "path": "skills/medical-ai-engineering/learning/CONTINUOUS_LEARNING.md",
+      "sha256": "674b7f71308514a2faf9ba005fcc1e4427d1068258baa9893582981a2725a5c5",
+      "bytes": 491
+    },
+    {
+      "path": "skills/medical-ai-engineering/learning/TOKEN_EFFICIENCY.md",
+      "sha256": "49504344899e1dfef2db84e95b1a1e3eb86a997ee67b3b443dc4d9851bfe0542",
+      "bytes": 550
+    },
+    {
+      "path": "skills/medical-ai-engineering/memory/DECISIONS.md",
+      "sha256": "1178cc09b3d5681eb16cd38c41c74bb276f9fe116cff080a982999c5f7474960",
+      "bytes": 145
+    },
+    {
+      "path": "skills/medical-ai-engineering/memory/EXECUTIONS.md",
+      "sha256": "a367cb71c6a265c181966217f5564349ecc66a8e23bdb11fd550a387821c428a",
+      "bytes": 146
+    },
+    {
+      "path": "skills/medical-ai-engineering/memory/FAILURES.md",
+      "sha256": "db817ac096c8d80926c4e8cf578ce885916985c79568fb3c9f0aa5e73fa61145",
+      "bytes": 144
+    },
+    {
+      "path": "skills/medical-ai-engineering/memory/LESSONS.md",
+      "sha256": "808429348871084919f59c11fd7abdd2e2dd270fd576c7bd7687bf14777c7cc2",
+      "bytes": 143
+    },
+    {
+      "path": "skills/medical-ai-engineering/memory/OPEN_RISKS.md",
+      "sha256": "87146c1cc1cf9dd615ad7ee161b4e54fb4b9b749b9a389d14c7969cf886975d3",
+      "bytes": 146
+    },
+    {
+      "path": "skills/medical-ai-engineering/memory/PATTERNS.md",
+      "sha256": "17c4b00ec1cd6965cd9a4a2595e4ccd086b1a4209b50bf6f7f3d9e6277c116a6",
+      "bytes": 144
+    },
+    {
+      "path": "skills/medical-ai-engineering/subagents/ADAPTER_SPECIALIST.md",
+      "sha256": "3b5b463980c6e755a395b551c1a12e23228888174cb52e07618e44f343ea4c86",
+      "bytes": 1327
+    },
+    {
+      "path": "skills/medical-ai-engineering/subagents/ARCHITECTURE_GOVERNOR.md",
+      "sha256": "e94fccf0c526234566623bfbac9359d7611caee13ef81a4243cfdf3fbdae7325",
+      "bytes": 1319
+    },
+    {
+      "path": "skills/medical-ai-engineering/subagents/BM25_SPECIALIST.md",
+      "sha256": "54aadddf5a2e601903cf87eaca7dcd44a1453d9693da8f17947d72b4b0aa7be7",
+      "bytes": 1302
+    },
+    {
+      "path": "skills/medical-ai-engineering/subagents/CONTINUOUS_LEARNING_SPECIALIST.md",
+      "sha256": "1b0c5eb0bea8c65620db2b4c78f9af3d6524045237d427b23c1a364c94162ac4",
+      "bytes": 1362
+    },
+    {
+      "path": "skills/medical-ai-engineering/subagents/DATA_GOVERNANCE_SPECIALIST.md",
+      "sha256": "e7e11f4ce0eb99980ccc04f2fba3c8c36cd67b278a9ed4269b71f4dbed99c63b",
+      "bytes": 1304
+    },
+    {
+      "path": "skills/medical-ai-engineering/subagents/DOCUMENTATION_ENGINEER.md",
+      "sha256": "bb5361d542cbe3584cb99ea36b4431a48da9ef35588f511250221ba9a76d0954",
+      "bytes": 1302
+    },
+    {
+      "path": "skills/medical-ai-engineering/subagents/EXPERT_JUDGE.md",
+      "sha256": "5b84df8eb730ab93c385eeeea335234c73f85743f34a5bd6c1bb420032d97f65",
+      "bytes": 1322
+    },
+    {
+      "path": "skills/medical-ai-engineering/subagents/FINE_TUNING_SPECIALIST.md",
+      "sha256": "43d2b48a32ca15b8d2cae49d4fb5bd5c77dc5890ab368756a475b92431e242c7",
+      "bytes": 443
+    },
+    {
+      "path": "skills/medical-ai-engineering/subagents/MEDICAL_EVIDENCE_RESEARCHER.md",
+      "sha256": "3539d617b7a188710394f68b41fc478240706b12fce7f2a5ab43c5bcd8999eaa",
+      "bytes": 1304
+    },
+    {
+      "path": "skills/medical-ai-engineering/subagents/OWASP_AI_SECURITY_SPECIALIST.md",
+      "sha256": "cb40fcbdc539d469a540b47582f4c4b896399fe168e11efad2afa199044c62e3",
+      "bytes": 1318
+    },
+    {
+      "path": "skills/medical-ai-engineering/subagents/PLANNING_ORCHESTRATOR.md",
+      "sha256": "91c36d518cbead50ee00d1694a9278d97ad3870d79ea32779d9bb2afe60c04fa",
+      "bytes": 1301
+    },
+    {
+      "path": "skills/medical-ai-engineering/subagents/PYTHON_STAFF_ENGINEER.md",
+      "sha256": "da94056beba0e8fab74025cbb1853f16d9514ec0b33c0097a8aadb2843c6e45c",
+      "bytes": 1292
+    },
+    {
+      "path": "skills/medical-ai-engineering/subagents/QUALIFIED_SOURCE_CURATOR.md",
+      "sha256": "8dc3b84f40cefb4334e1c643b265be5b8261a13c0e99429152352dc0a73d8bbe",
+      "bytes": 1312
+    },
+    {
+      "path": "skills/medical-ai-engineering/subagents/RAG_SPECIALIST.md",
+      "sha256": "816505dee4a88856b972403bc7b759b0e28bc608ca00b19282b5768e663e3aad",
+      "bytes": 1284
+    },
+    {
+      "path": "skills/medical-ai-engineering/subagents/REPOSITORY_CARTOGRAPHER.md",
+      "sha256": "8e6520600c5a6cbac63510c41aec89df19383f3f4ac91eb8b7c141b7b4615110",
+      "bytes": 1314
+    },
+    {
+      "path": "skills/medical-ai-engineering/subagents/SIMULATION_SCIENTIST.md",
+      "sha256": "2b83777362f968fbafd94dca838c2908432ab5550de971a9a3803164158a3f99",
+      "bytes": 1320
+    },
+    {
+      "path": "skills/medical-ai-engineering/subagents/TEST_EVALUATION_ENGINEER.md",
+      "sha256": "f3314e223b5e980b13fd041322b9b5754d03575a491d803372a3cdcdbb9e00bd",
+      "bytes": 1309
+    },
+    {
+      "path": "skills/medical-ai-engineering/subagents/TOKEN_CONTEXT_GOVERNOR.md",
+      "sha256": "de935c6142e0c62b77c9f8d0f0f559ee55620daca3a42c20ed16f8bbef68ce81",
+      "bytes": 1319
+    },
+    {
+      "path": "skills/medical-ai-engineering/subagents/TRAINING_PIPELINE_SPECIALIST.md",
+      "sha256": "23ca4683ea41d8c7c006c1db0bf8a137f11d5ced435e9830c1fcec703740d11d",
+      "bytes": 1314
+    },
+    {
+      "path": "skills/medical-ai-engineering/subagents/VULNERABILITY_INTELLIGENCE_SPECIALIST.md",
+      "sha256": "92e71d2ac1632953c90f6389f82952e4302dcaea9158210094e4c9a6758e7064",
+      "bytes": 1334
+    },
+    {
+      "path": "src/medical_research_mcp/AI_OWASP.py",
+      "sha256": "560a27999181a27e17f6694beda2499e31a579f6f87738c292eda78f43ec6d2d",
+      "bytes": 1253
+    },
+    {
+      "path": "src/medical_research_mcp/AI_architecture.py",
+      "sha256": "aad80c43264bb7a1e4f67de6c3b5a747ab822cfa00f184fc7225976c4215f60e",
+      "bytes": 774
+    },
+    {
+      "path": "src/medical_research_mcp/AI_architecture_best_practices.py",
+      "sha256": "5bb2adae9976ebd05e1e04ffb50a6d42f180cf0931f457446ee857a2835bd7c7",
+      "bytes": 755
+    },
+    {
+      "path": "src/medical_research_mcp/AI_best_practises.py",
+      "sha256": "a370c0dbc2f854e9579b72444dd285d6b1d75ba4e19347e706422e250fbd18e5",
+      "bytes": 579
+    },
+    {
+      "path": "src/medical_research_mcp/AI_trainning_pipeline.py",
+      "sha256": "9c723db48eaeb1b58f44441bc97b9d5bba76f1ead5229f5d9fd4ef39e739396d",
+      "bytes": 1465
+    },
+    {
+      "path": "src/medical_research_mcp/RAG.py",
+      "sha256": "e1646345bf4b96bd32da5e9a822845df2b116f07599a864f1e7aca615e7eb401",
+      "bytes": 418
+    },
+    {
+      "path": "src/medical_research_mcp/__init__.py",
+      "sha256": "37d4b344cd38b0a9740eedce0b7c64fbaa5b3be3a7a5dbda151bf65e1f21205e",
+      "bytes": 55
+    },
+    {
+      "path": "src/medical_research_mcp/audit.py",
+      "sha256": "662905d079b0bf1c776de94fa73c41d4eac62978103fba75bbb7e1364403063b",
+      "bytes": 1428
+    },
+    {
+      "path": "src/medical_research_mcp/bm25.py",
+      "sha256": "95a2147b5354acbe38c037edd49696954a2b2a7da72ea9fc7379406167867579",
+      "bytes": 1102
+    },
+    {
+      "path": "src/medical_research_mcp/continuos_learning.py",
+      "sha256": "8e250579d411e31014e5629cab8329c1e187c273094336a5b045bf2ad09ebd8c",
+      "bytes": 792
+    },
+    {
+      "path": "src/medical_research_mcp/continuos_learning_architecture.py",
+      "sha256": "4abdc1047aca54938c03f4ebd6e78b93aa4adcfd34fb47352e33dbc230981062",
+      "bytes": 722
+    },
+    {
+      "path": "src/medical_research_mcp/continuous_learning.py",
+      "sha256": "5af30b7269c9fb46836ee63ffbd972d61711c81b3281e1c5b7d331c95bf69fc8",
+      "bytes": 34
+    },
+    {
+      "path": "src/medical_research_mcp/continuous_learning_architecture.py",
+      "sha256": "661595b09fa9c16c4e2e28e49cf5be85a187916f7b401b11578ab263b4391da6",
+      "bytes": 47
+    },
+    {
+      "path": "src/medical_research_mcp/dependency_security.py",
+      "sha256": "f7c75f3570285b7ba3d5270f2e2d05d588e07e5c470a849d49f6bc3953d1f79c",
+      "bytes": 5916
+    },
+    {
+      "path": "src/medical_research_mcp/expert_validator(accepts only with 10.0).py",
+      "sha256": "77b9b0049f4234acb26234c7c075fea6abde5d184d5ed25a6d50ee714175e2f5",
+      "bytes": 169
+    },
+    {
+      "path": "src/medical_research_mcp/expert_validator.py",
+      "sha256": "69c67c3b39f0cc77c1818cb5e479efb2be58eec77f7e77a955059b071f8ec163",
+      "bytes": 815
+    },
+    {
+      "path": "src/medical_research_mcp/lora_qora_dora_doubleLora.py",
+      "sha256": "999f17009319d2c0c268853375ee2013d97125db680b46a3f4ec20b9b07f79db",
+      "bytes": 839
+    },
+    {
+      "path": "src/medical_research_mcp/models.py",
+      "sha256": "26d1bdba1cad3109475b9b79ba1bcb6c2b1d3e408064e44080e75ccea4f71fd3",
+      "bytes": 2362
+    },
+    {
+      "path": "src/medical_research_mcp/planning.py",
+      "sha256": "ccbfd3d35013af96d87fecc142d6526d70decfbae779fe061e61d614dd67fe6f",
+      "bytes": 768
+    },
+    {
+      "path": "src/medical_research_mcp/python_best_practises.py",
+      "sha256": "2c9815393dd19bb78928512d1b0e8ea5f5fc6217104b8442017b4fca319ed3af",
+      "bytes": 603
+    },
+    {
+      "path": "src/medical_research_mcp/qualified_sites_for_medical_research_around_world.py",
+      "sha256": "2552a7001803195ab539a307e655def7b842e43f8b273970c124d3c9fe9ddd9b",
+      "bytes": 175
+    },
+    {
+      "path": "src/medical_research_mcp/qulified_sites_for_medical_researchs_around_world.py",
+      "sha256": "905791cb07fd4f2cd2252167979e81b624a034797b73a078fc1b647ed7d548b3",
+      "bytes": 1538
+    },
+    {
+      "path": "src/medical_research_mcp/repository.py",
+      "sha256": "af7e5c5053ebf88eb23ad2c22e21b54e417c5d895e50d245743a1127980be7a6",
+      "bytes": 2608
+    },
+    {
+      "path": "src/medical_research_mcp/research.py",
+      "sha256": "c3625ed660202dce532b3f9650957aecbd45fa6de44b2fbb3a318f7e03e21aec",
+      "bytes": 4704
+    },
+    {
+      "path": "src/medical_research_mcp/server.py",
+      "sha256": "bc3864c3c6bf289311a0e5db08bd087da363c2fe97468721a3fce4023589713e",
+      "bytes": 8208
+    },
+    {
+      "path": "src/medical_research_mcp/subagents.py",
+      "sha256": "e3116774474442566a5af16183d159d99d3479c6c00da725e5327eb7fbe65a7e",
+      "bytes": 7954
+    },
+    {
+      "path": "src/medical_research_mcp/token_budget.py",
+      "sha256": "515fd38439986fc96a1a1f90caa6a55ca82c91084c553b29d2d17a9ab1683675",
+      "bytes": 2472
+    },
+    {
+      "path": "tests/test_architecture.py",
+      "sha256": "be99f5a592f955e966b6e3032bde9fd8310dc6886f65cf2f37e838cfe97414db",
+      "bytes": 1285
+    },
+    {
+      "path": "tests/test_bm25.py",
+      "sha256": "9babe34158ba3585c0794e8ce7759d55bb163f2d286bf5345ec1e65d1efe23e0",
+      "bytes": 552
+    },
+    {
+      "path": "tests/test_dependency_security.py",
+      "sha256": "3ca9db26a430ce1279b5376425e3ff195b263fc3b8e9a23001f1f489cebac841",
+      "bytes": 801
+    },
+    {
+      "path": "tests/test_owasp.py",
+      "sha256": "a2d30f86fed1232cc4fc27cc70d615c4f93004515a21cfd3c971ef3e48297f2d",
+      "bytes": 408
+    },
+    {
+      "path": "tests/test_pipeline_rag_learning.py",
+      "sha256": "4d3e3f57686d14d406eea9a2854b3ffa1ba1bf00caefd364bd7db91abfde24c0",
+      "bytes": 1183
+    },
+    {
+      "path": "tests/test_research.py",
+      "sha256": "7c7b578f27c85282db6974baf7594af6d0e9cdb8e0adabfdc1115c32e382c925",
+      "bytes": 1117
+    },
+    {
+      "path": "tests/test_subagents.py",
+      "sha256": "7a54421488d195c1bf32c80aa5a3068674e84801ebf34fc3af9f73fc56dbc618",
+      "bytes": 246
+    },
+    {
+      "path": "tests/test_subagents_tokens.py",
+      "sha256": "017e4b7de10bc1329a555f97ff6b484c4fe25617ef230ffcf3bd2692654c474f",
+      "bytes": 916
+    },
+    {
+      "path": "tests/test_validator.py",
+      "sha256": "803678d24866b1c9f8fd6861597420817c7351fc2733fdea1f508099bc0adf92",
+      "bytes": 1205
+    }
+  ]
+}

@@ -1,0 +1,243 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aeos.ai/schemas/skill.schema.json",
+  "title": "AEOS Skill Definition",
+  "description": "Schema for AEOS skill definitions. Skills define reusable capabilities that agents can invoke, wrapping tools, MCP servers, or other skills.",
+  "type": "object",
+  "required": [
+    "$id",
+    "name",
+    "version",
+    "tools"
+  ],
+  "properties": {
+    "$id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z][a-zA-Z0-9_-]*$",
+      "description": "Unique identifier for the skill within the workspace."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the skill."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(-[a-zA-Z0-9.]+)?$",
+      "description": "Semantic version string (semver)."
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of what the skill does and when to use it."
+    },
+    "author": {
+      "type": "string",
+      "description": "Author or maintainer of the skill."
+    },
+    "tools": {
+      "type": "array",
+      "description": "List of tool configurations available through this skill.",
+      "items": {
+        "type": "object",
+        "required": ["name", "tool_type"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Tool name."
+          },
+          "tool_type": {
+            "type": "string",
+            "enum": ["bash", "read", "write", "edit", "glob", "grep", "websearch", "webfetch", "mcp", "skill", "custom"],
+            "description": "Type of tool."
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of what this tool does."
+          },
+          "mcp_server": {
+            "type": "string",
+            "description": "MCP server reference (required if tool_type is 'mcp')."
+          },
+          "config": {
+            "type": "object",
+            "description": "Tool-specific configuration.",
+            "additionalProperties": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "inputs": {
+      "type": "object",
+      "description": "Input parameter schema for the skill.",
+      "properties": {
+        "type": "object",
+        "required": ["properties"],
+        "properties": {
+          "properties": {
+            "type": "object",
+            "description": "Map of input parameter names to their schemas.",
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["string", "number", "integer", "boolean", "array", "object"]
+                },
+                "description": { "type": "string" },
+                "default": {},
+                "enum": {
+                  "type": "array",
+                  "description": "Allowed values."
+                },
+                "pattern": { "type": "string" },
+                "minimum": { "type": "number" },
+                "maximum": { "type": "number" },
+                "items": {
+                  "type": "object",
+                  "description": "Schema for array items."
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "required": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "List of required input parameter names."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "outputs": {
+      "type": "object",
+      "description": "Output schema for the skill.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "default": "object"
+        },
+        "description": {
+          "type": "string"
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "dependencies": {
+      "type": "object",
+      "description": "External dependencies required by this skill.",
+      "properties": {
+        "skills": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "List of skill $id values this skill depends on."
+        },
+        "packages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+              "name": { "type": "string", "description": "Package name." },
+              "version": { "type": "string", "description": "Version constraint." },
+              "manager": {
+                "type": "string",
+                "enum": ["npm", "pip", "cargo", "go", "nuget", "apt", "brew", "choco"],
+                "description": "Package manager."
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "environment": {
+          "type": "object",
+          "additionalProperties": { "type": "string" },
+          "description": "Required environment variables."
+        }
+      },
+      "additionalProperties": false
+    },
+    "timeout": {
+      "type": "integer",
+      "minimum": 1000,
+      "maximum": 600000,
+      "description": "Maximum execution time in milliseconds (default 30000)."
+    },
+    "retry": {
+      "type": "object",
+      "description": "Retry policy for skill execution.",
+      "properties": {
+        "max_attempts": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10,
+          "default": 3,
+          "description": "Maximum number of retry attempts."
+        },
+        "delay_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 1000,
+          "description": "Base delay between retries in milliseconds."
+        },
+        "backoff_multiplier": {
+          "type": "number",
+          "minimum": 1.0,
+          "default": 2.0,
+          "description": "Multiplier for exponential backoff."
+        },
+        "retryable_errors": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Error types that should trigger a retry."
+        }
+      },
+      "additionalProperties": false
+    },
+    "model_requirements": {
+      "type": "object",
+      "description": "Minimum model requirements for this skill.",
+      "properties": {
+        "min_context_window": {
+          "$ref": "#/$defs/tokenCount",
+          "description": "Minimum required context window in tokens."
+        },
+        "min_output_tokens": {
+          "$ref": "#/$defs/tokenCount",
+          "description": "Minimum required output tokens."
+        },
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["vision", "tool_use", "code_execution", "file_io", "web_search", "streaming", "thinking"]
+          },
+          "description": "Model capabilities required."
+        },
+        "provider": {
+          "type": "string",
+          "description": "Required provider (e.g., anthropic, openai)."
+        }
+      },
+      "additionalProperties": false
+    },
+    "config": {
+      "type": "object",
+      "description": "Additional skill-specific configuration.",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "tokenCount": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 200000
+    }
+  }
+}

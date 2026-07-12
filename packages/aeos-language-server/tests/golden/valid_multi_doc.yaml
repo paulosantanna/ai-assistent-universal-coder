@@ -1,0 +1,95 @@
+# valid_multi_doc.yaml -- golden test fixture for AEOS LSP validation
+# This file contains multiple AEOS artifacts separated by YAML document boundaries.
+# The LSP should parse and validate each document independently.
+
+---
+$schema: "https://aeos.ai/schemas/agent.schema.json"
+$id: "multi-agent-alpha"
+name: "Multi-Agent Alpha"
+version: "1.0.0"
+description: "First agent in a multi-document file"
+capabilities:
+  - READ_REPOSITORY
+  - GENERATE_REPORT
+skills:
+  - "skill-reporter"
+---
+$schema: "https://aeos.ai/schemas/agent.schema.json"
+$id: "multi-agent-beta"
+name: "Multi-Agent Beta"
+version: "1.0.0"
+description: "Second agent in a multi-document file"
+capabilities:
+  - READ_FILES
+  - ANALYZE_CODE
+skills:
+  - "skill-analyzer"
+parent: "multi-agent-alpha"
+---
+$schema: "https://aeos.ai/schemas/skill.schema.json"
+$id: "multi-skill-combiner"
+name: "Multi-Skill Combiner"
+version: "1.0.0"
+description: "Skill defined inline in a multi-document file"
+tools:
+  - name: "combine"
+    tool_type: "custom"
+    description: "Combine outputs from multiple agents"
+dependencies:
+  skills:
+    - "skill-analyzer"
+    - "skill-reporter"
+---
+$schema: "https://aeos.ai/schemas/playbook.schema.json"
+$id: "multi-playbook"
+name: "Multi-Playbook"
+version: "1.0.0"
+description: "Playbook defined in a multi-document file"
+steps:
+  - name: "alpha-step"
+    tool: "bash"
+    description: "Execute alpha agent logic"
+    inputs:
+      command: "echo 'Alpha step executed'"
+  - name: "beta-step"
+    skill: "skill-analyzer"
+    description: "Execute beta agent analysis"
+    inputs:
+      path: "/workspace"
+      recursive: false
+    conditions:
+      on_failure: "alpha-step"
+  - name: "combine-step"
+    skill: "multi-skill-combiner"
+    description: "Combine results"
+    inputs:
+      alpha: "{{steps.alpha-step.stdout}}"
+      beta: "{{steps.beta-step.issues}}"
+dependencies:
+  skills:
+    - "skill-analyzer"
+    - "skill-reporter"
+    - "multi-skill-combiner"
+---
+$schema: "https://aeos.ai/schemas/policy.schema.json"
+$id: "multi-policy"
+name: "Multi-Policy"
+version: "1.0.0"
+description: "Policy defined in a multi-document file"
+rules:
+  - name: "allow-multi-reads"
+    description: "Allow read operations for multi-document agents"
+    action: "allow"
+    conditions:
+      all:
+        - in:
+            field: "action.agent_id"
+            values: ["multi-agent-alpha", "multi-agent-beta"]
+        - matches:
+            field: "action.tool"
+            pattern: "^(read|glob|grep)$"
+    action_config:
+      reason: "Read operations are allowed for multi-document agents"
+      severity: "low"
+default_action: "deny"
+priority: 500

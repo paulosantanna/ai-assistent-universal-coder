@@ -1,0 +1,51 @@
+{
+  "package": "AEOS_HIERARCHICAL_AGENT_SYSTEM",
+  "version": "1.0.0",
+  "files": [
+    {
+      "name": "AGENT.md",
+      "sha256": "a3697502c2e76e9e72e76e001828b1ea37026be65a8801566fd8312a605b58b2",
+      "bytes": 11654
+    },
+    {
+      "name": "CHILD_AGENT.md",
+      "sha256": "197304222d2c866e327176018e1f8fa78356228d5eed7b1ac96c65dbb178e2b7",
+      "bytes": 4820
+    },
+    {
+      "name": "CONTINUOUS_LEARNING.md",
+      "sha256": "45f8bb4263c49c68760e7c4b5636169a3a77fad5cc1d7d7fe7078d00ce52b2b0",
+      "bytes": 5466
+    },
+    {
+      "name": "HANDOFF.md",
+      "sha256": "650c965acc4808c6d6284371516838766524e3a358d761c45ed718ac0e811830",
+      "bytes": 4804
+    },
+    {
+      "name": "KNOWLEDGE_PROMOTION.md",
+      "sha256": "3f7043eb877585e287c7f137b0d619f6078e9669693e545c2146ca9fcf08db96",
+      "bytes": 5125
+    },
+    {
+      "name": "MEMORY_SCHEMA.md",
+      "sha256": "83667339ba6b7e094d00704ecfbd3238317aa054b83cc05ef2f272cbb05d5bb8",
+      "bytes": 6231
+    },
+    {
+      "name": "PARENT_AGENT.md",
+      "sha256": "d05b47b4ca7fffcb9827484ff2fe28540eb8b1b3ce1ba2ffdcaa8a7fafa8b0bc",
+      "bytes": 5523
+    },
+    {
+      "name": "README.md",
+      "sha256": "c89d3c8e2731f4cb4bddb9c10000e99679e94c45f2c1d83f0784529099351fa8",
+      "bytes": 1227
+    },
+    {
+      "name": "ROOT_AGENT.md",
+      "sha256": "b21eee47afeb6f1c3abe2b802ee7d23ba1b3e4b71d6ad8360b137f77950b2f89",
+      "bytes": 6513
+    }
+  ]
+}
