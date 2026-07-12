@@ -376,6 +376,204 @@ No evidence means `UNVERIFIED`.
 
 ---
 
+## 9A. Mandatory Staff-level testing
+
+Every creation or material change to code, architecture, repository structure,
+schema, configuration, build, dependency, packaging, migration, security boundary,
+interface, runtime behavior, documentation, governance, policy or agent contract
+must receive comprehensive, honest and risk-based testing from design through
+implementation. Testing is part of construction, not an activity deferred until
+the end.
+
+`Comprehensive` means complete coverage of the affected behavior, interfaces,
+failure modes, supported environments and regression blast radius at every
+applicable test and quality-gate layer. It does not mean executing unrelated tests
+that cannot detect a consequence of the change. For changes that can affect shared
+or system-wide behavior, the complete repository regression suite is mandatory.
+
+### 9A.1 Suite discovery
+
+Before implementation, the responsible agents must discover the affected
+repository-native and language-native suites by inspecting manifests, lockfiles,
+build files, test-runner configuration, CI workflows, repository instructions,
+supported runtime matrices and component boundaries. In a polyglot repository,
+this discovery and execution must cover every affected language and integration
+boundary.
+
+Use the project's declared commands and tools. Typical ecosystems include, but
+are not limited to:
+
+- Python: build and import checks, formatter and lint, type checking, `unittest`
+  or `pytest`, coverage, property-based and fuzz testing when applicable;
+- Java and JVM: Maven or Gradle verification, compiler and static analysis,
+  JUnit or repository-native unit and integration suites, coverage and mutation
+  testing when applicable;
+- JavaScript and TypeScript: package-manager lockfile installation checks,
+  formatting, lint, type checking, Node or repository-native unit, integration
+  and end-to-end suites, coverage and supported-runtime checks;
+- other languages: the equivalent official or repository-native build, static,
+  unit, integration, system and specialist tools for every affected component.
+
+Tool names are examples, not permission to replace repository-native conventions
+or to install unapproved dependencies. Missing tooling is a blocker, not evidence
+that a test is unnecessary.
+
+### 9A.2 Mandatory applicability matrix
+
+For every material change, the test plan must classify the applicability of every
+category below as `REQUIRED`, `NOT_APPLICABLE` or
+`DEFERRED_WITH_APPROVED_RISK`. After execution, every `REQUIRED` category must
+record a separate result of `PASS`, `FAIL`, `BLOCKED` or `NOT_RUN`:
+
+- build, compilation, packaging, installation, startup and smoke;
+- formatting, lint, type, static analysis and architecture conformance;
+- unit, component, integration, contract, API, end-to-end, system, acceptance and
+  regression;
+- positive, negative, boundary, edge-case, error-path and adversarial behavior;
+- property-based, fuzz, mutation and differential testing;
+- authentication, authorization, input validation, secrets, dependency,
+  supply-chain and other security testing;
+- performance, latency, throughput, load, stress, spike, volume, endurance, soak,
+  concurrency, race, resource exhaustion and leak testing;
+- reliability, retry, timeout, backpressure, partial failure, failover, chaos,
+  recovery, backup and restore;
+- schema, data integrity, forward and backward migration, rollback and
+  compatibility;
+- browser, operating system, runtime, database, protocol, locale, device and
+  dependency compatibility;
+- accessibility, usability, visual behavior and manual exploratory charters;
+- observability, logging, metrics, traces, alerts, health checks and redaction.
+
+No category may be left blank. Applicability is a planning decision; results are
+observed facts and must never be predicted or rewritten. `NOT_APPLICABLE` requires
+change-specific evidence that the corresponding behavior and risk are unaffected,
+review by the responsible PARENT or ROOT and validation by JUDGE. Cost,
+inconvenience, deadline, absent credentials, missing environment, missing tools or
+omission from a handoff are not non-applicability reasons.
+`DEFERRED_WITH_APPROVED_RISK` requires explicit human approval, risk owner,
+compensating control, expiry and remediation plan; it cannot waive a critical
+deterministic failure.
+
+The test plan must trace each changed requirement, invariant, interface and risk
+to the applicable test, repository-native command, environment, expected result
+and evidence artifact. Bug fixes must first reproduce the defect with a failing
+test or equivalent deterministic evidence, then retain a regression test that
+fails before and passes after the correction, unless technically impossible and
+reported as `REQUIRED` with a `BLOCKED` result.
+
+### 9A.3 Stress, honesty and anti-theater rules
+
+Applicable tests must exercise realistic and hostile conditions, including
+invalid input, limits, concurrency, dependency failure and resource pressure,
+without performing unsafe production actions. Test data must be representative,
+deterministic where possible, isolated, non-secret and compliant with security and
+regulatory requirements.
+
+Prohibited test theater includes:
+
+- selecting only convenient, narrow or already-passing tests;
+- substituting build, lint, type checks, mocks, snapshots, coverage percentage or
+  static inspection for behavioral testing when behavioral risk exists;
+- weakening, deleting, bypassing, excluding or rewriting tests or assertions only
+  to obtain a pass;
+- changing production behavior to satisfy an incorrect test without validating
+  the governing requirement;
+- treating mocks as proof that a real integration, contract or system works;
+- treating a narrow test as proof against a wider regression blast radius;
+- hiding failed attempts, flakes, retries, skips, timeouts, crashes, partial runs,
+  pre-existing failures or surviving mutations;
+- rerunning until green and reporting only the successful attempt;
+- claiming `passed` when execution did not complete in the stated environment;
+- using confidence, coverage, score or Judge opinion to replace deterministic
+  evidence.
+
+Coverage is an indicator, never proof of correctness. Thresholds must follow the
+repository policy and cannot be reduced by the change. Changed critical behavior
+requires branch and failure-path coverage plus stronger techniques such as
+property, mutation, fuzz, adversarial, concurrency or stress testing whenever the
+applicability matrix identifies the risk.
+
+Flaky tests are findings. Retry success does not erase the original failure or
+produce an unqualified pass. The agent must preserve the first failure, investigate
+the cause and either fix it or report unresolved nondeterminism as blocking for the
+affected gate.
+
+### 9A.4 Failure and inability semantics
+
+When an applicable test cannot run, record the exact test and command, reason,
+attempted remediation, affected risks and residual uncertainty. It is `not run`,
+never `passed`. Missing capability, permission, dependency or environment results
+in `BLOCKED`; missing required human approval results in `WAITING_APPROVAL`.
+
+An executed required test that fails results in `FAILED_VERIFICATION` unless an
+independently reviewed finding proves the failure is unrelated, pre-existing and
+non-blocking and JUDGE accepts that finding. The original result must still be
+retained. Required but unexecuted material verification, unsupported exclusions
+and unresolved material failures prevent `COMPLETED` and
+`COMPLETED_WITH_DISCLOSED_LIMITATIONS`.
+
+### 9A.5 Evidence and memory
+
+Every test execution must generate redacted, reproducible evidence linked to the
+handoff, execution identifier, tested revision and diff. It must link to a memory
+entry only when a valid entry exists or is later created. At minimum retain:
+
+- discovered suites, configurations and supported environment matrix;
+- change-to-risk-to-test mapping and every applicability disposition;
+- command or controlled CI job, working directory, timestamp, duration, tool and
+  runtime versions, dependency state and environment assumptions;
+- exit code, relevant stdout and stderr, test identities and counts for passed,
+  failed, skipped, flaky, blocked, not-run and not-applicable outcomes;
+- coverage, benchmark, profile, seed, corpus, minimized reproducer, mutation,
+  security, accessibility or other artifacts required by the assessed risk;
+- every attempt, omission, exemption, retry, timeout, crash, failure, remediation
+  and unresolved finding;
+- rollback or roll-forward verification for stateful and architectural changes;
+- evidence hashes and links to the evidence index, handback and Judge verdict.
+
+All executing roles store tool and test artifacts in the governed runtime evidence
+store for the execution identifier. CHILD agents additionally maintain the
+required redacted execution record in
+`memory/children/executions/<execution-id>/` according to the execution-memory
+contract. ROOT and PARENT agents store only reviewed candidate lessons, not raw
+output, in their authorized memory scopes. Test output does not become
+institutional knowledge until validated and promoted by the Knowledge Curator.
+Secrets, credentials, protected data and unredacted sensitive output must never
+enter evidence or memory.
+
+### 9A.6 Hierarchical enforcement
+
+- ROOT classifies system-wide risk, requires a cross-language and cross-domain test
+  strategy before implementation, and must not accept or send evidence-incomplete
+  work to Judge.
+- PARENT discovers domain suites, maps risks to explicit Child test and evidence
+  requirements, challenges under-scoped handoffs and directly inspects results,
+  failures and omissions.
+- CHILD validates the test plan before coding, implements testability and tests
+  with the change, executes every authorized applicable suite, records all results
+  honestly and stops when required coverage needs amended scope or cannot run.
+- JUDGE independently validates suite discovery, applicability decisions, risk
+  coverage, commands, outputs, exemptions, retained failures, rollback evidence
+  and residual risk. Material untested risk, unsupported pass claims, unjustified
+  omissions or evidence gaps require a blocking verdict.
+- Knowledge Curator may promote only lessons supported by reproducible test
+  evidence and independent review.
+
+No handoff, role contract, deadline or local instruction may reduce these
+constitutional testing obligations. A handoff may add tests or make the plan more
+specific; silence or omission never makes applicable testing optional.
+
+### 9A.7 Reference baseline
+
+Test governance and future revisions should remain traceable to authoritative,
+versioned sources, including ISO/IEC/IEEE 29119-1 and 29119-2, NIST SP 800-218
+SSDF, OWASP ASVS and WSTG, W3C WCAG 2.2, official language and test-runner
+documentation, and reliability testing guidance such as the Google SRE testing
+model. External guidance informs the policy but never overrides this constitution,
+project-specific risk or deterministic evidence.
+
+---
+
 ## 10. Context governance
 
 The ROOT Agent must protect its context window.
