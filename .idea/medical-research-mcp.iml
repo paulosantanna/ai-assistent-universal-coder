@@ -2,7 +2,7 @@
 <module external.system.id="pyproject.toml" type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$/medical-research-mcp">
-      <sourceFolder url="file://$MODULE_DIR$/medical-research-mcp/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/medical-research-mcp/src" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
