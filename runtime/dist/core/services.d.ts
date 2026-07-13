@@ -36,7 +36,7 @@ export declare class AeosCore {
     policyGenerate(projectPath: string): GeneratedArtifact;
     ciGithub(projectPath: string): GeneratedArtifact;
     releaseCheck(projectPath: string): GeneratedArtifact;
-    providerTemplate(projectPath: string, provider: "openai" | "anthropic" | "ollama" | "deepseek" | "openai-compatible"): GeneratedArtifact;
+    providerTemplate(projectPath: string, provider: "openai" | "anthropic" | "ollama" | "deepseek" | "openai-compatible" | "opencode"): GeneratedArtifact;
     plan(projectPath: string, objective: string): Task;
     tasks(projectPath: string): Task[];
     task(projectPath: string, taskId: string): Task;

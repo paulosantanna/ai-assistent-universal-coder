@@ -34,11 +34,13 @@ Provider and agent execution:
   aeos provider configure ollama [baseUrl] [model] [projectPath]
   aeos provider configure deepseek [model] [apiKeyEnv] [projectPath]
   aeos provider configure openai-compatible [baseUrl] [model] [apiKeyEnv] [projectPath]
+  aeos provider configure opencode [baseUrl] [model] [apiKeyEnv] [projectPath]
   aeos provider status [projectPath]
   aeos provider models [projectPath]
   aeos agent run audit ollama [model] [projectPath]
   aeos agent run audit deepseek [model] [projectPath]
   aeos agent run audit openai-compatible [model] [projectPath]
+  aeos agent run audit opencode [model] [projectPath]
   aeos agent run judge ollama [model] [projectPath]
   aeos agent run remediate ollama [model] [projectPath]
   aeos agent runs [projectPath]
@@ -72,6 +74,7 @@ Operationalization:
   aeos provider template ollama [projectPath]
   aeos provider template deepseek [projectPath]
   aeos provider template openai-compatible [projectPath]
+  aeos provider template opencode [projectPath]
 
 Task/evidence/memory:
   aeos plan "<objective>" [projectPath]
@@ -121,7 +124,7 @@ function objective(v) {
     return v;
 }
 function providerName(v) {
-    const allowed = ["ollama", "deepseek", "openai-compatible"];
+    const allowed = ["ollama", "deepseek", "openai-compatible", "opencode"];
     if (!allowed.includes(v))
         throw new Error(`Invalid executable provider: ${v}`);
     return v;
@@ -215,7 +218,7 @@ async function main() {
                 }
                 if (sub === "template") {
                     const provider = req(args[1], "provider name");
-                    if (provider === "openai" || provider === "anthropic" || provider === "ollama" || provider === "deepseek" || provider === "openai-compatible") {
+                    if (provider === "openai" || provider === "anthropic" || provider === "ollama" || provider === "deepseek" || provider === "openai-compatible" || provider === "opencode") {
                         print(core.providerTemplate(p(args[2]), provider));
                         return;
                     }

@@ -114,7 +114,7 @@ export interface GeneratedArtifact {
   createdAt: string;
 }
 
-export type ProviderName = "ollama" | "deepseek" | "openai-compatible";
+export type ProviderName = "ollama" | "deepseek" | "openai-compatible" | "opencode";
 
 export interface ProviderConfig {
   provider: ProviderName;
