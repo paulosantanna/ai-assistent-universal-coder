@@ -5,15 +5,17 @@ on:
   push:
     branches: [ master ]
 
+permissions:
+  contents: read
+  actions: read
+
 jobs:
   aeos-quality-gates:
     runs-on: ubuntu-latest
     env:
-      GH_TOKEN: ${{ secrets.AEOS_BOT_TOKEN }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.AEOS_BOT_TOKEN }}
 
       - name: AEOS policy tests
         run: echo "Run AEOS policy tests"
