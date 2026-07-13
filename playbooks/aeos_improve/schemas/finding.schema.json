@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AEOS Finding",
+  "type": "object",
+  "required": [
+    "id",
+    "severity",
+    "title",
+    "status",
+    "evidence",
+    "owner"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "severity": {
+      "enum": [
+        "CRITICAL",
+        "HIGH",
+        "MEDIUM",
+        "LOW",
+        "INFO"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "OPEN",
+        "IN_PROGRESS",
+        "FIXED",
+        "VERIFIED",
+        "ACCEPTED_RISK",
+        "BLOCKED"
+      ]
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "owner": {
+      "type": "string"
+    },
+    "root_cause": {
+      "type": "string"
+    },
+    "remediation": {
+      "type": "string"
+    },
+    "verification": {
+      "type": "string"
+    },
+    "risk_acceptance": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,3 @@
+COPY /mnt/data/AEOS_AIDIABETIC_URGENT_IMPROVEMENT_PACK_v1_0_FINAL -> /tmp/tmp.UnCW9iKJBF/aeos/aeos/additions/aidiabetic-urgent-improvement-v1
+WRITE  -> /tmp/tmp.UnCW9iKJBF/aeos/aeos/overlays/aidiabetic-urgent-improvement-v1.index.yaml
+WRITE  -> /tmp/tmp.UnCW9iKJBF/target/.aeos/aidiabetic-improvement-pack.yaml

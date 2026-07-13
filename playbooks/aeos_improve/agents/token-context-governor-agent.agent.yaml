@@ -1,0 +1,22 @@
+agent:
+  id: token-context-governor-agent
+  name: Token and Context Governor Agent
+  version: 1.0.0
+  role: Token and Context Governor
+  risk: HIGH
+  skill: token-context-governor
+  single_responsibility: true
+  may_implement: false
+  may_judge_own_work: false
+  requires:
+    - evidence
+    - bounded_scope
+    - checkpoint
+    - handoff
+  self_review:
+    question: "Estamos pagando tokens para raciocínio novo ou reenviando contexto que já poderia estar indexado?"
+    require_counterexample: true
+    require_rollback_review: true
+    require_test_review: true
+  token_policy: config/token-budget.yaml
+  output_schema: schemas/handoff.schema.json

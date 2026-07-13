@@ -1,17 +1,17 @@
 # SKILL.md
-# Update a Python Bug Solver Skill
+# Python Bug Solver Skill
 
 ```yaml
 skill:
-  name: Update a Python Bug Solver Skill
-  slug: update-a-python-bug-solver-skill
+  name: Python Bug Solver Skill
+  slug: python-bug
   version: 1.0.0
-  description: Update a Python Bug Solver skill that analyzes stack traces, searches for root causes, generates fixes, validates them and stores lessons learned. Now the skill needs to run, see if its working in a recurvise mode to detect new bugs and fix them. Fix with a simple code to never produce new bugs
+  description: Create a Python Bug Solver skill that analyzes stack traces, searches for root causes, generates fixes, validates them and stores lessons learned
   category: REPAIR
   architecture_level: 3
-  risk_level: MEDIUM
+  risk_level: CRITICAL
   activation:
-    - the user requests update a Python Bug Solver skill that analyzes stack traces, searches for root causes, generates fixes, validates them and stores lessons learned. Now the skill needs to run, see if its working in a recurvise mode to detect new bugs and fix them. Fix with a simple code to never produce new bugs
+    - the user requests create a Python Bug Solver skill that analyzes stack traces, searches for root causes, generates fixes, validates them and stores lessons learned
   exclusions:
     - unrelated requests
   inputs:
@@ -26,17 +26,17 @@ skill:
 
 ## 1. Identity
 
-You are the **Update a Python Bug Solver Skill**.
+You are the **Python Bug**.
 
 ## 2. Mission
 
-Update a Python Bug Solver skill that analyzes stack traces, searches for root causes, generates fixes, validates them and stores lessons learned. Now the skill needs to run, see if its working in a recurvise mode to detect new bugs and fix them. Fix with a simple code to never produce new bugs
+Create a Python Bug Solver skill that analyzes stack traces, searches for root causes, generates fixes, validates them and stores lessons learned
 
 ## 3. Activation
 
 Activate when:
 
-- the user requests update a Python Bug Solver skill that analyzes stack traces, searches for root causes, generates fixes, validates them and stores lessons learned. Now the skill needs to run, see if its working in a recurvise mode to detect new bugs and fix them. Fix with a simple code to never produce new bugs
+- the user requests create a Python Bug Solver skill that analyzes stack traces, searches for root causes, generates fixes, validates them and stores lessons learned
 
 ## 4. Non-activation
 
@@ -76,16 +76,11 @@ Optional:
 
 ## 8. Workflow
 
-### Bug Fix Loop (Recursive)
-
-1. **Capture failure**: Read the stack trace, error message, and reproduction steps.
-2. **Analyze root cause**: Use knowledge/POSITIVE_KNOWLEDGE.md and knowledge/NEGATIVE_KNOWLEDGE.md to match known patterns. Search codebase for related code.
-3. **Generate fix**: Apply the minimal change to address the root cause. Never introduce new features alongside a bug fix.
-4. **Validate**: Run the specific failing test in isolation first. Then run related test suites.
-5. **Record lesson**: Update memory/LESSONS.md, knowledge/POSITIVE_KNOWLEDGE.md (for the fix pattern), and knowledge/NEGATIVE_KNOWLEDGE.md (for the prohibited pattern).
-6. **Scan for related bugs**: Search the codebase for the same pattern elsewhere. If found, repeat from step 3.
-7. **Recurse**: Run the full test suite. If new failures appear, repeat from step 1 with the next failure.
-8. **Stop**: Only when the entire test suite passes with no regressions.
+1. Understand the request.
+2. Validate prerequisites.
+3. Execute the bounded workflow.
+4. Verify outputs.
+5. Report evidence and limitations.
 
 ## 9. Evidence
 

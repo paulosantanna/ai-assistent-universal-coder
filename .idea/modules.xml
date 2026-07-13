@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/AEOS_CHIEF_STAFF_v1.iml" filepath="$PROJECT_DIR$/.idea/AEOS_CHIEF_STAFF_v1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/aeos-aidiabetic-urgent-improvement-pack.iml" filepath="$PROJECT_DIR$/.idea/aeos-aidiabetic-urgent-improvement-pack.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/aeos-aidiabetic-urgent-improvement-pack@1.iml" filepath="$PROJECT_DIR$/.idea/aeos-aidiabetic-urgent-improvement-pack@1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/aeos-lsp.iml" filepath="$PROJECT_DIR$/.idea/aeos-lsp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/aeos-python-ai-rag.iml" filepath="$PROJECT_DIR$/.idea/aeos-python-ai-rag.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/aeos-workbench.iml" filepath="$PROJECT_DIR$/.idea/aeos-workbench.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/complete-docs-mcp.iml" filepath="$PROJECT_DIR$/.idea/complete-docs-mcp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/continuous-training-mcp.iml" filepath="$PROJECT_DIR$/.idea/continuous-training-mcp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/language-docs-mcp.iml" filepath="$PROJECT_DIR$/.idea/language-docs-mcp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/medical-research-mcp.iml" filepath="$PROJECT_DIR$/.idea/medical-research-mcp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/universal-project-mcp.iml" filepath="$PROJECT_DIR$/.idea/universal-project-mcp.iml" />
+    </modules>
+  </component>
+</project>

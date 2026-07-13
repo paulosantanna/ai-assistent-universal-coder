@@ -71,6 +71,7 @@ playbooks:
     required_lcps: [global-rules, security-governance]
     allowed_mcps: [filesystem-readonly, filesystem-write-sandbox]
 
+<<<<<<< Updated upstream
   - id: performance-optimization
     path: aeos/playbooks/performance-optimization.playbook.md
     risk_level: high
@@ -78,3 +79,50 @@ playbooks:
     required_skills: [performance-optimizer, token-budget-governor, change-trace-auditor, test-generation, chromatic-mega-brain]
     required_lcps: [global-rules, token-economy, security-governance]
     allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, test-runner-controlled, package-local]
+=======
+  - id: aidiabetic-urgent-improvement-v1
+    path: aeos/playbooks/enterprise/aidiabetic-urgent-improvement-v1.playbook.yaml
+    risk_level: critical
+    required_agents:
+      - improvement-program-orchestrator-agent
+      - repository-baseline-cartographer-agent
+      - e2e-critical-flow-engineer-agent
+      - openapi-contract-engineer-agent
+      - problem-details-error-governor-agent
+      - modularization-architecture-governor-agent
+      - clinical-rag-cache-engineer-agent
+      - external-health-resilience-engineer-agent
+      - configuration-governance-engineer-agent
+      - clinical-observability-engineer-agent
+      - c4-architecture-documenter-agent
+      - release-automation-engineer-agent
+      - dead-code-safety-pruner-agent
+      - precommit-quality-engineer-agent
+      - performance-slo-engineer-agent
+      - security-clinical-safety-reviewer-agent
+      - evidence-readiness-judge-agent
+      - token-context-governor-agent
+      - improvement-metrics-governor-agent
+    required_skills:
+      - improvement-program-orchestrator
+      - repository-baseline-cartographer
+      - e2e-critical-flow-engineer
+      - openapi-contract-engineer
+      - problem-details-error-governor
+      - modularization-architecture-governor
+      - clinical-rag-cache-engineer
+      - external-health-resilience-engineer
+      - configuration-governance-engineer
+      - clinical-observability-engineer
+      - c4-architecture-documenter
+      - release-automation-engineer
+      - dead-code-safety-pruner
+      - precommit-quality-engineer
+      - performance-slo-engineer
+      - security-clinical-safety-reviewer
+      - evidence-readiness-judge
+      - token-context-governor
+      - improvement-metrics-governor
+    required_lcps: [global-rules, security-governance]
+    allowed_mcps: [filesystem-readonly, git-readonly, filesystem-write-sandbox]
+>>>>>>> Stashed changes

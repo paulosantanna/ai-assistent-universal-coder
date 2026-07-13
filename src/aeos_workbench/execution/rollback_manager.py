@@ -40,7 +40,7 @@ class RollbackManager:
         self.operations.append(operation)
 
     def save(self, encrypt: bool = False) -> Path:
-        execution_id = self.evidence_dir.parent.name
+        execution_id = self.evidence_dir.name
         data = {
             "execution_id": execution_id,
             "generated_at": datetime.now(timezone.utc).isoformat(),

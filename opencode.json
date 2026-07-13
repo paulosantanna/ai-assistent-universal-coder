@@ -1,9 +1,32 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "skills": {
-    "paths": ["aeos/skills/core", "aeos/skills/enterprise", "aeos/skills/generated"]
+    "paths": [
+      "skills",
+      "skills/Skill_Creator/skills",
+      "aeos/skills/core",
+      "aeos/skills/enterprise",
+      "aeos/skills/generated"
+    ]
   },
   "instructions": [
+    "AGENT.md",
+    "ROOT_AGENT.md",
+    "PARENT_AGENT.md",
+    "CHILD_AGENT.md",
+    "HANDOFF.md",
+    "AEOS_CONSTITUTION.md",
+    "AEOS_SKILL_CONTRACT.md",
+    "AEOS_SUBAGENT_SYSTEM.md",
+    "AEOS_TASK_DELEGATION_CONTRACT.md",
+    "AEOS_JUDGE_V7_AGENT_RULES.md",
+    "AEOS_MEMORY_MODEL.md",
+    "AEOS_POLICY_ENGINE.md",
+    "AEOS_PERMISSION_MODEL.md",
+    "AEOS_SECURITY_MODEL.md",
+    "AEOS_PLAYBOOK_CONTRACT.md",
+    "AEOS_MCP_CONNECTOR_SPEC.md",
+    "AEOS_KERNEL.md",
     "aeos/config/aeos.config.yaml",
     "aeos/config/tool-router.config.yaml",
     "aeos/config/mcp.runtime.yaml"

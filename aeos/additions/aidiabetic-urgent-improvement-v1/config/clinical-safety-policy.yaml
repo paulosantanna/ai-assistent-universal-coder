@@ -1,0 +1,36 @@
+clinical_safety:
+  project_mode: research_only_unless_external_governance_proves_otherwise
+  human_review_required_for:
+    - patient_facing_clinical_output
+    - medication_recommendation
+    - contraindication_or_interaction_logic
+    - clinical_threshold_change
+    - safety_guardrail_change
+  cache:
+    default_for_personalized_clinical_output: deny
+    default_for_phi: deny
+    allow_only_when:
+      - query_class_is_safe
+      - tenant_and_user_scope_are_isolated
+      - evidence_version_is_in_key
+      - model_prompt_index_versions_are_in_key
+      - ttl_is_bounded
+      - invalidation_is_tested
+      - privacy_review_passes
+  observability:
+    store_raw_clinical_prompt: false
+    store_raw_patient_response: false
+    require_redaction: true
+    require_aggregate_metrics: true
+  metrics:
+    allowed:
+      - abstention_rate
+      - safety_block_rate
+      - citation_presence_rate
+      - groundedness_evaluation_rate
+      - retrieval_quality_on_labeled_sets
+      - latency_and_error_rate
+    prohibited_without_explicit_governance:
+      - raw_patient_text
+      - direct_identifiers
+      - unvalidated_production_accuracy_claim

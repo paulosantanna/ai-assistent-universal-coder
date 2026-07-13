@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AEOS Handoff",
+  "type": "object",
+  "required": [
+    "from",
+    "to",
+    "objective",
+    "status",
+    "completed",
+    "pending",
+    "evidence",
+    "verification_command",
+    "checkpoint"
+  ],
+  "properties": {
+    "from": {
+      "type": "string"
+    },
+    "to": {
+      "type": "string"
+    },
+    "objective": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "REWORK_REQUIRED",
+        "BLOCKED",
+        "WAITING_APPROVAL"
+      ]
+    },
+    "completed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "pending": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "accepted_decisions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rejected_options": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "verification_command": {
+      "type": "string"
+    },
+    "checkpoint": {
+      "type": "string"
+    },
+    "changed_files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "next_exact_action": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

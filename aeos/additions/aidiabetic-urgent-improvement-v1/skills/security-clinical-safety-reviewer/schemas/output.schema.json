@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Security and Clinical Safety Reviewer output",
+  "type": "object",
+  "required": [
+    "skill",
+    "status",
+    "summary",
+    "evidence",
+    "verification",
+    "handoff"
+  ],
+  "properties": {
+    "skill": {
+      "const": "security-clinical-safety-reviewer"
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "REWORK_REQUIRED",
+        "BLOCKED"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "verification": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "handoff": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}

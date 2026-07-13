@@ -1,0 +1,9 @@
+overlay:
+  id: aidiabetic-urgent-improvement-v1
+  version: 1.0.0
+  root: aeos/additions/aidiabetic-urgent-improvement-v1
+  registries:
+    skills: aeos/additions/aidiabetic-urgent-improvement-v1/registries/skills.registry.overlay.yaml
+    agents: aeos/additions/aidiabetic-urgent-improvement-v1/registries/agents.registry.overlay.yaml
+    playbooks: aeos/additions/aidiabetic-urgent-improvement-v1/registries/enterprise-playbooks.registry.overlay.yaml
+  enabled: true

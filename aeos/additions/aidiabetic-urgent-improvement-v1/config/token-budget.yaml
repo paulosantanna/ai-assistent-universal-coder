@@ -1,0 +1,48 @@
+token_governance:
+  deterministic_first: true
+  model_aliases:
+    economy:
+      env: AEOS_MODEL_ECONOMY
+      suggested_default: deepseek-v4-flash-free
+    long_context:
+      env: AEOS_MODEL_LONG_CONTEXT
+      suggested_default: gemini-3-pro
+    high_assurance:
+      env: AEOS_MODEL_HIGH_ASSURANCE
+      suggested_default: gpt-5
+  routing:
+    static_analysis: deterministic
+    repository_inventory: economy
+    repetitive_low_risk_edit: economy
+    architecture_synthesis: long_context
+    cross_repository_reasoning: long_context
+    clinical_or_security_review: high_assurance
+    final_judge_explanation: high_assurance
+  budgets:
+    economy_task_max_tokens: 12000
+    long_context_task_max_tokens: 32000
+    high_assurance_task_max_tokens: 24000
+    max_repeated_context_percent: 20
+    max_full_file_reads_per_agent: 12
+  checkpoints:
+    at_percent:
+      - 40
+      - 70
+      - 85
+    force_respawn_at_percent: 95
+    checkpoint_path: .aeos-runtime/checkpoints
+  compression:
+    preserve:
+      - objective
+      - accepted_decisions
+      - rejected_options
+      - findings_with_evidence
+      - blockers
+      - changed_files
+      - verification_commands
+      - next_exact_action
+    discard:
+      - repeated_logs
+      - duplicated_source_text
+      - speculative_discussion
+      - superseded_plans

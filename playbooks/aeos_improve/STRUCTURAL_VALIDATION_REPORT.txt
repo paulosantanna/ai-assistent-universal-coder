@@ -1,0 +1,23 @@
+SKILL c4-architecture-documenter: PASS
+SKILL clinical-observability-engineer: PASS
+SKILL clinical-rag-cache-engineer: PASS
+SKILL configuration-governance-engineer: PASS
+SKILL dead-code-safety-pruner: PASS
+SKILL e2e-critical-flow-engineer: PASS
+SKILL evidence-readiness-judge: PASS
+SKILL external-health-resilience-engineer: PASS
+SKILL improvement-metrics-governor: PASS
+SKILL improvement-program-orchestrator: PASS
+SKILL modularization-architecture-governor: PASS
+SKILL openapi-contract-engineer: PASS
+SKILL performance-slo-engineer: PASS
+SKILL precommit-quality-engineer: PASS
+SKILL problem-details-error-governor: PASS
+SKILL release-automation-engineer: PASS
+SKILL repository-baseline-cartographer: PASS
+SKILL security-clinical-safety-reviewer: PASS
+SKILL token-context-governor: PASS
+SKILLS: 19/19 PASS
+YAML: 29 parsed
+JSON: 24 parsed
+STRUCTURAL_VALIDATION: PASS

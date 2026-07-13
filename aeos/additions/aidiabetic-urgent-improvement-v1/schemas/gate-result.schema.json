@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AEOS Gate Result",
+  "type": "object",
+  "required": [
+    "gate",
+    "critical",
+    "score",
+    "status",
+    "criteria",
+    "evidence"
+  ],
+  "properties": {
+    "gate": {
+      "type": "string"
+    },
+    "critical": {
+      "type": "boolean"
+    },
+    "score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "BLOCKED"
+      ]
+    },
+    "criteria": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "passed"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

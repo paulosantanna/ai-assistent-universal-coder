@@ -1,0 +1,136 @@
+skills:
+  version: 1
+  entries:
+    - id: improvement-program-orchestrator
+      version: 1.0.0
+      path: skills/improvement-program-orchestrator/SKILL.md
+      category: ORCHESTRATION
+      risk: CRITICAL
+      agent: improvement-program-orchestrator-agent
+      enabled: true
+    - id: repository-baseline-cartographer
+      version: 1.0.0
+      path: skills/repository-baseline-cartographer/SKILL.md
+      category: ANALYSIS
+      risk: HIGH
+      agent: repository-baseline-cartographer-agent
+      enabled: true
+    - id: e2e-critical-flow-engineer
+      version: 1.0.0
+      path: skills/e2e-critical-flow-engineer/SKILL.md
+      category: TESTING
+      risk: HIGH
+      agent: e2e-critical-flow-engineer-agent
+      enabled: true
+    - id: openapi-contract-engineer
+      version: 1.0.0
+      path: skills/openapi-contract-engineer/SKILL.md
+      category: DOCUMENTATION
+      risk: HIGH
+      agent: openapi-contract-engineer-agent
+      enabled: true
+    - id: problem-details-error-governor
+      version: 1.0.0
+      path: skills/problem-details-error-governor/SKILL.md
+      category: GOVERNANCE
+      risk: HIGH
+      agent: problem-details-error-governor-agent
+      enabled: true
+    - id: modularization-architecture-governor
+      version: 1.0.0
+      path: skills/modularization-architecture-governor/SKILL.md
+      category: MIGRATION
+      risk: CRITICAL
+      agent: modularization-architecture-governor-agent
+      enabled: true
+    - id: clinical-rag-cache-engineer
+      version: 1.0.0
+      path: skills/clinical-rag-cache-engineer/SKILL.md
+      category: AI_ML
+      risk: CRITICAL
+      agent: clinical-rag-cache-engineer-agent
+      enabled: true
+    - id: external-health-resilience-engineer
+      version: 1.0.0
+      path: skills/external-health-resilience-engineer/SKILL.md
+      category: REPAIR
+      risk: HIGH
+      agent: external-health-resilience-engineer-agent
+      enabled: true
+    - id: configuration-governance-engineer
+      version: 1.0.0
+      path: skills/configuration-governance-engineer/SKILL.md
+      category: GOVERNANCE
+      risk: HIGH
+      agent: configuration-governance-engineer-agent
+      enabled: true
+    - id: clinical-observability-engineer
+      version: 1.0.0
+      path: skills/clinical-observability-engineer/SKILL.md
+      category: CLINICAL
+      risk: CRITICAL
+      agent: clinical-observability-engineer-agent
+      enabled: true
+    - id: c4-architecture-documenter
+      version: 1.0.0
+      path: skills/c4-architecture-documenter/SKILL.md
+      category: DOCUMENTATION
+      risk: MEDIUM
+      agent: c4-architecture-documenter-agent
+      enabled: true
+    - id: release-automation-engineer
+      version: 1.0.0
+      path: skills/release-automation-engineer/SKILL.md
+      category: GENERATION
+      risk: HIGH
+      agent: release-automation-engineer-agent
+      enabled: true
+    - id: dead-code-safety-pruner
+      version: 1.0.0
+      path: skills/dead-code-safety-pruner/SKILL.md
+      category: REPAIR
+      risk: HIGH
+      agent: dead-code-safety-pruner-agent
+      enabled: true
+    - id: precommit-quality-engineer
+      version: 1.0.0
+      path: skills/precommit-quality-engineer/SKILL.md
+      category: TESTING
+      risk: MEDIUM
+      agent: precommit-quality-engineer-agent
+      enabled: true
+    - id: performance-slo-engineer
+      version: 1.0.0
+      path: skills/performance-slo-engineer/SKILL.md
+      category: VALIDATION
+      risk: HIGH
+      agent: performance-slo-engineer-agent
+      enabled: true
+    - id: security-clinical-safety-reviewer
+      version: 1.0.0
+      path: skills/security-clinical-safety-reviewer/SKILL.md
+      category: SECURITY
+      risk: CRITICAL
+      agent: security-clinical-safety-reviewer-agent
+      enabled: true
+    - id: evidence-readiness-judge
+      version: 1.0.0
+      path: skills/evidence-readiness-judge/SKILL.md
+      category: VALIDATION
+      risk: CRITICAL
+      agent: evidence-readiness-judge-agent
+      enabled: true
+    - id: token-context-governor
+      version: 1.0.0
+      path: skills/token-context-governor/SKILL.md
+      category: GOVERNANCE
+      risk: HIGH
+      agent: token-context-governor-agent
+      enabled: true
+    - id: improvement-metrics-governor
+      version: 1.0.0
+      path: skills/improvement-metrics-governor/SKILL.md
+      category: GOVERNANCE
+      risk: HIGH
+      agent: improvement-metrics-governor-agent
+      enabled: true

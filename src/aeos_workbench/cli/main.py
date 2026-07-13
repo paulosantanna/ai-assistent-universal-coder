@@ -62,6 +62,7 @@ def cmd_run(args):
         use_cache=args.cache,
         no_cache=args.no_cache,
         encrypt_rollback=args.encrypt_rollback,
+        approvals=args.approvals,
     )
     print(json.dumps(result, indent=2, ensure_ascii=False))
     if result.get("status") in ("BLOCKED", "failed", "blocked_awaiting_approval"):
@@ -215,6 +216,9 @@ def cmd_code_change_proposal(args):
     )
 
     code_change_report = reports_dir / "code-change-proposal.md"
+    risks_lines = chr(10).join(
+        "- %s (%s)" % (r["risk"], r["level"]) for r in dry_run_result.get("risks", [])
+    )
     code_change_report.write_text(
         f"# Code Change Proposal — {execution_id}\n\n"
         f"**Target:** {target}\n"
@@ -225,7 +229,11 @@ def cmd_code_change_proposal(args):
         f"- Patch generated: {len(patch_result['affected_files'])} files\n\n"
         f"## Assumptions\n- Issue accurately describes the desired change\n"
         f"- All relevant files were identified\n\n"
+<<<<<<< Updated upstream:src/aeos_workbench/cli/main.py
         f"## Risks\n{risk_lines}\n\n"
+=======
+        f"## Risks\n{risks_lines}\n\n"
+>>>>>>> Stashed changes:src/src/aeos_workbench/cli/main.py
         f"## Recommendations\n- Review proposed.patch before approving\n"
         f"- Run sandbox tests before applying\n- Verify rollback plan\n",
         encoding="utf-8",
@@ -1025,6 +1033,12 @@ def main():
     run_sp.add_argument("--cache", action="store_true", default=False, help="Enable evidence cache")
     run_sp.add_argument("--no-cache", action="store_true", default=False, help="Disable cache (override)")
     run_sp.add_argument("--encrypt-rollback", action="store_true", default=False, help="Encrypt rollback plan with AES-256-GCM")
+    run_sp.add_argument(
+        "--approvals",
+        "--approve",
+        action="store_true",
+        help="Explicitly approve this playbook execution for the selected target",
+    )
 
     # === v0.3 — Controlled Change Commands ===
     # dry-run-preview
