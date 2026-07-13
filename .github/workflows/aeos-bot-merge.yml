@@ -1,0 +1,151 @@
+name: AEOS Bot Merge
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "Operation to run: create-pr, merge-pr, or create-and-merge"
+        required: true
+        default: "create-pr"
+        type: choice
+        options:
+          - create-pr
+          - merge-pr
+          - create-and-merge
+      head:
+        description: "Source branch for PR creation"
+        required: false
+        default: "audit/feature-newcommit"
+        type: string
+      base:
+        description: "Target branch"
+        required: false
+        default: "master"
+        type: string
+      pr_number:
+        description: "Existing PR number for merge-pr"
+        required: false
+        type: string
+      title:
+        description: "PR title"
+        required: false
+        default: "AEOS automated update"
+        type: string
+      body:
+        description: "PR body"
+        required: false
+        default: "Automated AEOS update prepared through governed workflow."
+        type: string
+      merge_method:
+        description: "Merge method"
+        required: false
+        default: "merge"
+        type: choice
+        options:
+          - merge
+          - squash
+          - rebase
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  aeos-bot-merge:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.AEOS_BOT_TOKEN }}
+      ACTION: ${{ inputs.action }}
+      HEAD_BRANCH: ${{ inputs.head }}
+      BASE_BRANCH: ${{ inputs.base }}
+      PR_NUMBER: ${{ inputs.pr_number }}
+      PR_TITLE: ${{ inputs.title }}
+      PR_BODY: ${{ inputs.body }}
+      MERGE_METHOD: ${{ inputs.merge_method }}
+    steps:
+      - name: Validate secret
+        run: |
+          test -n "$GH_TOKEN"
+
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.AEOS_BOT_TOKEN }}
+          fetch-depth: 0
+
+      - name: Validate inputs
+        run: |
+          set -euo pipefail
+
+          case "$ACTION" in
+            create-pr|merge-pr|create-and-merge) ;;
+            *) echo "Unsupported action: $ACTION" >&2; exit 1 ;;
+          esac
+
+          case "$MERGE_METHOD" in
+            merge|squash|rebase) ;;
+            *) echo "Unsupported merge method: $MERGE_METHOD" >&2; exit 1 ;;
+          esac
+
+          test "$BASE_BRANCH" = "master"
+
+          if [ "$ACTION" = "create-pr" ] || [ "$ACTION" = "create-and-merge" ]; then
+            test -n "$HEAD_BRANCH"
+            test "$HEAD_BRANCH" != "$BASE_BRANCH"
+            git ls-remote --exit-code --heads origin "$HEAD_BRANCH"
+            git ls-remote --exit-code --heads origin "$BASE_BRANCH"
+          fi
+
+          if [ "$ACTION" = "merge-pr" ]; then
+            test -n "$PR_NUMBER"
+          fi
+
+      - name: Create pull request
+        id: create_pr
+        if: ${{ inputs.action == 'create-pr' || inputs.action == 'create-and-merge' }}
+        run: |
+          set -euo pipefail
+
+          existing_pr="$(gh pr list \
+            --base "$BASE_BRANCH" \
+            --head "$HEAD_BRANCH" \
+            --state open \
+            --json number \
+            --jq '.[0].number // empty')"
+
+          if [ -n "$existing_pr" ]; then
+            echo "number=$existing_pr" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          pr_url="$(gh pr create \
+            --base "$BASE_BRANCH" \
+            --head "$HEAD_BRANCH" \
+            --title "$PR_TITLE" \
+            --body "$PR_BODY")"
+
+          pr_number="$(gh pr view "$pr_url" --json number --jq '.number')"
+          echo "number=$pr_number" >> "$GITHUB_OUTPUT"
+
+      - name: Resolve pull request number
+        id: pr
+        run: |
+          set -euo pipefail
+
+          if [ "$ACTION" = "merge-pr" ]; then
+            echo "number=$PR_NUMBER" >> "$GITHUB_OUTPUT"
+          else
+            echo "number=${{ steps.create_pr.outputs.number }}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Merge pull request
+        if: ${{ inputs.action == 'merge-pr' || inputs.action == 'create-and-merge' }}
+        run: |
+          set -euo pipefail
+
+          gh pr view "${{ steps.pr.outputs.number }}" \
+            --json mergeStateStatus,state \
+            --jq '.'
+
+          gh pr merge "${{ steps.pr.outputs.number }}" \
+            --"$MERGE_METHOD" \
+            --delete-branch=false
