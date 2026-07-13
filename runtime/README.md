@@ -3,7 +3,7 @@
 Runtime Core v9.1 adds the first **real agent execution layer**.
 
 Until v8, AEOS generated context, prompts, remediation plans, backlogs and release artifacts.
-In v9, AEOS can execute an agent run through a local provider.
+In v9, AEOS can execute an agent run through local and OpenAI-compatible providers.
 
 ## Provider support in v9
 
@@ -11,6 +11,8 @@ In v9, AEOS can execute an agent run through a local provider.
 
 ```text
 Ollama local HTTP API
+DeepSeek-compatible chat completions API
+Generic OpenAI-compatible chat completions API
 ```
 
 ### Why Ollama first
@@ -24,9 +26,13 @@ Ollama local HTTP API
 
 ```powershell
 aeos provider configure ollama [baseUrl] [model] [projectPath]
+aeos provider configure deepseek [model] [apiKeyEnv] [projectPath]
+aeos provider configure openai-compatible [baseUrl] [model] [apiKeyEnv] [projectPath]
 aeos provider status [projectPath]
 aeos provider models [projectPath]
 aeos agent run audit ollama [model] [projectPath]
+aeos agent run audit deepseek [model] [projectPath]
+aeos agent run audit openai-compatible [model] [projectPath]
 aeos agent run judge ollama [model] [projectPath]
 aeos agent run remediate ollama [model] [projectPath]
 aeos agent runs [projectPath]
@@ -73,6 +79,8 @@ aeos release check
 aeos provider template openai
 aeos provider template anthropic
 aeos provider template ollama
+aeos provider template deepseek
+aeos provider template openai-compatible
 
 aeos plan
 aeos tasks
@@ -167,3 +175,29 @@ aeos provider models [projectPath]
 ```
 
 This calls Ollama `/api/tags` and returns locally available models.
+For DeepSeek and OpenAI-compatible providers it calls `/models` with the configured
+API key environment variable when one is required.
+
+## v9.2 portable low-cost providers
+
+AEOS stores only provider metadata in `.aeos-runtime/providers/provider-config.json`.
+It stores the API key environment variable name, never the raw key value.
+
+DeepSeek-compatible:
+
+```powershell
+$env:DEEPSEEK_API_KEY = "<token from your environment>"
+aeos provider configure deepseek deepseek-chat DEEPSEEK_API_KEY E:\GitHub\aidiabetic-research
+aeos agent run audit deepseek deepseek-chat E:\GitHub\aidiabetic-research
+```
+
+Generic OpenAI-compatible local server or gateway:
+
+```powershell
+aeos provider configure openai-compatible http://localhost:1234/v1 local-model "" E:\GitHub\aidiabetic-research
+aeos agent run audit openai-compatible local-model E:\GitHub\aidiabetic-research
+```
+
+Cloud-compatible providers use economy defaults: prompt compaction, capped output
+tokens and low temperature. This keeps free or low-quota models focused on the
+requested task.

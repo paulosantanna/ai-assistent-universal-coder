@@ -32,9 +32,13 @@ Gates and audit:
 
 Provider and agent execution:
   aeos provider configure ollama [baseUrl] [model] [projectPath]
+  aeos provider configure deepseek [model] [apiKeyEnv] [projectPath]
+  aeos provider configure openai-compatible [baseUrl] [model] [apiKeyEnv] [projectPath]
   aeos provider status [projectPath]
   aeos provider models [projectPath]
   aeos agent run audit ollama [model] [projectPath]
+  aeos agent run audit deepseek [model] [projectPath]
+  aeos agent run audit openai-compatible [model] [projectPath]
   aeos agent run judge ollama [model] [projectPath]
   aeos agent run remediate ollama [model] [projectPath]
   aeos agent runs [projectPath]
@@ -66,6 +70,8 @@ Operationalization:
   aeos provider template openai [projectPath]
   aeos provider template anthropic [projectPath]
   aeos provider template ollama [projectPath]
+  aeos provider template deepseek [projectPath]
+  aeos provider template openai-compatible [projectPath]
 
 Task/evidence/memory:
   aeos plan "<objective>" [projectPath]
@@ -112,6 +118,12 @@ function objective(v) {
     const allowed = ["audit", "judge", "remediate"];
     if (!allowed.includes(v))
         throw new Error(`Invalid agent objective: ${v}`);
+    return v;
+}
+function providerName(v) {
+    const allowed = ["ollama", "deepseek", "openai-compatible"];
+    if (!allowed.includes(v))
+        throw new Error(`Invalid executable provider: ${v}`);
     return v;
 }
 async function main() {
@@ -181,10 +193,16 @@ async function main() {
             case "provider": {
                 const sub = req(args[0], "provider subcommand");
                 if (sub === "configure") {
-                    const provider = req(args[1], "provider");
-                    if (provider !== "ollama")
-                        throw new Error("v9 supports configure only for provider: ollama");
-                    print(core.providerConfigureOllama(p(args[4]), req(args[2], "baseUrl"), req(args[3], "model")));
+                    const provider = providerName(req(args[1], "provider"));
+                    if (provider === "ollama") {
+                        print(core.providerConfigureOllama(p(args[4]), req(args[2], "baseUrl"), req(args[3], "model")));
+                        return;
+                    }
+                    if (provider === "deepseek") {
+                        print(core.providerConfigure(p(args[4]), provider, undefined, req(args[2], "model"), args[3] || "DEEPSEEK_API_KEY"));
+                        return;
+                    }
+                    print(core.providerConfigure(p(args[5]), provider, req(args[2], "baseUrl"), req(args[3], "model"), args[4] || ""));
                     return;
                 }
                 if (sub === "status") {
@@ -197,7 +215,7 @@ async function main() {
                 }
                 if (sub === "template") {
                     const provider = req(args[1], "provider name");
-                    if (provider === "openai" || provider === "anthropic" || provider === "ollama") {
+                    if (provider === "openai" || provider === "anthropic" || provider === "ollama" || provider === "deepseek" || provider === "openai-compatible") {
                         print(core.providerTemplate(p(args[2]), provider));
                         return;
                     }
@@ -208,10 +226,8 @@ async function main() {
                 const sub = req(args[0], "agent subcommand");
                 if (sub === "run") {
                     const obj = objective(req(args[1], "objective"));
-                    const provider = req(args[2], "provider");
-                    if (provider !== "ollama")
-                        throw new Error("v9 supports real agent execution only for provider: ollama");
-                    print(await core.agentRun(p(args[4]), obj, "ollama", args[3]));
+                    const provider = providerName(req(args[2], "provider"));
+                    print(await core.agentRun(p(args[4]), obj, provider, args[3]));
                     return;
                 }
                 if (sub === "runs") {
