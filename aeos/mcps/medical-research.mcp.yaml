@@ -1,0 +1,189 @@
+mcp:
+  id: medical-research
+  name: Medical Research MCP
+  protocol: model-context-protocol
+  version: '2026-07-13'
+  transport:
+    type: stdio
+    command: medical-research-mcp
+    args: []
+  capabilities:
+    tools:
+    - name: qualified_medical_sources
+      description: Return governed international medical, biology, chemistry, trials and regulatory sources.
+      security: read-only
+      output:
+        type: object
+    - name: diabetes_staff_expertise_map
+      description: Return research-only diabetes expertise map for AI project evaluation.
+      security: read-only
+      output:
+        type: object
+    - name: diabetes_ai_project_review_gate
+      description: Return staff-level review checklist for diabetes AI project architecture.
+      security: read-only
+      output:
+        type: object
+    - name: build_disease_research_query
+      description: Build reproducible disease, subgroup, comorbidity and method research queries.
+      security: read-only
+      input:
+        profile: object
+        methods: array
+      output:
+        type: string
+    - name: build_research_method_queries
+      description: Build method discovery queries for architectures, RAG, adapters, continual learning, simulation and validation.
+      security: read-only
+      input:
+        profile: object
+      output:
+        type: object
+    - name: pubmed_research
+      description: Search PubMed through governed NCBI access.
+      security: read-only
+      input:
+        query: string
+        retmax: integer
+      output:
+        type: object
+    - name: pubmed_summaries
+      description: Fetch PubMed summaries for bounded PMID lists.
+      security: read-only
+      input:
+        pmids: array
+      output:
+        type: object
+    - name: europe_pmc_research
+      description: Search Europe PMC for biomedical literature.
+      security: read-only
+      input:
+        query: string
+        page_size: integer
+      output:
+        type: object
+    - name: clinical_trials_research
+      description: Search clinical trial registries for study metadata.
+      security: read-only
+      input:
+        query: string
+        page_size: integer
+      output:
+        type: object
+    - name: medical_evidence_screening_policy
+      description: Return medical evidence screening and exclusion policy.
+      security: read-only
+      output:
+        type: object
+    - name: repository_scan
+      description: Inspect repository files, languages, manifests, tests, documentation and AI pipeline candidates.
+      security: read-only
+      input:
+        repository: string
+      output:
+        type: object
+    - name: repository_architecture_inventory
+      description: Map ingestion, knowledge, training, simulation, evaluation, governance and observability.
+      security: read-only
+      input:
+        repository: string
+      output:
+        type: object
+    - name: medical_ai_audit
+      description: Audit medical AI repository with real evidence checks and honest scoring.
+      security: read-only
+      input:
+        repository: string
+        mode: string
+        timeout_seconds: integer
+        run_tests: boolean
+        run_security: boolean
+        run_dependency_audit: boolean
+        output: string
+      output:
+        type: object
+    - name: architecture_recommendation
+      description: Recommend modular monolith, hybrid or microservices from repository and operational evidence.
+      security: read-only
+      input:
+        repository: string
+        team_size: integer
+        deployment_targets: integer
+      output:
+        type: object
+    - name: rag_quality_gate
+      description: Audit sparse, dense, hybrid retrieval, citations, abstention and contradiction tests.
+      security: read-only
+      input:
+        capabilities: array
+      output:
+        type: object
+    - name: training_pipeline_design
+      description: Return governed training, evaluation, simulation and promotion pipeline.
+      security: read-only
+      output:
+        type: object
+    - name: continuous_learning_quality_gate
+      description: Validate versioning, replay, drift, shadow promotion, approval and rollback.
+      security: read-only
+      input:
+        capabilities: array
+      output:
+        type: object
+    - name: owasp_ai_gate
+      description: Evaluate controls against OWASP GenAI risk categories.
+      security: read-only
+      input:
+        enabled_controls: array
+      output:
+        type: object
+    - name: token_budget_plan
+      description: Plan token budget, compaction and cache strategy.
+      security: read-only
+      input:
+        provider: string
+        model: string
+        task: string
+      output:
+        type: object
+    - name: complete_beta_plan
+      description: Build complete research-only beta readiness plan.
+      security: read-only
+      output:
+        type: object
+    - name: expert_validation_10_0
+      description: Run strict 10.0 validation gate over supplied criteria.
+      security: read-only
+      input:
+        criteria: array
+      output:
+        type: object
+  security:
+    write_allowed: false
+    clinical_action_allowed: false
+    rules:
+    - research_only
+    - no_autonomous_diagnosis
+    - no_autonomous_treatment
+    - no_emergency_triage
+    - no_patient_specific_dosing
+    - qualified_human_review_required
+    audit:
+      log_all_requests: true
+rules:
+  evidence_required: true
+  source_policy_required: true
+  human_review_required_for_medical_claims: true
+  redact_outputs: true
+prompt_contract:
+  objective: Support governed medical AI research and project evaluation without clinical decision authority.
+  response_rules:
+  - Separate clinical evidence, mechanistic biology, chemistry, engineering evidence and implementation decisions.
+  - Cite governed sources for medical claims and record provenance.
+  - Treat safety, contraindication-like and patient-impacting claims as blockers for qualified human review.
+  - Do not produce autonomous diagnosis, treatment, triage, dosing or cure claims.
+  stop_conditions:
+  - patient-specific clinical decision requested
+  - emergency or urgent clinical triage requested
+  - source provenance missing for medical claim
+  - human-review gate missing for patient-impacting output

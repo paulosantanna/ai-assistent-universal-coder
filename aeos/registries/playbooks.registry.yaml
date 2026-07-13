@@ -71,7 +71,6 @@ playbooks:
     required_lcps: [global-rules, security-governance]
     allowed_mcps: [filesystem-readonly, filesystem-write-sandbox]
 
-<<<<<<< Updated upstream
   - id: performance-optimization
     path: aeos/playbooks/performance-optimization.playbook.md
     risk_level: high
@@ -79,7 +78,55 @@ playbooks:
     required_skills: [performance-optimizer, token-budget-governor, change-trace-auditor, test-generation, chromatic-mega-brain]
     required_lcps: [global-rules, token-economy, security-governance]
     allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, test-runner-controlled, package-local]
-=======
+
+  - id: observability-trace-metrics-logs
+    path: aeos/playbooks/enterprise/observability-trace-metrics-logs.playbook.md
+    risk_level: high
+    required_agents: [architect, devops, tester, security, judge]
+    required_skills: [performance-optimizer, documentation, test-generation, security-audit, chromatic-mega-brain]
+    required_lcps: [global-rules, documentation-standards, security-governance]
+    allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, test-runner-controlled, docs-opentelemetry, docs-grafana, docs-dynatrace, docs-observability-dashboards]
+
+  - id: medical-diabetes-research-to-implementation
+    path: aeos/playbooks/enterprise/medical-diabetes-research-to-implementation.playbook.md
+    risk_level: critical
+    required_agents: [root, medical-evidence-researcher, architect, coder, tester, security, judge]
+    required_skills: [token-budget-governor, chromatic-mega-brain, documentation, security-audit, test-generation]
+    required_lcps: [global-rules, security-governance, documentation-standards, token-economy]
+    allowed_mcps: [medical-research, continuous-training, complete-docs, filesystem-readonly, filesystem-write-sandbox, test-runner-controlled, docs-python-current, docs-node-current, docs-typescript-current, docs-angular-current, docs-javascript-current, docs-java-11, docs-java-17, docs-java-21, docs-java-25, docs-java-26]
+
+  - id: medical-ai-project-readiness-audit
+    path: aeos/playbooks/enterprise/medical-ai-project-readiness-audit.playbook.md
+    risk_level: critical
+    required_agents: [root, repository-cartographer, medical-evidence-researcher, architecture-governor, security, tester, judge]
+    required_skills: [chromatic-mega-brain, documentation, security-audit, test-generation]
+    required_lcps: [global-rules, security-governance, documentation-standards]
+    allowed_mcps: [medical-research, filesystem-readonly, git-readonly, test-runner-controlled, package-local, complete-docs, docs-opentelemetry, docs-grafana, docs-dynatrace, docs-observability-dashboards]
+
+  - id: evidence-rag-knowledge-base-bootstrap
+    path: aeos/playbooks/enterprise/evidence-rag-knowledge-base-bootstrap.playbook.md
+    risk_level: high
+    required_agents: [root, evidence-researcher, rag-specialist, architect, coder, tester, judge]
+    required_skills: [chromatic-mega-brain, documentation, test-generation, security-audit]
+    required_lcps: [global-rules, documentation-standards, security-governance]
+    allowed_mcps: [medical-research, continuous-training, complete-docs, filesystem-readonly, filesystem-write-sandbox, test-runner-controlled, docs-python-current, docs-node-current, docs-typescript-current, docs-angular-current, docs-javascript-current, docs-java-11, docs-java-17, docs-java-21, docs-java-25, docs-java-26]
+
+  - id: language-upgrade-research-implementation
+    path: aeos/playbooks/enterprise/language-upgrade-research-implementation.playbook.md
+    risk_level: high
+    required_agents: [root, language-researcher, architect, coder, tester, security, judge]
+    required_skills: [token-budget-governor, change-trace-auditor, documentation, test-generation, security-audit]
+    required_lcps: [global-rules, security-governance, documentation-standards, token-economy]
+    allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, git-readonly, test-runner-controlled, complete-docs, docs-java-11, docs-java-17, docs-java-21, docs-java-25, docs-java-26, docs-python-current, docs-node-current, docs-typescript-current, docs-angular-current, docs-javascript-current]
+
+  - id: ai-project-research-implementation-orchestrator
+    path: aeos/playbooks/enterprise/ai-project-research-implementation-orchestrator.playbook.md
+    risk_level: critical
+    required_agents: [root, planner, architect, domain-researcher, coder, tester, security, devops, documenter, judge]
+    required_skills: [token-budget-governor, chromatic-mega-brain, universal-project-factory, change-trace-auditor, documentation, test-generation, security-audit]
+    required_lcps: [global-rules, zero-to-production, token-economy, documentation-standards, security-governance]
+    allowed_mcps: [universal-project, continuous-training, complete-docs, filesystem-readonly, filesystem-write-sandbox, git-readonly, test-runner-controlled, package-local, medical-research, docs-opentelemetry, docs-grafana, docs-dynatrace, docs-observability-dashboards, docs-python-current, docs-node-current, docs-typescript-current, docs-angular-current, docs-javascript-current, docs-java-11, docs-java-17, docs-java-21, docs-java-25, docs-java-26]
+
   - id: aidiabetic-urgent-improvement-v1
     path: aeos/playbooks/enterprise/aidiabetic-urgent-improvement-v1.playbook.yaml
     risk_level: critical
@@ -125,4 +172,3 @@ playbooks:
       - improvement-metrics-governor
     required_lcps: [global-rules, security-governance]
     allowed_mcps: [filesystem-readonly, git-readonly, filesystem-write-sandbox]
->>>>>>> Stashed changes

@@ -29,6 +29,7 @@ test_toolchain:
   java:
     maven:
       binary: ".tools/bin/mvn"
+      required_distribution: ".tools/apache-maven-3.9.11/bin/mvn"
       version: "3.9.11"
       junit: ".tools/bin/mvn -f templates/test-toolchains/java-junit5/pom.xml test"
       cucumber_jvm: ".tools/bin/mvn -f templates/test-toolchains/java-junit5/pom.xml test -Dcucumber.features=src/test/resources/features"
@@ -36,6 +37,7 @@ test_toolchain:
       settings: "aeos/config/maven-settings.xml"
     gradle:
       binary: ".tools/bin/gradle"
+      required_distribution: ".tools/gradle-9.2.1/bin/gradle"
       version: "9.2.1"
       test: ".tools/bin/gradle --no-daemon -p templates/test-toolchains/java-gradle-junit5 test"
       template: "templates/test-toolchains/java-gradle-junit5/build.gradle.kts"
@@ -43,15 +45,26 @@ test_toolchain:
       distribution: "Eclipse Temurin"
       version: "17.0.19+10"
       java_home: ".tools/jdk-17.0.19+10"
+      required_binary: ".tools/jdk-17.0.19+10/bin/java"
       truststore: ".tools/aeos-java-truststore.p12"
-    host_tools_available: true
-    note: "Maven, Gradle, and JDK are installed locally under .tools and exposed through .tools/bin wrappers. Maven uses /tmp/aeos-m2 by default and generates /tmp/aeos-maven-settings.xml when an environment proxy is present; Gradle uses /tmp/aeos-gradle by default."
+    host_tools_available: false
+    current_worktree_status:
+      maven: "adapter_covered_when_distribution_missing"
+      gradle: "adapter_covered_when_distribution_missing"
+      jdk: "adapter_covered_when_distribution_missing"
+    note: "Maven, Gradle, and JDK wrappers are tracked, but the large .tools distributions may be absent from this worktree. Java matrix entries use native tools when present and AEOS ecosystem contract adapters when absent."
   go:
     unit: "go test ./..."
+    host_tools_available: false
+    current_worktree_status: "adapter_covered_when_binary_missing"
   rust:
     unit: "cargo test"
+    host_tools_available: false
+    current_worktree_status: "adapter_covered_when_binary_missing"
   dotnet:
     unit: "dotnet test"
+    host_tools_available: false
+    current_worktree_status: "adapter_covered_when_binary_missing"
   ruby:
     unit: "bundle exec rspec"
     bdd_cucumber: "bundle exec cucumber"

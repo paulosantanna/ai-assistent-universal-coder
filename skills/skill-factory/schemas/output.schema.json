@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "required": [
+    "status",
+    "generated_skill",
+    "validation",
+    "registry_status"
+  ],
+  "properties": {
+    "status": {
+      "enum": [
+        "PASS",
+        "REVIEW",
+        "BLOCKED"
+      ]
+    },
+    "generated_skill": {
+      "type": "string"
+    },
+    "validation": {
+      "type": "object"
+    },
+    "registry_status": {
+      "type": "string"
+    },
+    "evidence_refs": {
+      "type": "array"
+    },
+    "blocking_conditions": {
+      "type": "array"
+    }
+  },
+  "additionalProperties": true
+}

@@ -696,6 +696,116 @@ Missing, unreadable or inconsistent mandatory modules result in `BLOCKED_BOOTSTR
 
 ---
 
+## 13A. Workspace structure and execution discipline
+
+This section is a root AEOS operating standard for every agent, skill, MCP, LSP,
+playbook, command and generated deliverable used inside AEOS.
+
+### 13A.1 Canonical package layout
+
+Use the simplest valid package layout:
+
+```text
+<package>/
+├── AGENT.md
+├── scripts/
+├── templates/
+└── references/
+```
+
+Rules:
+
+- `AGENT.md` is the canonical root agent contract. Do not create `AGENTS.md`
+  unless a specific external platform requires that exact filename.
+- `scripts/` contains optional executable scripts only.
+- `templates/` contains optional template files only.
+- `references/` contains optional on-demand documentation only.
+- No loose files or folders are allowed at the repository root when they belong
+  to a package, skill, MCP, LSP, playbook, command, report, map or temporary
+  deliverable.
+
+### 13A.2 Anti-scatter precedence
+
+Recurring error to eliminate: spreading deliverables, mapping state or generated
+working material across the anti-flow layout.
+
+This rule has precedence over the instinct to edit the file that already exists.
+Before writing, moving or updating an artifact, identify the correct package,
+layer and ownership boundary. If the existing file is in the wrong location,
+prefer the smallest structural correction that restores the canonical layout.
+
+### 13A.3 Three-level recursive workspace memory
+
+All workspace memory follows one recursive three-level pattern:
+
+1. `knowledge/` for validated reusable knowledge and negative knowledge.
+2. `memory/` for execution history, decisions, lessons, failures and open risks.
+3. `references/` for on-demand documentation that should not be loaded by
+   default.
+
+The support layer follows the same rule. For example, Chromatic Mega Brain is
+the support protocol, templates and verifier package. Its detailed architecture
+belongs in `references/ARQUITETURA.md` inside that package, following prompt and
+Markdown best practices.
+
+### 13A.4 Simplicity, root cause and impact
+
+- Simplicity First: make every change as simple as possible.
+- No laziness: find root causes. Do not ship temporary workarounds as fixes.
+- Staff developer standards apply to scripts, prompts, registries, generated
+  files and documentation.
+- Minimal impact: touch only what is necessary and avoid introducing unrelated
+  risk.
+
+### 13A.5 Autonomous bug fixing
+
+When given a bug report:
+
+- fix it without asking for hand-holding;
+- run tests to identify the root cause;
+- require zero context switching from the user;
+- fix failing tests without waiting for the user to explain how.
+
+### 13A.6 Demand elegance, balanced
+
+For nontrivial changes, pause and ask: "Is there a more elegant way?"
+
+If a fix feels hacky, apply this standard: "Knowing everything I know now,
+implement the elegant solution."
+
+Skip this for simple, obvious fixes. Do not over-engineer. Challenge the work
+before presenting it.
+
+### 13A.7 Verification before done
+
+- Never mark a task complete without proving it works.
+- Run the full applicable test suite before considering work done.
+- Verify changes against existing behavior.
+- Ask: "Would a Staff engineer approve this?"
+
+### 13A.8 Subagent strategy
+
+- Use subagents liberally when they reduce context pressure or improve focused
+  analysis.
+- Offload research, exploration and parallel analysis to subagents.
+- Assign one focused task per subagent.
+
+### 13A.9 Plan mode default
+
+- Enter plan mode for any nontrivial task with three or more steps or an
+  architectural decision.
+- If something goes sideways, stop and re-plan immediately.
+- Use plan mode for verification steps, not only implementation.
+- Write detailed specs upfront when ambiguity would otherwise leak into code.
+
+### 13A.10 Skill creation rule
+
+Whenever adding a skill, use the project's standard skill builder. Do not create
+skills by hand unless the skill builder is unavailable, and record that blocker
+with evidence before proceeding.
+
+---
+
 ## 14. Rule precedence
 
 Apply conflicts in this order:

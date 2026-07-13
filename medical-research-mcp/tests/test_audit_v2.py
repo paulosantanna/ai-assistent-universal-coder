@@ -523,17 +523,25 @@ def test_evidence_item_defaults() -> None:
     assert ev.type == EvidenceType.COMMAND_OUTPUT
 
 
-# ===== Test: Gates work with real audit (structural on aidiabetic-research) =====
+# ===== Test: Gates work with local structural audit fixture =====
 
-@pytest.mark.skipif(
-    not Path(r"E:\GitHub\aidiabetic-research").is_dir(),
-    reason="aidiabetic-research repo not available",
-)
 @pytest.mark.timeout(30)
-def test_structural_on_real_repo() -> None:
-    """Structural audit on the real repo should complete without error."""
+def test_structural_on_local_fixture(tmp_path: Path) -> None:
+    """Structural audit on a local diabetes AI fixture should complete without external repos."""
+    (tmp_path / "pyproject.toml").write_text("[project]\nname='fixture-diabetes-ai'\n", encoding="utf-8")
+    (tmp_path / "src").mkdir()
+    (tmp_path / "src" / "app.py").write_text(
+        "SOURCE_REGISTRY = ['PubMed', 'ADA', 'WHO']\n"
+        "def build_diabetes_evidence_query():\n"
+        "    return 'diabetes chronic kidney disease RAG evaluation human review'\n",
+        encoding="utf-8",
+    )
+    (tmp_path / "README.md").write_text(
+        "Research-only diabetes AI fixture with source_registry, human_review, audit_logs, and no autonomous diagnosis.\n",
+        encoding="utf-8",
+    )
     config = AuditConfig(
-        repository=r"E:\GitHub\aidiabetic-research",
+        repository=str(tmp_path),
         mode="structural",
     )
     report = run_audit(config)

@@ -210,11 +210,6 @@ def cmd_code_change_proposal(args):
     reports_dir = aeos_root / "reports" / execution_id
     reports_dir.mkdir(parents=True, exist_ok=True)
 
-    risk_lines = "\n".join(
-        f"- {risk['risk']} ({risk['level']})"
-        for risk in dry_run_result["risks"]
-    )
-
     code_change_report = reports_dir / "code-change-proposal.md"
     risks_lines = chr(10).join(
         "- %s (%s)" % (r["risk"], r["level"]) for r in dry_run_result.get("risks", [])
@@ -229,11 +224,7 @@ def cmd_code_change_proposal(args):
         f"- Patch generated: {len(patch_result['affected_files'])} files\n\n"
         f"## Assumptions\n- Issue accurately describes the desired change\n"
         f"- All relevant files were identified\n\n"
-<<<<<<< Updated upstream:src/aeos_workbench/cli/main.py
-        f"## Risks\n{risk_lines}\n\n"
-=======
         f"## Risks\n{risks_lines}\n\n"
->>>>>>> Stashed changes:src/src/aeos_workbench/cli/main.py
         f"## Recommendations\n- Review proposed.patch before approving\n"
         f"- Run sandbox tests before applying\n- Verify rollback plan\n",
         encoding="utf-8",

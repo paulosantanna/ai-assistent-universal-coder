@@ -1,0 +1,43 @@
+mcp:
+  id: docs-opentelemetry
+  name: OpenTelemetry Documentation MCP
+  protocol: model-context-protocol
+  version: '2026-07-13'
+  transport:
+    type: stdio
+    command: language-docs-mcp
+    args: [--profile, docs-opentelemetry]
+  capabilities:
+    tools:
+      - name: observability_docs.search
+        description: Search governed OpenTelemetry documentation for traces, metrics, logs, collectors, semantic conventions and language instrumentation.
+        security: read-only
+      - name: observability_docs.fetch
+        description: Fetch allowed OpenTelemetry documentation pages.
+        security: read-only
+      - name: observability_docs.instrumentation_plan
+        description: Produce an evidence-backed OpenTelemetry instrumentation plan for a requested language and architecture.
+        security: read-only
+  source_profile:
+    domain: opentelemetry
+    sources:
+      - name: OpenTelemetry Docs
+        url: https://opentelemetry.io/docs/
+        authority: official
+      - name: OpenTelemetry Semantic Conventions
+        url: https://opentelemetry.io/docs/specs/semconv/
+        authority: official
+  security:
+    allowed_domains: [opentelemetry.io]
+    write_allowed: false
+    redaction: {enabled: true}
+prompt_contract:
+  objective: Provide official OpenTelemetry guidance for instrumentation, collector configuration and signal quality.
+  evidence_required: true
+  response_rules:
+    - Prefer official OpenTelemetry docs and specifications.
+    - Distinguish traces, metrics, logs and baggage explicitly.
+    - Require redaction guidance before log enrichment.
+  stop_conditions:
+    - requested source is outside allowed domains
+    - evidence cannot be produced

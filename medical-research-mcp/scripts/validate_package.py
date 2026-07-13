@@ -35,7 +35,7 @@ REQUIRED_PATHS = [
     "src/medical_research_mcp/expert_validator.py",
     "src/medical_research_mcp/subagents.py",
     "src/medical_research_mcp/qulified_sites_for_medical_researchs_around_world.py",
-    "src/medical_research_mcp/audit.py",
+    "src/medical_research_mcp/audit/__init__.py",
     "src/medical_research_mcp/planning.py",
     "src/medical_research_mcp/models.py",
     "playbooks/MEDICAL_AI_COMPLETE_PLAYBOOK.md",

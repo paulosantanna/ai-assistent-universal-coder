@@ -82,11 +82,6 @@
       "bytes": 0
     },
     {
-      "path": "tests/__pycache__/test_structure.cpython-312-pytest-9.1.1.pyc",
-      "sha256": "39b558df367ff9001d956ec53baaff0a4318fe74ff08265b03b4406aabd023eb",
-      "bytes": 1945
-    },
-    {
       "path": "tests/test_structure.py",
       "sha256": "5ca93e66bcbc869c7e23388d4c659bbacf8ac522676e0e7357b2bc8b07566096",
       "bytes": 175

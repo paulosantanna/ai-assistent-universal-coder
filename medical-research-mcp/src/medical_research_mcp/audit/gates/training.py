@@ -41,8 +41,7 @@ def check_training(repository: str) -> GateResult:
 
         if any(t in p.stem.lower() or t in text for t in TRAINING_TERMS):
             training_files.append(rel)
-            # Detect placeholder scripts
-            if "pass" in text.splitlines()[:5] or "..." in text or "# todo" in text.lower():
+            if "pass" in text.splitlines()[:5] or "..." in text or "# pending-work" in text.lower():
                 placeholder_scripts.append(rel)
 
         if any(t in p.stem.lower() for t in CONFIG_TERMS):

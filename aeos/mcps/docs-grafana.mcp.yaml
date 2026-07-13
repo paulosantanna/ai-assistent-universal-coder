@@ -1,0 +1,43 @@
+mcp:
+  id: docs-grafana
+  name: Grafana Documentation MCP
+  protocol: model-context-protocol
+  version: '2026-07-13'
+  transport:
+    type: stdio
+    command: language-docs-mcp
+    args: [--profile, docs-grafana]
+  capabilities:
+    tools:
+      - name: observability_docs.search
+        description: Search governed Grafana, Prometheus, Loki and Tempo documentation.
+        security: read-only
+      - name: observability_docs.dashboard_plan
+        description: Plan Grafana dashboards, datasources, panels and provisioning files.
+        security: read-only
+      - name: observability_docs.panel_query
+        description: Return dashboard query guidance for metrics, logs or traces.
+        security: read-only
+  source_profile:
+    domain: grafana
+    sources:
+      - name: Grafana Docs
+        url: https://grafana.com/docs/
+        authority: official
+      - name: Prometheus Docs
+        url: https://prometheus.io/docs/
+        authority: official
+  security:
+    allowed_domains: [grafana.com, prometheus.io]
+    write_allowed: false
+    redaction: {enabled: true}
+prompt_contract:
+  objective: Provide official Grafana dashboard and datasource guidance for AEOS observability packages.
+  evidence_required: true
+  response_rules:
+    - Prefer official Grafana and Prometheus docs.
+    - Return panel intent, query, datasource and validation rule.
+    - Mark backend-specific assumptions explicitly.
+  stop_conditions:
+    - requested source is outside allowed domains
+    - evidence cannot be produced

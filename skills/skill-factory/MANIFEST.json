@@ -1,0 +1,115 @@
+{
+  "skill": "skill-factory",
+  "files": [
+    {
+      "path": "AGENT.md",
+      "sha256": "11037fb7a3685bfb818673d9c0b39504bc5230805cdba85b2bc49e22e81681cc",
+      "bytes": 943
+    },
+    {
+      "path": "README.md",
+      "sha256": "58d9ddba21697916be7c32a5eeb3d824be26337ad7b7aea641995774ca958528",
+      "bytes": 416
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "5218d566511141a91f28c14066b13b3ccc6a1209da48cea823d9d01cd9828982",
+      "bytes": 14423
+    },
+    {
+      "path": "evaluation/HONEST_EVALUATOR.md",
+      "sha256": "60cba7bfb7026f5e4c9bd65487dfa5cce63e2ed0bc23fa63f5b4c7ff8b054f45",
+      "bytes": 899
+    },
+    {
+      "path": "examples/anti-pattern-skill/SKILL.md",
+      "sha256": "6e1384d86db2e84f27062d0e417ab4720aee5a690b4a4232a275f62f55283dd1",
+      "bytes": 641
+    },
+    {
+      "path": "examples/perfect-skill/SKILL.md",
+      "sha256": "170ab11cf3583869a95c9e8abd69ffe0594366142e052b08734db5ebc73ebd27",
+      "bytes": 1354
+    },
+    {
+      "path": "knowledge/CONTINUOUS_LEARNING.md",
+      "sha256": "948854927fe2714cc1453cca2a3bb93aa82299f04fe1ee8f613abed4c56329e5",
+      "bytes": 164
+    },
+    {
+      "path": "knowledge/KNOWLEDGE.md",
+      "sha256": "d58e49f9c498251c59999dcc9db7d9f521badf40e67485e013e6f8cfb2b44529",
+      "bytes": 187
+    },
+    {
+      "path": "knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "c6f16a0e1dd5b36ecb8cf24255c68cae8ea8dd4819466822dba2beabd73b13a1",
+      "bytes": 142
+    },
+    {
+      "path": "knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "6b0a0f58deaf9fec823ae36b4c7cff61b00fdb4f71e0d824ebf5db9253d641e6",
+      "bytes": 409
+    },
+    {
+      "path": "knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "025183baa2be9afa0d3a3e37720bd6d3e4d3fdedf1673eef5c6f7b7da2866266",
+      "bytes": 312
+    },
+    {
+      "path": "memory/DECISIONS.md",
+      "sha256": "2f1e5b0ccafa7214a1e2e11506b84dc5a26ac7ef33bf032de3c8a4198cbd23b7",
+      "bytes": 247
+    },
+    {
+      "path": "memory/EXECUTIONS.md",
+      "sha256": "e2bf082f7fab8ae1d7795b4d708c01bea8919dffff0598956329344abed359ba",
+      "bytes": 99
+    },
+    {
+      "path": "memory/FAILURES.md",
+      "sha256": "9a46bd9cdde99360d2c262a67a53c962e0e40db50612394bd96891caf2d13a0f",
+      "bytes": 235
+    },
+    {
+      "path": "memory/LESSONS.md",
+      "sha256": "a5441657b1341ed5e596a009509909a49e2330d448e6d4272b09c4fb5b604dc6",
+      "bytes": 156
+    },
+    {
+      "path": "memory/OPEN_RISKS.md",
+      "sha256": "fdf87996431a30c56eab62c33d9e20e15d5479b50b892fff283ef3fbe512af49",
+      "bytes": 205
+    },
+    {
+      "path": "memory/PATTERNS.md",
+      "sha256": "4503506f457a978ec76afa56dc691d14a28e4d741c801a5aa13cdbda342b1782",
+      "bytes": 195
+    },
+    {
+      "path": "schemas/output.schema.json",
+      "sha256": "7cf0a89d61e62693b4f61d8b32fa8913595daaf9d97f08a4e290fb29062ea2b2",
+      "bytes": 544
+    },
+    {
+      "path": "scripts/python-bug-solver-skill/SKILL.md",
+      "sha256": "1758fb680d5da1120e5002fb6e0e14bd8af253cb19cc278fa56e665dbe459761",
+      "bytes": 2794
+    },
+    {
+      "path": "scripts/skill_factory.py",
+      "sha256": "439700609f59c3f43332f472b01c9075f8e9934359892ca7385ec357fc74c7a2",
+      "bytes": 29013
+    },
+    {
+      "path": "templates/SKILL.template.md",
+      "sha256": "54c9dea775ec0e04c06c5794018bda4e59759c1398f19d06d35da80359a1a3b8",
+      "bytes": 3423
+    },
+    {
+      "path": "tests/test_skill_factory.py",
+      "sha256": "f118b56ce4b88c083508d45aa24e807e14080a5c85f3aeb8e465216b0301f690",
+      "bytes": 3105
+    }
+  ]
+}

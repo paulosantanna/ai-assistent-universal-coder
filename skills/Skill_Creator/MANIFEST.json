@@ -102,11 +102,6 @@
       "bytes": 1046
     },
     {
-      "path": "skills/skill-factory/scripts/__pycache__/skill_factory.cpython-312.pyc",
-      "sha256": "0327511b32e45ff0a83a9160a05a32aae9f36ecf20e84e90b7b80b09419d00c1",
-      "bytes": 36478
-    },
-    {
       "path": "skills/skill-factory/scripts/python-bug-solver-skill/AGENT.md",
       "sha256": "f9c5ecbc9cc88107dd99daf83a1951f419c24499b5e425fcc467d4f0476b5891",
       "bytes": 132
@@ -172,11 +167,6 @@
       "bytes": 54
     },
     {
-      "path": "skills/skill-factory/scripts/python-bug-solver-skill/scripts/__pycache__/validate.cpython-312.pyc",
-      "sha256": "c567b05c7edc9149437c9cbb4c2bf2050a27251f7aa4facc2426bbd2a72895d1",
-      "bytes": 878
-    },
-    {
       "path": "skills/skill-factory/scripts/python-bug-solver-skill/scripts/validate.py",
       "sha256": "a2c283e3a9dc3d3b4a80020179f5f80273cdc578e5fa7b147fdb64208051bb93",
       "bytes": 303
@@ -185,11 +175,6 @@
       "path": "skills/skill-factory/scripts/python-bug-solver-skill/templates/OUTPUT.template.md",
       "sha256": "42d82e5383af2f53b54a590d6317b1b473071d06890d4e15408d564a05762df2",
       "bytes": 10
-    },
-    {
-      "path": "skills/skill-factory/scripts/python-bug-solver-skill/tests/__pycache__/test_structure.cpython-312.pyc",
-      "sha256": "7e1f2c2e60909fd5975259277d229e94cab6256d1f410730058eb956d75f537c",
-      "bytes": 722
     },
     {
       "path": "skills/skill-factory/scripts/python-bug-solver-skill/tests/test_structure.py",
@@ -210,16 +195,6 @@
       "path": "skills/skill-factory/templates/SKILL.template.md",
       "sha256": "54c9dea775ec0e04c06c5794018bda4e59759c1398f19d06d35da80359a1a3b8",
       "bytes": 3423
-    },
-    {
-      "path": "skills/skill-factory/tests/__pycache__/test_skill_factory.cpython-312-pytest-9.1.1.pyc",
-      "sha256": "a157d5e22adc63922d334b5136eca2c721e4dd8afc807cff377aff6ecf2e066d",
-      "bytes": 16452
-    },
-    {
-      "path": "skills/skill-factory/tests/__pycache__/test_skill_factory.cpython-312.pyc",
-      "sha256": "72db944e87791440e8ed9b5d08c9cd2fdc78b124cc8673f4f5c613a9cf06c4f8",
-      "bytes": 5516
     },
     {
       "path": "skills/skill-factory/tests/test_skill_factory.py",

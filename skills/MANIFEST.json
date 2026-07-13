@@ -112,11 +112,6 @@
       "bytes": 1046
     },
     {
-      "path": "Skill_Creator/skills/skill-factory/scripts/__pycache__/skill_factory.cpython-312.pyc",
-      "sha256": "0327511b32e45ff0a83a9160a05a32aae9f36ecf20e84e90b7b80b09419d00c1",
-      "bytes": 36478
-    },
-    {
       "path": "Skill_Creator/skills/skill-factory/scripts/python-bug-solver-skill/AGENT.md",
       "sha256": "f9c5ecbc9cc88107dd99daf83a1951f419c24499b5e425fcc467d4f0476b5891",
       "bytes": 132
@@ -182,11 +177,6 @@
       "bytes": 54
     },
     {
-      "path": "Skill_Creator/skills/skill-factory/scripts/python-bug-solver-skill/scripts/__pycache__/validate.cpython-312.pyc",
-      "sha256": "c567b05c7edc9149437c9cbb4c2bf2050a27251f7aa4facc2426bbd2a72895d1",
-      "bytes": 878
-    },
-    {
       "path": "Skill_Creator/skills/skill-factory/scripts/python-bug-solver-skill/scripts/validate.py",
       "sha256": "a2c283e3a9dc3d3b4a80020179f5f80273cdc578e5fa7b147fdb64208051bb93",
       "bytes": 303
@@ -195,11 +185,6 @@
       "path": "Skill_Creator/skills/skill-factory/scripts/python-bug-solver-skill/templates/OUTPUT.template.md",
       "sha256": "42d82e5383af2f53b54a590d6317b1b473071d06890d4e15408d564a05762df2",
       "bytes": 10
-    },
-    {
-      "path": "Skill_Creator/skills/skill-factory/scripts/python-bug-solver-skill/tests/__pycache__/test_structure.cpython-312.pyc",
-      "sha256": "7e1f2c2e60909fd5975259277d229e94cab6256d1f410730058eb956d75f537c",
-      "bytes": 722
     },
     {
       "path": "Skill_Creator/skills/skill-factory/scripts/python-bug-solver-skill/tests/test_structure.py",
@@ -220,16 +205,6 @@
       "path": "Skill_Creator/skills/skill-factory/templates/SKILL.template.md",
       "sha256": "54c9dea775ec0e04c06c5794018bda4e59759c1398f19d06d35da80359a1a3b8",
       "bytes": 3423
-    },
-    {
-      "path": "Skill_Creator/skills/skill-factory/tests/__pycache__/test_skill_factory.cpython-312-pytest-9.1.1.pyc",
-      "sha256": "a157d5e22adc63922d334b5136eca2c721e4dd8afc807cff377aff6ecf2e066d",
-      "bytes": 16452
-    },
-    {
-      "path": "Skill_Creator/skills/skill-factory/tests/__pycache__/test_skill_factory.cpython-312.pyc",
-      "sha256": "72db944e87791440e8ed9b5d08c9cd2fdc78b124cc8673f4f5c613a9cf06c4f8",
-      "bytes": 5516
     },
     {
       "path": "Skill_Creator/skills/skill-factory/tests/test_skill_factory.py",
@@ -362,11 +337,6 @@
       "bytes": 915
     },
     {
-      "path": "chromatic-mega-brain/scripts/__pycache__/chromatic_brain.cpython-312.pyc",
-      "sha256": "85bd4d496f7a3b623c737461a2a0bd857ed090b097684a32824afaab9af673ad",
-      "bytes": 6599
-    },
-    {
       "path": "chromatic-mega-brain/scripts/chromatic_brain.py",
       "sha256": "8045b41450c61d01af644868374397f5d8dc0c60f529ff2fb9dcf4762117fd26",
       "bytes": 4840
@@ -380,11 +350,6 @@
       "path": "chromatic-mega-brain/templates/CHROMATIC_DECISION.template.md",
       "sha256": "6e098d267d8ca4644e34b8a7b8765a2254644f28d42e65a420ccf6b1c6bbe3fd",
       "bytes": 334
-    },
-    {
-      "path": "chromatic-mega-brain/tests/__pycache__/test_chromatic_brain.cpython-312-pytest-9.1.1.pyc",
-      "sha256": "ba01d546bd5dcc46ee053780a880a6f1b44a1aaa571bf24371b41fb9380f7acb",
-      "bytes": 5918
     },
     {
       "path": "chromatic-mega-brain/tests/test_chromatic_brain.py",
@@ -475,16 +440,6 @@
       "path": "java-bug-solver/tests/__init__.py",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "bytes": 0
-    },
-    {
-      "path": "java-bug-solver/tests/__pycache__/__init__.cpython-312.pyc",
-      "sha256": "8744b599d202cfc691dead8e14732248e915bf6768b75de1f88447285b9c66a6",
-      "bytes": 205
-    },
-    {
-      "path": "java-bug-solver/tests/__pycache__/test_structure.cpython-312-pytest-9.1.1.pyc",
-      "sha256": "b7387d482bb820ce8c084970b1e2a06b7619874e27dd71283029b3f55dfb84f6",
-      "bytes": 1952
     },
     {
       "path": "java-bug-solver/tests/test_structure.py",
@@ -832,11 +787,6 @@
       "bytes": 1046
     },
     {
-      "path": "skill-factory/scripts/__pycache__/skill_factory.cpython-312.pyc",
-      "sha256": "0c52638532f115fd157189ca83b1a881fe44c00177029defcfd6b8415af0ff39",
-      "bytes": 36457
-    },
-    {
       "path": "skill-factory/scripts/python-bug-solver-skill/AGENT.md",
       "sha256": "f9c5ecbc9cc88107dd99daf83a1951f419c24499b5e425fcc467d4f0476b5891",
       "bytes": 132
@@ -902,11 +852,6 @@
       "bytes": 54
     },
     {
-      "path": "skill-factory/scripts/python-bug-solver-skill/scripts/__pycache__/validate.cpython-312.pyc",
-      "sha256": "abe4c2642a0ab86c9cbcd0e8742f0e58b902ac6cb49071288dd3a96a9eb5e6c4",
-      "bytes": 857
-    },
-    {
       "path": "skill-factory/scripts/python-bug-solver-skill/scripts/validate.py",
       "sha256": "a2c283e3a9dc3d3b4a80020179f5f80273cdc578e5fa7b147fdb64208051bb93",
       "bytes": 303
@@ -915,11 +860,6 @@
       "path": "skill-factory/scripts/python-bug-solver-skill/templates/OUTPUT.template.md",
       "sha256": "42d82e5383af2f53b54a590d6317b1b473071d06890d4e15408d564a05762df2",
       "bytes": 10
-    },
-    {
-      "path": "skill-factory/scripts/python-bug-solver-skill/tests/__pycache__/test_structure.cpython-312.pyc",
-      "sha256": "aa724ac661edb4c8d4d4ee8055a70495840e496066d519e9419e16a9f238b9f1",
-      "bytes": 701
     },
     {
       "path": "skill-factory/scripts/python-bug-solver-skill/tests/test_structure.py",
@@ -940,16 +880,6 @@
       "path": "skill-factory/templates/SKILL.template.md",
       "sha256": "54c9dea775ec0e04c06c5794018bda4e59759c1398f19d06d35da80359a1a3b8",
       "bytes": 3423
-    },
-    {
-      "path": "skill-factory/tests/__pycache__/test_skill_factory.cpython-312-pytest-9.1.1.pyc",
-      "sha256": "ce7ae4c95277d60b59652e70c52f5ae13fba2033bb4030c077c707209162fc3b",
-      "bytes": 16431
-    },
-    {
-      "path": "skill-factory/tests/__pycache__/test_skill_factory.cpython-312.pyc",
-      "sha256": "aac3c25e2a06007a0c624e4975719f02ac091fcaf3d25916e5f1dc0e435df8e6",
-      "bytes": 5495
     },
     {
       "path": "skill-factory/tests/test_skill_factory.py",

@@ -1,11 +1,13 @@
 {
   "scripts": {
-    "aeos:verify": "/tmp/aeos-venv/bin/python aeos/scripts/verify.py --suite quick --python /tmp/aeos-venv/bin/python",
-    "aeos:verify:full": "/tmp/aeos-venv/bin/python aeos/scripts/verify.py --suite full --python /tmp/aeos-venv/bin/python",
-    "test:python": "/tmp/aeos-venv/bin/python -m pytest -q",
-    "test:python:cov": "/tmp/aeos-venv/bin/python -m pytest --cov=aeos --cov-report=term-missing",
-    "test:python:bdd": "/tmp/aeos-venv/bin/behave -q",
-    "test:robot": "/tmp/aeos-venv/bin/robot --outputdir /tmp/aeos-robot-results tests/robot",
+    "aeos:bootstrap": "python aeos/scripts/bootstrap_portable.py",
+    "aeos:bootstrap:deps": "python aeos/scripts/bootstrap_portable.py --install-deps",
+    "aeos:verify": "python aeos/scripts/verify.py --suite quick",
+    "aeos:verify:full": "python aeos/scripts/verify.py --suite full",
+    "test:python": "python aeos/scripts/test_matrix.py --only python-pytest",
+    "test:python:cov": "python aeos/scripts/run_portable_python.py --require-module pytest -- -m pytest --cov=aeos --cov-report=term-missing",
+    "test:python:bdd": "python aeos/scripts/test_matrix.py --only python-behave",
+    "test:robot": "python aeos/scripts/test_matrix.py --only python-robot",
     "test:node:jest": "jest --config jest.config.cjs",
     "test:node:vitest": "vitest run --config vitest.config.ts",
     "test:node:mocha": "mocha \"tests/node/**/*.test.cjs\"",
@@ -13,7 +15,7 @@
     "test:java:maven": ".tools/bin/mvn -f templates/test-toolchains/java-junit5/pom.xml test",
     "test:java:gradle": ".tools/bin/gradle --no-daemon -p templates/test-toolchains/java-gradle-junit5 test",
     "test:java": "npm run test:java:maven && npm run test:java:gradle",
-    "test:matrix": "/tmp/aeos-venv/bin/python aeos/scripts/test_matrix.py",
+    "test:matrix": "python aeos/scripts/test_matrix.py",
     "test:matrix:full": "npm run test:matrix -- --include-optional",
     "test:all": "npm run test:python && npm run test:python:bdd && npm run test:robot && npm run test:node:jest && npm run test:node:vitest && npm run test:node:mocha && npm run test:node:cucumber && npm run test:java"
   },

@@ -1,8 +1,10 @@
 node_modules/
+.idea/
 __pycache__/
 *.pyc
 *.pyo
 *.egg-info/
+.coverage
 .env
 dist/
 build/

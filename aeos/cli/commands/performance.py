@@ -31,7 +31,7 @@ def cmd_performance_benchmark(args) -> int:
                 )
             print(f"Report: {reports['markdown']}")
         if result["status"] == "BREACHED":
-            return 1
+            return 3
         if result["status"] == "WARN":
             return 3 if fail_on == "warn" else 0
         return 0

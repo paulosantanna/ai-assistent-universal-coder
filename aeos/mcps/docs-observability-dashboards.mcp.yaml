@@ -1,0 +1,47 @@
+mcp:
+  id: docs-observability-dashboards
+  name: Observability Dashboard Documentation MCP
+  protocol: model-context-protocol
+  version: '2026-07-13'
+  transport:
+    type: stdio
+    command: language-docs-mcp
+    args: [--profile, docs-observability-dashboards]
+  capabilities:
+    tools:
+      - name: observability_docs.dashboard_model
+        description: Build a dashboard model for traces, metrics and logs across Grafana, Dynatrace or open-source backends.
+        security: read-only
+      - name: observability_docs.signal_mapping
+        description: Map language/framework signals to panels, alerts and SLOs.
+        security: read-only
+      - name: observability_docs.validation_checklist
+        description: Produce dashboard validation gates for generated observability packages.
+        security: read-only
+  source_profile:
+    domain: observability-dashboards
+    sources:
+      - name: OpenTelemetry Docs
+        url: https://opentelemetry.io/docs/
+        authority: official
+      - name: Grafana Docs
+        url: https://grafana.com/docs/
+        authority: official
+      - name: Dynatrace Docs
+        url: https://docs.dynatrace.com/
+        authority: official
+  security:
+    allowed_domains: [opentelemetry.io, grafana.com, docs.dynatrace.com, prometheus.io]
+    write_allowed: false
+    redaction: {enabled: true}
+prompt_contract:
+  objective: Provide dashboard design, signal mapping and validation guidance for any language or architecture.
+  evidence_required: true
+  response_rules:
+    - Generate panels from required signals, not decoration.
+    - Require traces, metrics and logs correlation.
+    - Include validation and no-data explanations.
+  stop_conditions:
+    - target backend missing
+    - language or architecture missing
+    - evidence cannot be produced

@@ -3,6 +3,10 @@
 Date: 2026-07-13
 Scope: Python, Node.js, BDD, Robot Framework, Maven, Gradle, JDK, Java test templates, AEOS test matrix
 
+## Current Branch Note
+
+This change set documents the intended Java toolchain layout and the earlier installation flow. In the current `feature/newcommit` audit worktree, the tracked wrappers remain present, but the large Maven, Gradle, and JDK distributions under `.tools` may be absent. The authoritative current branch assignment is documented in `2026-07-13-feature-newcommit-branch-assignment.md`, and the matrix now runs ecosystem contract adapters for Java Maven, Java Gradle, Go, Rust, and .NET when their native binaries are absent.
+
 ## Objective
 
 Install and configure the project test toolchain for immediate validation across Python, Node.js, and Java, with reusable Maven and Gradle templates for JUnit 5 and Cucumber-JVM.

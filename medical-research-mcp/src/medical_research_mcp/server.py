@@ -18,6 +18,7 @@ from .dependency_security import (
     query_osv,
     vulnerability_source_policy,
 )
+from .diabetes_expertise import diabetes_ai_project_review_checklist, diabetes_expertise_map
 from .expert_validator import validate_10_0
 from .lora_qora_dora_doubleLora import recommend_adapter
 from .models import DiseaseProfile, ValidationCriterion
@@ -176,6 +177,18 @@ def bm25_search(documents: list[str], query: str, top_k: int = 5) -> list[dict]:
 def qualified_medical_sources() -> dict:
     """Return governed international source registries and access policy."""
     return {"sources": source_registry(), "policy": source_policy()}
+
+
+@mcp.tool()
+def diabetes_staff_expertise_map() -> dict:
+    """Return the research-only diabetes expertise map for AI project evaluation."""
+    return diabetes_expertise_map()
+
+
+@mcp.tool()
+def diabetes_ai_project_review_gate() -> list[dict]:
+    """Return the staff-level review checklist for diabetes AI project architecture."""
+    return diabetes_ai_project_review_checklist()
 
 
 @mcp.tool()

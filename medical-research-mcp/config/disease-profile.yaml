@@ -20,6 +20,11 @@ comorbidities:
   - hypertension
   - dyslipidemia
   - depression
+  - diabetes distress
+  - sleep apnea
+  - periodontal disease
+  - heart failure
+  - peripheral arterial disease
 biomarkers:
   - HbA1c
   - fasting plasma glucose
@@ -29,6 +34,10 @@ biomarkers:
   - HOMA-IR
   - eGFR
   - urinary albumin-to-creatinine ratio
+  - continuous glucose monitoring time in range
+  - autoantibodies
+  - lipid profile
+  - blood pressure
 outcomes:
   - glycemic control
   - remission
@@ -37,6 +46,10 @@ outcomes:
   - kidney outcomes
   - severe hypoglycemia
   - quality of life
+  - hospitalization
+  - retinopathy progression
+  - neuropathy progression
+  - foot ulcer recurrence
 intervention_classes:
   - lifestyle
   - pharmacological
@@ -45,8 +58,12 @@ intervention_classes:
   - gene therapy
   - medical devices
   - digital interventions
+  - evidence retrieval
+  - clinical decision support evaluation
 exclusions:
   - autonomous diagnosis
   - autonomous treatment recommendation
   - unsupported cure claim
   - unapproved laboratory, animal, or human experimentation
+  - emergency triage
+  - patient-specific dosing decision

@@ -1,0 +1,40 @@
+mcp:
+  id: docs-dynatrace
+  name: Dynatrace Documentation MCP
+  protocol: model-context-protocol
+  version: '2026-07-13'
+  transport:
+    type: stdio
+    command: language-docs-mcp
+    args: [--profile, docs-dynatrace]
+  capabilities:
+    tools:
+      - name: observability_docs.search
+        description: Search governed Dynatrace documentation for OpenTelemetry ingestion, dashboards, metrics, logs and traces.
+        security: read-only
+      - name: observability_docs.dashboard_plan
+        description: Plan Dynatrace dashboards and signal mapping.
+        security: read-only
+      - name: observability_docs.otel_ingest_plan
+        description: Return Dynatrace OTLP ingestion and validation guidance.
+        security: read-only
+  source_profile:
+    domain: dynatrace
+    sources:
+      - name: Dynatrace Docs
+        url: https://docs.dynatrace.com/
+        authority: official
+  security:
+    allowed_domains: [docs.dynatrace.com]
+    write_allowed: false
+    redaction: {enabled: true}
+prompt_contract:
+  objective: Provide official Dynatrace observability, dashboard and OpenTelemetry ingest guidance.
+  evidence_required: true
+  response_rules:
+    - Prefer official Dynatrace docs.
+    - Do not expose API tokens or tenant secrets.
+    - Separate SaaS configuration from generated project files.
+  stop_conditions:
+    - requested source is outside allowed domains
+    - evidence cannot be produced

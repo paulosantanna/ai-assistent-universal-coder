@@ -32,6 +32,21 @@
 - WHO ICTRP: https://www.who.int/clinical-trials-registry-platform
 - EU Clinical Trials Information System: https://euclinicaltrials.eu/
 
+## Diabetes, biology, chemistry, and comorbidities
+
+- ADA Standards of Care in Diabetes: https://professional.diabetes.org/standards-of-care
+- WHO Diabetes fact sheet: https://www.who.int/news-room/fact-sheets/detail/diabetes
+- CDC Diabetes: https://www.cdc.gov/diabetes/
+- NICE Type 1 Diabetes NG17: https://www.nice.org.uk/guidance/ng17
+- NICE Type 2 Diabetes NG28: https://www.nice.org.uk/guidance/ng28
+- KDIGO Diabetes and CKD: https://kdigo.org/guidelines/diabetes-ckd/
+- International Diabetes Federation: https://idf.org/
+- UniProt: https://www.uniprot.org/
+- ChEMBL: https://www.ebi.ac.uk/chembl/
+- PubChem: https://pubchem.ncbi.nlm.nih.gov/
+- Reactome: https://reactome.org/
+- KEGG: https://www.kegg.jp/
+
 ## Vulnerability intelligence
 
 - OSV: https://osv.dev/
@@ -49,3 +64,8 @@
 - Do not scrape patient-identifiable or access-controlled content.
 - Retain corrections, retractions, negative findings, and contradictory evidence.
 - Do not use one source as sole support for high-impact claims.
+- Separate clinical guideline evidence, trial evidence, mechanistic biology,
+  chemistry/pharmacology evidence, and AI implementation evidence.
+- Block autonomous diagnosis, autonomous treatment recommendation, emergency
+  triage, patient-specific dosing, unsupported cure claims, and experimentation
+  authorization.

@@ -82,16 +82,6 @@
       "bytes": 0
     },
     {
-      "path": "tests/__pycache__/__init__.cpython-312.pyc",
-      "sha256": "8744b599d202cfc691dead8e14732248e915bf6768b75de1f88447285b9c66a6",
-      "bytes": 205
-    },
-    {
-      "path": "tests/__pycache__/test_structure.cpython-312-pytest-9.1.1.pyc",
-      "sha256": "b7387d482bb820ce8c084970b1e2a06b7619874e27dd71283029b3f55dfb84f6",
-      "bytes": 1952
-    },
-    {
       "path": "tests/test_structure.py",
       "sha256": "5ca93e66bcbc869c7e23388d4c659bbacf8ac522676e0e7357b2bc8b07566096",
       "bytes": 175

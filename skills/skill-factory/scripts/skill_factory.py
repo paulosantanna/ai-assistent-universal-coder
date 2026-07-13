@@ -39,6 +39,8 @@ FORBIDDEN_PATTERNS = {
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 SEMVER_RE = re.compile(r"^\d+\.\d+\.\d+$")
 MIN_GENERATED_ARCHITECTURE_LEVEL = 3
+MANIFEST_EXCLUDED_PARTS = {"__pycache__", ".pytest_cache"}
+MANIFEST_EXCLUDED_SUFFIXES = {".pyc", ".pyo"}
 
 OWNER_AGENT_BY_CATEGORY = {
     "ANALYSIS": "architect",
@@ -90,6 +92,26 @@ def slugify(value: str) -> str:
 
 def read_text(path: Path) -> str:
     return path.read_text(encoding="utf-8")
+
+
+def is_manifest_file(path: Path) -> bool:
+    if path.name == "MANIFEST.json":
+        return False
+    if any(part in MANIFEST_EXCLUDED_PARTS for part in path.parts):
+        return False
+    return path.suffix not in MANIFEST_EXCLUDED_SUFFIXES
+
+
+def resolve_template(factory_root: Path, filename: str) -> Path:
+    candidates = [
+        factory_root / "templates" / filename,
+        factory_root.parent / "Templates" / filename,
+    ]
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    searched = ", ".join(str(candidate) for candidate in candidates)
+    raise FileNotFoundError(f"Template not found: {filename}. Searched: {searched}")
 
 
 def extract_metadata(text: str) -> dict[str, str]:
@@ -198,6 +220,8 @@ def validate_package(package: Path) -> list[Finding]:
             manifest_data = json.loads(read_text(manifest))
             for item in manifest_data.get("files", []):
                 p = package / item["path"]
+                if not is_manifest_file(p):
+                    continue
                 if not p.exists():
                     findings.append(Finding("ERROR", "MANIFEST_MISSING_FILE", item["path"], "MANIFEST.json"))
                     continue
@@ -304,7 +328,7 @@ def create_honest_evaluator(target: Path) -> None:
 def write_manifest(target: Path) -> None:
     entries = []
     for p in sorted(target.rglob("*")):
-        if p.is_file() and p.name != "MANIFEST.json":
+        if p.is_file() and is_manifest_file(p.relative_to(target)):
             entries.append({
                 "path": str(p.relative_to(target)).replace("\\", "/"),
                 "sha256": hashlib.sha256(p.read_bytes()).hexdigest(),
@@ -437,11 +461,11 @@ def generate(args: argparse.Namespace) -> int:
     }
 
     (target / "SKILL.md").write_text(
-        render_template(factory_root / "templates" / "SKILL.template.md", values),
+        render_template(resolve_template(factory_root, "SKILL.template.md"), values),
         encoding="utf-8",
     )
     (target / "README.md").write_text(
-        render_template(factory_root / "templates" / "README.template.md", values),
+        render_template(resolve_template(factory_root, "README.template.md"), values),
         encoding="utf-8",
     )
 

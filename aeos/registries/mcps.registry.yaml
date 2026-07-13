@@ -100,6 +100,43 @@ mcps:
   write_allowed: false
   approval_required: false
   enabled: true
+- id: medical-research
+  type: medical-research
+  transport: stdio
+  config: aeos/mcps/medical-research.mcp.yaml
+  risk_level: high
+  capabilities:
+  - WEB_SEARCH
+  - WEB_FETCH
+  - KNOWLEDGE_RETRIEVAL
+  - MEDICAL_RESEARCH
+  - MEDICAL_AI_AUDIT
+  - DIABETES_EXPERTISE
+  tools:
+  - qualified_medical_sources
+  - diabetes_staff_expertise_map
+  - diabetes_ai_project_review_gate
+  - build_disease_research_query
+  - build_research_method_queries
+  - pubmed_research
+  - pubmed_summaries
+  - europe_pmc_research
+  - clinical_trials_research
+  - medical_evidence_screening_policy
+  - repository_scan
+  - repository_architecture_inventory
+  - medical_ai_audit
+  - architecture_recommendation
+  - rag_quality_gate
+  - training_pipeline_design
+  - continuous_learning_quality_gate
+  - owasp_ai_gate
+  - token_budget_plan
+  - complete_beta_plan
+  - expert_validation_10_0
+  write_allowed: false
+  approval_required: false
+  enabled: true
 - id: secrets-runtime
   type: secrets
   transport: stdio
@@ -347,6 +384,77 @@ mcps:
   - project.production_checklist
   - project.scaffold_manifest
   - project.scaffold_package
+  write_allowed: false
+  approval_required: false
+  enabled: true
+- id: docs-opentelemetry
+  type: observability-docs
+  transport: stdio
+  config: aeos/mcps/docs-opentelemetry.mcp.yaml
+  risk_level: low
+  capabilities:
+  - WEB_SEARCH
+  - WEB_FETCH
+  - KNOWLEDGE_RETRIEVAL
+  - OBSERVABILITY_DOCS
+  tools:
+  - observability_docs.search
+  - observability_docs.fetch
+  - observability_docs.instrumentation_plan
+  write_allowed: false
+  approval_required: false
+  enabled: true
+- id: docs-grafana
+  type: observability-docs
+  transport: stdio
+  config: aeos/mcps/docs-grafana.mcp.yaml
+  risk_level: low
+  capabilities:
+  - WEB_SEARCH
+  - WEB_FETCH
+  - KNOWLEDGE_RETRIEVAL
+  - OBSERVABILITY_DOCS
+  - DASHBOARD_DESIGN
+  tools:
+  - observability_docs.search
+  - observability_docs.dashboard_plan
+  - observability_docs.panel_query
+  write_allowed: false
+  approval_required: false
+  enabled: true
+- id: docs-dynatrace
+  type: observability-docs
+  transport: stdio
+  config: aeos/mcps/docs-dynatrace.mcp.yaml
+  risk_level: low
+  capabilities:
+  - WEB_SEARCH
+  - WEB_FETCH
+  - KNOWLEDGE_RETRIEVAL
+  - OBSERVABILITY_DOCS
+  - DASHBOARD_DESIGN
+  tools:
+  - observability_docs.search
+  - observability_docs.dashboard_plan
+  - observability_docs.otel_ingest_plan
+  write_allowed: false
+  approval_required: false
+  enabled: true
+- id: docs-observability-dashboards
+  type: observability-docs
+  transport: stdio
+  config: aeos/mcps/docs-observability-dashboards.mcp.yaml
+  risk_level: low
+  capabilities:
+  - WEB_SEARCH
+  - WEB_FETCH
+  - KNOWLEDGE_RETRIEVAL
+  - OBSERVABILITY_DOCS
+  - DASHBOARD_DESIGN
+  tools:
+  - observability_docs.dashboard_model
+  - observability_docs.signal_mapping
+  - observability_docs.validation_checklist
   write_allowed: false
   approval_required: false
   enabled: true

@@ -10,6 +10,8 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
+from portable_env import performance_target, python_executable
+
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
@@ -36,7 +38,7 @@ def _pytest(python: str, *paths: str) -> list[str]:
 
 
 def build_steps(args: argparse.Namespace) -> list[Step]:
-    python = args.python
+    python = args.python or python_executable(REPO_ROOT, required_modules=["pytest"])
     steps: list[Step] = []
 
     if args.suite in {"quick", "full"}:
@@ -53,6 +55,16 @@ def build_steps(args: argparse.Namespace) -> list[Step]:
                     env=_env_with_pythonpath(),
                 ),
                 Step(
+                    "AEOS structural guard",
+                    [python, "aeos/scripts/structural_guard.py", "--root", "."],
+                    env=_env_with_pythonpath(),
+                ),
+                Step(
+                    "AEOS toolchain doctor",
+                    [python, "aeos/scripts/toolchain_doctor.py", "--root", "."],
+                    env=_env_with_pythonpath(),
+                ),
+                Step(
                     "AEOS performance benchmark",
                     [
                         python,
@@ -63,7 +75,7 @@ def build_steps(args: argparse.Namespace) -> list[Step]:
                         "--aeos-root",
                         ".",
                         "--target",
-                        "/tmp/aeos-performance-verify",
+                        str(performance_target(REPO_ROOT)),
                         "--iterations",
                         "1",
                         "--fail-on",
@@ -154,8 +166,8 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     )
     parser.add_argument(
         "--python",
-        default=sys.executable,
-        help="Python interpreter to use for pytest and AEOS CLI commands.",
+        default=None,
+        help="Python interpreter to use for pytest and AEOS CLI commands. Defaults to the portable AEOS venv when available.",
     )
     parser.add_argument(
         "--skip-node",

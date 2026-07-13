@@ -91,11 +91,24 @@ aeos/
 Use the repository-level verifier before promoting AEOS changes:
 
 ```bash
-python aeos/scripts/verify.py --suite quick
-python aeos/scripts/verify.py --suite full
+npm run aeos:verify
+npm run aeos:verify:full
 ```
 
 The quick suite validates the AEOS doctor, registry and core tests. The full suite also validates skills, MCP packages, the language server and the TypeScript runtime build.
+
+## Portable Runtime
+
+AEOS resolves local state from the repository by default so the folder can move
+between machines or run from removable storage.
+
+```bash
+npm run aeos:bootstrap
+npm run aeos:bootstrap:deps
+```
+
+Portable state lives under `.aeos/` unless overridden by `AEOS_PORTABLE_HOME`.
+See `aeos/docs/PORTABLE_RUNTIME.md` for the full contract.
 
 ## Execution Contract
 
