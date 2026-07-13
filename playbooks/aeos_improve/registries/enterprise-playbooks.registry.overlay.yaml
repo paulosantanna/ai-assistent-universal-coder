@@ -1,0 +1,12 @@
+playbooks:
+  version: 1
+  entries:
+    - id: aidiabetic-urgent-improvement-v1
+      version: 1.0.0
+      path: playbooks/aidiabetic-urgent-improvement.playbook.yaml
+      documentation: playbooks/AIDIABETIC_URGENT_IMPROVEMENT_FULL.md
+      risk: CRITICAL
+      mode: controlled
+      enabled: true
+      judge: evidence-readiness-judge
+      token_governor: token-context-governor

@@ -1,0 +1,22 @@
+agent:
+  id: security-clinical-safety-reviewer-agent
+  name: Security and Clinical Safety Reviewer Agent
+  version: 1.0.0
+  role: Security and Clinical Safety Reviewer
+  risk: CRITICAL
+  skill: security-clinical-safety-reviewer
+  single_responsibility: true
+  may_implement: true
+  may_judge_own_work: false
+  requires:
+    - evidence
+    - bounded_scope
+    - checkpoint
+    - handoff
+  self_review:
+    question: "Qual é a forma mais provável de esta mudança causar dano, vazamento ou decisão clínica insegura?"
+    require_counterexample: true
+    require_rollback_review: true
+    require_test_review: true
+  token_policy: config/token-budget.yaml
+  output_schema: schemas/handoff.schema.json

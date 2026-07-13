@@ -1,0 +1,22 @@
+agent:
+  id: dead-code-safety-pruner-agent
+  name: Dead Code Safety Pruner Agent
+  version: 1.0.0
+  role: Dead Code Safety Pruner
+  risk: HIGH
+  skill: dead-code-safety-pruner
+  single_responsibility: true
+  may_implement: true
+  may_judge_own_work: false
+  requires:
+    - evidence
+    - bounded_scope
+    - checkpoint
+    - handoff
+  self_review:
+    question: "Temos evidência de não uso em runtime ou apenas ausência de referência estática?"
+    require_counterexample: true
+    require_rollback_review: true
+    require_test_review: true
+  token_policy: config/token-budget.yaml
+  output_schema: schemas/handoff.schema.json

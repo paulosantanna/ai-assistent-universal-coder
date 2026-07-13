@@ -1,0 +1,123 @@
+quality_gates:
+  minimum_weighted_score: 9.8
+  critical_gates_must_pass: true
+  gates:
+    G00_baseline:
+      critical: true
+      weight: 8
+      criteria:
+        - clean_or_documented_worktree
+        - reproducible_test_inventory
+        - route_and_dependency_inventory
+        - original_claims_matrix
+    G01_regression:
+      critical: true
+      weight: 12
+      criteria:
+        - focused_tests_pass
+        - expanded_suite_passes_or_known_failures_are_baselined
+        - no_new_critical_static_findings
+    G02_e2e:
+      critical: true
+      weight: 10
+      criteria:
+        - all_discovered_p0_journeys_automated
+        - all_discovered_p1_journeys_have_contract_or_e2e_coverage
+        - trace_on_failure_enabled
+        - flake_rate_measured
+    G03_openapi:
+      critical: true
+      weight: 8
+      criteria:
+        - route_inventory_matches_schema
+        - explicit_request_and_response_models
+        - auth_and_error_responses_documented
+        - schema_snapshot_and_contract_tests_pass
+    G04_error_contract:
+      critical: true
+      weight: 8
+      criteria:
+        - rfc9457_compatible_problem_shape
+        - stable_machine_codes
+        - correlation_id
+        - no_sensitive_detail_leak
+    G05_architecture:
+      critical: true
+      weight: 10
+      criteria:
+        - dependency_graph_recorded
+        - no_new_forbidden_edges
+        - no_big_bang_migration
+        - adr_for_boundary_changes
+    G06_rag_cache:
+      critical: true
+      weight: 10
+      criteria:
+        - benchmark_proves_value
+        - safe_query_classification
+        - versioned_cache_keys
+        - isolation_and_invalidation_tests
+        - personalized_clinical_cache_denied_by_default
+    G07_health:
+      critical: true
+      weight: 6
+      criteria:
+        - liveness_has_no_external_network_dependency
+        - readiness_supports_degraded_state
+        - timeouts_and_circuit_breakers
+        - dependency_status_is_bounded_and_observable
+    G08_configuration:
+      critical: false
+      weight: 5
+      criteria:
+        - source_ownership_matrix
+        - typed_runtime_settings
+        - secrets_externalized
+        - config_schema_and_compatibility_tests
+    G09_observability:
+      critical: true
+      weight: 8
+      criteria:
+        - metrics_logs_traces_correlated
+        - clinical_metrics_are_aggregated
+        - phi_redaction_tests
+        - actionable_slos_and_alerts
+    G10_documentation:
+      critical: false
+      weight: 4
+      criteria:
+        - c4_context_container_component
+        - code_view_only_for_high_value_components
+        - diagrams_match_repository_evidence
+    G11_release:
+      critical: false
+      weight: 3
+      criteria:
+        - release_pr_automation
+        - changelog_and_version_policy
+        - auto_merge_disabled
+        - auto_deploy_disabled
+    G12_dead_code:
+      critical: true
+      weight: 4
+      criteria:
+        - reachability_and_runtime_entrypoints_checked
+        - deletion_batches_are_small
+        - tests_and_import_checks_pass
+        - rollback_is_trivial
+    G13_precommit:
+      critical: false
+      weight: 2
+      criteria:
+        - hooks_are_pinned
+        - generated_and_vendor_paths_excluded
+        - ci_equivalent_exists
+        - acceptable_local_runtime
+    G14_final_judge:
+      critical: true
+      weight: 2
+      criteria:
+        - evidence_schema_valid
+        - hashes_valid
+        - no_open_critical_finding
+        - rollback_evidence_present

@@ -1,0 +1,22 @@
+agent:
+  id: repository-baseline-cartographer-agent
+  name: Repository Baseline Cartographer Agent
+  version: 1.0.0
+  role: Repository Baseline Cartographer
+  risk: HIGH
+  skill: repository-baseline-cartographer
+  single_responsibility: true
+  may_implement: false
+  may_judge_own_work: false
+  requires:
+    - evidence
+    - bounded_scope
+    - checkpoint
+    - handoff
+  self_review:
+    question: "Um Staff Engineer independente conseguiria reproduzir cada fato deste baseline?"
+    require_counterexample: true
+    require_rollback_review: true
+    require_test_review: true
+  token_policy: config/token-budget.yaml
+  output_schema: schemas/handoff.schema.json

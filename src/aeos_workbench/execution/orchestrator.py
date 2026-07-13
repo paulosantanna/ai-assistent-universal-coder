@@ -270,7 +270,17 @@ class ExecutionOrchestrator:
             playbook = TestRecoveryPlaybook(self.sandbox_writer, self.rollback_manager, self.step_engine, self.execution_id, self.reports_dir)
             result = playbook.execute(target_path)
         else:
-            raise ValueError(f"Playbook '{playbook_id}' execution not implemented in v0.2.1")
+            playbook_path = self.workspace_root / "aeos" / "playbooks" / "enterprise" / f"{playbook_id}.playbook.yaml"
+            if not playbook_path.exists():
+                playbook_path = self.workspace_root / "aeos" / "playbooks" / f"{playbook_id}.playbook.yaml"
+            if not playbook_path.exists():
+                raise ValueError(f"Playbook '{playbook_id}' execution not implemented in v0.2.1 and no YAML definition found")
+            from aeos_workbench.execution.dag_playbook import DAGPlaybook
+            playbook = DAGPlaybook(
+                self.sandbox_writer, self.rollback_manager,
+                self.step_engine, self.execution_id, playbook_path,
+            )
+            result = playbook.execute(target_path)
 
         self.generated_artifacts = result.get("generated_artifacts", [])
         self.risks = result.get("risks", [])
@@ -357,8 +367,10 @@ def run_playbook(
     use_cache: bool = False,
     no_cache: bool = False,
     encrypt_rollback: bool = False,
+    approvals: bool = False,
 ) -> dict:
-    workspace = Path(target_path).resolve()
+    workspace = Path.cwd().resolve()
+    target = Path(target_path).resolve() if target_path != "." else workspace
     orchestrator = ExecutionOrchestrator(
         workspace,
         mode=mode,
@@ -366,4 +378,16 @@ def run_playbook(
         no_cache=no_cache,
         encrypt_rollback=encrypt_rollback,
     )
-    return orchestrator.run(playbook_id, workspace, dry_run=dry_run)
+    if approvals:
+        action = f"playbook.{playbook_id}"
+        context = {"playbook_id": playbook_id, "target": str(target)}
+        orchestrator.approval_gateway.create_approval_request(
+            orchestrator.execution_id, action, context
+        )
+        orchestrator.approval_gateway.resolve(
+            orchestrator.execution_id,
+            "approved",
+            decided_by="cli-human",
+            reason="Explicitly approved with --approvals",
+        )
+    return orchestrator.run(playbook_id, target, dry_run=dry_run)

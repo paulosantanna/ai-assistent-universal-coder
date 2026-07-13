@@ -8,6 +8,7 @@
     },
     {
       "path": "README.md",
+<<<<<<< Updated upstream
       "sha256": "29e4f2791a08f36064cc67c3f987890792452f6595c8c2afd0134e999caa744e",
       "bytes": 402
     },
@@ -70,6 +71,25 @@
       "path": "scripts/validate.py",
       "sha256": "a2c283e3a9dc3d3b4a80020179f5f80273cdc578e5fa7b147fdb64208051bb93",
       "bytes": 303
+=======
+      "sha256": "f3afb9ce946a867249571e75c6335d5299ad3b7c238d51d4a7c0c308025db386",
+      "bytes": 473
+    },
+    {
+      "path": "schemas/output.schema.json",
+      "sha256": "d93898eea5dd2551bef51e91a480b8bdce1a76514b6720b759b5876e588e9166",
+      "bytes": 57
+    },
+    {
+      "path": "scripts/validate.py",
+      "sha256": "9f398d4e15f6b2ac59e08f403cd2579bccf99d2cfff4484233764cb23f27890e",
+      "bytes": 310
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "c3bc72f8799f1de7adb72113143ed08f1adf3ccd34cd2543ca706bd7be446774",
+      "bytes": 2410
+>>>>>>> Stashed changes
     },
     {
       "path": "templates/OUTPUT.template.md",
@@ -77,11 +97,14 @@
       "bytes": 10
     },
     {
+<<<<<<< Updated upstream
       "path": "tests/__init__.py",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "bytes": 0
     },
     {
+=======
+>>>>>>> Stashed changes
       "path": "tests/test_structure.py",
       "sha256": "5ca93e66bcbc869c7e23388d4c659bbacf8ac522676e0e7357b2bc8b07566096",
       "bytes": 175

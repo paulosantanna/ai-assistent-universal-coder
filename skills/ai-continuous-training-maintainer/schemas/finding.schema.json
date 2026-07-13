@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Finding",
+  "description": "Schema for SAST/CVE/quality findings",
+  "type": "object",
+  "required": ["id", "severity", "tool", "file", "line", "description", "recommendation"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[A-Z]+-[0-9]{4,}$" },
+    "severity": { "type": "string", "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW", "INFO"] },
+    "tool": { "type": "string", "enum": ["pip-audit", "bandit", "ruff", "mypy", "trivy", "semgrep", "manual"] },
+    "file": { "type": "string" },
+    "line": { "type": "integer", "minimum": 0 },
+    "description": { "type": "string", "minLength": 10 },
+    "cve_id": { "type": "string", "pattern": "^CVE-[0-9]{4}-[0-9]{4,}$" },
+    "source": { "type": "string", "enum": ["NVD", "OSV", "GitHub", "PyPA", "Trivy", "OpenCVE", "GitLab"] },
+    "recommendation": { "type": "string", "minLength": 10 },
+    "fixed_in_version": { "type": "string" },
+    "status": { "type": "string", "enum": ["open", "resolved", "mitigated", "false_positive", "accepted_risk"] }
+  }
+}

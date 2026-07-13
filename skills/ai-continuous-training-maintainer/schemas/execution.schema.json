@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Execution Record",
+  "description": "Schema for execution log entries",
+  "type": "object",
+  "required": ["execution_id", "timestamp", "intent", "status", "files_changed", "tests_passed"],
+  "properties": {
+    "execution_id": { "type": "string", "pattern": "^exec-[0-9a-f]{8,}$" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "intent": { "type": "string", "enum": ["update", "cve", "sast", "deps", "rollback", "health"] },
+    "command": { "type": "string" },
+    "scope": { "type": "string" },
+    "baseline_ref": { "type": "string" },
+    "status": { "type": "string", "enum": ["COMPLETED", "COMPLETED_WITH_LIMITATIONS", "REWORK_REQUIRED", "BLOCKED", "WAITING_APPROVAL"] },
+    "files_changed": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": { "type": "string" },
+          "sha256_before": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "sha256_after": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+        }
+      }
+    },
+    "tests_passed": { "type": "integer", "minimum": 0 },
+    "tests_failed": { "type": "integer", "minimum": 0 },
+    "cves_found": { "type": "integer", "minimum": 0 },
+    "cves_resolved": { "type": "integer", "minimum": 0 },
+    "sast_findings": { "type": "integer", "minimum": 0 },
+    "sast_findings_resolved": { "type": "integer", "minimum": 0 },
+    "rollback_snapshot_ref": { "type": "string" },
+    "handback_summary": { "type": "string" }
+  }
+}

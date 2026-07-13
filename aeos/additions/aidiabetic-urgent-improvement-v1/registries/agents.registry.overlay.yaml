@@ -1,0 +1,117 @@
+agents:
+  version: 1
+  entries:
+    - id: improvement-program-orchestrator-agent
+      path: agents/improvement-program-orchestrator-agent.agent.yaml
+      role: Improvement Program Orchestrator
+      risk: CRITICAL
+      requires_evidence: true
+      token_governed: true
+    - id: repository-baseline-cartographer-agent
+      path: agents/repository-baseline-cartographer-agent.agent.yaml
+      role: Repository Baseline Cartographer
+      risk: HIGH
+      requires_evidence: true
+      token_governed: true
+    - id: e2e-critical-flow-engineer-agent
+      path: agents/e2e-critical-flow-engineer-agent.agent.yaml
+      role: E2E Critical Flow Engineer
+      risk: HIGH
+      requires_evidence: true
+      token_governed: true
+    - id: openapi-contract-engineer-agent
+      path: agents/openapi-contract-engineer-agent.agent.yaml
+      role: OpenAPI Contract Engineer
+      risk: HIGH
+      requires_evidence: true
+      token_governed: true
+    - id: problem-details-error-governor-agent
+      path: agents/problem-details-error-governor-agent.agent.yaml
+      role: Problem Details Error Governor
+      risk: HIGH
+      requires_evidence: true
+      token_governed: true
+    - id: modularization-architecture-governor-agent
+      path: agents/modularization-architecture-governor-agent.agent.yaml
+      role: Modularization Architecture Governor
+      risk: CRITICAL
+      requires_evidence: true
+      token_governed: true
+    - id: clinical-rag-cache-engineer-agent
+      path: agents/clinical-rag-cache-engineer-agent.agent.yaml
+      role: Clinical RAG Cache Engineer
+      risk: CRITICAL
+      requires_evidence: true
+      token_governed: true
+    - id: external-health-resilience-engineer-agent
+      path: agents/external-health-resilience-engineer-agent.agent.yaml
+      role: External Health Resilience Engineer
+      risk: HIGH
+      requires_evidence: true
+      token_governed: true
+    - id: configuration-governance-engineer-agent
+      path: agents/configuration-governance-engineer-agent.agent.yaml
+      role: Configuration Governance Engineer
+      risk: HIGH
+      requires_evidence: true
+      token_governed: true
+    - id: clinical-observability-engineer-agent
+      path: agents/clinical-observability-engineer-agent.agent.yaml
+      role: Clinical Observability Engineer
+      risk: CRITICAL
+      requires_evidence: true
+      token_governed: true
+    - id: c4-architecture-documenter-agent
+      path: agents/c4-architecture-documenter-agent.agent.yaml
+      role: C4 Architecture Documenter
+      risk: MEDIUM
+      requires_evidence: true
+      token_governed: true
+    - id: release-automation-engineer-agent
+      path: agents/release-automation-engineer-agent.agent.yaml
+      role: Release Automation Engineer
+      risk: HIGH
+      requires_evidence: true
+      token_governed: true
+    - id: dead-code-safety-pruner-agent
+      path: agents/dead-code-safety-pruner-agent.agent.yaml
+      role: Dead Code Safety Pruner
+      risk: HIGH
+      requires_evidence: true
+      token_governed: true
+    - id: precommit-quality-engineer-agent
+      path: agents/precommit-quality-engineer-agent.agent.yaml
+      role: Pre-commit Quality Engineer
+      risk: MEDIUM
+      requires_evidence: true
+      token_governed: true
+    - id: performance-slo-engineer-agent
+      path: agents/performance-slo-engineer-agent.agent.yaml
+      role: Performance and SLO Engineer
+      risk: HIGH
+      requires_evidence: true
+      token_governed: true
+    - id: security-clinical-safety-reviewer-agent
+      path: agents/security-clinical-safety-reviewer-agent.agent.yaml
+      role: Security and Clinical Safety Reviewer
+      risk: CRITICAL
+      requires_evidence: true
+      token_governed: true
+    - id: evidence-readiness-judge-agent
+      path: agents/evidence-readiness-judge-agent.agent.yaml
+      role: Evidence Readiness Judge
+      risk: CRITICAL
+      requires_evidence: true
+      token_governed: true
+    - id: token-context-governor-agent
+      path: agents/token-context-governor-agent.agent.yaml
+      role: Token and Context Governor
+      risk: HIGH
+      requires_evidence: true
+      token_governed: true
+    - id: improvement-metrics-governor-agent
+      path: agents/improvement-metrics-governor-agent.agent.yaml
+      role: Improvement Metrics Governor
+      risk: HIGH
+      requires_evidence: true
+      token_governed: true

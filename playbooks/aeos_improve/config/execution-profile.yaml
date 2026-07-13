@@ -1,0 +1,36 @@
+execution_profile:
+  id: aidiabetic-urgent-controlled
+  target:
+    expected_root: E:\GitHub\aidiabetic-research
+    stack_hints:
+      - python
+      - fastapi
+      - rag
+      - clinical_research
+  concurrency:
+    maximum: 4
+    conflict_key:
+      - file_path
+      - api_contract
+      - data_schema
+      - migration
+      - shared_test_fixture
+  waves:
+    - id: W0
+      name: evidence_baseline
+      mutation: false
+    - id: W1
+      name: critical_contracts_and_tests
+      mutation: controlled
+    - id: W2
+      name: architecture_performance_resilience
+      mutation: approval_for_high_risk
+    - id: W3
+      name: configuration_observability_documentation
+      mutation: controlled
+    - id: W4
+      name: release_cleanup_quality
+      mutation: controlled
+    - id: W5
+      name: full_validation_and_judge
+      mutation: false

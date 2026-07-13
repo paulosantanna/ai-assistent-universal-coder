@@ -1,0 +1,38 @@
+policy:
+  id: aidiabetic-improvement-execution-v1
+  mode: controlled
+  mutation:
+    default: deny
+    require_baseline: true
+    require_snapshot_or_branch: true
+    require_path_allowlist: true
+    require_diff_review: true
+    require_rollback: true
+  approvals:
+    architecture_boundary_change: required
+    schema_or_data_migration: required
+    auth_or_authorization_change: required
+    clinical_safety_change: required
+    production_release_change: required
+  forbidden:
+    - auto_merge
+    - auto_deploy
+    - unrestricted_shell
+    - direct_mcp_bypass
+    - secrets_read
+    - phi_in_prompt
+    - phi_in_logs
+    - judge_override_of_deterministic_failure
+  execution:
+    max_parallel_steps: 4
+    max_rework_cycles_per_gate: 3
+    stop_on_critical_regression: true
+    preserve_completed_work: true
+    checkpoint_on_every_phase: true
+  evidence:
+    required: true
+    sha256: true
+    command_exit_codes: true
+    timestamps_utc: true
+    diff_stat: true
+    test_artifacts: true

@@ -1,0 +1,22 @@
+agent:
+  id: evidence-readiness-judge-agent
+  name: Evidence Readiness Judge Agent
+  version: 1.0.0
+  role: Evidence Readiness Judge
+  risk: CRITICAL
+  skill: evidence-readiness-judge
+  single_responsibility: true
+  may_implement: false
+  may_judge_own_work: false
+  requires:
+    - evidence
+    - bounded_scope
+    - checkpoint
+    - handoff
+  self_review:
+    question: "Um auditor independente chegaria ao mesmo verdict usando os mesmos artefatos?"
+    require_counterexample: true
+    require_rollback_review: true
+    require_test_review: true
+  token_policy: config/token-budget.yaml
+  output_schema: schemas/handoff.schema.json

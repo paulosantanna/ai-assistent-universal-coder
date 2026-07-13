@@ -1,0 +1,13 @@
+pack:
+  id: aidiabetic-urgent-improvement-v1
+  name: AIDiabetic Urgent Improvement Pack
+  version: 1.0.0
+  type: enterprise-improvement-overlay
+  target_profile: python-ai-rag-fastapi-clinical-research
+  risk: CRITICAL
+  default_mode: controlled
+  auto_merge: false
+  auto_deploy: false
+  human_approval_for_high_risk: true
+  judge_min_score: 9.8
+  block_on_missing_evidence: true

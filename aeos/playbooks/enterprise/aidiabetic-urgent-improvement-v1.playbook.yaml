@@ -1,0 +1,164 @@
+playbook:
+  id: aidiabetic-urgent-improvement-v1
+  version: 1.0.0
+  risk: CRITICAL
+  target_profile: python-ai-rag-fastapi-clinical-research
+  policies:
+    - config/execution-policy.yaml
+    - config/quality-gates.yaml
+    - config/clinical-safety-policy.yaml
+    - config/token-budget.yaml
+  entry:
+    skill: improvement-program-orchestrator
+  waves:
+    - id: W0
+      name: Evidence baseline and plan correction
+      mutation: false
+      steps:
+        - id: W0-S1
+          skill: repository-baseline-cartographer
+          outputs: [baseline.json, claims-matrix.md, repository-map.md, risk-register.json]
+        - id: W0-S2
+          skill: improvement-metrics-governor
+          depends_on: [W0-S1]
+        - id: W0-S3
+          skill: performance-slo-engineer
+          depends_on: [W0-S1]
+        - id: W0-GATE
+          skill: evidence-readiness-judge
+          depends_on: [W0-S1, W0-S2, W0-S3]
+          gate: G00_baseline
+
+    - id: W1
+      name: Critical contracts and user-risk tests
+      mutation: controlled
+      parallel_groups:
+        - [W1-S1, W1-S2]
+      steps:
+        - id: W1-S1
+          skill: openapi-contract-engineer
+          depends_on: [W0-GATE]
+        - id: W1-S2
+          skill: problem-details-error-governor
+          depends_on: [W0-GATE]
+        - id: W1-S3
+          skill: e2e-critical-flow-engineer
+          depends_on: [W1-S1, W1-S2]
+        - id: W1-S4
+          skill: security-clinical-safety-reviewer
+          depends_on: [W1-S1, W1-S2, W1-S3]
+        - id: W1-GATE
+          skill: evidence-readiness-judge
+          depends_on: [W1-S4]
+          gates: [G01_regression, G02_e2e, G03_openapi, G04_error_contract]
+
+    - id: W2
+      name: Architecture, RAG performance and resilience
+      mutation: approval_for_high_risk
+      parallel_groups:
+        - [W2-S1, W2-S2, W2-S3]
+      steps:
+        - id: W2-S1
+          skill: modularization-architecture-governor
+          depends_on: [W1-GATE]
+          approval: required
+          strategy: incremental_slice_only
+        - id: W2-S2
+          skill: clinical-rag-cache-engineer
+          depends_on: [W1-GATE]
+          approval: required
+          rollout: experiment_then_opt_in
+        - id: W2-S3
+          skill: external-health-resilience-engineer
+          depends_on: [W1-GATE]
+        - id: W2-S4
+          skill: performance-slo-engineer
+          depends_on: [W2-S1, W2-S2, W2-S3]
+        - id: W2-S5
+          skill: security-clinical-safety-reviewer
+          depends_on: [W2-S1, W2-S2, W2-S3, W2-S4]
+        - id: W2-GATE
+          skill: evidence-readiness-judge
+          depends_on: [W2-S5]
+          gates: [G01_regression, G05_architecture, G06_rag_cache, G07_health]
+
+    - id: W3
+      name: Configuration, observability and architecture documentation
+      mutation: controlled
+      parallel_groups:
+        - [W3-S1, W3-S2]
+      steps:
+        - id: W3-S1
+          skill: configuration-governance-engineer
+          depends_on: [W2-GATE]
+        - id: W3-S2
+          skill: clinical-observability-engineer
+          depends_on: [W2-GATE]
+        - id: W3-S3
+          skill: c4-architecture-documenter
+          depends_on: [W3-S1, W3-S2]
+        - id: W3-S4
+          skill: security-clinical-safety-reviewer
+          depends_on: [W3-S1, W3-S2, W3-S3]
+        - id: W3-GATE
+          skill: evidence-readiness-judge
+          depends_on: [W3-S4]
+          gates: [G01_regression, G08_configuration, G09_observability, G10_documentation]
+
+    - id: W4
+      name: Release, cleanup and local quality
+      mutation: controlled
+      parallel_groups:
+        - [W4-S1, W4-S3]
+      steps:
+        - id: W4-S1
+          skill: release-automation-engineer
+          depends_on: [W3-GATE]
+        - id: W4-S2
+          skill: dead-code-safety-pruner
+          depends_on: [W3-GATE]
+          batching: small
+        - id: W4-S3
+          skill: precommit-quality-engineer
+          depends_on: [W3-GATE]
+        - id: W4-GATE
+          skill: evidence-readiness-judge
+          depends_on: [W4-S1, W4-S2, W4-S3]
+          gates: [G01_regression, G11_release, G12_dead_code, G13_precommit]
+
+    - id: W5
+      name: Full validation, readiness and final verdict
+      mutation: false
+      steps:
+        - id: W5-S1
+          skill: performance-slo-engineer
+          depends_on: [W4-GATE]
+          mode: final_comparison
+        - id: W5-S2
+          skill: security-clinical-safety-reviewer
+          depends_on: [W4-GATE]
+          mode: full_pack_review
+        - id: W5-S3
+          skill: improvement-metrics-governor
+          depends_on: [W5-S1, W5-S2]
+          mode: final_metrics
+        - id: W5-FINAL
+          skill: evidence-readiness-judge
+          depends_on: [W5-S1, W5-S2, W5-S3]
+          gates:
+            - G00_baseline
+            - G01_regression
+            - G02_e2e
+            - G03_openapi
+            - G04_error_contract
+            - G05_architecture
+            - G06_rag_cache
+            - G07_health
+            - G08_configuration
+            - G09_observability
+            - G10_documentation
+            - G11_release
+            - G12_dead_code
+            - G13_precommit
+            - G14_final_judge
+  verdicts: [PASS, REWORK_REQUIRED, BLOCKED]

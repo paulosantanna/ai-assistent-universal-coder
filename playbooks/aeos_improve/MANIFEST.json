@@ -1,0 +1,1838 @@
+{
+  "package": "AEOS_AIDIABETIC_URGENT_IMPROVEMENT_PACK_v1_0_FINAL",
+  "version": "1.0.0",
+  "generated_at": "2026-07-12T02:02:24.388976+00:00",
+  "file_count": 366,
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "97f4f5aa252a38e48ac513941f70369b79b3e36b77ad346a6a2c36809c590a32",
+      "bytes": 314
+    },
+    {
+      "path": "FULL_EXECUTION_PROMPT.md",
+      "sha256": "71b210a0abab5a24a977fba3bd95b490e54bc09d2c93a592b4afaca28c30f92a",
+      "bytes": 2471
+    },
+    {
+      "path": "FULL_TEST_REPORT.txt",
+      "sha256": "574620115020515f8521715349b750af411794dcf2db6862b94343fbba6d7c33",
+      "bytes": 99
+    },
+    {
+      "path": "INSTALL.md",
+      "sha256": "18edfd24e87fda4919350b8bd16a073835792debeca17db3adedaaafe1d5589d",
+      "bytes": 1461
+    },
+    {
+      "path": "INSTALLER_DRY_RUN_REPORT.txt",
+      "sha256": "238d935737b999586c2bcdd2ba5d4651d21096a5ed16b8268f8ae6c4d8cfe2a8",
+      "bytes": 311
+    },
+    {
+      "path": "INSTALLER_TEST_REPORT.txt",
+      "sha256": "26b2febce91dd6724504001ff7b895861014b541d84e8873618280e0d5c8cc65",
+      "bytes": 585
+    },
+    {
+      "path": "README.md",
+      "sha256": "776a55a2abdbdcd10514fc8c991582efea7f9c4242e915083cbc8ac18435cac9",
+      "bytes": 4349
+    },
+    {
+      "path": "SKILL_VALIDATION_REPORT.txt",
+      "sha256": "094bf9341364de3932b195652d34458a521d27b8879e76556d8809147189248c",
+      "bytes": 826
+    },
+    {
+      "path": "SOURCES.md",
+      "sha256": "51ff299e110bed4af6d3f2ff1237b23c910a72ec2e345485461e166dabc26b52",
+      "bytes": 1134
+    },
+    {
+      "path": "STRUCTURAL_VALIDATION_REPORT.txt",
+      "sha256": "81388405827673fe8a8398555a1ade5dc848be0bf5cb14b283fa5e27dde415b0",
+      "bytes": 866
+    },
+    {
+      "path": "TEST_REPORT.txt",
+      "sha256": "c16e476727b44651fa5f7dfdcafb51f1ac3060244911f7766ff0b1b89f467249",
+      "bytes": 98
+    },
+    {
+      "path": "aeos.pack.yaml",
+      "sha256": "5285f17ce134a64c9775f9f764ebe1dfee046dccbc3eb24a8032d67556894855",
+      "bytes": 381
+    },
+    {
+      "path": "agents/c4-architecture-documenter-agent.agent.yaml",
+      "sha256": "813e233aba6262042859a8212352fd44ebb2e501e439ebd19894dd7b24881a10",
+      "bytes": 643
+    },
+    {
+      "path": "agents/clinical-observability-engineer-agent.agent.yaml",
+      "sha256": "85efe9127160724b59c5138ca5e6d385a31670ac7429671b27963714671cb063",
+      "bytes": 656
+    },
+    {
+      "path": "agents/clinical-rag-cache-engineer-agent.agent.yaml",
+      "sha256": "ecc2bd8b2f7d30019f10c7e325f7582209bd520f805a071862aaac06b1c8cc82",
+      "bytes": 659
+    },
+    {
+      "path": "agents/configuration-governance-engineer-agent.agent.yaml",
+      "sha256": "33a5fceed4f45a09a9dc5a5f4e07bd48c25beb7801701dde34e7ae3aca962a98",
+      "bytes": 668
+    },
+    {
+      "path": "agents/dead-code-safety-pruner-agent.agent.yaml",
+      "sha256": "383ed7046dc57e98611c36b99b17e5a18e1fbdb27923dca6e8deb4781889b2a1",
+      "bytes": 634
+    },
+    {
+      "path": "agents/e2e-critical-flow-engineer-agent.agent.yaml",
+      "sha256": "64f8952a1a220a284e0765b9e664dcb3463b45fcb8f9c7921d6cd83fea7ec8ec",
+      "bytes": 640
+    },
+    {
+      "path": "agents/evidence-readiness-judge-agent.agent.yaml",
+      "sha256": "45e7ff07e5ac486a002aa1c9849013544b702f24397d5a5d586b43b9ecf2b335",
+      "bytes": 635
+    },
+    {
+      "path": "agents/external-health-resilience-engineer-agent.agent.yaml",
+      "sha256": "dc92cc84e7b4e69d51a54e2f8ed6e76ad2248b94e11e1c41dc427a2df312bac6",
+      "bytes": 668
+    },
+    {
+      "path": "agents/improvement-metrics-governor-agent.agent.yaml",
+      "sha256": "a064053e89de8e9fa4aa50bc7c81245a2f1b39b1b64c0718c2cdfac64f53e67d",
+      "bytes": 643
+    },
+    {
+      "path": "agents/improvement-program-orchestrator-agent.agent.yaml",
+      "sha256": "cae4e6d10027ccf91232198b1da2a818e167a31478b5b281b0d5e51c6eaf4401",
+      "bytes": 682
+    },
+    {
+      "path": "agents/modularization-architecture-governor-agent.agent.yaml",
+      "sha256": "8887646bef031b2da42412d5b65582ab38bd3fedcce28bd99fc167d72999edcd",
+      "bytes": 662
+    },
+    {
+      "path": "agents/openapi-contract-engineer-agent.agent.yaml",
+      "sha256": "98a71374546aa724baae56daf00897aca115333e099bcb37518cad3cd68e04f1",
+      "bytes": 623
+    },
+    {
+      "path": "agents/performance-slo-engineer-agent.agent.yaml",
+      "sha256": "bbd7b7e31c2b69cf43efde23fbac7e75a79c4e1379233a4160c7121e43765158",
+      "bytes": 629
+    },
+    {
+      "path": "agents/precommit-quality-engineer-agent.agent.yaml",
+      "sha256": "8d1c9eb88bb936d61a92cdbee19866fa69ad61fc12fd45a73e3a6cc8eb239d8d",
+      "bytes": 638
+    },
+    {
+      "path": "agents/problem-details-error-governor-agent.agent.yaml",
+      "sha256": "89422b05aa0918fcbdbbc528adc97cb4f2fc46af2ca4c522c7ae8a0ff6a50a83",
+      "bytes": 640
+    },
+    {
+      "path": "agents/release-automation-engineer-agent.agent.yaml",
+      "sha256": "eb3547fd47e8ca25d44d49d1c4ca3ec352a77515ee91a08d1fe2cc3c612ca114",
+      "bytes": 632
+    },
+    {
+      "path": "agents/repository-baseline-cartographer-agent.agent.yaml",
+      "sha256": "5e5b8de832a6a5f3ab56f2a9e8a3e63e25a0efbca5b41be059a3eade622584af",
+      "bytes": 665
+    },
+    {
+      "path": "agents/security-clinical-safety-reviewer-agent.agent.yaml",
+      "sha256": "a9f0e2156f64d5d058db08ad6bd5b40772148c36a7aa024f735171f6897ff5ed",
+      "bytes": 702
+    },
+    {
+      "path": "agents/token-context-governor-agent.agent.yaml",
+      "sha256": "127c8dd56236c13b0fc030046903b1f1b9368c0441339cc5958fabbc3d34145c",
+      "bytes": 653
+    },
+    {
+      "path": "commands/INSTALL_AND_VALIDATE.ps1",
+      "sha256": "c3d19d3f7b12bcf5d67b3b0d68d1104514bca633bd14ff9a8ab55f439f72ec8f",
+      "bytes": 532
+    },
+    {
+      "path": "commands/RUN_FULL.ps1",
+      "sha256": "709f7f1aa8290615c055655bca79f44116fa4a3057e9116c8791836c63b69128",
+      "bytes": 1293
+    },
+    {
+      "path": "commands/VALIDATE.ps1",
+      "sha256": "4b801c39fbca22b75e18b03bdaff1b4be3db3dd27b9b2bff1a810825e1ebb94b",
+      "bytes": 228
+    },
+    {
+      "path": "config/clinical-safety-policy.yaml",
+      "sha256": "0375fc6cf36f800ac39439a59acca578d26505ef400a852dbd4b9f45557598c9",
+      "bytes": 1152
+    },
+    {
+      "path": "config/execution-policy.yaml",
+      "sha256": "3f1e29765e8453125f1745ab10c7e7e1683ec93a1fd0ec5367f4986755cc53b7",
+      "bytes": 996
+    },
+    {
+      "path": "config/execution-profile.yaml",
+      "sha256": "fbcfed0f0c13e0984c417d42394d87560c0e26373c4584de2496308ebaa7d1a5",
+      "bytes": 850
+    },
+    {
+      "path": "config/quality-gates.yaml",
+      "sha256": "f1dd32af1e0510c0e904a73648d001f85adffec3d9cdabf8733729bea5b9d2ae",
+      "bytes": 3485
+    },
+    {
+      "path": "config/token-budget.yaml",
+      "sha256": "6775013bba82f355477524912ae12de60fff4c5a7f647956e5607f33bab8d228",
+      "bytes": 1323
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "sha256": "981f1433a4c87bce9a86ab4e7a5f124a6a510976c3d64e912095dd15379b653b",
+      "bytes": 1077
+    },
+    {
+      "path": "docs/EVIDENCE_AND_HANDOFF.md",
+      "sha256": "97d7e3606dfd20fbb02835df2c64135fa4d90685cb870a49aba922255d970694",
+      "bytes": 407
+    },
+    {
+      "path": "docs/EXECUTION_WAVES.md",
+      "sha256": "d305f38210dd57d58bfb19b002788da4951ad22dc0411564868c269bf65f2ea8",
+      "bytes": 471
+    },
+    {
+      "path": "docs/PLAN_CRITIQUE_AND_CORRECTIONS.md",
+      "sha256": "b596a65c57267eb2ebd8e5edc7e5f39f2f3219fdd6994e6c8bdc5912c598f196",
+      "bytes": 1714
+    },
+    {
+      "path": "docs/QUALITY_MODEL.md",
+      "sha256": "21d5b23e2bec83ad75b4b563efaee0ad0960c0ab25efea13e2e84d122c1cca3b",
+      "bytes": 453
+    },
+    {
+      "path": "playbooks/AIDIABETIC_URGENT_IMPROVEMENT_FULL.md",
+      "sha256": "2c17dc11629b3986a188ed781bed66119d3412c884da209930ba2657b643edf5",
+      "bytes": 4265
+    },
+    {
+      "path": "playbooks/aidiabetic-urgent-improvement.playbook.yaml",
+      "sha256": "f57eb89f3f4b9a03bdd9f3008e60bc8670188dd0dd4357217d754a57ac12d659",
+      "bytes": 5230
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "9dabc3a52d75a7b28dc43bc62f5b9f2b982f330730becda992f414ba123b8683",
+      "bytes": 403
+    },
+    {
+      "path": "registries/agents.registry.overlay.yaml",
+      "sha256": "d6d1a7c7c4fb5c64e210c0a60a5fb941e0dd633372cf531de9ecaf18ccaa070f",
+      "bytes": 4372
+    },
+    {
+      "path": "registries/enterprise-playbooks.registry.overlay.yaml",
+      "sha256": "a3a3d540d2715012b2ae74ecda56e8e20ac235f5937c24059026fbdbe81ed5a3",
+      "bytes": 381
+    },
+    {
+      "path": "registries/skills.registry.overlay.yaml",
+      "sha256": "c7989504531a0656a4a9166ae1494d8bafc4f375b6dfe6f421d34f4c9d6e6e3f",
+      "bytes": 4418
+    },
+    {
+      "path": "schemas/evidence.schema.json",
+      "sha256": "20d1c763f47a163829d28d140b9343b8d7fe36e6ab5d92a90c02069465a00782",
+      "bytes": 1257
+    },
+    {
+      "path": "schemas/finding.schema.json",
+      "sha256": "f56bfc149868918adce80488b60d6d8d8a3c3481e78c7da2c84df0f032d1c854",
+      "bytes": 1026
+    },
+    {
+      "path": "schemas/gate-result.schema.json",
+      "sha256": "8df97ce993900ebfa94e7872a677da786b0985eef908289dc78a912ca830c593",
+      "bytes": 1042
+    },
+    {
+      "path": "schemas/handoff.schema.json",
+      "sha256": "02ad5ce5e3900d73111345cf9bcf5cc998f338fc587026508b2d8312938aefd6",
+      "bytes": 1480
+    },
+    {
+      "path": "scripts/generate_manifest.py",
+      "sha256": "08dc00bf710ab92eec1b3e075fce5f379f57186c1784a5f538ca0db6e98f508b",
+      "bytes": 810
+    },
+    {
+      "path": "scripts/install_overlay.py",
+      "sha256": "c5f6981bd8d952ce89c4604c97041f69c3c3ee5546bb265f8f17ef1970c457c1",
+      "bytes": 3536
+    },
+    {
+      "path": "scripts/validate_package.py",
+      "sha256": "2b3041aa4f59e8261afaf17f85114c49d3dcd0843365d821120e5ad20f9303c3",
+      "bytes": 5143
+    },
+    {
+      "path": "skills/c4-architecture-documenter/AGENT.md",
+      "sha256": "521fabac2b6af23c6046dfae75ece5b837d1fecb9687cdabd495d0f3d7173f76",
+      "bytes": 1281
+    },
+    {
+      "path": "skills/c4-architecture-documenter/README.md",
+      "sha256": "088a2170b249cae0a2844a3c172a16c4129f8f2b50d68953c9b81e4c64724712",
+      "bytes": 571
+    },
+    {
+      "path": "skills/c4-architecture-documenter/SKILL.md",
+      "sha256": "913dd98d2d5670fbd4f696ac18ae7e7c85f5651d247c755c43dd5e64f52f48ec",
+      "bytes": 2553
+    },
+    {
+      "path": "skills/c4-architecture-documenter/knowledge/CONTINUOUS_LEARNING.md",
+      "sha256": "ff6e3ddce2a4bfc2af9f57bd7c2c9dce63b9f5cf6c96beeb8f3ee9350a85e172",
+      "bytes": 279
+    },
+    {
+      "path": "skills/c4-architecture-documenter/knowledge/KNOWLEDGE.md",
+      "sha256": "833651cf517e7a8d14d2026834f9bcd12660ba4e93d02c67f6b0f3c79c80882f",
+      "bytes": 270
+    },
+    {
+      "path": "skills/c4-architecture-documenter/knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "7527bfd6d26afecc6529686ceda97131eb58fbcaf15e2b2e1e732db76278aecb",
+      "bytes": 232
+    },
+    {
+      "path": "skills/c4-architecture-documenter/knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "5961073da2ffcb63b63a075c738fcb1ab98db2ae80f5a69c22c63f75c021107f",
+      "bytes": 296
+    },
+    {
+      "path": "skills/c4-architecture-documenter/knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "85488c990a1bc53791c73dedcd67c67ab4d8ffe7d19e6fe280dd9143816050ff",
+      "bytes": 292
+    },
+    {
+      "path": "skills/c4-architecture-documenter/memory/EXECUTIONS.md",
+      "sha256": "a1156e57557686dfecc08d30c98e53238d19a1723b1f572198793f0e7b14fbc7",
+      "bytes": 54
+    },
+    {
+      "path": "skills/c4-architecture-documenter/memory/FAILURES.md",
+      "sha256": "0a092f7ab66919cab1c4c0025a7f7741285c68d33f0e10498bec6fb100a099a0",
+      "bytes": 52
+    },
+    {
+      "path": "skills/c4-architecture-documenter/memory/LESSONS.md",
+      "sha256": "b643486ea8deaafc94fc60275ca04516ca97d938c38a413bd1f7f085dcd2d878",
+      "bytes": 51
+    },
+    {
+      "path": "skills/c4-architecture-documenter/memory/PATTERNS.md",
+      "sha256": "ad65a83583d1a401ecfc69fa9d21bd7dcae52d65f3f428a24a9d448edb056088",
+      "bytes": 52
+    },
+    {
+      "path": "skills/c4-architecture-documenter/schemas/output.schema.json",
+      "sha256": "b782a2013a6c13e2037a6a3a4ef02b5b7a8e3fad4102892dd9509029c7e8f317",
+      "bytes": 789
+    },
+    {
+      "path": "skills/c4-architecture-documenter/scripts/validate_contract.py",
+      "sha256": "1b55c3a6db1238810ad09619eb46c6a2a58a96b43aa813e79ee342b02da0ca7d",
+      "bytes": 1189
+    },
+    {
+      "path": "skills/c4-architecture-documenter/templates/REPORT.template.md",
+      "sha256": "f406eb5bf5d69ff02f365ae10cc391720a87ad3630a48b3efb4c1db243a8461a",
+      "bytes": 425
+    },
+    {
+      "path": "skills/c4-architecture-documenter/tests/test_c4_architecture_documenter_structure.py",
+      "sha256": "01a9bba57b874d8bd1ea3dc81a8f6af8494fed869295286a6eb82a62cfb3375a",
+      "bytes": 913
+    },
+    {
+      "path": "skills/clinical-observability-engineer/AGENT.md",
+      "sha256": "d4d19a75d408a188d8d56a09a8a5e62025ffed6573127af4375feaf5f951958b",
+      "bytes": 1260
+    },
+    {
+      "path": "skills/clinical-observability-engineer/README.md",
+      "sha256": "1644905c7f810f288c11ec985c9870b2f808d6a074b44a99d934c28ceafe2c53",
+      "bytes": 559
+    },
+    {
+      "path": "skills/clinical-observability-engineer/SKILL.md",
+      "sha256": "4d3a98d19f10e9bbbd7d717267d1b7d6ae9ddd8993466fc64079252efabd5899",
+      "bytes": 2698
+    },
+    {
+      "path": "skills/clinical-observability-engineer/knowledge/CONTINUOUS_LEARNING.md",
+      "sha256": "ff6e3ddce2a4bfc2af9f57bd7c2c9dce63b9f5cf6c96beeb8f3ee9350a85e172",
+      "bytes": 279
+    },
+    {
+      "path": "skills/clinical-observability-engineer/knowledge/KNOWLEDGE.md",
+      "sha256": "dbab0efb64adb047a97c1f79b595500e29deff4aa43da51766a428b95db5c8b5",
+      "bytes": 275
+    },
+    {
+      "path": "skills/clinical-observability-engineer/knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "7527bfd6d26afecc6529686ceda97131eb58fbcaf15e2b2e1e732db76278aecb",
+      "bytes": 232
+    },
+    {
+      "path": "skills/clinical-observability-engineer/knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "9a5aa63dc41fd577fccaab7502ee3b8112d9590c25463d40197550ab3728b9cd",
+      "bytes": 301
+    },
+    {
+      "path": "skills/clinical-observability-engineer/knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "ddfec8727062563a156aa50033093d365f4bf379ce02c827e5c9b03a8e0e563a",
+      "bytes": 297
+    },
+    {
+      "path": "skills/clinical-observability-engineer/memory/EXECUTIONS.md",
+      "sha256": "a1156e57557686dfecc08d30c98e53238d19a1723b1f572198793f0e7b14fbc7",
+      "bytes": 54
+    },
+    {
+      "path": "skills/clinical-observability-engineer/memory/FAILURES.md",
+      "sha256": "0a092f7ab66919cab1c4c0025a7f7741285c68d33f0e10498bec6fb100a099a0",
+      "bytes": 52
+    },
+    {
+      "path": "skills/clinical-observability-engineer/memory/LESSONS.md",
+      "sha256": "b643486ea8deaafc94fc60275ca04516ca97d938c38a413bd1f7f085dcd2d878",
+      "bytes": 51
+    },
+    {
+      "path": "skills/clinical-observability-engineer/memory/PATTERNS.md",
+      "sha256": "ad65a83583d1a401ecfc69fa9d21bd7dcae52d65f3f428a24a9d448edb056088",
+      "bytes": 52
+    },
+    {
+      "path": "skills/clinical-observability-engineer/schemas/output.schema.json",
+      "sha256": "0520a430845a81ca7614b5789878e95ab28e2315d5c22346549241091acb6056",
+      "bytes": 799
+    },
+    {
+      "path": "skills/clinical-observability-engineer/scripts/validate_contract.py",
+      "sha256": "1b55c3a6db1238810ad09619eb46c6a2a58a96b43aa813e79ee342b02da0ca7d",
+      "bytes": 1189
+    },
+    {
+      "path": "skills/clinical-observability-engineer/templates/REPORT.template.md",
+      "sha256": "b203b1cf20974eb082b187483a5a0742f20df67eb1558f9976cac00868070830",
+      "bytes": 426
+    },
+    {
+      "path": "skills/clinical-observability-engineer/tests/test_clinical_observability_engineer_structure.py",
+      "sha256": "01a9bba57b874d8bd1ea3dc81a8f6af8494fed869295286a6eb82a62cfb3375a",
+      "bytes": 913
+    },
+    {
+      "path": "skills/clinical-rag-cache-engineer/AGENT.md",
+      "sha256": "b3b0f4bf4b4147d7a690e0609306af7f88f28c7c7fa6c13622b91caf11e8b1ae",
+      "bytes": 1301
+    },
+    {
+      "path": "skills/clinical-rag-cache-engineer/README.md",
+      "sha256": "c2fa8669d2a7e7f22f65da02c8f1d34f5e02a563032a043798e94566a33c9817",
+      "bytes": 581
+    },
+    {
+      "path": "skills/clinical-rag-cache-engineer/SKILL.md",
+      "sha256": "4917b76560b66236a6895e03b40dc9371aade4ee7094f4b1eae0f9938ebf98d9",
+      "bytes": 2935
+    },
+    {
+      "path": "skills/clinical-rag-cache-engineer/knowledge/CONTINUOUS_LEARNING.md",
+      "sha256": "ff6e3ddce2a4bfc2af9f57bd7c2c9dce63b9f5cf6c96beeb8f3ee9350a85e172",
+      "bytes": 279
+    },
+    {
+      "path": "skills/clinical-rag-cache-engineer/knowledge/KNOWLEDGE.md",
+      "sha256": "4dfdb2bdf0f75359d417fe9626fdf5ee33a9ab27ae7859c78ad79c9b08374023",
+      "bytes": 271
+    },
+    {
+      "path": "skills/clinical-rag-cache-engineer/knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "7527bfd6d26afecc6529686ceda97131eb58fbcaf15e2b2e1e732db76278aecb",
+      "bytes": 232
+    },
+    {
+      "path": "skills/clinical-rag-cache-engineer/knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "cdbfd1c35f41846e8da9b1aa1db6b1d9adb553d24de281f0815591248bcdf5d3",
+      "bytes": 297
+    },
+    {
+      "path": "skills/clinical-rag-cache-engineer/knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "729f138eac8753e64af7bb399b5c1bb7f8e80c7593f010670efa32ffc98dadb6",
+      "bytes": 293
+    },
+    {
+      "path": "skills/clinical-rag-cache-engineer/memory/EXECUTIONS.md",
+      "sha256": "a1156e57557686dfecc08d30c98e53238d19a1723b1f572198793f0e7b14fbc7",
+      "bytes": 54
+    },
+    {
+      "path": "skills/clinical-rag-cache-engineer/memory/FAILURES.md",
+      "sha256": "0a092f7ab66919cab1c4c0025a7f7741285c68d33f0e10498bec6fb100a099a0",
+      "bytes": 52
+    },
+    {
+      "path": "skills/clinical-rag-cache-engineer/memory/LESSONS.md",
+      "sha256": "b643486ea8deaafc94fc60275ca04516ca97d938c38a413bd1f7f085dcd2d878",
+      "bytes": 51
+    },
+    {
+      "path": "skills/clinical-rag-cache-engineer/memory/PATTERNS.md",
+      "sha256": "ad65a83583d1a401ecfc69fa9d21bd7dcae52d65f3f428a24a9d448edb056088",
+      "bytes": 52
+    },
+    {
+      "path": "skills/clinical-rag-cache-engineer/schemas/output.schema.json",
+      "sha256": "d674ae0cf9e7474ff9da2b9bb36de390fa45ff01beff848a194b955e6e32713a",
+      "bytes": 791
+    },
+    {
+      "path": "skills/clinical-rag-cache-engineer/scripts/validate_contract.py",
+      "sha256": "1b55c3a6db1238810ad09619eb46c6a2a58a96b43aa813e79ee342b02da0ca7d",
+      "bytes": 1189
+    },
+    {
+      "path": "skills/clinical-rag-cache-engineer/templates/REPORT.template.md",
+      "sha256": "0a70d01d4c465253bc6a5f68a671ac95c0a81a55659361d3a37d3b2cef339085",
+      "bytes": 437
+    },
+    {
+      "path": "skills/clinical-rag-cache-engineer/tests/test_clinical_rag_cache_engineer_structure.py",
+      "sha256": "01a9bba57b874d8bd1ea3dc81a8f6af8494fed869295286a6eb82a62cfb3375a",
+      "bytes": 913
+    },
+    {
+      "path": "skills/configuration-governance-engineer/AGENT.md",
+      "sha256": "aa2d995e230168558ed8abbec3d99c4746db950b8324b635b279df3fc8144650",
+      "bytes": 1285
+    },
+    {
+      "path": "skills/configuration-governance-engineer/README.md",
+      "sha256": "219a4df98224fc9fc7c5b32b66af913ed672f7fa053894d12fb994b25464b8dc",
+      "bytes": 577
+    },
+    {
+      "path": "skills/configuration-governance-engineer/SKILL.md",
+      "sha256": "5e4afbdfef16cbc27d0f71c56723911d01854bc4ed9746abb881d3643be87c33",
+      "bytes": 2804
+    },
+    {
+      "path": "skills/configuration-governance-engineer/knowledge/CONTINUOUS_LEARNING.md",
+      "sha256": "ff6e3ddce2a4bfc2af9f57bd7c2c9dce63b9f5cf6c96beeb8f3ee9350a85e172",
+      "bytes": 279
+    },
+    {
+      "path": "skills/configuration-governance-engineer/knowledge/KNOWLEDGE.md",
+      "sha256": "fd27c2f97871f5e99ee37b30c7933baca4e724b022987aec3fec18bc91752dde",
+      "bytes": 277
+    },
+    {
+      "path": "skills/configuration-governance-engineer/knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "7527bfd6d26afecc6529686ceda97131eb58fbcaf15e2b2e1e732db76278aecb",
+      "bytes": 232
+    },
+    {
+      "path": "skills/configuration-governance-engineer/knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "9f48cc52ada2bf8f42d5a0d87a2e588c2b78d53d02f6b67109efe434a763914a",
+      "bytes": 303
+    },
+    {
+      "path": "skills/configuration-governance-engineer/knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "e12d4127545952fa8f00ac7b31800613851ea038bd7143961d0faf388a1e2bf7",
+      "bytes": 299
+    },
+    {
+      "path": "skills/configuration-governance-engineer/memory/EXECUTIONS.md",
+      "sha256": "a1156e57557686dfecc08d30c98e53238d19a1723b1f572198793f0e7b14fbc7",
+      "bytes": 54
+    },
+    {
+      "path": "skills/configuration-governance-engineer/memory/FAILURES.md",
+      "sha256": "0a092f7ab66919cab1c4c0025a7f7741285c68d33f0e10498bec6fb100a099a0",
+      "bytes": 52
+    },
+    {
+      "path": "skills/configuration-governance-engineer/memory/LESSONS.md",
+      "sha256": "b643486ea8deaafc94fc60275ca04516ca97d938c38a413bd1f7f085dcd2d878",
+      "bytes": 51
+    },
+    {
+      "path": "skills/configuration-governance-engineer/memory/PATTERNS.md",
+      "sha256": "ad65a83583d1a401ecfc69fa9d21bd7dcae52d65f3f428a24a9d448edb056088",
+      "bytes": 52
+    },
+    {
+      "path": "skills/configuration-governance-engineer/schemas/output.schema.json",
+      "sha256": "2c346e858195e9f60271d12e693c3554445d83620b8496f57988a8e85b38b1f5",
+      "bytes": 803
+    },
+    {
+      "path": "skills/configuration-governance-engineer/scripts/validate_contract.py",
+      "sha256": "1b55c3a6db1238810ad09619eb46c6a2a58a96b43aa813e79ee342b02da0ca7d",
+      "bytes": 1189
+    },
+    {
+      "path": "skills/configuration-governance-engineer/templates/REPORT.template.md",
+      "sha256": "9193ff1c88a126dd515b0805231b678ce8f5a79544502e9c4d80e2a8fe71b950",
+      "bytes": 437
+    },
+    {
+      "path": "skills/configuration-governance-engineer/tests/test_configuration_governance_engineer_structure.py",
+      "sha256": "01a9bba57b874d8bd1ea3dc81a8f6af8494fed869295286a6eb82a62cfb3375a",
+      "bytes": 913
+    },
+    {
+      "path": "skills/dead-code-safety-pruner/AGENT.md",
+      "sha256": "5624b5c7dae57025dd38c22de3ccfde44df5aeb4fde675d0a38490df14768b8a",
+      "bytes": 1288
+    },
+    {
+      "path": "skills/dead-code-safety-pruner/README.md",
+      "sha256": "bff0d3b94c2f05fc3c48402a1ba22c291c5abd0beb5c1693be08d1b6bab283c8",
+      "bytes": 573
+    },
+    {
+      "path": "skills/dead-code-safety-pruner/SKILL.md",
+      "sha256": "94b20c7b50a719453b5758d66f36b45d487ab71f45b0bd8e18cfbc0fe486964e",
+      "bytes": 2679
+    },
+    {
+      "path": "skills/dead-code-safety-pruner/knowledge/CONTINUOUS_LEARNING.md",
+      "sha256": "ff6e3ddce2a4bfc2af9f57bd7c2c9dce63b9f5cf6c96beeb8f3ee9350a85e172",
+      "bytes": 279
+    },
+    {
+      "path": "skills/dead-code-safety-pruner/knowledge/KNOWLEDGE.md",
+      "sha256": "0f695b549b0d16e9f5e8d2cdfd73d7aa15af1460c2eb899ed1dd5772cb00f1ca",
+      "bytes": 267
+    },
+    {
+      "path": "skills/dead-code-safety-pruner/knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "7527bfd6d26afecc6529686ceda97131eb58fbcaf15e2b2e1e732db76278aecb",
+      "bytes": 232
+    },
+    {
+      "path": "skills/dead-code-safety-pruner/knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "de58573703729a24b85f79f57dbc92758a1c19e0e4c1723924b891b13d1c25ef",
+      "bytes": 293
+    },
+    {
+      "path": "skills/dead-code-safety-pruner/knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "30e4087cc0cc724636ba3d8330936c4de41c7d5c2b759cc7d7b9d012f7a3858a",
+      "bytes": 289
+    },
+    {
+      "path": "skills/dead-code-safety-pruner/memory/EXECUTIONS.md",
+      "sha256": "a1156e57557686dfecc08d30c98e53238d19a1723b1f572198793f0e7b14fbc7",
+      "bytes": 54
+    },
+    {
+      "path": "skills/dead-code-safety-pruner/memory/FAILURES.md",
+      "sha256": "0a092f7ab66919cab1c4c0025a7f7741285c68d33f0e10498bec6fb100a099a0",
+      "bytes": 52
+    },
+    {
+      "path": "skills/dead-code-safety-pruner/memory/LESSONS.md",
+      "sha256": "b643486ea8deaafc94fc60275ca04516ca97d938c38a413bd1f7f085dcd2d878",
+      "bytes": 51
+    },
+    {
+      "path": "skills/dead-code-safety-pruner/memory/PATTERNS.md",
+      "sha256": "ad65a83583d1a401ecfc69fa9d21bd7dcae52d65f3f428a24a9d448edb056088",
+      "bytes": 52
+    },
+    {
+      "path": "skills/dead-code-safety-pruner/schemas/output.schema.json",
+      "sha256": "d6ed86442a70dc2caa20cce94b6c110556c899efc05628a59ff06b7564ab83cb",
+      "bytes": 783
+    },
+    {
+      "path": "skills/dead-code-safety-pruner/scripts/validate_contract.py",
+      "sha256": "1b55c3a6db1238810ad09619eb46c6a2a58a96b43aa813e79ee342b02da0ca7d",
+      "bytes": 1189
+    },
+    {
+      "path": "skills/dead-code-safety-pruner/templates/REPORT.template.md",
+      "sha256": "586986f580f0300fd9ea13934730a1dc9141039967979370c200e335c28a7fd8",
+      "bytes": 424
+    },
+    {
+      "path": "skills/dead-code-safety-pruner/tests/test_dead_code_safety_pruner_structure.py",
+      "sha256": "01a9bba57b874d8bd1ea3dc81a8f6af8494fed869295286a6eb82a62cfb3375a",
+      "bytes": 913
+    },
+    {
+      "path": "skills/e2e-critical-flow-engineer/AGENT.md",
+      "sha256": "30f103dbff9c0b9a117b33bac3f59f3753c3574c3102439c441e04b1efb2b777",
+      "bytes": 1310
+    },
+    {
+      "path": "skills/e2e-critical-flow-engineer/README.md",
+      "sha256": "8e86e0502429c1b4267b2cd78d6843226e8449d283b6519fbf780caeb644f4d1",
+      "bytes": 601
+    },
+    {
+      "path": "skills/e2e-critical-flow-engineer/SKILL.md",
+      "sha256": "3057c2b33ad77b721501ad186d56e77ba855e18537877527c64e07d199817cf9",
+      "bytes": 2787
+    },
+    {
+      "path": "skills/e2e-critical-flow-engineer/knowledge/CONTINUOUS_LEARNING.md",
+      "sha256": "ff6e3ddce2a4bfc2af9f57bd7c2c9dce63b9f5cf6c96beeb8f3ee9350a85e172",
+      "bytes": 279
+    },
+    {
+      "path": "skills/e2e-critical-flow-engineer/knowledge/KNOWLEDGE.md",
+      "sha256": "4fe8850cf1219c545deaaf022316d9626b4ffc7c64f15269140aa2c3517db6fd",
+      "bytes": 270
+    },
+    {
+      "path": "skills/e2e-critical-flow-engineer/knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "7527bfd6d26afecc6529686ceda97131eb58fbcaf15e2b2e1e732db76278aecb",
+      "bytes": 232
+    },
+    {
+      "path": "skills/e2e-critical-flow-engineer/knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "f511928abf9cfa3fa27cc074698f67a4732077fe547271b5fbc40e89556d7012",
+      "bytes": 296
+    },
+    {
+      "path": "skills/e2e-critical-flow-engineer/knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "8b8e10fc2eee44cf7bc37c47c98655f96ae32774b1282d0febbce4b8b6f50130",
+      "bytes": 292
+    },
+    {
+      "path": "skills/e2e-critical-flow-engineer/memory/EXECUTIONS.md",
+      "sha256": "a1156e57557686dfecc08d30c98e53238d19a1723b1f572198793f0e7b14fbc7",
+      "bytes": 54
+    },
+    {
+      "path": "skills/e2e-critical-flow-engineer/memory/FAILURES.md",
+      "sha256": "0a092f7ab66919cab1c4c0025a7f7741285c68d33f0e10498bec6fb100a099a0",
+      "bytes": 52
+    },
+    {
+      "path": "skills/e2e-critical-flow-engineer/memory/LESSONS.md",
+      "sha256": "b643486ea8deaafc94fc60275ca04516ca97d938c38a413bd1f7f085dcd2d878",
+      "bytes": 51
+    },
+    {
+      "path": "skills/e2e-critical-flow-engineer/memory/PATTERNS.md",
+      "sha256": "ad65a83583d1a401ecfc69fa9d21bd7dcae52d65f3f428a24a9d448edb056088",
+      "bytes": 52
+    },
+    {
+      "path": "skills/e2e-critical-flow-engineer/schemas/output.schema.json",
+      "sha256": "73ab94239e6d36640db1c45a0cfebecf0c48fe21354cd016c8f123471455f932",
+      "bytes": 789
+    },
+    {
+      "path": "skills/e2e-critical-flow-engineer/scripts/validate_contract.py",
+      "sha256": "1b55c3a6db1238810ad09619eb46c6a2a58a96b43aa813e79ee342b02da0ca7d",
+      "bytes": 1189
+    },
+    {
+      "path": "skills/e2e-critical-flow-engineer/templates/REPORT.template.md",
+      "sha256": "ece3a8657f2a9cc5a03f700468c8b30500a56e25c5875fa17b064f7438fd323a",
+      "bytes": 424
+    },
+    {
+      "path": "skills/e2e-critical-flow-engineer/tests/test_e2e_critical_flow_engineer_structure.py",
+      "sha256": "01a9bba57b874d8bd1ea3dc81a8f6af8494fed869295286a6eb82a62cfb3375a",
+      "bytes": 913
+    },
+    {
+      "path": "skills/evidence-readiness-judge/AGENT.md",
+      "sha256": "58111d0a5938c00d3496b2530d928236928e04f17a99c1bce37b086189f0a943",
+      "bytes": 1266
+    },
+    {
+      "path": "skills/evidence-readiness-judge/README.md",
+      "sha256": "55e6b4ad390e80946d664f7229dc42bf8d3dd5c83fdfcd54ddb095bbb97090c6",
+      "bytes": 559
+    },
+    {
+      "path": "skills/evidence-readiness-judge/SKILL.md",
+      "sha256": "d0ef55dbee12f280adbe0e004305b6f34bfd30980fb67d20c3505ba5830547c8",
+      "bytes": 2560
+    },
+    {
+      "path": "skills/evidence-readiness-judge/knowledge/CONTINUOUS_LEARNING.md",
+      "sha256": "ff6e3ddce2a4bfc2af9f57bd7c2c9dce63b9f5cf6c96beeb8f3ee9350a85e172",
+      "bytes": 279
+    },
+    {
+      "path": "skills/evidence-readiness-judge/knowledge/KNOWLEDGE.md",
+      "sha256": "95bb06d1a33738b06a4ff5cb5b35a03622c9645508a27c89f99f7f83fcf5f1f8",
+      "bytes": 268
+    },
+    {
+      "path": "skills/evidence-readiness-judge/knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "7527bfd6d26afecc6529686ceda97131eb58fbcaf15e2b2e1e732db76278aecb",
+      "bytes": 232
+    },
+    {
+      "path": "skills/evidence-readiness-judge/knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "885e21cc7b446a70e49b1ad121bfd3dc5d1ef7c19a663317bcfd5cd2f1c8d7fb",
+      "bytes": 294
+    },
+    {
+      "path": "skills/evidence-readiness-judge/knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "da3a8b6a2217c52780b497558c4a56e6d4ced3d4b2c3e8a3ad8606056ff44b0a",
+      "bytes": 290
+    },
+    {
+      "path": "skills/evidence-readiness-judge/memory/EXECUTIONS.md",
+      "sha256": "a1156e57557686dfecc08d30c98e53238d19a1723b1f572198793f0e7b14fbc7",
+      "bytes": 54
+    },
+    {
+      "path": "skills/evidence-readiness-judge/memory/FAILURES.md",
+      "sha256": "0a092f7ab66919cab1c4c0025a7f7741285c68d33f0e10498bec6fb100a099a0",
+      "bytes": 52
+    },
+    {
+      "path": "skills/evidence-readiness-judge/memory/LESSONS.md",
+      "sha256": "b643486ea8deaafc94fc60275ca04516ca97d938c38a413bd1f7f085dcd2d878",
+      "bytes": 51
+    },
+    {
+      "path": "skills/evidence-readiness-judge/memory/PATTERNS.md",
+      "sha256": "ad65a83583d1a401ecfc69fa9d21bd7dcae52d65f3f428a24a9d448edb056088",
+      "bytes": 52
+    },
+    {
+      "path": "skills/evidence-readiness-judge/schemas/output.schema.json",
+      "sha256": "418f0184d7adcc933642d3aed3e09649938ce2490017ad7ef3533b7327d9d0ba",
+      "bytes": 785
+    },
+    {
+      "path": "skills/evidence-readiness-judge/scripts/validate_contract.py",
+      "sha256": "1b55c3a6db1238810ad09619eb46c6a2a58a96b43aa813e79ee342b02da0ca7d",
+      "bytes": 1189
+    },
+    {
+      "path": "skills/evidence-readiness-judge/templates/REPORT.template.md",
+      "sha256": "ed2e9646119a770b759c5555ee5c3ccd7befdc47836459f6a634881006fe7a3d",
+      "bytes": 418
+    },
+    {
+      "path": "skills/evidence-readiness-judge/tests/test_evidence_readiness_judge_structure.py",
+      "sha256": "01a9bba57b874d8bd1ea3dc81a8f6af8494fed869295286a6eb82a62cfb3375a",
+      "bytes": 913
+    },
+    {
+      "path": "skills/external-health-resilience-engineer/AGENT.md",
+      "sha256": "787d1dba0675e67215f9d9ab568fbbb9c5d740a25c5742f1ad16b2ba0e33fc00",
+      "bytes": 1303
+    },
+    {
+      "path": "skills/external-health-resilience-engineer/README.md",
+      "sha256": "4f6cd9f0fd5a194f3e5558117d8f3c828c13df2640c57b0edd51cc8a55698a83",
+      "bytes": 602
+    },
+    {
+      "path": "skills/external-health-resilience-engineer/SKILL.md",
+      "sha256": "8a049fc6ef39aef9526b2d06f1face94897ccab26d94d0166e5ec772a586502a",
+      "bytes": 2777
+    },
+    {
+      "path": "skills/external-health-resilience-engineer/knowledge/CONTINUOUS_LEARNING.md",
+      "sha256": "ff6e3ddce2a4bfc2af9f57bd7c2c9dce63b9f5cf6c96beeb8f3ee9350a85e172",
+      "bytes": 279
+    },
+    {
+      "path": "skills/external-health-resilience-engineer/knowledge/KNOWLEDGE.md",
+      "sha256": "3fa1112fdeab304609cff354737890e0bc9025ad79f7fb227a019acbc038f708",
+      "bytes": 279
+    },
+    {
+      "path": "skills/external-health-resilience-engineer/knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "7527bfd6d26afecc6529686ceda97131eb58fbcaf15e2b2e1e732db76278aecb",
+      "bytes": 232
+    },
+    {
+      "path": "skills/external-health-resilience-engineer/knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "3f7d4782599972a4976bd4f5b2c4885263d213ea2fe027725d220bc82c55b206",
+      "bytes": 305
+    },
+    {
+      "path": "skills/external-health-resilience-engineer/knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "87ce914443ae706560200d6981f671ef13b1a57aacccca92958a9801e19981e3",
+      "bytes": 301
+    },
+    {
+      "path": "skills/external-health-resilience-engineer/memory/EXECUTIONS.md",
+      "sha256": "a1156e57557686dfecc08d30c98e53238d19a1723b1f572198793f0e7b14fbc7",
+      "bytes": 54
+    },
+    {
+      "path": "skills/external-health-resilience-engineer/memory/FAILURES.md",
+      "sha256": "0a092f7ab66919cab1c4c0025a7f7741285c68d33f0e10498bec6fb100a099a0",
+      "bytes": 52
+    },
+    {
+      "path": "skills/external-health-resilience-engineer/memory/LESSONS.md",
+      "sha256": "b643486ea8deaafc94fc60275ca04516ca97d938c38a413bd1f7f085dcd2d878",
+      "bytes": 51
+    },
+    {
+      "path": "skills/external-health-resilience-engineer/memory/PATTERNS.md",
+      "sha256": "ad65a83583d1a401ecfc69fa9d21bd7dcae52d65f3f428a24a9d448edb056088",
+      "bytes": 52
+    },
+    {
+      "path": "skills/external-health-resilience-engineer/schemas/output.schema.json",
+      "sha256": "f9021596af975824cbd13e872f27932a99b286a80dcbf0a2bed45f61a5874aca",
+      "bytes": 807
+    },
+    {
+      "path": "skills/external-health-resilience-engineer/scripts/validate_contract.py",
+      "sha256": "1b55c3a6db1238810ad09619eb46c6a2a58a96b43aa813e79ee342b02da0ca7d",
+      "bytes": 1189
+    },
+    {
+      "path": "skills/external-health-resilience-engineer/templates/REPORT.template.md",
+      "sha256": "75b2b8c28e52a9d8e61f0ef1a8677a702c8df4725b4d1015776f03b7a43fb852",
+      "bytes": 434
+    },
+    {
+      "path": "skills/external-health-resilience-engineer/tests/test_external_health_resilience_engineer_structure.py",
+      "sha256": "01a9bba57b874d8bd1ea3dc81a8f6af8494fed869295286a6eb82a62cfb3375a",
+      "bytes": 913
+    },
+    {
+      "path": "skills/improvement-metrics-governor/AGENT.md",
+      "sha256": "c1d43862de9e57a011233e1d8196412b52fd7739970f918d0188c0c72a81a67d",
+      "bytes": 1274
+    },
+    {
+      "path": "skills/improvement-metrics-governor/README.md",
+      "sha256": "dfc56c09808521a2c9252c0c9f1703e30ffa3e3624469a9342ff8d034a368d1c",
+      "bytes": 571
+    },
+    {
+      "path": "skills/improvement-metrics-governor/SKILL.md",
+      "sha256": "fdaadee1619ee17b5c6ae03a7e028feb76650e8a8f92f721d2e0598a1ad98929",
+      "bytes": 2617
+    },
+    {
+      "path": "skills/improvement-metrics-governor/knowledge/CONTINUOUS_LEARNING.md",
+      "sha256": "ff6e3ddce2a4bfc2af9f57bd7c2c9dce63b9f5cf6c96beeb8f3ee9350a85e172",
+      "bytes": 279
+    },
+    {
+      "path": "skills/improvement-metrics-governor/knowledge/KNOWLEDGE.md",
+      "sha256": "dc52827f2748e9d00ebc4d5a866925fe3a4a1a799b47659385e272cdb7a1a0ed",
+      "bytes": 272
+    },
+    {
+      "path": "skills/improvement-metrics-governor/knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "7527bfd6d26afecc6529686ceda97131eb58fbcaf15e2b2e1e732db76278aecb",
+      "bytes": 232
+    },
+    {
+      "path": "skills/improvement-metrics-governor/knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "29c2ed30e645e7b2da4d8d2147e2103a9f6db10b24d2c9c2474d09ee32e16f7d",
+      "bytes": 298
+    },
+    {
+      "path": "skills/improvement-metrics-governor/knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "96772e217b8b4606aa5c30f3855de13f24d82e71dbc0a78f709ad57bd869003b",
+      "bytes": 294
+    },
+    {
+      "path": "skills/improvement-metrics-governor/memory/EXECUTIONS.md",
+      "sha256": "a1156e57557686dfecc08d30c98e53238d19a1723b1f572198793f0e7b14fbc7",
+      "bytes": 54
+    },
+    {
+      "path": "skills/improvement-metrics-governor/memory/FAILURES.md",
+      "sha256": "0a092f7ab66919cab1c4c0025a7f7741285c68d33f0e10498bec6fb100a099a0",
+      "bytes": 52
+    },
+    {
+      "path": "skills/improvement-metrics-governor/memory/LESSONS.md",
+      "sha256": "b643486ea8deaafc94fc60275ca04516ca97d938c38a413bd1f7f085dcd2d878",
+      "bytes": 51
+    },
+    {
+      "path": "skills/improvement-metrics-governor/memory/PATTERNS.md",
+      "sha256": "ad65a83583d1a401ecfc69fa9d21bd7dcae52d65f3f428a24a9d448edb056088",
+      "bytes": 52
+    },
+    {
+      "path": "skills/improvement-metrics-governor/schemas/output.schema.json",
+      "sha256": "0cd18bbc0ffb87694d6ea6034d8bb3736702076da177262cd8d4165ae95fca72",
+      "bytes": 793
+    },
+    {
+      "path": "skills/improvement-metrics-governor/scripts/validate_contract.py",
+      "sha256": "1b55c3a6db1238810ad09619eb46c6a2a58a96b43aa813e79ee342b02da0ca7d",
+      "bytes": 1189
+    },
+    {
+      "path": "skills/improvement-metrics-governor/templates/REPORT.template.md",
+      "sha256": "60b85ae24372626a1126659367f9badb48e56f10a9889b9f54ea007c986c2114",
+      "bytes": 422
+    },
+    {
+      "path": "skills/improvement-metrics-governor/tests/test_improvement_metrics_governor_structure.py",
+      "sha256": "01a9bba57b874d8bd1ea3dc81a8f6af8494fed869295286a6eb82a62cfb3375a",
+      "bytes": 913
+    },
+    {
+      "path": "skills/improvement-program-orchestrator/AGENT.md",
+      "sha256": "ba39887604ecb2200184d7097e4f7fc9230529dec8251efc8f73ba0641d329d2",
+      "bytes": 1318
+    },
+    {
+      "path": "skills/improvement-program-orchestrator/README.md",
+      "sha256": "26fed38e4be0e9465a72d619d6c5087de999a3bb6358224c7992015904b15582",
+      "bytes": 595
+    },
+    {
+      "path": "skills/improvement-program-orchestrator/SKILL.md",
+      "sha256": "0d3bd6a7867ab238685a9c2c9672773a696f6f82343c206d3f788622681d70b1",
+      "bytes": 2847
+    },
+    {
+      "path": "skills/improvement-program-orchestrator/knowledge/CONTINUOUS_LEARNING.md",
+      "sha256": "ff6e3ddce2a4bfc2af9f57bd7c2c9dce63b9f5cf6c96beeb8f3ee9350a85e172",
+      "bytes": 279
+    },
+    {
+      "path": "skills/improvement-program-orchestrator/knowledge/KNOWLEDGE.md",
+      "sha256": "c1c14430645d7524b78ddae5057d6837b5335f13df890927cd0d7d7eece594b4",
+      "bytes": 276
+    },
+    {
+      "path": "skills/improvement-program-orchestrator/knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "7527bfd6d26afecc6529686ceda97131eb58fbcaf15e2b2e1e732db76278aecb",
+      "bytes": 232
+    },
+    {
+      "path": "skills/improvement-program-orchestrator/knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "b0ddf3bf1f4677a677a889412227e809cb3b58f8c07cca865e1d272e065496e2",
+      "bytes": 302
+    },
+    {
+      "path": "skills/improvement-program-orchestrator/knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "365029913e28964053923c70efe4242c2ec53e0c8465720c6f42f472995c8034",
+      "bytes": 298
+    },
+    {
+      "path": "skills/improvement-program-orchestrator/memory/EXECUTIONS.md",
+      "sha256": "a1156e57557686dfecc08d30c98e53238d19a1723b1f572198793f0e7b14fbc7",
+      "bytes": 54
+    },
+    {
+      "path": "skills/improvement-program-orchestrator/memory/FAILURES.md",
+      "sha256": "0a092f7ab66919cab1c4c0025a7f7741285c68d33f0e10498bec6fb100a099a0",
+      "bytes": 52
+    },
+    {
+      "path": "skills/improvement-program-orchestrator/memory/LESSONS.md",
+      "sha256": "b643486ea8deaafc94fc60275ca04516ca97d938c38a413bd1f7f085dcd2d878",
+      "bytes": 51
+    },
+    {
+      "path": "skills/improvement-program-orchestrator/memory/PATTERNS.md",
+      "sha256": "ad65a83583d1a401ecfc69fa9d21bd7dcae52d65f3f428a24a9d448edb056088",
+      "bytes": 52
+    },
+    {
+      "path": "skills/improvement-program-orchestrator/schemas/output.schema.json",
+      "sha256": "b688df9484f34b35ea6517d7bce3a10229d263981a71c2fb0dbdac794f47945e",
+      "bytes": 801
+    },
+    {
+      "path": "skills/improvement-program-orchestrator/scripts/validate_contract.py",
+      "sha256": "1b55c3a6db1238810ad09619eb46c6a2a58a96b43aa813e79ee342b02da0ca7d",
+      "bytes": 1189
+    },
+    {
+      "path": "skills/improvement-program-orchestrator/templates/REPORT.template.md",
+      "sha256": "9bdc59c4f27a10b08cb142fa9de1e99d85aa2939befeea5cfe2e9dc9dbaa9216",
+      "bytes": 450
+    },
+    {
+      "path": "skills/improvement-program-orchestrator/tests/test_improvement_program_orchestrator_structure.py",
+      "sha256": "01a9bba57b874d8bd1ea3dc81a8f6af8494fed869295286a6eb82a62cfb3375a",
+      "bytes": 913
+    },
+    {
+      "path": "skills/modularization-architecture-governor/AGENT.md",
+      "sha256": "96d8dd8fe6cb2ac0fb5271ba180ad26861a9e512aa76f7ed85aad7575305f8cd",
+      "bytes": 1265
+    },
+    {
+      "path": "skills/modularization-architecture-governor/README.md",
+      "sha256": "fec852a9682526a515dc8ed776ed67fa0c749605321b164a143794552eef6d62",
+      "bytes": 578
+    },
+    {
+      "path": "skills/modularization-architecture-governor/SKILL.md",
+      "sha256": "484bea96d1eaa33c88b9197d76b4fb01f56e202f92327b210f5110181ec35cdf",
+      "bytes": 2713
+    },
+    {
+      "path": "skills/modularization-architecture-governor/knowledge/CONTINUOUS_LEARNING.md",
+      "sha256": "ff6e3ddce2a4bfc2af9f57bd7c2c9dce63b9f5cf6c96beeb8f3ee9350a85e172",
+      "bytes": 279
+    },
+    {
+      "path": "skills/modularization-architecture-governor/knowledge/KNOWLEDGE.md",
+      "sha256": "e33ee57ecd402d50eae86faf28471d42e04113475f49df952c769b8f00b8d718",
+      "bytes": 280
+    },
+    {
+      "path": "skills/modularization-architecture-governor/knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "7527bfd6d26afecc6529686ceda97131eb58fbcaf15e2b2e1e732db76278aecb",
+      "bytes": 232
+    },
+    {
+      "path": "skills/modularization-architecture-governor/knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "d15193842da4c82f3b20feae36031fa9a0083142aa37cc6d1cebf86c5b2cd995",
+      "bytes": 306
+    },
+    {
+      "path": "skills/modularization-architecture-governor/knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "a57f2c70d9c53b71e6ef88621c810f8f0489b61395b1312b198747bd65c1d0a3",
+      "bytes": 302
+    },
+    {
+      "path": "skills/modularization-architecture-governor/memory/EXECUTIONS.md",
+      "sha256": "a1156e57557686dfecc08d30c98e53238d19a1723b1f572198793f0e7b14fbc7",
+      "bytes": 54
+    },
+    {
+      "path": "skills/modularization-architecture-governor/memory/FAILURES.md",
+      "sha256": "0a092f7ab66919cab1c4c0025a7f7741285c68d33f0e10498bec6fb100a099a0",
+      "bytes": 52
+    },
+    {
+      "path": "skills/modularization-architecture-governor/memory/LESSONS.md",
+      "sha256": "b643486ea8deaafc94fc60275ca04516ca97d938c38a413bd1f7f085dcd2d878",
+      "bytes": 51
+    },
+    {
+      "path": "skills/modularization-architecture-governor/memory/PATTERNS.md",
+      "sha256": "ad65a83583d1a401ecfc69fa9d21bd7dcae52d65f3f428a24a9d448edb056088",
+      "bytes": 52
+    },
+    {
+      "path": "skills/modularization-architecture-governor/schemas/output.schema.json",
+      "sha256": "ba947e2b496fb3c7abeff721508b55814bb0d3a3dd7a3c4daa42bf38dd6342b0",
+      "bytes": 809
+    },
+    {
+      "path": "skills/modularization-architecture-governor/scripts/validate_contract.py",
+      "sha256": "1b55c3a6db1238810ad09619eb46c6a2a58a96b43aa813e79ee342b02da0ca7d",
+      "bytes": 1189
+    },
+    {
+      "path": "skills/modularization-architecture-governor/templates/REPORT.template.md",
+      "sha256": "eeeef1c2c454d4e9f1f0cb69a650fb62e376bafa98611f14a769fe261bff09ea",
+      "bytes": 422
+    },
+    {
+      "path": "skills/modularization-architecture-governor/tests/test_modularization_architecture_governor_structure.py",
+      "sha256": "01a9bba57b874d8bd1ea3dc81a8f6af8494fed869295286a6eb82a62cfb3375a",
+      "bytes": 913
+    },
+    {
+      "path": "skills/openapi-contract-engineer/AGENT.md",
+      "sha256": "9ff784d5db140a6efef05fddf23eef27fb66157e2ffe052f34525247508ecb36",
+      "bytes": 1244
+    },
+    {
+      "path": "skills/openapi-contract-engineer/README.md",
+      "sha256": "9869900aba90e4e8e0a26aaf6572ab34a7f32ddbd7e01f6304051241fbc73543",
+      "bytes": 548
+    },
+    {
+      "path": "skills/openapi-contract-engineer/SKILL.md",
+      "sha256": "e3d83e474b7011bbe9117505ab89f050884938151520c838ddd9ee9d537838e6",
+      "bytes": 2628
+    },
+    {
+      "path": "skills/openapi-contract-engineer/knowledge/CONTINUOUS_LEARNING.md",
+      "sha256": "ff6e3ddce2a4bfc2af9f57bd7c2c9dce63b9f5cf6c96beeb8f3ee9350a85e172",
+      "bytes": 279
+    },
+    {
+      "path": "skills/openapi-contract-engineer/knowledge/KNOWLEDGE.md",
+      "sha256": "9ae8d0dab4b7131642763cf5239155aef3e0d2e7afcdbe7b76f33f8e3c6f9f68",
+      "bytes": 269
+    },
+    {
+      "path": "skills/openapi-contract-engineer/knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "7527bfd6d26afecc6529686ceda97131eb58fbcaf15e2b2e1e732db76278aecb",
+      "bytes": 232
+    },
+    {
+      "path": "skills/openapi-contract-engineer/knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "a8010208eb4239f858d1fe11266a4ad63be810fab5e1321c129cfaf1e474789e",
+      "bytes": 295
+    },
+    {
+      "path": "skills/openapi-contract-engineer/knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "0973067fff3c224f114a12a61faad8588f8c05cbd48d5be1e5936fe373758018",
+      "bytes": 291
+    },
+    {
+      "path": "skills/openapi-contract-engineer/memory/EXECUTIONS.md",
+      "sha256": "a1156e57557686dfecc08d30c98e53238d19a1723b1f572198793f0e7b14fbc7",
+      "bytes": 54
+    },
+    {
+      "path": "skills/openapi-contract-engineer/memory/FAILURES.md",
+      "sha256": "0a092f7ab66919cab1c4c0025a7f7741285c68d33f0e10498bec6fb100a099a0",
+      "bytes": 52
+    },
+    {
+      "path": "skills/openapi-contract-engineer/memory/LESSONS.md",
+      "sha256": "b643486ea8deaafc94fc60275ca04516ca97d938c38a413bd1f7f085dcd2d878",
+      "bytes": 51
+    },
+    {
+      "path": "skills/openapi-contract-engineer/memory/PATTERNS.md",
+      "sha256": "ad65a83583d1a401ecfc69fa9d21bd7dcae52d65f3f428a24a9d448edb056088",
+      "bytes": 52
+    },
+    {
+      "path": "skills/openapi-contract-engineer/schemas/output.schema.json",
+      "sha256": "42a5b3796f24ee5117871938299ee2744b80e1d0894724697f2d60affc1dd052",
+      "bytes": 787
+    },
+    {
+      "path": "skills/openapi-contract-engineer/scripts/validate_contract.py",
+      "sha256": "1b55c3a6db1238810ad09619eb46c6a2a58a96b43aa813e79ee342b02da0ca7d",
+      "bytes": 1189
+    },
+    {
+      "path": "skills/openapi-contract-engineer/templates/REPORT.template.md",
+      "sha256": "9accb7fa54fab2d4b2758ef29ef9aab6eeca342d37baecc38de26d0e434e9b18",
+      "bytes": 409
+    },
+    {
+      "path": "skills/openapi-contract-engineer/tests/test_openapi_contract_engineer_structure.py",
+      "sha256": "01a9bba57b874d8bd1ea3dc81a8f6af8494fed869295286a6eb82a62cfb3375a",
+      "bytes": 913
+    },
+    {
+      "path": "skills/performance-slo-engineer/AGENT.md",
+      "sha256": "c0ad47bec21c04fd1b8b4c5d956e06372e18252fc77e3111481c2f6773057e1e",
+      "bytes": 1269
+    },
+    {
+      "path": "skills/performance-slo-engineer/README.md",
+      "sha256": "411487271921ce377963c210e4b31a1deaf7b3bbad5e00b7b44529e6de51af6c",
+      "bytes": 572
+    },
+    {
+      "path": "skills/performance-slo-engineer/SKILL.md",
+      "sha256": "4e1a1150494f7edced0c6806c7edd4b782a1c62ed7acb3aac3679ab4251c4d59",
+      "bytes": 2579
+    },
+    {
+      "path": "skills/performance-slo-engineer/knowledge/CONTINUOUS_LEARNING.md",
+      "sha256": "ff6e3ddce2a4bfc2af9f57bd7c2c9dce63b9f5cf6c96beeb8f3ee9350a85e172",
+      "bytes": 279
+    },
+    {
+      "path": "skills/performance-slo-engineer/knowledge/KNOWLEDGE.md",
+      "sha256": "031891854d596aeb6306949854b79c5487205a27ebab1101eee74d18fa5997c9",
+      "bytes": 272
+    },
+    {
+      "path": "skills/performance-slo-engineer/knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "7527bfd6d26afecc6529686ceda97131eb58fbcaf15e2b2e1e732db76278aecb",
+      "bytes": 232
+    },
+    {
+      "path": "skills/performance-slo-engineer/knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "c35f87c8f5f7da9f96c8640e328238065277ff7d5736bc5624f0e0fec0cc657e",
+      "bytes": 298
+    },
+    {
+      "path": "skills/performance-slo-engineer/knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "a4e6452ff8fcf5797316b68e27cb4feabdbefbe0c7f09d7017e293aaabd35589",
+      "bytes": 294
+    },
+    {
+      "path": "skills/performance-slo-engineer/memory/EXECUTIONS.md",
+      "sha256": "a1156e57557686dfecc08d30c98e53238d19a1723b1f572198793f0e7b14fbc7",
+      "bytes": 54
+    },
+    {
+      "path": "skills/performance-slo-engineer/memory/FAILURES.md",
+      "sha256": "0a092f7ab66919cab1c4c0025a7f7741285c68d33f0e10498bec6fb100a099a0",
+      "bytes": 52
+    },
+    {
+      "path": "skills/performance-slo-engineer/memory/LESSONS.md",
+      "sha256": "b643486ea8deaafc94fc60275ca04516ca97d938c38a413bd1f7f085dcd2d878",
+      "bytes": 51
+    },
+    {
+      "path": "skills/performance-slo-engineer/memory/PATTERNS.md",
+      "sha256": "ad65a83583d1a401ecfc69fa9d21bd7dcae52d65f3f428a24a9d448edb056088",
+      "bytes": 52
+    },
+    {
+      "path": "skills/performance-slo-engineer/schemas/output.schema.json",
+      "sha256": "ac2f780ba82d33505a996e6a6feba57c27eb66e81b824501f8cc9c1a3b8ff9ee",
+      "bytes": 789
+    },
+    {
+      "path": "skills/performance-slo-engineer/scripts/validate_contract.py",
+      "sha256": "1b55c3a6db1238810ad09619eb46c6a2a58a96b43aa813e79ee342b02da0ca7d",
+      "bytes": 1189
+    },
+    {
+      "path": "skills/performance-slo-engineer/templates/REPORT.template.md",
+      "sha256": "5f06e119343a6104abc6857906010664b1c203bed9503547da59836afe8b4cb0",
+      "bytes": 412
+    },
+    {
+      "path": "skills/performance-slo-engineer/tests/test_performance_slo_engineer_structure.py",
+      "sha256": "01a9bba57b874d8bd1ea3dc81a8f6af8494fed869295286a6eb82a62cfb3375a",
+      "bytes": 913
+    },
+    {
+      "path": "skills/precommit-quality-engineer/AGENT.md",
+      "sha256": "b9e902b3344efebdbe55b2c4ab3833029b23254335033fb4c293018bceaca5a0",
+      "bytes": 1284
+    },
+    {
+      "path": "skills/precommit-quality-engineer/README.md",
+      "sha256": "36f80e1f6af1f3a57b4807b5f0330d3392f93c2ed9eba9841ce58c9f72205a37",
+      "bytes": 581
+    },
+    {
+      "path": "skills/precommit-quality-engineer/SKILL.md",
+      "sha256": "2650e5581d42b3f0d7991d05c5eea72c7ab991b1bf178a86cd9dca4ffcb48604",
+      "bytes": 2551
+    },
+    {
+      "path": "skills/precommit-quality-engineer/knowledge/CONTINUOUS_LEARNING.md",
+      "sha256": "ff6e3ddce2a4bfc2af9f57bd7c2c9dce63b9f5cf6c96beeb8f3ee9350a85e172",
+      "bytes": 279
+    },
+    {
+      "path": "skills/precommit-quality-engineer/knowledge/KNOWLEDGE.md",
+      "sha256": "f3d70a97d4972725dd00cc0976302b6cabc9dabd812ea8749e2348b1c9613fec",
+      "bytes": 271
+    },
+    {
+      "path": "skills/precommit-quality-engineer/knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "7527bfd6d26afecc6529686ceda97131eb58fbcaf15e2b2e1e732db76278aecb",
+      "bytes": 232
+    },
+    {
+      "path": "skills/precommit-quality-engineer/knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "a533e231b7b2f17c00b145d2178479c61efcbe6532341c739a18de68ed616ff6",
+      "bytes": 297
+    },
+    {
+      "path": "skills/precommit-quality-engineer/knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "b440c6cd5e397d6091f1b29d3344733be49113adf00fd589230b30f1a3a741e3",
+      "bytes": 293
+    },
+    {
+      "path": "skills/precommit-quality-engineer/memory/EXECUTIONS.md",
+      "sha256": "a1156e57557686dfecc08d30c98e53238d19a1723b1f572198793f0e7b14fbc7",
+      "bytes": 54
+    },
+    {
+      "path": "skills/precommit-quality-engineer/memory/FAILURES.md",
+      "sha256": "0a092f7ab66919cab1c4c0025a7f7741285c68d33f0e10498bec6fb100a099a0",
+      "bytes": 52
+    },
+    {
+      "path": "skills/precommit-quality-engineer/memory/LESSONS.md",
+      "sha256": "b643486ea8deaafc94fc60275ca04516ca97d938c38a413bd1f7f085dcd2d878",
+      "bytes": 51
+    },
+    {
+      "path": "skills/precommit-quality-engineer/memory/PATTERNS.md",
+      "sha256": "ad65a83583d1a401ecfc69fa9d21bd7dcae52d65f3f428a24a9d448edb056088",
+      "bytes": 52
+    },
+    {
+      "path": "skills/precommit-quality-engineer/schemas/output.schema.json",
+      "sha256": "ab545d89b4c1eb262139abc959b848a4e326b297ac91d5ce413bd6ebd85bda49",
+      "bytes": 790
+    },
+    {
+      "path": "skills/precommit-quality-engineer/scripts/validate_contract.py",
+      "sha256": "1b55c3a6db1238810ad09619eb46c6a2a58a96b43aa813e79ee342b02da0ca7d",
+      "bytes": 1189
+    },
+    {
+      "path": "skills/precommit-quality-engineer/templates/REPORT.template.md",
+      "sha256": "2705da95824f29172ec070c024bca4ff73f1c8f80db4919e7d02958715869fb7",
+      "bytes": 419
+    },
+    {
+      "path": "skills/precommit-quality-engineer/tests/test_precommit_quality_engineer_structure.py",
+      "sha256": "01a9bba57b874d8bd1ea3dc81a8f6af8494fed869295286a6eb82a62cfb3375a",
+      "bytes": 913
+    },
+    {
+      "path": "skills/problem-details-error-governor/AGENT.md",
+      "sha256": "0e68e99be9005691b784ed6d07ec60fd33f6d91eb0ad37c1af66a56bfa7eea08",
+      "bytes": 1267
+    },
+    {
+      "path": "skills/problem-details-error-governor/README.md",
+      "sha256": "d26ce884b379480b73c6eb7dac459e0d64430aef67ceaa6a916f13108dec07b7",
+      "bytes": 575
+    },
+    {
+      "path": "skills/problem-details-error-governor/SKILL.md",
+      "sha256": "74b8301fe80abc8cacf9a0faa5ea3b28ca263ada122e065f54a6b7077e7531fa",
+      "bytes": 2600
+    },
+    {
+      "path": "skills/problem-details-error-governor/knowledge/CONTINUOUS_LEARNING.md",
+      "sha256": "ff6e3ddce2a4bfc2af9f57bd7c2c9dce63b9f5cf6c96beeb8f3ee9350a85e172",
+      "bytes": 279
+    },
+    {
+      "path": "skills/problem-details-error-governor/knowledge/KNOWLEDGE.md",
+      "sha256": "0349397d42b2ecb32017bb962c7019450943e96f15713ba9e9e5aa07579d4f33",
+      "bytes": 274
+    },
+    {
+      "path": "skills/problem-details-error-governor/knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "7527bfd6d26afecc6529686ceda97131eb58fbcaf15e2b2e1e732db76278aecb",
+      "bytes": 232
+    },
+    {
+      "path": "skills/problem-details-error-governor/knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "18c360cb1366a70ee7d0c97eee9c50548e612972ac46f86ba6c3bdc83cadffff",
+      "bytes": 300
+    },
+    {
+      "path": "skills/problem-details-error-governor/knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "12b8f66bdeb03948917c3e893529116e31e10678c691389993d14521eb022527",
+      "bytes": 296
+    },
+    {
+      "path": "skills/problem-details-error-governor/memory/EXECUTIONS.md",
+      "sha256": "a1156e57557686dfecc08d30c98e53238d19a1723b1f572198793f0e7b14fbc7",
+      "bytes": 54
+    },
+    {
+      "path": "skills/problem-details-error-governor/memory/FAILURES.md",
+      "sha256": "0a092f7ab66919cab1c4c0025a7f7741285c68d33f0e10498bec6fb100a099a0",
+      "bytes": 52
+    },
+    {
+      "path": "skills/problem-details-error-governor/memory/LESSONS.md",
+      "sha256": "b643486ea8deaafc94fc60275ca04516ca97d938c38a413bd1f7f085dcd2d878",
+      "bytes": 51
+    },
+    {
+      "path": "skills/problem-details-error-governor/memory/PATTERNS.md",
+      "sha256": "ad65a83583d1a401ecfc69fa9d21bd7dcae52d65f3f428a24a9d448edb056088",
+      "bytes": 52
+    },
+    {
+      "path": "skills/problem-details-error-governor/schemas/output.schema.json",
+      "sha256": "bd64217306e2d9a5554cf8ee55bfc03bc56995cb0ec60e3eab2a2d0cd4402d65",
+      "bytes": 797
+    },
+    {
+      "path": "skills/problem-details-error-governor/scripts/validate_contract.py",
+      "sha256": "1b55c3a6db1238810ad09619eb46c6a2a58a96b43aa813e79ee342b02da0ca7d",
+      "bytes": 1189
+    },
+    {
+      "path": "skills/problem-details-error-governor/templates/REPORT.template.md",
+      "sha256": "b4b816d9152c43d6d5459ab644e418a7db84b38e7ca00fba1dae546e85cf016b",
+      "bytes": 415
+    },
+    {
+      "path": "skills/problem-details-error-governor/tests/test_problem_details_error_governor_structure.py",
+      "sha256": "01a9bba57b874d8bd1ea3dc81a8f6af8494fed869295286a6eb82a62cfb3375a",
+      "bytes": 913
+    },
+    {
+      "path": "skills/release-automation-engineer/AGENT.md",
+      "sha256": "f9d0cd6ec00e1998b83af56318928c972fdca55852276682625565e977a0ef6b",
+      "bytes": 1226
+    },
+    {
+      "path": "skills/release-automation-engineer/README.md",
+      "sha256": "fcf02613b651979586a7e51db5281badf14f5a945109425d1b6936bafec7cc7a",
+      "bytes": 529
+    },
+    {
+      "path": "skills/release-automation-engineer/SKILL.md",
+      "sha256": "a4fdfa301eb5d1d6a62196841fb440a4d6b88e0ff2f88a065c01ccefabe6bf1b",
+      "bytes": 2560
+    },
+    {
+      "path": "skills/release-automation-engineer/knowledge/CONTINUOUS_LEARNING.md",
+      "sha256": "ff6e3ddce2a4bfc2af9f57bd7c2c9dce63b9f5cf6c96beeb8f3ee9350a85e172",
+      "bytes": 279
+    },
+    {
+      "path": "skills/release-automation-engineer/knowledge/KNOWLEDGE.md",
+      "sha256": "eef86b5e26e3af57134ded6f3ed31df9733228bb1b5cc979b38ed7578446ffcf",
+      "bytes": 271
+    },
+    {
+      "path": "skills/release-automation-engineer/knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "7527bfd6d26afecc6529686ceda97131eb58fbcaf15e2b2e1e732db76278aecb",
+      "bytes": 232
+    },
+    {
+      "path": "skills/release-automation-engineer/knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "ecb91b290e23e6790583a8abe30cb6b862273097e032724ffc1fee59554f329a",
+      "bytes": 297
+    },
+    {
+      "path": "skills/release-automation-engineer/knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "d6101f6196f696c7df7df37dfe4d55e0ea6ae9575d3e2b399fd64acee90d8caa",
+      "bytes": 293
+    },
+    {
+      "path": "skills/release-automation-engineer/memory/EXECUTIONS.md",
+      "sha256": "a1156e57557686dfecc08d30c98e53238d19a1723b1f572198793f0e7b14fbc7",
+      "bytes": 54
+    },
+    {
+      "path": "skills/release-automation-engineer/memory/FAILURES.md",
+      "sha256": "0a092f7ab66919cab1c4c0025a7f7741285c68d33f0e10498bec6fb100a099a0",
+      "bytes": 52
+    },
+    {
+      "path": "skills/release-automation-engineer/memory/LESSONS.md",
+      "sha256": "b643486ea8deaafc94fc60275ca04516ca97d938c38a413bd1f7f085dcd2d878",
+      "bytes": 51
+    },
+    {
+      "path": "skills/release-automation-engineer/memory/PATTERNS.md",
+      "sha256": "ad65a83583d1a401ecfc69fa9d21bd7dcae52d65f3f428a24a9d448edb056088",
+      "bytes": 52
+    },
+    {
+      "path": "skills/release-automation-engineer/schemas/output.schema.json",
+      "sha256": "e0fbc7cb2d1845de2bdec05d1bc7eae05ffb75748417488410aeef3f9d255c51",
+      "bytes": 791
+    },
+    {
+      "path": "skills/release-automation-engineer/scripts/validate_contract.py",
+      "sha256": "1b55c3a6db1238810ad09619eb46c6a2a58a96b43aa813e79ee342b02da0ca7d",
+      "bytes": 1189
+    },
+    {
+      "path": "skills/release-automation-engineer/templates/REPORT.template.md",
+      "sha256": "8d4513e341fe99e333d3d11feac6f6ddc32328fea35e0d856d71823191405a09",
+      "bytes": 414
+    },
+    {
+      "path": "skills/release-automation-engineer/tests/test_release_automation_engineer_structure.py",
+      "sha256": "01a9bba57b874d8bd1ea3dc81a8f6af8494fed869295286a6eb82a62cfb3375a",
+      "bytes": 913
+    },
+    {
+      "path": "skills/repository-baseline-cartographer/AGENT.md",
+      "sha256": "bdeec116279a685682280b9b76ddc7b88161e54bdbdd111630c7ef27a6098f82",
+      "bytes": 1276
+    },
+    {
+      "path": "skills/repository-baseline-cartographer/README.md",
+      "sha256": "d67cf502ad185d74a6095cdc7aff937010ca9fd0afb47265da8871d79bb8846e",
+      "bytes": 567
+    },
+    {
+      "path": "skills/repository-baseline-cartographer/SKILL.md",
+      "sha256": "672e6a4befab1a844b555826ba8e6a9249d17e5534871341cbb2444ea47d2006",
+      "bytes": 2649
+    },
+    {
+      "path": "skills/repository-baseline-cartographer/knowledge/CONTINUOUS_LEARNING.md",
+      "sha256": "ff6e3ddce2a4bfc2af9f57bd7c2c9dce63b9f5cf6c96beeb8f3ee9350a85e172",
+      "bytes": 279
+    },
+    {
+      "path": "skills/repository-baseline-cartographer/knowledge/KNOWLEDGE.md",
+      "sha256": "4af6d4ad9d5e0ac6169ef019f30c4a25af689b746db880480c94e0a6bf996266",
+      "bytes": 276
+    },
+    {
+      "path": "skills/repository-baseline-cartographer/knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "7527bfd6d26afecc6529686ceda97131eb58fbcaf15e2b2e1e732db76278aecb",
+      "bytes": 232
+    },
+    {
+      "path": "skills/repository-baseline-cartographer/knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "c97f6c2a4a6dbbda5003b0464dc99447a39f9eb182066d5c01f1ba07226fba02",
+      "bytes": 302
+    },
+    {
+      "path": "skills/repository-baseline-cartographer/knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "8cf6caf8af5c731d7401e5ac571523f9022cfc0edf6be366725c7c17ba085e3f",
+      "bytes": 298
+    },
+    {
+      "path": "skills/repository-baseline-cartographer/memory/EXECUTIONS.md",
+      "sha256": "a1156e57557686dfecc08d30c98e53238d19a1723b1f572198793f0e7b14fbc7",
+      "bytes": 54
+    },
+    {
+      "path": "skills/repository-baseline-cartographer/memory/FAILURES.md",
+      "sha256": "0a092f7ab66919cab1c4c0025a7f7741285c68d33f0e10498bec6fb100a099a0",
+      "bytes": 52
+    },
+    {
+      "path": "skills/repository-baseline-cartographer/memory/LESSONS.md",
+      "sha256": "b643486ea8deaafc94fc60275ca04516ca97d938c38a413bd1f7f085dcd2d878",
+      "bytes": 51
+    },
+    {
+      "path": "skills/repository-baseline-cartographer/memory/PATTERNS.md",
+      "sha256": "ad65a83583d1a401ecfc69fa9d21bd7dcae52d65f3f428a24a9d448edb056088",
+      "bytes": 52
+    },
+    {
+      "path": "skills/repository-baseline-cartographer/schemas/output.schema.json",
+      "sha256": "18827695a5425854dfaa2ad0a783784f55d208a63042eeb64eecdb1bb474caec",
+      "bytes": 801
+    },
+    {
+      "path": "skills/repository-baseline-cartographer/scripts/validate_contract.py",
+      "sha256": "1b55c3a6db1238810ad09619eb46c6a2a58a96b43aa813e79ee342b02da0ca7d",
+      "bytes": 1189
+    },
+    {
+      "path": "skills/repository-baseline-cartographer/templates/REPORT.template.md",
+      "sha256": "5abdad3395b1c7e5692afbe90a6c77a7ae04fa7582e197248b5091d34af99e3f",
+      "bytes": 436
+    },
+    {
+      "path": "skills/repository-baseline-cartographer/tests/test_repository_baseline_cartographer_structure.py",
+      "sha256": "01a9bba57b874d8bd1ea3dc81a8f6af8494fed869295286a6eb82a62cfb3375a",
+      "bytes": 913
+    },
+    {
+      "path": "skills/security-clinical-safety-reviewer/AGENT.md",
+      "sha256": "e799a3fdadc900e6e6036299ef508a3bf1beb08b526d25b92d432822a367ee34",
+      "bytes": 1300
+    },
+    {
+      "path": "skills/security-clinical-safety-reviewer/README.md",
+      "sha256": "9d0ce51c91028aa556b8646e28736f50c2bbc84a003470841e183b471f5e5925",
+      "bytes": 569
+    },
+    {
+      "path": "skills/security-clinical-safety-reviewer/SKILL.md",
+      "sha256": "33956d180704e92cc1759e657f4368e218a6f53ca08f7a687a4ccbde02861e38",
+      "bytes": 2658
+    },
+    {
+      "path": "skills/security-clinical-safety-reviewer/knowledge/CONTINUOUS_LEARNING.md",
+      "sha256": "ff6e3ddce2a4bfc2af9f57bd7c2c9dce63b9f5cf6c96beeb8f3ee9350a85e172",
+      "bytes": 279
+    },
+    {
+      "path": "skills/security-clinical-safety-reviewer/knowledge/KNOWLEDGE.md",
+      "sha256": "af08f8455906e22106f65cdd514fe1129113a7f03d11f31c599cc20620df384b",
+      "bytes": 281
+    },
+    {
+      "path": "skills/security-clinical-safety-reviewer/knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "7527bfd6d26afecc6529686ceda97131eb58fbcaf15e2b2e1e732db76278aecb",
+      "bytes": 232
+    },
+    {
+      "path": "skills/security-clinical-safety-reviewer/knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "89d7273eec3a0a29018201f5053393dd36cae1720c487a9b6fe129b1810d7604",
+      "bytes": 307
+    },
+    {
+      "path": "skills/security-clinical-safety-reviewer/knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "d6575a2f05f7401a0978a697e88b17d5acb77893310bdacae532fcdcf08eda78",
+      "bytes": 303
+    },
+    {
+      "path": "skills/security-clinical-safety-reviewer/memory/EXECUTIONS.md",
+      "sha256": "a1156e57557686dfecc08d30c98e53238d19a1723b1f572198793f0e7b14fbc7",
+      "bytes": 54
+    },
+    {
+      "path": "skills/security-clinical-safety-reviewer/memory/FAILURES.md",
+      "sha256": "0a092f7ab66919cab1c4c0025a7f7741285c68d33f0e10498bec6fb100a099a0",
+      "bytes": 52
+    },
+    {
+      "path": "skills/security-clinical-safety-reviewer/memory/LESSONS.md",
+      "sha256": "b643486ea8deaafc94fc60275ca04516ca97d938c38a413bd1f7f085dcd2d878",
+      "bytes": 51
+    },
+    {
+      "path": "skills/security-clinical-safety-reviewer/memory/PATTERNS.md",
+      "sha256": "ad65a83583d1a401ecfc69fa9d21bd7dcae52d65f3f428a24a9d448edb056088",
+      "bytes": 52
+    },
+    {
+      "path": "skills/security-clinical-safety-reviewer/schemas/output.schema.json",
+      "sha256": "012b19606419d5fb8f0ac24370e0d80e3802e630fc7607bfb02a7b1160e7ba5d",
+      "bytes": 807
+    },
+    {
+      "path": "skills/security-clinical-safety-reviewer/scripts/validate_contract.py",
+      "sha256": "1b55c3a6db1238810ad09619eb46c6a2a58a96b43aa813e79ee342b02da0ca7d",
+      "bytes": 1189
+    },
+    {
+      "path": "skills/security-clinical-safety-reviewer/templates/REPORT.template.md",
+      "sha256": "7a565faea012ffe35e3833bfba43e5f220b6d2f9e8e9a0871c095057ccc2c40a",
+      "bytes": 464
+    },
+    {
+      "path": "skills/security-clinical-safety-reviewer/tests/test_security_clinical_safety_reviewer_structure.py",
+      "sha256": "01a9bba57b874d8bd1ea3dc81a8f6af8494fed869295286a6eb82a62cfb3375a",
+      "bytes": 913
+    },
+    {
+      "path": "skills/token-context-governor/AGENT.md",
+      "sha256": "29d9640cc0932820c9d928c550215b30b584cc8fe105faddcb130055a49a4d13",
+      "bytes": 1294
+    },
+    {
+      "path": "skills/token-context-governor/README.md",
+      "sha256": "cc8cba403ed3207664c095f2e323e5e9678a40cd5ac5adcdfbf32c005bf6e9c9",
+      "bytes": 565
+    },
+    {
+      "path": "skills/token-context-governor/SKILL.md",
+      "sha256": "977fe036922a56999676c2c8abf39a0acee4ca8febe87b9d341afdf446f08e8b",
+      "bytes": 2605
+    },
+    {
+      "path": "skills/token-context-governor/knowledge/CONTINUOUS_LEARNING.md",
+      "sha256": "ff6e3ddce2a4bfc2af9f57bd7c2c9dce63b9f5cf6c96beeb8f3ee9350a85e172",
+      "bytes": 279
+    },
+    {
+      "path": "skills/token-context-governor/knowledge/KNOWLEDGE.md",
+      "sha256": "14f13017d012a383ec7efa18f221dad3df8c03909a190ec128cd20fbe0caa99b",
+      "bytes": 270
+    },
+    {
+      "path": "skills/token-context-governor/knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "7527bfd6d26afecc6529686ceda97131eb58fbcaf15e2b2e1e732db76278aecb",
+      "bytes": 232
+    },
+    {
+      "path": "skills/token-context-governor/knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "fd1e01e56f350adafa0f8ef9bf089f2977b123a32fee189f4733971cc8ad681f",
+      "bytes": 296
+    },
+    {
+      "path": "skills/token-context-governor/knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "dbfc5bb870cd7d2be2248cdee6f59bdd9836868d35608b813269fcce44c0acad",
+      "bytes": 292
+    },
+    {
+      "path": "skills/token-context-governor/memory/EXECUTIONS.md",
+      "sha256": "a1156e57557686dfecc08d30c98e53238d19a1723b1f572198793f0e7b14fbc7",
+      "bytes": 54
+    },
+    {
+      "path": "skills/token-context-governor/memory/FAILURES.md",
+      "sha256": "0a092f7ab66919cab1c4c0025a7f7741285c68d33f0e10498bec6fb100a099a0",
+      "bytes": 52
+    },
+    {
+      "path": "skills/token-context-governor/memory/LESSONS.md",
+      "sha256": "b643486ea8deaafc94fc60275ca04516ca97d938c38a413bd1f7f085dcd2d878",
+      "bytes": 51
+    },
+    {
+      "path": "skills/token-context-governor/memory/PATTERNS.md",
+      "sha256": "ad65a83583d1a401ecfc69fa9d21bd7dcae52d65f3f428a24a9d448edb056088",
+      "bytes": 52
+    },
+    {
+      "path": "skills/token-context-governor/schemas/output.schema.json",
+      "sha256": "8229f91677b7f78cfb3a3573dcf4bc2396555e57a6041bcd2ebdc64828508135",
+      "bytes": 785
+    },
+    {
+      "path": "skills/token-context-governor/scripts/validate_contract.py",
+      "sha256": "1b55c3a6db1238810ad09619eb46c6a2a58a96b43aa813e79ee342b02da0ca7d",
+      "bytes": 1189
+    },
+    {
+      "path": "skills/token-context-governor/templates/REPORT.template.md",
+      "sha256": "d3be7868285c16bf10a70c2d9dc32f2a5237e85cf80e99d49e8072b13305f871",
+      "bytes": 440
+    },
+    {
+      "path": "skills/token-context-governor/tests/test_token_context_governor_structure.py",
+      "sha256": "01a9bba57b874d8bd1ea3dc81a8f6af8494fed869295286a6eb82a62cfb3375a",
+      "bytes": 913
+    },
+    {
+      "path": "tests/test_json_schemas.py",
+      "sha256": "9935d1f6e892af9e0e14d62ee3a6854c30425de787cd6da533f2e2e918dda52c",
+      "bytes": 202
+    },
+    {
+      "path": "tests/test_package_structure.py",
+      "sha256": "e060ba7a0b178df11e61ddefd5f89be84383c72435eae544a66a88ed2ec7ee07",
+      "bytes": 547
+    },
+    {
+      "path": "tests/test_playbook_contract.py",
+      "sha256": "fa632c331cdee1989bcc0a01c7123927faf7c19957026bf7abf3ef651eb2110c",
+      "bytes": 677
+    },
+    {
+      "path": "tests/test_registry_integrity.py",
+      "sha256": "a8d01a6c43d0ed9f98e1c3699c207ec038a7938e9a614a14d42d6687d3a7975d",
+      "bytes": 582
+    },
+    {
+      "path": "tests/test_skill_contracts.py",
+      "sha256": "17cd3ff451cfc5b37cf1b365443f6b721aa6a6a93fd56c6429f83027ff25b055",
+      "bytes": 850
+    }
+  ]
+}
