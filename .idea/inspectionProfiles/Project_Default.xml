@@ -1,0 +1,53 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="accelerate" />
+          <option value="bitsandbytes" />
+          <option value="peft" />
+          <option value="sentencepiece" />
+          <option value="uvicorn" />
+          <option value="pydantic-settings" />
+          <option value="python-multipart" />
+          <option value="langchain" />
+          <option value="langchain-community" />
+          <option value="chromadb" />
+          <option value="sentence-transformers" />
+          <option value="pypdf" />
+          <option value="prometheus-fastapi-instrumentator" />
+          <option value="prometheus-client" />
+          <option value="docker" />
+          <option value="python-dotenv" />
+          <option value="wandb" />
+          <option value="torch" />
+          <option value="transformers" />
+          <option value="datasets" />
+          <option value="safetensors" />
+          <option value="fastapi" />
+          <option value="pydantic" />
+          <option value="pandas" />
+          <option value="numpy" />
+          <option value="tqdm" />
+          <option value="scikit-learn" />
+          <option value="matplotlib" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N812" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="knowledge.*" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
