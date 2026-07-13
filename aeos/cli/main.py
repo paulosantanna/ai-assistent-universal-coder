@@ -142,6 +142,29 @@ def main():
     ev_report.add_argument("--execution-id", default="latest", help="Execution ID")
     ev_report.set_defaults(func="cmd_evidence_report")
 
+    # bundle
+    bundle_parser = subparsers.add_parser("bundle", help="Git bundle commands")
+    bundle_sub = bundle_parser.add_subparsers(dest="bundle_command")
+    b_create = bundle_sub.add_parser("create", help="Create a Git bundle from a phase branch")
+    add_aeos_root(b_create)
+    b_create.add_argument("--target", required=True, help="Target repository directory")
+    b_create.add_argument("--branch", required=True, help="Target branch to bundle")
+    b_create.add_argument("--phase", required=True, help="Phase number")
+    b_create.add_argument("--name", required=True, help="Phase name or slug")
+    b_create.add_argument("--execution-id", default="latest", help="Execution ID for the manifest")
+    b_create.add_argument("--force-main", action="store_true", help="Allow bundling directly from main/master")
+    b_create.set_defaults(func="cmd_bundle_create")
+    b_verify = bundle_sub.add_parser("verify", help="Verify a bundle")
+    b_verify.add_argument("--path", required=True, help="Path to the bundle file")
+    b_verify.set_defaults(func="cmd_bundle_verify")
+    b_inspect = bundle_sub.add_parser("inspect", help="Inspect a bundle manifest")
+    b_inspect.add_argument("--manifest", required=True, help="Path to the manifest file")
+    b_inspect.set_defaults(func="cmd_bundle_inspect")
+    b_plan = bundle_sub.add_parser("import-plan", help="Generate import plan for a bundle")
+    b_plan.set_defaults(func="cmd_bundle_import_plan")
+    b_list = bundle_sub.add_parser("list", help="List all bundles")
+    b_list.set_defaults(func="cmd_bundle_list")
+
     # version
     version_parser = subparsers.add_parser("version", help="Show version")
     version_parser.set_defaults(func="cmd_version")
@@ -218,6 +241,10 @@ from aeos.cli.commands.performance import cmd_performance_benchmark
 from aeos.cli.commands.package import cmd_package_create, cmd_package_verify
 from aeos.cli.commands.registry import cmd_registry_validate, cmd_registry_list
 from aeos.cli.commands.evidence import cmd_evidence_list, cmd_evidence_verify, cmd_evidence_report
+from aeos.cli.commands.bundle import (
+    cmd_bundle_create, cmd_bundle_verify, cmd_bundle_inspect,
+    cmd_bundle_import_plan, cmd_bundle_list
+)
 from aeos.cli.commands.version import cmd_version
 
 
