@@ -71,6 +71,17 @@ function providerDefaults(provider) {
             economyMode: true
         };
     }
+    if (provider === "opencode") {
+        return {
+            baseUrl: "http://127.0.0.1:1234/v1",
+            model: "local-model",
+            apiKeyEnv: "",
+            maxInputChars: 32000,
+            maxOutputTokens: 1200,
+            temperature: 0.1,
+            economyMode: true
+        };
+    }
     return {
         baseUrl: "http://localhost:1234/v1",
         model: "local-model",
@@ -805,8 +816,44 @@ export class AeosCore {
                     ? "DEEPSEEK_API_KEY"
                     : provider === "openai-compatible"
                         ? "AEOS_OPENAI_COMPATIBLE_API_KEY"
-                        : "OLLAMA_BASE_URL";
-        const executable = provider === "ollama" || provider === "deepseek" || provider === "openai-compatible";
+                        : provider === "opencode"
+                            ? "AEOS_OPENCODE_API_KEY or local OpenAI-compatible server without a key"
+                            : "OLLAMA_BASE_URL";
+        const executable = provider === "ollama" || provider === "deepseek" || provider === "openai-compatible" || provider === "opencode";
+        const opencodeConfig = provider === "opencode"
+            ? [
+                "",
+                "## opencode.json",
+                "",
+                "Place this file at the target project root when OpenCode should share the same local or gateway model as AEOS.",
+                "",
+                "```json",
+                "{",
+                "  \"$schema\": \"https://opencode.ai/config.json\",",
+                "  \"provider\": {",
+                "    \"aeos-local\": {",
+                "      \"npm\": \"@ai-sdk/openai-compatible\",",
+                "      \"name\": \"AEOS Local/OpenCode Provider\",",
+                "      \"options\": {",
+                "        \"baseURL\": \"http://127.0.0.1:1234/v1\"",
+                "      },",
+                "      \"models\": {",
+                "        \"local-model\": {",
+                "          \"name\": \"Local model\",",
+                "          \"limit\": {",
+                "            \"context\": 32000,",
+                "            \"output\": 1200",
+                "          }",
+                "        }",
+                "      }",
+                "    }",
+                "  }",
+                "}",
+                "```",
+                "",
+                "Use `aeos provider configure opencode <baseUrl> <model> <apiKeyEnv> <projectPath>` with the same values. Keep secrets in environment variables or OpenCode auth, not in repository files."
+            ]
+            : [];
         const content = [
             `# AEOS Provider Template — ${provider}`,
             "",
@@ -819,7 +866,8 @@ export class AeosCore {
             "- Do not send secrets or sensitive data unless explicitly authorized and compliant.",
             "- Use economy mode and compact prompts for free or low-quota providers.",
             "",
-            executable ? "## Runtime status\n\nThis provider is executable through `aeos agent run ... <provider>`." : "## Runtime status\n\nThis is a template only."
+            executable ? "## Runtime status\n\nThis provider is executable through `aeos agent run ... <provider>`." : "## Runtime status\n\nThis is a template only.",
+            ...opencodeConfig
         ].join("\n");
         return this.artifact(projectPath, "providers", `${provider}-provider-template`, "provider", content);
     }

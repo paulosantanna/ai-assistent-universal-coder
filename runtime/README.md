@@ -13,6 +13,7 @@ In v9, AEOS can execute an agent run through local and OpenAI-compatible provide
 Ollama local HTTP API
 DeepSeek-compatible chat completions API
 Generic OpenAI-compatible chat completions API
+OpenCode/OpenAI-compatible local or gateway provider
 ```
 
 ### Why Ollama first
@@ -28,11 +29,13 @@ Generic OpenAI-compatible chat completions API
 aeos provider configure ollama [baseUrl] [model] [projectPath]
 aeos provider configure deepseek [model] [apiKeyEnv] [projectPath]
 aeos provider configure openai-compatible [baseUrl] [model] [apiKeyEnv] [projectPath]
+aeos provider configure opencode [baseUrl] [model] [apiKeyEnv] [projectPath]
 aeos provider status [projectPath]
 aeos provider models [projectPath]
 aeos agent run audit ollama [model] [projectPath]
 aeos agent run audit deepseek [model] [projectPath]
 aeos agent run audit openai-compatible [model] [projectPath]
+aeos agent run audit opencode [model] [projectPath]
 aeos agent run judge ollama [model] [projectPath]
 aeos agent run remediate ollama [model] [projectPath]
 aeos agent runs [projectPath]
@@ -81,6 +84,7 @@ aeos provider template anthropic
 aeos provider template ollama
 aeos provider template deepseek
 aeos provider template openai-compatible
+aeos provider template opencode
 
 aeos plan
 aeos tasks
@@ -197,6 +201,18 @@ Generic OpenAI-compatible local server or gateway:
 aeos provider configure openai-compatible http://localhost:1234/v1 local-model "" E:\GitHub\aidiabetic-research
 aeos agent run audit openai-compatible local-model E:\GitHub\aidiabetic-research
 ```
+
+OpenCode sharing the same local or gateway model:
+
+```powershell
+aeos provider template opencode E:\GitHub\aidiabetic-research
+aeos provider configure opencode http://127.0.0.1:1234/v1 local-model "" E:\GitHub\aidiabetic-research
+aeos agent run audit opencode local-model E:\GitHub\aidiabetic-research
+```
+
+The generated OpenCode template follows `opencode.json` provider conventions and
+uses `@ai-sdk/openai-compatible` for local servers such as LM Studio, llama.cpp
+server, Ollama OpenAI-compatible endpoints or local gateways.
 
 Cloud-compatible providers use economy defaults: prompt compaction, capped output
 tokens and low temperature. This keeps free or low-quota models focused on the

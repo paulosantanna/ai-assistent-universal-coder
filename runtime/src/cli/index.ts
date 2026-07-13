@@ -37,11 +37,13 @@ Provider and agent execution:
   aeos provider configure ollama [baseUrl] [model] [projectPath]
   aeos provider configure deepseek [model] [apiKeyEnv] [projectPath]
   aeos provider configure openai-compatible [baseUrl] [model] [apiKeyEnv] [projectPath]
+  aeos provider configure opencode [baseUrl] [model] [apiKeyEnv] [projectPath]
   aeos provider status [projectPath]
   aeos provider models [projectPath]
   aeos agent run audit ollama [model] [projectPath]
   aeos agent run audit deepseek [model] [projectPath]
   aeos agent run audit openai-compatible [model] [projectPath]
+  aeos agent run audit opencode [model] [projectPath]
   aeos agent run judge ollama [model] [projectPath]
   aeos agent run remediate ollama [model] [projectPath]
   aeos agent runs [projectPath]
@@ -75,6 +77,7 @@ Operationalization:
   aeos provider template ollama [projectPath]
   aeos provider template deepseek [projectPath]
   aeos provider template openai-compatible [projectPath]
+  aeos provider template opencode [projectPath]
 
 Task/evidence/memory:
   aeos plan "<objective>" [projectPath]
@@ -127,7 +130,7 @@ function objective(v: string): AgentObjective {
 }
 
 function providerName(v: string): ProviderName {
-  const allowed: ProviderName[] = ["ollama", "deepseek", "openai-compatible"];
+  const allowed: ProviderName[] = ["ollama", "deepseek", "openai-compatible", "opencode"];
   if (!allowed.includes(v as ProviderName)) throw new Error(`Invalid executable provider: ${v}`);
   return v as ProviderName;
 }
@@ -199,7 +202,7 @@ async function main(): Promise<void> {
         }
         if (sub === "template") {
           const provider = req(args[1], "provider name");
-          if (provider === "openai" || provider === "anthropic" || provider === "ollama" || provider === "deepseek" || provider === "openai-compatible") { print(core.providerTemplate(p(args[2]), provider)); return; }
+          if (provider === "openai" || provider === "anthropic" || provider === "ollama" || provider === "deepseek" || provider === "openai-compatible" || provider === "opencode") { print(core.providerTemplate(p(args[2]), provider)); return; }
         }
         throw new Error(`Unknown provider command.`);
       }

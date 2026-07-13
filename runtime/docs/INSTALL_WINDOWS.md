@@ -148,6 +148,17 @@ aeos provider configure openai-compatible http://localhost:1234/v1 local-model "
 aeos agent run audit openai-compatible local-model E:\GitHub\aidiabetic-research
 ```
 
+OpenCode with the same local or gateway model:
+
+```powershell
+aeos provider template opencode E:\GitHub\aidiabetic-research
+aeos provider configure opencode http://127.0.0.1:1234/v1 local-model "" E:\GitHub\aidiabetic-research
+aeos agent run audit opencode local-model E:\GitHub\aidiabetic-research
+```
+
+Use the generated provider template as the base for `opencode.json`. Keep raw
+keys out of repository files; use OpenCode auth or environment variables.
+
 ## Update an existing installation
 
 ```powershell
