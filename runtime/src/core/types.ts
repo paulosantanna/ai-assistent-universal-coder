@@ -114,17 +114,24 @@ export interface GeneratedArtifact {
   createdAt: string;
 }
 
+export type ProviderName = "ollama" | "deepseek" | "openai-compatible";
+
 export interface ProviderConfig {
-  provider: "ollama";
+  provider: ProviderName;
   baseUrl: string;
   model: string;
+  apiKeyEnv?: string;
+  maxInputChars?: number;
+  maxOutputTokens?: number;
+  temperature?: number;
+  economyMode?: boolean;
   updatedAt: string;
 }
 
 export interface AgentRun {
   runId: string;
   objective: AgentObjective;
-  provider: "ollama";
+  provider: ProviderName;
   model: string;
   projectPath: string;
   promptPath: string;

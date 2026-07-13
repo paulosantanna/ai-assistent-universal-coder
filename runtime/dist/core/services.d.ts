@@ -1,4 +1,4 @@
-import type { AgentObjective, AgentRun, EvidenceType, GateDefinition, GateRunResult, GeneratedArtifact, MemoryType, ProjectScan, ProviderConfig, RuntimeState, Task } from "./types.js";
+import type { AgentObjective, AgentRun, EvidenceType, GateDefinition, GateRunResult, GeneratedArtifact, MemoryType, ProjectScan, ProviderConfig, ProviderName, RuntimeState, Task } from "./types.js";
 export declare class AeosCore {
     private readonly version;
     private readonly criticalFiles;
@@ -14,9 +14,10 @@ export declare class AeosCore {
     audit(projectPath: string, runGates: boolean): Promise<unknown>;
     reportLatest(projectPath: string): unknown;
     providerConfigureOllama(projectPath: string, baseUrl: string, model: string): ProviderConfig;
+    providerConfigure(projectPath: string, provider: ProviderName, baseUrl?: string, model?: string, apiKeyEnv?: string): ProviderConfig;
     providerStatus(projectPath: string): unknown;
     providerModels(projectPath: string): Promise<unknown>;
-    agentRun(projectPath: string, objective: AgentObjective, provider: "ollama", modelOverride?: string): Promise<AgentRun>;
+    agentRun(projectPath: string, objective: AgentObjective, provider: ProviderName, modelOverride?: string): Promise<AgentRun>;
     agentRuns(projectPath: string): AgentRun[];
     agentLatest(projectPath: string): unknown;
     promptAudit(projectPath: string): GeneratedArtifact;
@@ -35,7 +36,7 @@ export declare class AeosCore {
     policyGenerate(projectPath: string): GeneratedArtifact;
     ciGithub(projectPath: string): GeneratedArtifact;
     releaseCheck(projectPath: string): GeneratedArtifact;
-    providerTemplate(projectPath: string, provider: "openai" | "anthropic" | "ollama"): GeneratedArtifact;
+    providerTemplate(projectPath: string, provider: "openai" | "anthropic" | "ollama" | "deepseek" | "openai-compatible"): GeneratedArtifact;
     plan(projectPath: string, objective: string): Task;
     tasks(projectPath: string): Task[];
     task(projectPath: string, taskId: string): Task;
@@ -49,7 +50,11 @@ export declare class AeosCore {
     snapshotCreate(projectPath: string): GeneratedArtifact;
     checklistGenerate(projectPath: string): GeneratedArtifact;
     deliveryPackage(projectPath: string): GeneratedArtifact;
+    private callProvider;
     private callOllama;
+    private apiKey;
+    private providerModelsOpenAiCompatible;
+    private callOpenAiCompatible;
     private renderAgentPrompt;
     private ensureRuntime;
     private loadOrCreateScan;

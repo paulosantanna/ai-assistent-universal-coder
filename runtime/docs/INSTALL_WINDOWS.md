@@ -128,6 +128,26 @@ aeos agent run audit ollama qwen2.5-coder E:\GitHub\aidiabetic-research
 aeos agent latest E:\GitHub\aidiabetic-research
 ```
 
+## Optional DeepSeek and OpenAI-compatible providers
+
+Hosted providers should be configured through environment variables. AEOS stores
+the environment variable name, not the secret value.
+
+DeepSeek-compatible:
+
+```powershell
+$env:DEEPSEEK_API_KEY = "<token from your environment>"
+aeos provider configure deepseek deepseek-chat DEEPSEEK_API_KEY E:\GitHub\aidiabetic-research
+aeos agent run audit deepseek deepseek-chat E:\GitHub\aidiabetic-research
+```
+
+Local OpenAI-compatible server such as LM Studio or llama.cpp:
+
+```powershell
+aeos provider configure openai-compatible http://localhost:1234/v1 local-model "" E:\GitHub\aidiabetic-research
+aeos agent run audit openai-compatible local-model E:\GitHub\aidiabetic-research
+```
+
 ## Update an existing installation
 
 ```powershell
