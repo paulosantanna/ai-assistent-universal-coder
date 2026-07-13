@@ -1,5 +1,6 @@
 """Fast repo scanner with exclusion support and stats tracking."""
 
+import os
 import time
 from pathlib import Path
 from collections import defaultdict
@@ -59,6 +60,7 @@ class FastRepoScanner:
         max_file_mb: int = 10,
         metadata_only_large_files: bool = False,
         respect_gitignore: bool = False,
+        count_ignored_files: bool = True,
     ):
         self.root = Path(root).resolve()
         patterns = list(exclude or DEFAULT_EXCLUDE_PATTERNS)
@@ -67,51 +69,103 @@ class FastRepoScanner:
         self.exclude_patterns = normalize_patterns(patterns)
         self.max_file_bytes = max_file_mb * 1024 * 1024
         self.metadata_only_large_files = metadata_only_large_files
+        self.count_ignored_files = count_ignored_files
 
     def scan(self) -> ScanStats:
         stats = ScanStats()
         start = time.perf_counter()
         dir_tracker: dict[str, list[int]] = defaultdict(lambda: [0, 0])
 
-        for path in self.root.rglob("*"):
-            if path.is_dir():
-                continue
-            stats.total_files += 1
-            try:
-                file_size = path.stat().st_size
-            except OSError:
-                file_size = 0
-            stats.total_bytes += file_size
+        for dirpath, dirnames, filenames in os.walk(self.root):
+            current_dir = Path(dirpath)
+            kept_dirs = []
+            for dirname in dirnames:
+                child = current_dir / dirname
+                if is_excluded(child, self.root, self.exclude_patterns):
+                    self._track_ignored_dir(child, stats)
+                    if self.count_ignored_files:
+                        ignored_count, ignored_bytes = self._count_files_under(child)
+                        stats.total_files += ignored_count
+                        stats.total_bytes += ignored_bytes
+                        stats.ignored_files += ignored_count
+                    continue
+                kept_dirs.append(dirname)
+            dirnames[:] = kept_dirs
 
-            if is_excluded(path, self.root, self.exclude_patterns):
-                stats.ignored_files += 1
-                for parent in path.relative_to(self.root).parents:
-                    p = str(parent)
-                    if p == ".":
-                        break
-                    stats.ignored_dirs.add(p)
-                continue
+            for filename in filenames:
+                path = current_dir / filename
+                stats.total_files += 1
+                try:
+                    file_size = path.stat().st_size
+                except OSError:
+                    file_size = 0
+                stats.total_bytes += file_size
 
-            stats.scanned_files += 1
-            stats.scanned_bytes += file_size
+                if is_excluded(path, self.root, self.exclude_patterns):
+                    stats.ignored_files += 1
+                    self._track_ignored_file(path, stats)
+                    continue
 
-            if path.suffix == ".py":
-                stats.python_files += 1
-            if path.suffix in (".yaml", ".yml", ".json"):
-                stats.config_files += 1
+                stats.scanned_files += 1
+                stats.scanned_bytes += file_size
 
-            if file_size > self.max_file_bytes:
-                stats.metadata_only_files += 1
-                stats.metadata_only_bytes += file_size
+                if path.suffix == ".py":
+                    stats.python_files += 1
+                if path.suffix in (".yaml", ".yml", ".json"):
+                    stats.config_files += 1
 
-            rel_parent = str(path.relative_to(self.root).parent)
-            if rel_parent == ".":
-                rel_parent = "(root)"
-            dir_tracker[rel_parent][0] += 1
-            dir_tracker[rel_parent][1] += file_size
+                if file_size > self.max_file_bytes:
+                    stats.metadata_only_files += 1
+                    stats.metadata_only_bytes += file_size
+
+                rel_parent = str(path.relative_to(self.root).parent)
+                if rel_parent == ".":
+                    rel_parent = "(root)"
+                dir_tracker[rel_parent][0] += 1
+                dir_tracker[rel_parent][1] += file_size
 
         stats.heaviest_dirs = [
             (d, c, b) for d, (c, b) in dir_tracker.items()
         ]
         stats.elapsed_seconds = time.perf_counter() - start
         return stats
+
+    def _track_ignored_dir(self, path: Path, stats: ScanStats) -> None:
+        rel = path.relative_to(self.root)
+        for parent in (rel, *rel.parents):
+            p = str(parent)
+            if p == ".":
+                break
+            stats.ignored_dirs.add(p)
+
+    def _track_ignored_file(self, path: Path, stats: ScanStats) -> None:
+        for parent in path.relative_to(self.root).parents:
+            p = str(parent)
+            if p == ".":
+                break
+            stats.ignored_dirs.add(p)
+
+    def _count_files_under(self, path: Path) -> tuple[int, int]:
+        files = 0
+        total_bytes = 0
+        for dirpath, dirnames, filenames in os.walk(path):
+            current_dir = Path(dirpath)
+            kept_dirs = []
+            for dirname in dirnames:
+                child = current_dir / dirname
+                if is_excluded(child, self.root, self.exclude_patterns):
+                    if self.count_ignored_files:
+                        nested_files, nested_bytes = self._count_files_under(child)
+                        files += nested_files
+                        total_bytes += nested_bytes
+                    continue
+                kept_dirs.append(dirname)
+            dirnames[:] = kept_dirs
+            for filename in filenames:
+                file_path = current_dir / filename
+                files += 1
+                try:
+                    total_bytes += file_path.stat().st_size
+                except OSError:
+                    pass
+        return files, total_bytes

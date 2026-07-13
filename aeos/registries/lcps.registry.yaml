@@ -34,3 +34,36 @@ lcps:
     priority: 90
     scope: packaging
     applies_to: [zip, package, export, import]
+
+  - id: language-documentation-intelligence
+    path: aeos/lcps/language-documentation-intelligence.lcp.yaml
+    priority: 85
+    scope: stack
+    applies_to:
+    - java
+    - python
+    - node
+    - typescript
+    - angular
+    - javascript
+    - migration
+    - bug-solving
+  - id: zero-to-production
+    path: aeos/lcps/zero-to-production.lcp.yaml
+    priority: 90
+    scope: project-generation
+    applies_to:
+    - project-factory
+    - scaffold
+    - production
+    - deployment
+    - database
+  - id: token-economy
+    path: aeos/lcps/token-economy.lcp.yaml
+    priority: 95
+    scope: token-budget
+    applies_to:
+    - all
+    - subagents
+    - llm-calls
+    - prompt-optimization

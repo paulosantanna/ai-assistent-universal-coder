@@ -19,6 +19,30 @@ performance_budgets:
   judge_deterministic:
     p50_seconds: 5
     p95_seconds: 30
+  registry_load:
+    p50_seconds: 0.05
+    p95_seconds: 0.25
+    cache_required: true
+  skill_contract_load:
+    p50_seconds: 0.01
+    p95_seconds: 0.05
+    cache_required: true
+  evidence_batch_write:
+    p50_seconds: 0.1
+    p95_seconds: 0.5
+    batch_required_above_records: 2
+  scanner_pruned:
+    p50_seconds: 0.05
+    p95_seconds: 0.25
+    prune_required: true
+  runtime_config_load:
+    p50_seconds: 0.05
+    p95_seconds: 0.25
+    cache_required: true
+  benchmark_suite:
+    p50_seconds: 2
+    p95_seconds: 10
+    profile: quick
 
 skip_dirs:
   - .git
@@ -37,3 +61,18 @@ large_file_policy:
   default_max_mb: 5
   binary_scan: metadata_only
   hash_streaming: true
+
+hot_path_policy:
+  registry:
+    fingerprint_invalidation: true
+    shared_in_process_cache: true
+  scanner:
+    prune_ignored_directories: true
+    count_ignored_files_default: true
+    fast_mode_can_skip_ignored_counts: true
+  evidence:
+    batch_writes: true
+    flush_hash_chain_once_per_batch: true
+  runtime:
+    cache_yaml_by_mtime_and_size: true
+    index_registry_arrays_by_id: true

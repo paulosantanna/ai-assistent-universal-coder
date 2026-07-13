@@ -5,5 +5,12 @@ __pycache__/
 *.egg-info/
 .env
 dist/
+build/
+target/
+.gradle/
 .DS_Store
 .aeos/
+.tools/*
+!.tools/bin/
+!.tools/bin/mvn
+!.tools/bin/gradle

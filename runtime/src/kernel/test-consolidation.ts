@@ -64,8 +64,8 @@ try {
   console.log(`  capabilities.yaml: ${caps.capabilities.length} capabilities`);
 
   const perms = loader.loadPermissions();
-  results.push({ test: "ConfigLoader.loadPermissions", passed: true, detail: `default=${perms.default}` });
-  console.log(`  permissions.yaml: default=${perms.default}`);
+  results.push({ test: "ConfigLoader.loadPermissions", passed: true, detail: `default=${perms.permissions.default_policy}` });
+  console.log(`  permissions.yaml: default=${perms.permissions.default_policy}`);
 
   const policies = loader.loadPolicies();
   results.push({ test: "ConfigLoader.loadPolicies", passed: true, detail: "loaded" });

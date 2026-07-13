@@ -1,305 +1,1477 @@
 skills:
-  - id: repo-scanner
-    path: aeos/skills/core/repo-scanner.skill.md
-    version: 1.0.0
-    owner_agent: architect
-    risk_level: low
-    capabilities: [READ_REPOSITORY, READ_FILES, DETECT_STACK, GENERATE_REPORT]
-    mission: "Analyze repositories and produce factual ecosystem maps."
-    allowed_actions:
-      - Read authorized files through Tool Router
-      - Generate reports in .aeos/reports
-      - Generate evidence in .aeos/evidence
-      - Generate sandbox artifacts when permitted
-    forbidden_actions:
-      - Direct filesystem access
-      - Direct Git mutation
-      - Secret value exposure
-      - Destructive shell
-      - Unapproved writes outside .aeos
-      - Unsupported factual claims
-      - Silent failure
-    required_inputs:
-      - repository_path
-      - scan_depth
-    output_schema:
-      type: object
-      properties:
-        files_inspected: { type: array, items: { type: string } }
-        tool_calls: { type: array, items: { type: object } }
-        permission_decisions: { type: array, items: { type: object } }
-        generated_artifacts: { type: array, items: { type: string } }
-        risk_classification: { type: object }
-    quality_gates:
-      - Facts cite evidence
-      - Assumptions are explicitly marked
-      - Risks are classified
-      - Outputs follow schema
-      - No secrets are printed
-      - Required artifacts are hashed
-    stop_conditions:
-      - Required path not found
-      - Permission denied
-      - Secret detected
-      - Unsupported repository format
-
-  - id: architecture-mapper
-    path: aeos/skills/core/architecture-mapper.skill.md
-    version: 1.0.0
-    owner_agent: architect
-    risk_level: medium
-    capabilities: [READ_REPOSITORY, READ_FILES, MAP_ARCHITECTURE, GENERATE_REPORT]
-    mission: "Map repository architecture, detect patterns, and report structural design."
-    allowed_actions:
-      - Read repository files
-      - Detect architecture patterns
-      - Generate architecture reports
-      - Map module dependencies
-    forbidden_actions:
-      - Modify repository files
-      - Execute arbitrary commands
-      - Expose credentials
-    required_inputs:
-      - repository_path
-    output_schema:
-      type: object
-      properties:
-        architecture: { type: object }
-        patterns: { type: array }
-        dependencies: { type: object }
-    quality_gates:
-      - Reports cite specific files
-      - Patterns are backed by evidence
-      - Dependencies are verified
-    stop_conditions:
-      - Repository not found
-      - Permission denied
-
-  - id: documentation
-    path: aeos/skills/core/documentation.skill.md
-    version: 1.0.0
-    owner_agent: documenter
-    risk_level: medium
-    capabilities: [READ_REPOSITORY, READ_FILES, WRITE_SANDBOX_FILES, GENERATE_REPORT]
-    mission: "Generate evidence-based documentation artifacts in sandbox."
-    allowed_actions:
-      - Read repository files
-      - Generate documentation
-      - Write sandbox files
-    forbidden_actions:
-      - Modify repository files directly
-      - Execute commands on host
-      - Expose sensitive information
-    required_inputs:
-      - source_path
-      - documentation_type
-    output_schema:
-      type: object
-      properties:
-        documentation: { type: string }
-        evidence_refs: { type: array }
-    quality_gates:
-      - Documentation cites sources
-      - Output is well-structured
-      - No sensitive data exposed
-    stop_conditions:
-      - Source path not found
-      - Permission denied
-
-  - id: security-audit
-    path: aeos/skills/core/security-audit.skill.md
-    version: 1.0.0
-    owner_agent: security
-    risk_level: high
-    capabilities: [READ_REPOSITORY, READ_FILES, SCAN_SECRETS, SCAN_DEPENDENCIES, GENERATE_REPORT]
-    mission: "Scan repositories for security risks, secrets, and dependency hazards."
-    allowed_actions:
-      - Scan for secrets
-      - Scan dependency vulnerabilities
-      - Review permission configurations
-      - Generate security reports
-    forbidden_actions:
-      - Modify repository files
-      - Expose detected secrets outside audit
-      - Execute untested changes
-    required_inputs:
-      - repository_path
-      - scan_depth
-    output_schema:
-      type: object
-      properties:
-        risks: { type: array }
-        secrets_found: { type: array }
-        vulnerabilities: { type: array }
-        recommendations: { type: array }
-    quality_gates:
-      - All findings are evidence-backed
-      - Risk levels are classified
-      - False positives are minimized
-    stop_conditions:
-      - Repository not accessible
-      - Scan interrupted
-
-  - id: test-generation
-    path: aeos/skills/core/test-generation.skill.md
-    version: 1.0.0
-    owner_agent: tester
-    risk_level: medium
-    capabilities: [READ_REPOSITORY, READ_FILES, WRITE_SANDBOX_FILES, GENERATE_REPORT]
-    mission: "Analyze code coverage gaps and generate tests in sandbox."
-    allowed_actions:
-      - Read code files
-      - Analyze test coverage
-      - Generate test cases
-      - Write sandbox files
-    forbidden_actions:
-      - Modify production code
-      - Run tests on production
-      - Expose credentials
-    required_inputs:
-      - source_path
-      - test_framework
-    output_schema:
-      type: object
-      properties:
-        tests: { type: array }
-        coverage_analysis: { type: object }
-        evidence_refs: { type: array }
-    quality_gates:
-      - Tests follow project conventions
-      - Coverage gaps are identified
-      - Generated tests are valid
-    stop_conditions:
-      - Source path not found
-      - Permission denied
-
-  - id: code-analyzer
-    path: aeos/skills/core/code-analyzer.skill.md
-    version: 1.0.0
-    owner_agent: coder
-    risk_level: medium
-    capabilities: [READ_REPOSITORY, READ_FILES, GENERATE_REPORT]
-    mission: "Analyze source code for quality, patterns, and improvement opportunities."
-    allowed_actions:
-      - Read source files
-      - Analyze code quality
-      - Detect code smells
-      - Generate analysis reports
-    forbidden_actions:
-      - Modify source files
-      - Execute arbitrary code
-      - Expose credentials
-    required_inputs:
-      - source_path
-      - analysis_type
-    output_schema:
-      type: object
-      properties:
-        analysis: { type: object }
-        findings: { type: array }
-        recommendations: { type: array }
-    quality_gates:
-      - Findings cite specific lines
-      - Analysis is deterministic
-      - No code is mutated
-    stop_conditions:
-      - Source path not found
-      - Permission denied
-
-  - id: patch-planner
-    path: aeos/skills/core/patch-planner.skill.md
-    version: 1.0.0
-    owner_agent: coder
-    risk_level: high
-    capabilities: [READ_REPOSITORY, READ_FILES, GENERATE_PATCH, GENERATE_ROLLBACK]
-    mission: "Plan and propose controlled code patches with rollback support."
-    allowed_actions:
-      - Read source files
-      - Analyze change requirements
-      - Generate patch diffs
-      - Generate rollback plans
-    forbidden_actions:
-      - Apply patches directly
-      - Bypass permission engine
-      - Expose credentials
-    required_inputs:
-      - source_path
-      - change_spec
-    output_schema:
-      type: object
-      properties:
-        patch: { type: object }
-        rollback: { type: object }
-        risk_assessment: { type: object }
-    quality_gates:
-      - Patches are minimal and focused
-      - Rollback plan is complete
-      - Risks are assessed
-    stop_conditions:
-      - Change spec incomplete
-      - Source not found
-
-  - id: dependency-analyzer
-    path: aeos/skills/core/dependency-analyzer.skill.md
-    version: 1.0.0
-    owner_agent: architect
-    risk_level: medium
-    capabilities: [READ_REPOSITORY, READ_FILES, SCAN_DEPENDENCIES, GENERATE_REPORT]
-    mission: "Analyze project dependencies for conflicts, vulnerabilities, and health."
-    allowed_actions:
-      - Read dependency files
-      - Scan for vulnerabilities
-      - Detect version conflicts
-      - Generate dependency reports
-    forbidden_actions:
-      - Modify dependency files
-      - Install packages
-      - Expose credentials
-    required_inputs:
-      - repository_path
-      - manifest_path
-    output_schema:
-      type: object
-      properties:
-        dependencies: { type: array }
-        vulnerabilities: { type: array }
-        conflicts: { type: array }
-        recommendations: { type: array }
-    quality_gates:
-      - Findings cite specific packages
-      - Vulnerabilities are categorized
-      - Conflicts are reproducible
-    stop_conditions:
-      - Manifest not found
-      - Permission denied
-
-  - id: packaging
-    path: aeos/skills/core/packaging.skill.md
-    version: 1.0.0
-    owner_agent: judge
-    risk_level: medium
-    capabilities: [PACKAGE_CREATE, PACKAGE_VERIFY, PACKAGE_INSPECT]
-    mission: "Create, verify, and inspect review packages for evidence integrity."
-    allowed_actions:
-      - Create review packages
-      - Verify package integrity
-      - Inspect package contents
-    forbidden_actions:
-      - Modify source repository
-      - Expose package contents outside scope
-    required_inputs:
-      - execution_id
-      - artifacts_path
-    output_schema:
-      type: object
-      properties:
-        package: { type: object }
-        integrity_hash: { type: string }
-        contents: { type: array }
-    quality_gates:
-      - Package is complete
-      - Integrity hash matches
-      - Contents are verified
-    stop_conditions:
-      - Artifacts missing
-      - Integrity check failed
+- id: repo-scanner
+  path: aeos/skills/core/repo-scanner.skill.md
+  version: 1.0.0
+  owner_agent: architect
+  risk_level: low
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - DETECT_STACK
+  - GENERATE_REPORT
+  mission: Analyze repositories and produce factual ecosystem maps.
+  allowed_actions:
+  - Read authorized files through Tool Router
+  - Generate reports in .aeos/reports
+  - Generate evidence in .aeos/evidence
+  - Generate sandbox artifacts when permitted
+  forbidden_actions:
+  - Direct filesystem access
+  - Direct Git mutation
+  - Secret value exposure
+  - Destructive shell
+  - Unapproved writes outside .aeos
+  - Unsupported factual claims
+  - Silent failure
+  required_inputs:
+  - repository_path
+  - scan_depth
+  output_schema:
+    type: object
+    properties:
+      files_inspected:
+        type: array
+        items:
+          type: string
+      tool_calls:
+        type: array
+        items:
+          type: object
+      permission_decisions:
+        type: array
+        items:
+          type: object
+      generated_artifacts:
+        type: array
+        items:
+          type: string
+      risk_classification:
+        type: object
+  quality_gates:
+  - Facts cite evidence
+  - Assumptions are explicitly marked
+  - Risks are classified
+  - Outputs follow schema
+  - No secrets are printed
+  - Required artifacts are hashed
+  stop_conditions:
+  - Required path not found
+  - Permission denied
+  - Secret detected
+  - Unsupported repository format
+- id: architecture-mapper
+  path: aeos/skills/core/architecture-mapper.skill.md
+  version: 1.0.0
+  owner_agent: architect
+  risk_level: medium
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - MAP_ARCHITECTURE
+  - GENERATE_REPORT
+  mission: Map repository architecture, detect patterns, and report structural design.
+  allowed_actions:
+  - Read repository files
+  - Detect architecture patterns
+  - Generate architecture reports
+  - Map module dependencies
+  forbidden_actions:
+  - Modify repository files
+  - Execute arbitrary commands
+  - Expose credentials
+  required_inputs:
+  - repository_path
+  output_schema:
+    type: object
+    properties:
+      architecture:
+        type: object
+      patterns:
+        type: array
+      dependencies:
+        type: object
+  quality_gates:
+  - Reports cite specific files
+  - Patterns are backed by evidence
+  - Dependencies are verified
+  stop_conditions:
+  - Repository not found
+  - Permission denied
+- id: documentation
+  path: aeos/skills/core/documentation.skill.md
+  version: 1.0.0
+  owner_agent: documenter
+  risk_level: medium
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - WRITE_SANDBOX_FILES
+  - GENERATE_REPORT
+  - DOC_GENERATION
+  - MERMAID_DIAGRAMS
+  mission: Generate evidence-based documentation artifacts in sandbox.
+  allowed_actions:
+  - Read repository files
+  - Generate documentation
+  - Write sandbox files
+  - Request complete-docs MCP through Tool Router
+  forbidden_actions:
+  - Modify repository files directly
+  - Execute commands on host
+  - Expose sensitive information
+  required_inputs:
+  - source_path
+  - documentation_type
+  - target_audience
+  - diagram_scope
+  - maturity_target
+  output_schema:
+    type: object
+    properties:
+      documentation:
+        type: string
+      mermaid_diagrams:
+        type: array
+      architecture_package:
+        type: object
+      adr_candidates:
+        type: array
+      cloud_readiness:
+        type: array
+      evidence_refs:
+        type: array
+      blocking_conditions:
+        type: array
+  quality_gates:
+  - Documentation cites sources
+  - Output is well-structured
+  - No sensitive data exposed
+  - Complete documentation includes validated Mermaid diagrams
+  - Every diagram has evidence refs or explicit assumptions
+  - Mermaid diagrams contain no secrets or sensitive values
+  - Architecture packages include README, ADR, skill/MCP/LSP map and cloud readiness
+    gates
+  stop_conditions:
+  - Source path not found
+  - Permission denied
+  - complete-docs MCP unavailable
+  - Mermaid validation returns blocking issue
+- id: chromatic-mega-brain
+  path: skills/chromatic-mega-brain/SKILL.md
+  version: 1.0.0
+  owner_agent: architect
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - KNOWLEDGE_RETRIEVAL
+  - STRATEGIC_REASONING
+  - DECISION_ORCHESTRATION
+  - GENERATE_REPORT
+  mission: Orchestrate bounded multi-perspective analysis for high-impact architecture,
+    migration, security, cloud readiness and AEOS evolution decisions.
+  allowed_actions:
+  - Select minimal useful cognitive colors
+  - Generate chromatic handoffs
+  - Generate decision matrix
+  - Identify contradictions and blockers
+  - Recommend Judge review for high-impact decisions
+  - Read validated knowledge and memory through governed context
+  forbidden_actions:
+  - Activate all colors by default
+  - Replace specialized skills for deterministic tasks
+  - Promote raw analysis into permanent knowledge
+  - Make unsupported architecture or security claims
+  - Bypass Judge for high-impact decisions
+  required_inputs:
+  - objective
+  - decision_type
+  output_schema:
+    type: object
+    properties:
+      chromatic_run:
+        type: object
+      selected_colors:
+        type: array
+      handoffs:
+        type: array
+      decision_matrix:
+        type: array
+      evidence_refs:
+        type: array
+      blocking_conditions:
+        type: array
+  quality_gates:
+  - Uses the smallest useful color set
+  - Separates evidence, assumptions, risks and recommendations
+  - Exposes contradictions before synthesis
+  - Requires Judge review for high-impact decisions
+  - Does not promote lessons without validation evidence
+  stop_conditions:
+  - Objective missing
+  - Evidence missing for high-impact architecture, migration or cloud readiness decisions
+  - Specialized deterministic skill is sufficient
+  - Policy or permission conflict
+- id: security-audit
+  path: aeos/skills/core/security-audit.skill.md
+  version: 1.0.0
+  owner_agent: security
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - SCAN_SECRETS
+  - SCAN_DEPENDENCIES
+  - GENERATE_REPORT
+  mission: Scan repositories for security risks, secrets, and dependency hazards.
+  allowed_actions:
+  - Scan for secrets
+  - Scan dependency vulnerabilities
+  - Review permission configurations
+  - Generate security reports
+  forbidden_actions:
+  - Modify repository files
+  - Expose detected secrets outside audit
+  - Execute untested changes
+  required_inputs:
+  - repository_path
+  - scan_depth
+  output_schema:
+    type: object
+    properties:
+      risks:
+        type: array
+      secrets_found:
+        type: array
+      vulnerabilities:
+        type: array
+      recommendations:
+        type: array
+  quality_gates:
+  - All findings are evidence-backed
+  - Risk levels are classified
+  - False positives are minimized
+  stop_conditions:
+  - Repository not accessible
+  - Scan interrupted
+- id: test-generation
+  path: aeos/skills/core/test-generation.skill.md
+  version: 1.0.0
+  owner_agent: tester
+  risk_level: medium
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - WRITE_SANDBOX_FILES
+  - GENERATE_REPORT
+  mission: Analyze code coverage gaps and generate tests in sandbox.
+  allowed_actions:
+  - Read code files
+  - Analyze test coverage
+  - Generate test cases
+  - Write sandbox files
+  forbidden_actions:
+  - Modify production code
+  - Run tests on production
+  - Expose credentials
+  required_inputs:
+  - source_path
+  - test_framework
+  output_schema:
+    type: object
+    properties:
+      tests:
+        type: array
+      coverage_analysis:
+        type: object
+      evidence_refs:
+        type: array
+  quality_gates:
+  - Tests follow project conventions
+  - Coverage gaps are identified
+  - Generated tests are valid
+  stop_conditions:
+  - Source path not found
+  - Permission denied
+- id: code-analyzer
+  path: aeos/skills/core/code-analyzer.skill.md
+  version: 1.0.0
+  owner_agent: coder
+  risk_level: medium
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: Analyze source code for quality, patterns, and improvement opportunities.
+  allowed_actions:
+  - Read source files
+  - Analyze code quality
+  - Detect code smells
+  - Generate analysis reports
+  forbidden_actions:
+  - Modify source files
+  - Execute arbitrary code
+  - Expose credentials
+  required_inputs:
+  - source_path
+  - analysis_type
+  output_schema:
+    type: object
+    properties:
+      analysis:
+        type: object
+      findings:
+        type: array
+      recommendations:
+        type: array
+  quality_gates:
+  - Findings cite specific lines
+  - Analysis is deterministic
+  - No code is mutated
+  stop_conditions:
+  - Source path not found
+  - Permission denied
+- id: patch-planner
+  path: aeos/skills/core/patch-planner.skill.md
+  version: 1.0.0
+  owner_agent: coder
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_PATCH
+  - GENERATE_ROLLBACK
+  mission: Plan and propose controlled code patches with rollback support.
+  allowed_actions:
+  - Read source files
+  - Analyze change requirements
+  - Generate patch diffs
+  - Generate rollback plans
+  forbidden_actions:
+  - Apply patches directly
+  - Bypass permission engine
+  - Expose credentials
+  required_inputs:
+  - source_path
+  - change_spec
+  output_schema:
+    type: object
+    properties:
+      patch:
+        type: object
+      rollback:
+        type: object
+      risk_assessment:
+        type: object
+  quality_gates:
+  - Patches are minimal and focused
+  - Rollback plan is complete
+  - Risks are assessed
+  stop_conditions:
+  - Change spec incomplete
+  - Source not found
+- id: dependency-analyzer
+  path: aeos/skills/core/dependency-analyzer.skill.md
+  version: 1.0.0
+  owner_agent: architect
+  risk_level: medium
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - SCAN_DEPENDENCIES
+  - GENERATE_REPORT
+  mission: Analyze project dependencies for conflicts, vulnerabilities, and health.
+  allowed_actions:
+  - Read dependency files
+  - Scan for vulnerabilities
+  - Detect version conflicts
+  - Generate dependency reports
+  forbidden_actions:
+  - Modify dependency files
+  - Install packages
+  - Expose credentials
+  required_inputs:
+  - repository_path
+  - manifest_path
+  output_schema:
+    type: object
+    properties:
+      dependencies:
+        type: array
+      vulnerabilities:
+        type: array
+      conflicts:
+        type: array
+      recommendations:
+        type: array
+  quality_gates:
+  - Findings cite specific packages
+  - Vulnerabilities are categorized
+  - Conflicts are reproducible
+  stop_conditions:
+  - Manifest not found
+  - Permission denied
+- id: packaging
+  path: aeos/skills/core/packaging.skill.md
+  version: 1.0.0
+  owner_agent: judge
+  risk_level: medium
+  capabilities:
+  - PACKAGE_CREATE
+  - PACKAGE_VERIFY
+  - PACKAGE_INSPECT
+  mission: Create, verify, and inspect review packages for evidence integrity.
+  allowed_actions:
+  - Create review packages
+  - Verify package integrity
+  - Inspect package contents
+  forbidden_actions:
+  - Modify source repository
+  - Expose package contents outside scope
+  required_inputs:
+  - execution_id
+  - artifacts_path
+  output_schema:
+    type: object
+    properties:
+      package:
+        type: object
+      integrity_hash:
+        type: string
+      contents:
+        type: array
+  quality_gates:
+  - Package is complete
+  - Integrity hash matches
+  - Contents are verified
+  stop_conditions:
+  - Artifacts missing
+  - Integrity check failed
+- id: agent-trace-validator
+  path: aeos/skills/core/agent-trace-validator.skill.md
+  version: 1.0.0
+  owner_agent: generated
+  risk_level: low
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: agent-trace-validator
+- id: anti-hallucination-evaluator
+  path: aeos/skills/core/anti-hallucination-evaluator.skill.md
+  version: 1.0.0
+  owner_agent: generated
+  risk_level: low
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: anti-hallucination-evaluator
+- id: approval-requester
+  path: aeos/skills/core/approval-requester.skill.md
+  version: 1.0.0
+  owner_agent: governance
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: Execute Approval Requester capability under AEOS governance.
+- id: blueprint-generator
+  path: aeos/skills/core/blueprint-generator.skill.md
+  version: 1.0.0
+  owner_agent: architect
+  risk_level: low
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: blueprint-generator
+- id: compatibility-analyzer
+  path: aeos/skills/core/compatibility-analyzer.skill.md
+  version: 1.0.0
+  owner_agent: architect
+  risk_level: low
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: Execute Compatibility Analyzer capability under AEOS governance.
+- id: compliance-audit-exporter
+  path: aeos/skills/core/compliance-audit-exporter.skill.md
+  version: 1.0.0
+  owner_agent: governance
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: compliance-audit-exporter
+- id: conflict-detector
+  path: aeos/skills/core/conflict-detector.skill.md
+  version: 1.0.0
+  owner_agent: orchestrator
+  risk_level: low
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: conflict-detector
+- id: context-router
+  path: aeos/skills/core/context-router.skill.md
+  version: 1.0.0
+  owner_agent: architect
+  risk_level: low
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: context-router
+- id: delegation-auditor
+  path: aeos/skills/core/delegation-auditor.skill.md
+  version: 1.0.0
+  owner_agent: orchestrator
+  risk_level: low
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: delegation-auditor
+- id: diff-reviewer
+  path: aeos/skills/core/diff-reviewer.skill.md
+  version: 1.0.0
+  owner_agent: coder
+  risk_level: low
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: Execute Diff Reviewer capability under AEOS governance.
+- id: enterprise-security-auditor
+  path: aeos/skills/core/enterprise-security-auditor.skill.md
+  version: 1.0.0
+  owner_agent: security
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: enterprise-security-auditor
+- id: evaluation-runner
+  path: aeos/skills/core/evaluation-runner.skill.md
+  version: 1.0.0
+  owner_agent: judge
+  risk_level: medium
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: evaluation-runner
+- id: evidence-cache-auditor
+  path: aeos/skills/core/evidence-cache-auditor.skill.md
+  version: 1.0.0
+  owner_agent: generated
+  risk_level: low
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: evidence-cache-auditor
+- id: fixture-corpus-validator
+  path: aeos/skills/core/fixture-corpus-validator.skill.md
+  version: 1.0.0
+  owner_agent: tester
+  risk_level: low
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: fixture-corpus-validator
+- id: java-migration
+  path: aeos/skills/core/java-migration.skill.md
+  version: 1.0.0
+  owner_agent: coder
+  risk_level: medium
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: Java Migration
+- id: judge-benchmark-runner
+  path: aeos/skills/core/judge-benchmark-runner.skill.md
+  version: 1.0.0
+  owner_agent: judge
+  risk_level: medium
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: judge-benchmark-runner
+- id: marketplace-curator
+  path: aeos/skills/core/marketplace-curator.skill.md
+  version: 1.0.0
+  owner_agent: packaging
+  risk_level: low
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: marketplace-curator
+- id: mcp-discovery
+  path: aeos/skills/core/mcp-discovery.skill.md
+  version: 1.0.0
+  owner_agent: integration
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: mcp-discovery
+- id: mcp-health-check
+  path: aeos/skills/core/mcp-health-check.skill.md
+  version: 1.0.0
+  owner_agent: integration
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: mcp-health-check
+- id: mcp-poisoning-evaluator
+  path: aeos/skills/core/mcp-poisoning-evaluator.skill.md
+  version: 1.0.0
+  owner_agent: integration
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: mcp-poisoning-evaluator
+- id: memory-governance-auditor
+  path: aeos/skills/core/memory-governance-auditor.skill.md
+  version: 1.0.0
+  owner_agent: architect
+  risk_level: low
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: memory-governance-auditor
+- id: observability-reporter
+  path: aeos/skills/core/observability-reporter.skill.md
+  version: 1.0.0
+  owner_agent: ops
+  risk_level: low
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: observability-reporter
+- id: pack-marketplace-auditor
+  path: aeos/skills/core/pack-marketplace-auditor.skill.md
+  version: 1.0.0
+  owner_agent: packaging
+  risk_level: medium
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: pack-marketplace-auditor
+- id: parallel-scheduler
+  path: aeos/skills/core/parallel-scheduler.skill.md
+  version: 1.0.0
+  owner_agent: orchestrator
+  risk_level: medium
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: parallel-scheduler
+- id: playbook-factory-generator
+  path: aeos/skills/core/playbook-factory-generator.skill.md
+  version: 1.0.0
+  owner_agent: generated
+  risk_level: low
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: playbook-factory-generator
+- id: policy-bypass-evaluator
+  path: aeos/skills/core/policy-bypass-evaluator.skill.md
+  version: 1.0.0
+  owner_agent: security
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: policy-bypass-evaluator
+- id: policy-hardening-auditor
+  path: aeos/skills/core/policy-hardening-auditor.skill.md
+  version: 1.0.0
+  owner_agent: security
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: policy-hardening-auditor
+- id: python-rag-audit
+  path: aeos/skills/core/python-rag-audit.skill.md
+  version: 1.0.0
+  owner_agent: coder
+  risk_level: medium
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: Python RAG Audit
+- id: redaction-evaluator
+  path: aeos/skills/core/redaction-evaluator.skill.md
+  version: 1.0.0
+  owner_agent: security
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: redaction-evaluator
+- id: risk-classifier
+  path: aeos/skills/core/risk-classifier.skill.md
+  version: 1.0.0
+  owner_agent: governance
+  risk_level: low
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: Execute Risk Classifier capability under AEOS governance.
+- id: rollback-planner
+  path: aeos/skills/core/rollback-planner.skill.md
+  version: 1.0.0
+  owner_agent: coder
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: Execute Rollback Planner capability under AEOS governance.
+- id: skill-factory-generator
+  path: aeos/skills/core/skill-factory-generator.skill.md
+  version: 1.0.0
+  owner_agent: generated
+  risk_level: low
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: skill-factory-generator
+- id: task-graph-builder
+  path: aeos/skills/core/task-graph-builder.skill.md
+  version: 1.0.0
+  owner_agent: orchestrator
+  risk_level: low
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: task-graph-builder
+- id: test-gap-analyzer
+  path: aeos/skills/core/test-gap-analyzer.skill.md
+  version: 1.0.0
+  owner_agent: tester
+  risk_level: medium
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: Execute Test Gap Analyzer capability under AEOS governance.
+- id: test-writer
+  path: aeos/skills/core/test-writer.skill.md
+  version: 1.0.0
+  owner_agent: tester
+  risk_level: medium
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: Execute Test Writer capability under AEOS governance.
+- id: threat-modeler
+  path: aeos/skills/core/threat-modeler.skill.md
+  version: 1.0.0
+  owner_agent: security
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: threat-modeler
+- id: tool-router-audit
+  path: aeos/skills/core/tool-router-audit.skill.md
+  version: 1.0.0
+  owner_agent: integration
+  risk_level: medium
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: tool-router-audit
+- id: unique-environment-auditor
+  path: aeos/skills/core/unique-environment-auditor.skill.md
+  version: 1.0.0
+  owner_agent: generated
+  risk_level: low
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: unique-environment-auditor
+- id: v1-readiness-auditor
+  path: aeos/skills/core/v1-readiness-auditor.skill.md
+  version: 1.0.0
+  owner_agent: judge
+  risk_level: low
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: v1-readiness-auditor
+- id: workbench-profile-resolver
+  path: aeos/skills/core/workbench-profile-resolver.skill.md
+  version: 1.0.0
+  owner_agent: architect
+  risk_level: low
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: workbench-profile-resolver
+- id: java-docs-bug-solver
+  path: aeos/skills/generated/java-docs-bug-solver.skill.md
+  version: 1.0.0
+  owner_agent: coder
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - KNOWLEDGE_RETRIEVAL
+  - GENERATE_REPORT
+  mission: Investigate Java bugs using repository evidence plus Java version-specific
+    documentation MCPs.
+  required_inputs:
+  - target_path
+  - objective
+  - detected_language_versions
+  - evidence_refs
+  quality_gates:
+  - Docs claims cite MCP evidence
+  - Repository claims cite inspected files
+  - No secrets are exposed
+  stop_conditions:
+  - Docs MCP unavailable
+  - Target version cannot be detected
+  - Evidence cannot be produced
+- id: python-docs-bug-solver
+  path: aeos/skills/generated/python-docs-bug-solver.skill.md
+  version: 1.0.0
+  owner_agent: coder
+  risk_level: medium
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - KNOWLEDGE_RETRIEVAL
+  - GENERATE_REPORT
+  mission: Investigate Python bugs using repository evidence plus the current Python
+    documentation MCP.
+  required_inputs:
+  - target_path
+  - objective
+  - detected_language_versions
+  - evidence_refs
+  quality_gates:
+  - Docs claims cite MCP evidence
+  - Repository claims cite inspected files
+  - No secrets are exposed
+  stop_conditions:
+  - Docs MCP unavailable
+  - Target version cannot be detected
+  - Evidence cannot be produced
+- id: node-bug-solver
+  path: aeos/skills/generated/node-bug-solver.skill.md
+  version: 1.0.0
+  owner_agent: coder
+  risk_level: medium
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - KNOWLEDGE_RETRIEVAL
+  - GENERATE_REPORT
+  mission: Investigate Node.js runtime, module, API and compatibility bugs using governed
+    Node.js documentation.
+  required_inputs:
+  - target_path
+  - objective
+  - detected_language_versions
+  - evidence_refs
+  quality_gates:
+  - Docs claims cite MCP evidence
+  - Repository claims cite inspected files
+  - No secrets are exposed
+  stop_conditions:
+  - Docs MCP unavailable
+  - Target version cannot be detected
+  - Evidence cannot be produced
+- id: typescript-bug-solver
+  path: aeos/skills/generated/typescript-bug-solver.skill.md
+  version: 1.0.0
+  owner_agent: coder
+  risk_level: medium
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - KNOWLEDGE_RETRIEVAL
+  - GENERATE_REPORT
+  mission: Investigate TypeScript compiler, type-system and emit bugs using governed
+    TypeScript documentation.
+  required_inputs:
+  - target_path
+  - objective
+  - detected_language_versions
+  - evidence_refs
+  quality_gates:
+  - Docs claims cite MCP evidence
+  - Repository claims cite inspected files
+  - No secrets are exposed
+  stop_conditions:
+  - Docs MCP unavailable
+  - Target version cannot be detected
+  - Evidence cannot be produced
+- id: angular-bug-solver
+  path: aeos/skills/generated/angular-bug-solver.skill.md
+  version: 1.0.0
+  owner_agent: coder
+  risk_level: medium
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - KNOWLEDGE_RETRIEVAL
+  - GENERATE_REPORT
+  mission: Investigate Angular application, CLI, template, signal, build and framework
+    bugs using governed Angular docs.
+  required_inputs:
+  - target_path
+  - objective
+  - detected_language_versions
+  - evidence_refs
+  quality_gates:
+  - Docs claims cite MCP evidence
+  - Repository claims cite inspected files
+  - No secrets are exposed
+  stop_conditions:
+  - Docs MCP unavailable
+  - Target version cannot be detected
+  - Evidence cannot be produced
+- id: javascript-bug-solver
+  path: aeos/skills/generated/javascript-bug-solver.skill.md
+  version: 1.0.0
+  owner_agent: coder
+  risk_level: medium
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - KNOWLEDGE_RETRIEVAL
+  - GENERATE_REPORT
+  mission: Investigate JavaScript language and runtime bugs using ECMAScript, MDN
+    and runtime documentation evidence.
+  required_inputs:
+  - target_path
+  - objective
+  - detected_language_versions
+  - evidence_refs
+  quality_gates:
+  - Docs claims cite MCP evidence
+  - Repository claims cite inspected files
+  - No secrets are exposed
+  stop_conditions:
+  - Docs MCP unavailable
+  - Target version cannot be detected
+  - Evidence cannot be produced
+- id: java-version-migration
+  path: aeos/skills/generated/java-version-migration.skill.md
+  version: 1.0.0
+  owner_agent: coder
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - KNOWLEDGE_RETRIEVAL
+  - GENERATE_REPORT
+  mission: Plan Java migrations across 11, 17, 21, 25 and 26 using source and target
+    documentation evidence.
+  required_inputs:
+  - target_path
+  - objective
+  - detected_language_versions
+  - evidence_refs
+  quality_gates:
+  - Docs claims cite MCP evidence
+  - Repository claims cite inspected files
+  - No secrets are exposed
+  stop_conditions:
+  - Docs MCP unavailable
+  - Target version cannot be detected
+  - Evidence cannot be produced
+- id: python-version-migration
+  path: aeos/skills/generated/python-version-migration.skill.md
+  version: 1.0.0
+  owner_agent: coder
+  risk_level: medium
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - KNOWLEDGE_RETRIEVAL
+  - GENERATE_REPORT
+  mission: Plan Python runtime and packaging migrations using current Python documentation
+    evidence.
+  required_inputs:
+  - target_path
+  - objective
+  - detected_language_versions
+  - evidence_refs
+  quality_gates:
+  - Docs claims cite MCP evidence
+  - Repository claims cite inspected files
+  - No secrets are exposed
+  stop_conditions:
+  - Docs MCP unavailable
+  - Target version cannot be detected
+  - Evidence cannot be produced
+- id: node-version-migration
+  path: aeos/skills/generated/node-version-migration.skill.md
+  version: 1.0.0
+  owner_agent: coder
+  risk_level: medium
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - KNOWLEDGE_RETRIEVAL
+  - GENERATE_REPORT
+  mission: Plan Node.js runtime migrations using current release, API and module documentation
+    evidence.
+  required_inputs:
+  - target_path
+  - objective
+  - detected_language_versions
+  - evidence_refs
+  quality_gates:
+  - Docs claims cite MCP evidence
+  - Repository claims cite inspected files
+  - No secrets are exposed
+  stop_conditions:
+  - Docs MCP unavailable
+  - Target version cannot be detected
+  - Evidence cannot be produced
+- id: typescript-version-migration
+  path: aeos/skills/generated/typescript-version-migration.skill.md
+  version: 1.0.0
+  owner_agent: coder
+  risk_level: medium
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - KNOWLEDGE_RETRIEVAL
+  - GENERATE_REPORT
+  mission: Plan TypeScript compiler and configuration migrations using release notes
+    and handbook evidence.
+  required_inputs:
+  - target_path
+  - objective
+  - detected_language_versions
+  - evidence_refs
+  quality_gates:
+  - Docs claims cite MCP evidence
+  - Repository claims cite inspected files
+  - No secrets are exposed
+  stop_conditions:
+  - Docs MCP unavailable
+  - Target version cannot be detected
+  - Evidence cannot be produced
+- id: angular-version-migration
+  path: aeos/skills/generated/angular-version-migration.skill.md
+  version: 1.0.0
+  owner_agent: coder
+  risk_level: medium
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - KNOWLEDGE_RETRIEVAL
+  - GENERATE_REPORT
+  mission: Plan Angular framework and CLI migrations using current Angular docs, releases
+    and update guidance.
+  required_inputs:
+  - target_path
+  - objective
+  - detected_language_versions
+  - evidence_refs
+  quality_gates:
+  - Docs claims cite MCP evidence
+  - Repository claims cite inspected files
+  - No secrets are exposed
+  stop_conditions:
+  - Docs MCP unavailable
+  - Target version cannot be detected
+  - Evidence cannot be produced
+- id: javascript-compatibility-migration
+  path: aeos/skills/generated/javascript-compatibility-migration.skill.md
+  version: 1.0.0
+  owner_agent: coder
+  risk_level: medium
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - KNOWLEDGE_RETRIEVAL
+  - GENERATE_REPORT
+  mission: Plan JavaScript language compatibility migrations using ECMAScript, MDN
+    and runtime evidence.
+  required_inputs:
+  - target_path
+  - objective
+  - detected_language_versions
+  - evidence_refs
+  quality_gates:
+  - Docs claims cite MCP evidence
+  - Repository claims cite inspected files
+  - No secrets are exposed
+  stop_conditions:
+  - Docs MCP unavailable
+  - Target version cannot be detected
+  - Evidence cannot be produced
+- id: token-budget-governor
+  path: aeos/skills/core/token-budget-governor.skill.md
+  version: 1.0.0
+  owner_agent: judge
+  risk_level: medium
+  capabilities:
+  - TOKEN_BUDGET_CONTROL
+  - GENERATE_REPORT
+  mission: Enforce provider and subagent token budgets before LLM-heavy work.
+  allowed_actions:
+  - Estimate prompt tokens
+  - Split subagent budgets
+  - Recommend context reduction
+  - Block unbounded work
+  forbidden_actions:
+  - Broadcast full context to all subagents
+  - Expand scope without approval
+  - Ignore provider budget
+  required_inputs:
+  - provider
+  - prompt_scope
+  - requested_output_tokens
+  - task_priority
+  - subagent_count
+  output_schema:
+    type: object
+    properties:
+      status:
+        type: string
+      estimated_tokens:
+        type: integer
+      limit:
+        type: integer
+      provider:
+        type: string
+      subagent_budget:
+        type: integer
+      recommendations:
+        type: array
+      blocking_conditions:
+        type: array
+  quality_gates:
+  - Provider token limit is respected
+  - Subagent scopes are narrow
+  - File refs are preferred over pasted content
+  stop_conditions:
+  - Prompt exceeds budget
+  - Subagent scope is broad
+  - Output schema missing
+- id: universal-project-factory
+  path: aeos/skills/core/universal-project-factory.skill.md
+  version: 1.0.0
+  owner_agent: architect
+  risk_level: high
+  capabilities:
+  - PROJECT_GENERATION
+  - STACK_PLANNING
+  - DATABASE_DESIGN
+  - DEPLOYMENT_PLANNING
+  - TOKEN_BUDGET_CONTROL
+  - WRITE_SANDBOX_FILES
+  - GENERATE_REPORT
+  - TRACK_CHANGES
+  - GENERATE_ROLLBACK
+  mission: Generate sandbox-first zero-to-production project plans and scaffold manifests
+    for any architecture, language set and database set.
+  allowed_actions:
+  - Request universal-project MCP through Tool Router
+  - Request complete-docs MCP through Tool Router
+  - Generate sandbox scaffold manifests
+  - Generate change manifests and rollback plans for generated files
+  - Route architecture decisions through chromatic-mega-brain
+  forbidden_actions:
+  - Mutate active workspace without approval
+  - Invent stack decisions
+  - Skip production gates
+  required_inputs:
+  - project_name
+  - objective
+  - architecture
+  - languages
+  - databases
+  - deployment_target
+  - token_budget
+  output_schema:
+    type: object
+    properties:
+      project_plan:
+        type: object
+      stack_matrix:
+        type: object
+      scaffold_manifest:
+        type: object
+      scaffold_package:
+        type: object
+      production_checklist:
+        type: object
+      sandbox_dir:
+        type: string
+      generated_files:
+        type: array
+      change_count:
+        type: integer
+      change_manifest:
+        type: string
+      rollback_plan:
+        type: string
+      rollback_summary:
+        type: string
+      blocking_conditions:
+        type: array
+  quality_gates:
+  - Required project decisions are explicit
+  - Sandbox-first generation only
+  - Concrete scaffold files are written only to sandbox
+  - Every generated file has change trace and rollback metadata
+  - Tests, CI, security, observability and rollback are planned
+  - Token budget is evaluated
+  stop_conditions:
+  - Required input missing
+  - Token budget blocked
+  - Unsupported stack without confirmation
+- id: change-trace-auditor
+  path: aeos/skills/core/change-trace-auditor.skill.md
+  version: 1.0.0
+  owner_agent: judge
+  risk_level: high
+  capabilities:
+  - READ_FILES
+  - GENERATE_REPORT
+  - GENERATE_EVIDENCE
+  - TRACK_CHANGES
+  - GENERATE_ROLLBACK
+  mission: Audit change manifests and rollback plans before generated or modified
+    files are approved for application.
+  allowed_actions:
+  - Read governed change manifests and rollback plans
+  - Verify before and after hashes
+  - Verify rollback coverage for every changed file
+  - Generate traceability reports
+  forbidden_actions:
+  - Execute rollback
+  - Mutate repository files
+  - Approve its own generated change trace
+  - Ignore missing hashes or out-of-scope changes
+  required_inputs:
+  - execution_id
+  - change_manifest
+  - rollback_plan
+  - changed_files
+  - allowed_roots
+  output_schema:
+    type: object
+    properties:
+      status:
+        type: string
+      execution_id:
+        type: string
+      change_count:
+        type: integer
+      rollback_coverage:
+        type: object
+      missing_hashes:
+        type: array
+      out_of_scope_changes:
+        type: array
+      blocking_conditions:
+        type: array
+      evidence_refs:
+        type: array
+  quality_gates:
+  - Every changed file has before and after state metadata
+  - Every changed file has rollback operation
+  - Manifest and rollback plan include sha256 hashes
+  - Changes stay inside approved roots
+  stop_conditions:
+  - Change manifest missing
+  - Rollback plan missing
+  - Rollback coverage below 100 percent
+  - Change outside allowed root
+- id: database-architecture-planner
+  path: aeos/skills/core/database-architecture-planner.skill.md
+  version: 1.0.0
+  owner_agent: architect
+  risk_level: high
+  capabilities:
+  - DATABASE_DESIGN
+  - READ_FILES
+  - GENERATE_REPORT
+  mission: Plan database schema, migration, backup, restore and production boundaries
+    for any requested database.
+  allowed_actions:
+  - Generate database plans in sandbox
+  - Generate migration and rollback plans
+  - Request documentation evidence when database-specific claims are made
+  forbidden_actions:
+  - Run database mutations
+  - Expose credentials
+  - Skip backup or restore planning
+  required_inputs:
+  - database
+  - data_model_scope
+  - consistency_requirements
+  - migration_strategy
+  - deployment_target
+  - token_budget
+  output_schema:
+    type: object
+    properties:
+      database_plan:
+        type: object
+      migration_plan:
+        type: object
+      backup_restore_plan:
+        type: object
+      risks:
+        type: array
+      blocking_conditions:
+        type: array
+  quality_gates:
+  - Migration strategy is explicit
+  - Backup and restore are documented
+  - Secrets stay outside source
+  stop_conditions:
+  - Database choice missing
+  - Migration strategy missing
+  - Credentials requested or exposed
+- id: production-deployment-planner
+  path: aeos/skills/core/production-deployment-planner.skill.md
+  version: 1.0.0
+  owner_agent: devops
+  risk_level: high
+  capabilities:
+  - DEPLOYMENT_PLANNING
+  - WRITE_SANDBOX_FILES
+  - GENERATE_REPORT
+  - TOKEN_BUDGET_CONTROL
+  mission: Plan CI/CD, deployment, observability, rollback and production readiness
+    for any architecture.
+  allowed_actions:
+  - Generate deployment plans in sandbox
+  - Generate CI/CD and rollback checklists
+  - Route production readiness through Judge
+  forbidden_actions:
+  - Deploy automatically
+  - Expose secrets
+  - Skip rollback or observability
+  required_inputs:
+  - architecture
+  - languages
+  - databases
+  - deployment_target
+  - ci_provider
+  - token_budget
+  output_schema:
+    type: object
+    properties:
+      deployment_plan:
+        type: object
+      ci_cd_plan:
+        type: object
+      observability_plan:
+        type: object
+      rollback_plan:
+        type: object
+      blocking_conditions:
+        type: array
+  quality_gates:
+  - Build artifact is explicit
+  - CI/CD includes tests and security gates
+  - Rollback and observability are present
+  stop_conditions:
+  - Deployment target missing
+  - CI provider missing
+  - Secret handling undefined
+- id: performance-optimizer
+  path: aeos/skills/core/performance-optimizer.skill.md
+  version: 1.0.0
+  owner_agent: architect
+  risk_level: high
+  capabilities:
+  - READ_FILES
+  - GENERATE_REPORT
+  - GENERATE_EVIDENCE
+  - PERFORMANCE_OPTIMIZATION
+  - TOKEN_BUDGET_CONTROL
+  - TRACK_CHANGES
+  mission: Measure and improve AEOS hot paths across registry, skills, evidence,
+    scanner, LSP and runtime execution without bypassing governance.
+  allowed_actions:
+  - Read performance budgets and test output
+  - Generate optimization plans
+  - Recommend cache, batching, pruning and indexing improvements
+  - Generate sandbox reports and evidence
+  forbidden_actions:
+  - Bypass governance or evidence checks
+  - Hide failing performance gates
+  - Claim performance wins without validation
+  required_inputs:
+  - target_scope
+  - performance_budgets
+  - evidence_refs
+  - changed_files
+  output_schema:
+    type: object
+    properties:
+      status:
+        type: string
+      signals:
+        type: array
+      summary:
+        type: object
+      recommendations:
+        type: array
+      blocking_conditions:
+        type: array
+      evidence_refs:
+        type: array
+  quality_gates:
+  - Performance claims cite tests or benchmark evidence
+  - Cache invalidation is explicit
+  - Optimizations preserve security, rollback and Judge gates
+  - Full verification passes before PASS
+  stop_conditions:
+  - Missing performance budget
+  - Cache invalidation undefined
+  - Verification failed
+  - Rollback trace missing

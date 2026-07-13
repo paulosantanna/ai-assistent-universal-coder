@@ -28,6 +28,7 @@ import { OverlayRegistryMerger } from "./overlay-registry-merger.js";
 export class RegistryLoader {
   private loader: ConfigLoader;
   private merger: OverlayRegistryMerger;
+  private readonly indexes = new WeakMap<readonly { id: string }[], Map<string, { id: string }>>();
 
   constructor(aeosRoot: string) {
     this.loader = new ConfigLoader(aeosRoot);
@@ -101,22 +102,48 @@ export class RegistryLoader {
   }
 
   resolvePlaybook(playbooks: PlaybookRegistryEntry[], id: string): PlaybookRegistryEntry | null {
-    return playbooks.find((pb) => pb.id === id) ?? null;
+    return (this.indexById(playbooks).get(id) as PlaybookRegistryEntry | undefined) ?? null;
   }
 
   resolveSkills(skills: SkillRegistryEntry[], ids: string[]): SkillRegistryEntry[] {
-    return skills.filter((sk) => ids.includes(sk.id));
+    return this.resolveMany(skills, ids) as SkillRegistryEntry[];
   }
 
   resolveMCPs(mcps: MCPRegistryEntry[], ids: string[]): MCPRegistryEntry[] {
-    return mcps.filter((mcp) => ids.includes(mcp.id));
+    return this.resolveMany(mcps, ids) as MCPRegistryEntry[];
   }
 
   resolveLCPs(lcps: LCPRegistryEntry[], ids: string[]): LCPRegistryEntry[] {
-    return lcps.filter((lcp) => ids.includes(lcp.id));
+    return this.resolveMany(lcps, ids) as LCPRegistryEntry[];
   }
 
   resolveAgent(agents: AgentRegistryEntry[], id: string): AgentRegistryEntry | null {
-    return agents.find((a) => a.id === id) ?? null;
+    return (this.indexById(agents).get(id) as AgentRegistryEntry | undefined) ?? null;
+  }
+
+  private resolveMany<T extends { id: string }>(entries: T[], ids: string[]): T[] {
+    const index = this.indexById(entries);
+    const resolved: T[] = [];
+    const seen = new Set<string>();
+    for (const id of ids) {
+      if (seen.has(id)) continue;
+      seen.add(id);
+      const entry = index.get(id) as T | undefined;
+      if (entry) resolved.push(entry);
+    }
+    return resolved;
+  }
+
+  private indexById<T extends { id: string }>(entries: T[]): Map<string, T> {
+    const cached = this.indexes.get(entries);
+    if (cached) {
+      return cached as Map<string, T>;
+    }
+    const index = new Map<string, T>();
+    for (const entry of entries) {
+      index.set(entry.id, entry);
+    }
+    this.indexes.set(entries, index as Map<string, { id: string }>);
+    return index;
   }
 }

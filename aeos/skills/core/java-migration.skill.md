@@ -46,6 +46,28 @@ Analyze Java projects and perform version migrations, API replacements, and buil
 - changed files diff
 - rollback plan
 
+## Prompt Contract
+
+- State the objective, target scope, assumptions and constraints before execution.
+- Use only evidence-backed facts; mark uncertainty explicitly.
+- Route tool access through approved command, MCP or Tool Router paths.
+- Redact secrets, credentials, tokens and sensitive values.
+- Return facts, assumptions, risks, recommendations, evidence_refs and blocking_conditions when applicable.
+- Stop when required evidence, permissions, policy approval or input context is missing.
+
+
+## Documentation Intelligence
+
+Before recommending a Java version migration, select the source and target documentation MCPs from:
+
+- `docs-java-11`
+- `docs-java-17`
+- `docs-java-21`
+- `docs-java-25`
+- `docs-java-26`
+
+Use `language_docs.migration_delta` and `language_docs.lookup_symbol` for API, deprecation, removal and release-note claims. Mark unsupported or undocumented migration advice as `REVIEW` or `BLOCKED`.
+
 ## Quality Gates
 
 - Must pass full test suite.

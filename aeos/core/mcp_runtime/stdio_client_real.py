@@ -2,7 +2,6 @@
 
 import subprocess
 import json
-import shlex
 from pathlib import Path
 from .contracts import MCPInvokeResult
 from .commands import get_command

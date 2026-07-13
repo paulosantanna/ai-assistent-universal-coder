@@ -1,53 +1,129 @@
 allowlist:
   filesystem-readonly:
-    - filesystem.list
-    - filesystem.read
-    - filesystem.exists
-    - filesystem.stat
-
+  - filesystem.list
+  - filesystem.read
+  - filesystem.exists
+  - filesystem.stat
   filesystem-write-sandbox:
-    - filesystem.write_sandbox
-    - filesystem.mkdir_sandbox
-
+  - filesystem.write_sandbox
+  - filesystem.mkdir_sandbox
   git-readonly:
-    - git.status
-    - git.diff
-    - git.log
-    - git.branch_current
-
+  - git.status
+  - git.diff
+  - git.log
+  - git.branch_current
   test-runner-controlled:
-    - test.detect
-    - test.run_allowlisted
-
+  - test.detect
+  - test.run_allowlisted
   package-local:
-    - package.create
-    - package.verify
-    - package.inspect
-    - package.extract_staging
-
+  - package.create
+  - package.verify
+  - package.inspect
+  - package.extract_staging
   continuous-training:
-    - web_search
-    - arxiv_search
-    - paperswithcode_search
-    - github_search
-    - reddit_search
-    - web_fetch
-    - curated_sources
-    - training_sites
-    - best_practices
-    - source_policy
-    - source_registry_list
-    - full_search
-
+  - web_search
+  - arxiv_search
+  - paperswithcode_search
+  - github_search
+  - reddit_search
+  - web_fetch
+  - curated_sources
+  - training_sites
+  - best_practices
+  - source_policy
+  - source_registry_list
+  - full_search
+  docs-java-11:
+  - language_docs.search
+  - language_docs.fetch
+  - language_docs.lookup_symbol
+  - language_docs.version_status
+  - language_docs.migration_delta
+  - language_docs.source_policy
+  docs-java-17:
+  - language_docs.search
+  - language_docs.fetch
+  - language_docs.lookup_symbol
+  - language_docs.version_status
+  - language_docs.migration_delta
+  - language_docs.source_policy
+  docs-java-21:
+  - language_docs.search
+  - language_docs.fetch
+  - language_docs.lookup_symbol
+  - language_docs.version_status
+  - language_docs.migration_delta
+  - language_docs.source_policy
+  docs-java-25:
+  - language_docs.search
+  - language_docs.fetch
+  - language_docs.lookup_symbol
+  - language_docs.version_status
+  - language_docs.migration_delta
+  - language_docs.source_policy
+  docs-java-26:
+  - language_docs.search
+  - language_docs.fetch
+  - language_docs.lookup_symbol
+  - language_docs.version_status
+  - language_docs.migration_delta
+  - language_docs.source_policy
+  docs-python-current:
+  - language_docs.search
+  - language_docs.fetch
+  - language_docs.lookup_symbol
+  - language_docs.version_status
+  - language_docs.migration_delta
+  - language_docs.source_policy
+  docs-node-current:
+  - language_docs.search
+  - language_docs.fetch
+  - language_docs.lookup_symbol
+  - language_docs.version_status
+  - language_docs.migration_delta
+  - language_docs.source_policy
+  docs-typescript-current:
+  - language_docs.search
+  - language_docs.fetch
+  - language_docs.lookup_symbol
+  - language_docs.version_status
+  - language_docs.migration_delta
+  - language_docs.source_policy
+  docs-angular-current:
+  - language_docs.search
+  - language_docs.fetch
+  - language_docs.lookup_symbol
+  - language_docs.version_status
+  - language_docs.migration_delta
+  - language_docs.source_policy
+  docs-javascript-current:
+  - language_docs.search
+  - language_docs.fetch
+  - language_docs.lookup_symbol
+  - language_docs.version_status
+  - language_docs.migration_delta
+  - language_docs.source_policy
+  complete-docs:
+  - docs.plan
+  - docs.mermaid_template
+  - docs.validate_mermaid
+  - docs.package
+  - docs.architecture_package
+  universal-project:
+  - project.plan
+  - project.stack_matrix
+  - project.production_checklist
+  - project.scaffold_manifest
+  - project.scaffold_package
 blocked_tools:
-  - shell.exec
-  - shell.unrestricted
-  - secrets.read_value
-  - secrets.dump
-  - browser.export_cookies
-  - browser.use_profile
-  - git.force_push
-  - git.merge
-  - git.push
-  - deploy.run
-  - database.write
+- shell.exec
+- shell.unrestricted
+- secrets.read_value
+- secrets.dump
+- browser.export_cookies
+- browser.use_profile
+- git.force_push
+- git.merge
+- git.push
+- deploy.run
+- database.write

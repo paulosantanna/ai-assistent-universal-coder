@@ -1,0 +1,36 @@
+id: token-economy
+name: Token Economy Context Pack
+version: 1.0.0
+priority: 95
+
+rules:
+  - evaluate_token_budget_before_llm_call
+  - prefer_file_refs_over_pasted_content
+  - summarize_context_before_delegation
+  - give_subagents_only_their_minimal_task_contract
+  - forbid_context_broadcast_to_all_subagents
+  - stop_when_user_request_is_satisfied
+  - do_not_expand_scope_without_user_approval
+  - cache_or_reuse_evidence_when_valid
+
+provider_rules:
+  gpt: balanced_prompt_with_evidence_refs
+  codex: targeted_file_reads_patch_and_tests
+  claude: long_context_only_when_it_materially_reduces_risk
+  deepseek: compact_tasks_with_strict_output_schema
+  deepseek-free: smallest_possible_task_slice
+
+subagent_contract:
+  required:
+    - objective
+    - narrow_scope
+    - forbidden_scope
+    - evidence_refs
+    - max_tokens
+    - output_schema
+    - stop_conditions
+  forbidden:
+    - re-reading_entire_repository_without_need
+    - solving_unassigned_tasks
+    - verbose_status_reports
+    - duplicating_parent_reasoning

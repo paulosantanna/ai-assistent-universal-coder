@@ -140,7 +140,7 @@ export class RepoScannerSkill {
           this.detectSpecialFile(entry, relPath, result);
 
           if (result.totalFiles <= 1000) {
-            this.detectSecretPattern(entry, relPath, result);
+            this.detectSecretPattern(root, entry, relPath, result);
           }
         }
       } catch {
@@ -215,7 +215,7 @@ export class RepoScannerSkill {
     }
   }
 
-  private detectSecretPattern(entry: string, relPath: string, result: ScanResult): void {
+  private detectSecretPattern(root: string, entry: string, relPath: string, result: ScanResult): void {
     const secretPatterns = [
       { pattern: "API key pattern", regex: /\b[Aa][Pp][Ii]_?[Kk][Ee][Yy]\b/ },
       { pattern: "Secret pattern", regex: /\b[Ss][Ee][Cc][Rr][Ee][Tt]\b/ },
@@ -234,7 +234,7 @@ export class RepoScannerSkill {
 
     if (relPath.endsWith(".md") || relPath.endsWith(".yaml") || relPath.endsWith(".yml") || relPath.endsWith(".json") || relPath.endsWith(".ts") || relPath.endsWith(".js") || relPath.endsWith(".py")) {
       try {
-        const content = readFileSync(join(resolve("."), relPath), "utf-8").slice(0, 5000);
+        const content = readFileSync(join(root, relPath), "utf-8").slice(0, 5000);
         for (const sp of secretPatterns) {
           if (sp.regex.test(content)) {
             result.secretIndicators.push({ pattern: sp.pattern, file: relPath, severity: "medium" });

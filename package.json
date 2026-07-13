@@ -1,5 +1,32 @@
 {
+  "scripts": {
+    "aeos:verify": "/tmp/aeos-venv/bin/python aeos/scripts/verify.py --suite quick --python /tmp/aeos-venv/bin/python",
+    "aeos:verify:full": "/tmp/aeos-venv/bin/python aeos/scripts/verify.py --suite full --python /tmp/aeos-venv/bin/python",
+    "test:python": "/tmp/aeos-venv/bin/python -m pytest -q",
+    "test:python:cov": "/tmp/aeos-venv/bin/python -m pytest --cov=aeos --cov-report=term-missing",
+    "test:python:bdd": "/tmp/aeos-venv/bin/behave -q",
+    "test:robot": "/tmp/aeos-venv/bin/robot --outputdir /tmp/aeos-robot-results tests/robot",
+    "test:node:jest": "jest --config jest.config.cjs",
+    "test:node:vitest": "vitest run --config vitest.config.ts",
+    "test:node:mocha": "mocha \"tests/node/**/*.test.cjs\"",
+    "test:node:cucumber": "cucumber-js --config cucumber.js",
+    "test:java:maven": ".tools/bin/mvn -f templates/test-toolchains/java-junit5/pom.xml test",
+    "test:java:gradle": ".tools/bin/gradle --no-daemon -p templates/test-toolchains/java-gradle-junit5 test",
+    "test:java": "npm run test:java:maven && npm run test:java:gradle",
+    "test:matrix": "/tmp/aeos-venv/bin/python aeos/scripts/test_matrix.py",
+    "test:matrix:full": "npm run test:matrix -- --include-optional",
+    "test:all": "npm run test:python && npm run test:python:bdd && npm run test:robot && npm run test:node:jest && npm run test:node:vitest && npm run test:node:mocha && npm run test:node:cucumber && npm run test:java"
+  },
   "devDependencies": {
-    "@modelcontextprotocol/inspector-cli": "^0.22.0"
+    "@cucumber/cucumber": "^13.0.0",
+    "@modelcontextprotocol/inspector-cli": "^0.22.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^26.1.1",
+    "c8": "^11.0.0",
+    "jest": "^30.4.2",
+    "mocha": "^11.7.6",
+    "tsx": "^4.23.1",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
   }
 }

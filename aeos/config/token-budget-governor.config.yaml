@@ -1,0 +1,51 @@
+token_budget_governor:
+  enabled: true
+  version: 1.0.0
+  default_provider: unknown
+  provider_limits:
+    gpt: 32000
+    openai: 32000
+    codex: 24000
+    claude: 32000
+    deepseek: 16000
+    deepseek-free: 8000
+    local: 12000
+    unknown: 8000
+  output_reserve_tokens:
+    default: 2000
+    planning: 1500
+    code_generation: 3000
+    review: 2000
+  thresholds:
+    review_at_ratio: 0.75
+    block_at_ratio: 1.0
+  subagents:
+    max_subagents_per_task: 5
+    default_parent_reserve_ratio: 0.25
+    require_narrow_task_contract: true
+    forbid_context_broadcast: true
+    forbid_unrequested_exploration: true
+    require_output_schema: true
+  reduction_order:
+  - use_path_refs_instead_of_pasted_files
+  - summarize_prior_context
+  - load_only_relevant_lcp
+  - narrow_subagent_scope
+  - ask_for_missing_required_input
+  - stop_on_scope_expansion
+  provider_policy:
+    gpt:
+      prefer: balanced_generation_and_reasoning
+      avoid: repeated_full_context_replays
+    codex:
+      prefer: file_refs_diffs_tests
+      avoid: dumping_entire_files_when_patch_is_enough
+    claude:
+      prefer: long_context_review_with_summaries
+      avoid: using_long_context_when_targeted_reads_are_enough
+    deepseek:
+      prefer: compact_reasoning_and_code_tasks
+      avoid: broad_multi_agent_context
+    deepseek-free:
+      prefer: smallest_task_slice
+      avoid: large_context_or_parallel_subagents

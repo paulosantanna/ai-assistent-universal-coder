@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 from time import monotonic
 from typing import Any, Optional
+import importlib.util
 
 from aeos.core.skill_engine.skill_models import (
     SkillRequest,
@@ -20,6 +21,9 @@ from aeos.core.tool_router.tool_models import ToolRequest
 from aeos.core.governance.governance_gate import GovernanceGate
 from aeos.core.governance.governance_models import GovernanceRequest
 from aeos.core.evidence.evidence_store import EvidenceStore
+from aeos.core.chromatic import ChromaticOrchestrator
+from aeos.core.change_tracking import ChangeTracker
+from aeos.core.token_budget import TokenBudgetGovernor
 
 
 class SkillExecutor:
@@ -32,7 +36,7 @@ class SkillExecutor:
     ):
         self.workspace_root = Path(workspace_root)
         self.loader = SkillLoader(workspace_root)
-        self.contract_validator = SkillContractValidator(workspace_root)
+        self.contract_validator = SkillContractValidator(workspace_root, loader=self.loader)
         self.context_builder = SkillContextBuilder()
         self.result_validator = SkillResultValidator()
         self.reporter = SkillReporter(workspace_root)
@@ -112,6 +116,24 @@ class SkillExecutor:
                 self.evidence_store.store_record(execution_id, "skill-result", result.to_dict())
                 self.reporter.generate_report(execution_id, request, result)
                 return result
+
+        if request.skill_id == "chromatic-mega-brain":
+            result = self._execute_chromatic_megabrain(request, started)
+            self.evidence_store.store_record(execution_id, "skill-result", result.to_dict())
+            self.reporter.generate_report(execution_id, request, result)
+            return result
+
+        if request.skill_id == "token-budget-governor":
+            result = self._execute_token_budget_governor(request, started)
+            self.evidence_store.store_record(execution_id, "skill-result", result.to_dict())
+            self.reporter.generate_report(execution_id, request, result)
+            return result
+
+        if request.skill_id == "universal-project-factory":
+            result = self._execute_universal_project_factory(request, started)
+            self.evidence_store.store_record(execution_id, "skill-result", result.to_dict())
+            self.reporter.generate_report(execution_id, request, result)
+            return result
 
         tool_results: list[dict[str, Any]] = []
         evidence_refs: list[str] = []
@@ -205,3 +227,260 @@ class SkillExecutor:
         self.evidence_store.store_record(execution_id, "skill-result", result.to_dict())
         self.reporter.generate_report(execution_id, request, result)
         return result
+
+    def _execute_token_budget_governor(self, request: SkillRequest, started: float) -> SkillResult:
+        prompt_scope = str(request.input.get("prompt_scope", ""))
+        provider = str(request.input.get("provider", "unknown"))
+        requested_output_tokens = int(request.input.get("requested_output_tokens", 2000))
+        task_priority = str(request.input.get("task_priority", "normal"))
+        subagent_count = int(request.input.get("subagent_count", 0))
+
+        governor = TokenBudgetGovernor()
+        decision = governor.evaluate(prompt_scope, provider, requested_output_tokens, task_priority)
+        subagent_budget = governor.subagent_budget(decision.limit, subagent_count) if subagent_count else 0
+        record = {**decision.to_dict(), "subagent_budget": subagent_budget}
+        record_id = self.evidence_store.store_record(request.execution_id, "token-budget-decision", record)
+
+        return SkillResult(
+            execution_id=request.execution_id,
+            skill_id=request.skill_id,
+            status=decision.status,
+            facts=[
+                {
+                    "claim": f"Token budget evaluated for provider {decision.provider}",
+                    "evidence": record_id,
+                }
+            ],
+            assumptions=[
+                {
+                    "assumption": "Token count uses a conservative character-based estimate.",
+                    "evidence_ref": record_id,
+                }
+            ],
+            recommendations=[
+                {"recommendation": item, "reason": "Token budget governance"}
+                for item in decision.recommendations
+            ],
+            tool_results=[
+                {
+                    "tool_id": "token-budget-governor",
+                    "status": decision.status,
+                    "result": record,
+                }
+            ],
+            evidence_refs=[record_id],
+            blocking_conditions=list(decision.blocking_conditions),
+            duration_ms=int((monotonic() - started) * 1000),
+        )
+
+    def _execute_universal_project_factory(self, request: SkillRequest, started: float) -> SkillResult:
+        planner = self._load_universal_project_planner()
+
+        project_name = str(request.input.get("project_name", ""))
+        objective = str(request.input.get("objective", ""))
+        architecture = str(request.input.get("architecture", "unspecified"))
+        languages = request.input.get("languages", [])
+        databases = request.input.get("databases", [])
+        deployment_target = str(request.input.get("deployment_target", "cloud"))
+        token_budget = request.input.get("token_budget", {})
+
+        plan = planner.project_plan(objective, architecture, languages, databases, deployment_target)
+        matrix = planner.stack_matrix(languages, databases)
+        manifest = planner.scaffold_manifest(project_name, architecture, languages)
+        package = planner.scaffold_package(project_name, objective, architecture, languages, databases, deployment_target)
+        checklist = planner.production_checklist(architecture, deployment_target)
+        sandbox_dir = self._resolve_sandbox_dir(request)
+        change_tracker = ChangeTracker(
+            request.execution_id,
+            sandbox_dir,
+            "universal-project-factory scaffold generation",
+        )
+        generated_files = self._write_scaffold_artifacts(
+            sandbox_dir,
+            package.get("artifacts", []),
+            change_tracker,
+        )
+        trace_outputs = change_tracker.write_manifests(sandbox_dir / ".aeos" / "rollback")
+        result_payload = {
+            "project_plan": plan,
+            "stack_matrix": matrix,
+            "scaffold_manifest": manifest,
+            "scaffold_package": package,
+            "production_checklist": checklist,
+            "token_budget": token_budget,
+            "sandbox_dir": str(sandbox_dir),
+            "generated_files": generated_files,
+            "change_count": len(change_tracker.records),
+            "change_manifest": trace_outputs["change_manifest"],
+            "rollback_plan": trace_outputs["rollback_plan"],
+            "rollback_summary": trace_outputs["rollback_summary"],
+        }
+        record_id = self.evidence_store.store_record(request.execution_id, "universal-project-plan", result_payload)
+        trace_record_id = self.evidence_store.store_record(
+            request.execution_id,
+            "change-trace",
+            {
+                "execution_id": request.execution_id,
+                "sandbox_dir": str(sandbox_dir),
+                "change_count": len(change_tracker.records),
+                **trace_outputs,
+            },
+        )
+        blockers = (
+            list(plan.get("blocking_conditions", []))
+            + list(manifest.get("blocking_conditions", []))
+            + list(package.get("blocking_conditions", []))
+        )
+
+        return SkillResult(
+            execution_id=request.execution_id,
+            skill_id=request.skill_id,
+            status="BLOCKED" if blockers else "PASS",
+            facts=[
+                {
+                    "claim": "Universal zero-to-production plan generated",
+                    "evidence": record_id,
+                },
+                {
+                    "claim": "Generated scaffold changes are tracked with rollback metadata",
+                    "evidence": trace_record_id,
+                }
+            ],
+            assumptions=[
+                {
+                    "assumption": "Generated scaffold is a sandbox manifest until explicitly approved for application.",
+                    "evidence_ref": record_id,
+                }
+            ],
+            recommendations=[
+                {
+                    "recommendation": "Run documentation, security, tests, packaging and production readiness gates before applying scaffold.",
+                    "reason": "Zero-to-production workflow requires production gates.",
+                },
+                {
+                    "recommendation": "Review change-manifest.json and rollback-plan.md before approving generated files.",
+                    "reason": "Rollback traceability is required for governed changes.",
+                }
+            ],
+            tool_results=[
+                {
+                    "tool_id": "universal-project",
+                    "status": "BLOCKED" if blockers else "PASS",
+                    "result": result_payload,
+                }
+            ],
+            evidence_refs=[record_id, trace_record_id],
+            blocking_conditions=blockers,
+            duration_ms=int((monotonic() - started) * 1000),
+        )
+
+    def _load_universal_project_planner(self):
+        planner_path = self.workspace_root / "universal-project-mcp" / "src" / "universal_project_mcp" / "planner.py"
+        spec = importlib.util.spec_from_file_location("universal_project_planner", planner_path)
+        if spec is None or spec.loader is None:
+            raise RuntimeError(f"Cannot load universal project planner at {planner_path}")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        return module
+
+    def _resolve_sandbox_dir(self, request: SkillRequest) -> Path:
+        requested = request.input.get("sandbox_root")
+        if requested:
+            root = Path(str(requested)).resolve()
+            tmp_root = Path("/tmp").resolve()
+            workspace_sandbox = (self.workspace_root / ".aeos" / "sandbox").resolve()
+            if not (root == tmp_root or tmp_root in root.parents or root == workspace_sandbox or workspace_sandbox in root.parents):
+                root = workspace_sandbox / request.execution_id
+        else:
+            root = (self.workspace_root / ".aeos" / "sandbox" / request.execution_id).resolve()
+        root.mkdir(parents=True, exist_ok=True)
+        return root
+
+    def _write_scaffold_artifacts(
+        self,
+        sandbox_dir: Path,
+        artifacts: list[dict[str, str]],
+        change_tracker: ChangeTracker,
+    ) -> list[str]:
+        generated: list[str] = []
+        base = sandbox_dir.resolve()
+        for artifact in artifacts:
+            rel = str(artifact.get("path", "")).strip()
+            if not rel or rel.startswith("/") or ".." in Path(rel).parts:
+                continue
+            target = (base / rel).resolve()
+            if base != target and base not in target.parents:
+                continue
+            record = change_tracker.write_text(target, str(artifact.get("content", "")))
+            generated.append(record.path)
+        return generated
+
+    def _execute_chromatic_megabrain(self, request: SkillRequest, started: float) -> SkillResult:
+        objective = str(request.input.get("objective", request.input.get("problem", ""))).strip()
+        decision_type = str(request.input.get("decision_type", "architecture")).strip() or "architecture"
+        constraints = request.input.get("constraints", [])
+        evidence_refs = request.input.get("evidence_refs", request.evidence_refs)
+        max_colors = int(request.input.get("max_colors", 5))
+
+        if not isinstance(constraints, list):
+            constraints = [str(constraints)]
+        if not isinstance(evidence_refs, list):
+            evidence_refs = [str(evidence_refs)]
+
+        run = ChromaticOrchestrator().create_run(
+            objective=objective,
+            decision_type=decision_type,
+            constraints=[str(item) for item in constraints],
+            evidence_refs=[str(item) for item in evidence_refs],
+            max_colors=max_colors,
+        )
+        run_record_id = self.evidence_store.store_record(request.execution_id, "chromatic-run", run.to_dict())
+
+        return SkillResult(
+            execution_id=request.execution_id,
+            skill_id=request.skill_id,
+            status="BLOCKED" if run.blocking_conditions else "PASS",
+            facts=[
+                {
+                    "claim": "Chromatic Mega Brain selected bounded cognitive perspectives",
+                    "evidence": run_record_id,
+                    "selected_colors": run.selected_colors,
+                },
+                {
+                    "claim": "Chromatic run generated handoffs, decision matrix and quality gates",
+                    "evidence": run_record_id,
+                },
+            ],
+            assumptions=[
+                {
+                    "assumption": "Color handoffs are execution scaffolds; final domain claims still require inspected evidence.",
+                    "evidence_ref": run_record_id,
+                }
+            ],
+            risks=[
+                {
+                    "risk": "High-impact decisions can overfit incomplete evidence if Judge review is skipped.",
+                    "evidence_ref": run_record_id,
+                }
+            ],
+            recommendations=[
+                {
+                    "recommendation": "Use selected color handoffs before architecture, migration, security or cloud readiness decisions.",
+                    "reason": "The run separates evidence, risks, implementation, constraints and knowledge before synthesis.",
+                },
+                {
+                    "recommendation": "Route synthesized recommendation through Judge when any blocking condition, high risk or cloud decision exists.",
+                    "reason": "Chromatic analysis is advisory until validated.",
+                },
+            ],
+            tool_results=[
+                {
+                    "tool_id": "chromatic-mega-brain",
+                    "status": "BLOCKED" if run.blocking_conditions else "PASS",
+                    "result": run.to_dict(),
+                }
+            ],
+            evidence_refs=[run_record_id],
+            blocking_conditions=list(run.blocking_conditions),
+            duration_ms=int((monotonic() - started) * 1000),
+        )

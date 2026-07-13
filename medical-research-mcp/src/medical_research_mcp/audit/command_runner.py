@@ -6,6 +6,7 @@ import shutil
 import sys
 import time
 import hashlib
+import shlex
 from pathlib import Path
 from .models import CommandRecord
 
@@ -25,8 +26,14 @@ async def run_command(
 ) -> CommandRecord:
     """Execute a command with timeout, capturing stdout/stderr."""
     started = time.monotonic()
-    cmd_str = " ".join(str(c) for c in command)
+    cmd_str = shlex.join(str(c) for c in command)
     record = CommandRecord(command=cmd_str)
+
+    if not command:
+        record.exit_code = -1
+        record.stderr = "No command provided"
+        record.duration_ms = (time.monotonic() - started) * 1000
+        return record
 
     try:
         proc = await asyncio.create_subprocess_exec(
@@ -73,14 +80,14 @@ def find_tool(name: str) -> str | None:
 
 
 def find_python(python_executable: str | None = None) -> str:
-    """Resolve Python executable with priority: override > sys.executable > py -3 > python."""
+    """Resolve a Python executable path without embedding shell arguments."""
     if python_executable:
         return python_executable
     if sys.executable:
         return sys.executable
     py3 = shutil.which("py")
     if py3:
-        return py3 + " -3"
+        return py3
     python = shutil.which("python")
     if python:
         return python

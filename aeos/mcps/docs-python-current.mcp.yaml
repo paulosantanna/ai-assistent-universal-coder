@@ -1,0 +1,116 @@
+mcp:
+  id: docs-python-current
+  name: Python Current Documentation MCP
+  protocol: model-context-protocol
+  version: '2026-07-12'
+  transport:
+    type: stdio
+    command: language-docs-mcp
+    args:
+    - --profile
+    - docs-python-current
+  capabilities:
+    tools:
+    - name: language_docs.search
+      description: Search governed language documentation for the active profile.
+      security: read-only
+      input:
+        query: string
+        max_results: integer
+      output:
+        type: object
+    - name: language_docs.fetch
+      description: Fetch and extract a governed documentation page from an allowed
+        source.
+      security: read-only
+      input:
+        url: string
+        max_bytes: integer
+      output:
+        type: object
+    - name: language_docs.lookup_symbol
+      description: Look up APIs, symbols, modules, packages, flags or framework concepts
+        in versioned docs.
+      security: read-only
+      input:
+        symbol: string
+        scope: string
+      output:
+        type: object
+    - name: language_docs.version_status
+      description: Return release, support and documentation status for the active
+        language profile.
+      security: read-only
+      output:
+        type: object
+    - name: language_docs.migration_delta
+      description: Compare source and target versions using governed docs and release
+        notes.
+      security: read-only
+      input:
+        source_version: string
+        target_version: string
+        topic: string
+      output:
+        type: object
+    - name: language_docs.source_policy
+      description: Return source authority, freshness and citation policy for this
+        documentation MCP.
+      security: read-only
+      output:
+        type: object
+  source_profile:
+    language: python
+    version: current
+    resolved_version: '3.14'
+    status: current-stable
+    sources:
+    - name: Python Current Documentation
+      url: https://docs.python.org/3/
+      authority: official
+      type: documentation
+    - name: Python Versioned Documentation
+      url: https://www.python.org/doc/versions/
+      authority: official
+      type: release
+    - name: Python Packaging User Guide
+      url: https://packaging.python.org/
+      authority: official
+      type: packaging
+  security:
+    allowed_domains:
+    - docs.python.org
+    - www.python.org
+    - pypi.org
+    - packaging.python.org
+    blocked_domains:
+    - '*.malicious.*'
+    - '*.phishing.*'
+    - localhost
+    - 127.0.0.1
+    - 10.*
+    - 172.16.*
+    - 192.168.*
+    redaction:
+      enabled: true
+      patterns:
+      - (?i)(password|secret|token|key|credential)[=:]\s*\S+
+    audit:
+      log_all_fetches: true
+      log_all_queries: true
+prompt_contract:
+  objective: Return version-specific language documentation facts from official or
+    governed sources only.
+  evidence_required: true
+  redact_outputs: true
+  tool_boundary: Route access through AEOS MCP runtime and Tool Router policy checks.
+  response_rules:
+  - Return evidence refs for every material language/version claim.
+  - Prefer official documentation and specifications over community summaries.
+  - Mark preview, deprecated, removed and implementation-specific behavior explicitly.
+  - Do not expose secrets, credentials, raw tokens or sensitive values.
+  stop_conditions:
+  - required language or version input is missing
+  - requested source is outside the allowed domain set
+  - permission or policy is denied
+  - evidence cannot be produced from an official or governed source

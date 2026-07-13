@@ -161,31 +161,37 @@ export class ToolRouter {
     action: string,
     params: Record<string, unknown>
   ): Promise<ToolResult> {
-    const { execSync } = await import("node:child_process");
+    const { execFileSync } = await import("node:child_process");
     const cwd = (params.workdir as string) || process.cwd();
 
     try {
       switch (action) {
         case "GIT_STATUS":
         case "git_status": {
-          const output = execSync("git status --short", { cwd, encoding: "utf-8", maxBuffer: 1024 * 1024 });
+          const output = execFileSync("git", ["status", "--short"], { cwd, encoding: "utf-8", maxBuffer: 1024 * 1024 });
           return { success: true, data: { status: output.trim() || "(clean)" } };
         }
 
         case "GIT_DIFF":
         case "git_diff": {
-          const pathArg = params.path ? ` -- "${params.path}"` : "";
-          const output = execSync(`git diff${pathArg}`, { cwd, encoding: "utf-8", maxBuffer: 1024 * 1024 });
+          const args = ["diff"];
+          if (params.path !== undefined) {
+            if (typeof params.path !== "string" || params.path.length === 0) {
+              return { success: false, error: "Git diff path must be a non-empty string" };
+            }
+            args.push("--", params.path);
+          }
+          const output = execFileSync("git", args, { cwd, encoding: "utf-8", maxBuffer: 1024 * 1024 });
           return { success: true, data: { diff: output || "(no diff)" } };
         }
 
         case "GIT_LOG":
         case "git_log": {
-          const maxCount = (params.max_count as number) || 10;
-          const output = execSync(
-            `git log --oneline -${maxCount}`,
-            { cwd, encoding: "utf-8", maxBuffer: 1024 * 1024 }
-          );
+          const parsedMax = Number(params.max_count ?? 10);
+          const maxCount = Number.isFinite(parsedMax)
+            ? Math.min(Math.max(Math.trunc(parsedMax), 1), 100)
+            : 10;
+          const output = execFileSync("git", ["log", "--oneline", `-${maxCount}`], { cwd, encoding: "utf-8", maxBuffer: 1024 * 1024 });
           return { success: true, data: { log: output.trim() || "(no commits)" } };
         }
 
@@ -257,9 +263,27 @@ export class ToolRouter {
       if (key.toLowerCase().includes("secret") || key.toLowerCase().includes("password") || key.toLowerCase().includes("token") || key.toLowerCase().includes("key") || key.toLowerCase().includes("credential")) {
         sanitized[key] = "***REDACTED***";
       } else {
-        sanitized[key] = value;
+        sanitized[key] = this.sanitizeValue(value);
       }
     }
     return sanitized;
+  }
+
+  private sanitizeValue(value: unknown): unknown {
+    if (Array.isArray(value)) {
+      return value.map((item) => this.sanitizeValue(item));
+    }
+    if (value && typeof value === "object") {
+      const nested: Record<string, unknown> = {};
+      for (const [key, nestedValue] of Object.entries(value as Record<string, unknown>)) {
+        if (key.toLowerCase().includes("secret") || key.toLowerCase().includes("password") || key.toLowerCase().includes("token") || key.toLowerCase().includes("key") || key.toLowerCase().includes("credential")) {
+          nested[key] = "***REDACTED***";
+        } else {
+          nested[key] = this.sanitizeValue(nestedValue);
+        }
+      }
+      return nested;
+    }
+    return value;
   }
 }

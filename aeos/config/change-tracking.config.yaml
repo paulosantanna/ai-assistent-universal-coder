@@ -1,0 +1,55 @@
+change_tracking:
+  enabled: true
+  version: 1.0.0
+  fail_closed: true
+  require_change_manifest: true
+  require_rollback_plan: true
+  require_before_after_hashes: true
+  reject_untracked_mutation: true
+
+  hash_algorithm: sha256
+  tracked_actions:
+    - CREATE
+    - UPDATE
+    - DELETE
+
+  outputs:
+    sandbox_manifest: ".aeos/sandbox/{execution_id}/.aeos/rollback/change-manifest.json"
+    sandbox_rollback_plan: ".aeos/sandbox/{execution_id}/.aeos/rollback/rollback-plan.json"
+    sandbox_rollback_summary: ".aeos/sandbox/{execution_id}/.aeos/rollback/rollback-plan.md"
+    evidence_record: ".aeos/evidence/{execution_id}/change-trace.jsonl"
+
+  required_fields:
+    change_record:
+      - execution_id
+      - action
+      - path
+      - relative_path
+      - reason
+      - before_exists
+      - before_sha256
+      - after_exists
+      - after_sha256
+      - size_before
+      - size_after
+      - rollback
+      - timestamp
+    rollback_operation:
+      - operation
+      - target
+      - method
+      - before_sha256
+      - after_sha256
+      - requires_manual_confirmation
+
+  allowed_roots:
+    - ".aeos/sandbox/{execution_id}"
+    - "/tmp"
+
+  blocking_conditions:
+    - missing_change_manifest
+    - missing_rollback_plan
+    - changed_file_without_after_hash
+    - updated_file_without_before_hash
+    - rollback_operation_missing
+    - change_outside_allowed_root

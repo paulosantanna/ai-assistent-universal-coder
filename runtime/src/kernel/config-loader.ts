@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, statSync } from "node:fs";
 import { join, resolve } from "node:path";
 import * as yaml from "js-yaml";
 import type {
@@ -21,9 +21,10 @@ import type {
   AgentsAdditionsConfig,
   SkillRegistryEntry,
   PlaybookRegistryEntry,
-  AgentRegistryEntry
+  AgentRegistryEntry,
+  ValidationResult
 } from "./types.js";
-import { SchemaValidator, type ValidationResult } from "./schema-validator.js";
+import { SchemaValidator } from "./schema-validator.js";
 
 export class ConfigLoadError extends Error {
   constructor(message: string, public filePath: string) {
@@ -35,6 +36,8 @@ export class ConfigLoadError extends Error {
 export class ConfigLoader {
   private readonly aeosRoot: string;
   private readonly validator: SchemaValidator;
+  private readonly yamlCache = new Map<string, { mtimeMs: number; size: number; value: unknown }>();
+  private readonly markdownCache = new Map<string, { mtimeMs: number; size: number; value: string }>();
 
   constructor(aeosRoot: string) {
     this.aeosRoot = resolve(aeosRoot);
@@ -227,7 +230,14 @@ export class ConfigLoader {
     if (!existsSync(abs)) {
       throw new ConfigLoadError(`File not found`, abs);
     }
-    return readFileSync(abs, "utf-8");
+    const stat = statSync(abs);
+    const cached = this.markdownCache.get(abs);
+    if (cached && cached.mtimeMs === stat.mtimeMs && cached.size === stat.size) {
+      return cached.value;
+    }
+    const value = readFileSync(abs, "utf-8");
+    this.markdownCache.set(abs, { mtimeMs: stat.mtimeMs, size: stat.size, value });
+    return value;
   }
 
   loadYaml<T>(relativePath: string): T {
@@ -235,15 +245,21 @@ export class ConfigLoader {
     if (!existsSync(abs)) {
       throw new ConfigLoadError(`File not found`, abs);
     }
+    const stat = statSync(abs);
+    const cached = this.yamlCache.get(abs);
+    if (cached && cached.mtimeMs === stat.mtimeMs && cached.size === stat.size) {
+      return cached.value as T;
+    }
     let raw = readFileSync(abs, "utf-8");
-    if (raw.charCodeAt(0) === 0xFEFF || (raw.charCodeAt(0) === 0xEF && raw.charCodeAt(1) === 0xBB && raw.charCodeAt(2) === 0xBF)) {
-      raw = raw.replace(/^\uFEFF/, "").replace(/^\uEF\uBB\uBF/, "");
+    if (raw.charCodeAt(0) === 0xFEFF) {
+      raw = raw.slice(1);
     }
     try {
       const parsed = yaml.load(raw) as T;
       if (!parsed) {
         throw new ConfigLoadError("Empty or invalid YAML", abs);
       }
+      this.yamlCache.set(abs, { mtimeMs: stat.mtimeMs, size: stat.size, value: parsed });
       return parsed;
     } catch (err) {
       if (err instanceof ConfigLoadError) throw err;
@@ -256,6 +272,11 @@ export class ConfigLoader {
 
   fileExists(relativePath: string): boolean {
     return existsSync(resolve(this.aeosRoot, relativePath));
+  }
+
+  clearCache(): void {
+    this.yamlCache.clear();
+    this.markdownCache.clear();
   }
 
   private reportValidation(file: string, result: ValidationResult): void {

@@ -30,3 +30,13 @@ Output:
 ```
 
 Validation token: `e7a6524227f8b611fe224005682f1e19dbadedc51f9dc6472c242072c2d1d11f`
+
+## Prompt Contract
+
+- Keep the objective bounded to the requested task.
+- Prefer file refs, registry refs and evidence refs over pasted context.
+- Distinguish facts, assumptions, risks and recommendations.
+- Require evidence for material claims and mark missing evidence as a blocker.
+- Route tools through approved AEOS command, MCP or Tool Router paths.
+- Redact secrets, credentials, tokens and sensitive values.
+- Return `PASS`, `BLOCKED` or `REVIEW` with evidence refs and blocking conditions.

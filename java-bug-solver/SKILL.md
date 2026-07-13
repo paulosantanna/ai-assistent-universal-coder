@@ -93,6 +93,27 @@ Use evidence appropriate to the task:
 - authoritative sources;
 - generated artifact hashes.
 
+## Documentation Intelligence
+
+Before proposing a Java fix, detect the project Java version from build files, toolchains, runtime config or source evidence. Query the matching documentation MCP before making API, deprecation, removal or migration claims:
+
+- `docs-java-11`
+- `docs-java-17`
+- `docs-java-21`
+- `docs-java-25`
+- `docs-java-26`
+
+Use documentation evidence together with stack trace and repository evidence. If the Java version cannot be detected or the required docs MCP is unavailable, return `BLOCKED` or `REVIEW` instead of guessing.
+
+## Prompt Contract
+
+- State the objective, target scope, assumptions and constraints before execution.
+- Use only evidence-backed facts; mark uncertainty explicitly.
+- Route tool access through approved command, MCP or Tool Router paths.
+- Redact secrets, credentials, tokens and sensitive values.
+- Return facts, assumptions, risks, recommendations, evidence_refs and blocking_conditions when applicable.
+- Stop when required evidence, permissions, policy approval or input context is missing.
+
 ## 10. Stop conditions
 
 Stop when:

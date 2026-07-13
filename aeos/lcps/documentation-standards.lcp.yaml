@@ -9,9 +9,16 @@ output_standards:
   - ADR
   - Runbook
   - Risk Summary
+  - Mermaid Diagrams
+  - Cloud Readiness Scorecard
+  - Skill/MCP/LSP Map
 
 rules:
   - documentation_must_be_evidence_based
   - assumptions_must_be_marked
   - no_fake_architecture_claims
   - cite_files_inspected
+  - complete_architecture_docs_require_validated_mermaid
+  - cloud_readiness_must_be_scored_from_evidence
+  - architecture_decisions_require_adr_candidates
+  - skill_mcp_lsp_relationships_must_be_explicit

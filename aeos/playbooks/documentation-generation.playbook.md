@@ -15,6 +15,7 @@ Execute the `documentation-generation` operation under AEOS governance.
 - filesystem-readonly
 - git-readonly, when applicable
 - filesystem-write-sandbox, when generating artifacts
+- complete-docs, when generating complete architecture, Mermaid diagrams, ADRs or cloud readiness packages
 
 ## Required LCPs
 
@@ -29,13 +30,15 @@ Execute the `documentation-generation` operation under AEOS governance.
 4. Resolve required skills.
 5. Resolve allowed MCPs.
 6. Validate permissions.
-1. Execute `repo-scanner` skill.
-2. Execute `architecture-mapper` skill.
-3. Execute `documentation` skill.
-7. Collect evidence.
-8. Generate reports.
-9. Generate evidence manifest and hash-chain.
-10. Run Judge.
+7. Execute `repo-scanner` skill.
+8. Execute `architecture-mapper` skill.
+9. Execute `documentation` skill.
+10. Request `docs.architecture_package` when complete architecture or cloud maturity documentation is required.
+11. Validate all Mermaid blocks before publishing generated artifacts.
+12. Collect evidence.
+13. Generate reports.
+14. Generate evidence manifest and hash-chain.
+15. Run Judge.
 
 ## Blocking Conditions
 
@@ -46,9 +49,12 @@ Execute the `documentation-generation` operation under AEOS governance.
 - Hash mismatch.
 - Output outside allowed scope.
 - Unsupported claim.
+- Missing Mermaid validation for complete architecture documentation.
+- Missing cloud readiness evidence when deployment maturity is requested.
 
 ## Outputs
 
 - `.aeos/evidence/{execution_id}/`
 - `.aeos/reports/{execution_id}/`
 - `.aeos/sandbox/{execution_id}/`, when applicable
+- `README.md`, `docs/ARCHITECTURE.md`, `docs/RUNTIME_FLOW.md`, `docs/SKILLS_MCPS_LSPS.md`, `docs/CLOUD_READINESS.md` and ADR candidates inside the approved sandbox/report output when complete architecture packaging is requested

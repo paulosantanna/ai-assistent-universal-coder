@@ -77,3 +77,85 @@ class TestSkillExecutor:
         result = self.executor.execute(req)
         # Should be BLOCKED by governance if role not found
         assert result.status in ("PASS", "BLOCKED")
+
+    def test_executor_runs_chromatic_mega_brain(self, tmp_path):
+        executor = SkillExecutor(workspace_root=".", evidence_store=EvidenceStore(str(tmp_path / "evidence")))
+        req = SkillRequest(
+            execution_id="test-chromatic-mega-brain",
+            skill_id="chromatic-mega-brain",
+            actor="tester",
+            role="architect",
+            input={
+                "objective": "Evolve AEOS architecture for cloud readiness and migration safety",
+                "decision_type": "cloud-readiness",
+                "evidence_refs": ["registry-validation.jsonl"],
+            },
+        )
+
+        result = executor.execute(req)
+
+        assert result.status == "PASS"
+        assert result.tool_results
+        chromatic = result.tool_results[0]["result"]
+        assert "BLUE" in chromatic["selected_colors"]
+        assert "RED" in chromatic["selected_colors"]
+        assert result.evidence_refs
+
+    def test_executor_runs_token_budget_governor(self, tmp_path):
+        executor = SkillExecutor(workspace_root=".", evidence_store=EvidenceStore(str(tmp_path / "evidence")))
+        req = SkillRequest(
+            execution_id="test-token-budget-governor",
+            skill_id="token-budget-governor",
+            actor="tester",
+            role="judge",
+            input={
+                "provider": "deepseek-free",
+                "prompt_scope": "Build only the requested API scaffold.",
+                "requested_output_tokens": 1000,
+                "task_priority": "normal",
+                "subagent_count": 2,
+            },
+        )
+
+        result = executor.execute(req)
+
+        assert result.status == "PASS"
+        assert result.tool_results[0]["result"]["subagent_budget"] > 0
+
+    def test_executor_runs_universal_project_factory(self, tmp_path):
+        executor = SkillExecutor(workspace_root=".", evidence_store=EvidenceStore(str(tmp_path / "evidence")))
+        req = SkillRequest(
+            execution_id="test-universal-project-factory",
+            skill_id="universal-project-factory",
+            actor="tester",
+            role="architect",
+            input={
+                "project_name": "demo",
+                "objective": "Generate a production-ready API",
+                "architecture": "hexagonal",
+                "languages": ["Python"],
+                "databases": ["PostgreSQL"],
+                "deployment_target": "cloud",
+                "token_budget": {"provider": "codex", "limit": 24000},
+                "sandbox_root": str(tmp_path / "sandbox"),
+            },
+        )
+
+        result = executor.execute(req)
+
+        assert result.status == "PASS"
+        payload = result.tool_results[0]["result"]
+        assert payload["project_plan"]["status"] == "PASS"
+        assert payload["scaffold_manifest"]["write_policy"] == "sandbox_only_until_approval"
+        assert payload["generated_files"]
+        assert payload["change_count"] == len(payload["generated_files"])
+        assert payload["change_manifest"]
+        assert payload["rollback_plan"]
+        assert payload["rollback_summary"]
+        assert len(result.evidence_refs) >= 2
+        assert (tmp_path / "sandbox" / "README.md").exists()
+        assert (tmp_path / "sandbox" / "pyproject.toml").exists()
+        assert (tmp_path / "sandbox" / "db" / "migrations" / "001_initial_postgresql.sql").exists()
+        assert (tmp_path / "sandbox" / ".aeos" / "rollback" / "change-manifest.json").exists()
+        assert (tmp_path / "sandbox" / ".aeos" / "rollback" / "rollback-plan.json").exists()
+        assert (tmp_path / "sandbox" / ".aeos" / "rollback" / "rollback-plan.md").exists()

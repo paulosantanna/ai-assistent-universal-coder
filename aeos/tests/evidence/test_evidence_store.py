@@ -124,3 +124,15 @@ def test_multiple_records_same_file(evidence_dir):
     fp = evidence_dir / "exec-007" / "audits.jsonl"
     count = sum(1 for _ in open(fp, "r"))
     assert count == 3
+
+
+def test_store_records_batches_hash_chain(evidence_dir):
+    store = EvidenceStore(str(evidence_dir))
+    ids = store.store_records("exec-008", "audit", [{"i": 1}, {"i": 2}, {"i": 3}])
+
+    assert len(ids) == 3
+    assert len(store.get_hash_chain()) == 3
+    result = store.verify_hash_chain("exec-008")
+    assert result["passed"] is True
+    fp = evidence_dir / "exec-008" / "audits.jsonl"
+    assert sum(1 for _ in open(fp, "r")) == 3

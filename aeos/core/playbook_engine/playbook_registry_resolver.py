@@ -15,17 +15,22 @@ class PlaybookRegistryResolver:
         paths = [
             self.workspace_root / ".aeos" / "derived" / "registries" / "playbooks.consolidated.yaml",
             self.workspace_root / "aeos" / "registries" / "playbooks.registry.yaml",
+            self.workspace_root / "aeos" / "registries" / "enterprise-playbooks.registry.yaml",
+            self.workspace_root / "aeos" / "registries" / "playbooks.v0_6.additions.yaml",
+            self.workspace_root / "aeos" / "registries" / "playbooks.v0_7.additions.yaml",
+            self.workspace_root / "aeos" / "registries" / "playbooks.v0_8_to_v1_0.additions.yaml",
+            self.workspace_root / "aeos" / "registries" / "playbooks.v1_1_enterprise.additions.yaml",
         ]
         for p in paths:
-            if p.exists():
-                with open(p, "r", encoding="utf-8") as f:
-                    data = yaml.safe_load(f) or {}
-                entries = data.get("playbooks", [])
-                for entry in entries:
-                    eid = entry.get("id")
-                    if eid:
-                        self._registry[eid] = entry
-                return self._registry
+            if not p.exists():
+                continue
+            with open(p, "r", encoding="utf-8-sig") as f:
+                data = yaml.safe_load(f) or {}
+            entries = data.get("playbooks", [])
+            for entry in entries:
+                eid = entry.get("id")
+                if eid and eid not in self._registry:
+                    self._registry[eid] = entry
         return self._registry
 
     def resolve(self, playbook_id: str) -> Optional[dict[str, Any]]:

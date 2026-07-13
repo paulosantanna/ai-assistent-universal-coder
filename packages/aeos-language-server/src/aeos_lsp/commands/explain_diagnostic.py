@@ -69,6 +69,23 @@ _KNOWN_DIAGNOSTIC_CODES: dict[str, dict[str, str]] = {
 }
 
 
+def _with_prompt_guidance(payload: dict[str, Any]) -> dict[str, Any]:
+    payload["prompt_guidance"] = {
+        "response": "Return the diagnostic cause, evidence to inspect, safe remediation and blocking condition.",
+        "evidence_required": [
+            "document path or symbol",
+            "schema or registry rule",
+            "diagnostic range when available",
+        ],
+        "safety": [
+            "do not mutate workspace state from diagnostic explanation",
+            "do not expose secrets from document content",
+            "mark uncertainty when evidence is unavailable",
+        ],
+    }
+    return payload
+
+
 def explain_diagnostic(server: Any, args: dict[str, Any]) -> dict[str, Any]:
     code = args.get("code", "")
     if not code:
@@ -78,14 +95,14 @@ def explain_diagnostic(server: Any, args: dict[str, Any]) -> dict[str, Any]:
 
     known = _KNOWN_DIAGNOSTIC_CODES.get(code)
     if known is not None:
-        return {
+        return _with_prompt_guidance({
             "code": code,
             "found": True,
             "title": known["title"],
             "severity": known["severity"],
             "description": known["description"],
             "remediation": known["remediation"],
-        }
+        })
 
     engine = getattr(server, "diagnostics_engine", None)
     if engine is not None:
@@ -94,19 +111,19 @@ def explain_diagnostic(server: Any, args: dict[str, Any]) -> dict[str, Any]:
             rule = registry.get_rule(code)
             if rule is not None:
                 meta = rule.metadata
-                return {
+                return _with_prompt_guidance({
                     "code": code,
                     "found": True,
                     "title": getattr(meta, "title", getattr(meta, "code", code)),
                     "severity": getattr(meta, "severity", "unknown"),
                     "description": getattr(meta, "description", ""),
                     "remediation": getattr(meta, "remediation", getattr(meta, "help", "")),
-                }
+                })
 
-    return {
+    return _with_prompt_guidance({
         "code": code,
         "found": False,
         "title": "Unknown diagnostic code",
         "description": f"No explanation available for diagnostic code '{code}'.",
         "remediation": "Refer to the AEOS documentation for diagnostic code definitions.",
-    }
+    })

@@ -6,6 +6,26 @@ from typing import Any
 logger = logging.getLogger(__name__)
 
 
+PROMPT_CONTRACT = {
+    "preview_rules": [
+        "resolve steps without mutating workspace state",
+        "surface approvals, rollback gaps and unresolved references",
+        "preserve evidence requirements for runtime execution",
+    ],
+    "evidence_rules": [
+        "facts require inspected playbook or registry evidence",
+        "approval and rollback claims must reference resolved steps",
+        "missing step definitions block execution",
+    ],
+    "stop_conditions": [
+        "unresolved playbook reference",
+        "missing required variable",
+        "mutating step without approval contract",
+        "rollback requirement cannot be evaluated",
+    ],
+}
+
+
 def dry_run_playbook(server: Any, args: dict[str, Any]) -> dict[str, Any]:
     playbook_ref = args.get("playbook_ref", "")
     if not playbook_ref:
@@ -89,6 +109,7 @@ def dry_run_playbook(server: Any, args: dict[str, Any]) -> dict[str, Any]:
             "has_rollback": has_rollback,
             "visibility": str(visibility),
             "documentation": documentation,
+            "prompt_contract": PROMPT_CONTRACT,
         }
     except Exception as exc:
         logger.exception("Failed to dry-run playbook %s", playbook_ref)

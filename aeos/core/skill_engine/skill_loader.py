@@ -11,13 +11,18 @@ from aeos.core.skill_engine.skill_registry_resolver import SkillRegistryResolver
 
 class SkillLoader:
     def __init__(self, workspace_root: str = "."):
-        self.workspace_root = Path(workspace_root)
+        self.workspace_root = Path(workspace_root).resolve()
         self.resolver = SkillRegistryResolver(workspace_root)
+        self._contract_cache: dict[str, Optional[SkillContract]] = {}
 
     def load_skill_contract(self, skill_id: str) -> Optional[SkillContract]:
+        if skill_id in self._contract_cache:
+            return self._contract_cache[skill_id]
+
         registry = self.resolver.load()
         entry = registry.get(skill_id)
         if not entry:
+            self._contract_cache[skill_id] = None
             return None
 
         skill_path = entry.get("path", "")
@@ -34,7 +39,7 @@ class SkillLoader:
         capabilities = entry.get("capabilities", [])
         risk_level = entry.get("risk_level", "low")
 
-        return SkillContract(
+        contract = SkillContract(
             id=skill_id,
             mission=mission,
             allowed_actions=allowed_actions,
@@ -48,6 +53,12 @@ class SkillLoader:
             risk_level=risk_level,
             path=str(full_path) if full_path else "",
         )
+        self._contract_cache[skill_id] = contract
+        return contract
+
+    def clear_cache(self) -> None:
+        self._contract_cache.clear()
+        self.resolver.clear_cache()
 
     def skill_file_exists(self, skill_id: str) -> bool:
         path = self.resolver.get_skill_path(skill_id)

@@ -3,93 +3,88 @@
   "files": [
     {
       "path": "AGENT.md",
-      "sha256": "c1821f88b7d246f13bbfe23d5fae851f38704ba81315af029d90fa902cd4a863",
-      "bytes": 136
-    },
-    {
-      "path": "knowledge/CONTINUOUS_LEARNING.md",
-      "sha256": "522088c013dd2e46a87a5b8b0ca93d579ebc47164c7b77b699d6db2fb2964692",
-      "bytes": 85
-    },
-    {
-      "path": "knowledge/KNOWLEDGE.md",
-      "sha256": "f3ee57e9cee77e33529ca2f94d4cbc12fc1f47a476b6ed65eb494aa96398521b",
-      "bytes": 62
-    },
-    {
-      "path": "knowledge/KNOWLEDGE_PROMOTION.md",
-      "sha256": "c12a9a1f5bf72e30094f5187219d16d92a90579b525a0bd73c8ef48ecd679496",
-      "bytes": 98
-    },
-    {
-      "path": "knowledge/NEGATIVE_KNOWLEDGE.md",
-      "sha256": "45786cf367dcad462ce23ecbf126751fa213dd3e38129aff8719ab925b9dc32b",
-      "bytes": 68
-    },
-    {
-      "path": "knowledge/POSITIVE_KNOWLEDGE.md",
-      "sha256": "3ca871e4f99c59ab7218c65e9d9abafe87c95373a28b4065ef1af90f38068290",
-      "bytes": 59
-    },
-    {
-      "path": "memory/EXECUTIONS.md",
-      "sha256": "8548e143acbf320fa5d3da60eadc93e7d997ee6c69e44d29e7febf6489648551",
-      "bytes": 19
-    },
-    {
-      "path": "memory/FAILURES.md",
-      "sha256": "dfca2f9b138d036b1c6b20e58199607c0f30bb9f945183a8a5126e9ccb1148ec",
-      "bytes": 17
-    },
-    {
-      "path": "memory/LESSONS.md",
-      "sha256": "d92bc7635bd3d76019e37b027c0c5602075df41c7ec9b26c4fb48d8b7d99ebbb",
-      "bytes": 16
-    },
-    {
-      "path": "memory/PATTERNS.md",
-      "sha256": "d707501f9f2c126206605e60b4aa76e6980f41ba2e7d971bd5b710b0a38e879f",
-      "bytes": 17
+      "sha256": "4b64732cdd9a45b85eab9b622445a302ae7a48f5583cb68e6617268ecaf04a39",
+      "bytes": 872
     },
     {
       "path": "README.md",
-      "sha256": "82f3ec03f5d9e33b13ab2d740cc78ade14c4b9a24ca31f29c1beaec5d89304f2",
-      "bytes": 419
-    },
-    {
-      "path": "schemas/output.schema.json",
-      "sha256": "d93898eea5dd2551bef51e91a480b8bdce1a76514b6720b759b5876e588e9166",
-      "bytes": 57
-    },
-    {
-      "path": "scripts/__pycache__/validate.cpython-314.pyc",
-      "sha256": "d514974f1e855079e9dc59db89c7a96e9acf0389c27eee9d04c5135d4f3bcf5f",
-      "bytes": 869
-    },
-    {
-      "path": "scripts/validate.py",
-      "sha256": "9f398d4e15f6b2ac59e08f403cd2579bccf99d2cfff4484233764cb23f27890e",
-      "bytes": 310
+      "sha256": "29e4f2791a08f36064cc67c3f987890792452f6595c8c2afd0134e999caa744e",
+      "bytes": 402
     },
     {
       "path": "SKILL.md",
-      "sha256": "f2ce99c73d9f25ab291cd85b163a0e991fa27f35776325244398b15b9d395853",
-      "bytes": 3046
+      "sha256": "07d5fc11d135aad9df1646e74aadf4b592d3dc10d76fbac248348afa8cd8c4e2",
+      "bytes": 4704
+    },
+    {
+      "path": "knowledge/CONTINUOUS_LEARNING.md",
+      "sha256": "99b704a79a64b3dd0e25fd014d6db4d82a90daad8c8a9115bb4256dd98f5ae69",
+      "bytes": 82
+    },
+    {
+      "path": "knowledge/KNOWLEDGE.md",
+      "sha256": "a7cc02bb8071450c7ce8cacf478bbbec7192f2e1f159d4273988ade4aae7319c",
+      "bytes": 59
+    },
+    {
+      "path": "knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "1cac3808b113dc8ef9288439205a11254913b5503a5acabc4e03f3c5284bbf6e",
+      "bytes": 95
+    },
+    {
+      "path": "knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "d7f8f754b5ac7aa07f36c5f961775ce1e8c2df51ae0b5c2dabb760df0a82e6b5",
+      "bytes": 1001
+    },
+    {
+      "path": "knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "39d39b25709837cce36e50638977fd12f0446598467fd592489d1db9f03b84f5",
+      "bytes": 1311
+    },
+    {
+      "path": "memory/EXECUTIONS.md",
+      "sha256": "8843b7a2574c1d71468f8176c0003d18ca145f57707bbc30cbe4d4c8c8c56219",
+      "bytes": 17
+    },
+    {
+      "path": "memory/FAILURES.md",
+      "sha256": "0177e8fe2965da9c7b5678ed4fedc6da6bc0bfbc78821a2a5f42f9a31f1ebf6d",
+      "bytes": 978
+    },
+    {
+      "path": "memory/LESSONS.md",
+      "sha256": "6668827aac152d2df947f2fd6ef24590e159190a4ee632dd71aa9802d797d981",
+      "bytes": 1408
+    },
+    {
+      "path": "memory/PATTERNS.md",
+      "sha256": "4b728a90236b9af1dd31ecacc51916a29dedebb8dc95911279a33b02d704a115",
+      "bytes": 15
+    },
+    {
+      "path": "schemas/output.schema.json",
+      "sha256": "e9ec709ed7039100d3ab06c0d32f70f6c4ebe2be725bdf4f1a8942b8e4dda17f",
+      "bytes": 54
+    },
+    {
+      "path": "scripts/validate.py",
+      "sha256": "a2c283e3a9dc3d3b4a80020179f5f80273cdc578e5fa7b147fdb64208051bb93",
+      "bytes": 303
     },
     {
       "path": "templates/OUTPUT.template.md",
-      "sha256": "4e137ca75b12dbcb83b1306a231705f16dd38862dd9e54eb57e02003a57daf43",
-      "bytes": 12
+      "sha256": "42d82e5383af2f53b54a590d6317b1b473071d06890d4e15408d564a05762df2",
+      "bytes": 10
     },
     {
-      "path": "tests/__pycache__/test_structure.cpython-314.pyc",
-      "sha256": "ecc432026b5f964e1b329bfe01955acd3b5b8ad7735f933d5beebdf7c65556b9",
-      "bytes": 704
+      "path": "tests/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
     },
     {
       "path": "tests/test_structure.py",
-      "sha256": "fed198523a221b7e4bb883dbf62cfca6a527211e145ec82fe44718917bbd5ab0",
-      "bytes": 181
+      "sha256": "5ca93e66bcbc869c7e23388d4c659bbacf8ac522676e0e7357b2bc8b07566096",
+      "bytes": 175
     }
   ]
 }

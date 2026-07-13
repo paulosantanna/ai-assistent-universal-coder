@@ -1,0 +1,42 @@
+lsp_universal_project:
+  enabled: true
+  version: 1.0.0
+  purpose: Validate generated project plans, stack contracts, token budgets and production gates before implementation.
+  language_profiles:
+  - id: java
+    recommended_lsp: jdtls
+    required_files: [pom.xml or build.gradle]
+  - id: python
+    recommended_lsp: pyright
+    required_files: [pyproject.toml or requirements.txt]
+  - id: typescript
+    recommended_lsp: typescript-language-server
+    required_files: [package.json, tsconfig.json]
+  - id: javascript
+    recommended_lsp: typescript-language-server
+    required_files: [package.json]
+  - id: angular
+    recommended_lsp: angular-language-server
+    required_files: [angular.json, package.json]
+  - id: sql
+    recommended_lsp: sql-language-server
+    required_files: [migration directory or schema file]
+  - id: docker
+    recommended_lsp: dockerfile-language-server
+    required_files: [Dockerfile]
+  - id: yaml
+    recommended_lsp: yaml-language-server
+    required_files: [ci, deployment or config yaml]
+  diagnostics:
+  - missing_runtime_version
+  - missing_package_manager
+  - missing_database_migration_plan
+  - missing_test_strategy
+  - missing_ci_pipeline
+  - missing_observability_contract
+  - missing_rollback_plan
+  - missing_token_budget
+  - unsupported_scope_expansion
+  safe_preview:
+    scaffold_preview_only: true
+    mutate_workspace_only_after_approval: true

@@ -136,3 +136,18 @@ def test_scan_default_exclusions(tmp_path: Path):
     assert stats.scanned_files == 1
     assert stats.python_files == 1
     assert stats.ignored_files == 2
+
+
+def test_scan_can_prune_ignored_dirs_without_counting_files(tmp_path: Path):
+    node = tmp_path / "node_modules" / "pkg"
+    node.mkdir(parents=True)
+    for i in range(20):
+        (node / f"file{i}.js").write_text("js")
+    (tmp_path / "main.py").write_text("x = 1")
+
+    stats = FastRepoScanner(root=tmp_path, exclude=["node_modules"], count_ignored_files=False).scan()
+
+    assert stats.total_files == 1
+    assert stats.ignored_files == 0
+    assert stats.scanned_files == 1
+    assert "node_modules" in stats.ignored_dirs

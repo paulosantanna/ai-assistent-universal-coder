@@ -1,0 +1,15 @@
+[project]
+name = "universal-project-mcp"
+version = "0.1.0"
+description = "AEOS universal zero-to-production project planning MCP"
+requires-python = ">=3.10"
+dependencies = [
+  "mcp>=1.0.0",
+]
+
+[project.scripts]
+universal-project-mcp = "universal_project_mcp.server:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

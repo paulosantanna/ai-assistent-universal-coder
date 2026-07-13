@@ -1,17 +1,70 @@
 optimized_prompt_policy:
-  version: 1.2.0
+  version: 1.3.0
   goals:
     - reduce_context_size
     - prefer_file_refs
     - require_evidence
     - forbid_unbounded_reasoning
     - separate_facts_assumptions_risks_recommendations
+    - enforce_permission_boundaries
+    - redact_sensitive_outputs
+    - make_stop_conditions_explicit
+    - enforce_provider_token_budget
+    - minimize_subagent_context
 
-  max_prompt_sections: 8
+  max_prompt_sections: 10
   require_task_contract: true
   require_output_schema: true
   require_stop_conditions: true
   require_forbidden_actions: true
+  require_required_inputs: true
+  require_quality_gates: true
+  require_redaction_rules: true
+  require_tool_boundaries: true
+  default_token_budget: bounded_by_profile
+  token_budget_config: aeos/config/token-budget-governor.config.yaml
+
+  canonical_sections:
+    - objective
+    - scope_and_boundaries
+    - required_inputs
+    - evidence_rules
+    - tool_and_permission_boundaries
+    - constraints
+    - output_schema
+    - quality_gates
+    - stop_conditions
+    - response_discipline
+
+  output_fields:
+    - status
+    - facts
+    - assumptions
+    - risks
+    - recommendations
+    - evidence_refs
+    - performance
+    - blocking_conditions
+
+  surface_rules:
+    skills:
+      require_activation_boundary: true
+      require_non_activation_boundary: true
+      require_completion_criteria: true
+      require_evidence_refs: true
+    mcps:
+      require_capability_scope: true
+      require_redaction: true
+      require_approval_rule_for_mutation: true
+      require_path_or_network_boundary: true
+    lsps:
+      require_safe_preview: true
+      require_diagnostic_remediation: true
+      require_no_workspace_mutation_without_command: true
+    commands:
+      require_dry_run_when_available: true
+      require_clear_exit_status: true
+      require_evidence_or_validation_output: true
 
   anti_patterns:
     - vague_superagent_prompt
@@ -20,3 +73,11 @@ optimized_prompt_policy:
     - no_output_schema
     - no_permission_boundaries
     - no_token_budget
+    - broadcast_context_to_all_subagents
+    - unrequested_deep_research
+    - repeated_full_prompt_replay
+    - hidden_tool_bypass
+    - raw_secret_echo
+    - implicit_destructive_action
+    - ambiguous_success_criteria
+    - unverifiable_claim

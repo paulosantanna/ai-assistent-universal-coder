@@ -26,6 +26,29 @@ interface BatchResult {
 }
 
 const DEFAULT_USER_AGENT = 'AEOS-ContinuousTraining-MCP/1.0 (TypeScript Scraper)';
+const MAX_URLS = 100;
+const MAX_CONCURRENCY = 10;
+const MAX_TIMEOUT_MS = 60000;
+const MAX_RESPONSE_BYTES = 2_000_000;
+
+function normalizePositiveInteger(value: unknown, fallback: number, max: number): number {
+  const parsed = Number(value ?? fallback);
+  if (!Number.isFinite(parsed)) return fallback;
+  return Math.min(Math.max(Math.trunc(parsed), 1), max);
+}
+
+function normalizeUrl(rawUrl: string): string | null {
+  try {
+    const parsed = new URL(rawUrl);
+    if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
+      return null;
+    }
+    parsed.hash = '';
+    return parsed.toString();
+  } catch {
+    return null;
+  }
+}
 
 function extractContent(html: string, url: string): ScrapeResult {
   const startTime = Date.now();
@@ -61,8 +84,21 @@ function extractContent(html: string, url: string): ScrapeResult {
 
 async function scrapeSingle(url: string, timeout: number = 30000): Promise<ScrapeResult> {
   const startTime = Date.now();
+  const normalizedUrl = normalizeUrl(url);
+  if (!normalizedUrl) {
+    return {
+      url,
+      title: '',
+      content: '',
+      links: [],
+      statusCode: 0,
+      error: 'Unsupported or invalid URL',
+      responseTimeMs: Date.now() - startTime,
+    };
+  }
+
   try {
-    const response = await axios.get(url, {
+    const response = await axios.get(normalizedUrl, {
       timeout,
       headers: {
         'User-Agent': DEFAULT_USER_AGENT,
@@ -70,10 +106,12 @@ async function scrapeSingle(url: string, timeout: number = 30000): Promise<Scrap
         'Accept-Language': 'en-US,en;q=0.5',
       },
       maxRedirects: 5,
+      maxContentLength: MAX_RESPONSE_BYTES,
+      maxBodyLength: MAX_RESPONSE_BYTES,
       responseType: 'text',
     });
 
-    const result = extractContent(response.data, url);
+    const result = extractContent(response.data, normalizedUrl);
     result.statusCode = response.status;
     result.responseTimeMs = Date.now() - startTime;
     return result;
@@ -92,13 +130,14 @@ async function scrapeSingle(url: string, timeout: number = 30000): Promise<Scrap
 
 async function scrapeBatch(request: BatchRequest): Promise<BatchResult> {
   const startTime = Date.now();
-  const concurrency = request.concurrency || 5;
-  const timeout = request.timeout || 30000;
+  const concurrency = normalizePositiveInteger(request.concurrency, 5, MAX_CONCURRENCY);
+  const timeout = normalizePositiveInteger(request.timeout, 30000, MAX_TIMEOUT_MS);
 
   const queue = new PQueue({ concurrency });
   const results: ScrapeResult[] = [];
 
-  const tasks = request.urls.map((url) =>
+  const urls = Array.isArray(request.urls) ? request.urls.slice(0, MAX_URLS) : [];
+  const tasks = urls.map((url) =>
     queue.add(async () => {
       const result = await scrapeSingle(url, timeout);
       return result;

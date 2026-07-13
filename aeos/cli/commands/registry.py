@@ -2,29 +2,41 @@ from pathlib import Path
 
 
 def _load_registry_entries(workspace: Path):
-    import yaml
     from aeos.core.registries.registry_fragment_loader import RegistryFragmentLoader
     loader = RegistryFragmentLoader()
     entries = {"skills": [], "playbooks": [], "agents": [], "mcps": [], "lcps": []}
-    registry_dir = workspace / ".aeos" / "registries"
-    if registry_dir.exists():
-        for f in sorted(registry_dir.iterdir()):
+    seen = {key: set() for key in entries}
+
+    registry_dirs = [
+        workspace / ".aeos" / "derived" / "registries",
+        workspace / ".aeos" / "registries",
+        workspace / "aeos" / "registries",
+    ]
+
+    for registry_dir in registry_dirs:
+        if not registry_dir.exists():
+            continue
+        for f in sorted(registry_dir.glob("*")):
             if f.suffix in (".yaml", ".yml", ".json"):
                 try:
                     frag = loader.load_fragment(str(f))
                     if frag and frag.metadata.loaded:
-                        for e in frag.skills:
-                            entries["skills"].append(e.id)
-                        for e in frag.playbooks:
-                            entries["playbooks"].append(e.id)
-                        for e in frag.agents:
-                            entries["agents"].append(e.id)
-                        for e in frag.mcps:
-                            entries["mcps"].append(e.id)
-                        for e in frag.lcps:
-                            entries["lcps"].append(e.id)
+                        for kind, values in (
+                            ("skills", frag.skills),
+                            ("playbooks", frag.playbooks),
+                            ("agents", frag.agents),
+                            ("mcps", frag.mcps),
+                            ("lcps", frag.lcps),
+                        ):
+                            for e in values:
+                                if e.id in seen[kind]:
+                                    continue
+                                entries[kind].append(e.id)
+                                seen[kind].add(e.id)
                 except Exception:
                     pass
+        if any(entries.values()):
+            break
     return entries
 
 

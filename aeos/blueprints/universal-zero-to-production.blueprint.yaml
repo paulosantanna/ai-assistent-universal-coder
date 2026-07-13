@@ -1,0 +1,28 @@
+blueprint:
+  id: universal-zero-to-production
+  type: project
+  version: 1.0.0
+  description: Stack-agnostic project blueprint from requirements to production readiness.
+  required_decisions:
+  - project_name
+  - objective
+  - architecture
+  - languages
+  - databases
+  - deployment_target
+  - ci_provider
+  - token_budget_profile
+  phases:
+  - requirements_contract
+  - chromatic_architecture_decision
+  - stack_and_database_contract
+  - sandbox_scaffold
+  - tests_and_quality_gates
+  - security_and_supply_chain
+  - observability
+  - deployment_and_rollback
+  - production_readiness_judge
+  artifact_policy:
+    generate_in_sandbox_first: true
+    require_approval_to_apply: true
+    require_token_budget: true

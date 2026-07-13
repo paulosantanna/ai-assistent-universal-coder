@@ -23,3 +23,18 @@ rules:
     - main
     - master
     - develop
+
+prompt_contract:
+  objective: "Use this MCP only for its declared capability scope."
+  evidence_required: true
+  redact_outputs: true
+  tool_boundary: "Route access through AEOS MCP runtime and Tool Router policy checks."
+  response_rules:
+    - "Return evidence refs for material facts."
+    - "Mark assumptions and missing inputs explicitly."
+    - "Do not expose secrets, credentials, raw tokens or sensitive values."
+  stop_conditions:
+    - "required input is missing"
+    - "permission or policy is denied"
+    - "requested action exceeds MCP capability scope"
+    - "output cannot be redacted safely"

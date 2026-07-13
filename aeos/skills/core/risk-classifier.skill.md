@@ -30,6 +30,15 @@ Classify the risk level of proposed changes — considering scope, impact, rever
 - Patch/source analysis (SHA-256)
 - Risk classification report
 
+## Prompt Contract
+
+- State the objective, target scope, assumptions and constraints before execution.
+- Use only evidence-backed facts; mark uncertainty explicitly.
+- Route tool access through approved command, MCP or Tool Router paths.
+- Redact secrets, credentials, tokens and sensitive values.
+- Return facts, assumptions, risks, recommendations, evidence_refs and blocking_conditions when applicable.
+- Stop when required evidence, permissions, policy approval or input context is missing.
+
 ## Quality Gates
 - Risk levels must be one of: low, medium, high, critical
 - High/critical MUST have mitigation strategy

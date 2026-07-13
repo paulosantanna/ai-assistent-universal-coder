@@ -38,7 +38,7 @@ aeos/
 ## How to Add a New Skill
 
 1. Create the skill file: `aeos/skills/core/<id>.skill.md`
-2. Follow the required structure: Mission, Allowed Actions, Forbidden Actions, Inputs, Outputs, Evidence Required, Quality Gates
+2. Follow the required structure: Mission, Allowed Actions, Forbidden Actions, Inputs, Outputs, Evidence Required, Prompt Contract, Quality Gates
 3. Register it in: `aeos/registries/skills.registry.yaml`
 4. Add `skills` entry with: id, path, version, owner_agent, risk_level, capabilities
 5. If it needs new capabilities, add them to: `aeos/config/capabilities.yaml`
@@ -47,7 +47,7 @@ aeos/
 ## How to Add a New MCP
 
 1. Create the MCP config file: `aeos/mcps/<id>.mcp.yaml`
-2. Define: id, transport, tools, security constraints, redaction rules
+2. Define: id, transport, tools, security constraints, redaction rules and `prompt_contract`
 3. Register it in: `aeos/registries/mcps.registry.yaml`
 4. Add `mcps` entry with: id, type, config, risk_level, capabilities, approval_required
 5. Grant agent access in: `aeos/config/permissions.yaml` (agent_to_mcp section)
@@ -84,3 +84,27 @@ aeos/
 - Destructive actions require human approval
 - Judge is independent of implementer
 - Evidence is required for every action
+- Runtime prompts follow `aeos/docs/PROMPT_CONTRACT.md`
+
+## Verification
+
+Use the repository-level verifier before promoting AEOS changes:
+
+```bash
+python aeos/scripts/verify.py --suite quick
+python aeos/scripts/verify.py --suite full
+```
+
+The quick suite validates the AEOS doctor, registry and core tests. The full suite also validates skills, MCP packages, the language server and the TypeScript runtime build.
+
+## Execution Contract
+
+The Python execution layer exposes `ExecutionRequest`, `ExecutionResult`, `SkillResolver` and `SkillRunner` under `aeos.core.execution`.
+
+The first supported vertical slice is governed skill dry-run:
+
+```bash
+python -m aeos.cli.main skill run repo-scanner --dry-run --target .
+```
+
+This resolves the skill from the registry, validates the contract and required inputs, writes runtime evidence under `.aeos/evidence/<execution_id>/`, and returns a structured execution result without running external tools.

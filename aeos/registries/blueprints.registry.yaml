@@ -17,3 +17,6 @@ blueprints:
   - id: incident-response-standard
     type: incident-response
     path: aeos/blueprints/incident-response-standard.blueprint.yaml
+  - id: universal-zero-to-production
+    type: project
+    path: aeos/blueprints/universal-zero-to-production.blueprint.yaml

@@ -10,6 +10,7 @@ ci_gates:
     - tool_router_tests
     - mcp_registry_tests
     - evidence_integrity_tests
+    - performance_benchmark
 
   blockers:
     - secret_exposed
@@ -21,3 +22,4 @@ ci_gates:
     - wildcard_approval
     - auto_merge_enabled
     - auto_deploy_enabled
+    - performance_budget_breach

@@ -14,9 +14,30 @@ class TestSkillLoader:
         self.loader = SkillLoader(".")
 
     def test_loader_loads_consolidated_skills(self):
+        SkillRegistryResolver.clear_cache()
         resolver = SkillRegistryResolver(".")
         registry = resolver.load()
         assert len(registry) > 0, "Should load at least one skill"
+        assert SkillRegistryResolver.cache_size() >= 1
+
+    def test_registry_resolver_reuses_shared_cache(self):
+        SkillRegistryResolver.clear_cache()
+        first = SkillRegistryResolver(".")
+        second = SkillRegistryResolver(".")
+
+        first_registry = first.load()
+        cache_size = SkillRegistryResolver.cache_size()
+        second_registry = second.load()
+
+        assert cache_size >= 1
+        assert SkillRegistryResolver.cache_size() == cache_size
+        assert first_registry.keys() == second_registry.keys()
+
+    def test_loader_reuses_contract_instance(self):
+        contract_a = self.loader.load_skill_contract("repo-scanner")
+        contract_b = self.loader.load_skill_contract("repo-scanner")
+
+        assert contract_a is contract_b
 
     def test_loader_resolves_known_skill(self):
         contract = self.loader.load_skill_contract("repo-scanner")

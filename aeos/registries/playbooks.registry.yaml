@@ -3,15 +3,31 @@ playbooks:
     path: aeos/playbooks/project-analysis.playbook.md
     risk_level: low
     required_agents: [root, architect, security, judge]
-    required_skills: [repo-scanner, architecture-mapper, security-audit]
+    required_skills: [repo-scanner, architecture-mapper, chromatic-mega-brain, security-audit]
     required_lcps: [global-rules, security-governance]
     allowed_mcps: [filesystem-readonly, git-readonly]
+
+  - id: chromatic-decision
+    path: aeos/playbooks/chromatic-decision.playbook.md
+    risk_level: high
+    required_agents: [architect, judge]
+    required_skills: [chromatic-mega-brain, risk-classifier, anti-hallucination-evaluator]
+    required_lcps: [global-rules, security-governance, project-memory]
+    allowed_mcps: [filesystem-readonly, git-readonly]
+
+  - id: zero-to-production-project
+    path: aeos/playbooks/zero-to-production-project.playbook.md
+    risk_level: high
+    required_agents: [architect, coder, tester, security, devops, documenter, judge]
+    required_skills: [token-budget-governor, chromatic-mega-brain, universal-project-factory, change-trace-auditor, database-architecture-planner, production-deployment-planner, documentation, security-audit, test-generation]
+    required_lcps: [global-rules, zero-to-production, token-economy, documentation-standards, security-governance]
+    allowed_mcps: [universal-project, complete-docs, filesystem-readonly, filesystem-write-sandbox, test-runner-controlled, package-local]
 
   - id: documentation-generation
     path: aeos/playbooks/documentation-generation.playbook.md
     risk_level: medium
     required_agents: [documenter, architect, judge]
-    required_skills: [documentation, architecture-mapper]
+    required_skills: [documentation, architecture-mapper, chromatic-mega-brain]
     required_lcps: [global-rules, documentation-standards, security-governance]
     allowed_mcps: [filesystem-readonly, filesystem-write-sandbox]
 
@@ -43,7 +59,7 @@ playbooks:
     path: aeos/playbooks/code-change-proposal.playbook.md
     risk_level: high
     required_agents: [coder, tester, security, judge]
-    required_skills: [code-analyzer, patch-planner, test-generation, security-audit]
+    required_skills: [chromatic-mega-brain, code-analyzer, patch-planner, test-generation, security-audit]
     required_lcps: [global-rules, security-governance]
     allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, git-readonly]
 
@@ -54,3 +70,11 @@ playbooks:
     required_skills: [packaging, security-audit]
     required_lcps: [global-rules, security-governance]
     allowed_mcps: [filesystem-readonly, filesystem-write-sandbox]
+
+  - id: performance-optimization
+    path: aeos/playbooks/performance-optimization.playbook.md
+    risk_level: high
+    required_agents: [architect, coder, tester, judge]
+    required_skills: [performance-optimizer, token-budget-governor, change-trace-auditor, test-generation, chromatic-mega-brain]
+    required_lcps: [global-rules, token-economy, security-governance]
+    allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, test-runner-controlled, package-local]

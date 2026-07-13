@@ -98,6 +98,21 @@ Use evidence appropriate to the task:
 - authoritative sources;
 - generated artifact hashes.
 
+## Documentation Intelligence
+
+Before proposing a Python fix, detect the project Python version from runtime files, tool config, lockfiles, CI or source evidence. Query `docs-python-current` for language, stdlib, typing, packaging and version behavior claims.
+
+Use documentation evidence together with traceback and repository evidence. If the Python version cannot be detected or docs evidence is unavailable, return `BLOCKED` or `REVIEW` instead of guessing.
+
+## Prompt Contract
+
+- State the objective, target scope, assumptions and constraints before execution.
+- Use only evidence-backed facts; mark uncertainty explicitly.
+- Route tool access through approved command, MCP or Tool Router paths.
+- Redact secrets, credentials, tokens and sensitive values.
+- Return facts, assumptions, risks, recommendations, evidence_refs and blocking_conditions when applicable.
+- Stop when required evidence, permissions, policy approval or input context is missing.
+
 ## 10. Stop conditions
 
 Stop when:

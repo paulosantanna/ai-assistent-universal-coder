@@ -1,0 +1,97 @@
+mcp:
+  id: complete-docs
+  name: Complete Documentation MCP
+  protocol: model-context-protocol
+  version: '2026-07-12'
+  transport:
+    type: stdio
+    command: complete-docs-mcp
+    args: []
+  capabilities:
+    tools:
+    - name: docs.plan
+      description: Create an evidence-first documentation plan with required sections
+        and Mermaid diagrams.
+      security: read-only
+      input:
+        scope: string
+        audience: string
+        depth: string
+      output:
+        type: object
+    - name: docs.mermaid_template
+      description: Return a safe Mermaid template for architecture, sequence, flow,
+        state, ER, deployment or dependency diagrams.
+      security: read-only
+      input:
+        diagram_type: string
+        title: string
+      output:
+        type: object
+    - name: docs.validate_mermaid
+      description: Validate Mermaid source for supported headers, size and sensitive
+        terms.
+      security: read-only
+      input:
+        source: string
+      output:
+        type: object
+    - name: docs.package
+      description: Create a complete documentation package plan with output files,
+        evidence requirements and Mermaid diagrams.
+      security: read-only
+      input:
+        scope: string
+        audience: string
+        include_diagrams: boolean
+      output:
+        type: object
+    - name: docs.architecture_package
+      description: Create a complete architecture documentation package with README,
+        ADR, skill/MCP/LSP map, Mermaid diagrams and cloud readiness scorecard.
+      security: read-only
+      input:
+        scope: string
+        audience: string
+        maturity_target: string
+      output:
+        type: object
+  security:
+    allowed_operations:
+    - generate_plan
+    - generate_templates
+    - validate_mermaid
+    - package_documentation_plan
+    - package_architecture_documentation
+    write_allowed: false
+    redaction:
+      enabled: true
+      patterns:
+      - (?i)(password|secret|token|key|credential)[=:]\s*\S+
+    audit:
+      log_all_requests: true
+      log_generated_diagrams: true
+rules:
+  evidence_required: true
+  mermaid_required_for_complete_architecture_docs: true
+  no_raw_secret_values: true
+  diagrams_must_be_reviewable: true
+  large_diagrams_must_be_split: true
+prompt_contract:
+  objective: Generate complete, evidence-based documentation plans and Mermaid diagrams
+    without mutating repository files.
+  evidence_required: true
+  redact_outputs: true
+  tool_boundary: Route documentation planning and Mermaid validation through AEOS
+    MCP runtime and Tool Router policy checks.
+  response_rules:
+  - Return documentation sections, Markdown artifacts, ADR candidates, Mermaid diagrams,
+    cloud readiness gates, evidence requirements and blocking conditions.
+  - Do not claim architecture facts without inspected source evidence.
+  - Keep Mermaid diagrams compact, reviewable and free of sensitive values.
+  - Mark assumptions and missing inputs explicitly.
+  stop_conditions:
+  - required scope or evidence input is missing
+  - diagram source contains sensitive values
+  - requested diagram is too large to review safely
+  - permission or policy is denied

@@ -112,6 +112,9 @@ modes:
     except KeyboardInterrupt:
         logger.info("Interrupted by user")
         sys.exit(EXIT_SUCCESS)
+    except ModuleNotFoundError as exc:
+        _print_missing_dependency(exc)
+        sys.exit(EXIT_INVALID_CONFIG)
     except Exception:
         logger.exception("Fatal error in mode '%s'", resolved_mode)
         sys.exit(EXIT_INTERNAL_ERROR)
@@ -202,6 +205,24 @@ def _setup_signal_handlers() -> None:
         signal.signal(signal.SIGTERM, _sigterm_handler)
     except (ValueError, AttributeError):
         pass
+
+
+def _print_missing_dependency(exc: ModuleNotFoundError) -> None:
+    package_hints = {
+        "lsprotocol": "pip install -e packages/aeos-language-server",
+        "pygls": "pip install -e packages/aeos-language-server",
+        "pydantic": "pip install -e packages/aeos-language-server",
+        "yaml": "pip install -e packages/aeos-language-server",
+        "tomli": "pip install -e packages/aeos-language-server",
+    }
+    missing = exc.name or "unknown"
+    hint = package_hints.get(missing, "pip install -e packages/aeos-language-server")
+    print(
+        f"Missing dependency for aeos-lsp: {missing}\n"
+        f"Install the language server dependencies with:\n"
+        f"  {hint}",
+        file=sys.stderr,
+    )
 
 
 if __name__ == "__main__":

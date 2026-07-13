@@ -709,3 +709,42 @@ A chromatic run is complete only when:
 ## Judge Verdict
 ## Candidate Lessons
 ```
+
+## 24. AEOS runtime integration
+
+Inside AEOS, this skill is a governed decision orchestrator.
+
+Use it before:
+
+- architecture decisions;
+- cloud readiness decisions;
+- migration strategies;
+- high-risk refactors;
+- security tradeoff reviews;
+- AEOS evolution phases;
+- comparisons between competing solution paths.
+
+Do not use it to replace:
+
+- deterministic specialized skills;
+- direct test execution;
+- simple file edits;
+- single-domain bug fixes already owned by a precise skill.
+
+Runtime contract:
+
+1. receive `objective`, `decision_type`, optional `constraints`, optional `evidence_refs` and optional `max_colors`;
+2. select the smallest useful color set;
+3. generate color handoffs and a decision matrix;
+4. return `PASS` only when high-impact decisions include evidence refs;
+5. return `BLOCKED` when objective or required evidence is missing;
+6. route accepted synthesis through Judge before implementation.
+
+## Prompt Contract
+
+- State the objective, target scope, assumptions and constraints before execution.
+- Use only evidence-backed facts; mark uncertainty explicitly.
+- Route tool access through approved command, MCP or Tool Router paths.
+- Redact secrets, credentials, tokens and sensitive values.
+- Return facts, assumptions, risks, recommendations, evidence_refs and blocking_conditions when applicable.
+- Stop when required evidence, permissions, policy approval or input context is missing.

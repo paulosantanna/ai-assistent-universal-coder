@@ -7,8 +7,8 @@ from aeos.core.skill_engine.skill_loader import SkillLoader
 
 
 class SkillContractValidator:
-    def __init__(self, workspace_root: str = "."):
-        self.loader = SkillLoader(workspace_root)
+    def __init__(self, workspace_root: str = ".", loader: Optional[SkillLoader] = None):
+        self.loader = loader or SkillLoader(workspace_root)
 
     def validate(self, skill_id: str) -> dict[str, any]:
         findings: list[str] = []

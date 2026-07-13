@@ -15,7 +15,7 @@ from aeos.core.evidence.execution_resolver import (
 def main():
     parser = argparse.ArgumentParser(
         prog="aeos",
-        description="AEOS Chief Staff - AI Engineering Operations Suite",
+        description="AEOS Chief Staff - evidence-backed AI Engineering Operations Suite",
     )
     subparsers = parser.add_subparsers(dest="command", help="Available commands")
 
@@ -33,7 +33,7 @@ def main():
     doctor_parser.set_defaults(func="cmd_doctor")
 
     # scan
-    scan_parser = subparsers.add_parser("scan", help="Scan target for analysis")
+    scan_parser = subparsers.add_parser("scan", help="Scan target and produce evidence-backed analysis")
     scan_parser.add_argument("--target", default=".", help="Target directory to scan")
     scan_parser.add_argument("--exclude", action="append", default=[], help="Additional exclude pattern (repeatable)")
     scan_parser.add_argument("--max-file-mb", type=int, default=10, help="Max file size in MB before metadata-only (default: 10)")
@@ -44,7 +44,7 @@ def main():
     # skill
     skill_parser = subparsers.add_parser("skill", help="Skill commands")
     skill_sub = skill_parser.add_subparsers(dest="skill_command")
-    skill_run = skill_sub.add_parser("run", help="Run a skill")
+    skill_run = skill_sub.add_parser("run", help="Run a bounded skill with evidence and stop-condition checks")
     add_aeos_root(skill_run)
     skill_run.add_argument("skill_id", help="Skill identifier")
     skill_run.add_argument("--target", default=".", help="Target directory")
@@ -54,7 +54,7 @@ def main():
     # playbook
     playbook_parser = subparsers.add_parser("playbook", help="Playbook commands")
     playbook_sub = playbook_parser.add_subparsers(dest="playbook_command")
-    playbook_run = playbook_sub.add_parser("run", help="Run a playbook")
+    playbook_run = playbook_sub.add_parser("run", help="Run a governed playbook with evidence and approval gates")
     add_aeos_root(playbook_run)
     playbook_run.add_argument("playbook_id", help="Playbook identifier")
     playbook_run.add_argument("--target", default=".", help="Target directory")
@@ -64,7 +64,7 @@ def main():
     # agent
     agent_parser = subparsers.add_parser("agent", help="Agent commands")
     agent_sub = agent_parser.add_subparsers(dest="agent_command")
-    agent_run = agent_sub.add_parser("run", help="Run an agent task")
+    agent_run = agent_sub.add_parser("run", help="Run an agent task with explicit objective, scope and evidence")
     add_aeos_root(agent_run)
     agent_run.add_argument("agent_id", help="Agent identifier")
     agent_run.add_argument("--objective", required=True, help="Agent objective")
@@ -75,7 +75,7 @@ def main():
     # judge
     judge_parser = subparsers.add_parser("judge", help="Judge commands")
     judge_sub = judge_parser.add_subparsers(dest="judge_command")
-    judge_run = judge_sub.add_parser("run", help="Run judge evaluation")
+    judge_run = judge_sub.add_parser("run", help="Run judge evaluation against evidence and policy gates")
     add_aeos_root(judge_run)
     judge_run.add_argument("--execution-id", default="latest", help="Execution ID")
     judge_run.set_defaults(func="cmd_judge_run")
@@ -83,30 +83,42 @@ def main():
     # evals
     evals_parser = subparsers.add_parser("evals", help="Eval commands")
     evals_sub = evals_parser.add_subparsers(dest="evals_command")
-    evals_run = evals_sub.add_parser("run", help="Run eval suites")
+    evals_run = evals_sub.add_parser("run", help="Run eval suites with deterministic pass/block review")
     evals_run.add_argument("--suite", default="all", help="Suite ID or 'all'")
     evals_run.set_defaults(func="cmd_evals_run")
 
     # readiness
     readiness_parser = subparsers.add_parser("readiness", help="Readiness commands")
     readiness_sub = readiness_parser.add_subparsers(dest="readiness_command")
-    readiness_run = readiness_sub.add_parser("run", help="Run readiness audit")
+    readiness_run = readiness_sub.add_parser("run", help="Run readiness audit with risks, blockers and evidence")
     readiness_run.set_defaults(func="cmd_readiness_run")
+
+    # performance
+    performance_parser = subparsers.add_parser("performance", help="Performance commands")
+    performance_sub = performance_parser.add_subparsers(dest="performance_command")
+    performance_benchmark = performance_sub.add_parser("benchmark", help="Run AEOS hot-path performance benchmarks")
+    add_aeos_root(performance_benchmark)
+    performance_benchmark.add_argument("--target", default=".", help="Workspace target for reports")
+    performance_benchmark.add_argument("--profile", default="quick", choices=["quick"], help="Benchmark profile")
+    performance_benchmark.add_argument("--iterations", type=int, default=3, help="Iterations per benchmark case")
+    performance_benchmark.add_argument("--fail-on", default="warn", choices=["warn", "breach"], help="Exit non-zero on warnings or only on budget breaches")
+    performance_benchmark.add_argument("--json", action="store_true", help="Print JSON output")
+    performance_benchmark.set_defaults(func="cmd_performance_benchmark")
 
     # package
     package_parser = subparsers.add_parser("package", help="Package commands")
     package_sub = package_parser.add_subparsers(dest="package_command")
-    pkg_create = package_sub.add_parser("create", help="Create execution package")
+    pkg_create = package_sub.add_parser("create", help="Create execution package with evidence integrity")
     pkg_create.add_argument("--execution-id", default="latest", help="Execution ID")
     pkg_create.set_defaults(func="cmd_package_create")
-    pkg_verify = package_sub.add_parser("verify", help="Verify package")
+    pkg_verify = package_sub.add_parser("verify", help="Verify package hashes, evidence and structure")
     pkg_verify.add_argument("--path", required=True, help="Path to package ZIP")
     pkg_verify.set_defaults(func="cmd_package_verify")
 
     # registry
     registry_parser = subparsers.add_parser("registry", help="Registry commands")
     registry_sub = registry_parser.add_subparsers(dest="registry_command")
-    registry_validate = registry_sub.add_parser("validate", help="Validate registry")
+    registry_validate = registry_sub.add_parser("validate", help="Validate registry references and prompt contracts")
     registry_validate.set_defaults(func="cmd_registry_validate")
     rl = registry_sub.add_parser("list", help="List registry entities")
     rl.add_argument("entity", nargs="?", default="all",
@@ -117,16 +129,16 @@ def main():
     # evidence
     evidence_parser = subparsers.add_parser("evidence", help="Evidence commands")
     evidence_sub = evidence_parser.add_subparsers(dest="evidence_command")
-    ev_list = evidence_sub.add_parser("list", help="List evidence")
+    ev_list = evidence_sub.add_parser("list", help="List evidence records")
     ev_list.set_defaults(func="cmd_evidence_list")
-    ev_verify = evidence_sub.add_parser("verify", help="Verify evidence")
+    ev_verify = evidence_sub.add_parser("verify", help="Verify evidence manifests and integrity")
     ev_verify.add_argument("--execution-id", default="latest", help="Execution ID")
     ev_verify.add_argument("--allow-partial", action="store_true", help="Allow partial (missing manifest) without blocking")
     ev_verify.add_argument("--execution-mode", default=RESOLVE_LATEST_COMPLETE,
                            choices=[RESOLVE_LATEST_ANY, RESOLVE_LATEST_COMPLETE, RESOLVE_LATEST_JUDGE, RESOLVE_LATEST_RUNTIME],
                            help="How to resolve 'latest' execution")
     ev_verify.set_defaults(func="cmd_evidence_verify")
-    ev_report = evidence_sub.add_parser("report", help="Evidence report")
+    ev_report = evidence_sub.add_parser("report", help="Generate evidence report with limitations")
     ev_report.add_argument("--execution-id", default="latest", help="Execution ID")
     ev_report.set_defaults(func="cmd_evidence_report")
 
@@ -202,6 +214,7 @@ from aeos.cli.commands.run_agent import cmd_agent_run
 from aeos.cli.commands.judge import cmd_judge_run
 from aeos.cli.commands.evals import cmd_evals_run
 from aeos.cli.commands.readiness import cmd_readiness_run
+from aeos.cli.commands.performance import cmd_performance_benchmark
 from aeos.cli.commands.package import cmd_package_create, cmd_package_verify
 from aeos.cli.commands.registry import cmd_registry_validate, cmd_registry_list
 from aeos.cli.commands.evidence import cmd_evidence_list, cmd_evidence_verify, cmd_evidence_report

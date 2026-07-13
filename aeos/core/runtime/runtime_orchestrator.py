@@ -37,6 +37,8 @@ from aeos.core.judge.judge_engine import JudgeEngine
 from aeos.core.judge.judge_models import JUDGE_STATUS_PASS
 from aeos.core.evals.eval_runner import EvalRunner
 from aeos.core.readiness.production_gate import ProductionGate
+from aeos.core.execution.execution_models import ExecutionRequest
+from aeos.core.execution.skill_runner import SkillRunner
 
 
 class RuntimeOrchestrator:
@@ -93,6 +95,35 @@ class RuntimeOrchestrator:
     def run_skill(self, request: RuntimeRequest) -> RuntimeResult:
         started = monotonic()
         execution_id = request.execution_id
+
+        if request.dry_run:
+            runner = SkillRunner(aeos_root=str(self.aeos_root), workspace_root=str(self.workspace_root))
+            execution_result = runner.run(
+                ExecutionRequest(
+                    execution_id=execution_id,
+                    run_type="skill",
+                    entity_id=request.entity_id,
+                    actor=request.actor,
+                    role=request.role,
+                    input=request.input,
+                    target_path=request.target_path,
+                    dry_run=True,
+                    approval_id=request.approval_id,
+                )
+            )
+            result = RuntimeResult(
+                execution_id=execution_id,
+                run_type="skill",
+                entity_id=request.entity_id,
+                status=execution_result.status,
+                result=execution_result.to_dict(),
+                evidence_refs=list(execution_result.evidence_refs),
+                blocking_conditions=list(execution_result.blocking_conditions),
+                duration_ms=int((monotonic() - started) * 1000),
+                error=execution_result.error,
+            )
+            self.reporter.generate_report(execution_id, request, result)
+            return result
 
         self.evidence_store.store_record(execution_id, "runtime-request", request.to_dict())
 

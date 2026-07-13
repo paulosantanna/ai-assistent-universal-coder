@@ -6,6 +6,35 @@ from typing import Any
 logger = logging.getLogger(__name__)
 
 
+PROMPT_CONTRACT = {
+    "evidence_rules": [
+        "facts require inspected evidence",
+        "assumptions must be explicit",
+        "missing evidence blocks execution",
+    ],
+    "tool_boundaries": [
+        "route tools through AEOS Tool Router or MCP runtime",
+        "do not mutate workspace state during preview",
+        "redact secrets and sensitive values",
+    ],
+    "output_fields": [
+        "status",
+        "facts",
+        "assumptions",
+        "risks",
+        "recommendations",
+        "evidence_refs",
+        "blocking_conditions",
+    ],
+    "stop_conditions": [
+        "missing required input",
+        "permission or policy denied",
+        "required tool unavailable",
+        "schema cannot be satisfied",
+    ],
+}
+
+
 def dry_run_skill(server: Any, args: dict[str, Any]) -> dict[str, Any]:
     skill_ref = args.get("skill_ref", "")
     if not skill_ref:
@@ -81,6 +110,7 @@ def dry_run_skill(server: Any, args: dict[str, Any]) -> dict[str, Any]:
             "tool_count": len(tools),
             "visibility": str(visibility),
             "documentation": documentation,
+            "prompt_contract": PROMPT_CONTRACT,
             "warnings": [f"Missing required input: {m}" for m in missing_inputs],
         }
     except Exception as exc:

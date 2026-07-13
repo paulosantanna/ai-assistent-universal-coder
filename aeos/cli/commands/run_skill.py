@@ -25,7 +25,12 @@ def cmd_skill_run(args) -> int:
         execution_id="",
         run_type="skill",
         entity_id=args.skill_id,
-        input={"skill_id": args.skill_id, "target": str(target_path)},
+        input={
+            "skill_id": args.skill_id,
+            "target": str(target_path),
+            "repository_path": str(target_path),
+            "scan_depth": "standard",
+        },
         target_path=str(target_path),
         dry_run=getattr(args, "dry_run", False),
         actor="cli-user",

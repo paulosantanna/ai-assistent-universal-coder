@@ -30,6 +30,18 @@ def _create_lightweight_server(config: LSPClientConfig | None = None) -> Any:
     return AEOSLanguageServer(config=cfg)
 
 
+def _add_workspace_folder(server: Any, path: Path) -> None:
+    from aeos_lsp.workspace import WorkspaceFolderInfo
+    server.workspace_manager.add_folder(
+        WorkspaceFolderInfo(
+            uri=path.as_uri(),
+            name=path.name or str(path),
+            trusted=True,
+            config=server._config,
+        )
+    )
+
+
 def _validate_workspace_path(path: str) -> Path:
     p = Path(path).resolve()
     if not p.exists():
@@ -47,11 +59,7 @@ def cli_validate(workspace_path: str) -> int:
 
     try:
         server = _create_lightweight_server()
-        server.workspace_manager.add_folder(
-            server.workspace_manager.__class__.__module__  # placeholder
-        )
-
-        from aeos_lsp.workspace import WorkspaceFolderInfo
+        _add_workspace_folder(server, p)
         from aeos_lsp.index import WorkspaceIndexer, SqliteStore
         from aeos_lsp.parsing import ParserDispatcher
 
@@ -106,9 +114,9 @@ def cli_index(workspace_path: str) -> int:
 
     try:
         from aeos_lsp.index import WorkspaceIndexer, SqliteStore
-        from pathlib import Path
 
         server = _create_lightweight_server()
+        _add_workspace_folder(server, p)
         store = SqliteStore(workspace_root=p)
         indexer = WorkspaceIndexer(
             workspace_manager=server.workspace_manager,
@@ -117,13 +125,14 @@ def cli_index(workspace_path: str) -> int:
         )
 
         start = time.monotonic()
-        result = indexer.index_workspace()
+        indexer.build_full_index(server.workspace_manager, server.semantic_model)
         elapsed = time.monotonic() - start
 
-        indexed = sum(1 for s in result.values() if s.status.value == "indexed")
-        failed = sum(1 for s in result.values() if s.status.value == "failed")
-        skipped = sum(1 for s in result.values() if s.status.value == "skipped")
-        total = len(result)
+        statuses = indexer.get_indexing_statuses()
+        indexed = sum(1 for s in statuses.values() if s.value == "indexed")
+        failed = sum(1 for s in statuses.values() if s.value == "failed")
+        skipped = sum(1 for s in statuses.values() if s.value == "unindexed")
+        total = len(statuses)
 
         print(f"Indexed {indexed}/{total} documents ({failed} failed, {skipped} skipped) in {elapsed:.2f}s", file=sys.stderr)
         return EXIT_DIAGNOSTICS_ERROR if failed > 0 else EXIT_SUCCESS

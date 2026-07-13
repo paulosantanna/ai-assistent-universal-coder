@@ -1,0 +1,91 @@
+mcp:
+  id: universal-project
+  name: Universal Project MCP
+  protocol: model-context-protocol
+  version: '2026-07-12'
+  transport:
+    type: stdio
+    command: universal-project-mcp
+    args: []
+  capabilities:
+    tools:
+    - name: project.plan
+      description: Create a zero-to-production project plan from objective, architecture,
+        language, database and deployment choices.
+      security: read-only
+      input:
+        objective: string
+        architecture: string
+        languages: array
+        databases: array
+        deployment_target: string
+      output:
+        type: object
+    - name: project.stack_matrix
+      description: Return required runtime, language and database decisions.
+      security: read-only
+      input:
+        languages: array
+        databases: array
+      output:
+        type: object
+    - name: project.production_checklist
+      description: Return production gates for architecture and deployment target.
+      security: read-only
+      input:
+        architecture: string
+        deployment_target: string
+      output:
+        type: object
+    - name: project.scaffold_manifest
+      description: Return sandbox-only scaffold manifest for a new project.
+      security: read-only
+      input:
+        project_name: string
+        architecture: string
+        languages: array
+      output:
+        type: object
+    - name: project.scaffold_package
+      description: Return concrete sandbox-first project files for the requested
+        architecture, languages and databases.
+      security: read-only
+      input:
+        project_name: string
+        objective: string
+        architecture: string
+        languages: array
+        databases: array
+        deployment_target: string
+      output:
+        type: object
+  security:
+    allowed_operations:
+    - plan_project
+    - plan_stack
+    - plan_production_gates
+    - plan_scaffold_manifest
+    - plan_scaffold_package
+    write_allowed: false
+    audit:
+      log_all_requests: true
+rules:
+  evidence_required: true
+  write_sandbox_only_until_approval: true
+  token_budget_required: true
+  no_raw_secret_values: true
+prompt_contract:
+  objective: Plan any requested architecture, language and database combination from zero to production without mutating workspace files.
+  evidence_required: true
+  redact_outputs: true
+  response_rules:
+  - Return project phases, required decisions, artifacts, concrete sandbox files,
+    gates and blockers.
+  - Do not invent language, database or deployment choices when the user has not selected them.
+  - Require token budget review before LLM-heavy work or subagent delegation.
+  stop_conditions:
+  - objective missing
+  - architecture missing and cannot be inferred from explicit constraints
+  - language/runtime missing
+  - database decision missing
+  - token budget exceeded

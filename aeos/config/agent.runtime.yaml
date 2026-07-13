@@ -12,6 +12,10 @@ agent_runtime:
   default_timeout_seconds: 900
   max_subagents_per_task: 5
   max_delegation_depth: 2
+  require_token_budget: true
+  token_budget_config: aeos/config/token-budget-governor.config.yaml
+  require_change_tracking: true
+  change_tracking_config: aeos/config/change-tracking.config.yaml
 
   prohibited:
     direct_tool_access: true
@@ -19,6 +23,8 @@ agent_runtime:
     raw_secret_context: true
     scope_expansion_without_approval: true
     autonomous_production_mutation: true
+    context_broadcast_to_all_subagents: true
+    unrequested_work: true
 
   trace:
     file: ".aeos/evidence/{execution_id}/agent-trace.jsonl"
@@ -30,3 +36,10 @@ agent_runtime:
     dir: ".aeos/evidence/{execution_id}/tasks"
     require_json: true
     require_sha256: true
+
+  change_tracking:
+    manifest: ".aeos/sandbox/{execution_id}/.aeos/rollback/change-manifest.json"
+    rollback_plan: ".aeos/sandbox/{execution_id}/.aeos/rollback/rollback-plan.json"
+    rollback_summary: ".aeos/sandbox/{execution_id}/.aeos/rollback/rollback-plan.md"
+    evidence_type: "change-trace"
+    fail_on_untracked_mutation: true

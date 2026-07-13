@@ -15,6 +15,34 @@ class EvidenceStore:
         self._last_hash: str = "0" * 64
 
     def store_record(self, execution_id: str, record_type: str, content: dict[str, Any]) -> str:
+        return self.store_records(execution_id, record_type, [content])[0]
+
+    def store_records(self, execution_id: str, record_type: str, contents: list[dict[str, Any]]) -> list[str]:
+        if not contents:
+            return []
+
+        base = self.output_dir / execution_id
+        base.mkdir(parents=True, exist_ok=True)
+        fp = self._record_path(base, record_type)
+        record_ids: list[str] = []
+
+        with open(fp, "a", encoding="utf-8") as f:
+            for content in contents:
+                record, chain_link = self._build_record(execution_id, record_type, content)
+                f.write(json.dumps(record, ensure_ascii=False) + "\n")
+                record_ids.append(record["record_id"])
+                self._hash_chain.append(chain_link)
+
+        self._write_hash_chain(base)
+
+        return record_ids
+
+    def _build_record(
+        self,
+        execution_id: str,
+        record_type: str,
+        content: dict[str, Any],
+    ) -> tuple[dict[str, Any], HashChainLink]:
         record_id = generate_record_id()
         ts = now_iso()
 
@@ -29,19 +57,6 @@ class EvidenceStore:
 
         record["sha256"] = record_hash
 
-        base = self.output_dir / execution_id
-        base.mkdir(parents=True, exist_ok=True)
-
-        if record_type in ("permission_decision", "policy_decision", "audit", "tool_call"):
-            log_file = record_type.replace("_decision", "").replace("_", "-")
-            fp = base / f"{record_type}s.jsonl"
-        else:
-            fp = base / f"{record_type}.jsonl"
-
-        with open(fp, "a", encoding="utf-8") as f:
-            json_record = json.dumps(record, ensure_ascii=False)
-            f.write(json_record + "\n")
-
         chain_link = HashChainLink(
             index=len(self._hash_chain),
             record_type=record_type,
@@ -49,25 +64,25 @@ class EvidenceStore:
             previous_sha256=self._last_hash,
             timestamp=ts,
         )
-        self._hash_chain.append(chain_link)
         self._last_hash = record_hash
-
-        self._write_hash_chain(base)
-
-        return record_id
+        return record, chain_link
 
     def store_decisions(
         self, execution_id: str, record_type: str, decisions: list[Any]
     ) -> list[str]:
-        ids = []
+        contents = []
         for d in decisions:
             if hasattr(d, "to_dict"):
                 content = d.to_dict()
             else:
                 content = d
-            rid = self.store_record(execution_id, record_type, content)
-            ids.append(rid)
-        return ids
+            contents.append(content)
+        return self.store_records(execution_id, record_type, contents)
+
+    def _record_path(self, base: Path, record_type: str) -> Path:
+        if record_type in ("permission_decision", "policy_decision", "audit", "tool_call"):
+            return base / f"{record_type}s.jsonl"
+        return base / f"{record_type}.jsonl"
 
     def _write_hash_chain(self, base: Path) -> None:
         fp = base / "hash-chain.jsonl"

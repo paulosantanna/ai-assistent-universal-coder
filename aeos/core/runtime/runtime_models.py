@@ -20,6 +20,10 @@ class RuntimeRequest:
     dry_run: bool = True
     approval_id: Optional[str] = None
 
+    def __post_init__(self) -> None:
+        if not self.execution_id:
+            self.execution_id = generate_execution_id()
+
     def to_dict(self) -> dict[str, Any]:
         return {
             "execution_id": self.execution_id,

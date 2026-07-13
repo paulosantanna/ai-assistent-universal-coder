@@ -1,0 +1,41 @@
+chromatic_mega_brain:
+  version: 1.0.0
+  default_max_colors: 5
+  activation_policy:
+    activate_for:
+    - architecture_decision
+    - cloud_readiness
+    - migration_strategy
+    - high_risk_refactor
+    - security_tradeoff
+    - aeos_evolution
+    - competing_solution_comparison
+    - adversarial_pre_implementation_review
+    do_not_activate_for:
+    - deterministic_single_step_task
+    - simple_file_edit
+    - direct_test_run
+    - specialized_skill_sufficient
+  required_gates:
+  - smallest_useful_color_set
+  - evidence_before_claims
+  - contradictions_before_synthesis
+  - judge_review_for_high_impact_decisions
+  - no_raw_memory_promotion
+  high_impact_decision_types:
+  - architecture
+  - cloud-readiness
+  - migration
+  - security
+  - production-readiness
+  memory_policy:
+    read_scope: validated_skill_memory_only
+    write_scope: candidate_lessons_only
+    promotion_requires:
+    - repeated_success
+    - evidence_refs
+    - judge_acceptance
+    forbidden:
+    - promote_raw_analysis
+    - store_secrets
+    - store_unverified_architecture_claims

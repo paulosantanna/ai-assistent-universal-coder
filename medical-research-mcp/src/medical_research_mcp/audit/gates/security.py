@@ -23,6 +23,21 @@ PROMPT_INJECTION_TERMS = [
 ]
 
 
+def _redact_secret_summary(value: str) -> str:
+    if ": matched '" in value:
+        rel = value.split(":", 1)[0]
+        return f"{rel}: matched secret pattern ***REDACTED***"
+    redacted = value
+    for marker in SECRET_PATTERNS:
+        if marker and marker.lower() in redacted.lower():
+            redacted = redacted.replace(marker, "[SECRET_PATTERN]")
+            redacted = redacted.replace(marker.upper(), "[SECRET_PATTERN]")
+    if "=" in redacted:
+        prefix = redacted.split("=", 1)[0].strip()
+        return f"{prefix}=***REDACTED***"
+    return redacted[:120]
+
+
 def check_security(repository: str, run_scan: bool = True, max_output_chars: int = 50000) -> GateResult:
     """Gate 9: Security audit — real scanning, not just config existence check."""
     gate = GateResult(
@@ -61,7 +76,7 @@ def check_security(repository: str, run_scan: bool = True, max_output_chars: int
                             "type": "command_output",
                             "source": "git grep secret patterns",
                             "sha256": "",
-                            "summary": s[:200],
+                            "summary": _redact_secret_summary(s),
                             "verified": False,
                         })
                     issues.append("secrets_found")
@@ -92,7 +107,7 @@ def check_security(repository: str, run_scan: bool = True, max_output_chars: int
                     "type": "source_code",
                     "source": s,
                     "sha256": "",
-                    "summary": s[:200],
+                    "summary": _redact_secret_summary(s),
                     "verified": False,
                 })
             issues.append("secrets_found")

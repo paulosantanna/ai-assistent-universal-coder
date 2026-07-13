@@ -1,0 +1,256 @@
+language_documentation_sources:
+  version: 1.0.0
+  generated_at: '2026-07-12'
+  source_policy:
+    prefer:
+    - official documentation
+    - official API docs
+    - language specifications
+    - official release notes
+    allow_secondary_when:
+    - official docs are incomplete
+    - migration impact needs ecosystem context
+    require:
+    - source URL
+    - version label
+    - authority label
+    - retrieval timestamp at runtime
+    forbid:
+    - uncited language claims
+    - community-only migration advice for breaking changes
+    - copying long copyrighted doc passages
+  profiles:
+  - id: docs-java-11
+    name: Java 11 Documentation MCP
+    language: java
+    version: '11'
+    status: legacy-lts
+    domains:
+    - docs.oracle.com
+    - www.oracle.com
+    - openjdk.org
+    - jdk.java.net
+    sources:
+    - name: Oracle JDK 11 Documentation
+      url: https://docs.oracle.com/en/java/javase/11/
+      authority: official
+      type: documentation
+    - name: Java SE 11 API
+      url: https://docs.oracle.com/en/java/javase/11/docs/api/index.html
+      authority: official
+      type: api
+    - name: OpenJDK Archive
+      url: https://openjdk.org/projects/jdk/11/
+      authority: official
+      type: release
+  - id: docs-java-17
+    name: Java 17 Documentation MCP
+    language: java
+    version: '17'
+    status: lts
+    domains:
+    - docs.oracle.com
+    - www.oracle.com
+    - openjdk.org
+    - jdk.java.net
+    sources:
+    - name: Oracle JDK 17 Documentation
+      url: https://docs.oracle.com/en/java/javase/17/
+      authority: official
+      type: documentation
+    - name: Java SE 17 API
+      url: https://docs.oracle.com/en/java/javase/17/docs/api/index.html
+      authority: official
+      type: api
+    - name: OpenJDK 17 Project
+      url: https://openjdk.org/projects/jdk/17/
+      authority: official
+      type: release
+  - id: docs-java-21
+    name: Java 21 Documentation MCP
+    language: java
+    version: '21'
+    status: previous-lts
+    domains:
+    - docs.oracle.com
+    - www.oracle.com
+    - openjdk.org
+    - jdk.java.net
+    sources:
+    - name: Oracle JDK 21 Documentation
+      url: https://docs.oracle.com/en/java/javase/21/
+      authority: official
+      type: documentation
+    - name: Java SE 21 API
+      url: https://docs.oracle.com/en/java/javase/21/docs/api/index.html
+      authority: official
+      type: api
+    - name: OpenJDK 21 Project
+      url: https://openjdk.org/projects/jdk/21/
+      authority: official
+      type: release
+  - id: docs-java-25
+    name: Java 25 Documentation MCP
+    language: java
+    version: '25'
+    status: current-lts
+    domains:
+    - docs.oracle.com
+    - www.oracle.com
+    - openjdk.org
+    - jdk.java.net
+    sources:
+    - name: Oracle JDK 25 Documentation
+      url: https://docs.oracle.com/en/java/javase/25/
+      authority: official
+      type: documentation
+    - name: Java SE 25 API
+      url: https://docs.oracle.com/en/java/javase/25/docs/api/index.html
+      authority: official
+      type: api
+    - name: OpenJDK 25 Builds
+      url: https://jdk.java.net/25/
+      authority: official
+      type: release
+  - id: docs-java-26
+    name: Java 26 Documentation MCP
+    language: java
+    version: '26'
+    status: current-feature-release
+    domains:
+    - docs.oracle.com
+    - www.oracle.com
+    - openjdk.org
+    - jdk.java.net
+    sources:
+    - name: Oracle JDK 26 Documentation
+      url: https://docs.oracle.com/en/java/javase/26/
+      authority: official
+      type: documentation
+    - name: OpenJDK JDK 26 GA
+      url: https://jdk.java.net/26/
+      authority: official
+      type: release
+    - name: OpenJDK 26 Project
+      url: https://openjdk.org/projects/jdk/26/
+      authority: official
+      type: release
+  - id: docs-python-current
+    name: Python Current Documentation MCP
+    language: python
+    version: current
+    resolved_version: '3.14'
+    status: current-stable
+    domains:
+    - docs.python.org
+    - www.python.org
+    - pypi.org
+    - packaging.python.org
+    sources:
+    - name: Python Current Documentation
+      url: https://docs.python.org/3/
+      authority: official
+      type: documentation
+    - name: Python Versioned Documentation
+      url: https://www.python.org/doc/versions/
+      authority: official
+      type: release
+    - name: Python Packaging User Guide
+      url: https://packaging.python.org/
+      authority: official
+      type: packaging
+  - id: docs-node-current
+    name: Node.js Current Documentation MCP
+    language: node
+    version: current
+    resolved_version: '26'
+    status: current
+    domains:
+    - nodejs.org
+    - github.com
+    - api.github.com
+    sources:
+    - name: Node.js Documentation
+      url: https://nodejs.org/api/
+      authority: official
+      type: api
+    - name: Node.js Releases
+      url: https://nodejs.org/en/about/previous-releases
+      authority: official
+      type: release-policy
+    - name: Node.js Release Blog
+      url: https://nodejs.org/en/blog/release
+      authority: official
+      type: release
+  - id: docs-typescript-current
+    name: TypeScript Current Documentation MCP
+    language: typescript
+    version: current
+    resolved_version: '5.9'
+    status: current-stable
+    domains:
+    - www.typescriptlang.org
+    - devblogs.microsoft.com
+    - github.com
+    - api.github.com
+    sources:
+    - name: TypeScript Documentation
+      url: https://www.typescriptlang.org/docs/
+      authority: official
+      type: documentation
+    - name: TypeScript 5.9 Release Notes
+      url: https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-9.html
+      authority: official
+      type: release
+    - name: TypeScript Releases
+      url: https://github.com/microsoft/TypeScript/releases
+      authority: official
+      type: release
+  - id: docs-angular-current
+    name: Angular Current Documentation MCP
+    language: angular
+    version: current
+    resolved_version: '22'
+    status: current-stable
+    domains:
+    - angular.dev
+    - next.angular.dev
+    - github.com
+    - api.github.com
+    sources:
+    - name: Angular Documentation
+      url: https://angular.dev/
+      authority: official
+      type: documentation
+    - name: Angular Versioning and Releases
+      url: https://angular.dev/reference/releases
+      authority: official
+      type: release-policy
+    - name: Angular Releases
+      url: https://github.com/angular/angular/releases
+      authority: official
+      type: release
+  - id: docs-javascript-current
+    name: JavaScript Current Documentation MCP
+    language: javascript
+    version: current
+    resolved_version: ECMAScript current draft
+    status: living-standard-plus-current-snapshot
+    domains:
+    - tc39.es
+    - ecma-international.org
+    - developer.mozilla.org
+    - github.com
+    sources:
+    - name: TC39 ECMA-262 Living Specification
+      url: https://tc39.es/ecma262/
+      authority: official
+      type: specification
+    - name: ECMA-262 Standard
+      url: https://ecma-international.org/publications-and-standards/standards/ecma-262/
+      authority: official
+      type: specification
+    - name: MDN JavaScript Reference
+      url: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+      authority: official-practical
+      type: documentation

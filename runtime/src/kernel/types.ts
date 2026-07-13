@@ -10,6 +10,12 @@ export type JudgeVerdict = "PASS" | "BLOCKED";
 
 export type ExecutionStatus = "pending" | "running" | "completed" | "blocked" | "failed";
 
+export interface ValidationResult {
+  valid: boolean;
+  errors: string[];
+  warnings: string[];
+}
+
 // =============================================================================
 // Config Schema
 // =============================================================================

@@ -48,6 +48,12 @@ function appendJsonl(path: string, value: unknown): void {
   appendFileSync(path, `${JSON.stringify(value)}\n`, "utf8");
 }
 
+function truncateText(value: string, maxChars = 50000): string {
+  if (value.length <= maxChars) return value;
+  const half = Math.floor(maxChars / 2);
+  return `${value.slice(0, half)}\n... [TRUNCATED ${value.length - maxChars} chars] ...\n${value.slice(-half)}`;
+}
+
 function readJsonl<T>(path: string): T[] {
   if (!existsSync(path)) return [];
   return readFileSync(path, "utf8")
@@ -276,8 +282,8 @@ export class AeosCore {
           cwd: projectPath,
           exitCode: code,
           timedOut,
-          stdout,
-          stderr,
+          stdout: truncateText(stdout),
+          stderr: truncateText(stderr),
           startedAt,
           finishedAt: now()
         });

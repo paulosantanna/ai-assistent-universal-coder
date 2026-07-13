@@ -1,0 +1,57 @@
+test_toolchain:
+  python:
+    unit: "/tmp/aeos-venv/bin/python -m pytest -q"
+    coverage: "/tmp/aeos-venv/bin/python -m pytest --cov=aeos --cov-report=term-missing"
+    bdd: "/tmp/aeos-venv/bin/behave -q"
+    robot: "/tmp/aeos-venv/bin/robot --outputdir /tmp/aeos-robot-results tests/robot"
+    installed:
+      - pytest
+      - pytest-cov
+      - pytest-timeout
+      - pytest-asyncio
+      - pytest-xdist
+      - hypothesis
+      - behave
+      - robotframework
+  node:
+    unit_jest: "npm run test:node:jest"
+    unit_vitest: "npm run test:node:vitest"
+    unit_mocha: "npm run test:node:mocha"
+    bdd_cucumber: "npm run test:node:cucumber"
+    installed:
+      - jest
+      - vitest
+      - mocha
+      - "@cucumber/cucumber"
+      - c8
+      - tsx
+      - typescript
+  java:
+    maven:
+      binary: ".tools/bin/mvn"
+      version: "3.9.11"
+      junit: ".tools/bin/mvn -f templates/test-toolchains/java-junit5/pom.xml test"
+      cucumber_jvm: ".tools/bin/mvn -f templates/test-toolchains/java-junit5/pom.xml test -Dcucumber.features=src/test/resources/features"
+      template: "templates/test-toolchains/java-junit5/pom.xml"
+      settings: "aeos/config/maven-settings.xml"
+    gradle:
+      binary: ".tools/bin/gradle"
+      version: "9.2.1"
+      test: ".tools/bin/gradle --no-daemon -p templates/test-toolchains/java-gradle-junit5 test"
+      template: "templates/test-toolchains/java-gradle-junit5/build.gradle.kts"
+    jdk:
+      distribution: "Eclipse Temurin"
+      version: "17.0.19+10"
+      java_home: ".tools/jdk-17.0.19+10"
+      truststore: ".tools/aeos-java-truststore.p12"
+    host_tools_available: true
+    note: "Maven, Gradle, and JDK are installed locally under .tools and exposed through .tools/bin wrappers. Maven uses /tmp/aeos-m2 by default and generates /tmp/aeos-maven-settings.xml when an environment proxy is present; Gradle uses /tmp/aeos-gradle by default."
+  go:
+    unit: "go test ./..."
+  rust:
+    unit: "cargo test"
+  dotnet:
+    unit: "dotnet test"
+  ruby:
+    unit: "bundle exec rspec"
+    bdd_cucumber: "bundle exec cucumber"

@@ -30,6 +30,29 @@ def cmd_doctor(args) -> int:
     workspace = resolve_target_path(args)
     aeos_root = resolve_aeos_root(args)
     checks = []
+    runtime_root = aeos_root / ".aeos"
+    evidence_dir = runtime_root / "evidence"
+    reports_dir = runtime_root / "reports"
+    evidence_dir.mkdir(parents=True, exist_ok=True)
+    reports_dir.mkdir(parents=True, exist_ok=True)
+
+    config_dir = _first_existing(
+        aeos_root / ".aeos" / "config",
+        aeos_root / "aeos" / "config",
+    )
+    registry_dir = _first_existing(
+        aeos_root / ".aeos" / "derived" / "registries",
+        aeos_root / ".aeos" / "registries",
+        aeos_root / "aeos" / "registries",
+    )
+    perm_config = _first_existing(
+        aeos_root / ".aeos" / "config" / "permissions.yaml",
+        aeos_root / "aeos" / "config" / "permissions.yaml",
+    )
+    policy_config = _first_existing(
+        aeos_root / ".aeos" / "config" / "policies.yaml",
+        aeos_root / "aeos" / "config" / "policies.yaml",
+    )
 
     # Python version
     py_version = sys.version_info
@@ -43,14 +66,12 @@ def cmd_doctor(args) -> int:
     checks.append(("AEOS root", aeos_root.exists(), str(aeos_root)))
 
     # Config dir
-    config_dir = aeos_root / ".aeos" / "config"
     checks.append(("Config directory", config_dir.exists(), str(config_dir)))
     if config_dir.exists():
         config_files = list(config_dir.glob("*"))
         checks.append(("Config files", len(config_files) > 0, f"{len(config_files)} file(s)"))
 
     # Registry dir
-    registry_dir = aeos_root / ".aeos" / "registries"
     checks.append(("Registry directory", registry_dir.exists(), str(registry_dir)))
 
     # Derived registries
@@ -58,19 +79,15 @@ def cmd_doctor(args) -> int:
     checks.append(("Registry configs", len(registry_configs) > 0, f"{len(registry_configs)} file(s)"))
 
     # Permissions config
-    perm_config = aeos_root / ".aeos" / "config" / "permissions.yaml"
     checks.append(("Permissions config", perm_config.exists(), str(perm_config)))
 
     # Policies config
-    policy_config = aeos_root / ".aeos" / "config" / "policies.yaml"
     checks.append(("Policies config", policy_config.exists(), str(policy_config)))
 
     # Evidence dir
-    evidence_dir = aeos_root / ".aeos" / "evidence"
     checks.append(("Evidence directory", evidence_dir.exists(), str(evidence_dir)))
 
     # Reports dir
-    reports_dir = aeos_root / ".aeos" / "reports"
     checks.append(("Reports directory", reports_dir.exists(), str(reports_dir)))
 
     # Required modules
@@ -151,3 +168,10 @@ def cmd_doctor(args) -> int:
         return 3  # REVIEW
     else:
         return 1  # BLOCKED
+
+
+def _first_existing(*paths: Path) -> Path:
+    for path in paths:
+        if path.exists():
+            return path
+    return paths[0]

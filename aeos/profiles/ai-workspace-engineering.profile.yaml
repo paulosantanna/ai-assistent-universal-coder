@@ -1,0 +1,36 @@
+profile:
+  id: ai-workspace-engineering
+  name: AI Workspace Engineering
+  lcps:
+  - global-rules
+  - security-governance
+  - documentation-standards
+  - project-memory
+  playbooks:
+  - project-analysis
+  - chromatic-decision
+  - zero-to-production-project
+  - documentation-generation
+  - code-change-proposal
+  - package-full-review
+  default_skills:
+  - token-budget-governor
+  - chromatic-mega-brain
+  - universal-project-factory
+  - database-architecture-planner
+  - production-deployment-planner
+  - repo-scanner
+  - architecture-mapper
+  - documentation
+  - skill-factory-generator
+  - security-audit
+  - v1-readiness-auditor
+  activation_rules:
+  - Use chromatic-decision before high-impact architecture, migration, cloud readiness
+    or AEOS evolution decisions.
+  - Use zero-to-production-project for new projects regardless of requested architecture,
+    language or database.
+  - Evaluate token-budget-governor before GPT, Codex, Claude, DeepSeek or subagent-heavy work.
+  - Use specialized skills directly for deterministic implementation tasks.
+  - Require Judge review before treating chromatic synthesis as accepted direction.
+  - Keep generated artifacts inside governed evidence, report or sandbox outputs.

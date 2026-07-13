@@ -1,0 +1,31 @@
+id: language-documentation-intelligence
+name: Language Documentation Intelligence Context Pack
+version: 1.0.0
+priority: 85
+scope: stack
+applies_when:
+  languages:
+  - java
+  - python
+  - node
+  - typescript
+  - angular
+  - javascript
+rules:
+- language_version_claims_must_cite_docs_mcp_evidence
+- bug_solver_skills_must_detect_runtime_or_compiler_version_before_fixing
+- migration_skills_must_compare_source_and_target_docs_before_recommending_changes
+- preview_or_current_release_features_must_be_marked_explicitly
+- do_not_use_unofficial_sources_for_breaking_change_claims_without_review
+required_evidence:
+- docs_mcp_profile
+- source_url
+- version_status
+- api_or_release_note_reference
+output_contract:
+- facts
+- assumptions
+- migration_notes
+- deprecated_or_removed
+- evidence_refs
+- blocking_conditions

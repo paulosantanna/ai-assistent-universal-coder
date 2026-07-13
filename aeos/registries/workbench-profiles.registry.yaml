@@ -19,3 +19,5 @@ profiles:
     path: aeos/profiles/ai-research.profile.yaml
   - id: clinical-ai-governance
     path: aeos/profiles/clinical-ai-governance.profile.yaml
+  - id: ai-workspace-engineering
+    path: aeos/profiles/ai-workspace-engineering.profile.yaml
