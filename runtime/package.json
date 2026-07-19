@@ -10,7 +10,8 @@
     "dev": "tsx src/cli/index.ts",
     "build": "tsc",
     "start": "node dist/cli/index.js",
-    "smoke": "tsx src/cli/index.ts help"
+    "smoke": "tsx src/cli/index.ts help",
+    "test": "npm run build && node --test dist/integrations/*.test.js dist/specs/*.test.js"
   },
   "author": "AEOS Project",
   "license": "MIT",

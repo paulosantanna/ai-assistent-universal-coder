@@ -1,4 +1,25 @@
 mcps:
+- id: n8n-automation
+  type: automation-orchestrator
+  transport: local-runtime
+  config: aeos/mcps/n8n-automation.mcp.yaml
+  risk_level: high
+  capabilities: [WORKFLOW_CONFIGURE, WORKFLOW_TRIGGER, WORKFLOW_TRACE]
+  tools: [n8n.configure, n8n.status, n8n.templates, n8n.trigger]
+  write_allowed: true
+  dry_run_default: true
+  approval_required: true
+  enabled: true
+- id: spec-driven-development
+  type: specification-runtime
+  transport: local-runtime
+  config: aeos/mcps/spec-driven-development.mcp.yaml
+  risk_level: high
+  capabilities: [SPEC_CREATE, SPEC_VALIDATE, SPEC_APPROVE_CONTROLLED, SPEC_TRACEABILITY, SPEC_VERIFY]
+  tools: [spec.init, spec.requirement, spec.criterion, spec.validate, spec.approve, spec.start, spec.evidence, spec.verify]
+  write_allowed: true
+  approval_required: true
+  enabled: true
 - id: filesystem-readonly
   type: filesystem
   transport: stdio

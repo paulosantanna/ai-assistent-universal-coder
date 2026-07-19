@@ -1,0 +1,10 @@
+id: spec-driven-development
+version: 1.0.0
+priority: 98
+scope: global
+rules:
+  - implementation_requires_current_spec_approval
+  - normative_changes_invalidate_approval
+  - every_requirement_requires_acceptance_coverage
+  - acceptance_requires_passing_evidence
+  - automation_must_not_self_approve_or_self_accept
