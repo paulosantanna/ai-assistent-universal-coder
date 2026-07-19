@@ -4,6 +4,11 @@ import { AeosCore } from "../core/services.js";
 import type { AgentObjective, EvidenceType, MemoryType } from "../core/types.js";
 import { handleRun } from "../kernel/cli-run.js";
 import { KernelRuntime } from "../kernel/kernel-runtime.js";
+import { configureN8n, listN8nTemplates, readN8nConfig, triggerN8n } from "../integrations/n8n.js";
+import {
+  addCriterion, addEvidence as addSpecEvidence, addRequirement, approveSpec,
+  initSpec, listSpecs, loadSpec, startImplementation, validateSpec, verifySpec
+} from "../specs/spec-driven.js";
 
 const core = new AeosCore();
 
@@ -86,6 +91,24 @@ Stable baseline:
   aeos snapshot create [projectPath]
   aeos checklist generate [projectPath]
   aeos delivery package [projectPath]
+
+N8N automation:
+  aeos n8n configure <baseUrl> <webhookPath> [projectPath]
+  aeos n8n status [projectPath]
+  aeos n8n templates
+  aeos n8n trigger <workflowId> '<jsonPayload>' [projectPath]
+
+Spec-driven development:
+  aeos spec init <slug> "<objective>" [projectPath]
+  aeos spec list [projectPath]
+  aeos spec status <slug> [projectPath]
+  aeos spec requirement <slug> "<statement>" <must|should|could> [projectPath]
+  aeos spec criterion <slug> <requirementIdsCsv> "<statement>" <test|inspection|metric|manual> [projectPath]
+  aeos spec validate <slug> [projectPath]
+  aeos spec approve <slug> "<actor>" "<evidenceRef>" [projectPath]
+  aeos spec start <slug> [projectPath]
+  aeos spec evidence <slug> <criterionId> <pass|fail> "<reference>" [projectPath]
+  aeos spec verify <slug> [projectPath]
 `.trim());
 }
 
@@ -318,6 +341,30 @@ async function main(): Promise<void> {
         const sub = req(args[0], "delivery subcommand");
         if (sub === "package") { print(core.deliveryPackage(p(args[1]))); return; }
         throw new Error(`Unknown delivery subcommand: ${sub}`);
+      }
+
+      case "n8n": {
+        const sub = req(args[0], "n8n subcommand");
+        if (sub === "configure") { print(configureN8n(p(args[3]), { baseUrl: req(args[1], "baseUrl"), webhookPath: req(args[2], "webhookPath"), allowedWorkflows: [], dryRun: true, timeoutMs: 15000 })); return; }
+        if (sub === "status") { print(readN8nConfig(p(args[1]))); return; }
+        if (sub === "templates") { print(listN8nTemplates()); return; }
+        if (sub === "trigger") { print(await triggerN8n(p(args[3]), { workflowId: req(args[1], "workflowId"), payload: JSON.parse(req(args[2], "jsonPayload")) as Record<string, unknown> })); return; }
+        throw new Error(`Unknown n8n subcommand: ${sub}`);
+      }
+
+      case "spec": {
+        const sub = req(args[0], "spec subcommand");
+        if (sub === "init") { print(initSpec(p(args[3]), req(args[1], "slug"), req(args[2], "objective"))); return; }
+        if (sub === "list") { print(listSpecs(p(args[1]))); return; }
+        if (sub === "status") { print(loadSpec(p(args[2]), req(args[1], "slug"))); return; }
+        if (sub === "requirement") { print(addRequirement(p(args[4]), req(args[1], "slug"), req(args[2], "statement"), req(args[3], "priority") as "must" | "should" | "could")); return; }
+        if (sub === "criterion") { print(addCriterion(p(args[5]), req(args[1], "slug"), req(args[2], "requirementIds").split(","), req(args[3], "statement"), req(args[4], "verification") as "test" | "inspection" | "metric" | "manual")); return; }
+        if (sub === "validate") { print(validateSpec(p(args[2]), req(args[1], "slug"))); return; }
+        if (sub === "approve") { print(approveSpec(p(args[4]), req(args[1], "slug"), req(args[2], "actor"), req(args[3], "evidenceRef"))); return; }
+        if (sub === "start") { print(startImplementation(p(args[2]), req(args[1], "slug"))); return; }
+        if (sub === "evidence") { const outcome = req(args[3], "pass|fail"); if (!["pass", "fail"].includes(outcome)) throw new Error("Outcome must be pass or fail."); print(addSpecEvidence(p(args[5]), req(args[1], "slug"), req(args[2], "criterionId"), outcome === "pass", req(args[4], "reference"))); return; }
+        if (sub === "verify") { print(verifySpec(p(args[2]), req(args[1], "slug"))); return; }
+        throw new Error(`Unknown spec subcommand: ${sub}`);
       }
 
       case "run":

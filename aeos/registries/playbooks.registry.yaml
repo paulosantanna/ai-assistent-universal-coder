@@ -1,4 +1,20 @@
 playbooks:
+  - id: spec-driven-delivery
+    path: aeos/playbooks/enterprise/spec-driven-delivery.playbook.md
+    risk_level: high
+    required_agents: [root, architect, coder, tester, security, judge]
+    required_skills: [chromatic-mega-brain, change-trace-auditor, test-generation, security-audit]
+    required_lcps: [global-rules, spec-driven-development, security-governance, token-economy]
+    allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, test-runner-controlled, spec-driven-development, n8n-automation]
+
+  - id: n8n-automation-orchestration
+    path: aeos/playbooks/enterprise/n8n-automation-orchestration.playbook.md
+    risk_level: high
+    required_agents: [root, architect, devops, security, tester, judge]
+    required_skills: [chromatic-mega-brain, change-trace-auditor, security-audit, test-generation]
+    required_lcps: [global-rules, spec-driven-development, security-governance, token-economy]
+    allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, test-runner-controlled, spec-driven-development, n8n-automation]
+
   - id: project-analysis
     path: aeos/playbooks/project-analysis.playbook.md
     risk_level: low

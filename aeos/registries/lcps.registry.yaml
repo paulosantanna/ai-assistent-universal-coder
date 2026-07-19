@@ -1,4 +1,10 @@
 lcps:
+  - id: spec-driven-development
+    path: aeos/lcps/spec-driven-development.lcp.yaml
+    priority: 98
+    scope: global
+    applies_to: [all, specification, implementation, verification, n8n]
+
   - id: global-rules
     path: aeos/lcps/global-rules.lcp.yaml
     priority: 100
