@@ -13,13 +13,12 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "types": ["node"],
-    "resolveJsonModule": true,
-    "declaration": true,
-    "sourceMap": true,
     "types": [
       "node"
-    ]
+    ],
+    "resolveJsonModule": true,
+    "declaration": true,
+    "sourceMap": true
   },
   "include": [
     "src/**/*.ts"
