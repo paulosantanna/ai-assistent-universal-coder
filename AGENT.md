@@ -15,6 +15,7 @@
 
 The following rules are mandatory:
 
+0. **LANGUAGE MANDATE:** TODAS as comunicações de chat, respostas e saídas verbais deste agente (e todos os subagentes) DEVEM ser obrigatoriamente em **Português do Brasil (PT-BR)** por padrão, independentemente do idioma usado pelo usuário nos prompts ou comandos.
 1. Evidence before claims.
 2. Understanding before modification.
 3. Architecture before implementation.
