@@ -95,20 +95,24 @@ TOOLCHAINS = (
 )
 
 
-def is_available(root: Path, required: str) -> bool:
+def is_available(root: Path, toolchain: Toolchain) -> bool:
+    required = toolchain.required
     if required == "AEOS_PYTHON":
         return Path(python_executable(root)).exists() or bool(tool_executable("python", root))
-    path_like = required.startswith(".") or required.startswith("/") or "/" in required
+    path_like = required.startswith(".") or required.startswith("/") or "/" in required or "\\" in required
     if path_like:
         candidate = Path(required)
         return candidate.exists() if candidate.is_absolute() else (root / candidate).exists()
+    host_only_optional = toolchain.optional and toolchain.name in {"go", "rust", "dotnet"}
+    if host_only_optional and root.resolve() != REPO_ROOT.resolve():
+        return False
     return tool_executable(required, root) is not None
 
 
 def evaluate(root: Path) -> list[ToolchainStatus]:
     statuses: list[ToolchainStatus] = []
     for toolchain in TOOLCHAINS:
-        available = is_available(root, toolchain.required)
+        available = is_available(root, toolchain)
         fallback = "ecosystem-contract-adapter" if toolchain.optional and not available else ""
         status = "available" if available else ("adapter" if fallback else "missing")
         statuses.append(

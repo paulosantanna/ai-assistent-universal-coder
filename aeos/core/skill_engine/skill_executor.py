@@ -1,9 +1,10 @@
 from __future__ import annotations
 
+import importlib.util
+import tempfile
 from pathlib import Path
 from time import monotonic
 from typing import Any, Optional
-import importlib.util
 
 from aeos.core.skill_engine.skill_models import (
     SkillRequest,
@@ -387,10 +388,14 @@ class SkillExecutor:
         requested = request.input.get("sandbox_root")
         if requested:
             root = Path(str(requested)).resolve()
-            tmp_root = Path("/tmp").resolve()
-            workspace_sandbox = (self.workspace_root / ".aeos" / "sandbox").resolve()
-            if not (root == tmp_root or tmp_root in root.parents or root == workspace_sandbox or workspace_sandbox in root.parents):
-                root = workspace_sandbox / request.execution_id
+            allowed_roots = [
+                Path("/tmp").resolve(),
+                Path(tempfile.gettempdir()).resolve(),
+                (self.workspace_root / ".aeos" / "tmp").resolve(),
+                (self.workspace_root / ".aeos" / "sandbox").resolve(),
+            ]
+            if not any(root == allowed or allowed in root.parents for allowed in allowed_roots):
+                root = (self.workspace_root / ".aeos" / "sandbox" / request.execution_id).resolve()
         else:
             root = (self.workspace_root / ".aeos" / "sandbox" / request.execution_id).resolve()
         root.mkdir(parents=True, exist_ok=True)

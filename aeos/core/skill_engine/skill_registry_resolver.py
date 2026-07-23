@@ -7,19 +7,19 @@ import yaml
 
 
 class SkillRegistryResolver:
-    _shared_cache: dict[tuple[str, str, int, int], dict[str, dict[str, Any]]] = {}
+    _shared_cache: dict[tuple[str, tuple[tuple[str, int, int], ...]], dict[str, dict[str, Any]]] = {}
 
     def __init__(self, workspace_root: str = "."):
         self.workspace_root = Path(workspace_root).resolve()
         self._registry: dict[str, dict[str, Any]] = {}
-        self._fingerprint: tuple[str, str, int, int] | None = None
+        self._fingerprint: tuple[str, tuple[tuple[str, int, int], ...]] | None = None
 
     def load(self) -> dict[str, dict[str, Any]]:
-        path = self._find_registry_path()
-        if path is None:
+        paths = self._find_registry_paths()
+        if not paths:
             return self._registry
 
-        fingerprint = self._fingerprint_for(path)
+        fingerprint = self._fingerprint_for(paths)
         if self._fingerprint == fingerprint and self._registry:
             return self._registry
 
@@ -29,13 +29,14 @@ class SkillRegistryResolver:
             self._fingerprint = fingerprint
             return self._registry
 
-        with open(path, "r", encoding="utf-8") as f:
-            data = yaml.safe_load(f) or {}
         registry: dict[str, dict[str, Any]] = {}
-        for entry in data.get("skills", []):
-            eid = entry.get("id")
-            if eid:
-                registry[eid] = entry
+        for path in paths:
+            with open(path, "r", encoding="utf-8") as f:
+                data = yaml.safe_load(f) or {}
+            for entry in data.get("skills", []):
+                eid = entry.get("id")
+                if eid:
+                    registry[eid] = entry
         self._registry = registry
         self._fingerprint = fingerprint
         self._shared_cache[fingerprint] = dict(registry)
@@ -77,16 +78,16 @@ class SkillRegistryResolver:
     def cache_size(cls) -> int:
         return len(cls._shared_cache)
 
-    def _find_registry_path(self) -> Path | None:
-        paths = [
+    def _find_registry_paths(self) -> list[Path]:
+        candidates = [
             self.workspace_root / ".aeos" / "derived" / "registries" / "skills.consolidated.yaml",
             self.workspace_root / "aeos" / "registries" / "skills.registry.yaml",
         ]
-        for path in paths:
-            if path.exists():
-                return path
-        return None
+        return [path for path in candidates if path.exists()]
 
-    def _fingerprint_for(self, path: Path) -> tuple[str, str, int, int]:
-        stat = path.stat()
-        return (str(self.workspace_root), str(path.resolve()), stat.st_mtime_ns, stat.st_size)
+    def _fingerprint_for(self, paths: list[Path]) -> tuple[str, tuple[tuple[str, int, int], ...]]:
+        files: list[tuple[str, int, int]] = []
+        for path in paths:
+            stat = path.stat()
+            files.append((str(path.resolve()), stat.st_mtime_ns, stat.st_size))
+        return (str(self.workspace_root), tuple(files))
