@@ -12,6 +12,7 @@ from types import TracebackType
 from typing import Any, Iterator, Literal
 
 from .redaction import assert_safe_payload, assert_safe_text
+from .exceptions import WorkspaceError, RevisionConflictError
 
 
 SCHEMA_VERSION = 1
@@ -19,7 +20,7 @@ MAX_SQLITE_INTEGER = (1 << 63) - 1
 _IDENTIFIER = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$")
 
 
-class WorkspaceStoreError(RuntimeError):
+class WorkspaceStoreError(WorkspaceError):
     """Base error for workspace persistence."""
 
 
@@ -29,10 +30,6 @@ class InvalidIdentifierError(WorkspaceStoreError):
 
 class SchemaMismatchError(WorkspaceStoreError):
     """Raised when the database schema is unknown or damaged."""
-
-
-class RevisionConflictError(WorkspaceStoreError):
-    """Raised when compare-and-swap observes a stale revision."""
 
 
 class _ClosingConnection(sqlite3.Connection):

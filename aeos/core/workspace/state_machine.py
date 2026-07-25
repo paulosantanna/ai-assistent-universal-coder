@@ -12,18 +12,11 @@ from aeos.core.workspace.contracts import (
 )
 
 
+from .exceptions import RevisionConflictError
+
 class TaskTransitionError(Exception):
     """Erro base tipado de transição."""
 
-
-class RevisionConflict(TaskTransitionError):
-    def __init__(self, *, expected_revision: int, actual_revision: int) -> None:
-        self.expected_revision = expected_revision
-        self.actual_revision = actual_revision
-        super().__init__(
-            f"stale task revision: expected {expected_revision}, "
-            f"actual {actual_revision}"
-        )
 
 
 class InvalidTransition(TaskTransitionError):
@@ -76,7 +69,8 @@ def transition(
     """Aplica uma transição atômica sobre um snapshot imutável."""
 
     if expected_revision != snapshot.revision:
-        raise RevisionConflict(
+        raise RevisionConflictError(
+            f"stale task revision: expected {expected_revision}, actual {snapshot.revision}",
             expected_revision=expected_revision,
             actual_revision=snapshot.revision,
         )

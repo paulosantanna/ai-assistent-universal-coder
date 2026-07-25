@@ -17,8 +17,8 @@ from aeos.core.workspace.contracts import (
 from aeos.core.workspace.kernel import WorkspaceKernel, WorkspacePlanError
 from aeos.core.workspace.evidence import EvidenceVerification
 from aeos.core.workspace.state_machine import CompletionEvidenceRequired
+from aeos.core.workspace.exceptions import RevisionConflictError
 from aeos.core.workspace.store import (
-    RevisionConflictError,
     SchemaMismatchError,
     WorkspaceStore,
     WorkspaceStoreError,

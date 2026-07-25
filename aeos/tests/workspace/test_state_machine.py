@@ -8,10 +8,10 @@ from aeos.core.workspace.contracts import (
     TaskSnapshot,
     TaskState,
 )
+from aeos.core.workspace.exceptions import RevisionConflictError
 from aeos.core.workspace.state_machine import (
     CompletionEvidenceRequired,
     InvalidTransition,
-    RevisionConflict,
     allowed_targets,
     transition,
 )
@@ -111,7 +111,7 @@ def test_transition_table_and_public_query_remain_in_sync():
 def test_stale_revision_has_typed_conflict_and_does_not_mutate():
     snapshot = TaskSnapshot("task", state=TaskState.READY, revision=4)
 
-    with pytest.raises(RevisionConflict) as error:
+    with pytest.raises(RevisionConflictError) as error:
         transition(snapshot, TaskState.RUNNING, expected_revision=3)
 
     assert error.value.expected_revision == 3
