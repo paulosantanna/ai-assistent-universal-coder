@@ -169,6 +169,25 @@ def main():
     version_parser = subparsers.add_parser("version", help="Show version")
     version_parser.set_defaults(func="cmd_version")
 
+    # workspace
+    workspace_parser = subparsers.add_parser(
+        "workspace", help="Transactional Workspace OS commands"
+    )
+    workspace_sub = workspace_parser.add_subparsers(dest="workspace_command")
+    workspace_sub.required = True
+    workspace_plan = workspace_sub.add_parser(
+        "plan", help="Validate and persist a local task DAG (exit 0 or 2)"
+    )
+    workspace_plan.add_argument("--spec", required=True, help="UTF-8 JSON plan")
+    workspace_plan.add_argument("--target", default=".", help="Workspace directory")
+    workspace_plan.set_defaults(func="cmd_workspace_plan")
+    workspace_status = workspace_sub.add_parser(
+        "status", help="Read verified task and token state (exit 0 or 2)"
+    )
+    workspace_status.add_argument("--execution-id", required=True)
+    workspace_status.add_argument("--target", default=".", help="Workspace directory")
+    workspace_status.set_defaults(func="cmd_workspace_status")
+
     args = parser.parse_args()
     if not args.command:
         parser.print_help()
@@ -246,6 +265,7 @@ from aeos.cli.commands.bundle import (
     cmd_bundle_import_plan, cmd_bundle_list
 )
 from aeos.cli.commands.version import cmd_version
+from aeos.cli.commands.workspace import cmd_workspace_plan, cmd_workspace_status
 
 
 if __name__ == "__main__":
