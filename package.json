@@ -2,6 +2,7 @@
   "scripts": {
     "aeos:bootstrap": "python aeos/scripts/bootstrap_portable.py",
     "aeos:bootstrap:deps": "python aeos/scripts/bootstrap_portable.py --install-deps",
+    "aeos:skills:sync": "python aeos/scripts/sync_opencode_skills.py",
     "aeos:verify": "python aeos/scripts/verify.py --suite quick",
     "aeos:verify:full": "python aeos/scripts/verify.py --suite full",
     "test:python": "python aeos/scripts/test_matrix.py --only python-pytest",
