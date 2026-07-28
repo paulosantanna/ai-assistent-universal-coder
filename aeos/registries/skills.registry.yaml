@@ -1600,3 +1600,41 @@ skills:
   - Simulation requires real patient data without governance
   - Clinical deployment requested without approval
   - Unsafe or unsupported claims detected
+- id: voiceai
+  path: skills/voiceai/SKILL.md
+  version: 1.0.0
+  owner_agent: coder
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - PROCESS_AUDIO_REF
+  - READ_MEDIA_PATH
+  - EXTRACT_VIDEO_AUDIO
+  - PROCESS_VIDEO_AUDIO
+  - TRANSCRIBE_AUDIO  - CLASSIFY_INTENT
+  - GENERATE_HANDOFF
+  - GENERATE_REPORT
+  production_ready: false
+  mission: Govern activation-consented speech audio intake, direct authorized drive/media access, video-audio transcription, literal multilingual transcription, relevance classification and AEOS artifact handoff generation.
+  required_inputs:
+  - user_objective
+  - authorized_audio_video_drive_or_transcript_ref
+  - activation_consent_and_retention_constraints
+  quality_gates:
+  - Skill activation is treated as current-session consent and retention constraints are explicit or defaulted safely
+  - Authorized audio/video media source is recorded in media_sources
+  - Literal transcript is preserved before summarization
+  - Mixed-language segments include language tags
+  - Jokes and out-of-scope speech are excluded from actionable scope unless reclassified by the user
+  - Actionable intent cites source transcript segments
+  - Output validates against skills/voiceai/schemas/output.schema.json
+  stop_conditions:
+  - Consent or authorization missing
+  - Approved audio connector unavailable
+  - Approved media reader or video audio extractor unavailable
+  - User-supplied drive or mounted path unavailable
+  - Approved transcription engine unavailable
+  - Audio quality prevents reliable transcription
+  - Required approval missing for active registry, deployment, destructive action or credential handling
+
