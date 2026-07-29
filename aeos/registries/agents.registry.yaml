@@ -366,3 +366,51 @@ agents:
       - Permission denied
       - Policy violation
       - Gate check failed
+  - id: dynatrace-observability-staff-agent
+    path: skills/dynatrace-observability-staff/AGENT.md
+    role: observability-tool-agent
+    responsibilities: [Analyze Dynatrace evidence, coordinate Dynatrace child subagents, emit isolated handoff]
+    allowed_actions: [read_evidence, analyze_telemetry, generate_report, generate_handoff]
+    forbidden_actions: [communicate_with_peer_tool_agents, mutate_production, expose_secrets, claim_without_evidence]
+    capabilities: [READ_TELEMETRY_EXPORTS, GENERATE_EVIDENCE, GENERATE_HANDOFF]
+    delegation_policy: { allowed: { dynatrace-observability-staff-agent: { can_delegate_to: [] } } }
+  - id: grafana-observability-staff-agent
+    path: skills/grafana-observability-staff/AGENT.md
+    role: observability-tool-agent
+    responsibilities: [Analyze Grafana evidence, coordinate Grafana child subagents, emit isolated handoff]
+    allowed_actions: [read_evidence, analyze_telemetry, generate_report, generate_handoff]
+    forbidden_actions: [communicate_with_peer_tool_agents, mutate_production, expose_secrets, claim_without_evidence]
+    capabilities: [READ_TELEMETRY_EXPORTS, GENERATE_EVIDENCE, GENERATE_HANDOFF]
+    delegation_policy: { allowed: { grafana-observability-staff-agent: { can_delegate_to: [] } } }
+  - id: kubernetes-observability-staff-agent
+    path: skills/kubernetes-observability-staff/AGENT.md
+    role: observability-tool-agent
+    responsibilities: [Analyze Kubernetes evidence, coordinate Kubernetes child subagents, emit isolated handoff]
+    allowed_actions: [read_evidence, analyze_telemetry, generate_report, generate_handoff]
+    forbidden_actions: [communicate_with_peer_tool_agents, mutate_production, expose_secrets, claim_without_evidence]
+    capabilities: [READ_TELEMETRY_EXPORTS, GENERATE_EVIDENCE, GENERATE_HANDOFF]
+    delegation_policy: { allowed: { kubernetes-observability-staff-agent: { can_delegate_to: [] } } }
+  - id: openshift-observability-staff-agent
+    path: skills/openshift-observability-staff/AGENT.md
+    role: observability-tool-agent
+    responsibilities: [Analyze OpenShift evidence, coordinate OpenShift child subagents, emit isolated handoff]
+    allowed_actions: [read_evidence, analyze_telemetry, generate_report, generate_handoff]
+    forbidden_actions: [communicate_with_peer_tool_agents, mutate_production, expose_secrets, claim_without_evidence]
+    capabilities: [READ_TELEMETRY_EXPORTS, GENERATE_EVIDENCE, GENERATE_HANDOFF]
+    delegation_policy: { allowed: { openshift-observability-staff-agent: { can_delegate_to: [] } } }
+  - id: splunk-observability-staff-agent
+    path: skills/splunk-observability-staff/AGENT.md
+    role: observability-tool-agent
+    responsibilities: [Analyze Splunk evidence, coordinate Splunk child subagents, emit isolated handoff]
+    allowed_actions: [read_evidence, analyze_telemetry, generate_report, generate_handoff]
+    forbidden_actions: [communicate_with_peer_tool_agents, mutate_production, expose_secrets, claim_without_evidence]
+    capabilities: [READ_TELEMETRY_EXPORTS, GENERATE_EVIDENCE, GENERATE_HANDOFF]
+    delegation_policy: { allowed: { splunk-observability-staff-agent: { can_delegate_to: [] } } }
+  - id: observability-root-cause-integrator-agent
+    path: skills/observability-root-cause-integrator/AGENT.md
+    role: observability-root-cause-integrator
+    responsibilities: [Read isolated handoffs, correlate evidence with code, produce simple remediation plan]
+    allowed_actions: [read_evidence, read_files, correlate_findings, generate_report, generate_handoff]
+    forbidden_actions: [mutate_production, expose_secrets, hide_contradictions, claim_without_evidence]
+    capabilities: [READ_EVIDENCE, READ_FILES, CORRELATE_FINDINGS, GENERATE_REPORT]
+    delegation_policy: { allowed: { observability-root-cause-integrator-agent: { can_delegate_to: [] } } }

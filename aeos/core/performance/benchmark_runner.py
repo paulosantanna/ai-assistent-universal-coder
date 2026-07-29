@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 import json
+import shutil
 import statistics
-import tempfile
 import time
 from dataclasses import dataclass
 from pathlib import Path
@@ -22,6 +22,7 @@ class BenchmarkCase:
     name: str
     category: str
     operation: Callable[[], None]
+    setup: Callable[[], None] | None = None
 
 
 @dataclass(frozen=True)
@@ -96,11 +97,23 @@ class PerformanceBenchmarkRunner:
         return [
             BenchmarkCase("registry_load", "registry", self._bench_registry_load),
             BenchmarkCase("skill_contract_load", "registry", self._bench_skill_contract_load),
-            BenchmarkCase("scanner_pruned", "scanner", self._bench_scanner_pruned),
-            BenchmarkCase("evidence_batch_write", "evidence", self._bench_evidence_batch_write),
+            BenchmarkCase(
+                "scanner_pruned",
+                "scanner",
+                self._bench_scanner_pruned,
+                self._prepare_scanner_pruned_fixture,
+            ),
+            BenchmarkCase(
+                "evidence_batch_write",
+                "evidence",
+                self._bench_evidence_batch_write,
+                self._prepare_evidence_batch_fixture,
+            ),
         ]
 
     def _run_case(self, case: BenchmarkCase, iterations: int) -> BenchmarkCaseResult:
+        if case.setup:
+            case.setup()
         samples = []
         for _ in range(iterations):
             start = time.perf_counter()
@@ -137,21 +150,41 @@ class PerformanceBenchmarkRunner:
         loader.load_skill_contract("repo-scanner")
         loader.load_skill_contract("repo-scanner")
 
+    def _prepare_scanner_pruned_fixture(self) -> None:
+        root = self._benchmark_temp_parent() / "scanner-pruned-fixture"
+        if root.exists():
+            shutil.rmtree(root, ignore_errors=True)
+        root.mkdir(parents=True, exist_ok=True)
+        for i in range(20):
+            (root / f"file{i}.py").write_text("x = 1\n", encoding="utf-8")
+        ignored = root / "node_modules" / "pkg"
+        ignored.mkdir(parents=True)
+        for i in range(80):
+            (ignored / f"ignored{i}.js").write_text("module.exports = {}\n", encoding="utf-8")
+        self._scanner_pruned_root = root
+
     def _bench_scanner_pruned(self) -> None:
-        with tempfile.TemporaryDirectory(prefix="aeos-bench-scan-") as tmp:
-            root = Path(tmp)
-            for i in range(20):
-                (root / f"file{i}.py").write_text("x = 1\n", encoding="utf-8")
-            ignored = root / "node_modules" / "pkg"
-            ignored.mkdir(parents=True)
-            for i in range(80):
-                (ignored / f"ignored{i}.js").write_text("module.exports = {}\n", encoding="utf-8")
-            FastRepoScanner(root=root, exclude=["node_modules"], count_ignored_files=False).scan()
+        FastRepoScanner(
+            root=self._scanner_pruned_root,
+            exclude=["node_modules"],
+            count_ignored_files=False,
+        ).scan()
+
+    def _prepare_evidence_batch_fixture(self) -> None:
+        root = self._benchmark_temp_parent() / "evidence-batch-write-fixture"
+        if root.exists():
+            shutil.rmtree(root, ignore_errors=True)
+        root.mkdir(parents=True, exist_ok=True)
+        self._evidence_batch_root = root
 
     def _bench_evidence_batch_write(self) -> None:
-        with tempfile.TemporaryDirectory(prefix="aeos-bench-evidence-") as tmp:
-            store = EvidenceStore(tmp)
-            store.store_records("bench", "audit", [{"i": i} for i in range(25)])
+        store = EvidenceStore(self._evidence_batch_root)
+        store.store_records("bench", "audit", [{"i": i} for i in range(25)])
+
+    def _benchmark_temp_parent(self) -> Path:
+        parent = self.workspace_root / ".aeos" / "tmp" / "performance-benchmark"
+        parent.mkdir(parents=True, exist_ok=True)
+        return parent
 
     def _load_budgets(self) -> dict[str, Any]:
         path = self.aeos_root / "aeos" / "config" / "performance-budgets.yaml"

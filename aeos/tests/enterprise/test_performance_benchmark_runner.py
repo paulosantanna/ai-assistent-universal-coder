@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from aeos.core.performance.benchmark_runner import PerformanceBenchmarkRunner
+from aeos.core.performance.benchmark_runner import BenchmarkCase, PerformanceBenchmarkRunner
 
 
 def test_benchmark_runner_produces_cases_and_reports(tmp_path: Path):
@@ -17,6 +17,25 @@ def test_benchmark_runner_produces_cases_and_reports(tmp_path: Path):
     }
     assert Path(reports["json"]).exists()
     assert Path(reports["markdown"]).exists()
+
+
+def test_benchmark_case_setup_runs_once_outside_timed_iterations(tmp_path: Path):
+    runner = PerformanceBenchmarkRunner(workspace_root=tmp_path, aeos_root=".")
+    calls: list[str] = []
+
+    def setup() -> None:
+        calls.append("setup")
+
+    def operation() -> None:
+        calls.append("operation")
+
+    result = runner._run_case(
+        BenchmarkCase("scanner_pruned", "scanner", operation, setup),
+        iterations=3,
+    )
+
+    assert calls == ["setup", "operation", "operation", "operation"]
+    assert len(result.samples_seconds) == 3
 
 
 def test_benchmark_runner_rejects_invalid_iterations(tmp_path: Path):

@@ -47,9 +47,17 @@ def test_python_executable_skips_venv_without_required_modules(tmp_path: Path, m
 
 def test_ensure_portable_dirs_creates_local_state(tmp_path: Path, monkeypatch):
     monkeypatch.delenv("AEOS_PORTABLE_HOME", raising=False)
+    monkeypatch.delenv("AEOS_TMP", raising=False)
 
     paths = portable_env.ensure_portable_dirs(tmp_path)
 
     assert tmp_path / ".aeos" in paths
     assert (tmp_path / ".aeos" / "tmp").is_dir()
     assert (tmp_path / ".aeos" / "cache").is_dir()
+
+
+def test_portable_tmp_can_be_overridden(tmp_path: Path, monkeypatch):
+    custom = tmp_path / "portable-tmp"
+    monkeypatch.setenv("AEOS_TMP", str(custom))
+
+    assert portable_env.portable_tmp(tmp_path) == custom.resolve()

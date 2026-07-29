@@ -11,7 +11,7 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
-from portable_env import performance_target, python_executable
+from portable_env import ensure_portable_dirs, performance_target, portable_tmp, python_executable
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -26,9 +26,22 @@ class Step:
 
 
 def _env_with_pythonpath(extra: dict[str, str] | None = None) -> dict[str, str]:
+    ensure_portable_dirs(REPO_ROOT)
+    configured_pytest_tmp = os.environ.get("AEOS_PYTEST_TMP")
+    temp_root = (
+        Path(configured_pytest_tmp).expanduser().resolve()
+        if configured_pytest_tmp
+        else portable_tmp(REPO_ROOT) / "pytest"
+    )
+    temp_root.mkdir(parents=True, exist_ok=True)
+
     env = os.environ.copy()
     existing = env.get("PYTHONPATH")
     env["PYTHONPATH"] = str(REPO_ROOT) if not existing else f"{REPO_ROOT}{os.pathsep}{existing}"
+    env["AEOS_TMP"] = str(portable_tmp(REPO_ROOT))
+    env["TMP"] = str(temp_root)
+    env["TEMP"] = str(temp_root)
+    env["TMPDIR"] = str(temp_root)
     if extra:
         env.update(extra)
     return env
@@ -40,7 +53,7 @@ def _env_with_lsp_pythonpath() -> dict[str, str]:
     )
 
 def _pytest(python: str, *paths: str) -> list[str]:
-    return [python, "-m", "pytest", *paths, "-q"]
+    return [python, "-m", "pytest", *paths, "-q", "-p", "no:cacheprovider"]
 
 
 def _npm_executable() -> str:

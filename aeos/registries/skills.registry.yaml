@@ -1637,4 +1637,69 @@ skills:
   - Approved transcription engine unavailable
   - Audio quality prevents reliable transcription
   - Required approval missing for active registry, deployment, destructive action or credential handling
-
+- id: dynatrace-observability-staff
+  path: skills/dynatrace-observability-staff/SKILL.md
+  version: 1.0.0
+  owner_agent: dynatrace-observability-staff-agent
+  risk_level: high
+  capabilities: [READ_TELEMETRY_EXPORTS, READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE, GENERATE_HANDOFF]
+  production_ready: true
+  mission: Deep Staff-level Dynatrace observability analysis with isolated evidence handoff.
+  required_inputs: [incident_objective, incident_time_window, target_entity_or_service, dynatrace_evidence_or_read_only_access]
+  quality_gates: [Evidence cites exact Dynatrace artifacts, Davis conclusions are verified, topology and timing are checked, missing telemetry is disclosed]
+  stop_conditions: [Incident window missing, Dynatrace evidence unavailable, permissions insufficient, unsupported root-cause claim remains]
+- id: grafana-observability-staff
+  path: skills/grafana-observability-staff/SKILL.md
+  version: 1.0.0
+  owner_agent: grafana-observability-staff-agent
+  risk_level: high
+  capabilities: [READ_TELEMETRY_EXPORTS, READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE, GENERATE_HANDOFF]
+  production_ready: true
+  mission: Deep Staff-level Grafana observability analysis with isolated evidence handoff.
+  required_inputs: [incident_objective, incident_time_window, target_service_or_dashboard, grafana_evidence_or_read_only_access]
+  quality_gates: [Panel queries are inspected, datasource freshness is checked, instrumentation gaps are disclosed, missing data is not treated as health]
+  stop_conditions: [Incident window missing, Grafana evidence unavailable, permissions insufficient, unsupported root-cause claim remains]
+- id: kubernetes-observability-staff
+  path: skills/kubernetes-observability-staff/SKILL.md
+  version: 1.0.0
+  owner_agent: kubernetes-observability-staff-agent
+  risk_level: high
+  capabilities: [READ_TELEMETRY_EXPORTS, READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE, GENERATE_HANDOFF]
+  production_ready: true
+  mission: Deep Staff-level Kubernetes observability analysis with isolated evidence handoff.
+  required_inputs: [incident_objective, incident_time_window, namespace_or_workload, kubernetes_evidence_or_read_only_access]
+  quality_gates: [Events and conditions are inspected, pod phase is not over-trusted, resource metrics limits are disclosed, workload ownership is mapped]
+  stop_conditions: [Incident window missing, Kubernetes evidence unavailable, permissions insufficient, unsupported root-cause claim remains]
+- id: openshift-observability-staff
+  path: skills/openshift-observability-staff/SKILL.md
+  version: 1.0.0
+  owner_agent: openshift-observability-staff-agent
+  risk_level: high
+  capabilities: [READ_TELEMETRY_EXPORTS, READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE, GENERATE_HANDOFF]
+  production_ready: true
+  mission: Deep Staff-level OpenShift observability analysis with isolated evidence handoff.
+  required_inputs: [incident_objective, incident_time_window, cluster_namespace_or_workload, openshift_evidence_or_read_only_access]
+  quality_gates: [Platform and user workload monitoring are separated, Operator reconciliation is respected, supported configuration boundaries are disclosed]
+  stop_conditions: [Incident window missing, OpenShift evidence unavailable, permissions insufficient, unsupported or unsupported-configuration claim remains]
+- id: splunk-observability-staff
+  path: skills/splunk-observability-staff/SKILL.md
+  version: 1.0.0
+  owner_agent: splunk-observability-staff-agent
+  risk_level: high
+  capabilities: [READ_TELEMETRY_EXPORTS, READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE, GENERATE_HANDOFF]
+  production_ready: true
+  mission: Deep Staff-level Splunk observability and ITSI analysis with isolated evidence handoff.
+  required_inputs: [incident_objective, incident_time_window, index_or_episode_or_service, splunk_evidence_or_read_only_access]
+  quality_gates: [SPL scope is bounded, episode timelines are inspected, common fields are reviewed, search lag and extraction gaps are disclosed]
+  stop_conditions: [Incident window missing, Splunk evidence unavailable, permissions insufficient, unsupported root-cause claim remains]
+- id: observability-root-cause-integrator
+  path: skills/observability-root-cause-integrator/SKILL.md
+  version: 1.0.0
+  owner_agent: observability-root-cause-integrator-agent
+  risk_level: high
+  capabilities: [READ_EVIDENCE, READ_FILES, CORRELATE_FINDINGS, GENERATE_REPORT, GENERATE_HANDOFF]
+  production_ready: true
+  mission: Integrate isolated observability reports and code context into a simple low-impact remediation plan.
+  required_inputs: [specialist_handoffs, incident_time_window, repository_path_or_code_map]
+  quality_gates: [Contradictions are surfaced, root-cause candidates cite evidence, remediation is simple and reversible, verification and rollback are defined]
+  stop_conditions: [Specialist handoffs missing, code correlation missing without disclosure, unresolved contradiction blocks root-cause claim]

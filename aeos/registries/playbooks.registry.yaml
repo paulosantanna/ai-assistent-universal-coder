@@ -188,3 +188,11 @@ playbooks:
       - improvement-metrics-governor
     required_lcps: [global-rules, security-governance]
     allowed_mcps: [filesystem-readonly, git-readonly, filesystem-write-sandbox]
+  - id: analayze-metricas
+    path: playbooks/analayze-metricas/playbook.yaml
+    risk_level: high
+    required_agents: [root, planner, judge, dynatrace-observability-staff-agent, grafana-observability-staff-agent, kubernetes-observability-staff-agent, openshift-observability-staff-agent, splunk-observability-staff-agent, observability-root-cause-integrator-agent]
+    required_skills: [dynatrace-observability-staff, grafana-observability-staff, kubernetes-observability-staff, openshift-observability-staff, splunk-observability-staff, observability-root-cause-integrator]
+    required_lcps: [global-rules, security-governance]
+    allowed_mcps: [filesystem-readonly, git-readonly, test-runner-controlled]
+    production_ready: true
