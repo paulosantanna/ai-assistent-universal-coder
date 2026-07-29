@@ -72,6 +72,22 @@ def main():
     agent_run.add_argument("--dry-run", action="store_true", help="Dry run mode")
     agent_run.set_defaults(func="cmd_agent_run")
 
+    # workflow
+    workflow_parser = subparsers.add_parser("workflow", help="Pragmatic workflow planning commands")
+    workflow_sub = workflow_parser.add_subparsers(dest="workflow_command")
+    workflow_plan = workflow_sub.add_parser("plan", help="Plan a workflow with context, model routing and dataset curation")
+    add_aeos_root(workflow_plan)
+    workflow_plan.add_argument("workflow_id", choices=["bug_fix", "architecture", "code_review", "fine_tuning"])
+    workflow_plan.add_argument("--objective", required=True, help="Workflow objective")
+    workflow_plan.add_argument("--target", default=".", help="Target directory")
+    workflow_plan.add_argument("--risk-level", default=None, choices=["low", "medium", "high", "critical"])
+    workflow_plan.add_argument("--required-paths", default="[]", help="JSON list of required context paths")
+    workflow_plan.add_argument("--evidence-refs", default="[]", help="JSON list of evidence references")
+    workflow_plan.add_argument("--approval-id", default=None, help="Approval ID for paid model profiles")
+    workflow_plan.add_argument("--execution-id", default="", help="Execution ID")
+    workflow_plan.add_argument("--no-dataset-candidate", action="store_true", help="Do not create dataset candidate")
+    workflow_plan.set_defaults(func="cmd_workflow_plan")
+
     # judge
     judge_parser = subparsers.add_parser("judge", help="Judge commands")
     judge_sub = judge_parser.add_subparsers(dest="judge_command")
@@ -266,6 +282,7 @@ from aeos.cli.commands.bundle import (
 )
 from aeos.cli.commands.version import cmd_version
 from aeos.cli.commands.workspace import cmd_workspace_plan, cmd_workspace_status
+from aeos.cli.commands.workflow import cmd_workflow_plan
 
 
 if __name__ == "__main__":

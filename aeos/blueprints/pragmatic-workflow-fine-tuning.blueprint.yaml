@@ -1,0 +1,212 @@
+blueprint:
+  id: pragmatic-workflow-fine-tuning
+  type: aeos-architecture
+  version: 0.1.0
+  status: proposed
+  objective: >
+    Redesign AEOS around a pragmatic workflow that reduces paid AI usage,
+    increases code and analysis quality, and creates governed fine-tuning data.
+  evidence_refs:
+    - AGENT.md
+    - package.json
+    - aeos/core/runtime/runtime_orchestrator.py
+    - aeos/core/workspace/token_ledger.py
+    - aeos/config/token-budget-governor.config.yaml
+    - aeos/config/optimized-prompt-policy.yaml
+    - aeos/config/tool-router.config.yaml
+    - aeos/config/evaluation-harness.config.yaml
+    - continuous-training-mcp/src/continuous_training_mcp
+    - skills/ai-continuous-training-maintainer
+    - .aeos/reports/AEOS_PRAGMATIC_WORKFLOW_FINE_TUNING_ARCHITECTURE.md
+
+  decisions:
+    runtime_path:
+      recommendation: use_python_runtime_as_operational_kernel
+      rationale: >
+        The Python runtime already orchestrates skills, playbooks, agents,
+        policy, permission, evidence, judge, evals and readiness. The TypeScript
+        MVP remains a useful minimal kernel reference until consolidation.
+    workflow_policy:
+      recommendation: deterministic_and_free_first
+      rationale: >
+        Use deterministic tools and free/local models for triage before any paid
+        model call. Escalate paid models only when risk, ambiguity or complexity
+        justifies the cost.
+    fine_tuning_policy:
+      recommendation: train_only_from_validated_evidence
+      rationale: >
+        Fine-tuning candidates must come from accepted diffs, tests, judge
+        results, eval scorecards and redacted evidence. Raw transcripts and
+        unverified outputs are forbidden.
+
+  target_components:
+    workflow_kernel:
+      responsibilities:
+        - classify_intent_and_risk
+        - select_workflow_by_task_type
+        - build_task_graph
+        - enforce_stop_conditions
+        - require_verification_before_completion
+    model_router:
+      responsibilities:
+        - choose_model_profile_by_stage_risk_and_budget
+        - block_paid_calls_when_deterministic_or_free_is_sufficient
+        - reserve_and_reconcile_tokens
+        - register_model_routing_evidence
+    context_planner:
+      responsibilities:
+        - load_context_by_file_refs
+        - use_hash_based_context_cache
+        - create_context_pack_per_execution
+        - prevent_full_repo_prompt_replays
+    training_data_curator:
+      responsibilities:
+        - generate_dataset_candidates_from_validated_executions
+        - separate_positive_negative_regression_and_adversarial_examples
+        - redact_secrets_and_sensitive_data
+        - reject_unverified_or_judge_blocked_examples
+
+  model_profiles:
+    deterministic:
+      paid: false
+      use_for:
+        - search
+        - diff
+        - lint
+        - typecheck
+        - tests
+        - static_scan
+    free_local:
+      paid: false
+      use_for:
+        - triage
+        - summarization
+        - low_risk_analysis
+        - classification
+    free_cloud:
+      paid: false
+      use_for:
+        - small_context_review
+        - simple_code_explanation
+    paid_cheap:
+      paid: true
+      use_for:
+        - focused_patch
+        - test_generation
+        - medium_reasoning
+    paid_strong:
+      paid: true
+      use_for:
+        - architecture_decision
+        - high_risk_refactor
+        - security_reasoning
+    paid_judge:
+      paid: true
+      use_for:
+        - independent_review
+        - release_gate
+        - contradiction_analysis
+
+  workflows:
+    bug_fix:
+      sequence:
+        - reproduce_failure
+        - deterministic_repo_analysis
+        - free_triage
+        - focused_patch_if_needed
+        - focused_tests
+        - affected_regression_tests
+        - judge_when_medium_or_high_risk
+        - curate_training_example
+    architecture:
+      sequence:
+        - map_repository_and_constraints
+        - generate_options
+        - compare_options_by_evidence_cost_risk_and_reversibility
+        - create_adr_candidate
+        - independent_judge_review
+    code_review:
+      sequence:
+        - deterministic_scan
+        - free_risk_triage
+        - paid_review_only_for_relevant_diff
+        - paid_judge_for_high_severity_or_release
+        - curate_confirmed_findings_and_false_positives
+    fine_tuning:
+      sequence:
+        - collect_validated_examples
+        - redact_and_validate_schema
+        - deduplicate
+        - split_holdout_eval
+        - train_or_adapt_model
+        - evaluate_against_aeos_harness
+        - promote_only_on_cost_or_quality_win
+
+  gates:
+    completion:
+      - evidence_required
+      - applicable_tests_required_for_material_change
+      - judge_required_for_medium_high_critical_risk
+      - no_blocking_findings
+    cost:
+      - no_paid_call_before_context_plan
+      - no_paid_call_for_deterministic_task
+      - token_budget_reserved_before_call
+      - token_usage_reconciled_after_call
+    dataset:
+      - no_raw_transcripts
+      - no_chain_of_thought
+      - no_secrets
+      - no_judge_blocked_positive_examples
+      - schema_validated_jsonl_required
+
+  metrics:
+    - cost_per_completed_task
+    - paid_calls_per_task
+    - free_to_paid_ratio
+    - cache_hit_rate
+    - tokens_per_changed_line
+    - judge_rework_rate
+    - test_failure_escape_rate
+    - fine_tuned_model_win_rate
+
+  migration_phases:
+    - id: phase_1_observe
+      goal: Add configs and schemas without changing runtime behavior.
+      outputs:
+        - model-router.config.yaml
+        - workflow-kernel.config.yaml
+        - context-pack.schema.json
+        - model-routing-decision.schema.json
+        - dataset-candidate.schema.json
+    - id: phase_2_workflow_kernel
+      goal: Implement declarative workflows in the Python runtime.
+      outputs:
+        - WorkflowKernel
+        - ContextPlanner
+        - dry_run_cost_estimate
+    - id: phase_3_training_data_curator
+      goal: Convert validated executions into governed fine-tuning candidates.
+      outputs:
+        - TrainingDataCurator
+        - dataset_candidates.jsonl
+        - holdout_eval_split
+    - id: phase_4_model_router
+      goal: Enforce model profile routing and token accounting on all LLM calls.
+      outputs:
+        - ModelRouter
+        - model_routing_decisions.jsonl
+        - token_ledger_integration
+    - id: phase_5_fine_tuning
+      goal: Train or adapt models only from curated data and promote by evidence.
+      outputs:
+        - fine_tuned_model_eval_report
+        - cost_quality_comparison
+        - promotion_or_rejection_decision
+
+  artifact_policy:
+    generate_reports_under: .aeos/reports
+    source_controlled_blueprints_under: aeos/blueprints
+    require_evidence: true
+    require_judge_for_implementation: true
+    require_human_approval_for_paid_provider_policy_changes: true

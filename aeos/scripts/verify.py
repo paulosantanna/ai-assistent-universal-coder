@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import os
 import subprocess
+import shutil
 import sys
 from dataclasses import dataclass
 from pathlib import Path
@@ -33,8 +34,17 @@ def _env_with_pythonpath(extra: dict[str, str] | None = None) -> dict[str, str]:
     return env
 
 
+def _env_with_lsp_pythonpath() -> dict[str, str]:
+    return _env_with_pythonpath(
+        {"PYTHONPATH": f"{REPO_ROOT / 'packages' / 'aeos-language-server' / 'src'}{os.pathsep}{REPO_ROOT}"}
+    )
+
 def _pytest(python: str, *paths: str) -> list[str]:
     return [python, "-m", "pytest", *paths, "-q"]
+
+
+def _npm_executable() -> str:
+    return shutil.which("npm.cmd") or shutil.which("npm") or "npm"
 
 
 def build_steps(args: argparse.Namespace) -> list[Step]:
@@ -119,28 +129,28 @@ def build_steps(args: argparse.Namespace) -> list[Step]:
                 Step(
                     "AEOS LSP tests",
                     _pytest(python, "packages/aeos-language-server/tests"),
-                    env=_env_with_pythonpath(),
+                    env=_env_with_lsp_pythonpath(),
                 ),
                 Step(
                     "AEOS LSP doctor",
                     [python, "-m", "aeos_lsp.cli", "doctor", "."],
-                    env=_env_with_pythonpath(),
+                    env=_env_with_lsp_pythonpath(),
                 ),
                 Step(
                     "AEOS LSP validate",
                     [python, "-m", "aeos_lsp.cli", "validate", "."],
-                    env=_env_with_pythonpath(),
+                    env=_env_with_lsp_pythonpath(),
                 ),
                 Step(
                     "AEOS LSP index",
                     [python, "-m", "aeos_lsp.cli", "index", "."],
-                    env=_env_with_pythonpath(),
+                    env=_env_with_lsp_pythonpath(),
                 ),
             ]
         )
 
         if not args.skip_node:
-            steps.append(Step("AEOS runtime build", ["npm", "run", "build"], cwd=REPO_ROOT / "runtime"))
+            steps.append(Step("AEOS runtime build", [_npm_executable(), "run", "build"], cwd=REPO_ROOT / "runtime"))
 
     return steps
 

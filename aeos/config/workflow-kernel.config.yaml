@@ -1,0 +1,77 @@
+workflow_kernel:
+  enabled: true
+  version: 0.1.0
+  default_workflow: bug_fix
+  require_context_plan_before_model: true
+  require_model_decision_before_execution: true
+  require_dataset_curator_after_validated_execution: true
+  workflows:
+    bug_fix:
+      risk_default: medium
+      stages:
+        - reproduce_failure
+        - deterministic_repo_analysis
+        - free_triage
+        - focused_patch_if_needed
+        - focused_tests
+        - affected_regression_tests
+        - judge_when_medium_or_high_risk
+        - curate_training_example
+      model_stages:
+        - triage
+        - focused_patch
+        - independent_review
+    architecture:
+      risk_default: high
+      stages:
+        - map_repository_and_constraints
+        - generate_options
+        - compare_options_by_evidence_cost_risk_and_reversibility
+        - create_adr_candidate
+        - independent_judge_review
+      model_stages:
+        - low_risk_analysis
+        - architecture_decision
+        - independent_review
+    code_review:
+      risk_default: medium
+      stages:
+        - deterministic_scan
+        - free_risk_triage
+        - paid_review_only_for_relevant_diff
+        - paid_judge_for_high_severity_or_release
+        - curate_confirmed_findings_and_false_positives
+      model_stages:
+        - triage
+        - medium_reasoning
+        - independent_review
+    fine_tuning:
+      risk_default: high
+      stages:
+        - collect_validated_examples
+        - redact_and_validate_schema
+        - deduplicate
+        - split_holdout_eval
+        - train_or_adapt_model
+        - evaluate_against_aeos_harness
+        - promote_only_on_cost_or_quality_win
+      model_stages:
+        - classification
+        - security_reasoning
+        - independent_review
+  gates:
+    completion:
+      - evidence_required
+      - applicable_tests_required_for_material_change
+      - no_blocking_findings
+    cost:
+      - no_paid_call_before_context_plan
+      - no_paid_call_for_deterministic_task
+      - token_budget_reserved_before_call
+      - token_usage_reconciled_after_call
+    dataset:
+      - no_raw_transcripts
+      - no_chain_of_thought
+      - no_secrets
+      - no_judge_blocked_positive_examples
+      - schema_validated_jsonl_required
