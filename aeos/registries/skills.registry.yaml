@@ -864,14 +864,28 @@ skills:
   - objective
   - detected_language_versions
   - evidence_refs
+  - target_identifier
+  - branch_commit_worktree_scope
+  - github_actions_evidence_or_access
+  - subagent_handoff_refs
+  - specs_preflight_ref
   quality_gates:
   - Docs claims cite MCP evidence
   - Repository claims cite inspected files
   - No secrets are exposed
+  - Per-destination bundle exists with HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md and README.md
+  - evidencias/linha-do-tempo-runs.md records inspected branches, commits, worktrees and GitHub Actions runs
+  - Independent subagents cover git history, exception chain, layer diagnosis, correction proposal and Judge review
+  - analise/Diagnostico.md records top-down exception chain to evidence-backed root cause
+  - analise/PROPOSTA_CORRECAO.md maps correction, tests and rollback to the root cause
   stop_conditions:
   - Docs MCP unavailable
   - Target version cannot be detected
   - Evidence cannot be produced
+  - Branch, commit, worktree or GitHub Actions evidence cannot be collected
+  - Required independent subagents are unavailable
+  - Top-down exception chain cannot be tied to an evidence-backed root cause
+  - Per-destination HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md, README.md or analysis artifacts cannot be created
 - id: python-docs-bug-solver
   path: aeos/skills/generated/python-docs-bug-solver.skill.md
   version: 1.0.0
@@ -889,14 +903,28 @@ skills:
   - objective
   - detected_language_versions
   - evidence_refs
+  - target_identifier
+  - branch_commit_worktree_scope
+  - github_actions_evidence_or_access
+  - subagent_handoff_refs
+  - specs_preflight_ref
   quality_gates:
   - Docs claims cite MCP evidence
   - Repository claims cite inspected files
   - No secrets are exposed
+  - Per-destination bundle exists with HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md and README.md
+  - evidencias/linha-do-tempo-runs.md records inspected branches, commits, worktrees and GitHub Actions runs
+  - Independent subagents cover git history, exception chain, layer diagnosis, correction proposal and Judge review
+  - analise/Diagnostico.md records top-down exception chain to evidence-backed root cause
+  - analise/PROPOSTA_CORRECAO.md maps correction, tests and rollback to the root cause
   stop_conditions:
   - Docs MCP unavailable
   - Target version cannot be detected
   - Evidence cannot be produced
+  - Branch, commit, worktree or GitHub Actions evidence cannot be collected
+  - Required independent subagents are unavailable
+  - Top-down exception chain cannot be tied to an evidence-backed root cause
+  - Per-destination HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md, README.md or analysis artifacts cannot be created
 - id: node-bug-solver
   path: aeos/skills/generated/node-bug-solver.skill.md
   version: 1.0.0
@@ -914,14 +942,28 @@ skills:
   - objective
   - detected_language_versions
   - evidence_refs
+  - target_identifier
+  - branch_commit_worktree_scope
+  - github_actions_evidence_or_access
+  - subagent_handoff_refs
+  - specs_preflight_ref
   quality_gates:
   - Docs claims cite MCP evidence
   - Repository claims cite inspected files
   - No secrets are exposed
+  - Per-destination bundle exists with HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md and README.md
+  - evidencias/linha-do-tempo-runs.md records inspected branches, commits, worktrees and GitHub Actions runs
+  - Independent subagents cover git history, exception chain, layer diagnosis, correction proposal and Judge review
+  - analise/Diagnostico.md records top-down exception chain to evidence-backed root cause
+  - analise/PROPOSTA_CORRECAO.md maps correction, tests and rollback to the root cause
   stop_conditions:
   - Docs MCP unavailable
   - Target version cannot be detected
   - Evidence cannot be produced
+  - Branch, commit, worktree or GitHub Actions evidence cannot be collected
+  - Required independent subagents are unavailable
+  - Top-down exception chain cannot be tied to an evidence-backed root cause
+  - Per-destination HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md, README.md or analysis artifacts cannot be created
 - id: typescript-bug-solver
   path: aeos/skills/generated/typescript-bug-solver.skill.md
   version: 1.0.0
@@ -939,14 +981,28 @@ skills:
   - objective
   - detected_language_versions
   - evidence_refs
+  - target_identifier
+  - branch_commit_worktree_scope
+  - github_actions_evidence_or_access
+  - subagent_handoff_refs
+  - specs_preflight_ref
   quality_gates:
   - Docs claims cite MCP evidence
   - Repository claims cite inspected files
   - No secrets are exposed
+  - Per-destination bundle exists with HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md and README.md
+  - evidencias/linha-do-tempo-runs.md records inspected branches, commits, worktrees and GitHub Actions runs
+  - Independent subagents cover git history, exception chain, layer diagnosis, correction proposal and Judge review
+  - analise/Diagnostico.md records top-down exception chain to evidence-backed root cause
+  - analise/PROPOSTA_CORRECAO.md maps correction, tests and rollback to the root cause
   stop_conditions:
   - Docs MCP unavailable
   - Target version cannot be detected
   - Evidence cannot be produced
+  - Branch, commit, worktree or GitHub Actions evidence cannot be collected
+  - Required independent subagents are unavailable
+  - Top-down exception chain cannot be tied to an evidence-backed root cause
+  - Per-destination HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md, README.md or analysis artifacts cannot be created
 - id: angular-bug-solver
   path: aeos/skills/generated/angular-bug-solver.skill.md
   version: 1.0.0
@@ -964,14 +1020,28 @@ skills:
   - objective
   - detected_language_versions
   - evidence_refs
+  - target_identifier
+  - branch_commit_worktree_scope
+  - github_actions_evidence_or_access
+  - subagent_handoff_refs
+  - specs_preflight_ref
   quality_gates:
   - Docs claims cite MCP evidence
   - Repository claims cite inspected files
   - No secrets are exposed
+  - Per-destination bundle exists with HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md and README.md
+  - evidencias/linha-do-tempo-runs.md records inspected branches, commits, worktrees and GitHub Actions runs
+  - Independent subagents cover git history, exception chain, layer diagnosis, correction proposal and Judge review
+  - analise/Diagnostico.md records top-down exception chain to evidence-backed root cause
+  - analise/PROPOSTA_CORRECAO.md maps correction, tests and rollback to the root cause
   stop_conditions:
   - Docs MCP unavailable
   - Target version cannot be detected
   - Evidence cannot be produced
+  - Branch, commit, worktree or GitHub Actions evidence cannot be collected
+  - Required independent subagents are unavailable
+  - Top-down exception chain cannot be tied to an evidence-backed root cause
+  - Per-destination HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md, README.md or analysis artifacts cannot be created
 - id: javascript-bug-solver
   path: aeos/skills/generated/javascript-bug-solver.skill.md
   version: 1.0.0
@@ -989,14 +1059,28 @@ skills:
   - objective
   - detected_language_versions
   - evidence_refs
+  - target_identifier
+  - branch_commit_worktree_scope
+  - github_actions_evidence_or_access
+  - subagent_handoff_refs
+  - specs_preflight_ref
   quality_gates:
   - Docs claims cite MCP evidence
   - Repository claims cite inspected files
   - No secrets are exposed
+  - Per-destination bundle exists with HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md and README.md
+  - evidencias/linha-do-tempo-runs.md records inspected branches, commits, worktrees and GitHub Actions runs
+  - Independent subagents cover git history, exception chain, layer diagnosis, correction proposal and Judge review
+  - analise/Diagnostico.md records top-down exception chain to evidence-backed root cause
+  - analise/PROPOSTA_CORRECAO.md maps correction, tests and rollback to the root cause
   stop_conditions:
   - Docs MCP unavailable
   - Target version cannot be detected
   - Evidence cannot be produced
+  - Branch, commit, worktree or GitHub Actions evidence cannot be collected
+  - Required independent subagents are unavailable
+  - Top-down exception chain cannot be tied to an evidence-backed root cause
+  - Per-destination HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md, README.md or analysis artifacts cannot be created
 - id: java-version-migration
   path: aeos/skills/generated/java-version-migration.skill.md
   version: 1.0.0
@@ -1507,9 +1591,46 @@ skills:
   required_inputs:
   - stack_trace_or_error
   - repository_path
+  - target_identifier
+  - branch_commit_worktree_scope
+  - github_actions_evidence_or_access
+  - subagent_handoff_refs
+  - specs_preflight_ref
   output_schema:
     type: object
     properties:
+      target_workspace:
+        type: string
+      handoff:
+        type: string
+      learning:
+        type: string
+      memory:
+        type: string
+      progress:
+        type: string
+      evidence_bundle:
+        type: object
+      analysis_bundle:
+        type: object
+      subagent_handoffs:
+        type: array
+        items:
+          type: string
+      exception_chain:
+        type: array
+        items:
+          type: string
+      fix_proposal:
+        type: string
+      verification_plan:
+        type: array
+        items:
+          type: string
+      blocking_conditions:
+        type: array
+        items:
+          type: string
       root_cause:
         type: string
       fix_applied:
@@ -1537,12 +1658,21 @@ skills:
   - Lesson is recorded
   - No regressions introduced
   - Recursion finds all related patterns
+  - Per-destination bundle exists with HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md and README.md
+  - evidencias/linha-do-tempo-runs.md records inspected branches, commits, worktrees and GitHub Actions runs
+  - Independent subagents cover git history, exception chain, layer diagnosis, correction proposal and Judge review
+  - analise/Diagnostico.md records top-down exception chain to evidence-backed root cause
+  - analise/PROPOSTA_CORRECAO.md maps correction, tests and rollback to the root cause
   stop_conditions:
   - Scope must expand beyond bug fixing
   - Destructive action required without approval
   - Critical dependency missing
   - Evidence cannot be produced
   - Assumptions invalidated
+  - Branch, commit, worktree or GitHub Actions evidence cannot be collected
+  - Required independent subagents are unavailable
+  - Top-down exception chain cannot be tied to an evidence-backed root cause
+  - Per-destination HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md, README.md or analysis artifacts cannot be created
 - id: simulator-ai
   path: skills/simulator-ai/SKILL.md
   version: 1.0.0
