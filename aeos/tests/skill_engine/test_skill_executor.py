@@ -79,7 +79,9 @@ class TestSkillExecutor:
         assert result.status in ("PASS", "BLOCKED")
 
     def test_executor_runs_chromatic_mega_brain(self, tmp_path):
-        executor = SkillExecutor(workspace_root=".", evidence_store=EvidenceStore(str(tmp_path / "evidence")))
+        executor = SkillExecutor(
+            workspace_root=".", evidence_store=EvidenceStore(str(tmp_path / "evidence"))
+        )
         req = SkillRequest(
             execution_id="test-chromatic-mega-brain",
             skill_id="chromatic-mega-brain",
@@ -102,7 +104,9 @@ class TestSkillExecutor:
         assert result.evidence_refs
 
     def test_executor_runs_token_budget_governor(self, tmp_path):
-        executor = SkillExecutor(workspace_root=".", evidence_store=EvidenceStore(str(tmp_path / "evidence")))
+        executor = SkillExecutor(
+            workspace_root=".", evidence_store=EvidenceStore(str(tmp_path / "evidence"))
+        )
         req = SkillRequest(
             execution_id="test-token-budget-governor",
             skill_id="token-budget-governor",
@@ -123,7 +127,9 @@ class TestSkillExecutor:
         assert result.tool_results[0]["result"]["subagent_budget"] > 0
 
     def test_executor_runs_universal_project_factory(self, tmp_path):
-        executor = SkillExecutor(workspace_root=".", evidence_store=EvidenceStore(str(tmp_path / "evidence")))
+        executor = SkillExecutor(
+            workspace_root=".", evidence_store=EvidenceStore(str(tmp_path / "evidence"))
+        )
         req = SkillRequest(
             execution_id="test-universal-project-factory",
             skill_id="universal-project-factory",
@@ -138,6 +144,10 @@ class TestSkillExecutor:
                 "deployment_target": "cloud",
                 "token_budget": {"provider": "codex", "limit": 24000},
                 "sandbox_root": str(tmp_path / "sandbox"),
+                "specs": {
+                    "status": "PASS",
+                    "evidence_ref": "specs://test-universal-project-factory",
+                },
             },
         )
 
@@ -159,3 +169,34 @@ class TestSkillExecutor:
         assert (tmp_path / "sandbox" / ".aeos" / "rollback" / "change-manifest.json").exists()
         assert (tmp_path / "sandbox" / ".aeos" / "rollback" / "rollback-plan.json").exists()
         assert (tmp_path / "sandbox" / ".aeos" / "rollback" / "rollback-plan.md").exists()
+
+    def test_executor_blocks_mutating_skill_without_specs_preflight(self, tmp_path):
+        executor = SkillExecutor(
+            workspace_root=".", evidence_store=EvidenceStore(str(tmp_path / "evidence"))
+        )
+        req = SkillRequest(
+            execution_id="test-specs-required",
+            skill_id="universal-project-factory",
+            actor="tester",
+            role="architect",
+            input={
+                "project_name": "demo",
+                "objective": "Generate a production-ready API",
+                "architecture": "hexagonal",
+                "languages": ["Python"],
+                "databases": ["PostgreSQL"],
+                "deployment_target": "cloud",
+                "token_budget": {"provider": "codex", "limit": 24000},
+                "sandbox_root": str(tmp_path / "sandbox-blocked"),
+            },
+        )
+
+        result = executor.execute(req)
+
+        assert result.status == "BLOCKED"
+        assert any("specs preflight" in item.lower() for item in result.blocking_conditions)
+        assert not (tmp_path / "sandbox-blocked" / "README.md").exists()
+
+
+
+

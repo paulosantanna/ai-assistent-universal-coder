@@ -1703,3 +1703,76 @@ skills:
   required_inputs: [specialist_handoffs, incident_time_window, repository_path_or_code_map]
   quality_gates: [Contradictions are surfaced, root-cause candidates cite evidence, remediation is simple and reversible, verification and rollback are defined]
   stop_conditions: [Specialist handoffs missing, code correlation missing without disclosure, unresolved contradiction blocks root-cause claim]
+- id: specs
+  path: skills/specs/SKILL.md
+  version: 1.0.0
+  owner_agent: judge
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  production_ready: true
+  mission: Require spec-driven preflight before any AEOS skill creates or alters artifacts.
+  allowed_actions:
+  - Read authorized repository context needed to define a spec
+  - Generate requirements, design notes, task plans, test matrices and evidence gates
+  - Validate machine-readable spec output
+  - Block downstream mutating skill execution when specs evidence is missing
+  forbidden_actions:
+  - Modify downstream artifacts
+  - Approve its own implementation
+  - Waive testing, security, evidence or approval gates
+  - Treat vague objectives as complete specifications
+  required_inputs:
+  - user_objective
+  - target_scope
+  - downstream_skill_or_artifact_type
+  output_schema:
+    type: object
+    required:
+    - spec_id
+    - requirements
+    - acceptance_criteria
+    - design
+    - tasks
+    - test_matrix
+    - approval_gates
+    - evidence_gates
+    - blocking_conditions
+    properties:
+      spec_id:
+        type: string
+      status:
+        type: string
+      requirements:
+        type: array
+      acceptance_criteria:
+        type: array
+      design:
+        type: object
+      tasks:
+        type: array
+      test_matrix:
+        type: array
+      approval_gates:
+        type: array
+      evidence_gates:
+        type: array
+      blocking_conditions:
+        type: array
+  quality_gates:
+  - Requirements are testable and have stable IDs
+  - Acceptance criteria link to requirements and verification methods
+  - Design maps to requirements and records architecture, rollback and observability impact
+  - Tasks link to requirements or acceptance criteria
+  - Test applicability matrix covers affected AEOS categories honestly
+  - Downstream mutating skills carry specs evidence before execution
+  stop_conditions:
+  - Objective or scope missing
+  - Requirements cannot be made testable
+  - Acceptance criteria cannot be verified
+  - Test applicability cannot be classified honestly
+  - Required approval is missing
+  - Specs evidence cannot be produced
+
