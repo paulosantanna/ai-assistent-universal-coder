@@ -1,0 +1,255 @@
+{
+  "skill": "solve-problems",
+  "files": [
+    {
+      "path": "AGENT.md",
+      "sha256": "5446cd9772b6564745d128ed51a12a09422139dc41791250ef9fd82d47a74f71",
+      "bytes": 958
+    },
+    {
+      "path": "analise/plano-diagnostico-detalhado.md",
+      "sha256": "172f6aa45d17e893f56ea593c4819ba8fee4a966996a68fedb2d75ee831a603e",
+      "bytes": 478
+    },
+    {
+      "path": "analise/proposta-correcao.md",
+      "sha256": "cedc4aebd6b946855632790ee50f2804739a3ba5852cc655c8d8c111f39358b5",
+      "bytes": 328
+    },
+    {
+      "path": "analise/README.md",
+      "sha256": "d2d049204edca169a90473e9b5b5918a4dd1e544407e7d9043ff3a99ba1d01a0",
+      "bytes": 105
+    },
+    {
+      "path": "evaluation/HONEST_EVALUATOR.md",
+      "sha256": "12f4efdf4307e5ecaebdd22e2d947cc2d87f07bbf12bc9ed8193ff3e524bf8bf",
+      "bytes": 829
+    },
+    {
+      "path": "evidencias/evidence-index.md",
+      "sha256": "6588ea512ebf7885a744d1bc80673bc7f4099b458c93f7cef371501b3f89fc0c",
+      "bytes": 88
+    },
+    {
+      "path": "evidencias/linha-do-tempo-worktree-git.md",
+      "sha256": "7814b6b1722d234019eb3741fd1b933dc161e12d5be6fc0fccf8bec675d1b76d",
+      "bytes": 133
+    },
+    {
+      "path": "evidencias/logs-pods.md",
+      "sha256": "0a0812e6bbd4fad529a1c60d2d1abd07aecb3c60fa1abdaa41aa4a9f0da29ec3",
+      "bytes": 164
+    },
+    {
+      "path": "evidencias/README.md",
+      "sha256": "6a2eddde1e56ed59a3a921ea95d53da1a968d504e0f6b47bfb9018b2363df6dd",
+      "bytes": 86
+    },
+    {
+      "path": "evidencias/telemetria-observabilidade.md",
+      "sha256": "942bc10ec98f2413b1592c67c87bc699eecfad390008b50dc2b3acc51a3916cc",
+      "bytes": 187
+    },
+    {
+      "path": "evidencias/testes.md",
+      "sha256": "e2438b38824831abb372fe3fad43e717b349c05e66b4caffc498491c4b711463",
+      "bytes": 95
+    },
+    {
+      "path": "Handoff/handback.md",
+      "sha256": "8b5378eb053fc12510eca798bee94d84959319f1c97369fec912911ed84f7dec",
+      "bytes": 340
+    },
+    {
+      "path": "Handoff/inbound.md",
+      "sha256": "8b5378eb053fc12510eca798bee94d84959319f1c97369fec912911ed84f7dec",
+      "bytes": 340
+    },
+    {
+      "path": "Handoff/README.md",
+      "sha256": "a7870d7294fbd46311a5776f776a823d340a622731170c41b590fcd7905cbf99",
+      "bytes": 103
+    },
+    {
+      "path": "knowledge/ANTI_FORGETTING.md",
+      "sha256": "4c5822c02939fa9a18fdfdf651a50e6531b27f7b5482abaa5418df4167149c53",
+      "bytes": 146
+    },
+    {
+      "path": "knowledge/CONTINUOUS_LEARNING.md",
+      "sha256": "f1b19e4fcfb26dd319ccc39de129b58c6408773fad15aa1834480e0d60bd3c07",
+      "bytes": 146
+    },
+    {
+      "path": "knowledge/KNOWLEDGE.md",
+      "sha256": "41d38e16e046244d60a410b578af80c6e4aa0f0395fc07cd5d995ecc832d02ff",
+      "bytes": 141
+    },
+    {
+      "path": "knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "aaf1bffbbbb97affc38dd3d68014eb0cab08112feebe55476bc9ef1ff06b5610",
+      "bytes": 233
+    },
+    {
+      "path": "knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "c39b726f53f9a5eabcd5411dc950755f3bdba06ef31929b38337b73a79b47950",
+      "bytes": 641
+    },
+    {
+      "path": "knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "c66bfe27a42af0cc704424f4253b8e94d55dbc93240f9ea5181436c98d700ca9",
+      "bytes": 560
+    },
+    {
+      "path": "knowledge/TOKEN_EFFICIENCY.md",
+      "sha256": "5e8c2f509fc99ece6d47ec20d70f1b389bf898d2e9e463e4767a4a081df7aeb8",
+      "bytes": 145
+    },
+    {
+      "path": "Learning/learning.md",
+      "sha256": "2044a48c0d1b5723763222689752527826c0213389e9600c0bc3b7e2ebb8aaf8",
+      "bytes": 240
+    },
+    {
+      "path": "Learning/README.md",
+      "sha256": "7a6c800ff683bf5014700f9feb8a02242ba65e9d856fb25cc5b6876f615ebc04",
+      "bytes": 89
+    },
+    {
+      "path": "memory/DECISIONS.md",
+      "sha256": "1a2a5046f1cc0162de0e30a4638e35b7bc200418f813af7134a2ad07fe4ac7cc",
+      "bytes": 88
+    },
+    {
+      "path": "memory/EXECUTIONS.md",
+      "sha256": "99ee211e4b7a8dba3a433ee1d708702d5e301d6937ebe633b77e6cad0da7ad15",
+      "bytes": 99
+    },
+    {
+      "path": "memory/FAILURES.md",
+      "sha256": "d7ed6b40acd88be4c9a2a9207789bc6178b3358444c30ec584548faaf00dab06",
+      "bytes": 67
+    },
+    {
+      "path": "memory/LESSONS.md",
+      "sha256": "d5edca58e0db839a5d780b9da4dbacd0198172f7f49bb9191db1ce65d084bcf8",
+      "bytes": 65
+    },
+    {
+      "path": "memory/memory.md",
+      "sha256": "b91041f3421139f8578039eb50262221833b7189e587a6fe42247376fe6d9047",
+      "bytes": 282
+    },
+    {
+      "path": "memory/OPEN_RISKS.md",
+      "sha256": "35728d8c5cd442850e19c0f553e3d580a4a3a4b6fe01abaffb205b0bf99fa5a7",
+      "bytes": 371
+    },
+    {
+      "path": "memory/PATTERNS.md",
+      "sha256": "1b787d5021cf4af6e658bee93eeec886b999901b1c758dcabff061d716bc47fd",
+      "bytes": 62
+    },
+    {
+      "path": "progress/progress.md",
+      "sha256": "6d35f6083d0298d82d86cf0f494dbd7ea1bc99229415280c7362c967ea46c421",
+      "bytes": 404
+    },
+    {
+      "path": "progress/README.md",
+      "sha256": "8aef97f0a18ef7a693d258b7a0b375d90a228a14874c5b62566440e3e79cc866",
+      "bytes": 114
+    },
+    {
+      "path": "README.md",
+      "sha256": "d69a6e9aea2dfaa35bab09773e89d0aaf3ba061a3bd488ee05bb8f1e8a43e704",
+      "bytes": 338
+    },
+    {
+      "path": "references/LANGUAGE_ROUTING.md",
+      "sha256": "cd088476592916635cbdd6626f2ca67574fb0cabfd2b2d636e2453de71cb7df1",
+      "bytes": 1618
+    },
+    {
+      "path": "schemas/output.schema.json",
+      "sha256": "4ae3caf110362c2ff105f7c8398a8463e6ef0c5092c0010eef51af6ed3319106",
+      "bytes": 1640
+    },
+    {
+      "path": "scripts/validate.py",
+      "sha256": "1865ba89da90f9d0bf6b7b94ecb0689caa91e1bda77d16efca81d1472cf055ec",
+      "bytes": 375
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "9632f3b40e032bcc4c179ada77f1b3dade9f43734329bb3c5e2c52eadb70b6cd",
+      "bytes": 13877
+    },
+    {
+      "path": "templates/execution-bundle/analise/plano-diagnostico-detalhado.md",
+      "sha256": "172f6aa45d17e893f56ea593c4819ba8fee4a966996a68fedb2d75ee831a603e",
+      "bytes": 478
+    },
+    {
+      "path": "templates/execution-bundle/analise/proposta-correcao.md",
+      "sha256": "cedc4aebd6b946855632790ee50f2804739a3ba5852cc655c8d8c111f39358b5",
+      "bytes": 328
+    },
+    {
+      "path": "templates/execution-bundle/evidencias/evidence-index.md",
+      "sha256": "6588ea512ebf7885a744d1bc80673bc7f4099b458c93f7cef371501b3f89fc0c",
+      "bytes": 88
+    },
+    {
+      "path": "templates/execution-bundle/evidencias/linha-do-tempo-worktree-git.md",
+      "sha256": "7814b6b1722d234019eb3741fd1b933dc161e12d5be6fc0fccf8bec675d1b76d",
+      "bytes": 133
+    },
+    {
+      "path": "templates/execution-bundle/evidencias/logs-pods.md",
+      "sha256": "0a0812e6bbd4fad529a1c60d2d1abd07aecb3c60fa1abdaa41aa4a9f0da29ec3",
+      "bytes": 164
+    },
+    {
+      "path": "templates/execution-bundle/evidencias/telemetria-observabilidade.md",
+      "sha256": "942bc10ec98f2413b1592c67c87bc699eecfad390008b50dc2b3acc51a3916cc",
+      "bytes": 187
+    },
+    {
+      "path": "templates/execution-bundle/evidencias/testes.md",
+      "sha256": "e2438b38824831abb372fe3fad43e717b349c05e66b4caffc498491c4b711463",
+      "bytes": 95
+    },
+    {
+      "path": "templates/execution-bundle/Handoff/handoff.md",
+      "sha256": "8b5378eb053fc12510eca798bee94d84959319f1c97369fec912911ed84f7dec",
+      "bytes": 340
+    },
+    {
+      "path": "templates/execution-bundle/Learning/learning.md",
+      "sha256": "2044a48c0d1b5723763222689752527826c0213389e9600c0bc3b7e2ebb8aaf8",
+      "bytes": 240
+    },
+    {
+      "path": "templates/execution-bundle/Memory/memory.md",
+      "sha256": "b91041f3421139f8578039eb50262221833b7189e587a6fe42247376fe6d9047",
+      "bytes": 282
+    },
+    {
+      "path": "templates/execution-bundle/progress/progress.md",
+      "sha256": "6d35f6083d0298d82d86cf0f494dbd7ea1bc99229415280c7362c967ea46c421",
+      "bytes": 404
+    },
+    {
+      "path": "templates/OUTPUT.template.md",
+      "sha256": "7ffce2a909d9c7f7cea9c0587bc561e40a0de5ac6541f8a7be446ac1b3337865",
+      "bytes": 489
+    },
+    {
+      "path": "tests/test_structure.py",
+      "sha256": "9ec56b2266fdf013d5f8b3a9e4cef0d30a4ecdb3ec7115d3adb1707a98f8bab8",
+      "bytes": 1650
+    }
+  ]
+}

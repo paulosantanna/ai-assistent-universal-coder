@@ -1906,3 +1906,262 @@ skills:
   - Required approval is missing
   - Specs evidence cannot be produced
 
+- id: aeos-autonomous-learning-governor
+  path: skills/aeos-autonomous-learning-governor/SKILL.md
+  version: 1.0.0
+  owner_agent: planner
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  production_ready: false
+  mission: Govern AEOS internal learning, handoffs, memory, evidence, progress tracking
+    and decision selection for code creation, bug repair, code change and architecture
+    work.
+  required_inputs:
+  - user_objective
+  - target_scope
+  - evidence_refs
+  quality_gates:
+  - Facts cite evidence
+  - Assumptions are explicitly marked
+  - Honest evaluator verdict is PASS or REVIEW
+  - No secrets are exposed
+  stop_conditions:
+  - Required input missing
+  - Evidence cannot be produced
+  - Permission or policy denied
+  - Honest evaluator returns BLOCKED
+- id: kubernetes-code-context-mapper
+  path: skills/kubernetes-code-context-mapper/SKILL.md
+  version: 1.0.0
+  owner_agent: architect
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  production_ready: false
+  mission: Map Kubernetes pods, workloads, services, labels, metrics, logs and deployment
+    metadata back to repository code, owners, tests and remediation boundaries.
+  required_inputs:
+  - user_objective
+  - target_scope
+  - evidence_refs
+  quality_gates:
+  - Facts cite evidence
+  - Assumptions are explicitly marked
+  - Honest evaluator verdict is PASS or REVIEW
+  - No secrets are exposed
+  stop_conditions:
+  - Required input missing
+  - Evidence cannot be produced
+  - Permission or policy denied
+  - Honest evaluator returns BLOCKED
+- id: telemetry-bug-root-cause-solver
+  path: skills/telemetry-bug-root-cause-solver/SKILL.md
+  version: 1.0.0
+  owner_agent: coder
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - PROPOSE_PATCH
+  - GENERATE_DIFF
+  production_ready: false
+  mission: Resolve bugs from logs, metrics, traces, events, alerts and stack traces by correlating runtime evidence with code, tests, rollback and learning records.
+  required_inputs:
+  - user_objective
+  - target_scope
+  - evidence_refs
+  quality_gates:
+  - Facts cite evidence
+  - Assumptions are explicitly marked
+  - Honest evaluator verdict is PASS or REVIEW
+  - No secrets are exposed
+  stop_conditions:
+  - Required input missing
+  - Evidence cannot be produced
+  - Permission or policy denied
+  - Honest evaluator returns BLOCKED
+- id: solve-problems
+  path: skills/solve-problems/SKILL.md
+  version: 1.0.0
+  owner_agent: coder
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - DETECT_STACK
+  - PROPOSE_PATCH
+  - GENERATE_DIFF
+  - GENERATE_EVIDENCE
+  - RUN_TESTS
+  - KNOWLEDGE_RETRIEVAL
+  production_ready: false
+  mission: Universal Staff-level problem solver that receives an error report, detects the affected language and repository context, reads the failing code, produces the simplest clean fix in the same language, verifies it, and records governed Memory, Handoff, progress, Learning, evidencias and analise artifacts without changing project architecture.
+  required_inputs:
+  - error_report
+  - repository_path
+  - target_scope
+  output_schema:
+    type: object
+    required: [status, execution_id, language, affected_files, root_cause, selected_proposal, changed_files, verification, artifact_paths, evidence_refs, blocking_conditions]
+  quality_gates:
+  - Error report and affected language are evidence-backed
+  - Project memory lookup is recorded before implementation
+  - Diagnostic plan and correction proposal exist
+  - Fix uses the affected language and local project style
+  - Project architecture and structure are unchanged
+  - No comments are added to created or altered source code
+  - No unused imports, orphan variables, dead assignments or unused generated files remain
+  - Repository-native checks and tests are recorded honestly
+  - Memory, Handoff, progress, Learning, evidencias and analise artifacts exist
+  - Honest evaluator selects the best proposal before mutation
+  stop_conditions:
+  - Required input missing
+  - Affected code cannot be located
+  - Language cannot be identified from repository evidence
+  - Required project memory is unavailable for high-risk change
+  - Fix requires architecture or structure change
+  - Fix would add source-code comments
+  - Fix would leave unused imports, orphan variables or dead code
+  - Evidence cannot be produced
+  - Permission or policy denied
+  - Verification failed
+  - Honest evaluator returns BLOCKED
+
+- id: staff-iii-architecture-governor
+  path: skills/staff-iii-architecture-governor/SKILL.md
+  version: 1.0.0
+  owner_agent: architect
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - DETECT_STACK
+  - MAP_ARCHITECTURE
+  - SELECT_TECHNOLOGY
+  - PLAN_CI_CD
+  - PLAN_GITHUB_ACTIONS
+  - PLAN_DOCKER
+  - PLAN_KUBERNETES
+  - THREAT_MODEL
+  - PLAN_DATABASE
+  - GENERATE_HANDOFF
+  - GENERATE_EVIDENCE
+  production_ready: false
+  mission: Plan and judge Staff III architecture for greenfield and architecture-change work, including language, technology, database, CI/CD, GitHub Actions, Docker, Kubernetes, cybersecurity, observability and implementation handoff.
+  required_inputs:
+  - user_objective
+  - repository_path_or_greenfield_target
+  - target_scope
+  output_schema:
+    type: object
+    required: [status, architecture_plan, technology_matrix, database_decision, ci_cd_plan, kubernetes_docker_plan, cybersecurity_plan, implementation_handoff, evaluator_verdict, evidence_refs, blocking_conditions]
+  quality_gates:
+  - Project memory is consulted before decisions
+  - Business-rule ambiguity is separated from technical autonomy
+  - Language and technology selection is evidence-backed when unspecified by user
+  - Database choice explains why selected and why alternatives were rejected
+  - CI/CD and GitHub Actions include secure defaults and supply-chain gates
+  - Docker and Kubernetes are planned only when justified and operationally safe
+  - Cybersecurity, observability, SLO and rollback are explicit
+  - Architecture remains simple and elegant
+  - Handoff to implementation exists
+  - Honest Architect Staff III evaluator returns 10/10 for every category
+  stop_conditions:
+  - Required input missing
+  - Business-rule decision required from user
+  - Evidence cannot be produced
+  - Production deployment or credential use requires approval
+  - Migration lacks rollback plan
+  - Architecture evaluator returns below 10/10
+  - Any blocking architecture, security, data or operational risk remains
+- id: staff-tdd-code-builder
+  path: skills/staff-tdd-code-builder/SKILL.md
+  version: 1.0.0
+  owner_agent: coder
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - DETECT_STACK
+  - WRITE_SANDBOX_FILES
+  - GENERATE_PATCH
+  - RUN_TESTS
+  - SCAN_DEPENDENCIES
+  - GENERATE_EVIDENCE
+  - GENERATE_HANDOFF
+  production_ready: false
+  mission: Implement approved architecture plans with Staff-level TDD, clean code, SOLID, justified design patterns, multi-source CVE review, aggressive tests and no source-code comments.
+  required_inputs:
+  - architecture_handoff
+  - user_objective
+  - repository_path_or_target_project
+  output_schema:
+    type: object
+    required: [status, tests_first_evidence, implementation_diff, cve_review, verification, documentation_artifacts, evaluator_verdict, evidence_refs, blocking_conditions]
+  quality_gates:
+  - Architecture handoff is accepted and 10/10 before coding
+  - TDD tests are written first unless user explicitly approved code-first execution
+  - Tests validate requested behavior, not implementation theater
+  - Code is simple, cohesive and local-style native
+  - SOLID and design patterns are justified by actual complexity
+  - No comments are added to created or altered source code
+  - No unused imports, orphan variables, dead assignments or dead code remain
+  - CVE and supply-chain review uses multiple sources when available
+  - Stress, negative, boundary, error-path and adversarial tests are recorded honestly
+  - Honest implementation evaluator returns 10/10 for every category
+  stop_conditions:
+  - Architecture handoff missing or below 10/10
+  - Business-rule ambiguity blocks implementation
+  - Required tests cannot be created or run
+  - Generated code would require comments to be understandable
+  - Implementation requires architecture change
+  - Unresolved high or critical CVE remains without approved mitigation
+  - Verification fails
+  - Implementation evaluator returns below 10/10
+- id: documentation-11-layer-mapper
+  path: skills/documentation-11-layer-mapper/SKILL.md
+  version: 1.0.0
+  owner_agent: documenter
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - WRITE_SANDBOX_FILES
+  - GENERATE_REPORT
+  - GENERATE_DIAGRAMS
+  - MERMAID_DIAGRAMS
+  - GENERATE_EVIDENCE
+  - GENERATE_HANDOFF
+  production_ready: false
+  mission: Generate 11-layer project documentation with client, developer, director and product-owner views, data dictionary, Mermaid white-background diagrams, endpoint integration maps and end-to-end feature documentation.
+  required_inputs:
+  - architecture_handoff
+  - implementation_handback
+  - repository_path
+  - evidence_refs
+  output_schema:
+    type: object
+    required: [status, stakeholder_views, eleven_layers, data_dictionary, endpoint_catalog, mermaid_diagrams, evaluator_verdict, evidence_refs, blocking_conditions]
+  quality_gates:
+  - All 11 layers exist or have evidence-backed non-applicability
+  - Client, developer, director and product-owner views exist
+  - Every endpoint and feature is mapped end to end where applicable
+  - Data dictionary and database diagrams are evidence-backed
+  - Mermaid diagrams use white background
+  - Concept, relational, database, sequence, deployment, security, observability and N8N diagrams are included when applicable
+  - Facts, inferences, assumptions and open questions are separated
+  - Secrets and sensitive data are redacted
+  - Documentation ties back to architecture, code, tests and runtime evidence
+  - Honest documentation evaluator returns 10/10 for every category
+  stop_conditions:
+  - Architecture or implementation evidence is missing
+  - Endpoint or data claims cannot be tied to source evidence
+  - Mermaid diagrams cannot be validated
+  - Sensitive data cannot be safely redacted
+  - Documentation evaluator returns below 10/10
+  - Any blocking documentation gap remains

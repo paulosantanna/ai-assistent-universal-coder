@@ -1,0 +1,102 @@
+playbook:
+  id: aeos-autonomous-evolution
+  version: 1.0.0
+  risk: HIGH
+  objective: Govern AEOS autonomous engineering decisions through handoff, telemetry, pods-to-code mapping, testing, learning, memory and evidence.
+  aliases:
+    - aeos-revolution
+    - aeos-self-learning
+    - aeos-autonomous-learning
+  policies:
+    - evidence-before-claims
+    - simplest-elegant-route
+    - explicit-handoff-before-transfer
+    - memory-promotion-after-validation
+    - telemetry-before-runtime-root-cause
+    - pods-to-code-before-kubernetes-repair
+    - api-memory-by-org-project-acronym
+  entry:
+    skill: aeos-autonomous-learning-governor
+  required_inputs:
+    - user_objective
+    - repository_path
+    - target_scope
+  waves:
+    - id: W0
+      name: Route, scope and evidence readiness
+      mutation: false
+      steps:
+        - id: W0-S1
+          skill: aeos-autonomous-learning-governor
+          mode: route
+          outputs: [execution_route.json, governed_handoff.md, progress_snapshot.md]
+        - id: W0-GATE
+          skill: aeos-autonomous-learning-governor
+          mode: evidence-readiness
+          depends_on: [W0-S1]
+          verdicts: [PASS, REWORK_REQUIRED, BLOCKED, WAITING_APPROVAL]
+    - id: W1
+      name: Context and telemetry correlation
+      mutation: false
+      parallel_groups:
+        - [W1-K8S-CODE, W1-OBSERVABILITY]
+      steps:
+        - id: W1-K8S-CODE
+          skill: kubernetes-code-context-mapper
+          depends_on: [W0-GATE]
+          outputs: [workload_code_map.md, ownership_boundaries.md, telemetry_correlation.md, evidence_index.md]
+        - id: W1-OBSERVABILITY
+          skill: observability-root-cause-integrator
+          depends_on: [W0-GATE]
+          outputs: [cross-tool-timeline.md, contradiction-matrix.md, root-cause-candidates.json]
+    - id: W2
+      name: Bug repair or engineering route execution
+      mutation: controlled
+      steps:
+        - id: W2-BUG
+          skill: telemetry-bug-root-cause-solver
+          depends_on: [W1-K8S-CODE, W1-OBSERVABILITY]
+          condition: route_is_bug_repair_or_runtime_failure
+          outputs: [root_cause_report.md, fix_plan.md, test_matrix.md, rollback_plan.md, learning_candidate.md]
+        - id: W2-CODE
+          skill: patch-planner
+          depends_on: [W0-GATE]
+          condition: route_is_code_change_or_creation
+          outputs: [patch_plan.md, rollback_plan.md, verification_plan.md]
+        - id: W2-ARCH
+          skill: chromatic-mega-brain
+          depends_on: [W0-GATE]
+          condition: route_is_architecture_decision
+          outputs: [decision_matrix.md, architecture_risks.md, judge_input.md]
+    - id: W3
+      name: Verification, evidence and learning
+      mutation: false
+      steps:
+        - id: W3-TESTS
+          skill: test-generation
+          depends_on: [W2-BUG, W2-CODE, W2-ARCH]
+          mode: risk-based-verification
+          outputs: [test_gap_report.md, generated_or_required_tests.md]
+        - id: W3-LEARNING
+          skill: aeos-autonomous-learning-governor
+          depends_on: [W3-TESTS]
+          mode: learning-capture
+          outputs: [learning_candidate.md, memory_update_plan.md, evidence_index.md]
+    - id: W4
+      name: Independent readiness review
+      mutation: false
+      steps:
+        - id: W4-JUDGE
+          skill: diff-reviewer
+          depends_on: [W3-LEARNING]
+          mode: independent-review
+          verdicts: [PASS, REWORK_REQUIRED, BLOCKED, FAILED_VERIFICATION]
+  completion:
+    requires:
+      - route selected with rejected alternatives
+      - handoff record exists for every transfer
+      - evidence index exists
+      - tests are executed or blocked with exact reason
+      - learning candidate or non-applicability is recorded
+      - memory target is scoped by role or api org project acronym
+      - no unsupported completion claim remains

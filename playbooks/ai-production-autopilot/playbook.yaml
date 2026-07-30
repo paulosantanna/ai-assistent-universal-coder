@@ -1,0 +1,223 @@
+playbook:
+  id: ai-production-autopilot
+  version: 1.0.0
+  risk: CRITICAL
+  objective: Plan architecture, implement code with TDD, integrate N8N automation, verify security and generate 11-layer documentation for production-grade project delivery.
+  aliases:
+    - production-autopilot
+    - architecture-to-code-autopilot
+    - staff-iii-project-delivery
+    - n8n-production-integrator
+  policies:
+    - evidence-before-claims
+    - architecture-before-implementation
+    - tdd-before-code-by-default
+    - no-source-code-comments
+    - no-unused-imports-or-orphan-variables
+    - multi-source-cve-screening
+    - honest-10-of-10-gates
+    - no-test-theater
+    - business-rules-require-user-alignment
+    - n8n-through-approved-automation-boundary
+    - documentation-11-layers-before-release
+    - memory-handoff-progress-learning-evidence-analysis-required
+  entry:
+    skill: staff-iii-architecture-governor
+  required_inputs:
+    - user_objective
+    - repository_path_or_greenfield_target
+    - target_scope
+  optional_inputs:
+    - business_rules
+    - preferred_language_or_stack
+    - deployment_target
+    - n8n_instance_or_workflow_export
+    - compliance_constraints
+  waves:
+    - id: W0
+      name: Intake, memory and business-rule boundary
+      mutation: false
+      steps:
+        - id: W0-MEMORY
+          skill: aeos-autonomous-learning-governor
+          mode: project-memory-scope
+          outputs: [memory_scope.md, api_org_project_acronym_map.md, prior_lessons.md]
+        - id: W0-BUSINESS-RULES
+          skill: staff-iii-architecture-governor
+          mode: business-rule-gap-detection
+          depends_on: [W0-MEMORY]
+          verdicts: [PASS, WAITING_APPROVAL, BLOCKED]
+          outputs: [business_rule_questions.md, assumption_boundary.md]
+    - id: W1
+      name: Architect Staff III planning
+      mutation: false
+      parallel_groups:
+        - [W1-LANGUAGE, W1-ARCHITECTURE, W1-DATABASE, W1-DEVSECOPS, W1-PLATFORM, W1-CYBERSECURITY, W1-OBSERVABILITY, W1-UX]
+      steps:
+        - id: W1-LANGUAGE
+          skill: staff-iii-architecture-governor
+          mode: language-technology-strategist
+          depends_on: [W0-BUSINESS-RULES]
+          outputs: [language_technology_matrix.md]
+        - id: W1-ARCHITECTURE
+          skill: staff-iii-architecture-governor
+          mode: architecture-style-strategist
+          depends_on: [W0-BUSINESS-RULES]
+          outputs: [architecture_options.md]
+        - id: W1-DATABASE
+          skill: staff-iii-architecture-governor
+          mode: database-architect
+          depends_on: [W0-BUSINESS-RULES]
+          outputs: [database_decision.md]
+        - id: W1-DEVSECOPS
+          skill: staff-iii-architecture-governor
+          mode: devsecops-ci-cd-architect
+          depends_on: [W0-BUSINESS-RULES]
+          outputs: [ci_cd_github_actions_plan.md]
+        - id: W1-PLATFORM
+          skill: staff-iii-architecture-governor
+          mode: kubernetes-docker-platform-architect
+          depends_on: [W0-BUSINESS-RULES]
+          outputs: [docker_kubernetes_plan.md]
+        - id: W1-CYBERSECURITY
+          skill: staff-iii-architecture-governor
+          mode: cybersecurity-threat-modeler
+          depends_on: [W0-BUSINESS-RULES]
+          outputs: [threat_model.md, cybersecurity_plan.md]
+        - id: W1-OBSERVABILITY
+          skill: staff-iii-architecture-governor
+          mode: observability-slo-architect
+          depends_on: [W0-BUSINESS-RULES]
+          outputs: [slo_observability_plan.md]
+        - id: W1-UX
+          skill: staff-iii-architecture-governor
+          mode: ui-ux-product-architecture-advisor
+          depends_on: [W0-BUSINESS-RULES]
+          condition: user_facing_software
+          outputs: [ui_ux_architecture_plan.md]
+    - id: W2
+      name: Honest architecture decision
+      mutation: false
+      steps:
+        - id: W2-SYNTHESIS
+          skill: staff-iii-architecture-governor
+          mode: architecture-synthesis
+          depends_on: [W1-LANGUAGE, W1-ARCHITECTURE, W1-DATABASE, W1-DEVSECOPS, W1-PLATFORM, W1-CYBERSECURITY, W1-OBSERVABILITY]
+          outputs: [plano-arquitetura.md, handoff-para-codigo.md]
+        - id: W2-JUDGE
+          skill: staff-iii-architecture-governor
+          mode: architect-staff-iii-honest-evaluator
+          depends_on: [W2-SYNTHESIS]
+          verdicts: [PASS_10_10, REWORK_REQUIRED, BLOCKED, WAITING_APPROVAL]
+          requires_score: 10
+          outputs: [honest_architecture_verdict.md]
+    - id: W3
+      name: TDD implementation
+      mutation: controlled
+      steps:
+        - id: W3-TEST-FIRST
+          skill: staff-tdd-code-builder
+          mode: failing-tests-first
+          depends_on: [W2-JUDGE]
+          outputs: [failing_tests_evidence.md, test_matrix.md]
+        - id: W3-CODE
+          skill: staff-tdd-code-builder
+          mode: implement-smallest-clean-code
+          depends_on: [W3-TEST-FIRST]
+          outputs: [implementation_diff.md, design_pattern_fit.md]
+        - id: W3-REFACTOR
+          skill: staff-tdd-code-builder
+          mode: clean-solid-refactor
+          depends_on: [W3-CODE]
+          outputs: [refactor_diff.md, no_comments_unused_symbols_report.md]
+    - id: W4
+      name: Security, CVE and aggressive verification
+      mutation: controlled
+      parallel_groups:
+        - [W4-CVE, W4-TESTS, W4-DIFF]
+      steps:
+        - id: W4-CVE
+          skill: staff-tdd-code-builder
+          mode: multi-source-cve-supply-chain
+          depends_on: [W3-REFACTOR]
+          outputs: [nvd_osv_github_cisa_review.md, dependency_mitigation_plan.md]
+        - id: W4-TESTS
+          skill: test-generation
+          mode: stress-negative-adversarial-regression
+          depends_on: [W3-REFACTOR]
+          outputs: [stress_test_report.md, mutation_or_equivalent_findings.md]
+        - id: W4-DIFF
+          skill: diff-reviewer
+          mode: no-theater-code-review
+          depends_on: [W3-REFACTOR]
+          outputs: [diff_review.md, scope_integrity_report.md]
+        - id: W4-SECURITY-JUDGE
+          skill: security-audit
+          mode: independent-security-review
+          depends_on: [W4-CVE, W4-TESTS, W4-DIFF]
+          verdicts: [PASS_10_10, REWORK_REQUIRED, BLOCKED, FAILED_VERIFICATION]
+          requires_score: 10
+          outputs: [security_verdict.md]
+    - id: W5
+      name: N8N automation integration
+      mutation: controlled
+      steps:
+        - id: W5-N8N-PLAN
+          skill: staff-iii-architecture-governor
+          mode: n8n-automation-boundary-plan
+          depends_on: [W4-SECURITY-JUDGE]
+          outputs: [n8n_integration_plan.md, n8n_secret_boundary.md]
+        - id: W5-N8N-HANDOFF
+          skill: staff-tdd-code-builder
+          mode: n8n-workflow-config-or-handoff
+          depends_on: [W5-N8N-PLAN]
+          allowed_mcp: n8n-automation
+          outputs: [n8n_workflow_handoff.md, n8n_execution_evidence.md]
+    - id: W6
+      name: Documentation 11 layers
+      mutation: false
+      steps:
+        - id: W6-DOCS
+          skill: documentation-11-layer-mapper
+          mode: complete-11-layer-documentation
+          depends_on: [W2-JUDGE, W3-REFACTOR, W4-SECURITY-JUDGE, W5-N8N-HANDOFF]
+          outputs: [documentation_package.md, data_dictionary.md, endpoint_catalog.md, mermaid_diagrams.md]
+        - id: W6-DOCS-JUDGE
+          skill: documentation-11-layer-mapper
+          mode: honest-documentation-evaluator
+          depends_on: [W6-DOCS]
+          verdicts: [PASS_10_10, REWORK_REQUIRED, BLOCKED]
+          requires_score: 10
+          outputs: [honest_documentation_verdict.md]
+    - id: W7
+      name: Release readiness and learning
+      mutation: false
+      steps:
+        - id: W7-READINESS
+          skill: diff-reviewer
+          mode: independent-production-readiness-review
+          depends_on: [W2-JUDGE, W4-SECURITY-JUDGE, W6-DOCS-JUDGE]
+          verdicts: [PASS_10_10, REWORK_REQUIRED, BLOCKED, FAILED_VERIFICATION]
+          requires_score: 10
+          outputs: [production_readiness_verdict.md]
+        - id: W7-LEARNING
+          skill: aeos-autonomous-learning-governor
+          mode: learning-memory-handoff-finalization
+          depends_on: [W7-READINESS]
+          outputs: [learning_candidates.md, memory_update_plan.md, final_handoff.md]
+  completion:
+    requires:
+      - project memory is consulted by org repo project and API acronym when available
+      - business-rule ambiguity is asked before autonomous technical execution
+      - architecture plan receives PASS_10_10 from the honest Architect Staff III evaluator
+      - implementation follows TDD first unless user explicitly approved code-first execution
+      - source code contains no added comments, unused imports, orphan variables or dead code
+      - CVE screening uses multiple sources when network or exported data is available
+      - tests include stress, negative, boundary, error-path and adversarial coverage where applicable
+      - no test is generated only to satisfy existing implementation outside the requested scope
+      - N8N automation is planned or executed only through approved automation boundary
+      - 11-layer documentation includes client, developer, director and product-owner views
+      - Mermaid diagrams use white background and cover endpoint, database, sequence, deployment, security and end-to-end flows when applicable
+      - Memory, Handoff, progress, Learning, evidencias and analise artifacts exist
+      - independent final readiness review returns PASS_10_10
+      - no blocker, failed required test, unresolved critical CVE or missing evidence remains

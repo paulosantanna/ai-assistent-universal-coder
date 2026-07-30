@@ -196,3 +196,19 @@ playbooks:
     required_lcps: [global-rules, security-governance]
     allowed_mcps: [filesystem-readonly, git-readonly, test-runner-controlled]
     production_ready: true
+  - id: aeos-autonomous-evolution
+    path: playbooks/aeos-autonomous-evolution/playbook.yaml
+    risk_level: high
+    required_agents: [root, planner, coder, tester, architect, judge]
+    required_skills: [aeos-autonomous-learning-governor, telemetry-bug-root-cause-solver, kubernetes-code-context-mapper, observability-root-cause-integrator, patch-planner, chromatic-mega-brain, test-generation, diff-reviewer]
+    required_lcps: [global-rules, security-governance, project-memory]
+    allowed_mcps: [filesystem-readonly, git-readonly, filesystem-write-sandbox, test-runner-controlled]
+    production_ready: false
+  - id: ai-production-autopilot
+    path: playbooks/ai-production-autopilot/playbook.yaml
+    risk_level: critical
+    required_agents: [root, architect, coder, tester, security, devops, documenter, judge]
+    required_skills: [staff-iii-architecture-governor, staff-tdd-code-builder, documentation-11-layer-mapper, aeos-autonomous-learning-governor, security-audit, dependency-analyzer, test-generation, diff-reviewer]
+    required_lcps: [global-rules, security-governance, documentation-standards, project-memory]
+    allowed_mcps: [filesystem-readonly, git-readonly, filesystem-write-sandbox, test-runner-controlled, n8n-automation, package-local]
+    production_ready: false
