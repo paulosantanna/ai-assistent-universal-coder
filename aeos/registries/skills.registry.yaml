@@ -864,14 +864,28 @@ skills:
   - objective
   - detected_language_versions
   - evidence_refs
+  - target_identifier
+  - branch_commit_worktree_scope
+  - github_actions_evidence_or_access
+  - subagent_handoff_refs
+  - specs_preflight_ref
   quality_gates:
   - Docs claims cite MCP evidence
   - Repository claims cite inspected files
   - No secrets are exposed
+  - Per-destination bundle exists with HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md and README.md
+  - evidencias/linha-do-tempo-runs.md records inspected branches, commits, worktrees and GitHub Actions runs
+  - Independent subagents cover git history, exception chain, layer diagnosis, correction proposal and Judge review
+  - analise/Diagnostico.md records top-down exception chain to evidence-backed root cause
+  - analise/PROPOSTA_CORRECAO.md maps correction, tests and rollback to the root cause
   stop_conditions:
   - Docs MCP unavailable
   - Target version cannot be detected
   - Evidence cannot be produced
+  - Branch, commit, worktree or GitHub Actions evidence cannot be collected
+  - Required independent subagents are unavailable
+  - Top-down exception chain cannot be tied to an evidence-backed root cause
+  - Per-destination HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md, README.md or analysis artifacts cannot be created
 - id: python-docs-bug-solver
   path: aeos/skills/generated/python-docs-bug-solver.skill.md
   version: 1.0.0
@@ -889,14 +903,28 @@ skills:
   - objective
   - detected_language_versions
   - evidence_refs
+  - target_identifier
+  - branch_commit_worktree_scope
+  - github_actions_evidence_or_access
+  - subagent_handoff_refs
+  - specs_preflight_ref
   quality_gates:
   - Docs claims cite MCP evidence
   - Repository claims cite inspected files
   - No secrets are exposed
+  - Per-destination bundle exists with HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md and README.md
+  - evidencias/linha-do-tempo-runs.md records inspected branches, commits, worktrees and GitHub Actions runs
+  - Independent subagents cover git history, exception chain, layer diagnosis, correction proposal and Judge review
+  - analise/Diagnostico.md records top-down exception chain to evidence-backed root cause
+  - analise/PROPOSTA_CORRECAO.md maps correction, tests and rollback to the root cause
   stop_conditions:
   - Docs MCP unavailable
   - Target version cannot be detected
   - Evidence cannot be produced
+  - Branch, commit, worktree or GitHub Actions evidence cannot be collected
+  - Required independent subagents are unavailable
+  - Top-down exception chain cannot be tied to an evidence-backed root cause
+  - Per-destination HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md, README.md or analysis artifacts cannot be created
 - id: node-bug-solver
   path: aeos/skills/generated/node-bug-solver.skill.md
   version: 1.0.0
@@ -914,14 +942,28 @@ skills:
   - objective
   - detected_language_versions
   - evidence_refs
+  - target_identifier
+  - branch_commit_worktree_scope
+  - github_actions_evidence_or_access
+  - subagent_handoff_refs
+  - specs_preflight_ref
   quality_gates:
   - Docs claims cite MCP evidence
   - Repository claims cite inspected files
   - No secrets are exposed
+  - Per-destination bundle exists with HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md and README.md
+  - evidencias/linha-do-tempo-runs.md records inspected branches, commits, worktrees and GitHub Actions runs
+  - Independent subagents cover git history, exception chain, layer diagnosis, correction proposal and Judge review
+  - analise/Diagnostico.md records top-down exception chain to evidence-backed root cause
+  - analise/PROPOSTA_CORRECAO.md maps correction, tests and rollback to the root cause
   stop_conditions:
   - Docs MCP unavailable
   - Target version cannot be detected
   - Evidence cannot be produced
+  - Branch, commit, worktree or GitHub Actions evidence cannot be collected
+  - Required independent subagents are unavailable
+  - Top-down exception chain cannot be tied to an evidence-backed root cause
+  - Per-destination HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md, README.md or analysis artifacts cannot be created
 - id: typescript-bug-solver
   path: aeos/skills/generated/typescript-bug-solver.skill.md
   version: 1.0.0
@@ -939,14 +981,28 @@ skills:
   - objective
   - detected_language_versions
   - evidence_refs
+  - target_identifier
+  - branch_commit_worktree_scope
+  - github_actions_evidence_or_access
+  - subagent_handoff_refs
+  - specs_preflight_ref
   quality_gates:
   - Docs claims cite MCP evidence
   - Repository claims cite inspected files
   - No secrets are exposed
+  - Per-destination bundle exists with HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md and README.md
+  - evidencias/linha-do-tempo-runs.md records inspected branches, commits, worktrees and GitHub Actions runs
+  - Independent subagents cover git history, exception chain, layer diagnosis, correction proposal and Judge review
+  - analise/Diagnostico.md records top-down exception chain to evidence-backed root cause
+  - analise/PROPOSTA_CORRECAO.md maps correction, tests and rollback to the root cause
   stop_conditions:
   - Docs MCP unavailable
   - Target version cannot be detected
   - Evidence cannot be produced
+  - Branch, commit, worktree or GitHub Actions evidence cannot be collected
+  - Required independent subagents are unavailable
+  - Top-down exception chain cannot be tied to an evidence-backed root cause
+  - Per-destination HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md, README.md or analysis artifacts cannot be created
 - id: angular-bug-solver
   path: aeos/skills/generated/angular-bug-solver.skill.md
   version: 1.0.0
@@ -964,14 +1020,28 @@ skills:
   - objective
   - detected_language_versions
   - evidence_refs
+  - target_identifier
+  - branch_commit_worktree_scope
+  - github_actions_evidence_or_access
+  - subagent_handoff_refs
+  - specs_preflight_ref
   quality_gates:
   - Docs claims cite MCP evidence
   - Repository claims cite inspected files
   - No secrets are exposed
+  - Per-destination bundle exists with HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md and README.md
+  - evidencias/linha-do-tempo-runs.md records inspected branches, commits, worktrees and GitHub Actions runs
+  - Independent subagents cover git history, exception chain, layer diagnosis, correction proposal and Judge review
+  - analise/Diagnostico.md records top-down exception chain to evidence-backed root cause
+  - analise/PROPOSTA_CORRECAO.md maps correction, tests and rollback to the root cause
   stop_conditions:
   - Docs MCP unavailable
   - Target version cannot be detected
   - Evidence cannot be produced
+  - Branch, commit, worktree or GitHub Actions evidence cannot be collected
+  - Required independent subagents are unavailable
+  - Top-down exception chain cannot be tied to an evidence-backed root cause
+  - Per-destination HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md, README.md or analysis artifacts cannot be created
 - id: javascript-bug-solver
   path: aeos/skills/generated/javascript-bug-solver.skill.md
   version: 1.0.0
@@ -989,14 +1059,28 @@ skills:
   - objective
   - detected_language_versions
   - evidence_refs
+  - target_identifier
+  - branch_commit_worktree_scope
+  - github_actions_evidence_or_access
+  - subagent_handoff_refs
+  - specs_preflight_ref
   quality_gates:
   - Docs claims cite MCP evidence
   - Repository claims cite inspected files
   - No secrets are exposed
+  - Per-destination bundle exists with HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md and README.md
+  - evidencias/linha-do-tempo-runs.md records inspected branches, commits, worktrees and GitHub Actions runs
+  - Independent subagents cover git history, exception chain, layer diagnosis, correction proposal and Judge review
+  - analise/Diagnostico.md records top-down exception chain to evidence-backed root cause
+  - analise/PROPOSTA_CORRECAO.md maps correction, tests and rollback to the root cause
   stop_conditions:
   - Docs MCP unavailable
   - Target version cannot be detected
   - Evidence cannot be produced
+  - Branch, commit, worktree or GitHub Actions evidence cannot be collected
+  - Required independent subagents are unavailable
+  - Top-down exception chain cannot be tied to an evidence-backed root cause
+  - Per-destination HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md, README.md or analysis artifacts cannot be created
 - id: java-version-migration
   path: aeos/skills/generated/java-version-migration.skill.md
   version: 1.0.0
@@ -1507,9 +1591,46 @@ skills:
   required_inputs:
   - stack_trace_or_error
   - repository_path
+  - target_identifier
+  - branch_commit_worktree_scope
+  - github_actions_evidence_or_access
+  - subagent_handoff_refs
+  - specs_preflight_ref
   output_schema:
     type: object
     properties:
+      target_workspace:
+        type: string
+      handoff:
+        type: string
+      learning:
+        type: string
+      memory:
+        type: string
+      progress:
+        type: string
+      evidence_bundle:
+        type: object
+      analysis_bundle:
+        type: object
+      subagent_handoffs:
+        type: array
+        items:
+          type: string
+      exception_chain:
+        type: array
+        items:
+          type: string
+      fix_proposal:
+        type: string
+      verification_plan:
+        type: array
+        items:
+          type: string
+      blocking_conditions:
+        type: array
+        items:
+          type: string
       root_cause:
         type: string
       fix_applied:
@@ -1537,12 +1658,21 @@ skills:
   - Lesson is recorded
   - No regressions introduced
   - Recursion finds all related patterns
+  - Per-destination bundle exists with HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md and README.md
+  - evidencias/linha-do-tempo-runs.md records inspected branches, commits, worktrees and GitHub Actions runs
+  - Independent subagents cover git history, exception chain, layer diagnosis, correction proposal and Judge review
+  - analise/Diagnostico.md records top-down exception chain to evidence-backed root cause
+  - analise/PROPOSTA_CORRECAO.md maps correction, tests and rollback to the root cause
   stop_conditions:
   - Scope must expand beyond bug fixing
   - Destructive action required without approval
   - Critical dependency missing
   - Evidence cannot be produced
   - Assumptions invalidated
+  - Branch, commit, worktree or GitHub Actions evidence cannot be collected
+  - Required independent subagents are unavailable
+  - Top-down exception chain cannot be tied to an evidence-backed root cause
+  - Per-destination HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md, README.md or analysis artifacts cannot be created
 - id: simulator-ai
   path: skills/simulator-ai/SKILL.md
   version: 1.0.0
@@ -1600,3 +1730,1568 @@ skills:
   - Simulation requires real patient data without governance
   - Clinical deployment requested without approval
   - Unsafe or unsupported claims detected
+- id: voiceai
+  path: skills/voiceai/SKILL.md
+  version: 1.0.0
+  owner_agent: coder
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - PROCESS_AUDIO_REF
+  - READ_MEDIA_PATH
+  - EXTRACT_VIDEO_AUDIO
+  - PROCESS_VIDEO_AUDIO
+  - TRANSCRIBE_AUDIO  - CLASSIFY_INTENT
+  - GENERATE_HANDOFF
+  - GENERATE_REPORT
+  production_ready: false
+  mission: Govern activation-consented speech audio intake, direct authorized drive/media access, video-audio transcription, literal multilingual transcription, relevance classification and AEOS artifact handoff generation.
+  required_inputs:
+  - user_objective
+  - authorized_audio_video_drive_or_transcript_ref
+  - activation_consent_and_retention_constraints
+  quality_gates:
+  - Skill activation is treated as current-session consent and retention constraints are explicit or defaulted safely
+  - Authorized audio/video media source is recorded in media_sources
+  - Literal transcript is preserved before summarization
+  - Mixed-language segments include language tags
+  - Jokes and out-of-scope speech are excluded from actionable scope unless reclassified by the user
+  - Actionable intent cites source transcript segments
+  - Output validates against skills/voiceai/schemas/output.schema.json
+  stop_conditions:
+  - Consent or authorization missing
+  - Approved audio connector unavailable
+  - Approved media reader or video audio extractor unavailable
+  - User-supplied drive or mounted path unavailable
+  - Approved transcription engine unavailable
+  - Audio quality prevents reliable transcription
+  - Required approval missing for active registry, deployment, destructive action or credential handling
+- id: dynatrace-observability-staff
+  path: skills/dynatrace-observability-staff/SKILL.md
+  version: 1.0.0
+  owner_agent: dynatrace-observability-staff-agent
+  risk_level: high
+  capabilities: [READ_TELEMETRY_EXPORTS, READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE, GENERATE_HANDOFF]
+  production_ready: true
+  mission: Deep Staff-level Dynatrace observability analysis with isolated evidence handoff.
+  required_inputs: [incident_objective, incident_time_window, target_entity_or_service, dynatrace_evidence_or_read_only_access]
+  quality_gates: [Evidence cites exact Dynatrace artifacts, Davis conclusions are verified, topology and timing are checked, missing telemetry is disclosed]
+  stop_conditions: [Incident window missing, Dynatrace evidence unavailable, permissions insufficient, unsupported root-cause claim remains]
+- id: grafana-observability-staff
+  path: skills/grafana-observability-staff/SKILL.md
+  version: 1.0.0
+  owner_agent: grafana-observability-staff-agent
+  risk_level: high
+  capabilities: [READ_TELEMETRY_EXPORTS, READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE, GENERATE_HANDOFF]
+  production_ready: true
+  mission: Deep Staff-level Grafana observability analysis with isolated evidence handoff.
+  required_inputs: [incident_objective, incident_time_window, target_service_or_dashboard, grafana_evidence_or_read_only_access]
+  quality_gates: [Panel queries are inspected, datasource freshness is checked, instrumentation gaps are disclosed, missing data is not treated as health]
+  stop_conditions: [Incident window missing, Grafana evidence unavailable, permissions insufficient, unsupported root-cause claim remains]
+- id: kubernetes-observability-staff
+  path: skills/kubernetes-observability-staff/SKILL.md
+  version: 1.0.0
+  owner_agent: kubernetes-observability-staff-agent
+  risk_level: high
+  capabilities: [READ_TELEMETRY_EXPORTS, READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE, GENERATE_HANDOFF]
+  production_ready: true
+  mission: Deep Staff-level Kubernetes observability analysis with isolated evidence handoff.
+  required_inputs: [incident_objective, incident_time_window, namespace_or_workload, kubernetes_evidence_or_read_only_access]
+  quality_gates: [Events and conditions are inspected, pod phase is not over-trusted, resource metrics limits are disclosed, workload ownership is mapped]
+  stop_conditions: [Incident window missing, Kubernetes evidence unavailable, permissions insufficient, unsupported root-cause claim remains]
+- id: openshift-observability-staff
+  path: skills/openshift-observability-staff/SKILL.md
+  version: 1.0.0
+  owner_agent: openshift-observability-staff-agent
+  risk_level: high
+  capabilities: [READ_TELEMETRY_EXPORTS, READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE, GENERATE_HANDOFF]
+  production_ready: true
+  mission: Deep Staff-level OpenShift observability analysis with isolated evidence handoff.
+  required_inputs: [incident_objective, incident_time_window, cluster_namespace_or_workload, openshift_evidence_or_read_only_access]
+  quality_gates: [Platform and user workload monitoring are separated, Operator reconciliation is respected, supported configuration boundaries are disclosed]
+  stop_conditions: [Incident window missing, OpenShift evidence unavailable, permissions insufficient, unsupported or unsupported-configuration claim remains]
+- id: splunk-observability-staff
+  path: skills/splunk-observability-staff/SKILL.md
+  version: 1.0.0
+  owner_agent: splunk-observability-staff-agent
+  risk_level: high
+  capabilities: [READ_TELEMETRY_EXPORTS, READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE, GENERATE_HANDOFF]
+  production_ready: true
+  mission: Deep Staff-level Splunk observability and ITSI analysis with isolated evidence handoff.
+  required_inputs: [incident_objective, incident_time_window, index_or_episode_or_service, splunk_evidence_or_read_only_access]
+  quality_gates: [SPL scope is bounded, episode timelines are inspected, common fields are reviewed, search lag and extraction gaps are disclosed]
+  stop_conditions: [Incident window missing, Splunk evidence unavailable, permissions insufficient, unsupported root-cause claim remains]
+- id: observability-root-cause-integrator
+  path: skills/observability-root-cause-integrator/SKILL.md
+  version: 1.0.0
+  owner_agent: observability-root-cause-integrator-agent
+  risk_level: high
+  capabilities: [READ_EVIDENCE, READ_FILES, CORRELATE_FINDINGS, GENERATE_REPORT, GENERATE_HANDOFF]
+  production_ready: true
+  mission: Integrate isolated observability reports and code context into a simple low-impact remediation plan.
+  required_inputs: [specialist_handoffs, incident_time_window, repository_path_or_code_map]
+  quality_gates: [Contradictions are surfaced, root-cause candidates cite evidence, remediation is simple and reversible, verification and rollback are defined]
+  stop_conditions: [Specialist handoffs missing, code correlation missing without disclosure, unresolved contradiction blocks root-cause claim]
+- id: specs
+  path: skills/specs/SKILL.md
+  version: 1.0.0
+  owner_agent: judge
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  production_ready: true
+  mission: Require spec-driven preflight before any AEOS skill creates or alters artifacts.
+  allowed_actions:
+  - Read authorized repository context needed to define a spec
+  - Generate requirements, design notes, task plans, test matrices and evidence gates
+  - Validate machine-readable spec output
+  - Block downstream mutating skill execution when specs evidence is missing
+  forbidden_actions:
+  - Modify downstream artifacts
+  - Approve its own implementation
+  - Waive testing, security, evidence or approval gates
+  - Treat vague objectives as complete specifications
+  required_inputs:
+  - user_objective
+  - target_scope
+  - downstream_skill_or_artifact_type
+  output_schema:
+    type: object
+    required:
+    - spec_id
+    - requirements
+    - acceptance_criteria
+    - design
+    - tasks
+    - test_matrix
+    - approval_gates
+    - evidence_gates
+    - blocking_conditions
+    properties:
+      spec_id:
+        type: string
+      status:
+        type: string
+      requirements:
+        type: array
+      acceptance_criteria:
+        type: array
+      design:
+        type: object
+      tasks:
+        type: array
+      test_matrix:
+        type: array
+      approval_gates:
+        type: array
+      evidence_gates:
+        type: array
+      blocking_conditions:
+        type: array
+  quality_gates:
+  - Requirements are testable and have stable IDs
+  - Acceptance criteria link to requirements and verification methods
+  - Design maps to requirements and records architecture, rollback and observability impact
+  - Tasks link to requirements or acceptance criteria
+  - Test applicability matrix covers affected AEOS categories honestly
+  - Downstream mutating skills carry specs evidence before execution
+  stop_conditions:
+  - Objective or scope missing
+  - Requirements cannot be made testable
+  - Acceptance criteria cannot be verified
+  - Test applicability cannot be classified honestly
+  - Required approval is missing
+  - Specs evidence cannot be produced
+
+- id: aeos-autonomous-learning-governor
+  path: skills/aeos-autonomous-learning-governor/SKILL.md
+  version: 1.0.0
+  owner_agent: planner
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  production_ready: false
+  mission: Govern AEOS internal learning, handoffs, memory, evidence, progress tracking
+    and decision selection for code creation, bug repair, code change and architecture
+    work.
+  required_inputs:
+  - user_objective
+  - target_scope
+  - evidence_refs
+  quality_gates:
+  - Facts cite evidence
+  - Assumptions are explicitly marked
+  - Honest evaluator verdict is PASS or REVIEW
+  - No secrets are exposed
+  stop_conditions:
+  - Required input missing
+  - Evidence cannot be produced
+  - Permission or policy denied
+  - Honest evaluator returns BLOCKED
+- id: kubernetes-code-context-mapper
+  path: skills/kubernetes-code-context-mapper/SKILL.md
+  version: 1.0.0
+  owner_agent: architect
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  production_ready: false
+  mission: Map Kubernetes pods, workloads, services, labels, metrics, logs and deployment
+    metadata back to repository code, owners, tests and remediation boundaries.
+  required_inputs:
+  - user_objective
+  - target_scope
+  - evidence_refs
+  quality_gates:
+  - Facts cite evidence
+  - Assumptions are explicitly marked
+  - Honest evaluator verdict is PASS or REVIEW
+  - No secrets are exposed
+  stop_conditions:
+  - Required input missing
+  - Evidence cannot be produced
+  - Permission or policy denied
+  - Honest evaluator returns BLOCKED
+- id: telemetry-bug-root-cause-solver
+  path: skills/telemetry-bug-root-cause-solver/SKILL.md
+  version: 1.0.0
+  owner_agent: coder
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - PROPOSE_PATCH
+  - GENERATE_DIFF
+  production_ready: false
+  mission: Resolve bugs from logs, metrics, traces, events, alerts and stack traces by correlating runtime evidence with code, tests, rollback and learning records.
+  required_inputs:
+  - user_objective
+  - target_scope
+  - evidence_refs
+  quality_gates:
+  - Facts cite evidence
+  - Assumptions are explicitly marked
+  - Honest evaluator verdict is PASS or REVIEW
+  - No secrets are exposed
+  stop_conditions:
+  - Required input missing
+  - Evidence cannot be produced
+  - Permission or policy denied
+  - Honest evaluator returns BLOCKED
+- id: solve-problems
+  path: skills/solve-problems/SKILL.md
+  version: 1.0.0
+  owner_agent: coder
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - DETECT_STACK
+  - PROPOSE_PATCH
+  - GENERATE_DIFF
+  - GENERATE_EVIDENCE
+  - RUN_TESTS
+  - KNOWLEDGE_RETRIEVAL
+  production_ready: false
+  mission: Universal Staff-level problem solver that receives an error report, detects the affected language and repository context, reads the failing code, produces the simplest clean fix in the same language, verifies it, and records governed Memory, Handoff, progress, Learning, evidencias and analise artifacts without changing project architecture.
+  required_inputs:
+  - error_report
+  - repository_path
+  - target_scope
+  output_schema:
+    type: object
+    required: [status, execution_id, language, affected_files, root_cause, selected_proposal, changed_files, verification, artifact_paths, evidence_refs, blocking_conditions]
+  quality_gates:
+  - Error report and affected language are evidence-backed
+  - Project memory lookup is recorded before implementation
+  - Diagnostic plan and correction proposal exist
+  - Fix uses the affected language and local project style
+  - Project architecture and structure are unchanged
+  - No comments are added to created or altered source code
+  - No unused imports, orphan variables, dead assignments or unused generated files remain
+  - Repository-native checks and tests are recorded honestly
+  - Memory, Handoff, progress, Learning, evidencias and analise artifacts exist
+  - Honest evaluator selects the best proposal before mutation
+  stop_conditions:
+  - Required input missing
+  - Affected code cannot be located
+  - Language cannot be identified from repository evidence
+  - Required project memory is unavailable for high-risk change
+  - Fix requires architecture or structure change
+  - Fix would add source-code comments
+  - Fix would leave unused imports, orphan variables or dead code
+  - Evidence cannot be produced
+  - Permission or policy denied
+  - Verification failed
+  - Honest evaluator returns BLOCKED
+
+- id: staff-iii-architecture-governor
+  path: skills/staff-iii-architecture-governor/SKILL.md
+  version: 1.0.0
+  owner_agent: architect
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - DETECT_STACK
+  - MAP_ARCHITECTURE
+  - SELECT_TECHNOLOGY
+  - PLAN_CI_CD
+  - PLAN_GITHUB_ACTIONS
+  - PLAN_DOCKER
+  - PLAN_KUBERNETES
+  - THREAT_MODEL
+  - PLAN_DATABASE
+  - GENERATE_HANDOFF
+  - GENERATE_EVIDENCE
+  production_ready: false
+  mission: Plan and judge Staff III architecture for greenfield and architecture-change work, including language, technology, database, CI/CD, GitHub Actions, Docker, Kubernetes, cybersecurity, observability and implementation handoff.
+  required_inputs:
+  - user_objective
+  - repository_path_or_greenfield_target
+  - target_scope
+  output_schema:
+    type: object
+    required: [status, architecture_plan, technology_matrix, database_decision, ci_cd_plan, kubernetes_docker_plan, cybersecurity_plan, implementation_handoff, evaluator_verdict, evidence_refs, blocking_conditions]
+  quality_gates:
+  - Project memory is consulted before decisions
+  - Business-rule ambiguity is separated from technical autonomy
+  - Language and technology selection is evidence-backed when unspecified by user
+  - Database choice explains why selected and why alternatives were rejected
+  - CI/CD and GitHub Actions include secure defaults and supply-chain gates
+  - Docker and Kubernetes are planned only when justified and operationally safe
+  - Cybersecurity, observability, SLO and rollback are explicit
+  - Architecture remains simple and elegant
+  - Handoff to implementation exists
+  - Honest Architect Staff III evaluator returns 10/10 for every category
+  stop_conditions:
+  - Required input missing
+  - Business-rule decision required from user
+  - Evidence cannot be produced
+  - Production deployment or credential use requires approval
+  - Migration lacks rollback plan
+  - Architecture evaluator returns below 10/10
+  - Any blocking architecture, security, data or operational risk remains
+- id: staff-tdd-code-builder
+  path: skills/staff-tdd-code-builder/SKILL.md
+  version: 1.0.0
+  owner_agent: coder
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - DETECT_STACK
+  - WRITE_SANDBOX_FILES
+  - GENERATE_PATCH
+  - RUN_TESTS
+  - SCAN_DEPENDENCIES
+  - GENERATE_EVIDENCE
+  - GENERATE_HANDOFF
+  production_ready: false
+  mission: Implement approved architecture plans with Staff-level TDD, clean code, SOLID, justified design patterns, multi-source CVE review, aggressive tests and no source-code comments.
+  required_inputs:
+  - architecture_handoff
+  - user_objective
+  - repository_path_or_target_project
+  output_schema:
+    type: object
+    required: [status, tests_first_evidence, implementation_diff, cve_review, verification, documentation_artifacts, evaluator_verdict, evidence_refs, blocking_conditions]
+  quality_gates:
+  - Architecture handoff is accepted and 10/10 before coding
+  - TDD tests are written first unless user explicitly approved code-first execution
+  - Tests validate requested behavior, not implementation theater
+  - Code is simple, cohesive and local-style native
+  - SOLID and design patterns are justified by actual complexity
+  - No comments are added to created or altered source code
+  - No unused imports, orphan variables, dead assignments or dead code remain
+  - CVE and supply-chain review uses multiple sources when available
+  - Stress, negative, boundary, error-path and adversarial tests are recorded honestly
+  - Honest implementation evaluator returns 10/10 for every category
+  stop_conditions:
+  - Architecture handoff missing or below 10/10
+  - Business-rule ambiguity blocks implementation
+  - Required tests cannot be created or run
+  - Generated code would require comments to be understandable
+  - Implementation requires architecture change
+  - Unresolved high or critical CVE remains without approved mitigation
+  - Verification fails
+  - Implementation evaluator returns below 10/10
+- id: documentation-11-layer-mapper
+  path: skills/documentation-11-layer-mapper/SKILL.md
+  version: 1.0.0
+  owner_agent: documenter
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - WRITE_SANDBOX_FILES
+  - GENERATE_REPORT
+  - GENERATE_DIAGRAMS
+  - MERMAID_DIAGRAMS
+  - GENERATE_EVIDENCE
+  - GENERATE_HANDOFF
+  production_ready: false
+  mission: Generate 11-layer project documentation with client, developer, director and product-owner views, data dictionary, Mermaid white-background diagrams, endpoint integration maps and end-to-end feature documentation.
+  required_inputs:
+  - architecture_handoff
+  - implementation_handback
+  - repository_path
+  - evidence_refs
+  output_schema:
+    type: object
+    required: [status, stakeholder_views, eleven_layers, data_dictionary, endpoint_catalog, mermaid_diagrams, evaluator_verdict, evidence_refs, blocking_conditions]
+  quality_gates:
+  - All 11 layers exist or have evidence-backed non-applicability
+  - Client, developer, director and product-owner views exist
+  - Every endpoint and feature is mapped end to end where applicable
+  - Data dictionary and database diagrams are evidence-backed
+  - Mermaid diagrams use white background
+  - Concept, relational, database, sequence, deployment, security, observability and N8N diagrams are included when applicable
+  - Facts, inferences, assumptions and open questions are separated
+  - Secrets and sensitive data are redacted
+  - Documentation ties back to architecture, code, tests and runtime evidence
+  - Honest documentation evaluator returns 10/10 for every category
+  stop_conditions:
+  - Architecture or implementation evidence is missing
+  - Endpoint or data claims cannot be tied to source evidence
+  - Mermaid diagrams cannot be validated
+  - Sensitive data cannot be safely redacted
+  - Documentation evaluator returns below 10/10
+  - Any blocking documentation gap remains
+- id: evidence-integrity
+  path: aeos/skills/enterprise/evidence-integrity-engineer.skill.md
+  version: 1.0.0
+  owner_agent: enterprise
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  - GENERATE_EVIDENCE
+  production_ready: true
+  mission: Validate evidence integrity using the enterprise evidence-integrity-engineer contract.
+
+
+- id: mantis-architecture
+  path: skills/mantis/mantis-architecture/SKILL.md
+  version: 1.0.0
+  owner_agent: security
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - SCAN_SECRETS
+  - GENERATE_REPORT
+  - GENERATE_EVIDENCE
+  - GENERATE_HANDOFF
+  production_ready: false
+  mission: >-
+    Synthesizes raw learnings and codebase analysis into an interlinked Markdown Knowledge Base (KB). Use at the beginning of a loop to build or update architecture.md, entities, and vulnerabilities. Don't use for generating threat models or formulating execution plans.
+  allowed_actions:
+  - Read authorized repository files and Mantis workspace state
+  - Generate stage-specific Mantis artifacts inside the declared workspace or sandbox
+  - Generate evidence, findings, handoffs and reports with redaction
+  - Execute tests, reproducers or patch verification only when the stage contract, authorization and sandboxing allow it
+  forbidden_actions:
+  - Access targets outside the authorized defensive review scope
+  - Expose secrets, credentials, tokens or sensitive target data
+  - Run generated exploit, reproducer or patch code without approved isolation
+  - Claim validated vulnerabilities or secure patches without required evidence
+  - Mutate production systems or external targets without explicit approval
+  required_inputs:
+  - user_objective
+  - authorized_target_repository_or_mantis_workspace
+  - security_review_scope
+  - evidence_refs
+  output_schema:
+    type: object
+    required: [status, facts, assumptions, risks, recommendations, evidence_refs, blocking_conditions]
+    properties:
+      status:
+        type: string
+      facts:
+        type: array
+      assumptions:
+        type: array
+      risks:
+        type: array
+      recommendations:
+        type: array
+      evidence_refs:
+        type: array
+      blocking_conditions:
+        type: array
+  quality_gates:
+  - Original Mantis stage contract is read before execution
+  - Target authorization and scope are explicit
+  - Findings, verdicts and patch claims cite evidence
+  - Snapshot and state-root boundaries are preserved when applicable
+  - Generated code, reproducers and patches are sandboxed when executed
+  - Secrets and sensitive data are redacted
+  stop_conditions:
+  - Required authorization, target scope or Mantis state is missing
+  - Snapshot, provenance, schema or sentinel checks fail
+  - Required sandboxing or approval is unavailable
+  - Evidence cannot be produced
+  - Original Mantis contract or honest evaluator returns a blocker
+- id: mantis-calibrate
+  path: skills/mantis/mantis-calibrate/SKILL.md
+  version: 1.0.0
+  owner_agent: security
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - SCAN_SECRETS
+  - GENERATE_REPORT
+  - GENERATE_EVIDENCE
+  - GENERATE_HANDOFF
+  production_ready: false
+  mission: >-
+    Calculates the final risk score based on empirical evidence and architectural impact. Use when findings have been fully processed by previous stages and you need to append final risk scores to the finding files. Don't use for discovering new vulnerabilities or writing patches.
+  allowed_actions:
+  - Read authorized repository files and Mantis workspace state
+  - Generate stage-specific Mantis artifacts inside the declared workspace or sandbox
+  - Generate evidence, findings, handoffs and reports with redaction
+  - Execute tests, reproducers or patch verification only when the stage contract, authorization and sandboxing allow it
+  forbidden_actions:
+  - Access targets outside the authorized defensive review scope
+  - Expose secrets, credentials, tokens or sensitive target data
+  - Run generated exploit, reproducer or patch code without approved isolation
+  - Claim validated vulnerabilities or secure patches without required evidence
+  - Mutate production systems or external targets without explicit approval
+  required_inputs:
+  - user_objective
+  - authorized_target_repository_or_mantis_workspace
+  - security_review_scope
+  - evidence_refs
+  output_schema:
+    type: object
+    required: [status, facts, assumptions, risks, recommendations, evidence_refs, blocking_conditions]
+    properties:
+      status:
+        type: string
+      facts:
+        type: array
+      assumptions:
+        type: array
+      risks:
+        type: array
+      recommendations:
+        type: array
+      evidence_refs:
+        type: array
+      blocking_conditions:
+        type: array
+  quality_gates:
+  - Original Mantis stage contract is read before execution
+  - Target authorization and scope are explicit
+  - Findings, verdicts and patch claims cite evidence
+  - Snapshot and state-root boundaries are preserved when applicable
+  - Generated code, reproducers and patches are sandboxed when executed
+  - Secrets and sensitive data are redacted
+  stop_conditions:
+  - Required authorization, target scope or Mantis state is missing
+  - Snapshot, provenance, schema or sentinel checks fail
+  - Required sandboxing or approval is unavailable
+  - Evidence cannot be produced
+  - Original Mantis contract or honest evaluator returns a blocker
+- id: mantis-chain
+  path: skills/mantis/mantis-chain/SKILL.md
+  version: 1.0.0
+  owner_agent: security
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - SCAN_SECRETS
+  - GENERATE_REPORT
+  - GENERATE_EVIDENCE
+  - GENERATE_HANDOFF
+  production_ready: false
+  mission: >-
+    Analyzes individual security findings to identify and construct complex exploit chains. Use after validation stages to see if multiple low-severity bugs can be combined into a higher impact vulnerability. Don't use for initial codebase auditing or writing patch code.
+  allowed_actions:
+  - Read authorized repository files and Mantis workspace state
+  - Generate stage-specific Mantis artifacts inside the declared workspace or sandbox
+  - Generate evidence, findings, handoffs and reports with redaction
+  - Execute tests, reproducers or patch verification only when the stage contract, authorization and sandboxing allow it
+  forbidden_actions:
+  - Access targets outside the authorized defensive review scope
+  - Expose secrets, credentials, tokens or sensitive target data
+  - Run generated exploit, reproducer or patch code without approved isolation
+  - Claim validated vulnerabilities or secure patches without required evidence
+  - Mutate production systems or external targets without explicit approval
+  required_inputs:
+  - user_objective
+  - authorized_target_repository_or_mantis_workspace
+  - security_review_scope
+  - evidence_refs
+  output_schema:
+    type: object
+    required: [status, facts, assumptions, risks, recommendations, evidence_refs, blocking_conditions]
+    properties:
+      status:
+        type: string
+      facts:
+        type: array
+      assumptions:
+        type: array
+      risks:
+        type: array
+      recommendations:
+        type: array
+      evidence_refs:
+        type: array
+      blocking_conditions:
+        type: array
+  quality_gates:
+  - Original Mantis stage contract is read before execution
+  - Target authorization and scope are explicit
+  - Findings, verdicts and patch claims cite evidence
+  - Snapshot and state-root boundaries are preserved when applicable
+  - Generated code, reproducers and patches are sandboxed when executed
+  - Secrets and sensitive data are redacted
+  stop_conditions:
+  - Required authorization, target scope or Mantis state is missing
+  - Snapshot, provenance, schema or sentinel checks fail
+  - Required sandboxing or approval is unavailable
+  - Evidence cannot be produced
+  - Original Mantis contract or honest evaluator returns a blocker
+- id: mantis-critic
+  path: skills/mantis/mantis-critic/SKILL.md
+  version: 1.0.0
+  owner_agent: security
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - SCAN_SECRETS
+  - GENERATE_REPORT
+  - GENERATE_EVIDENCE
+  - GENERATE_HANDOFF
+  production_ready: false
+  mission: >-
+    Assesses the production viability of findings, filtering out debug-only features and assertion traps. Use when findings have been validated and you need to confirm they are triggerable in production release builds (with assertions disabled). Don't use for writing reproduction scripts or patches.
+  allowed_actions:
+  - Read authorized repository files and Mantis workspace state
+  - Generate stage-specific Mantis artifacts inside the declared workspace or sandbox
+  - Generate evidence, findings, handoffs and reports with redaction
+  - Execute tests, reproducers or patch verification only when the stage contract, authorization and sandboxing allow it
+  forbidden_actions:
+  - Access targets outside the authorized defensive review scope
+  - Expose secrets, credentials, tokens or sensitive target data
+  - Run generated exploit, reproducer or patch code without approved isolation
+  - Claim validated vulnerabilities or secure patches without required evidence
+  - Mutate production systems or external targets without explicit approval
+  required_inputs:
+  - user_objective
+  - authorized_target_repository_or_mantis_workspace
+  - security_review_scope
+  - evidence_refs
+  output_schema:
+    type: object
+    required: [status, facts, assumptions, risks, recommendations, evidence_refs, blocking_conditions]
+    properties:
+      status:
+        type: string
+      facts:
+        type: array
+      assumptions:
+        type: array
+      risks:
+        type: array
+      recommendations:
+        type: array
+      evidence_refs:
+        type: array
+      blocking_conditions:
+        type: array
+  quality_gates:
+  - Original Mantis stage contract is read before execution
+  - Target authorization and scope are explicit
+  - Findings, verdicts and patch claims cite evidence
+  - Snapshot and state-root boundaries are preserved when applicable
+  - Generated code, reproducers and patches are sandboxed when executed
+  - Secrets and sensitive data are redacted
+  stop_conditions:
+  - Required authorization, target scope or Mantis state is missing
+  - Snapshot, provenance, schema or sentinel checks fail
+  - Required sandboxing or approval is unavailable
+  - Evidence cannot be produced
+  - Original Mantis contract or honest evaluator returns a blocker
+- id: mantis-dedupe
+  path: skills/mantis/mantis-dedupe/SKILL.md
+  version: 1.0.0
+  owner_agent: security
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - SCAN_SECRETS
+  - GENERATE_REPORT
+  - GENERATE_EVIDENCE
+  - GENERATE_HANDOFF
+  production_ready: false
+  mission: >-
+    Consolidates raw security findings to eliminate redundant reports. Use when raw findings have been generated by the researcher and need consolidation before review. Don't use for initial code auditing or patch generation.
+  allowed_actions:
+  - Read authorized repository files and Mantis workspace state
+  - Generate stage-specific Mantis artifacts inside the declared workspace or sandbox
+  - Generate evidence, findings, handoffs and reports with redaction
+  - Execute tests, reproducers or patch verification only when the stage contract, authorization and sandboxing allow it
+  forbidden_actions:
+  - Access targets outside the authorized defensive review scope
+  - Expose secrets, credentials, tokens or sensitive target data
+  - Run generated exploit, reproducer or patch code without approved isolation
+  - Claim validated vulnerabilities or secure patches without required evidence
+  - Mutate production systems or external targets without explicit approval
+  required_inputs:
+  - user_objective
+  - authorized_target_repository_or_mantis_workspace
+  - security_review_scope
+  - evidence_refs
+  output_schema:
+    type: object
+    required: [status, facts, assumptions, risks, recommendations, evidence_refs, blocking_conditions]
+    properties:
+      status:
+        type: string
+      facts:
+        type: array
+      assumptions:
+        type: array
+      risks:
+        type: array
+      recommendations:
+        type: array
+      evidence_refs:
+        type: array
+      blocking_conditions:
+        type: array
+  quality_gates:
+  - Original Mantis stage contract is read before execution
+  - Target authorization and scope are explicit
+  - Findings, verdicts and patch claims cite evidence
+  - Snapshot and state-root boundaries are preserved when applicable
+  - Generated code, reproducers and patches are sandboxed when executed
+  - Secrets and sensitive data are redacted
+  stop_conditions:
+  - Required authorization, target scope or Mantis state is missing
+  - Snapshot, provenance, schema or sentinel checks fail
+  - Required sandboxing or approval is unavailable
+  - Evidence cannot be produced
+  - Original Mantis contract or honest evaluator returns a blocker
+- id: mantis-history
+  path: skills/mantis/mantis-history/SKILL.md
+  version: 1.0.0
+  owner_agent: security
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - SCAN_SECRETS
+  - GENERATE_REPORT
+  - GENERATE_EVIDENCE
+  - GENERATE_HANDOFF
+  production_ready: false
+  mission: >-
+    Analyzes the repository's version control system (VCS) history to extract past vulnerabilities, security fixes, and vulnerability patterns. Use as an initial pre-processing step to build a historical vulnerabilities database (workspace/historical_learnings.jsonl) that informs subsequent stages about past issues and fixes. Don't use for code reviews, writing test scripts, or patching code.
+  allowed_actions:
+  - Read authorized repository files and Mantis workspace state
+  - Generate stage-specific Mantis artifacts inside the declared workspace or sandbox
+  - Generate evidence, findings, handoffs and reports with redaction
+  - Execute tests, reproducers or patch verification only when the stage contract, authorization and sandboxing allow it
+  forbidden_actions:
+  - Access targets outside the authorized defensive review scope
+  - Expose secrets, credentials, tokens or sensitive target data
+  - Run generated exploit, reproducer or patch code without approved isolation
+  - Claim validated vulnerabilities or secure patches without required evidence
+  - Mutate production systems or external targets without explicit approval
+  required_inputs:
+  - user_objective
+  - authorized_target_repository_or_mantis_workspace
+  - security_review_scope
+  - evidence_refs
+  output_schema:
+    type: object
+    required: [status, facts, assumptions, risks, recommendations, evidence_refs, blocking_conditions]
+    properties:
+      status:
+        type: string
+      facts:
+        type: array
+      assumptions:
+        type: array
+      risks:
+        type: array
+      recommendations:
+        type: array
+      evidence_refs:
+        type: array
+      blocking_conditions:
+        type: array
+  quality_gates:
+  - Original Mantis stage contract is read before execution
+  - Target authorization and scope are explicit
+  - Findings, verdicts and patch claims cite evidence
+  - Snapshot and state-root boundaries are preserved when applicable
+  - Generated code, reproducers and patches are sandboxed when executed
+  - Secrets and sensitive data are redacted
+  stop_conditions:
+  - Required authorization, target scope or Mantis state is missing
+  - Snapshot, provenance, schema or sentinel checks fail
+  - Required sandboxing or approval is unavailable
+  - Evidence cannot be produced
+  - Original Mantis contract or honest evaluator returns a blocker
+- id: mantis-meta-agent
+  path: skills/mantis/mantis-meta-agent/SKILL.md
+  version: 1.0.0
+  owner_agent: security
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - SCAN_SECRETS
+  - GENERATE_REPORT
+  - GENERATE_EVIDENCE
+  - GENERATE_HANDOFF
+  production_ready: false
+  mission: >-
+    Acts as the persistent supervisor, launching and monitoring the automated review campaign. Use when running a long-running, continuous security review campaign that needs autonomous coordination. Don't use for executing individual review stages directly.
+  allowed_actions:
+  - Read authorized repository files and Mantis workspace state
+  - Generate stage-specific Mantis artifacts inside the declared workspace or sandbox
+  - Generate evidence, findings, handoffs and reports with redaction
+  - Execute tests, reproducers or patch verification only when the stage contract, authorization and sandboxing allow it
+  forbidden_actions:
+  - Access targets outside the authorized defensive review scope
+  - Expose secrets, credentials, tokens or sensitive target data
+  - Run generated exploit, reproducer or patch code without approved isolation
+  - Claim validated vulnerabilities or secure patches without required evidence
+  - Mutate production systems or external targets without explicit approval
+  required_inputs:
+  - user_objective
+  - authorized_target_repository_or_mantis_workspace
+  - security_review_scope
+  - evidence_refs
+  output_schema:
+    type: object
+    required: [status, facts, assumptions, risks, recommendations, evidence_refs, blocking_conditions]
+    properties:
+      status:
+        type: string
+      facts:
+        type: array
+      assumptions:
+        type: array
+      risks:
+        type: array
+      recommendations:
+        type: array
+      evidence_refs:
+        type: array
+      blocking_conditions:
+        type: array
+  quality_gates:
+  - Original Mantis stage contract is read before execution
+  - Target authorization and scope are explicit
+  - Findings, verdicts and patch claims cite evidence
+  - Snapshot and state-root boundaries are preserved when applicable
+  - Generated code, reproducers and patches are sandboxed when executed
+  - Secrets and sensitive data are redacted
+  stop_conditions:
+  - Required authorization, target scope or Mantis state is missing
+  - Snapshot, provenance, schema or sentinel checks fail
+  - Required sandboxing or approval is unavailable
+  - Evidence cannot be produced
+  - Original Mantis contract or honest evaluator returns a blocker
+- id: mantis-patch
+  path: skills/mantis/mantis-patch/SKILL.md
+  version: 1.0.0
+  owner_agent: security
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - SCAN_SECRETS
+  - GENERATE_REPORT
+  - GENERATE_EVIDENCE
+  - GENERATE_HANDOFF
+  production_ready: false
+  mission: >-
+    Generates minimal security fixes using transactional isolation (shadow directories or file backups), applies patches, and verifies them. Use when security findings are successfully reproduced and need patches applied and verified. Don't use for initial vulnerability research or reproduction payload generation.
+  allowed_actions:
+  - Read authorized repository files and Mantis workspace state
+  - Generate stage-specific Mantis artifacts inside the declared workspace or sandbox
+  - Generate evidence, findings, handoffs and reports with redaction
+  - Execute tests, reproducers or patch verification only when the stage contract, authorization and sandboxing allow it
+  forbidden_actions:
+  - Access targets outside the authorized defensive review scope
+  - Expose secrets, credentials, tokens or sensitive target data
+  - Run generated exploit, reproducer or patch code without approved isolation
+  - Claim validated vulnerabilities or secure patches without required evidence
+  - Mutate production systems or external targets without explicit approval
+  required_inputs:
+  - user_objective
+  - authorized_target_repository_or_mantis_workspace
+  - security_review_scope
+  - evidence_refs
+  output_schema:
+    type: object
+    required: [status, facts, assumptions, risks, recommendations, evidence_refs, blocking_conditions]
+    properties:
+      status:
+        type: string
+      facts:
+        type: array
+      assumptions:
+        type: array
+      risks:
+        type: array
+      recommendations:
+        type: array
+      evidence_refs:
+        type: array
+      blocking_conditions:
+        type: array
+  quality_gates:
+  - Original Mantis stage contract is read before execution
+  - Target authorization and scope are explicit
+  - Findings, verdicts and patch claims cite evidence
+  - Snapshot and state-root boundaries are preserved when applicable
+  - Generated code, reproducers and patches are sandboxed when executed
+  - Secrets and sensitive data are redacted
+  stop_conditions:
+  - Required authorization, target scope or Mantis state is missing
+  - Snapshot, provenance, schema or sentinel checks fail
+  - Required sandboxing or approval is unavailable
+  - Evidence cannot be produced
+  - Original Mantis contract or honest evaluator returns a blocker
+- id: mantis-pipeline-adapter
+  path: skills/mantis/mantis-pipeline-adapter/SKILL.md
+  version: 1.0.0
+  owner_agent: security
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - SCAN_SECRETS
+  - GENERATE_REPORT
+  - GENERATE_EVIDENCE
+  - GENERATE_HANDOFF
+  production_ready: false
+  mission: >-
+    Interactively guides the design and implementation of custom deterministic orchestrator harnesses. Use when a user wants to build their own pipeline to wrap and run Mantis skills reliably. Don't use for executing the default pipeline directly.
+  allowed_actions:
+  - Read authorized repository files and Mantis workspace state
+  - Generate stage-specific Mantis artifacts inside the declared workspace or sandbox
+  - Generate evidence, findings, handoffs and reports with redaction
+  - Execute tests, reproducers or patch verification only when the stage contract, authorization and sandboxing allow it
+  forbidden_actions:
+  - Access targets outside the authorized defensive review scope
+  - Expose secrets, credentials, tokens or sensitive target data
+  - Run generated exploit, reproducer or patch code without approved isolation
+  - Claim validated vulnerabilities or secure patches without required evidence
+  - Mutate production systems or external targets without explicit approval
+  required_inputs:
+  - user_objective
+  - authorized_target_repository_or_mantis_workspace
+  - security_review_scope
+  - evidence_refs
+  output_schema:
+    type: object
+    required: [status, facts, assumptions, risks, recommendations, evidence_refs, blocking_conditions]
+    properties:
+      status:
+        type: string
+      facts:
+        type: array
+      assumptions:
+        type: array
+      risks:
+        type: array
+      recommendations:
+        type: array
+      evidence_refs:
+        type: array
+      blocking_conditions:
+        type: array
+  quality_gates:
+  - Original Mantis stage contract is read before execution
+  - Target authorization and scope are explicit
+  - Findings, verdicts and patch claims cite evidence
+  - Snapshot and state-root boundaries are preserved when applicable
+  - Generated code, reproducers and patches are sandboxed when executed
+  - Secrets and sensitive data are redacted
+  stop_conditions:
+  - Required authorization, target scope or Mantis state is missing
+  - Snapshot, provenance, schema or sentinel checks fail
+  - Required sandboxing or approval is unavailable
+  - Evidence cannot be produced
+  - Original Mantis contract or honest evaluator returns a blocker
+- id: mantis-plan
+  path: skills/mantis/mantis-plan/SKILL.md
+  version: 1.0.0
+  owner_agent: security
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - SCAN_SECRETS
+  - GENERATE_REPORT
+  - GENERATE_EVIDENCE
+  - GENERATE_HANDOFF
+  production_ready: false
+  mission: >-
+    Formulates a targeted defensive security reviewing plan based on the active threat model and historical learnings. Use when starting a security review campaign to map the codebase boundaries and generate a roadmap (workspace/plan.json). Don't use for executing code reviews, writing test scripts, or patching code.
+  allowed_actions:
+  - Read authorized repository files and Mantis workspace state
+  - Generate stage-specific Mantis artifacts inside the declared workspace or sandbox
+  - Generate evidence, findings, handoffs and reports with redaction
+  - Execute tests, reproducers or patch verification only when the stage contract, authorization and sandboxing allow it
+  forbidden_actions:
+  - Access targets outside the authorized defensive review scope
+  - Expose secrets, credentials, tokens or sensitive target data
+  - Run generated exploit, reproducer or patch code without approved isolation
+  - Claim validated vulnerabilities or secure patches without required evidence
+  - Mutate production systems or external targets without explicit approval
+  required_inputs:
+  - user_objective
+  - authorized_target_repository_or_mantis_workspace
+  - security_review_scope
+  - evidence_refs
+  output_schema:
+    type: object
+    required: [status, facts, assumptions, risks, recommendations, evidence_refs, blocking_conditions]
+    properties:
+      status:
+        type: string
+      facts:
+        type: array
+      assumptions:
+        type: array
+      risks:
+        type: array
+      recommendations:
+        type: array
+      evidence_refs:
+        type: array
+      blocking_conditions:
+        type: array
+  quality_gates:
+  - Original Mantis stage contract is read before execution
+  - Target authorization and scope are explicit
+  - Findings, verdicts and patch claims cite evidence
+  - Snapshot and state-root boundaries are preserved when applicable
+  - Generated code, reproducers and patches are sandboxed when executed
+  - Secrets and sensitive data are redacted
+  stop_conditions:
+  - Required authorization, target scope or Mantis state is missing
+  - Snapshot, provenance, schema or sentinel checks fail
+  - Required sandboxing or approval is unavailable
+  - Evidence cannot be produced
+  - Original Mantis contract or honest evaluator returns a blocker
+- id: mantis-reflect
+  path: skills/mantis/mantis-reflect/SKILL.md
+  version: 1.0.0
+  owner_agent: security
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - SCAN_SECRETS
+  - GENERATE_REPORT
+  - GENERATE_EVIDENCE
+  - GENERATE_HANDOFF
+  production_ready: false
+  mission: >-
+    Extracts learnings from execution trajectories at the end of a Mantis loop. Use to parse agent conversations, extract successes, failures, and false assumptions, and append them to workspace/learnings.jsonl. Don't use for analyzing source code or writing patches.
+  allowed_actions:
+  - Read authorized repository files and Mantis workspace state
+  - Generate stage-specific Mantis artifacts inside the declared workspace or sandbox
+  - Generate evidence, findings, handoffs and reports with redaction
+  - Execute tests, reproducers or patch verification only when the stage contract, authorization and sandboxing allow it
+  forbidden_actions:
+  - Access targets outside the authorized defensive review scope
+  - Expose secrets, credentials, tokens or sensitive target data
+  - Run generated exploit, reproducer or patch code without approved isolation
+  - Claim validated vulnerabilities or secure patches without required evidence
+  - Mutate production systems or external targets without explicit approval
+  required_inputs:
+  - user_objective
+  - authorized_target_repository_or_mantis_workspace
+  - security_review_scope
+  - evidence_refs
+  output_schema:
+    type: object
+    required: [status, facts, assumptions, risks, recommendations, evidence_refs, blocking_conditions]
+    properties:
+      status:
+        type: string
+      facts:
+        type: array
+      assumptions:
+        type: array
+      risks:
+        type: array
+      recommendations:
+        type: array
+      evidence_refs:
+        type: array
+      blocking_conditions:
+        type: array
+  quality_gates:
+  - Original Mantis stage contract is read before execution
+  - Target authorization and scope are explicit
+  - Findings, verdicts and patch claims cite evidence
+  - Snapshot and state-root boundaries are preserved when applicable
+  - Generated code, reproducers and patches are sandboxed when executed
+  - Secrets and sensitive data are redacted
+  stop_conditions:
+  - Required authorization, target scope or Mantis state is missing
+  - Snapshot, provenance, schema or sentinel checks fail
+  - Required sandboxing or approval is unavailable
+  - Evidence cannot be produced
+  - Original Mantis contract or honest evaluator returns a blocker
+- id: mantis-report
+  path: skills/mantis/mantis-report/SKILL.md
+  version: 1.0.0
+  owner_agent: security
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - SCAN_SECRETS
+  - GENERATE_REPORT
+  - GENERATE_EVIDENCE
+  - GENERATE_HANDOFF
+  production_ready: false
+  mission: >-
+    Generates a human-readable security review packet compiled from confirmed findings and exploit chains. Use at the end of a review cycle to produce stakeholder-facing documentation. Don't use for auditing code or verifying patches directly.
+  allowed_actions:
+  - Read authorized repository files and Mantis workspace state
+  - Generate stage-specific Mantis artifacts inside the declared workspace or sandbox
+  - Generate evidence, findings, handoffs and reports with redaction
+  - Execute tests, reproducers or patch verification only when the stage contract, authorization and sandboxing allow it
+  forbidden_actions:
+  - Access targets outside the authorized defensive review scope
+  - Expose secrets, credentials, tokens or sensitive target data
+  - Run generated exploit, reproducer or patch code without approved isolation
+  - Claim validated vulnerabilities or secure patches without required evidence
+  - Mutate production systems or external targets without explicit approval
+  required_inputs:
+  - user_objective
+  - authorized_target_repository_or_mantis_workspace
+  - security_review_scope
+  - evidence_refs
+  output_schema:
+    type: object
+    required: [status, facts, assumptions, risks, recommendations, evidence_refs, blocking_conditions]
+    properties:
+      status:
+        type: string
+      facts:
+        type: array
+      assumptions:
+        type: array
+      risks:
+        type: array
+      recommendations:
+        type: array
+      evidence_refs:
+        type: array
+      blocking_conditions:
+        type: array
+  quality_gates:
+  - Original Mantis stage contract is read before execution
+  - Target authorization and scope are explicit
+  - Findings, verdicts and patch claims cite evidence
+  - Snapshot and state-root boundaries are preserved when applicable
+  - Generated code, reproducers and patches are sandboxed when executed
+  - Secrets and sensitive data are redacted
+  stop_conditions:
+  - Required authorization, target scope or Mantis state is missing
+  - Snapshot, provenance, schema or sentinel checks fail
+  - Required sandboxing or approval is unavailable
+  - Evidence cannot be produced
+  - Original Mantis contract or honest evaluator returns a blocker
+- id: mantis-reproduce
+  path: skills/mantis/mantis-reproduce/SKILL.md
+  version: 1.0.0
+  owner_agent: security
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - SCAN_SECRETS
+  - GENERATE_REPORT
+  - GENERATE_EVIDENCE
+  - GENERATE_HANDOFF
+  production_ready: false
+  mission: >-
+    Generates and runs crash reproducers to verify security flaws. Use when viable findings exist and you need to write and execute a script or payload to verify the crash. Don't use for code auditing or patching.
+  allowed_actions:
+  - Read authorized repository files and Mantis workspace state
+  - Generate stage-specific Mantis artifacts inside the declared workspace or sandbox
+  - Generate evidence, findings, handoffs and reports with redaction
+  - Execute tests, reproducers or patch verification only when the stage contract, authorization and sandboxing allow it
+  forbidden_actions:
+  - Access targets outside the authorized defensive review scope
+  - Expose secrets, credentials, tokens or sensitive target data
+  - Run generated exploit, reproducer or patch code without approved isolation
+  - Claim validated vulnerabilities or secure patches without required evidence
+  - Mutate production systems or external targets without explicit approval
+  required_inputs:
+  - user_objective
+  - authorized_target_repository_or_mantis_workspace
+  - security_review_scope
+  - evidence_refs
+  output_schema:
+    type: object
+    required: [status, facts, assumptions, risks, recommendations, evidence_refs, blocking_conditions]
+    properties:
+      status:
+        type: string
+      facts:
+        type: array
+      assumptions:
+        type: array
+      risks:
+        type: array
+      recommendations:
+        type: array
+      evidence_refs:
+        type: array
+      blocking_conditions:
+        type: array
+  quality_gates:
+  - Original Mantis stage contract is read before execution
+  - Target authorization and scope are explicit
+  - Findings, verdicts and patch claims cite evidence
+  - Snapshot and state-root boundaries are preserved when applicable
+  - Generated code, reproducers and patches are sandboxed when executed
+  - Secrets and sensitive data are redacted
+  stop_conditions:
+  - Required authorization, target scope or Mantis state is missing
+  - Snapshot, provenance, schema or sentinel checks fail
+  - Required sandboxing or approval is unavailable
+  - Evidence cannot be produced
+  - Original Mantis contract or honest evaluator returns a blocker
+- id: mantis-researcher
+  path: skills/mantis/mantis-researcher/SKILL.md
+  version: 1.0.0
+  owner_agent: security
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - SCAN_SECRETS
+  - GENERATE_REPORT
+  - GENERATE_EVIDENCE
+  - GENERATE_HANDOFF
+  production_ready: false
+  mission: >-
+    Audits production source code files based on the strategy in workspace/plan.json. Use when a review plan exists and you need to perform static analysis and deep-dive reviews of targeted files. Don't use for planning, deduplicating, or writing patches.
+  allowed_actions:
+  - Read authorized repository files and Mantis workspace state
+  - Generate stage-specific Mantis artifacts inside the declared workspace or sandbox
+  - Generate evidence, findings, handoffs and reports with redaction
+  - Execute tests, reproducers or patch verification only when the stage contract, authorization and sandboxing allow it
+  forbidden_actions:
+  - Access targets outside the authorized defensive review scope
+  - Expose secrets, credentials, tokens or sensitive target data
+  - Run generated exploit, reproducer or patch code without approved isolation
+  - Claim validated vulnerabilities or secure patches without required evidence
+  - Mutate production systems or external targets without explicit approval
+  required_inputs:
+  - user_objective
+  - authorized_target_repository_or_mantis_workspace
+  - security_review_scope
+  - evidence_refs
+  output_schema:
+    type: object
+    required: [status, facts, assumptions, risks, recommendations, evidence_refs, blocking_conditions]
+    properties:
+      status:
+        type: string
+      facts:
+        type: array
+      assumptions:
+        type: array
+      risks:
+        type: array
+      recommendations:
+        type: array
+      evidence_refs:
+        type: array
+      blocking_conditions:
+        type: array
+  quality_gates:
+  - Original Mantis stage contract is read before execution
+  - Target authorization and scope are explicit
+  - Findings, verdicts and patch claims cite evidence
+  - Snapshot and state-root boundaries are preserved when applicable
+  - Generated code, reproducers and patches are sandboxed when executed
+  - Secrets and sensitive data are redacted
+  stop_conditions:
+  - Required authorization, target scope or Mantis state is missing
+  - Snapshot, provenance, schema or sentinel checks fail
+  - Required sandboxing or approval is unavailable
+  - Evidence cannot be produced
+  - Original Mantis contract or honest evaluator returns a blocker
+- id: mantis-review
+  path: skills/mantis/mantis-review/SKILL.md
+  version: 1.0.0
+  owner_agent: security
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - SCAN_SECRETS
+  - GENERATE_REPORT
+  - GENERATE_EVIDENCE
+  - GENERATE_HANDOFF
+  production_ready: false
+  mission: >-
+    Independently reviews findings and filters out false positives. Use when consolidated findings need validation against the actual source code. Don't use for reproducing crashes or patching code.
+  allowed_actions:
+  - Read authorized repository files and Mantis workspace state
+  - Generate stage-specific Mantis artifacts inside the declared workspace or sandbox
+  - Generate evidence, findings, handoffs and reports with redaction
+  - Execute tests, reproducers or patch verification only when the stage contract, authorization and sandboxing allow it
+  forbidden_actions:
+  - Access targets outside the authorized defensive review scope
+  - Expose secrets, credentials, tokens or sensitive target data
+  - Run generated exploit, reproducer or patch code without approved isolation
+  - Claim validated vulnerabilities or secure patches without required evidence
+  - Mutate production systems or external targets without explicit approval
+  required_inputs:
+  - user_objective
+  - authorized_target_repository_or_mantis_workspace
+  - security_review_scope
+  - evidence_refs
+  output_schema:
+    type: object
+    required: [status, facts, assumptions, risks, recommendations, evidence_refs, blocking_conditions]
+    properties:
+      status:
+        type: string
+      facts:
+        type: array
+      assumptions:
+        type: array
+      risks:
+        type: array
+      recommendations:
+        type: array
+      evidence_refs:
+        type: array
+      blocking_conditions:
+        type: array
+  quality_gates:
+  - Original Mantis stage contract is read before execution
+  - Target authorization and scope are explicit
+  - Findings, verdicts and patch claims cite evidence
+  - Snapshot and state-root boundaries are preserved when applicable
+  - Generated code, reproducers and patches are sandboxed when executed
+  - Secrets and sensitive data are redacted
+  stop_conditions:
+  - Required authorization, target scope or Mantis state is missing
+  - Snapshot, provenance, schema or sentinel checks fail
+  - Required sandboxing or approval is unavailable
+  - Evidence cannot be produced
+  - Original Mantis contract or honest evaluator returns a blocker
+- id: mantis-structural-index
+  path: skills/mantis/mantis-structural-index/SKILL.md
+  version: 1.0.0
+  owner_agent: security
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - SCAN_SECRETS
+  - GENERATE_REPORT
+  - GENERATE_EVIDENCE
+  - GENERATE_HANDOFF
+  production_ready: false
+  mission: >-
+    Builds a content-addressed semantic-unit index from source code for structural context. Use when a pinned or live codebase is available and structural cross-reference data would improve research quality. Don't use for findings analysis, patching, or reporting.
+  allowed_actions:
+  - Read authorized repository files and Mantis workspace state
+  - Generate stage-specific Mantis artifacts inside the declared workspace or sandbox
+  - Generate evidence, findings, handoffs and reports with redaction
+  - Execute tests, reproducers or patch verification only when the stage contract, authorization and sandboxing allow it
+  forbidden_actions:
+  - Access targets outside the authorized defensive review scope
+  - Expose secrets, credentials, tokens or sensitive target data
+  - Run generated exploit, reproducer or patch code without approved isolation
+  - Claim validated vulnerabilities or secure patches without required evidence
+  - Mutate production systems or external targets without explicit approval
+  required_inputs:
+  - user_objective
+  - authorized_target_repository_or_mantis_workspace
+  - security_review_scope
+  - evidence_refs
+  output_schema:
+    type: object
+    required: [status, facts, assumptions, risks, recommendations, evidence_refs, blocking_conditions]
+    properties:
+      status:
+        type: string
+      facts:
+        type: array
+      assumptions:
+        type: array
+      risks:
+        type: array
+      recommendations:
+        type: array
+      evidence_refs:
+        type: array
+      blocking_conditions:
+        type: array
+  quality_gates:
+  - Original Mantis stage contract is read before execution
+  - Target authorization and scope are explicit
+  - Findings, verdicts and patch claims cite evidence
+  - Snapshot and state-root boundaries are preserved when applicable
+  - Generated code, reproducers and patches are sandboxed when executed
+  - Secrets and sensitive data are redacted
+  stop_conditions:
+  - Required authorization, target scope or Mantis state is missing
+  - Snapshot, provenance, schema or sentinel checks fail
+  - Required sandboxing or approval is unavailable
+  - Evidence cannot be produced
+  - Original Mantis contract or honest evaluator returns a blocker
+- id: mantis-summarize
+  path: skills/mantis/mantis-summarize/SKILL.md
+  version: 1.0.0
+  owner_agent: security
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - SCAN_SECRETS
+  - GENERATE_REPORT
+  - GENERATE_EVIDENCE
+  - GENERATE_HANDOFF
+  production_ready: false
+  mission: >-
+    Pre-processes the repository by generating security-focused summaries (mantis-summary.md) for each directory to make planning and research more efficient. Use when starting a review campaign to map the codebase before threat modeling and planning. Don't use for executing code reviews, writing test scripts, or patching code.
+  allowed_actions:
+  - Read authorized repository files and Mantis workspace state
+  - Generate stage-specific Mantis artifacts inside the declared workspace or sandbox
+  - Generate evidence, findings, handoffs and reports with redaction
+  - Execute tests, reproducers or patch verification only when the stage contract, authorization and sandboxing allow it
+  forbidden_actions:
+  - Access targets outside the authorized defensive review scope
+  - Expose secrets, credentials, tokens or sensitive target data
+  - Run generated exploit, reproducer or patch code without approved isolation
+  - Claim validated vulnerabilities or secure patches without required evidence
+  - Mutate production systems or external targets without explicit approval
+  required_inputs:
+  - user_objective
+  - authorized_target_repository_or_mantis_workspace
+  - security_review_scope
+  - evidence_refs
+  output_schema:
+    type: object
+    required: [status, facts, assumptions, risks, recommendations, evidence_refs, blocking_conditions]
+    properties:
+      status:
+        type: string
+      facts:
+        type: array
+      assumptions:
+        type: array
+      risks:
+        type: array
+      recommendations:
+        type: array
+      evidence_refs:
+        type: array
+      blocking_conditions:
+        type: array
+  quality_gates:
+  - Original Mantis stage contract is read before execution
+  - Target authorization and scope are explicit
+  - Findings, verdicts and patch claims cite evidence
+  - Snapshot and state-root boundaries are preserved when applicable
+  - Generated code, reproducers and patches are sandboxed when executed
+  - Secrets and sensitive data are redacted
+  stop_conditions:
+  - Required authorization, target scope or Mantis state is missing
+  - Snapshot, provenance, schema or sentinel checks fail
+  - Required sandboxing or approval is unavailable
+  - Evidence cannot be produced
+  - Original Mantis contract or honest evaluator returns a blocker
+- id: mantis-threat-model
+  path: skills/mantis/mantis-threat-model/SKILL.md
+  version: 1.0.0
+  owner_agent: security
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - SCAN_SECRETS
+  - GENERATE_REPORT
+  - GENERATE_EVIDENCE
+  - GENERATE_HANDOFF
+  production_ready: false
+  mission: >-
+    Synthesizes trust boundaries, attack surfaces, and attacker profiles into a living threat model. Use as Stage B of the Knowledge Base generation process, reading architecture and entity definitions from the KB. Don't use for analyzing source code or extracting raw learnings from JSONL files.
+  allowed_actions:
+  - Read authorized repository files and Mantis workspace state
+  - Generate stage-specific Mantis artifacts inside the declared workspace or sandbox
+  - Generate evidence, findings, handoffs and reports with redaction
+  - Execute tests, reproducers or patch verification only when the stage contract, authorization and sandboxing allow it
+  forbidden_actions:
+  - Access targets outside the authorized defensive review scope
+  - Expose secrets, credentials, tokens or sensitive target data
+  - Run generated exploit, reproducer or patch code without approved isolation
+  - Claim validated vulnerabilities or secure patches without required evidence
+  - Mutate production systems or external targets without explicit approval
+  required_inputs:
+  - user_objective
+  - authorized_target_repository_or_mantis_workspace
+  - security_review_scope
+  - evidence_refs
+  output_schema:
+    type: object
+    required: [status, facts, assumptions, risks, recommendations, evidence_refs, blocking_conditions]
+    properties:
+      status:
+        type: string
+      facts:
+        type: array
+      assumptions:
+        type: array
+      risks:
+        type: array
+      recommendations:
+        type: array
+      evidence_refs:
+        type: array
+      blocking_conditions:
+        type: array
+  quality_gates:
+  - Original Mantis stage contract is read before execution
+  - Target authorization and scope are explicit
+  - Findings, verdicts and patch claims cite evidence
+  - Snapshot and state-root boundaries are preserved when applicable
+  - Generated code, reproducers and patches are sandboxed when executed
+  - Secrets and sensitive data are redacted
+  stop_conditions:
+  - Required authorization, target scope or Mantis state is missing
+  - Snapshot, provenance, schema or sentinel checks fail
+  - Required sandboxing or approval is unavailable
+  - Evidence cannot be produced
+  - Original Mantis contract or honest evaluator returns a blocker

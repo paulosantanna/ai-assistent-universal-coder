@@ -15,3 +15,9 @@ the user requests create a Java Bug Solver skill that analyzes stack traces, sea
 ```bash
 python scripts/validate.py .
 ```
+
+## Mandatory Deep Bug Analysis Bundle
+
+Before this bug-solver creates any plan or patch, it must create a per-destination workspace at `.aeos/bug-solver/<api-projeto-sigla>/` with `README.md`, `HANDOFF.md`, `LEARNING.md`, `MEMORY.md`, `PROGRESS.md`, `evidencias/linha-do-tempo-runs.md`, `analise/Diagnostico.md` and `analise/PROPOSTA_CORRECAO.md`.
+
+The diagnostic must inspect authorized branches, all commits reachable from all branches, every worktree, available GitHub Actions runs, the top-down exception chain and all affected project layers until an evidence-backed root cause is identified. Independent subagents must handle history/worktrees, runtime exceptions, layer diagnosis, correction planning and Judge review when supported.

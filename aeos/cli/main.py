@@ -72,6 +72,22 @@ def main():
     agent_run.add_argument("--dry-run", action="store_true", help="Dry run mode")
     agent_run.set_defaults(func="cmd_agent_run")
 
+    # workflow
+    workflow_parser = subparsers.add_parser("workflow", help="Pragmatic workflow planning commands")
+    workflow_sub = workflow_parser.add_subparsers(dest="workflow_command")
+    workflow_plan = workflow_sub.add_parser("plan", help="Plan a workflow with context, model routing and dataset curation")
+    add_aeos_root(workflow_plan)
+    workflow_plan.add_argument("workflow_id", choices=["bug_fix", "architecture", "code_review", "fine_tuning"])
+    workflow_plan.add_argument("--objective", required=True, help="Workflow objective")
+    workflow_plan.add_argument("--target", default=".", help="Target directory")
+    workflow_plan.add_argument("--risk-level", default=None, choices=["low", "medium", "high", "critical"])
+    workflow_plan.add_argument("--required-paths", default="[]", help="JSON list of required context paths")
+    workflow_plan.add_argument("--evidence-refs", default="[]", help="JSON list of evidence references")
+    workflow_plan.add_argument("--approval-id", default=None, help="Approval ID for paid model profiles")
+    workflow_plan.add_argument("--execution-id", default="", help="Execution ID")
+    workflow_plan.add_argument("--no-dataset-candidate", action="store_true", help="Do not create dataset candidate")
+    workflow_plan.set_defaults(func="cmd_workflow_plan")
+
     # judge
     judge_parser = subparsers.add_parser("judge", help="Judge commands")
     judge_sub = judge_parser.add_subparsers(dest="judge_command")
@@ -120,6 +136,9 @@ def main():
     registry_sub = registry_parser.add_subparsers(dest="registry_command")
     registry_validate = registry_sub.add_parser("validate", help="Validate registry references and prompt contracts")
     registry_validate.set_defaults(func="cmd_registry_validate")
+    registry_derive = registry_sub.add_parser("derive", help="Generate .aeos/derived/registries deterministically")
+    add_aeos_root(registry_derive)
+    registry_derive.set_defaults(func="cmd_registry_derive")
     rl = registry_sub.add_parser("list", help="List registry entities")
     rl.add_argument("entity", nargs="?", default="all",
                     choices=["skills", "playbooks", "agents", "mcps", "lcps", "all"],
@@ -258,7 +277,7 @@ from aeos.cli.commands.evals import cmd_evals_run
 from aeos.cli.commands.readiness import cmd_readiness_run
 from aeos.cli.commands.performance import cmd_performance_benchmark
 from aeos.cli.commands.package import cmd_package_create, cmd_package_verify
-from aeos.cli.commands.registry import cmd_registry_validate, cmd_registry_list
+from aeos.cli.commands.registry import cmd_registry_validate, cmd_registry_derive, cmd_registry_list
 from aeos.cli.commands.evidence import cmd_evidence_list, cmd_evidence_verify, cmd_evidence_report
 from aeos.cli.commands.bundle import (
     cmd_bundle_create, cmd_bundle_verify, cmd_bundle_inspect,
@@ -266,6 +285,7 @@ from aeos.cli.commands.bundle import (
 )
 from aeos.cli.commands.version import cmd_version
 from aeos.cli.commands.workspace import cmd_workspace_plan, cmd_workspace_status
+from aeos.cli.commands.workflow import cmd_workflow_plan
 
 
 if __name__ == "__main__":

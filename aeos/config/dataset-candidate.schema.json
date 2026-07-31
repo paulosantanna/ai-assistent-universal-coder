@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AEOS Dataset Candidate",
+  "type": "object",
+  "required": ["candidate_id", "execution_id", "dataset_type", "status", "source_refs", "quality"],
+  "properties": {
+    "candidate_id": {"type": "string", "minLength": 1},
+    "execution_id": {"type": "string", "minLength": 1},
+    "dataset_type": {"type": "string", "enum": ["positive", "negative", "regression", "adversarial"]},
+    "status": {"type": "string", "enum": ["ACCEPTED", "REJECTED"]},
+    "source_refs": {"type": "array", "items": {"type": "string"}},
+    "quality": {"type": "object"},
+    "blocking_conditions": {"type": "array", "items": {"type": "string"}}
+  }
+}

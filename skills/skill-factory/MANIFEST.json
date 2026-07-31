@@ -3,113 +3,113 @@
   "files": [
     {
       "path": "AGENT.md",
-      "sha256": "0f0e10a1204cf71b6717cea8302670f3e9d889a05a60815b610966a49a4fcae5",
-      "bytes": 942
-    },
-    {
-      "path": "README.md",
-      "sha256": "bb19e96614658712f928842c9eee67a430deef51f3b7fcd0c9b4b2eb2faed481",
-      "bytes": 415
-    },
-    {
-      "path": "SKILL.md",
-      "sha256": "5218d566511141a91f28c14066b13b3ccc6a1209da48cea823d9d01cd9828982",
-      "bytes": 14423
+      "sha256": "c12318a9be5cb2e7982e4e10d93a704a7c38aa4297ed61ee20213a30836ba1d0",
+      "bytes": 962
     },
     {
       "path": "evaluation/HONEST_EVALUATOR.md",
-      "sha256": "60cba7bfb7026f5e4c9bd65487dfa5cce63e2ed0bc23fa63f5b4c7ff8b054f45",
-      "bytes": 899
+      "sha256": "6fbef662d8c850e7716d156c463b5b7da25a1f5ae53ee3b19c18ace37122f4bd",
+      "bytes": 917
     },
     {
       "path": "examples/anti-pattern-skill/SKILL.md",
-      "sha256": "6e1384d86db2e84f27062d0e417ab4720aee5a690b4a4232a275f62f55283dd1",
-      "bytes": 641
+      "sha256": "589a52ef24c44970f72755d316b35c24e01bb7dd5cfb7a313462a4b6933230cb",
+      "bytes": 657
     },
     {
       "path": "examples/perfect-skill/SKILL.md",
-      "sha256": "170ab11cf3583869a95c9e8abd69ffe0594366142e052b08734db5ebc73ebd27",
-      "bytes": 1354
+      "sha256": "263f0164a4ac486c558099b55e634256b8a6c6e7f2bf903fc78522b2d0446b9b",
+      "bytes": 1409
     },
     {
       "path": "knowledge/CONTINUOUS_LEARNING.md",
-      "sha256": "08607bfabddc0f2534b75081167af027e77dfaf30cbd62321663a1cfab8f255f",
-      "bytes": 163
+      "sha256": "960e6b683361ffd68b9e0735a927c7cc23421f3e7b4db7bbcf2975c3f5793683",
+      "bytes": 166
     },
     {
       "path": "knowledge/KNOWLEDGE.md",
-      "sha256": "2f553ee53a9ffda82c16c56e115001d2e4714358f012ee613392e9fe863691fe",
-      "bytes": 186
+      "sha256": "99eee0fad8269b867c916edeceea8f92ca70471dd96204496f92cbff0a07570d",
+      "bytes": 189
     },
     {
       "path": "knowledge/KNOWLEDGE_PROMOTION.md",
-      "sha256": "45a699df70a330153f922ec26ed1512c81bfc4b7d311cffd8c9c769d2d3a5f09",
-      "bytes": 141
+      "sha256": "c6805a0668629c32344180c402b014e2ce9a0b1420153fc0477c27c9e4a09bad",
+      "bytes": 144
     },
     {
       "path": "knowledge/NEGATIVE_KNOWLEDGE.md",
-      "sha256": "443c4a3aac68f1953b5a6513ad9232f1554f47665175d9ff5f2a605d352bfddb",
-      "bytes": 408
+      "sha256": "56bea78ccdc7ddc6170e5384c35419ed87e38a240b9b82cb188fb714eab745cd",
+      "bytes": 414
     },
     {
       "path": "knowledge/POSITIVE_KNOWLEDGE.md",
-      "sha256": "0c17630b5492cf957dc1ba9e0b6a4858d810dfa646ba912142a18901aec18a75",
-      "bytes": 311
+      "sha256": "6fb57172ffb6e7700d778b753d9a8e59028f985d708b42eae3823913818922aa",
+      "bytes": 316
     },
     {
       "path": "memory/DECISIONS.md",
-      "sha256": "84cd789b70cc9fe0f4acb05bead862d8af3a6f1965a6344563750da0aa9c1ad4",
-      "bytes": 246
+      "sha256": "ec38bca5e369e5af7e7051c8df7ae31e53fe4fea8374ee7967a8df24e1a2e7e1",
+      "bytes": 250
     },
     {
       "path": "memory/EXECUTIONS.md",
-      "sha256": "41c2af3d86563c0e5f97ac7edb08c3d60293533dd631e1bbfff736e21dbdb734",
-      "bytes": 98
+      "sha256": "bf5d83592a54901504de090b0e51f82c9312a528c53ce590d5d4798d9fb9a0a3",
+      "bytes": 101
     },
     {
       "path": "memory/FAILURES.md",
-      "sha256": "da438034e7cd6138a0529c489548a262725b2f7249b5078c7c45430e01b6e6ca",
-      "bytes": 234
+      "sha256": "00cd54d789569f1bcec3d84703612791ab7955c338fabb44050837b02a49514f",
+      "bytes": 238
     },
     {
       "path": "memory/LESSONS.md",
-      "sha256": "8f14c1cd1090faa86ec8df332fbc1e09098ca7d24cc616364f363e2d8d2c7a9e",
-      "bytes": 155
+      "sha256": "078ab63e0188cd6358ac0859e4a1bbc0e715f81a5d6c5af3996b66486a5cde0c",
+      "bytes": 159
     },
     {
       "path": "memory/OPEN_RISKS.md",
-      "sha256": "6fc9284d19e22fd82e529dddfa1b8e701e1dc172d367a2e07a5dad37072ac664",
-      "bytes": 204
+      "sha256": "ec910e0a33b8008d597d6e6227ca7476c69edcd7341ad798f99c88b895a17cee",
+      "bytes": 208
     },
     {
       "path": "memory/PATTERNS.md",
-      "sha256": "99e8f6133873750b0206739e7245f729f23d26216ae88bd0232c7c153a418b7b",
-      "bytes": 194
+      "sha256": "9a71d1c056499bae6df7e95ec20f2c1388efd6c80033e8df24dbba0a552b479b",
+      "bytes": 198
+    },
+    {
+      "path": "README.md",
+      "sha256": "bc31abf2489f6fe26702dc8918d1f6d7ff280d6608f5532ad6e7e9d71a895b53",
+      "bytes": 426
     },
     {
       "path": "schemas/output.schema.json",
-      "sha256": "7cf0a89d61e62693b4f61d8b32fa8913595daaf9d97f08a4e290fb29062ea2b2",
-      "bytes": 544
+      "sha256": "f27c457bdbabb341f06b72e637934e6b192ce09b4d177a892fc454c6d417d55b",
+      "bytes": 578
     },
     {
       "path": "scripts/python-bug-solver-skill/SKILL.md",
-      "sha256": "1758fb680d5da1120e5002fb6e0e14bd8af253cb19cc278fa56e665dbe459761",
-      "bytes": 2794
+      "sha256": "a178e87d293074d7f7d292a32058750473f8ee15a5e6d8c0d11ffb64ed17c858",
+      "bytes": 2915
     },
     {
       "path": "scripts/skill_factory.py",
-      "sha256": "439700609f59c3f43332f472b01c9075f8e9934359892ca7385ec357fc74c7a2",
-      "bytes": 29013
+      "sha256": "21e4540f5858cc4b988b45db737d7f52f528768ff031f3a87f5a4030d0fd61e2",
+      "bytes": 29713
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "7ee58ba694757009e0b6bf94b8f9683c68f0619379368275610966269c7ba315",
+      "bytes": 15097
     },
     {
       "path": "templates/SKILL.template.md",
-      "sha256": "54c9dea775ec0e04c06c5794018bda4e59759c1398f19d06d35da80359a1a3b8",
-      "bytes": 3423
+      "sha256": "1e14d8cddc8026b9434e4f5830d2a283af4cf88ed75b058fba16ab9229140d28",
+      "bytes": 3572
     },
     {
       "path": "tests/test_skill_factory.py",
-      "sha256": "f118b56ce4b88c083508d45aa24e807e14080a5c85f3aeb8e465216b0301f690",
-      "bytes": 3105
+      "sha256": "0eafad639a18bdc33a1c41931394155745ad1ffba3b857811a5b86d75be20418",
+      "bytes": 3186
     }
   ]
 }

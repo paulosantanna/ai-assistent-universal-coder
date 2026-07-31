@@ -49,7 +49,7 @@ def main():
         entity_id="repo-scanner",
         actor="smoke-tester",
         role="architect",
-        input={"target_path": "."},
+        input={"target_path": ".", "repository_path": ".", "scan_depth": "shallow"},
         dry_run=True,
     )
     rt_result = orchestrator.run(req)
@@ -90,6 +90,8 @@ def main():
 
     if scorecard.overall_score < 0.95:
         failures.append(f"Evals: score={scorecard.overall_score:.4f} below 0.95 threshold ({scorecard.passed}/{scorecard.total_cases} passed)")
+
+    orchestrator._sync_evidence(execution_id, orchestrator.eval_runner.execution_id)
 
     # Phase 5: Production Readiness Audit
     print("\n[Phase 5] Running Production Readiness Audit...")

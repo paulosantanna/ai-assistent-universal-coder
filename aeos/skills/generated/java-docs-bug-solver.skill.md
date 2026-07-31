@@ -36,6 +36,35 @@ Investigate Java bugs using repository evidence plus Java version-specific docum
 - docs-java-25
 - docs-java-26
 
+## Mandatory Deep Bug Analysis Before Planning
+
+Before creating any plan, patch plan or bug-fix strategy, this bug-solver MUST complete a deep evidence-first diagnostic for each destination API, project or acronym under `.aeos/bug-solver/<api-projeto-sigla>/`.
+
+Required artifacts:
+
+- `README.md`
+- `HANDOFF.md`
+- `LEARNING.md`
+- `MEMORY.md`
+- `PROGRESS.md`
+- `evidencias/linha-do-tempo-runs.md`
+- `analise/Diagnostico.md`
+- `analise/PROPOSTA_CORRECAO.md`
+
+Required pre-plan evidence:
+
+- all authorized local branches, remote branches and refs;
+- all commits reachable from all branches;
+- every worktree from `git worktree list`, with branch, commit, path and state when accessible;
+- all available GitHub Actions runs for the destination repository in `evidencias/linha-do-tempo-runs.md`;
+- command, file, test, trace or run evidence for what is generating each error;
+- top-down exception-chain analysis from outermost symptom to evidence-backed root cause;
+- layer analysis across entrypoint/API, application flow, domain rules, data/schema, infrastructure, build/runtime, tests/CI and observability.
+
+Use separate subagents before planning for git history/worktrees, runtime exception-chain analysis, layer-by-layer root cause, correction proposal/verification planning and independent Judge review when the platform supports subagents. Each subagent must have a scoped `HANDOFF.md` entry and evidence references. The correction proposer must not approve its own proposal.
+
+If branch, commit, worktree or GitHub Actions evidence cannot be collected, record the command/source attempted, blocker, residual risk and approval requirement in `PROGRESS.md` and `HANDOFF.md`; do not invent evidence. A plan may exist only after `analise/Diagnostico.md`, `evidencias/linha-do-tempo-runs.md` and required handoffs exist or are explicitly blocked with evidence.
+
 ## Workflow
 
 1. Detect the project language versions from build files, lockfiles, runtime config and source evidence.
@@ -47,7 +76,7 @@ Investigate Java bugs using repository evidence plus Java version-specific docum
 
 ## Required Output Schema
 
-```json
+``json
 {
   "skill_id": "java-docs-bug-solver",
   "status": "PASS|BLOCKED|REVIEW",
@@ -57,11 +86,32 @@ Investigate Java bugs using repository evidence plus Java version-specific docum
   "recommendations": [],
   "migration_notes": [],
   "deprecated_or_removed": [],
+  "target_workspace": ".aeos/bug-solver/<api-projeto-sigla>/",
+  "handoff": "HANDOFF.md",
+  "learning": "LEARNING.md",
+  "memory": "MEMORY.md",
+  "progress": "PROGRESS.md",
+  "evidence_bundle": {
+    "linha_do_tempo_runs": "evidencias/linha-do-tempo-runs.md",
+    "branches": [],
+    "commits": [],
+    "worktrees": [],
+    "github_actions_runs": []
+  },
+  "analysis_bundle": {
+    "diagnostico": "analise/Diagnostico.md",
+    "proposta_correcao": "analise/PROPOSTA_CORRECAO.md"
+  },
+  "subagent_handoffs": [],
+  "exception_chain": [],
+  "root_cause": "",
+  "fix_proposal": "",
+  "verification_plan": [],
   "evidence_refs": [],
   "docs_mcp_profiles": [],
   "blocking_conditions": []
 }
-```
+``
 
 ## Prompt Contract
 

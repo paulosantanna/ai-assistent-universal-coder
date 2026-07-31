@@ -12,25 +12,67 @@ permissions:
 jobs:
   aeos-quality-gates:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      AEOS_TMP: /tmp/aeos-tmp
+      AEOS_PYTEST_TMP: /tmp/aeos-pytest
     steps:
       - uses: actions/checkout@v4
 
-      - name: AEOS policy tests
-        run: echo "Run AEOS policy tests"
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
 
-      - name: AEOS permission tests
-        run: echo "Run AEOS permission tests"
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
 
-      - name: AEOS evidence integrity tests
-        run: echo "Run evidence verify"
+      - name: Install Python dependencies
+        run: python -m pip install -r requirements-dev.txt
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Generate derived registries
+        run: python aeos/scripts/generate_derived_registries.py --workspace-root .
+
+      - name: AEOS registry validation
+        run: python -m aeos.cli.main registry validate
+
+      - name: AEOS structural guard
+        run: python aeos/scripts/structural_guard.py --root .
+
+      - name: AEOS quick verification suite
+        run: python aeos/scripts/verify.py --suite quick
+
+      - name: AEOS policy and permission tests
+        run: python -m pytest aeos/tests/policy aeos/tests/permissions aeos/tests/governance -q -p no:cacheprovider
 
       - name: AEOS package security tests
-        run: echo "Run package verify fixtures"
+        run: python aeos/scripts/package_smoke_test.py
 
-      - name: AEOS Judge tests
-        run: echo "Run deterministic Judge tests"
+      - name: AEOS production readiness smoke
+        run: python aeos/scripts/production_readiness_smoke_test.py
 
-      - name: Check GitHub auth
-        run: gh auth status
+      - name: AEOS evidence integrity verify
+        run: python -m aeos.cli.main evidence verify --execution-id latest --execution-mode latest-complete
+
+      - name: AEOS deterministic Judge latest
+        run: python -m aeos.cli.main judge run --execution-id latest
+
+      - name: AEOS readiness audit
+        run: python aeos/scripts/run_readiness_audit.py
+
+      - name: Upload AEOS evidence artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aeos-evidence
+          path: |
+            .aeos/evidence/**
+            .aeos/reports/**
+            .aeos/derived/registries/**
+          if-no-files-found: warn

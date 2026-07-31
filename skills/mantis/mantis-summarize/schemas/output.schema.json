@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "required": [
+    "status",
+    "facts",
+    "assumptions",
+    "risks",
+    "recommendations",
+    "evidence_refs",
+    "blocking_conditions"
+  ],
+  "properties": {
+    "status": {
+      "enum": [
+        "PASS",
+        "BLOCKED",
+        "REVIEW"
+      ]
+    },
+    "facts": {
+      "type": "array"
+    },
+    "assumptions": {
+      "type": "array"
+    },
+    "risks": {
+      "type": "array"
+    },
+    "recommendations": {
+      "type": "array"
+    },
+    "evidence_refs": {
+      "type": "array"
+    },
+    "blocking_conditions": {
+      "type": "array"
+    }
+  },
+  "additionalProperties": true
+}

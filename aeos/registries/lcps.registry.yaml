@@ -73,3 +73,24 @@ lcps:
     - subagents
     - llm-calls
     - prompt-optimization
+
+  - id: project-memory
+    path: aeos/lcps/project-memory.lcp.yaml
+    priority: 92
+    scope: global
+    applies_to:
+    - memory
+    - project-memory
+    - executions
+    - lessons
+
+  - id: enterprise-production
+    path: aeos/lcps/enterprise-production.lcp.yaml
+    priority: 96
+    scope: production
+    applies_to:
+    - enterprise
+    - production
+    - readiness
+    - release
+

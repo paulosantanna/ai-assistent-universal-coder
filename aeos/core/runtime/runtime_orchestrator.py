@@ -39,6 +39,7 @@ from aeos.core.evals.eval_runner import EvalRunner
 from aeos.core.readiness.production_gate import ProductionGate
 from aeos.core.execution.execution_models import ExecutionRequest
 from aeos.core.execution.skill_runner import SkillRunner
+from aeos.core.workflow.workflow_kernel import WorkflowKernel
 
 
 class RuntimeOrchestrator:
@@ -83,6 +84,7 @@ class RuntimeOrchestrator:
         self._judge_engine: Optional[JudgeEngine] = None
         self._eval_runner: Optional[EvalRunner] = None
         self._production_gate: Optional[ProductionGate] = None
+        self._workflow_kernel: Optional[WorkflowKernel] = None
 
     def initialize(self) -> None:
         self.config_loader.load()
@@ -227,6 +229,44 @@ class RuntimeOrchestrator:
         result.evidence_refs.append(manifest)
         return result
 
+    def run_workflow(self, request: RuntimeRequest) -> RuntimeResult:
+        started = monotonic()
+        execution_id = request.execution_id
+
+        self.evidence_store.store_record(execution_id, "runtime-request", request.to_dict())
+        workflow_result = self.workflow_kernel.plan_and_record(
+            execution_id=execution_id,
+            objective=request.input.get("objective", request.entity_id),
+            workflow_id=request.entity_id or request.input.get("workflow_id"),
+            risk_level=request.input.get("risk_level"),
+            target_path=request.target_path,
+            required_paths=request.input.get("required_paths"),
+            evidence_refs=request.input.get("evidence_refs", []),
+            approval_id=request.approval_id,
+            tests_passed=bool(request.input.get("tests_passed", False)),
+            judge_status=request.input.get("judge_status"),
+            eval_score=request.input.get("eval_score"),
+            create_dataset_candidate=bool(request.input.get("create_dataset_candidate", True)),
+        )
+
+        result = RuntimeResult(
+            execution_id=execution_id,
+            run_type="workflow",
+            entity_id=workflow_result.workflow_id,
+            status=workflow_result.status,
+            result=workflow_result.to_dict(),
+            evidence_refs=list(workflow_result.evidence_refs),
+            blocking_conditions=list(workflow_result.blocking_conditions),
+            duration_ms=int((monotonic() - started) * 1000),
+        )
+
+        self.evidence_store.store_record(execution_id, "runtime-result", result.to_dict())
+        self.reporter.generate_report(execution_id, request, result)
+
+        manifest = self._generate_evidence_manifest(execution_id)
+        result.evidence_refs.append(manifest)
+        return result
+
     def run(self, request: RuntimeRequest) -> RuntimeResult:
         if request.run_type == "skill":
             return self.run_skill(request)
@@ -234,6 +274,8 @@ class RuntimeOrchestrator:
             return self.run_playbook(request)
         elif request.run_type == "agent":
             return self.run_agent_task(request)
+        elif request.run_type == "workflow":
+            return self.run_workflow(request)
         else:
             return RuntimeResult(
                 execution_id=request.execution_id,
@@ -266,6 +308,15 @@ class RuntimeOrchestrator:
             self._production_gate = ProductionGate(str(self.aeos_root))
         return self._production_gate
 
+    @property
+    def workflow_kernel(self) -> WorkflowKernel:
+        if self._workflow_kernel is None:
+            self._workflow_kernel = WorkflowKernel(
+                workspace_root=str(self.workspace_root),
+                aeos_root=str(self.aeos_root),
+                evidence_store=self.evidence_store,
+            )
+        return self._workflow_kernel
     def run_with_judge(self, request: RuntimeRequest) -> tuple[RuntimeResult, Any]:
         runtime_result = self.run(request)
         judge_result = self.judge_engine.evaluate(request.execution_id, request.target_path)

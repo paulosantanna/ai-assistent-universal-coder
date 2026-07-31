@@ -66,6 +66,23 @@ def cmd_registry_validate(args) -> int:
         return 2
 
 
+
+def cmd_registry_derive(args) -> int:
+    from aeos.cli.main import resolve_aeos_root
+    workspace = resolve_aeos_root(args)
+    try:
+        from aeos.core.registries.registry_loader_orchestrator import run_phase2
+        result = run_phase2(str(workspace))
+        status = result.get("status", "BLOCKED")
+        outputs = result.get("output_files", [])
+        print(f"Registry derive: {status} ({len(outputs)} output files)")
+        for output in outputs:
+            print(f"  - {output}")
+        return 0 if status == "PASS" else 1
+    except Exception as e:
+        print(f"Registry derive error: {e}", file=__import__("sys").stderr)
+        return 2
+
 def cmd_registry_list(args) -> int:
     from aeos.cli.main import get_workspace_root
     workspace = get_workspace_root(args)

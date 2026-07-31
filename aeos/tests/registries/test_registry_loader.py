@@ -227,9 +227,12 @@ def test_fragment_loader_loads_all_additions(workspace_root):
 def test_overlay_index_discovers_all_fragments(workspace_root):
     loader = OverlayRegistryIndexLoader(str(workspace_root))
     paths = loader.load("aeos/registries/overlay.registry.index.yaml")
-    assert len(paths) == 18, f"Expected 18 fragments, got {len(paths)}"
+    assert len(paths) >= 18, f"Expected at least 18 fragments, got {len(paths)}"
     assert any("agents.registry.yaml" in p for p in paths)
     assert any("agents.v0_7.registry.yaml" in p for p in paths)
+    assert any("aidiabetic-urgent-improvement-v1" in p and "agents.registry.overlay.yaml" in p for p in paths)
+    assert any("aidiabetic-urgent-improvement-v1" in p and "skills.registry.overlay.yaml" in p for p in paths)
+    assert any("aidiabetic-urgent-improvement-v1" in p and "enterprise-playbooks.registry.overlay.yaml" in p for p in paths)
     assert any("overlay.registry.index.yaml" not in p for p in paths)
 
 
@@ -479,7 +482,8 @@ def test_cross_dependency_finds_errors():
 def test_overlay_index_is_used(workspace_root):
     overlay = OverlayRegistryIndexLoader(str(workspace_root))
     paths = overlay.load("aeos/registries/overlay.registry.index.yaml")
-    assert len(paths) == 18, f"Expected 18 fragments, got {len(paths)}"
+    assert len(paths) >= 18, f"Expected at least 18 fragments, got {len(paths)}"
+    assert any("aidiabetic-urgent-improvement-v1" in p for p in paths)
 
     loader = RegistryFragmentLoader(str(workspace_root))
     fragments = loader.load_fragments(paths)

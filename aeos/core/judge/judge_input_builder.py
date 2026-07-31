@@ -28,14 +28,24 @@ class JudgeInputBuilder:
             data["evidence_manifest_path"] = str(manifest_path)
 
         data["reports"] = self._load_reports(reports_dir)
-        data["permission_decisions"] = self._load_jsonl(evidence_dir / "permission_decisions.jsonl")
-        data["policy_decisions"] = self._load_jsonl(evidence_dir / "policy_decisions.jsonl")
-        data["governance_decisions"] = self._load_jsonl(evidence_dir / "governance_decisions.jsonl")
-        data["tool_results"] = self._load_jsonl(evidence_dir / "tool_results.jsonl")
-        data["skill_results"] = self._load_jsonl(evidence_dir / "skill_results.jsonl")
-        data["playbook_results"] = self._load_jsonl(evidence_dir / "playbook_results.jsonl")
-        data["agent_results"] = self._load_jsonl(evidence_dir / "agent_results.jsonl")
-        data["runtime_results"] = self._load_jsonl(evidence_dir / "runtime_results.jsonl")
+        data["permission_decisions"] = self._load_first_jsonl(
+            evidence_dir,
+            "permission_decisions.jsonl",
+            "permission-decisions.jsonl",
+            "permission_decisions.jsonl",
+        )
+        data["policy_decisions"] = self._load_first_jsonl(evidence_dir, "policy_decisions.jsonl")
+        data["governance_decisions"] = self._load_first_jsonl(evidence_dir, "governance_decisions.jsonl")
+        data["tool_results"] = self._load_first_jsonl(evidence_dir, "tool_result.jsonl", "tool_results.jsonl")
+        data["skill_results"] = self._load_first_jsonl(evidence_dir, "skill-result.jsonl", "skill_results.jsonl")
+        data["playbook_results"] = self._load_first_jsonl(evidence_dir, "playbook-result.jsonl", "playbook_results.jsonl")
+        data["agent_results"] = self._load_first_jsonl(evidence_dir, "agent-result.jsonl", "agent_results.jsonl")
+        data["runtime_results"] = self._load_first_jsonl(
+            evidence_dir,
+            "runtime-result.jsonl",
+            "runtime_results.jsonl",
+            "runtime_result.jsonl",
+        )
         data["claims"] = self._load_jsonl(evidence_dir / "claims.jsonl")
         data["approval_refs"] = self._load_jsonl(evidence_dir / "approvals.jsonl")
         data["package_refs"] = self._load_jsonl(evidence_dir / "packages.jsonl")
@@ -44,6 +54,13 @@ class JudgeInputBuilder:
 
     def build_from_dict(self, data: dict[str, Any]) -> JudgeInput:
         return JudgeInput(**data)
+
+    def _load_first_jsonl(self, directory: Path, *filenames: str) -> list[dict[str, Any]]:
+        for filename in filenames:
+            records = self._load_jsonl(directory / filename)
+            if records:
+                return records
+        return []
 
     def _load_jsonl(self, path: Path) -> list[dict[str, Any]]:
         if not path.exists():
@@ -54,10 +71,20 @@ class JudgeInputBuilder:
                 for line in f:
                     line = line.strip()
                     if line:
-                        records.append(json.loads(line))
+                        records.append(self._normalize_jsonl_record(json.loads(line)))
         except (json.JSONDecodeError, IOError):
             pass
         return records
+
+    def _normalize_jsonl_record(self, record: dict[str, Any]) -> dict[str, Any]:
+        content = record.get("content")
+        if not isinstance(content, dict):
+            return record
+        normalized = dict(content)
+        for key in ("record_id", "record_type", "timestamp", "sha256"):
+            if key in record and key not in normalized:
+                normalized[key] = record[key]
+        return normalized
 
     def _load_reports(self, reports_dir: Path) -> list[dict[str, Any]]:
         if not reports_dir.exists():

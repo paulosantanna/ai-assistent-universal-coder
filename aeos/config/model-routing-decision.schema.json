@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AEOS Model Routing Decision",
+  "type": "object",
+  "required": ["execution_id", "stage", "risk_level", "profile", "status", "paid"],
+  "properties": {
+    "execution_id": {"type": "string", "minLength": 1},
+    "stage": {"type": "string"},
+    "risk_level": {"type": "string", "enum": ["low", "medium", "high", "critical"]},
+    "profile": {"type": "string"},
+    "status": {"type": "string", "enum": ["PASS", "BLOCKED", "WAITING_APPROVAL"]},
+    "paid": {"type": "boolean"},
+    "reason": {"type": "string"},
+    "blocking_conditions": {"type": "array", "items": {"type": "string"}}
+  }
+}

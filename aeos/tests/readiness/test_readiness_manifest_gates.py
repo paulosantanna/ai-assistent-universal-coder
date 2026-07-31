@@ -48,10 +48,37 @@ def make_judge_result(ws: Path, exec_id: str, status: str = "PASS", score: float
 def make_runtime_result(ws: Path, exec_id: str, status: str = "PASS"):
     evidence_dir = ws / ".aeos" / "evidence" / exec_id
     evidence_dir.mkdir(parents=True, exist_ok=True)
-    fp = evidence_dir / "runtime_result.jsonl"
+    fp = evidence_dir / "runtime-result.jsonl"
     fp.write_text(json.dumps({"execution_id": exec_id, "status": status}) + "\n")
     return fp
 
+
+
+def make_verification_result(ws: Path, exec_id: str, status: str = "PASS"):
+    evidence_dir = ws / ".aeos" / "evidence" / exec_id
+    evidence_dir.mkdir(parents=True, exist_ok=True)
+    fp = evidence_dir / "verification-result.json"
+    fp.write_text(json.dumps({
+        "execution_id": exec_id,
+        "status": status,
+        "suite": "quick",
+        "steps_total": 1,
+        "steps_failed": 0 if status == "PASS" else 1,
+    }))
+    return fp
+
+
+def make_package_verify_result(ws: Path, exec_id: str, status: str = "PASS"):
+    evidence_dir = ws / ".aeos" / "evidence" / exec_id
+    evidence_dir.mkdir(parents=True, exist_ok=True)
+    fp = evidence_dir / "package-verify-result.json"
+    fp.write_text(json.dumps({
+        "execution_id": exec_id,
+        "status": status,
+        "tests_total": 1,
+        "tests_failed": 0 if status == "PASS" else 1,
+    }))
+    return fp
 
 def make_eval_scorecard(ws: Path, exec_id: str, score: float = 1.0):
     evidence_dir = ws / ".aeos" / "evidence" / exec_id
@@ -64,6 +91,18 @@ def make_eval_scorecard(ws: Path, exec_id: str, score: float = 1.0):
     }))
     return fp
 
+
+
+def make_registry_integrity(ws: Path):
+    derived_dir = ws / ".aeos" / "derived" / "registries"
+    derived_dir.mkdir(parents=True, exist_ok=True)
+    for name in ("skills.consolidated.yaml", "playbooks.consolidated.yaml", "agents.consolidated.yaml"):
+        (derived_dir / name).write_text("{}\n", encoding="utf-8")
+    (derived_dir / "registry-merge-manifest.json").write_text(json.dumps({"fragments_failed": 0}), encoding="utf-8")
+    registry_evidence = ws / ".aeos" / "evidence" / "registry-loader"
+    registry_evidence.mkdir(parents=True, exist_ok=True)
+    (registry_evidence / "orphans.json").write_text("[]", encoding="utf-8")
+    (registry_evidence / "cross-dependency-validation.json").write_text(json.dumps({"checks": []}), encoding="utf-8")
 
 def make_manifest(ws: Path, exec_id: str, manifest_name: str = "evidence-manifest.json"):
     evidence_dir = ws / ".aeos" / "evidence" / exec_id
@@ -121,6 +160,7 @@ def test_readiness_blocks_when_final_manifest_invalid(workspace):
     create_module(workspace, "aeos", "config", "performance-budgets.yaml")
     create_module(workspace, "aeos", "core", "observability", "__init__.py")
     create_module(workspace, "aeos", "core", "performance", "__init__.py")
+    create_module(workspace, "aeos", "core", "packaging", "package_verifier.py")
     create_module(workspace, "aeos", "evals", "suite.yaml")
     create_module(workspace, "aeos", "tests", "judge", "test_judge.py")
     create_module(workspace, "aeos", "tests", "evals", "test_eval.py")
@@ -131,6 +171,9 @@ def test_readiness_blocks_when_final_manifest_invalid(workspace):
     make_judge_result(workspace, exec_id, "PASS", 1.0)
     make_runtime_result(workspace, exec_id, "PASS")
     make_eval_scorecard(workspace, exec_id, 0.95)
+    make_verification_result(workspace, exec_id, "PASS")
+    make_package_verify_result(workspace, exec_id, "PASS")
+    make_registry_integrity(workspace)
     make_manifest(workspace, exec_id, STAGE_FILENAMES["runtime"])
     make_manifest(workspace, exec_id, STAGE_FILENAMES["judge"])
     make_manifest(workspace, exec_id, STAGE_FILENAMES["eval"])
@@ -196,6 +239,7 @@ def test_readiness_passes_with_valid_staged_manifests(workspace):
     create_module(workspace, "aeos", "config", "performance-budgets.yaml")
     create_module(workspace, "aeos", "core", "observability", "__init__.py")
     create_module(workspace, "aeos", "core", "performance", "__init__.py")
+    create_module(workspace, "aeos", "core", "packaging", "package_verifier.py")
     create_module(workspace, "aeos", "evals", "suite.yaml")
     create_module(workspace, "aeos", "tests", "judge", "test_judge.py")
     create_module(workspace, "aeos", "tests", "evals", "test_eval.py")
@@ -206,6 +250,9 @@ def test_readiness_passes_with_valid_staged_manifests(workspace):
     make_judge_result(workspace, exec_id, "PASS", 1.0)
     make_runtime_result(workspace, exec_id, "PASS")
     make_eval_scorecard(workspace, exec_id, 0.95)
+    make_verification_result(workspace, exec_id, "PASS")
+    make_package_verify_result(workspace, exec_id, "PASS")
+    make_registry_integrity(workspace)
     make_manifest(workspace, exec_id, STAGE_FILENAMES["runtime"])
     make_manifest(workspace, exec_id, STAGE_FILENAMES["judge"])
     make_manifest(workspace, exec_id, STAGE_FILENAMES["eval"])
@@ -247,6 +294,7 @@ def test_readiness_blocks_without_staged_manifests(workspace):
     create_module(workspace, "aeos", "config", "performance-budgets.yaml")
     create_module(workspace, "aeos", "core", "observability", "__init__.py")
     create_module(workspace, "aeos", "core", "performance", "__init__.py")
+    create_module(workspace, "aeos", "core", "packaging", "package_verifier.py")
     create_module(workspace, "aeos", "evals", "suite.yaml")
     create_module(workspace, "aeos", "tests", "judge", "test_judge.py")
     create_module(workspace, "aeos", "tests", "evals", "test_eval.py")
@@ -262,3 +310,67 @@ def test_readiness_blocks_without_staged_manifests(workspace):
     result = auditor.audit()
     assert result.status == READINESS_BLOCKED, \
         "Readiness should be BLOCKED when staged manifests are completely missing"
+
+
+def test_readiness_blocks_when_runtime_result_blocked(workspace):
+    """Readiness must fail closed when runtime evidence is BLOCKED."""
+    create_module(workspace, "aeos", "core", "runtime", "runtime_orchestrator.py")
+    create_module(workspace, "aeos", "core", "judge", "judge_engine.py")
+    create_module(workspace, "aeos", "core", "judge", "deterministic_judge.py")
+    create_module(workspace, "aeos", "core", "judge", "judge_models.py")
+    create_module(workspace, "aeos", "core", "judge", "judge_blocking_rules.py")
+    create_module(workspace, "aeos", "core", "judge", "judge_input_builder.py")
+    create_module(workspace, "aeos", "core", "judge", "judge_scorecard.py")
+    create_module(workspace, "aeos", "core", "judge", "judge_reporter.py")
+    create_module(workspace, "aeos", "core", "evals", "eval_runner.py")
+    create_module(workspace, "aeos", "core", "evals", "eval_suite_loader.py")
+    create_module(workspace, "aeos", "core", "evals", "eval_models.py")
+    create_module(workspace, "aeos", "core", "evals", "eval_scorecard.py")
+    create_module(workspace, "aeos", "core", "readiness", "readiness_auditor.py")
+    create_module(workspace, "aeos", "core", "readiness", "readiness_scorecard.py")
+    create_module(workspace, "aeos", "core", "readiness", "readiness_reporter.py")
+    create_module(workspace, "aeos", "core", "skill_engine", "skill_executor.py")
+    create_module(workspace, "aeos", "core", "playbook_engine", "playbook_executor.py")
+    create_module(workspace, "aeos", "core", "agent_runtime", "agent_runtime.py")
+    create_module(workspace, "aeos", "core", "tool_router", "router.py")
+    create_module(workspace, "aeos", "core", "tool_router", "tool_models.py")
+    create_module(workspace, "aeos", "core", "governance", "governance_gate.py")
+    create_module(workspace, "aeos", "core", "evidence", "evidence_store.py")
+    create_module(workspace, "aeos", "core", "evidence", "evidence_reporter.py")
+    create_module(workspace, "aeos", "core", "mcp_runtime", "mcp_registry_resolver.py")
+    create_module(workspace, "aeos", "core", "permissions", "permission_engine.py")
+    create_module(workspace, "aeos", "core", "policy", "policy_engine.py")
+    create_module(workspace, "aeos", "config", "permissions.yaml")
+    create_module(workspace, "aeos", "config", "policies.yaml")
+    create_module(workspace, "aeos", "config", "aeos.config.yaml")
+    create_module(workspace, "aeos", "config", "tool-router.config.yaml")
+    create_module(workspace, "aeos", "config", "mcp-tools.allowlist.yaml")
+    create_module(workspace, "aeos", "config", "security-hardening.config.yaml")
+    create_module(workspace, "aeos", "config", "enterprise-security.config.yaml")
+    create_module(workspace, "aeos", "config", "production-enterprise.config.yaml")
+    create_module(workspace, "aeos", "config", "v1-release-gates.yaml")
+    create_module(workspace, "aeos", "config", "enterprise-ci-gates.yaml")
+    create_module(workspace, "aeos", "config", "observability.config.yaml")
+    create_module(workspace, "aeos", "config", "performance-budgets.yaml")
+    create_module(workspace, "aeos", "core", "observability", "__init__.py")
+    create_module(workspace, "aeos", "core", "performance", "__init__.py")
+    create_module(workspace, "aeos", "core", "packaging", "package_verifier.py")
+    create_module(workspace, "aeos", "evals", "suite.yaml")
+    create_module(workspace, "aeos", "tests", "judge", "test_judge.py")
+    create_module(workspace, "aeos", "tests", "evals", "test_eval.py")
+    create_module(workspace, "aeos", "tests", "readiness", "test_readiness.py")
+    create_module(workspace, "aeos", "tests", "runtime", "test_runtime.py")
+
+    exec_id = "test-readiness-runtime-blocked-001"
+    make_judge_result(workspace, exec_id, "PASS", 1.0)
+    make_runtime_result(workspace, exec_id, "BLOCKED")
+    make_eval_scorecard(workspace, exec_id, 1.0)
+    make_manifest(workspace, exec_id, STAGE_FILENAMES["runtime"])
+    make_manifest(workspace, exec_id, STAGE_FILENAMES["judge"])
+    make_manifest(workspace, exec_id, STAGE_FILENAMES["eval"])
+    make_manifest(workspace, exec_id, STAGE_FILENAMES["readiness"])
+    make_manifest(workspace, exec_id, STAGE_FILENAMES["final"])
+
+    result = ReadinessAuditor(str(workspace)).audit()
+    assert result.status == READINESS_BLOCKED
+    assert any("Runtime is BLOCKED" in blocker for blocker in result.critical_blockers)

@@ -63,127 +63,145 @@ def _infer_registry_type(filepath: str) -> Optional[RegistryType]:
     return None
 
 
-def _parse_agents(data: dict) -> tuple[list[AgentEntry], list[SubAgentEntry]]:
+def _registry_entries(data: dict, key: str) -> list[dict]:
+    raw = data.get(key, [])
+    if isinstance(raw, dict):
+        raw = raw.get("entries", [])
+    return [entry for entry in raw if isinstance(entry, dict) and "id" in entry]
+
+
+def _normalize_entry_path(path_value: Optional[str], fragment_path: Path, workspace_root: Path) -> Optional[str]:
+    if not path_value:
+        return path_value
+
+    raw = Path(path_value)
+    if raw.is_absolute() or (workspace_root / raw).exists():
+        return path_value.replace("\\", "/")
+
+    if fragment_path.parent.name == "registries":
+        package_candidate = fragment_path.parent.parent / raw
+        if package_candidate.exists():
+            try:
+                return str(package_candidate.resolve().relative_to(workspace_root)).replace("\\", "/")
+            except ValueError:
+                return str(package_candidate.resolve())
+
+    return path_value.replace("\\", "/")
+
+
+def _parse_agents(data: dict, fragment_path: Path, workspace_root: Path) -> tuple[list[AgentEntry], list[SubAgentEntry]]:
     agents = []
     subagents = []
-    for entry in data.get("agents", []):
-        if isinstance(entry, dict) and "id" in entry:
-            agents.append(AgentEntry(
-                id=entry["id"],
-                path=entry.get("path"),
-                role=entry.get("role"),
-                can_delegate=entry.get("can_delegate"),
-                can_block=entry.get("can_block"),
-                independent=entry.get("independent"),
-            ))
-    for entry in data.get("subagents", []):
-        if isinstance(entry, dict) and "id" in entry:
-            subagents.append(SubAgentEntry(
-                id=entry["id"],
-                parent_roles=entry.get("parent_roles", []),
-                path=entry.get("path"),
-            ))
+    for entry in _registry_entries(data, "agents"):
+        agents.append(AgentEntry(
+            id=entry["id"],
+            path=_normalize_entry_path(entry.get("path"), fragment_path, workspace_root),
+            role=entry.get("role"),
+            can_delegate=entry.get("can_delegate"),
+            can_block=entry.get("can_block"),
+            independent=entry.get("independent"),
+        ))
+    for entry in _registry_entries(data, "subagents"):
+        subagents.append(SubAgentEntry(
+            id=entry["id"],
+            parent_roles=entry.get("parent_roles", []),
+            path=_normalize_entry_path(entry.get("path"), fragment_path, workspace_root),
+        ))
     return agents, subagents
 
 
-def _parse_skills(data: dict) -> list[SkillEntry]:
+def _parse_skills(data: dict, fragment_path: Path, workspace_root: Path) -> list[SkillEntry]:
     skills = []
-    for entry in data.get("skills", []):
-        if isinstance(entry, dict) and "id" in entry:
-            caps = entry.get("capabilities", [])
-            if isinstance(caps, list):
-                caps_list = caps
-            elif isinstance(caps, str):
-                caps_list = [c.strip() for c in caps.split(",")]
-            else:
-                caps_list = []
-            skills.append(SkillEntry(
-                id=entry["id"],
-                owner_agent=entry.get("owner_agent"),
-                risk_level=entry.get("risk_level"),
-                capabilities=caps_list,
-                path=entry.get("path"),
-                version=entry.get("version"),
-                production_ready=entry.get("production_ready"),
-            ))
+    for entry in _registry_entries(data, "skills"):
+        caps = entry.get("capabilities", [])
+        if isinstance(caps, list):
+            caps_list = caps
+        elif isinstance(caps, str):
+            caps_list = [c.strip() for c in caps.split(",")]
+        else:
+            caps_list = []
+        skills.append(SkillEntry(
+            id=entry["id"],
+            owner_agent=entry.get("owner_agent") or entry.get("agent"),
+            risk_level=entry.get("risk_level") or entry.get("risk"),
+            capabilities=caps_list,
+            path=_normalize_entry_path(entry.get("path"), fragment_path, workspace_root),
+            version=entry.get("version"),
+            production_ready=entry.get("production_ready", entry.get("enabled")),
+        ))
     return skills
 
 
-def _parse_playbooks(data: dict) -> list[PlaybookEntry]:
+def _parse_playbooks(data: dict, fragment_path: Path, workspace_root: Path) -> list[PlaybookEntry]:
     playbooks = []
-    for entry in data.get("playbooks", []):
-        if isinstance(entry, dict) and "id" in entry:
-            playbooks.append(PlaybookEntry(
-                id=entry["id"],
-                risk_level=entry.get("risk_level"),
-                required_agents=entry.get("required_agents", []),
-                required_skills=entry.get("required_skills", []),
-                required_lcps=entry.get("required_lcps", []),
-                allowed_mcps=entry.get("allowed_mcps", []),
-                path=entry.get("path"),
-                version=entry.get("version"),
-                production_ready=entry.get("production_ready"),
-            ))
+    for entry in _registry_entries(data, "playbooks"):
+        playbooks.append(PlaybookEntry(
+            id=entry["id"],
+            risk_level=entry.get("risk_level") or entry.get("risk"),
+            required_agents=entry.get("required_agents", []),
+            required_skills=entry.get("required_skills", []),
+            required_lcps=entry.get("required_lcps", []),
+            allowed_mcps=entry.get("allowed_mcps", []),
+            path=_normalize_entry_path(entry.get("path"), fragment_path, workspace_root),
+            version=entry.get("version"),
+            production_ready=entry.get("production_ready", entry.get("enabled")),
+        ))
     return playbooks
 
 
-def _parse_mcps(data: dict) -> list[MCPEntry]:
+def _parse_mcps(data: dict, fragment_path: Path, workspace_root: Path) -> list[MCPEntry]:
     mcps = []
-    for entry in data.get("mcps", []):
-        if isinstance(entry, dict) and "id" in entry:
-            caps = entry.get("capabilities", [])
-            mcps.append(MCPEntry(
-                id=entry["id"],
-                type=entry.get("type"),
-                transport=entry.get("transport"),
-                config=entry.get("config"),
-                risk_level=entry.get("risk_level"),
-                capabilities=caps if isinstance(caps, list) else [],
-                tools=entry.get("tools", []),
-                write_allowed=entry.get("write_allowed"),
-                sandbox_required=entry.get("sandbox_required"),
-                approval_required=entry.get("approval_required"),
-                allowlist_required=entry.get("allowlist_required"),
-                enabled=entry.get("enabled", True),
-                reason=entry.get("reason"),
-            ))
+    for entry in _registry_entries(data, "mcps"):
+        caps = entry.get("capabilities", [])
+        mcps.append(MCPEntry(
+            id=entry["id"],
+            type=entry.get("type"),
+            transport=entry.get("transport"),
+            config=_normalize_entry_path(entry.get("config"), fragment_path, workspace_root),
+            risk_level=entry.get("risk_level") or entry.get("risk"),
+            capabilities=caps if isinstance(caps, list) else [],
+            tools=entry.get("tools", []),
+            write_allowed=entry.get("write_allowed"),
+            sandbox_required=entry.get("sandbox_required"),
+            approval_required=entry.get("approval_required"),
+            allowlist_required=entry.get("allowlist_required"),
+            enabled=entry.get("enabled", True),
+            reason=entry.get("reason"),
+        ))
     return mcps
 
 
-def _parse_lcps(data: dict) -> list[LCPEntry]:
+def _parse_lcps(data: dict, fragment_path: Path, workspace_root: Path) -> list[LCPEntry]:
     lcps = []
-    for entry in data.get("lcps", []):
-        if isinstance(entry, dict) and "id" in entry:
-            lcps.append(LCPEntry(
-                id=entry["id"],
-                path=entry.get("path"),
-                priority=entry.get("priority", 50),
-                scope=entry.get("scope", "global"),
-                applies_to=entry.get("applies_to", []),
-            ))
+    for entry in _registry_entries(data, "lcps"):
+        lcps.append(LCPEntry(
+            id=entry["id"],
+            path=_normalize_entry_path(entry.get("path"), fragment_path, workspace_root),
+            priority=entry.get("priority", 50),
+            scope=entry.get("scope", "global"),
+            applies_to=entry.get("applies_to", []),
+        ))
     return lcps
 
 
-def _parse_blueprints(data: dict) -> list[BlueprintEntry]:
+def _parse_blueprints(data: dict, fragment_path: Path, workspace_root: Path) -> list[BlueprintEntry]:
     blueprints = []
-    for entry in data.get("blueprints", []):
-        if isinstance(entry, dict) and "id" in entry:
-            blueprints.append(BlueprintEntry(
-                id=entry["id"],
-                type=entry.get("type"),
-                path=entry.get("path"),
-            ))
+    for entry in _registry_entries(data, "blueprints"):
+        blueprints.append(BlueprintEntry(
+            id=entry["id"],
+            type=entry.get("type"),
+            path=_normalize_entry_path(entry.get("path"), fragment_path, workspace_root),
+        ))
     return blueprints
 
 
-def _parse_profiles(data: dict) -> list[ProfileEntry]:
+def _parse_profiles(data: dict, fragment_path: Path, workspace_root: Path) -> list[ProfileEntry]:
     profiles = []
-    for entry in data.get("profiles", []):
-        if isinstance(entry, dict) and "id" in entry:
-            profiles.append(ProfileEntry(
-                id=entry["id"],
-                path=entry.get("path"),
-            ))
+    for entry in _registry_entries(data, "profiles"):
+        profiles.append(ProfileEntry(
+            id=entry["id"],
+            path=_normalize_entry_path(entry.get("path"), fragment_path, workspace_root),
+        ))
     return profiles
 
 
@@ -215,13 +233,13 @@ class RegistryFragmentLoader:
                 metadata.parse_error = "Empty YAML file"
                 return LoadedFragment(metadata=metadata)
 
-            agents, subagents = _parse_agents(data)
-            skills = _parse_skills(data)
-            playbooks = _parse_playbooks(data)
-            mcps = _parse_mcps(data)
-            lcps = _parse_lcps(data)
-            blueprints = _parse_blueprints(data)
-            profiles = _parse_profiles(data)
+            agents, subagents = _parse_agents(data, full_path, self.workspace_root)
+            skills = _parse_skills(data, full_path, self.workspace_root)
+            playbooks = _parse_playbooks(data, full_path, self.workspace_root)
+            mcps = _parse_mcps(data, full_path, self.workspace_root)
+            lcps = _parse_lcps(data, full_path, self.workspace_root)
+            blueprints = _parse_blueprints(data, full_path, self.workspace_root)
+            profiles = _parse_profiles(data, full_path, self.workspace_root)
 
             entry_count = (
                 len(agents) + len(subagents) + len(skills) + len(playbooks)
@@ -265,3 +283,4 @@ class RegistryFragmentLoader:
                 )
             self.fragments.append(frag)
         return self.fragments
+

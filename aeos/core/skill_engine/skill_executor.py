@@ -10,7 +10,6 @@ from aeos.core.skill_engine.skill_models import (
     SkillRequest,
     SkillResult,
     SkillContract,
-    now_iso,
 )
 from aeos.core.skill_engine.skill_loader import SkillLoader
 from aeos.core.skill_engine.skill_contract_validator import SkillContractValidator
@@ -78,6 +77,46 @@ class SkillExecutor:
             self.reporter.generate_report(execution_id, request, result)
             return result
 
+        if self._requires_specs_preflight(request, contract) and not self._has_specs_preflight(request):
+            record_id = self.evidence_store.store_record(
+                execution_id,
+                "specs-preflight-required",
+                {
+                    "skill_id": request.skill_id,
+                    "required_skill": "specs",
+                    "reason": "Mutating skill execution requires specs preflight evidence.",
+                    "accepted_inputs": [
+                        "input.specs.evidence_ref",
+                        "input.specs_evidence_ref",
+                        "evidence_refs containing specs",
+                    ],
+                },
+            )
+            result = SkillResult(
+                execution_id=execution_id,
+                skill_id=request.skill_id,
+                status="BLOCKED",
+                facts=[
+                    {
+                        "claim": "specs preflight is required before this skill can create or alter artifacts",
+                        "evidence": record_id,
+                    }
+                ],
+                recommendations=[
+                    {
+                        "recommendation": "Run the specs skill first and attach its evidence reference to the downstream skill request.",
+                        "reason": "AEOS requires spec-driven preflight before mutating skill execution.",
+                    }
+                ],
+                evidence_refs=[record_id],
+                blocking_conditions=[
+                    "Skill requires specs preflight evidence before creating or altering artifacts"
+                ],
+                duration_ms=int((monotonic() - started) * 1000),
+            )
+            self.evidence_store.store_record(execution_id, "skill-result", result.to_dict())
+            self.reporter.generate_report(execution_id, request, result)
+            return result
         contract_path = contract.path or self.loader.resolver.get_skill_path(request.skill_id)
         if contract_path:
             fp = self.workspace_root / contract_path
@@ -93,7 +132,7 @@ class SkillExecutor:
                 self.reporter.generate_report(execution_id, request, result)
                 return result
 
-        context = self.context_builder.build(request, contract)
+        self.context_builder.build(request, contract)
 
         if self.governance_gate:
             gov_req = GovernanceRequest(
@@ -228,6 +267,61 @@ class SkillExecutor:
         self.evidence_store.store_record(execution_id, "skill-result", result.to_dict())
         self.reporter.generate_report(execution_id, request, result)
         return result
+
+    def _requires_specs_preflight(self, request: SkillRequest, contract: SkillContract) -> bool:
+        if request.skill_id == "specs":
+            return False
+
+        mutating_capabilities = {
+            "WRITE_SANDBOX_FILES",
+            "GENERATE_PATCH",
+            "GENERATE_DIFF",
+            "PROPOSE_PATCH",
+            "PROJECT_GENERATION",
+            "DATABASE_DESIGN",
+            "DEPLOYMENT_PLANNING",
+            "PACKAGE_CREATE",
+            "TRACK_CHANGES",
+            "GENERATE_ROLLBACK",
+            "PERFORMANCE_OPTIMIZATION",
+            "DOC_GENERATION",
+        }
+        if any(cap in mutating_capabilities for cap in contract.capabilities):
+            return True
+
+        mutating_terms = (
+            "write",
+            "create",
+            "modify",
+            "apply",
+            "patch",
+            "scaffold",
+            "generate files",
+            "deployment",
+            "migration",
+        )
+        actions = " ".join(contract.allowed_actions).lower()
+        return any(term in actions for term in mutating_terms)
+
+    def _has_specs_preflight(self, request: SkillRequest) -> bool:
+        specs = request.input.get("specs")
+        if isinstance(specs, dict):
+            status = str(specs.get("status", "")).upper()
+            evidence_ref = str(
+                specs.get("evidence_ref") or specs.get("spec_path") or ""
+            ).strip()
+            if status in {"PASS", "REVIEW", "APPROVED", "READY"} and evidence_ref:
+                return True
+
+        direct_ref = str(
+            request.input.get("specs_evidence_ref")
+            or request.input.get("specs_preflight_ref")
+            or ""
+        ).strip()
+        if direct_ref:
+            return True
+
+        return any("specs" in str(ref).lower() for ref in request.evidence_refs)
 
     def _execute_token_budget_governor(self, request: SkillRequest, started: float) -> SkillResult:
         prompt_scope = str(request.input.get("prompt_scope", ""))
@@ -489,3 +583,8 @@ class SkillExecutor:
             blocking_conditions=list(run.blocking_conditions),
             duration_ms=int((monotonic() - started) * 1000),
         )
+
+
+
+
+

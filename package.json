@@ -18,7 +18,13 @@
     "test:java": "npm run test:java:maven && npm run test:java:gradle",
     "test:matrix": "python aeos/scripts/test_matrix.py",
     "test:matrix:full": "npm run test:matrix -- --include-optional",
-    "test:all": "npm run test:python && npm run test:python:bdd && npm run test:robot && npm run test:node:jest && npm run test:node:vitest && npm run test:node:mocha && npm run test:node:cucumber && npm run test:java"
+    "test:all": "npm run test:python && npm run test:python:bdd && npm run test:robot && npm run test:node:jest && npm run test:node:vitest && npm run test:node:mocha && npm run test:node:cucumber && npm run test:java",
+    "aeos:registry:derive": "python aeos/scripts/generate_derived_registries.py --workspace-root .",
+    "aeos:readiness": "python aeos/scripts/run_readiness_audit.py",
+    "aeos:judge": "python -m aeos.cli.main judge run --execution-id latest",
+    "aeos:evidence:verify": "python -m aeos.cli.main evidence verify --execution-id latest --execution-mode latest-complete",
+    "aeos:package:smoke": "python aeos/scripts/package_smoke_test.py",
+    "aeos:production:smoke": "python aeos/scripts/production_readiness_smoke_test.py"
   },
   "devDependencies": {
     "@cucumber/cucumber": "^13.0.0",
