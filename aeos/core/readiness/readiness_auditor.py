@@ -86,6 +86,7 @@ class ReadinessAuditor:
         self._check_runbooks()
         self._check_production_safety()
         self._run_mandatory_gates()
+        self._check_latest_judge_blocker()
 
         overall_score = self._compute_overall_score()
         status = self._determine_status(overall_score)
@@ -755,6 +756,26 @@ class ReadinessAuditor:
                 elif severity == "medium":
                     self._medium_risks.append(gc)
 
+    def _check_latest_judge_blocker(self) -> None:
+        latest_judge_fp = self._find_latest_evidence_any(["judge-result.json"], consistent_execution=False)
+        if not latest_judge_fp:
+            return
+        judge_data = self._load_json_file(latest_judge_fp)
+        if not judge_data or judge_data.get("status") != "BLOCKED":
+            return
+        resolved = self._resolved_execution_dir / "judge-result.json" if self._resolved_execution_dir else None
+        if resolved and resolved == latest_judge_fp:
+            return
+        blocker = {
+            "description": f"Latest Judge result is BLOCKED: {latest_judge_fp}",
+            "passed": False,
+            "severity": "critical",
+            "path": str(latest_judge_fp),
+        }
+        if blocker not in self._critical_blockers:
+            self._critical_blockers.append(blocker)
+        self._evidence_refs.append(str(latest_judge_fp))
+
     def _compute_overall_score(self) -> float:
         if not self._category_scores:
             return 0.0
@@ -781,3 +802,5 @@ class ReadinessAuditor:
         if overall_score >= 0.80:
             return READINESS_REVIEW
         return READINESS_BLOCKED
+
+

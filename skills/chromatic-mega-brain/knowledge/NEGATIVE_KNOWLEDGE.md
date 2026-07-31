@@ -12,3 +12,6 @@ Known failure patterns:
 - memory contamination;
 - infinite rework loops;
 - fictional omniscience.
+- unstored skill/playbook lessons after material changes.
+- mixing positive guidance and negative knowledge into a single undifferentiated note.
+

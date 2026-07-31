@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 from pathlib import Path
-import hashlib
 import json
 import py_compile
 import sys
@@ -14,9 +13,12 @@ required = [
     "agents/SYNTHESIS_AGENT.md", "agents/JUDGE_AGENT.md",
     "scripts/chromatic_brain.py",
     "schemas/chromatic-run.schema.json",
+    "schemas/chromatic-integration.schema.json",
     "knowledge/KNOWLEDGE.md",
     "knowledge/NEGATIVE_KNOWLEDGE.md",
     "knowledge/POSITIVE_KNOWLEDGE.md",
+    "memory/SKILL_PLAYBOOK_INTEGRATION.md",
+    "memory/SKILL_PLAYBOOK_INTEGRATION.json",
 ]
 errors = []
 for rel in required:
@@ -29,10 +31,11 @@ for py in root.rglob("*.py"):
     except py_compile.PyCompileError as exc:
         errors.append(str(exc))
 
-try:
-    json.loads((root / "schemas/chromatic-run.schema.json").read_text(encoding="utf-8"))
-except Exception as exc:
-    errors.append(f"Invalid schema: {exc}")
+for schema in ["chromatic-run.schema.json", "chromatic-integration.schema.json"]:
+    try:
+        json.loads((root / "schemas" / schema).read_text(encoding="utf-8"))
+    except Exception as exc:
+        errors.append(f"Invalid schema {schema}: {exc}")
 
 if errors:
     print("\n".join(errors))

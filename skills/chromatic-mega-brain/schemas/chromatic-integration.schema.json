@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Chromatic Skill and Playbook Integration",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "integration",
+    "summary",
+    "learning_contract",
+    "entities"
+  ],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "integration": {"const": "chromatic-mega-brain-skill-playbook-learning"},
+    "workspace_root": {"type": "string"},
+    "summary": {
+      "type": "object",
+      "required": ["skills", "playbooks", "total"],
+      "properties": {
+        "skills": {"type": "integer", "minimum": 0},
+        "playbooks": {"type": "integer", "minimum": 0},
+        "total": {"type": "integer", "minimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "learning_contract": {
+      "type": "object",
+      "required": ["do", "do_not", "promotion_rule"],
+      "properties": {
+        "do": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "do_not": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "promotion_rule": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "id", "path", "chromatic_entrypoint", "memory_scope", "do", "do_not", "evidence_refs"],
+        "properties": {
+          "type": {"enum": ["skill", "playbook"]},
+          "id": {"type": "string", "minLength": 1},
+          "path": {"type": "string", "minLength": 1},
+          "chromatic_entrypoint": {"enum": ["skill", "playbook"]},
+          "memory_scope": {"type": "string", "minLength": 1},
+          "do": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+          "do_not": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+          "evidence_refs": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
