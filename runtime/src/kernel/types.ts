@@ -230,6 +230,9 @@ export interface MCPRegistryEntry {
   config: string;
   risk_level: RiskLevel;
   capabilities: string[];
+  governing_skill?: string;
+  skill_intent?: string;
+  skill_enforced?: boolean;
   write_allowed?: boolean;
   approval_required?: boolean;
   sandbox_required?: boolean;
@@ -439,6 +442,8 @@ export interface ToolCallRecord {
   callId: string;
   tool: string;
   action: string;
+  skillId?: string;
+  governingSkill?: string;
   params: Record<string, unknown>;
   result: string;
   allowed: boolean;

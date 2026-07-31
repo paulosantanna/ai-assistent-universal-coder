@@ -57,6 +57,24 @@ The router output must include:
 - handoff target;
 - progress status.
 
+## MCP and LSP Adapter Contract
+
+MCPs and LSPs keep their capabilities, but they are adapter surfaces consumed by
+skills. They must not decide scope, architecture, implementation strategy, or
+completion status alone.
+
+Required adapter fields:
+
+- MCP: `governing_skill`, `skill_enforced: true`, `skill_intent`.
+- LSP profile: `governing_skill`.
+
+Runtime enforcement:
+
+- `ToolRouter` blocks MCP calls without an active AEOS skill context.
+- `PlaybookEngine` sets the active skill while executing each skill.
+- Tool-call evidence includes `skillId` and `governingSkill`.
+- `scripts/aeos-skill-adapter-guard.mjs` validates MCP/LSP registry coverage.
+
 ## Python Removal Contract
 
 Python is removed as an implementation language for AEOS orchestration. The
@@ -78,6 +96,7 @@ Before declaring no-Python readiness:
 
 1. `node scripts/aeos-skill-router.mjs "health check"` succeeds.
 2. `node scripts/aeos-no-python-guard.mjs` reports zero Python blockers.
-3. `npm --prefix runtime run build` succeeds.
-4. All active Node tests pass.
-5. Chromatic memory files are updated for the execution.
+3. `node scripts/aeos-skill-adapter-guard.mjs` validates MCP/LSP skill governance.
+4. `npm --prefix runtime run build` succeeds.
+5. All active Node tests pass.
+6. Chromatic memory files are updated for the execution.

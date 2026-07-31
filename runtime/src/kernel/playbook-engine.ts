@@ -5,7 +5,8 @@ import type {
   MCPRegistryEntry,
   LCPRegistryEntry,
   LCPContent,
-  AgentRegistryEntry
+  AgentRegistryEntry,
+  SkillOutput
 } from "./types.js";
 import { setContextStatus, addEvidence } from "./execution-context.js";
 import { ConfigLoader } from "./config-loader.js";
@@ -149,7 +150,13 @@ export class PlaybookEngine {
           executionContext: ctx
         };
 
-        const output = await this.skillExecutor.execute(skillEntry.id, skillContext);
+        let output: SkillOutput;
+        toolRouter.setActiveSkill(skillEntry.id);
+        try {
+          output = await this.skillExecutor.execute(skillEntry.id, skillContext);
+        } finally {
+          toolRouter.setActiveSkill(null);
+        }
 
         // Record evidence from skill output
         for (const ev of output.evidence) {

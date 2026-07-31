@@ -4,6 +4,51 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 describe("AEOS skill-first routing", () => {
+  it("requires all MCP and LSP adapters to declare governing skills", () => {
+    const output = execFileSync(
+      "node",
+      ["scripts/aeos-skill-adapter-guard.mjs"],
+      { cwd: path.resolve(__dirname, "../.."), encoding: "utf8" }
+    );
+    const result = JSON.parse(output);
+
+    assert.equal(result.status, "PASS");
+    assert.equal(result.mcpsChecked > 0, true);
+    assert.equal(result.lspProfilesChecked > 0, true);
+    assert.equal(result.governingSkills.includes("tool-adapter-governor"), true);
+  });
+
+  it("blocks direct MCP calls without an active skill context", () => {
+    const script = `
+      import { ToolRouter } from "./runtime/dist/kernel/tool-router.js";
+      import { EvidenceStore } from "./runtime/dist/kernel/evidence-store.js";
+      const router = new ToolRouter(new EvidenceStore(".aeos/test-evidence/direct-mcp-block"));
+      router.registerMCP({
+        id: "filesystem-readonly",
+        type: "filesystem",
+        config: "aeos/mcps/filesystem-readonly.mcp.yaml",
+        risk_level: "low",
+        capabilities: ["file_exists"],
+        governing_skill: "repo-scanner",
+        skill_enforced: true
+      });
+      const blocked = await router.callTool("filesystem-readonly", "file_exists", { path: "package.json" });
+      router.setActiveSkill("repo-scanner");
+      const allowed = await router.callTool("filesystem-readonly", "file_exists", { path: "package.json" });
+      console.log(JSON.stringify({ blocked, allowed }));
+    `;
+    const output = execFileSync(
+      "node",
+      ["--input-type=module", "--eval", script],
+      { cwd: path.resolve(__dirname, "../.."), encoding: "utf8" }
+    );
+    const result = JSON.parse(output);
+
+    assert.equal(result.blocked.success, false);
+    assert.match(result.blocked.error, /skill context/);
+    assert.equal(result.allowed.success, true);
+  });
+
   it("routes explicit Java bug requests to Java before JavaScript", () => {
     const output = execFileSync(
       "node",

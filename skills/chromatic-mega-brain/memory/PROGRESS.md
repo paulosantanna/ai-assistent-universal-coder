@@ -99,3 +99,59 @@ Managed by AEOS Chromatic Mega Brain memory protocol.
 - Selected skills: chromatic-mega-brain
 - Next gate: execute selected skills and verify outputs
 - Evidence hash: 69da164477b4c09dd6d1f0b8392355473eddbc2db3c7e8bdeaa79962ce3721a2
+
+## 2026-07-31T21:55:52.813Z route-4c82d65761a7
+
+- Status: ROUTED
+- Request: corrigir bug Java com testes e sem alterar arquitetura
+- Selected skills: java-docs-bug-solver, architecture-mapper, chromatic-mega-brain, compatibility-analyzer, compliance-audit-exporter
+- Next gate: execute selected skills and verify outputs
+- Evidence hash: 3c5cce92d9acc29da2b2955b197c0061f4616079edf9b6f5fc1c13b85d5dc680
+
+## 2026-07-31T21:55:52.856Z chromatic-8d3e7cb939b6
+
+- Status: ROUTED
+- Request: node test memory persistence
+- Selected skills: chromatic-mega-brain
+- Next gate: execute selected skills and verify outputs
+- Evidence hash: 0dd106e2132d53a7d2b3dad364f1a92c8712b0f1fa7f2953978b53287a5fe6bc
+
+## 2026-07-31T21:56:17.004Z route-3d0e8db4ccf9
+
+- Status: ROUTED
+- Request: corrigir bug Java com testes e sem alterar arquitetura
+- Selected skills: java-docs-bug-solver, architecture-mapper, chromatic-mega-brain, compatibility-analyzer, compliance-audit-exporter
+- Next gate: execute selected skills and verify outputs
+- Evidence hash: 50090ab69718c2a4f964e9760344863b06ba7e43681b8bc2443f41dd206740bc
+
+## 2026-07-31T21:56:17.047Z chromatic-623a60809504
+
+- Status: ROUTED
+- Request: node test memory persistence
+- Selected skills: chromatic-mega-brain
+- Next gate: execute selected skills and verify outputs
+- Evidence hash: 5d9b88e148500a05ffeb2ffd394bb04ffc1990f26d7ca64ae23abb3275bb8e26
+
+## 2026-07-31T21:56:24.453Z chromatic-ab99b8832e53
+
+- Status: ROUTED
+- Request: MCPs and LSPs now act only through governed AEOS skills; ToolRouter blocks direct MCP calls without active skill context; skill adapter guard validates MCP/LSP governing_skill coverage.
+- Selected skills: chromatic-mega-brain
+- Next gate: execute selected skills and verify outputs
+- Evidence hash: aa25dea1d47d5898617cf410e568228e48d0efcb0008f05f26a355f1fd727e0b
+
+## 2026-07-31T21:56:43.356Z route-2eb0956ef96b
+
+- Status: ROUTED
+- Request: corrigir bug Java com testes e sem alterar arquitetura
+- Selected skills: java-docs-bug-solver, architecture-mapper, chromatic-mega-brain, compatibility-analyzer, compliance-audit-exporter
+- Next gate: execute selected skills and verify outputs
+- Evidence hash: 7c49e85f9dc139acc4f5697f1260a35b3cb83322450b55d8f21f3ed6b55beb31
+
+## 2026-07-31T21:56:43.403Z chromatic-cf50e5e955fd
+
+- Status: ROUTED
+- Request: node test memory persistence
+- Selected skills: chromatic-mega-brain
+- Next gate: execute selected skills and verify outputs
+- Evidence hash: c29aa4899fcb5e2b18986fc2f00d0418d2bb2d0af5512e260a9669036d7e3507

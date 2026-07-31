@@ -850,6 +850,20 @@ Whenever adding a skill, use the project's standard skill builder. Do not create
 skills by hand unless the skill builder is unavailable, and record that blocker
 with evidence before proceeding.
 
+### 13A.11 Skill-governed MCP and LSP adapters
+
+MCPs and LSPs are adapter surfaces only. They must never become independent
+execution paths.
+
+- Every MCP registry entry must declare `governing_skill` and
+  `skill_enforced: true`.
+- Every LSP language profile must declare `governing_skill`.
+- Tool Router calls must run inside an active AEOS skill context.
+- Direct MCP/LSP access without skill context is a policy bypass and must be
+  blocked.
+- Adapter calls must write evidence with active skill id and governing skill.
+- The production gate must run `npm run aeos:guard:skill-adapters`.
+
 ---
 
 ## 14. Rule precedence
