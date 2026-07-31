@@ -27,6 +27,47 @@ The following rules are mandatory:
 10. Human authority over unsafe, irreversible or high-impact decisions.
 11. No fabricated files, commands, outputs, metrics, citations, tests or completion claims.
 12. No task may be declared complete while a blocking finding remains unresolved.
+13. Skill routing is automatic by default: when the user does not name a skill,
+    AEOS must select the best skills from the registry before execution.
+14. Chromatic Mega Brain memory persistence is mandatory for every material
+    request. `MEMORY.md`, `LEARNING.md`, `HANDOFF.md` and `PROGRESS.md` must be
+    updated before completion.
+15. Active WorkspaceSO orchestration must not depend on Python. Python source,
+    bytecode and Python project metadata are forbidden in the AEOS workspace.
+
+---
+
+## 1A. Immutable WorkspaceSO revolution rules
+
+These rules have constitutional precedence over local convenience:
+
+1. AEOS operates as a skill-first WorkspaceSO. User intent is routed through the
+   skill registry even when the user does not explicitly request a skill.
+2. The default orchestration path is Node/TypeScript plus declarative skill,
+   playbook, MCP, LCP and AGENT contracts.
+3. New Python runtime orchestration is forbidden.
+4. Python source, bytecode and project metadata are forbidden in the AEOS
+   workspace. This includes `*.py`, `*.pyc`, `pyproject.toml`, `pytest.ini`,
+   `behave.ini` and `requirements*.txt`.
+5. Every routed request must produce Chromatic Mega Brain memory writes in:
+   `skills/chromatic-mega-brain/memory/MEMORY.md`,
+   `skills/chromatic-mega-brain/memory/LEARNING.md`,
+   `skills/chromatic-mega-brain/memory/HANDOFF.md`, and
+   `skills/chromatic-mega-brain/memory/PROGRESS.md`.
+6. If routing, handoff, progress tracking or memory persistence fails, the task
+   status is `BLOCKED`.
+7. When adding a skill, use the project skill builder/factory contract and
+   register it for immediate consumption.
+8. Architecture may be changed only when the user explicitly asks for
+   architecture change, modernization or migration.
+
+Operational entrypoints:
+
+- `npm run aeos:route -- "<request>"` selects skills and writes Chromatic memory.
+- `npm run aeos:guard:no-python` blocks active Python orchestration.
+- `npm run aeos:verify` validates the no-Python active path and Node runtime.
+
+Detailed specification: `references/NO_PYTHON_SKILL_ORCHESTRATION.md`.
 
 ---
 
@@ -345,6 +386,11 @@ Agents may write only within authorized memory scopes.
 Every memory entry must conform to `MEMORY_SCHEMA.md`.
 
 Memory without provenance, evidence or validation status is invalid.
+
+Chromatic Mega Brain memory is mandatory for every material request. The minimum
+write set is `MEMORY.md`, `LEARNING.md`, `HANDOFF.md` and `PROGRESS.md` under
+`skills/chromatic-mega-brain/memory`. Missing memory persistence is a blocking
+failure, not a warning.
 
 ---
 
@@ -804,6 +850,23 @@ Whenever adding a skill, use the project's standard skill builder. Do not create
 skills by hand unless the skill builder is unavailable, and record that blocker
 with evidence before proceeding.
 
+<<<<<<< HEAD
+=======
+### 13A.11 Skill-governed MCP and LSP adapters
+
+MCPs and LSPs are adapter surfaces only. They must never become independent
+execution paths.
+
+- Every MCP registry entry must declare `governing_skill` and
+  `skill_enforced: true`.
+- Every LSP language profile must declare `governing_skill`.
+- Tool Router calls must run inside an active AEOS skill context.
+- Direct MCP/LSP access without skill context is a policy bypass and must be
+  blocked.
+- Adapter calls must write evidence with active skill id and governing skill.
+- The production gate must run `npm run aeos:guard:skill-adapters`.
+
+>>>>>>> workmode-mega-aeos
 ---
 
 ## 14. Rule precedence

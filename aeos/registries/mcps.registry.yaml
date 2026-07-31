@@ -4,6 +4,9 @@ mcps:
   transport: stdio
   config: aeos/mcps/filesystem-readonly.mcp.yaml
   risk_level: low
+  governing_skill: repo-scanner
+  skill_enforced: true
+  skill_intent: Expose filesystem-readonly only as a governed adapter consumed by AEOS skills.
   capabilities:
   - READ_FILES
   - LIST_DIRECTORIES
@@ -20,6 +23,9 @@ mcps:
   transport: stdio
   config: aeos/mcps/filesystem-write-sandbox.mcp.yaml
   risk_level: medium
+  governing_skill: repo-scanner
+  skill_enforced: true
+  skill_intent: Expose filesystem-write-sandbox only as a governed adapter consumed by AEOS skills.
   capabilities:
   - WRITE_SANDBOX_FILES
   tools:
@@ -34,6 +40,9 @@ mcps:
   transport: stdio
   config: aeos/mcps/git-readonly.mcp.yaml
   risk_level: low
+  governing_skill: diff-reviewer
+  skill_enforced: true
+  skill_intent: Expose git-readonly only as a governed adapter consumed by AEOS skills.
   capabilities:
   - GIT_STATUS
   - GIT_DIFF
@@ -50,6 +59,9 @@ mcps:
   transport: stdio
   config: aeos/mcps/test-runner-controlled.mcp.yaml
   risk_level: medium
+  governing_skill: test-generation
+  skill_enforced: true
+  skill_intent: Expose test-runner-controlled only as a governed adapter consumed by AEOS skills.
   capabilities:
   - RUN_TESTS
   tools:
@@ -63,6 +75,9 @@ mcps:
   transport: local
   config: aeos/mcps/package-local.mcp.yaml
   risk_level: medium
+  governing_skill: packaging
+  skill_enforced: true
+  skill_intent: Expose package-local only as a governed adapter consumed by AEOS skills.
   capabilities:
   - PACKAGE_CREATE
   - PACKAGE_VERIFY
@@ -80,6 +95,9 @@ mcps:
   transport: stdio
   config: aeos/mcps/continuous-training.mcp.yaml
   risk_level: low
+  governing_skill: tool-adapter-governor
+  skill_enforced: true
+  skill_intent: Expose continuous-training only as a governed adapter consumed by AEOS skills.
   capabilities:
   - WEB_SEARCH
   - WEB_FETCH
@@ -142,6 +160,9 @@ mcps:
   transport: stdio
   config: aeos/mcps/secrets-runtime.disabled.mcp.yaml
   risk_level: critical
+  governing_skill: tool-adapter-governor
+  skill_enforced: true
+  skill_intent: Expose secrets-runtime only as a governed adapter consumed by AEOS skills.
   capabilities:
   - READ_RUNTIME_SECRET
   approval_required: true
@@ -152,6 +173,9 @@ mcps:
   transport: stdio
   config: aeos/mcps/docs-java-11.mcp.yaml
   risk_level: low
+  governing_skill: java-docs-bug-solver
+  skill_enforced: true
+  skill_intent: Expose docs-java-11 only as a governed adapter consumed by AEOS skills.
   capabilities:
   - WEB_SEARCH
   - WEB_FETCH
@@ -172,6 +196,9 @@ mcps:
   transport: stdio
   config: aeos/mcps/docs-java-17.mcp.yaml
   risk_level: low
+  governing_skill: java-docs-bug-solver
+  skill_enforced: true
+  skill_intent: Expose docs-java-17 only as a governed adapter consumed by AEOS skills.
   capabilities:
   - WEB_SEARCH
   - WEB_FETCH
@@ -192,6 +219,9 @@ mcps:
   transport: stdio
   config: aeos/mcps/docs-java-21.mcp.yaml
   risk_level: low
+  governing_skill: java-docs-bug-solver
+  skill_enforced: true
+  skill_intent: Expose docs-java-21 only as a governed adapter consumed by AEOS skills.
   capabilities:
   - WEB_SEARCH
   - WEB_FETCH
@@ -212,6 +242,9 @@ mcps:
   transport: stdio
   config: aeos/mcps/docs-java-25.mcp.yaml
   risk_level: low
+  governing_skill: java-docs-bug-solver
+  skill_enforced: true
+  skill_intent: Expose docs-java-25 only as a governed adapter consumed by AEOS skills.
   capabilities:
   - WEB_SEARCH
   - WEB_FETCH
@@ -232,6 +265,9 @@ mcps:
   transport: stdio
   config: aeos/mcps/docs-java-26.mcp.yaml
   risk_level: low
+  governing_skill: java-docs-bug-solver
+  skill_enforced: true
+  skill_intent: Expose docs-java-26 only as a governed adapter consumed by AEOS skills.
   capabilities:
   - WEB_SEARCH
   - WEB_FETCH
@@ -252,6 +288,9 @@ mcps:
   transport: stdio
   config: aeos/mcps/docs-python-current.mcp.yaml
   risk_level: low
+  governing_skill: python-docs-bug-solver
+  skill_enforced: true
+  skill_intent: Expose docs-python-current only as a governed adapter consumed by AEOS skills.
   capabilities:
   - WEB_SEARCH
   - WEB_FETCH
@@ -272,6 +311,9 @@ mcps:
   transport: stdio
   config: aeos/mcps/docs-node-current.mcp.yaml
   risk_level: low
+  governing_skill: node-bug-solver
+  skill_enforced: true
+  skill_intent: Expose docs-node-current only as a governed adapter consumed by AEOS skills.
   capabilities:
   - WEB_SEARCH
   - WEB_FETCH
@@ -292,6 +334,9 @@ mcps:
   transport: stdio
   config: aeos/mcps/docs-typescript-current.mcp.yaml
   risk_level: low
+  governing_skill: typescript-bug-solver
+  skill_enforced: true
+  skill_intent: Expose docs-typescript-current only as a governed adapter consumed by AEOS skills.
   capabilities:
   - WEB_SEARCH
   - WEB_FETCH
@@ -312,6 +357,9 @@ mcps:
   transport: stdio
   config: aeos/mcps/docs-angular-current.mcp.yaml
   risk_level: low
+  governing_skill: angular-bug-solver
+  skill_enforced: true
+  skill_intent: Expose docs-angular-current only as a governed adapter consumed by AEOS skills.
   capabilities:
   - WEB_SEARCH
   - WEB_FETCH
@@ -332,6 +380,9 @@ mcps:
   transport: stdio
   config: aeos/mcps/docs-javascript-current.mcp.yaml
   risk_level: low
+  governing_skill: javascript-bug-solver
+  skill_enforced: true
+  skill_intent: Expose docs-javascript-current only as a governed adapter consumed by AEOS skills.
   capabilities:
   - WEB_SEARCH
   - WEB_FETCH
@@ -352,6 +403,9 @@ mcps:
   transport: stdio
   config: aeos/mcps/complete-docs.mcp.yaml
   risk_level: low
+  governing_skill: documentation
+  skill_enforced: true
+  skill_intent: Expose complete-docs only as a governed adapter consumed by AEOS skills.
   capabilities:
   - READ_REPOSITORY
   - READ_FILES
@@ -372,6 +426,9 @@ mcps:
   transport: stdio
   config: aeos/mcps/universal-project.mcp.yaml
   risk_level: low
+  governing_skill: universal-project-factory
+  skill_enforced: true
+  skill_intent: Expose universal-project only as a governed adapter consumed by AEOS skills.
   capabilities:
   - PROJECT_GENERATION
   - STACK_PLANNING
@@ -392,6 +449,12 @@ mcps:
   transport: stdio
   config: aeos/mcps/docs-opentelemetry.mcp.yaml
   risk_level: low
+<<<<<<< HEAD
+=======
+  governing_skill: observability-reporter
+  skill_enforced: true
+  skill_intent: Expose docs-opentelemetry only as a governed adapter consumed by AEOS skills.
+>>>>>>> workmode-mega-aeos
   capabilities:
   - WEB_SEARCH
   - WEB_FETCH
@@ -409,6 +472,12 @@ mcps:
   transport: stdio
   config: aeos/mcps/docs-grafana.mcp.yaml
   risk_level: low
+<<<<<<< HEAD
+=======
+  governing_skill: observability-reporter
+  skill_enforced: true
+  skill_intent: Expose docs-grafana only as a governed adapter consumed by AEOS skills.
+>>>>>>> workmode-mega-aeos
   capabilities:
   - WEB_SEARCH
   - WEB_FETCH
@@ -427,6 +496,12 @@ mcps:
   transport: stdio
   config: aeos/mcps/docs-dynatrace.mcp.yaml
   risk_level: low
+<<<<<<< HEAD
+=======
+  governing_skill: observability-reporter
+  skill_enforced: true
+  skill_intent: Expose docs-dynatrace only as a governed adapter consumed by AEOS skills.
+>>>>>>> workmode-mega-aeos
   capabilities:
   - WEB_SEARCH
   - WEB_FETCH
@@ -445,6 +520,12 @@ mcps:
   transport: stdio
   config: aeos/mcps/docs-observability-dashboards.mcp.yaml
   risk_level: low
+<<<<<<< HEAD
+=======
+  governing_skill: observability-reporter
+  skill_enforced: true
+  skill_intent: Expose docs-observability-dashboards only as a governed adapter consumed by AEOS skills.
+>>>>>>> workmode-mega-aeos
   capabilities:
   - WEB_SEARCH
   - WEB_FETCH

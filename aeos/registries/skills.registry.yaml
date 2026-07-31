@@ -817,6 +817,17 @@ skills:
   - READ_FILES
   - GENERATE_REPORT
   mission: tool-router-audit
+- id: tool-adapter-governor
+  path: aeos/skills/core/tool-adapter-governor.skill.md
+  version: 1.0.0
+  owner_agent: integration
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - KNOWLEDGE_RETRIEVAL
+  - GENERATE_REPORT
+  mission: Govern every MCP and LSP adapter so tools are consumed only through active AEOS skills.
 - id: unique-environment-auditor
   path: aeos/skills/core/unique-environment-auditor.skill.md
   version: 1.0.0
