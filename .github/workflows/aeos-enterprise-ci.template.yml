@@ -14,8 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     env:
-      AEOS_TMP: ${{ runner.temp }}/aeos-tmp
-      AEOS_PYTEST_TMP: ${{ runner.temp }}/aeos-pytest
+      AEOS_TMP: /tmp/aeos-tmp
+      AEOS_PYTEST_TMP: /tmp/aeos-pytest
     steps:
       - uses: actions/checkout@v4
 
