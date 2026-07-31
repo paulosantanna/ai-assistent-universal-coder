@@ -1,0 +1,115 @@
+{
+  "skill": "mantis-reproduce",
+  "files": [
+    {
+      "path": "AGENT.md",
+      "sha256": "a13af247e28eb21a37b6fc87f172d6894802890f81e5a495b42aea6ab0883a19",
+      "bytes": 812
+    },
+    {
+      "path": "evaluation/HONEST_EVALUATOR.md",
+      "sha256": "a9a075123ed1c79d998c4dee4fd1a12db1dd91a45b51a4e16e43b659042173a4",
+      "bytes": 735
+    },
+    {
+      "path": "knowledge/ANTI_FORGETTING.md",
+      "sha256": "4c5822c02939fa9a18fdfdf651a50e6531b27f7b5482abaa5418df4167149c53",
+      "bytes": 146
+    },
+    {
+      "path": "knowledge/CONTINUOUS_LEARNING.md",
+      "sha256": "f1b19e4fcfb26dd319ccc39de129b58c6408773fad15aa1834480e0d60bd3c07",
+      "bytes": 146
+    },
+    {
+      "path": "knowledge/KNOWLEDGE.md",
+      "sha256": "41d38e16e046244d60a410b578af80c6e4aa0f0395fc07cd5d995ecc832d02ff",
+      "bytes": 141
+    },
+    {
+      "path": "knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "aaf1bffbbbb97affc38dd3d68014eb0cab08112feebe55476bc9ef1ff06b5610",
+      "bytes": 233
+    },
+    {
+      "path": "knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "4238c312917b6dcd83da2d7ab4dd7a885f1e2ed7badf2f51afc60da595b962c7",
+      "bytes": 145
+    },
+    {
+      "path": "knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "386948d33099f858b87114e2a14785a72d002c26eef281005202574dc2ae9bd0",
+      "bytes": 125
+    },
+    {
+      "path": "knowledge/TOKEN_EFFICIENCY.md",
+      "sha256": "5e8c2f509fc99ece6d47ec20d70f1b389bf898d2e9e463e4767a4a081df7aeb8",
+      "bytes": 145
+    },
+    {
+      "path": "memory/DECISIONS.md",
+      "sha256": "1a2a5046f1cc0162de0e30a4638e35b7bc200418f813af7134a2ad07fe4ac7cc",
+      "bytes": 88
+    },
+    {
+      "path": "memory/EXECUTIONS.md",
+      "sha256": "99ee211e4b7a8dba3a433ee1d708702d5e301d6937ebe633b77e6cad0da7ad15",
+      "bytes": 99
+    },
+    {
+      "path": "memory/FAILURES.md",
+      "sha256": "d7ed6b40acd88be4c9a2a9207789bc6178b3358444c30ec584548faaf00dab06",
+      "bytes": 67
+    },
+    {
+      "path": "memory/LESSONS.md",
+      "sha256": "d5edca58e0db839a5d780b9da4dbacd0198172f7f49bb9191db1ce65d084bcf8",
+      "bytes": 65
+    },
+    {
+      "path": "memory/OPEN_RISKS.md",
+      "sha256": "29ff9cc1c30ff5f43574e0414e0aece47c7de3df5e0f6881e53354e9d1eb93f4",
+      "bytes": 70
+    },
+    {
+      "path": "memory/PATTERNS.md",
+      "sha256": "1b787d5021cf4af6e658bee93eeec886b999901b1c758dcabff061d716bc47fd",
+      "bytes": 62
+    },
+    {
+      "path": "README.md",
+      "sha256": "08d5810a1f4c9d834ab5a29fc89348feb633597ba828baa7b4d8f41e319882b1",
+      "bytes": 484
+    },
+    {
+      "path": "references/ORIGINAL_SKILL.md",
+      "sha256": "00440f0601da92645093946bc22abf9342a5fe3f1299c49e39e7268ac3183228",
+      "bytes": 46775
+    },
+    {
+      "path": "schemas/output.schema.json",
+      "sha256": "224b4e72879cc06a022c1b3d3b6fb05d69e815a55035b635b50e3a5bc2734b09",
+      "bytes": 666
+    },
+    {
+      "path": "scripts/validate.py",
+      "sha256": "1865ba89da90f9d0bf6b7b94ecb0689caa91e1bda77d16efca81d1472cf055ec",
+      "bytes": 375
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "00ca6cc85ff2a648c07ebcb47c9785cbf3229b9b17b9a07cb68a04c74dbaeda5",
+      "bytes": 4527
+    },
+    {
+      "path": "templates/OUTPUT.template.md",
+      "sha256": "b085416b19402d5acbdb1016918e6c663c1f09760412fc2abdcfc598b48654c2",
+      "bytes": 192
+    },
+    {
+      "path": "tests/test_structure.py",
+      "sha256": "d8fd492c75a665a961e9a87f0ee1abbb194e42fb98be05a338f0a335b8bea282",
+      "bytes": 347
+    }
+  ]
+}
