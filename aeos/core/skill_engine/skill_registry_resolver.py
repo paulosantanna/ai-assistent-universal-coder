@@ -5,6 +5,8 @@ from typing import Any, Optional
 
 import yaml
 
+_YAML_LOADER = getattr(yaml, "CSafeLoader", yaml.SafeLoader)
+
 
 class SkillRegistryResolver:
     _shared_cache: dict[tuple[str, tuple[tuple[str, int, int], ...]], dict[str, dict[str, Any]]] = {}
@@ -32,7 +34,7 @@ class SkillRegistryResolver:
         registry: dict[str, dict[str, Any]] = {}
         for path in paths:
             with open(path, "r", encoding="utf-8") as f:
-                data = yaml.safe_load(f) or {}
+                data = yaml.load(f, Loader=_YAML_LOADER) or {}
             for entry in data.get("skills", []):
                 eid = entry.get("id")
                 if eid:
@@ -91,3 +93,7 @@ class SkillRegistryResolver:
             stat = path.stat()
             files.append((str(path.resolve()), stat.st_mtime_ns, stat.st_size))
         return (str(self.workspace_root), tuple(files))
+
+
+
+

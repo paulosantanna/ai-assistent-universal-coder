@@ -74,3 +74,36 @@ class TestSkillLoader:
             contract = self.loader.load_skill_contract(skill_id)
             assert contract is not None, f"Skill {skill_id} should be loadable"
             assert contract.is_valid(), f"Contract for {skill_id} should be valid"
+    def test_registry_resolver_merges_consolidated_and_source_registry(self, tmp_path):
+        SkillRegistryResolver.clear_cache()
+        derived = tmp_path / ".aeos" / "derived" / "registries"
+        source = tmp_path / "aeos" / "registries"
+        derived.mkdir(parents=True)
+        source.mkdir(parents=True)
+        (derived / "skills.consolidated.yaml").write_text(
+            "skills:\n- id: consolidated-skill\n  path: skills/consolidated/SKILL.md\n",
+            encoding="utf-8",
+        )
+        (source / "skills.registry.yaml").write_text(
+            "skills:\n- id: source-only-skill\n  path: skills/source/SKILL.md\n",
+            encoding="utf-8",
+        )
+
+        registry = SkillRegistryResolver(str(tmp_path)).load()
+
+        assert "consolidated-skill" in registry
+        assert "source-only-skill" in registry
+
+    def test_registry_resolver_uses_source_registry_as_fallback(self, tmp_path):
+        SkillRegistryResolver.clear_cache()
+        source = tmp_path / "aeos" / "registries"
+        source.mkdir(parents=True)
+        (source / "skills.registry.yaml").write_text(
+            "skills:\n- id: source-skill\n  path: skills/source/SKILL.md\n",
+            encoding="utf-8",
+        )
+
+        registry = SkillRegistryResolver(str(tmp_path)).load()
+
+        assert "source-skill" in registry
+
