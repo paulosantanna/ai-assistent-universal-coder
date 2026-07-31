@@ -18,16 +18,25 @@ class AgentRegistryResolver:
             self.workspace_root / ".aeos" / "derived" / "registries" / "agents.consolidated.yaml",
             self.workspace_root / "aeos" / "registries" / "agents.registry.yaml",
         ]
+        self._registry = {}
+        loaded_any = False
         for p in paths:
-            if p.exists():
-                with open(p, "r", encoding="utf-8") as f:
-                    data = yaml.safe_load(f) or {}
-                entries = data.get("agents", [])
-                for entry in entries:
-                    eid = entry.get("id")
-                    if eid:
-                        self._registry[eid] = entry
-                return self._registry
+            if not p.exists():
+                continue
+            loaded_any = True
+            with open(p, "r", encoding="utf-8") as f:
+                data = yaml.safe_load(f) or {}
+            entries = data.get("agents", [])
+            for entry in entries:
+                eid = entry.get("id")
+                if not eid:
+                    continue
+                existing = self._registry.get(eid, {})
+                merged = dict(entry)
+                merged.update({key: value for key, value in existing.items() if key not in merged or not merged.get(key)})
+                self._registry[eid] = merged
+        if loaded_any:
+            return self._registry
         return self._registry
 
     def resolve(self, agent_id: str) -> Optional[dict]:

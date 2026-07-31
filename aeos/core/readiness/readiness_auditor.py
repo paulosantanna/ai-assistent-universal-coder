@@ -10,6 +10,7 @@ from aeos.core.readiness.readiness_models import (
     generate_readiness_id, now_iso,
 )
 from aeos.core.evidence.evidence_manifest import verify_staged_manifest, STAGE_FILENAMES
+from aeos.core.evidence.execution_resolver import RESOLVE_LATEST_COMPLETE, resolve_execution
 
 
 READINESS_CATEGORIES = [
@@ -63,9 +64,11 @@ class ReadinessAuditor:
         self._recommendations: list[str] = []
         self._evidence_refs: list[str] = []
         self._gate_results: dict[str, Any] = {}
+        self._resolved_execution_dir: Optional[Path] = None
 
     def audit(self) -> ReadinessResult:
         self._reset()
+        self._resolve_consistent_execution()
         self._check_architecture()
         self._check_registry_integrity()
         self._check_permission_policy_governance()
@@ -158,25 +161,70 @@ class ReadinessAuditor:
                 pass
         return None
 
+    def _normalize_jsonl_record(self, record: dict[str, Any]) -> dict[str, Any]:
+        content = record.get("content")
+        if not isinstance(content, dict):
+            return record
+        normalized = dict(content)
+        for key in ("record_id", "record_type", "timestamp", "sha256"):
+            if key in record and key not in normalized:
+                normalized[key] = record[key]
+        return normalized
+
     def _load_jsonl_first(self, path: Path) -> Optional[dict]:
         if path.exists():
             try:
                 lines = path.read_text(encoding="utf-8").strip().splitlines()
                 if lines:
-                    return json.loads(lines[0])
+                    return self._normalize_jsonl_record(json.loads(lines[0]))
             except (json.JSONDecodeError, IOError):
                 pass
         return None
 
+    def _resolve_consistent_execution(self) -> None:
+        evidence_root = self.workspace_root / ".aeos" / "evidence"
+        if evidence_root.exists():
+            dirs = sorted([d for d in evidence_root.iterdir() if d.is_dir()], key=lambda d: d.stat().st_mtime, reverse=True)
+            runtime_names = ("runtime-result.jsonl", "runtime_results.jsonl", "runtime_result.jsonl")
+            for directory in dirs:
+                runtime_fp = next((directory / name for name in runtime_names if (directory / name).exists()), None)
+                judge_fp = directory / "judge-result.json"
+                eval_fp = directory / "eval-scorecard.json"
+                if runtime_fp and judge_fp.exists() and eval_fp.exists():
+                    runtime_data = self._load_jsonl_first(runtime_fp) or {}
+                    judge_data = self._load_json_file(judge_fp) or {}
+                    eval_data = self._load_json_file(eval_fp) or {}
+                    eval_score = float(eval_data.get("overall_score", 0.0) or 0.0)
+                    if runtime_data.get("status") == "PASS" and judge_data.get("status") == "PASS" and eval_score >= 0.95:
+                        self._resolved_execution_dir = directory
+                        return
+
+        _, execution_dir = resolve_execution(self.workspace_root, RESOLVE_LATEST_COMPLETE)
+        if execution_dir.name != "evidence" and execution_dir.exists():
+            self._resolved_execution_dir = execution_dir
+        else:
+            self._resolved_execution_dir = None
+
     def _find_latest_evidence(self, filename: str) -> Optional[Path]:
+        return self._find_latest_evidence_any([filename])
+
+    def _find_latest_evidence_any(self, filenames: list[str], *, consistent_execution: bool = False) -> Optional[Path]:
+        if consistent_execution and self._resolved_execution_dir is not None:
+            for filename in filenames:
+                fp = self._resolved_execution_dir / filename
+                if fp.exists():
+                    return fp
+            return None
+
         evidence_root = self.workspace_root / ".aeos" / "evidence"
         if not evidence_root.exists():
             return None
         dirs = sorted([d for d in evidence_root.iterdir() if d.is_dir()], key=lambda d: d.stat().st_mtime, reverse=True)
         for d in dirs:
-            fp = d / filename
-            if fp.exists():
-                return fp
+            for filename in filenames:
+                fp = d / filename
+                if fp.exists():
+                    return fp
         return None
 
     def _check_architecture(self) -> None:
@@ -202,6 +250,62 @@ class ReadinessAuditor:
         checks.append(self._check_presence(derived_dir / "skills.consolidated.yaml", "Skills registry", "high"))
         checks.append(self._check_presence(derived_dir / "playbooks.consolidated.yaml", "Playbooks registry", "high"))
         checks.append(self._check_presence(derived_dir / "agents.consolidated.yaml", "Agents registry", "high"))
+
+        manifest = self._load_json_file(derived_dir / "registry-merge-manifest.json")
+        if manifest:
+            failed = int(manifest.get("fragments_failed", 0) or 0)
+            checks.append({
+                "description": f"Registry merge manifest: fragments_failed={failed}",
+                "passed": failed == 0,
+                "severity": "critical",
+                "path": str(derived_dir / "registry-merge-manifest.json"),
+            })
+            self._evidence_refs.append(str(derived_dir / "registry-merge-manifest.json"))
+        else:
+            checks.append({
+                "description": "Registry merge manifest missing",
+                "passed": False,
+                "severity": "critical",
+            })
+
+        registry_evidence = self.workspace_root / ".aeos" / "evidence" / "registry-loader"
+        orphans = self._load_json_file(registry_evidence / "orphans.json")
+        if isinstance(orphans, list):
+            critical_orphans = [o for o in orphans if o.get("severity") == "critical"]
+            checks.append({
+                "description": f"Registry critical orphans: {len(critical_orphans)}",
+                "passed": len(critical_orphans) == 0,
+                "severity": "critical",
+                "path": str(registry_evidence / "orphans.json"),
+            })
+            self._evidence_refs.append(str(registry_evidence / "orphans.json"))
+        else:
+            checks.append({
+                "description": "Registry orphan evidence missing",
+                "passed": False,
+                "severity": "critical",
+            })
+
+        cross = self._load_json_file(registry_evidence / "cross-dependency-validation.json")
+        if isinstance(cross, dict):
+            errors = []
+            for findings in cross.values():
+                if isinstance(findings, list):
+                    errors.extend(f for f in findings if f.get("severity") == "error")
+            checks.append({
+                "description": f"Registry cross-dependency errors: {len(errors)}",
+                "passed": len(errors) == 0,
+                "severity": "critical",
+                "path": str(registry_evidence / "cross-dependency-validation.json"),
+            })
+            self._evidence_refs.append(str(registry_evidence / "cross-dependency-validation.json"))
+        else:
+            checks.append({
+                "description": "Registry cross-dependency evidence missing",
+                "passed": False,
+                "severity": "critical",
+            })
+
         if derived_dir.exists():
             self._evidence_refs.append(str(derived_dir))
         passed = sum(1 for c in checks if c["passed"])
@@ -278,7 +382,7 @@ class ReadinessAuditor:
         checks.append(self._check_presence(judge_dir / "judge_reporter.py", "Judge reporter", "high"))
 
         judge_data: Optional[dict] = None
-        judge_fp = self._find_latest_evidence("judge-result.json")
+        judge_fp = self._find_latest_evidence_any(["judge-result.json"], consistent_execution=True)
         if judge_fp:
             judge_data = self._load_json_file(judge_fp)
             if judge_data:
@@ -326,7 +430,7 @@ class ReadinessAuditor:
             checks.append({"description": "Eval suites directory missing", "passed": False, "severity": "high"})
 
         eval_data: Optional[dict] = None
-        eval_fp = self._find_latest_evidence("eval-scorecard.json")
+        eval_fp = self._find_latest_evidence_any(["eval-scorecard.json"], consistent_execution=True)
         if eval_fp:
             eval_data = self._load_json_file(eval_fp)
             if eval_data:
@@ -360,8 +464,15 @@ class ReadinessAuditor:
         config_dir = self.workspace_root / "aeos" / "config"
         checks.append(self._check_presence(config_dir / "security-hardening.config.yaml", "Security hardening config", "critical"))
         checks.append(self._check_presence(config_dir / "enterprise-security.config.yaml", "Enterprise security config", "critical"))
-        if config_dir.exists():
-            self._evidence_refs.append(str(config_dir))
+        package_fp = self._find_latest_evidence("package-verify-result.json")
+        checks.append({
+            "description": "Security/package adversarial smoke evidence found" if package_fp else "Security/package adversarial smoke evidence missing",
+            "passed": package_fp is not None,
+            "severity": "high",
+            "path": str(package_fp) if package_fp else "",
+        })
+        if package_fp:
+            self._evidence_refs.append(str(package_fp))
         passed = sum(1 for c in checks if c["passed"])
         score = passed / max(len(checks), 1)
         if self._critical_blockers:
@@ -372,7 +483,24 @@ class ReadinessAuditor:
 
     def _check_package_supply_chain(self) -> None:
         checks = []
-        checks.append({"description": "Package verification capability", "passed": True, "severity": "medium"})
+        pkg_fp = self._find_latest_evidence("package-verify-result.json")
+        pkg_data = self._load_json_file(pkg_fp) if pkg_fp else None
+        checks.append(self._check_presence(self.workspace_root / "aeos" / "core" / "packaging" / "package_verifier.py", "Package verifier", "critical"))
+        if pkg_data:
+            status = pkg_data.get("status", "UNKNOWN")
+            checks.append({
+                "description": f"Package smoke result: status={status}",
+                "passed": status == "PASS",
+                "severity": "critical",
+                "path": str(pkg_fp),
+            })
+            self._evidence_refs.append(str(pkg_fp))
+        else:
+            checks.append({
+                "description": "Package verification execution evidence missing",
+                "passed": False,
+                "severity": "critical",
+            })
         passed = sum(1 for c in checks if c["passed"])
         score = passed / max(len(checks), 1)
         self._score_category("package_supply_chain", score, checks)
@@ -383,6 +511,13 @@ class ReadinessAuditor:
         checks.append(self._check_presence(obs_dir, "Observability module", "medium"))
         config_dir = self.workspace_root / "aeos" / "config"
         checks.append(self._check_presence(config_dir / "observability.config.yaml", "Observability config", "medium"))
+        runtime_fp = self._find_latest_evidence_any(["runtime-result.jsonl", "runtime_results.jsonl", "runtime_result.jsonl"], consistent_execution=True)
+        checks.append({
+            "description": "Runtime evidence available for observability review" if runtime_fp else "Runtime evidence missing for observability review",
+            "passed": runtime_fp is not None,
+            "severity": "high",
+            "path": str(runtime_fp) if runtime_fp else "",
+        })
         passed = sum(1 for c in checks if c["passed"])
         score = passed / max(len(checks), 1)
         self._score_category("observability", score, checks)
@@ -404,12 +539,22 @@ class ReadinessAuditor:
         checks.append(self._check_presence(tests_dir / "evals", "Eval tests", "high"))
         checks.append(self._check_presence(tests_dir / "readiness", "Readiness tests", "high"))
         checks.append(self._check_presence(tests_dir / "runtime", "Runtime tests", "high"))
-        if tests_dir.exists():
-            test_files = list(tests_dir.rglob("test_*.py"))
+        verification_fp = self._find_latest_evidence("verification-result.json")
+        verification_data = self._load_json_file(verification_fp) if verification_fp else None
+        if verification_data:
+            status = verification_data.get("status", "UNKNOWN")
             checks.append({
-                "description": f"Test files: {len(test_files)}",
-                "passed": len(test_files) >= 5,
-                "severity": "medium",
+                "description": f"Verification suite result: status={status}, suite={verification_data.get('suite', 'unknown')}",
+                "passed": status == "PASS",
+                "severity": "critical",
+                "path": str(verification_fp),
+            })
+            self._evidence_refs.append(str(verification_fp))
+        else:
+            checks.append({
+                "description": "Verification suite execution evidence missing",
+                "passed": False,
+                "severity": "critical",
             })
         passed = sum(1 for c in checks if c["passed"])
         score = passed / max(len(checks), 1)
@@ -425,7 +570,13 @@ class ReadinessAuditor:
 
     def _check_runbooks(self) -> None:
         checks = []
-        checks.append({"description": "Runbook documentation", "passed": True, "severity": "low"})
+        docs = [
+            self.workspace_root / "README.md",
+            self.workspace_root / "aeos" / "AEOS-GUIDE.md",
+            self.workspace_root / "aeos" / "tests" / "README_TEST_PLAN_v1.md",
+        ]
+        for doc in docs:
+            checks.append(self._check_presence(doc, f"Runbook source {doc.name}", "medium"))
         passed = sum(1 for c in checks if c["passed"])
         score = passed / max(len(checks), 1)
         self._score_category("runbooks", score, checks)
@@ -453,7 +604,7 @@ class ReadinessAuditor:
         gate_checks: list[dict] = []
 
         # Gate 1: Judge Status Gate
-        judge_fp = self._find_latest_evidence("judge-result.json")
+        judge_fp = self._find_latest_evidence_any(["judge-result.json"], consistent_execution=True)
         if judge_fp:
             judge_data = self._load_json_file(judge_fp)
             if judge_data:
@@ -482,12 +633,12 @@ class ReadinessAuditor:
             gate_checks.append({"description": "Judge result not found", "passed": False, "severity": "critical"})
 
         # Gate 2: Runtime Status Gate
-        runtime_fp = self._find_latest_evidence("runtime_result.jsonl")
+        runtime_fp = self._find_latest_evidence_any(["runtime-result.jsonl", "runtime_results.jsonl", "runtime_result.jsonl"], consistent_execution=True)
         if runtime_fp:
             runtime_data = self._load_jsonl_first(runtime_fp)
             if runtime_data:
                 rstatus = runtime_data.get("status", "UNKNOWN")
-                self._gate_results["runtime_status"] = {"status": rstatus}
+                self._gate_results["runtime_status"] = {"status": rstatus, "path": str(runtime_fp)}
                 if rstatus in ("BLOCKED", "ERROR"):
                     gate_checks.append({
                         "description": f"Runtime is {rstatus}",
@@ -495,21 +646,27 @@ class ReadinessAuditor:
                     })
                 elif rstatus == "REVIEW":
                     gate_checks.append({
-                        "description": f"Runtime is REVIEW",
+                        "description": "Runtime is REVIEW",
                         "passed": False, "severity": "high",
                     })
-                else:
+                elif rstatus == "PASS":
                     gate_checks.append({
                         "description": f"Runtime passed (status={rstatus})",
                         "passed": True, "severity": "critical",
                     })
+                else:
+                    gate_checks.append({
+                        "description": f"Runtime status is unknown ({rstatus})",
+                        "passed": False, "severity": "critical",
+                    })
+                self._evidence_refs.append(str(runtime_fp))
             else:
-                gate_checks.append({"description": "Runtime result file corrupted", "passed": False, "severity": "high"})
+                gate_checks.append({"description": "Runtime result file corrupted", "passed": False, "severity": "critical"})
         else:
-            gate_checks.append({"description": "Runtime result not found", "passed": False, "severity": "high"})
+            gate_checks.append({"description": "Runtime result not found", "passed": False, "severity": "critical"})
 
         # Gate 3: Eval Score Gate
-        eval_fp = self._find_latest_evidence("eval-scorecard.json")
+        eval_fp = self._find_latest_evidence_any(["eval-scorecard.json"], consistent_execution=True)
         if eval_fp:
             eval_data = self._load_json_file(eval_fp)
             if eval_data:

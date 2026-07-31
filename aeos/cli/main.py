@@ -136,6 +136,9 @@ def main():
     registry_sub = registry_parser.add_subparsers(dest="registry_command")
     registry_validate = registry_sub.add_parser("validate", help="Validate registry references and prompt contracts")
     registry_validate.set_defaults(func="cmd_registry_validate")
+    registry_derive = registry_sub.add_parser("derive", help="Generate .aeos/derived/registries deterministically")
+    add_aeos_root(registry_derive)
+    registry_derive.set_defaults(func="cmd_registry_derive")
     rl = registry_sub.add_parser("list", help="List registry entities")
     rl.add_argument("entity", nargs="?", default="all",
                     choices=["skills", "playbooks", "agents", "mcps", "lcps", "all"],
@@ -274,7 +277,7 @@ from aeos.cli.commands.evals import cmd_evals_run
 from aeos.cli.commands.readiness import cmd_readiness_run
 from aeos.cli.commands.performance import cmd_performance_benchmark
 from aeos.cli.commands.package import cmd_package_create, cmd_package_verify
-from aeos.cli.commands.registry import cmd_registry_validate, cmd_registry_list
+from aeos.cli.commands.registry import cmd_registry_validate, cmd_registry_derive, cmd_registry_list
 from aeos.cli.commands.evidence import cmd_evidence_list, cmd_evidence_verify, cmd_evidence_report
 from aeos.cli.commands.bundle import (
     cmd_bundle_create, cmd_bundle_verify, cmd_bundle_inspect,

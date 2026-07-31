@@ -43,7 +43,7 @@ def main() -> int:
         entity_id="repo-scanner",
         actor="smoke-tester",
         role="tester",
-        input={"target_path": "."},
+        input={"target_path": ".", "repository_path": ".", "scan_depth": "shallow"},
         dry_run=True,
     )
     result = orchestrator.run_skill(req)
@@ -57,7 +57,7 @@ def main() -> int:
         entity_id="project-analysis",
         actor="smoke-tester",
         role="tester",
-        input={"target_path": "."},
+        input={"target_path": ".", "repository_path": ".", "scan_depth": "shallow"},
         dry_run=True,
     )
     result = orchestrator.run_playbook(req)

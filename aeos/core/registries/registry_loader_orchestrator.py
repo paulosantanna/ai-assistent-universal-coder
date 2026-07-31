@@ -121,7 +121,11 @@ def run_phase2(workspace_root: str = ".") -> dict:
             })
 
         print("\n[8/8] Generating outputs...")
-        reporter = RegistryReporter()
+        reporter = RegistryReporter(
+            derived_dir=str(root / ".aeos" / "derived" / "registries"),
+            reports_dir=str(root / ".aeos" / "reports"),
+            evidence_dir=str(root / ".aeos" / "evidence" / "registry-loader"),
+        )
 
         consolidated_files = reporter.write_consolidated_registries(registry)
         for f in consolidated_files:

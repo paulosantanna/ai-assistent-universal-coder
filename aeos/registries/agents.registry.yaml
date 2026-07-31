@@ -414,3 +414,99 @@ agents:
     forbidden_actions: [mutate_production, expose_secrets, hide_contradictions, claim_without_evidence]
     capabilities: [READ_EVIDENCE, READ_FILES, CORRELATE_FINDINGS, GENERATE_REPORT]
     delegation_policy: { allowed: { observability-root-cause-integrator-agent: { can_delegate_to: [] } } }
+  - id: researcher
+    path: aeos/agents/researcher.agent.md
+    role: researcher
+    can_delegate: true
+    can_block: true
+
+  - id: incident
+    path: aeos/agents/incident.agent.md
+    role: incident
+    can_delegate: true
+    can_block: true
+
+  - id: medical-evidence-researcher
+    path: aeos/agents/medical-evidence-researcher.agent.md
+    role: medical-evidence-researcher
+    can_delegate: true
+    can_block: true
+
+  - id: repository-cartographer
+    path: aeos/agents/repository-cartographer.agent.md
+    role: repository-cartographer
+    can_delegate: true
+    can_block: true
+
+  - id: architecture-governor
+    path: aeos/agents/architecture-governor.agent.md
+    role: architecture-governor
+    can_delegate: true
+    can_block: true
+
+  - id: evidence-researcher
+    path: aeos/agents/evidence-researcher.agent.md
+    role: evidence-researcher
+    can_delegate: true
+    can_block: true
+
+  - id: rag-specialist
+    path: aeos/agents/rag-specialist.agent.md
+    role: rag-specialist
+    can_delegate: true
+    can_block: true
+
+  - id: language-researcher
+    path: aeos/agents/language-researcher.agent.md
+    role: language-researcher
+    can_delegate: true
+    can_block: true
+
+  - id: domain-researcher
+    path: aeos/agents/domain-researcher.agent.md
+    role: domain-researcher
+    can_delegate: true
+    can_block: true
+
+  - id: enterprise
+    path: aeos/agents/enterprise.agent.md
+    role: enterprise
+    can_delegate: true
+    can_block: true
+
+  - id: generated
+    path: aeos/agents/generated.agent.md
+    role: generated-capability-governor
+    can_delegate: true
+    can_block: true
+
+  - id: governance
+    path: aeos/agents/governance.agent.md
+    role: governance
+    can_delegate: true
+    can_block: true
+
+  - id: orchestrator
+    path: aeos/agents/orchestrator.agent.md
+    role: orchestrator
+    can_delegate: true
+    can_block: true
+
+  - id: packaging
+    path: aeos/agents/packaging.agent.md
+    role: packaging
+    can_delegate: true
+    can_block: true
+
+  - id: integration
+    path: aeos/agents/integration.agent.md
+    role: integration
+    can_delegate: true
+    can_block: true
+
+  - id: ops
+    path: aeos/agents/ops.agent.md
+    role: operations
+    can_delegate: true
+    can_block: true
+

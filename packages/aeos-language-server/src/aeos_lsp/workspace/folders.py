@@ -25,14 +25,21 @@ class WorkspaceFolderInfo:
         return detect_aeos_root(self.path) is not None
 
 
+def _is_aeos_tmp_path(path: Path) -> bool:
+    parts = path.parts
+    return any(parts[i] == ".aeos" and i + 1 < len(parts) and parts[i + 1] == "tmp" for i in range(len(parts)))
+
+
 def detect_aeos_root(path: Path) -> Path | None:
     resolved = path.resolve()
-    for marker in ("aeos.config.yaml", "aeos.json", "aeos.jsonc", "aeos.toml"):
+    for marker in AEOS_ROOT_MARKERS:
         candidate = resolved / marker
         if candidate.is_file():
             return resolved
+    if _is_aeos_tmp_path(resolved):
+        return None
     for parent in resolved.parents:
-        for marker in ("aeos.config.yaml", "aeos.json", "aeos.jsonc", "aeos.toml"):
+        for marker in AEOS_ROOT_MARKERS:
             if (parent / marker).is_file():
                 return parent
     return None

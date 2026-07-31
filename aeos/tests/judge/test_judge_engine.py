@@ -70,3 +70,22 @@ class TestJudgeEngine:
         errors = self.engine.validate_result(result)
         # May have errors if missing manifest, but should be structurally valid
         assert isinstance(errors, list)
+
+
+
+def test_judge_input_builder_reads_canonical_wrapped_runtime_result(tmp_path):
+    from aeos.core.judge.judge_input_builder import JudgeInputBuilder
+
+    ws = tmp_path / "workspace"
+    evidence_dir = ws / ".aeos" / "evidence" / "exec-wrapped-runtime"
+    evidence_dir.mkdir(parents=True)
+    (evidence_dir / "runtime-result.jsonl").write_text(
+        '{"record_id":"ev-1","record_type":"runtime-result","content":{"execution_id":"exec-wrapped-runtime","run_type":"skill","status":"BLOCKED","duration_ms":10}}\n',
+        encoding="utf-8",
+    )
+
+    judge_input = JudgeInputBuilder(str(ws)).build("exec-wrapped-runtime")
+
+    assert len(judge_input.runtime_results) == 1
+    assert judge_input.runtime_results[0]["status"] == "BLOCKED"
+    assert judge_input.runtime_results[0]["record_id"] == "ev-1"

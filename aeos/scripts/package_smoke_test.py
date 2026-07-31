@@ -8,15 +8,29 @@ import json
 import zipfile
 from pathlib import Path
 import tempfile
+from datetime import datetime, timezone
+from uuid import uuid4
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+from aeos.core.evidence.evidence_manifest import mark_finalized
+
+
+TMP_ROOT = Path(".aeos") / "tmp" / "package-smoke"
+
+
+def make_tmp_dir() -> Path:
+    TMP_ROOT.mkdir(parents=True, exist_ok=True)
+    path = TMP_ROOT / f"case-{uuid4().hex[:12]}"
+    path.mkdir(parents=True, exist_ok=False)
+    return path
 
 
 def test_create_and_verify():
-    tmp = Path(tempfile.mkdtemp())
+    tmp = make_tmp_dir()
     ev_dir = tmp / ".aeos" / "evidence" / "exec-pkg-smoke"
     ev_dir.mkdir(parents=True, exist_ok=True)
     (ev_dir / "runtime-request.jsonl").write_text('{"test": true}')
     (ev_dir / "judge-result.json").write_text(json.dumps({"status": "PASS", "score": 0.95}))
+    mark_finalized(ev_dir)
 
     from aeos.core.packaging.package_builder import PackageBuilder
     from aeos.core.packaging.package_models import PackageBuildRequest, PackageStatus
@@ -37,7 +51,7 @@ def test_create_and_verify():
 
 
 def test_block_path_traversal():
-    tmp = Path(tempfile.mkdtemp())
+    tmp = make_tmp_dir()
     pkg_path = tmp / "malicious.zip"
     with zipfile.ZipFile(pkg_path, "w", zipfile.ZIP_DEFLATED) as zf:
         zf.writestr("package-manifest.json", json.dumps({"sha256": "abc"}))
@@ -51,7 +65,7 @@ def test_block_path_traversal():
 
 
 def test_block_absolute_path():
-    tmp = Path(tempfile.mkdtemp())
+    tmp = make_tmp_dir()
     pkg_path = tmp / "absolute.zip"
     with zipfile.ZipFile(pkg_path, "w", zipfile.ZIP_DEFLATED) as zf:
         zf.writestr("package-manifest.json", json.dumps({"sha256": "abc"}))
@@ -65,7 +79,7 @@ def test_block_absolute_path():
 
 
 def test_block_git_dir():
-    tmp = Path(tempfile.mkdtemp())
+    tmp = make_tmp_dir()
     pkg_path = tmp / "gitleak.zip"
     with zipfile.ZipFile(pkg_path, "w", zipfile.ZIP_DEFLATED) as zf:
         zf.writestr("package-manifest.json", json.dumps({"sha256": "abc"}))
@@ -79,7 +93,7 @@ def test_block_git_dir():
 
 
 def test_block_hash_mismatch():
-    tmp = Path(tempfile.mkdtemp())
+    tmp = make_tmp_dir()
     pkg_path = tmp / "badhash.zip"
     import hashlib
     manifest = {"sha256": "0" * 64, "files": []}
@@ -94,7 +108,7 @@ def test_block_hash_mismatch():
 
 
 def test_block_no_manifest():
-    tmp = Path(tempfile.mkdtemp())
+    tmp = make_tmp_dir()
     pkg_path = tmp / "nomanifest.zip"
     with zipfile.ZipFile(pkg_path, "w", zipfile.ZIP_DEFLATED) as zf:
         zf.writestr("random.txt", "data")
@@ -107,7 +121,7 @@ def test_block_no_manifest():
 
 
 def test_block_secrets():
-    tmp = Path(tempfile.mkdtemp())
+    tmp = make_tmp_dir()
     pkg_path = tmp / "secrets.zip"
     with zipfile.ZipFile(pkg_path, "w", zipfile.ZIP_DEFLATED) as zf:
         zf.writestr("package-manifest.json", json.dumps({"sha256": "abc"}))
@@ -121,7 +135,7 @@ def test_block_secrets():
 
 
 def test_reporter():
-    tmp = Path(tempfile.mkdtemp())
+    tmp = make_tmp_dir()
     from aeos.core.packaging.package_reporter import PackageReporter
     from aeos.core.packaging.package_models import PackageBuildResult, PackageManifest, PackageStatus, PackageVerifyResult
 
@@ -172,6 +186,19 @@ def main():
             import traceback
             traceback.print_exc()
             failures += 1
+    evidence_dir = Path(".aeos") / "evidence" / "package-smoke"
+    evidence_dir.mkdir(parents=True, exist_ok=True)
+    result = {
+        "execution_id": "package-smoke",
+        "status": "PASS" if failures == 0 else "FAIL",
+        "tests_total": len(tests),
+        "tests_failed": failures,
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+    }
+    evidence_fp = evidence_dir / "package-verify-result.json"
+    evidence_fp.write_text(json.dumps(result, indent=2), encoding="utf-8")
+    print(f"Package verification evidence: {evidence_fp}")
+
     print()
     if failures == 0:
         print(f"PACKAGE SMOKE TEST PASSED ({len(tests)}/{len(tests)})")

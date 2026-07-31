@@ -2165,3 +2165,16 @@ skills:
   - Sensitive data cannot be safely redacted
   - Documentation evaluator returns below 10/10
   - Any blocking documentation gap remains
+- id: evidence-integrity
+  path: aeos/skills/enterprise/evidence-integrity-engineer.skill.md
+  version: 1.0.0
+  owner_agent: enterprise
+  risk_level: high
+  capabilities:
+  - READ_REPOSITORY
+  - READ_FILES
+  - GENERATE_REPORT
+  - GENERATE_EVIDENCE
+  production_ready: true
+  mission: Validate evidence integrity using the enterprise evidence-integrity-engineer contract.
+

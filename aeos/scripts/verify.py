@@ -4,12 +4,15 @@
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import subprocess
 import shutil
 import sys
+from datetime import datetime, timezone
 from dataclasses import dataclass
 from pathlib import Path
+from uuid import uuid4
 
 from portable_env import ensure_portable_dirs, performance_target, portable_tmp, python_executable
 
@@ -52,8 +55,30 @@ def _env_with_lsp_pythonpath() -> dict[str, str]:
         {"PYTHONPATH": f"{REPO_ROOT / 'packages' / 'aeos-language-server' / 'src'}{os.pathsep}{REPO_ROOT}"}
     )
 
+def _safe_name(value: str) -> str:
+    return "".join(ch if ch.isalnum() else "-" for ch in value).strip("-") or "suite"
+
+
+def _pytest_basetemp(*paths: str) -> Path:
+    root = portable_tmp(REPO_ROOT) / "pytest-basetemp"
+    name = _safe_name("-".join(paths))[:80]
+    target = root / f"{name}-{uuid4().hex[:8]}"
+    target.mkdir(parents=True, exist_ok=False)
+    return target
+
+
 def _pytest(python: str, *paths: str) -> list[str]:
-    return [python, "-m", "pytest", *paths, "-q", "-p", "no:cacheprovider"]
+    return [
+        python,
+        "-m",
+        "pytest",
+        *paths,
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        str(_pytest_basetemp(*paths)),
+    ]
 
 
 def _npm_executable() -> str:
@@ -200,11 +225,33 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     return parser.parse_args(argv)
 
 
+def _write_verification_evidence(args: argparse.Namespace, failures: int, total_steps: int) -> Path:
+    execution_id = f"verify-{datetime.now(timezone.utc).strftime('%Y%m%d%H%M%S')}-{uuid4().hex[:8]}"
+    evidence_dir = REPO_ROOT / ".aeos" / "evidence" / execution_id
+    evidence_dir.mkdir(parents=True, exist_ok=True)
+    result = {
+        "execution_id": execution_id,
+        "status": "PASS" if failures == 0 else "FAIL",
+        "suite": args.suite,
+        "steps_total": total_steps,
+        "steps_failed": failures,
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "python": args.python or python_executable(REPO_ROOT, required_modules=["pytest"]),
+    }
+    fp = evidence_dir / "verification-result.json"
+    fp.write_text(json.dumps(result, indent=2), encoding="utf-8")
+    return fp
+
+
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv or sys.argv[1:])
     failures = 0
-    for step in build_steps(args):
+    steps = build_steps(args)
+    for step in steps:
         failures += 1 if run_step(step) else 0
+
+    evidence_path = _write_verification_evidence(args, failures, len(steps))
+    print(f"Verification evidence: {evidence_path}")
 
     print("\nAEOS verification complete.")
     if failures:
