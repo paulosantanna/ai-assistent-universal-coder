@@ -11,6 +11,7 @@ export class ToolRouter {
   private evidenceStore: EvidenceStore;
   private registeredMCPs: Map<string, MCPRegistryEntry> = new Map();
   private toolCalls: ToolCallRecord[] = [];
+  private activeSkillId: string | null = null;
 
   constructor(evidenceStore: EvidenceStore) {
     this.evidenceStore = evidenceStore;
@@ -26,6 +27,10 @@ export class ToolRouter {
     }
   }
 
+  setActiveSkill(skillId: string | null): void {
+    this.activeSkillId = skillId;
+  }
+
   async callTool(
     mcpId: string,
     action: string,
@@ -37,6 +42,12 @@ export class ToolRouter {
         success: false,
         error: `MCP '${mcpId}' not registered`
       });
+    }
+
+    const skillId = this.resolveSkillContext(params);
+    const skillGate = this.validateSkillGate(mcp, skillId);
+    if (!skillGate.success) {
+      return this.recordCall(mcpId, action, params, skillGate);
     }
 
     if (!mcp.capabilities.includes(action)) {
@@ -71,6 +82,35 @@ export class ToolRouter {
 
   getToolCalls(): ToolCallRecord[] {
     return this.toolCalls;
+  }
+
+  private resolveSkillContext(params: Record<string, unknown>): string | null {
+    const explicit = params.__aeosSkillId;
+    return typeof explicit === "string" && explicit.trim().length > 0
+      ? explicit.trim()
+      : this.activeSkillId;
+  }
+
+  private validateSkillGate(mcp: MCPRegistryEntry, skillId: string | null): ToolResult {
+    if (!mcp.governing_skill || mcp.governing_skill.trim().length === 0) {
+      return {
+        success: false,
+        error: `MCP '${mcp.id}' blocked: missing governing_skill contract`
+      };
+    }
+
+    if (mcp.skill_enforced === false) {
+      return { success: true };
+    }
+
+    if (!skillId) {
+      return {
+        success: false,
+        error: `MCP '${mcp.id}' blocked: calls must run inside an AEOS skill context`
+      };
+    }
+
+    return { success: true };
   }
 
   private async handleFilesystem(
@@ -246,9 +286,11 @@ export class ToolRouter {
       callId: randomUUID(),
       tool: mcpId,
       action,
+      skillId: this.resolveSkillContext(params) ?? undefined,
+      governingSkill: this.registeredMCPs.get(mcpId)?.governing_skill,
       params: this.sanitizeParams(params),
       result: result.success ? "success" : `error: ${result.error ?? "unknown"}`,
-      allowed: true,
+      allowed: result.success,
       timestamp: new Date().toISOString(),
       durationMs
     };

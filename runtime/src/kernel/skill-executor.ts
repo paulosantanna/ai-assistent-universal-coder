@@ -64,6 +64,7 @@ export class SkillExecutor {
       case "java-migration":
       case "python-rag-audit":
       case "test-generation":
+      case "tool-adapter-governor":
         defaultOutput.facts.push(`Skill '${skillId}' is recognized but not yet implemented in v0.1`);
         defaultOutput.assumptions.push(`Using stub implementation for '${skillId}'`);
         return defaultOutput;

@@ -5,27 +5,35 @@ lsp_universal_project:
   language_profiles:
   - id: java
     recommended_lsp: jdtls
+    governing_skill: java-docs-bug-solver
     required_files: [pom.xml or build.gradle]
   - id: python
     recommended_lsp: pyright
+    governing_skill: python-docs-bug-solver
     required_files: [pyproject.toml or requirements.txt]
   - id: typescript
     recommended_lsp: typescript-language-server
+    governing_skill: typescript-bug-solver
     required_files: [package.json, tsconfig.json]
   - id: javascript
     recommended_lsp: typescript-language-server
+    governing_skill: javascript-bug-solver
     required_files: [package.json]
   - id: angular
     recommended_lsp: angular-language-server
+    governing_skill: angular-bug-solver
     required_files: [angular.json, package.json]
   - id: sql
     recommended_lsp: sql-language-server
+    governing_skill: database-architecture-planner
     required_files: [migration directory or schema file]
   - id: docker
     recommended_lsp: dockerfile-language-server
+    governing_skill: production-deployment-planner
     required_files: [Dockerfile]
   - id: yaml
     recommended_lsp: yaml-language-server
+    governing_skill: tool-adapter-governor
     required_files: [ci, deployment or config yaml]
   diagnostics:
   - missing_runtime_version

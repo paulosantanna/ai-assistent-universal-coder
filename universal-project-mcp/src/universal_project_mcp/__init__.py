@@ -1,1 +1,0 @@
-"""AEOS universal project MCP."""

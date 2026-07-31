@@ -1,30 +1,23 @@
 {
   "scripts": {
-    "aeos:bootstrap": "python aeos/scripts/bootstrap_portable.py",
-    "aeos:bootstrap:deps": "python aeos/scripts/bootstrap_portable.py --install-deps",
-    "aeos:skills:sync": "python aeos/scripts/sync_opencode_skills.py",
-    "aeos:verify": "python aeos/scripts/verify.py --suite quick",
-    "aeos:verify:full": "python aeos/scripts/verify.py --suite full",
-    "test:python": "python aeos/scripts/test_matrix.py --only python-pytest",
-    "test:python:cov": "python aeos/scripts/run_portable_python.py --require-module pytest -- -m pytest --cov=aeos --cov-report=term-missing",
-    "test:python:bdd": "python aeos/scripts/test_matrix.py --only python-behave",
-    "test:robot": "python aeos/scripts/test_matrix.py --only python-robot",
-    "test:node:jest": "jest --config jest.config.cjs",
+    "aeos:route": "node scripts/aeos-skill-router.mjs",
+    "aeos:memory": "node scripts/aeos-chromatic-memory.mjs",
+    "aeos:guard:no-python": "node scripts/aeos-no-python-guard.mjs",
+    "aeos:guard:skill-adapters": "node scripts/aeos-skill-adapter-guard.mjs",
+    "aeos:bootstrap": "npm run aeos:guard:no-python && npm run aeos:guard:skill-adapters && npm --prefix runtime run build",
+    "aeos:bootstrap:deps": "npm ci && npm --prefix runtime ci",
+    "aeos:verify": "npm run aeos:guard:no-python && npm run aeos:guard:skill-adapters && npm --prefix runtime run build && npm run test:node:jest",
+    "aeos:verify:full": "npm run aeos:verify && npm run test:node:vitest && npm run test:node:mocha && npm run test:node:cucumber",
+    "test:node:jest": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --config jest.config.cjs --runInBand",
     "test:node:vitest": "vitest run --config vitest.config.ts",
     "test:node:mocha": "mocha \"tests/node/**/*.test.cjs\"",
     "test:node:cucumber": "cucumber-js --config cucumber.js",
     "test:java:maven": ".tools/bin/mvn -f templates/test-toolchains/java-junit5/pom.xml test",
     "test:java:gradle": ".tools/bin/gradle --no-daemon -p templates/test-toolchains/java-gradle-junit5 test",
     "test:java": "npm run test:java:maven && npm run test:java:gradle",
-    "test:matrix": "python aeos/scripts/test_matrix.py",
-    "test:matrix:full": "npm run test:matrix -- --include-optional",
-    "test:all": "npm run test:python && npm run test:python:bdd && npm run test:robot && npm run test:node:jest && npm run test:node:vitest && npm run test:node:mocha && npm run test:node:cucumber && npm run test:java",
-    "aeos:registry:derive": "python aeos/scripts/generate_derived_registries.py --workspace-root .",
-    "aeos:readiness": "python aeos/scripts/run_readiness_audit.py",
-    "aeos:judge": "python -m aeos.cli.main judge run --execution-id latest",
-    "aeos:evidence:verify": "python -m aeos.cli.main evidence verify --execution-id latest --execution-mode latest-complete",
-    "aeos:package:smoke": "python aeos/scripts/package_smoke_test.py",
-    "aeos:production:smoke": "python aeos/scripts/production_readiness_smoke_test.py"
+    "test:matrix": "npm run aeos:verify:full",
+    "test:matrix:full": "npm run aeos:verify:full && npm run test:java",
+    "test:all": "npm run aeos:verify:full && npm run test:java"
   },
   "devDependencies": {
     "@cucumber/cucumber": "^13.0.0",
@@ -39,3 +32,4 @@
     "vitest": "^4.1.10"
   }
 }
+
