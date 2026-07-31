@@ -1,0 +1,60 @@
+# LEARNING.md
+
+Managed by AEOS Chromatic Mega Brain memory protocol.
+
+## 2026-07-31T21:42:36.676Z route-df202c75894a
+
+- Learning candidate: Route requests through skill registry before execution.
+- Validation requirement: Persist handoff and progress evidence for every material task.
+- Evidence hash: cd54b984c41f9be6945fa8b97d0e16dfa3e64077ccec1a0fffdd28f52cbb13ac
+
+## 2026-07-31T21:43:09.103Z route-08355666c9e2
+
+- Learning candidate: Route requests through skill registry before execution.
+- Validation requirement: Persist handoff and progress evidence for every material task.
+- Evidence hash: e54bb0ca94790c4755bfba433efc7a56711a1bc7f109c606bfaf4f0cbbb5e4ce
+
+## 2026-07-31T21:43:57.395Z route-6629448d3090
+
+- Learning candidate: Route requests through skill registry before execution.
+- Validation requirement: Persist handoff and progress evidence for every material task.
+- Evidence hash: 6758de5a16d3f5bf8831975a7571dffe95ab585da40be27d979ba5124ee77903
+
+## 2026-07-31T21:43:57.446Z chromatic-059c37c7e985
+
+- Learning candidate: Route requests through skill registry before execution.
+- Validation requirement: Persist handoff and progress evidence for every material task.
+- Evidence hash: d4f39bcedce0b985aaa0feb484c045873fb1e92f7a49704a0013b996fcebe4f7
+
+## 2026-07-31T21:44:17.245Z route-57a8886008dc
+
+- Learning candidate: Route requests through skill registry before execution.
+- Validation requirement: Persist handoff and progress evidence for every material task.
+- Evidence hash: 956b890ea53cf523a21d24b54c56048ed4975304522c6be731f6387dd108ce65
+
+## 2026-07-31T21:44:17.294Z chromatic-10ca4a4f6905
+
+- Learning candidate: Route requests through skill registry before execution.
+- Validation requirement: Persist handoff and progress evidence for every material task.
+- Evidence hash: 98e6af008678a3f0a16a87160a2ddbe2880594816f56333f26b1fe25c18485d9
+
+## 2026-07-31T21:44:31.556Z route-7a65945f9ad6
+
+- Request: criar feature Angular com testes sem mudar arquitetura
+- Learning candidate: Route requests through skill registry before execution.
+- Validation requirement: Persist handoff and progress evidence for every material task.
+- Evidence hash: aefe9d5ff8beec76d577d91dce7b9a5eed440a7f8ead56f4bc34b1235bf4d791
+
+## 2026-07-31T21:44:33.870Z route-fccb9e62a5c9
+
+- Request: corrigir bug Java com testes e sem alterar arquitetura
+- Learning candidate: Route requests through skill registry before execution.
+- Validation requirement: Persist handoff and progress evidence for every material task.
+- Evidence hash: 6f0532d71b7e77f27872e2a703b318bdfba66e354095afdc7284c377c1a54a37
+
+## 2026-07-31T21:44:33.913Z chromatic-1e3fcd904ff3
+
+- Request: node test memory persistence
+- Learning candidate: Route requests through skill registry before execution.
+- Validation requirement: Persist handoff and progress evidence for every material task.
+- Evidence hash: c83ac57a70bc65e1d5598b1661edcb2f4064ef1b11d757ebf79210d028b233ab

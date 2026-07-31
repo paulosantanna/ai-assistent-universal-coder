@@ -27,6 +27,48 @@ The following rules are mandatory:
 10. Human authority over unsafe, irreversible or high-impact decisions.
 11. No fabricated files, commands, outputs, metrics, citations, tests or completion claims.
 12. No task may be declared complete while a blocking finding remains unresolved.
+13. Skill routing is automatic by default: when the user does not name a skill,
+    AEOS must select the best skills from the registry before execution.
+14. Chromatic Mega Brain memory persistence is mandatory for every material
+    request. `MEMORY.md`, `LEARNING.md`, `HANDOFF.md` and `PROGRESS.md` must be
+    updated before completion.
+15. Active WorkspaceSO orchestration must not depend on Python. Python files are
+    legacy inventory until ported, archived under references, or removed with
+    rollback evidence.
+
+---
+
+## 1A. Immutable WorkspaceSO revolution rules
+
+These rules have constitutional precedence over local convenience:
+
+1. AEOS operates as a skill-first WorkspaceSO. User intent is routed through the
+   skill registry even when the user does not explicitly request a skill.
+2. The default orchestration path is Node/TypeScript plus declarative skill,
+   playbook, MCP, LCP and AGENT contracts.
+3. New Python runtime orchestration is forbidden.
+4. Existing `*.py` files are considered retired legacy until each capability is
+   ported to Node/TypeScript, replaced by a skill/playbook contract, moved to
+   `references/legacy-python`, or deleted with verified rollback evidence.
+5. Every routed request must produce Chromatic Mega Brain memory writes in:
+   `skills/chromatic-mega-brain/memory/MEMORY.md`,
+   `skills/chromatic-mega-brain/memory/LEARNING.md`,
+   `skills/chromatic-mega-brain/memory/HANDOFF.md`, and
+   `skills/chromatic-mega-brain/memory/PROGRESS.md`.
+6. If routing, handoff, progress tracking or memory persistence fails, the task
+   status is `BLOCKED`.
+7. When adding a skill, use the project skill builder/factory contract and
+   register it for immediate consumption.
+8. Architecture may be changed only when the user explicitly asks for
+   architecture change, modernization or migration.
+
+Operational entrypoints:
+
+- `npm run aeos:route -- "<request>"` selects skills and writes Chromatic memory.
+- `npm run aeos:guard:no-python` blocks active Python orchestration.
+- `npm run aeos:verify` validates the no-Python active path and Node runtime.
+
+Detailed specification: `references/NO_PYTHON_SKILL_ORCHESTRATION.md`.
 
 ---
 
@@ -345,6 +387,11 @@ Agents may write only within authorized memory scopes.
 Every memory entry must conform to `MEMORY_SCHEMA.md`.
 
 Memory without provenance, evidence or validation status is invalid.
+
+Chromatic Mega Brain memory is mandatory for every material request. The minimum
+write set is `MEMORY.md`, `LEARNING.md`, `HANDOFF.md` and `PROGRESS.md` under
+`skills/chromatic-mega-brain/memory`. Missing memory persistence is a blocking
+failure, not a warning.
 
 ---
 
@@ -693,6 +740,116 @@ Then load the wider AEOS modules:
 52. `operations/RUNTIME_ENGINE.md`
 
 Missing, unreadable or inconsistent mandatory modules result in `BLOCKED_BOOTSTRAP`.
+
+---
+
+## 13A. Workspace structure and execution discipline
+
+This section is a root AEOS operating standard for every agent, skill, MCP, LSP,
+playbook, command and generated deliverable used inside AEOS.
+
+### 13A.1 Canonical package layout
+
+Use the simplest valid package layout:
+
+```text
+<package>/
+├── AGENT.md
+├── scripts/
+├── templates/
+└── references/
+```
+
+Rules:
+
+- `AGENT.md` is the canonical root agent contract. Do not create `AGENTS.md`
+  unless a specific external platform requires that exact filename.
+- `scripts/` contains optional executable scripts only.
+- `templates/` contains optional template files only.
+- `references/` contains optional on-demand documentation only.
+- No loose files or folders are allowed at the repository root when they belong
+  to a package, skill, MCP, LSP, playbook, command, report, map or temporary
+  deliverable.
+
+### 13A.2 Anti-scatter precedence
+
+Recurring error to eliminate: spreading deliverables, mapping state or generated
+working material across the anti-flow layout.
+
+This rule has precedence over the instinct to edit the file that already exists.
+Before writing, moving or updating an artifact, identify the correct package,
+layer and ownership boundary. If the existing file is in the wrong location,
+prefer the smallest structural correction that restores the canonical layout.
+
+### 13A.3 Three-level recursive workspace memory
+
+All workspace memory follows one recursive three-level pattern:
+
+1. `knowledge/` for validated reusable knowledge and negative knowledge.
+2. `memory/` for execution history, decisions, lessons, failures and open risks.
+3. `references/` for on-demand documentation that should not be loaded by
+   default.
+
+The support layer follows the same rule. For example, Chromatic Mega Brain is
+the support protocol, templates and verifier package. Its detailed architecture
+belongs in `references/ARQUITETURA.md` inside that package, following prompt and
+Markdown best practices.
+
+### 13A.4 Simplicity, root cause and impact
+
+- Simplicity First: make every change as simple as possible.
+- No laziness: find root causes. Do not ship temporary workarounds as fixes.
+- Staff developer standards apply to scripts, prompts, registries, generated
+  files and documentation.
+- Minimal impact: touch only what is necessary and avoid introducing unrelated
+  risk.
+
+### 13A.5 Autonomous bug fixing
+
+When given a bug report:
+
+- fix it without asking for hand-holding;
+- run tests to identify the root cause;
+- require zero context switching from the user;
+- fix failing tests without waiting for the user to explain how.
+
+### 13A.6 Demand elegance, balanced
+
+For nontrivial changes, pause and ask: "Is there a more elegant way?"
+
+If a fix feels hacky, apply this standard: "Knowing everything I know now,
+implement the elegant solution."
+
+Skip this for simple, obvious fixes. Do not over-engineer. Challenge the work
+before presenting it.
+
+### 13A.7 Verification before done
+
+- Never mark a task complete without proving it works.
+- Run the full applicable test suite before considering work done.
+- Verify changes against existing behavior.
+- Ask: "Would a Staff engineer approve this?"
+
+### 13A.8 Subagent strategy
+
+- Use subagents liberally when they reduce context pressure or improve focused
+  analysis.
+- Offload research, exploration and parallel analysis to subagents.
+- Assign one focused task per subagent.
+
+### 13A.9 Plan mode default
+
+- Enter plan mode for any nontrivial task with three or more steps or an
+  architectural decision.
+- If something goes sideways, stop and re-plan immediately.
+- Use plan mode for verification steps, not only implementation.
+- Write detailed specs upfront when ambiguity would otherwise leak into code.
+
+### 13A.10 Skill creation rule
+
+Whenever adding a skill, use the project's standard skill builder. Do not create
+skills by hand unless the skill builder is unavailable, and record that blocker
+with evidence before proceeding.
 
 ---
 
