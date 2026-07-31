@@ -32,9 +32,8 @@ The following rules are mandatory:
 14. Chromatic Mega Brain memory persistence is mandatory for every material
     request. `MEMORY.md`, `LEARNING.md`, `HANDOFF.md` and `PROGRESS.md` must be
     updated before completion.
-15. Active WorkspaceSO orchestration must not depend on Python. Python files are
-    legacy inventory until ported, archived under references, or removed with
-    rollback evidence.
+15. Active WorkspaceSO orchestration must not depend on Python. Python source,
+    bytecode and Python project metadata are forbidden in the AEOS workspace.
 
 ---
 
@@ -47,9 +46,9 @@ These rules have constitutional precedence over local convenience:
 2. The default orchestration path is Node/TypeScript plus declarative skill,
    playbook, MCP, LCP and AGENT contracts.
 3. New Python runtime orchestration is forbidden.
-4. Existing `*.py` files are considered retired legacy until each capability is
-   ported to Node/TypeScript, replaced by a skill/playbook contract, moved to
-   `references/legacy-python`, or deleted with verified rollback evidence.
+4. Python source, bytecode and project metadata are forbidden in the AEOS
+   workspace. This includes `*.py`, `*.pyc`, `pyproject.toml`, `pytest.ini`,
+   `behave.ini` and `requirements*.txt`.
 5. Every routed request must produce Chromatic Mega Brain memory writes in:
    `skills/chromatic-mega-brain/memory/MEMORY.md`,
    `skills/chromatic-mega-brain/memory/LEARNING.md`,

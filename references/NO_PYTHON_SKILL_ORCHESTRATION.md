@@ -10,9 +10,8 @@ name the skill unless they want to override routing.
 
 1. New AEOS runtime orchestration must be implemented in Node/TypeScript or
    declarative skill/playbook contracts.
-2. Python is retired from the active WorkspaceSO runtime path.
-3. Existing Python files are legacy inventory until each capability is ported,
-   replaced, or intentionally removed.
+2. Python is removed from the WorkspaceSO runtime path.
+3. Python source and project metadata are not allowed in the AEOS workspace.
 4. Every routed request must write Chromatic Mega Brain memory artifacts:
    `MEMORY.md`, `LEARNING.md`, `HANDOFF.md`, and `PROGRESS.md`.
 5. A request may not be considered complete when routing, handoff, progress, or
@@ -58,23 +57,27 @@ The router output must include:
 - handoff target;
 - progress status.
 
-## Python Retirement Contract
+## Python Removal Contract
 
-Python files are not deleted blindly. A file is retired only after one of these
-conditions is true:
+Python is removed as an implementation language for AEOS orchestration. The
+workspace must not contain:
 
-- equivalent Node/TypeScript implementation exists and is tested;
-- the capability was superseded by a skill/playbook contract;
-- the file is historical reference and moved under `references/legacy-python`;
-- the capability is removed with a documented rollback path.
+- `*.py`;
+- `*.pyc`;
+- `pyproject.toml`;
+- `pytest.ini`;
+- `behave.ini`;
+- `requirements*.txt`.
+
+Historical recovery is handled through Git history and review bundles, not by
+keeping Python files in the active workspace.
 
 ## Production Gate
 
 Before declaring no-Python readiness:
 
 1. `node scripts/aeos-skill-router.mjs "health check"` succeeds.
-2. `node scripts/aeos-no-python-guard.mjs` reports zero active Python runtime
-   blockers.
+2. `node scripts/aeos-no-python-guard.mjs` reports zero Python blockers.
 3. `npm --prefix runtime run build` succeeds.
 4. All active Node tests pass.
 5. Chromatic memory files are updated for the execution.

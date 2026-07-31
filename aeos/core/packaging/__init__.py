@@ -1,1 +1,0 @@
-"""AEOS Core Packaging Layer - Package, verify, and distribute execution artifacts."""
