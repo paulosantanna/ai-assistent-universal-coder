@@ -1,0 +1,30 @@
+{
+  "playbook": "analayze-metricas",
+  "files": [
+    {
+      "path": "AGENT.md",
+      "sha256": "e853d1b0bf1984ff94cbe05348ce19edbc59e35352aac5376ec4e12dd2f84c89",
+      "bytes": 792
+    },
+    {
+      "path": "playbook.yaml",
+      "sha256": "006c497f95bdb833bf844acffe296e4deba886049c0296ca716d8884baed46b1",
+      "bytes": 4557
+    },
+    {
+      "path": "README.md",
+      "sha256": "2c1ee4c837f743e31f149b0ea1863e84afdb85326fbfdb0b401beffa3081d7e5",
+      "bytes": 769
+    },
+    {
+      "path": "references/SOURCES.md",
+      "sha256": "06502d437306f27f73e57a100a752c31b3f232623be721c771f971581fa12b66",
+      "bytes": 1344
+    },
+    {
+      "path": "tests/test_playbook_contract.py",
+      "sha256": "4fca28a8378cbe288f4fbfb7c6c8918eb9bce23e8c0ae95d614dc97fc5128c6c",
+      "bytes": 985
+    }
+  ]
+}

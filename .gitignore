@@ -6,6 +6,7 @@ __pycache__/
 *.egg-info/
 .coverage
 .env
+cookier
 dist/
 build/
 target/

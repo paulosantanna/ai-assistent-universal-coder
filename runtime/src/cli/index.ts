@@ -1,9 +1,14 @@
 #!/usr/bin/env node
 import { resolve } from "node:path";
 import { AeosCore } from "../core/services.js";
-import type { AgentObjective, EvidenceType, MemoryType } from "../core/types.js";
+import type { AgentObjective, EvidenceType, MemoryType, ProviderName } from "../core/types.js";
 import { handleRun } from "../kernel/cli-run.js";
 import { KernelRuntime } from "../kernel/kernel-runtime.js";
+import { configureN8n, listN8nTemplates, readN8nConfig, triggerN8n } from "../integrations/n8n.js";
+import {
+  addCriterion, addEvidence as addSpecEvidence, addRequirement, approveSpec,
+  initSpec, listSpecs, loadSpec, startImplementation, validateSpec, verifySpec
+} from "../specs/spec-driven.js";
 
 const core = new AeosCore();
 
@@ -35,9 +40,15 @@ Gates and audit:
 
 Provider and agent execution:
   aeos provider configure ollama [baseUrl] [model] [projectPath]
+  aeos provider configure deepseek [model] [apiKeyEnv] [projectPath]
+  aeos provider configure openai-compatible [baseUrl] [model] [apiKeyEnv] [projectPath]
+  aeos provider configure opencode [baseUrl] [model] [apiKeyEnv] [projectPath]
   aeos provider status [projectPath]
   aeos provider models [projectPath]
   aeos agent run audit ollama [model] [projectPath]
+  aeos agent run audit deepseek [model] [projectPath]
+  aeos agent run audit openai-compatible [model] [projectPath]
+  aeos agent run audit opencode [model] [projectPath]
   aeos agent run judge ollama [model] [projectPath]
   aeos agent run remediate ollama [model] [projectPath]
   aeos agent runs [projectPath]
@@ -69,6 +80,9 @@ Operationalization:
   aeos provider template openai [projectPath]
   aeos provider template anthropic [projectPath]
   aeos provider template ollama [projectPath]
+  aeos provider template deepseek [projectPath]
+  aeos provider template openai-compatible [projectPath]
+  aeos provider template opencode [projectPath]
 
 Task/evidence/memory:
   aeos plan "<objective>" [projectPath]
@@ -86,6 +100,24 @@ Stable baseline:
   aeos snapshot create [projectPath]
   aeos checklist generate [projectPath]
   aeos delivery package [projectPath]
+
+N8N automation:
+  aeos n8n configure <baseUrl> <webhookPath> [projectPath]
+  aeos n8n status [projectPath]
+  aeos n8n templates
+  aeos n8n trigger <workflowId> '<jsonPayload>' [projectPath]
+
+Spec-driven development:
+  aeos spec init <slug> "<objective>" [projectPath]
+  aeos spec list [projectPath]
+  aeos spec status <slug> [projectPath]
+  aeos spec requirement <slug> "<statement>" <must|should|could> [projectPath]
+  aeos spec criterion <slug> <requirementIdsCsv> "<statement>" <test|inspection|metric|manual> [projectPath]
+  aeos spec validate <slug> [projectPath]
+  aeos spec approve <slug> "<actor>" "<evidenceRef>" [projectPath]
+  aeos spec start <slug> [projectPath]
+  aeos spec evidence <slug> <criterionId> <pass|fail> "<reference>" [projectPath]
+  aeos spec verify <slug> [projectPath]
 `.trim());
 }
 
@@ -118,6 +150,12 @@ function objective(v: string): AgentObjective {
   const allowed: AgentObjective[] = ["audit", "judge", "remediate"];
   if (!allowed.includes(v as AgentObjective)) throw new Error(`Invalid agent objective: ${v}`);
   return v as AgentObjective;
+}
+
+function providerName(v: string): ProviderName {
+  const allowed: ProviderName[] = ["ollama", "deepseek", "openai-compatible", "opencode"];
+  if (!allowed.includes(v as ProviderName)) throw new Error(`Invalid executable provider: ${v}`);
+  return v as ProviderName;
 }
 
 async function main(): Promise<void> {
@@ -165,9 +203,16 @@ async function main(): Promise<void> {
       case "provider": {
         const sub = req(args[0], "provider subcommand");
         if (sub === "configure") {
-          const provider = req(args[1], "provider");
-          if (provider !== "ollama") throw new Error("v9 supports configure only for provider: ollama");
-          print(core.providerConfigureOllama(p(args[4]), req(args[2], "baseUrl"), req(args[3], "model")));
+          const provider = providerName(req(args[1], "provider"));
+          if (provider === "ollama") {
+            print(core.providerConfigureOllama(p(args[4]), req(args[2], "baseUrl"), req(args[3], "model")));
+            return;
+          }
+          if (provider === "deepseek") {
+            print(core.providerConfigure(p(args[4]), provider, undefined, req(args[2], "model"), args[3] || "DEEPSEEK_API_KEY"));
+            return;
+          }
+          print(core.providerConfigure(p(args[5]), provider, req(args[2], "baseUrl"), req(args[3], "model"), args[4] || ""));
           return;
         }
         if (sub === "status") {
@@ -180,7 +225,7 @@ async function main(): Promise<void> {
         }
         if (sub === "template") {
           const provider = req(args[1], "provider name");
-          if (provider === "openai" || provider === "anthropic" || provider === "ollama") { print(core.providerTemplate(p(args[2]), provider)); return; }
+          if (provider === "openai" || provider === "anthropic" || provider === "ollama" || provider === "deepseek" || provider === "openai-compatible" || provider === "opencode") { print(core.providerTemplate(p(args[2]), provider)); return; }
         }
         throw new Error(`Unknown provider command.`);
       }
@@ -189,9 +234,8 @@ async function main(): Promise<void> {
         const sub = req(args[0], "agent subcommand");
         if (sub === "run") {
           const obj = objective(req(args[1], "objective"));
-          const provider = req(args[2], "provider");
-          if (provider !== "ollama") throw new Error("v9 supports real agent execution only for provider: ollama");
-          print(await core.agentRun(p(args[4]), obj, "ollama", args[3]));
+          const provider = providerName(req(args[2], "provider"));
+          print(await core.agentRun(p(args[4]), obj, provider, args[3]));
           return;
         }
         if (sub === "runs") { print(core.agentRuns(p(args[1]))); return; }
@@ -318,6 +362,30 @@ async function main(): Promise<void> {
         const sub = req(args[0], "delivery subcommand");
         if (sub === "package") { print(core.deliveryPackage(p(args[1]))); return; }
         throw new Error(`Unknown delivery subcommand: ${sub}`);
+      }
+
+      case "n8n": {
+        const sub = req(args[0], "n8n subcommand");
+        if (sub === "configure") { print(configureN8n(p(args[3]), { baseUrl: req(args[1], "baseUrl"), webhookPath: req(args[2], "webhookPath"), allowedWorkflows: [], dryRun: true, timeoutMs: 15000 })); return; }
+        if (sub === "status") { print(readN8nConfig(p(args[1]))); return; }
+        if (sub === "templates") { print(listN8nTemplates()); return; }
+        if (sub === "trigger") { print(await triggerN8n(p(args[3]), { workflowId: req(args[1], "workflowId"), payload: JSON.parse(req(args[2], "jsonPayload")) as Record<string, unknown> })); return; }
+        throw new Error(`Unknown n8n subcommand: ${sub}`);
+      }
+
+      case "spec": {
+        const sub = req(args[0], "spec subcommand");
+        if (sub === "init") { print(initSpec(p(args[3]), req(args[1], "slug"), req(args[2], "objective"))); return; }
+        if (sub === "list") { print(listSpecs(p(args[1]))); return; }
+        if (sub === "status") { print(loadSpec(p(args[2]), req(args[1], "slug"))); return; }
+        if (sub === "requirement") { print(addRequirement(p(args[4]), req(args[1], "slug"), req(args[2], "statement"), req(args[3], "priority") as "must" | "should" | "could")); return; }
+        if (sub === "criterion") { print(addCriterion(p(args[5]), req(args[1], "slug"), req(args[2], "requirementIds").split(","), req(args[3], "statement"), req(args[4], "verification") as "test" | "inspection" | "metric" | "manual")); return; }
+        if (sub === "validate") { print(validateSpec(p(args[2]), req(args[1], "slug"))); return; }
+        if (sub === "approve") { print(approveSpec(p(args[4]), req(args[1], "slug"), req(args[2], "actor"), req(args[3], "evidenceRef"))); return; }
+        if (sub === "start") { print(startImplementation(p(args[2]), req(args[1], "slug"))); return; }
+        if (sub === "evidence") { const outcome = req(args[3], "pass|fail"); if (!["pass", "fail"].includes(outcome)) throw new Error("Outcome must be pass or fail."); print(addSpecEvidence(p(args[5]), req(args[1], "slug"), req(args[2], "criterionId"), outcome === "pass", req(args[4], "reference"))); return; }
+        if (sub === "verify") { print(verifySpec(p(args[2]), req(args[1], "slug"))); return; }
+        throw new Error(`Unknown spec subcommand: ${sub}`);
       }
 
       case "run":

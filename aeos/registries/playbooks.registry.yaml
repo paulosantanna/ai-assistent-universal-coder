@@ -1,4 +1,20 @@
 playbooks:
+  - id: spec-driven-delivery
+    path: aeos/playbooks/enterprise/spec-driven-delivery.playbook.md
+    risk_level: high
+    required_agents: [root, architect, coder, tester, security, judge]
+    required_skills: [chromatic-mega-brain, change-trace-auditor, test-generation, security-audit]
+    required_lcps: [global-rules, spec-driven-development, security-governance, token-economy]
+    allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, test-runner-controlled, spec-driven-development, n8n-automation]
+
+  - id: n8n-automation-orchestration
+    path: aeos/playbooks/enterprise/n8n-automation-orchestration.playbook.md
+    risk_level: high
+    required_agents: [root, architect, devops, security, tester, judge]
+    required_skills: [chromatic-mega-brain, change-trace-auditor, security-audit, test-generation]
+    required_lcps: [global-rules, spec-driven-development, security-governance, token-economy]
+    allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, test-runner-controlled, spec-driven-development, n8n-automation]
+
   - id: project-analysis
     path: aeos/playbooks/project-analysis.playbook.md
     risk_level: low
@@ -172,3 +188,117 @@ playbooks:
       - improvement-metrics-governor
     required_lcps: [global-rules, security-governance]
     allowed_mcps: [filesystem-readonly, git-readonly, filesystem-write-sandbox]
+  - id: analayze-metricas
+    path: playbooks/analayze-metricas/playbook.yaml
+    risk_level: high
+    required_agents: [root, planner, judge, dynatrace-observability-staff-agent, grafana-observability-staff-agent, kubernetes-observability-staff-agent, openshift-observability-staff-agent, splunk-observability-staff-agent, observability-root-cause-integrator-agent]
+    required_skills: [dynatrace-observability-staff, grafana-observability-staff, kubernetes-observability-staff, openshift-observability-staff, splunk-observability-staff, observability-root-cause-integrator]
+    required_lcps: [global-rules, security-governance]
+    allowed_mcps: [filesystem-readonly, git-readonly, test-runner-controlled]
+    production_ready: true
+  - id: aeos-autonomous-evolution
+    path: playbooks/aeos-autonomous-evolution/playbook.yaml
+    risk_level: high
+    required_agents: [root, planner, coder, tester, architect, judge]
+    required_skills: [aeos-autonomous-learning-governor, telemetry-bug-root-cause-solver, kubernetes-code-context-mapper, observability-root-cause-integrator, patch-planner, chromatic-mega-brain, test-generation, diff-reviewer]
+    required_lcps: [global-rules, security-governance, project-memory]
+    allowed_mcps: [filesystem-readonly, git-readonly, filesystem-write-sandbox, test-runner-controlled]
+    production_ready: false
+  - id: ai-production-autopilot
+    path: playbooks/ai-production-autopilot/playbook.yaml
+    risk_level: critical
+    required_agents: [root, architect, coder, tester, security, devops, documenter, judge]
+    required_skills: [staff-iii-architecture-governor, staff-tdd-code-builder, documentation-11-layer-mapper, aeos-autonomous-learning-governor, security-audit, dependency-analyzer, test-generation, diff-reviewer]
+    required_lcps: [global-rules, security-governance, documentation-standards, project-memory]
+    allowed_mcps: [filesystem-readonly, git-readonly, filesystem-write-sandbox, test-runner-controlled, n8n-automation, package-local]
+    production_ready: false
+
+  - id: mantis
+    path: playbooks/mantis/playbook.yaml
+    risk_level: high
+    objective: Run an authorized defensive Mantis security review campaign with stage isolation, evidence-backed findings, snapshot provenance, independent validation, reproduction gates, patch verification and reporting.
+    required_agents: [root, security, tester, coder, judge]
+    required_skills: [mantis-meta-agent, mantis-history, mantis-structural-index, mantis-summarize, mantis-architecture, mantis-threat-model, mantis-plan, mantis-researcher, mantis-dedupe, mantis-review, mantis-critic, mantis-reproduce, mantis-chain, mantis-patch, mantis-calibrate, mantis-reflect, mantis-report, mantis-pipeline-adapter]
+    required_lcps: [global-rules, security-governance, project-memory]
+    allowed_mcps: [filesystem-readonly, git-readonly, filesystem-write-sandbox, test-runner-controlled, package-local]
+    production_ready: false
+    steps:
+      - id: mantis-meta-agent
+        skill: mantis-meta-agent
+        description: Define campaign scope, state root and stage handoffs.
+      - id: mantis-history
+        skill: mantis-history
+        description: Extract VCS security history into Mantis learnings.
+      - id: mantis-structural-index
+        skill: mantis-structural-index
+        description: Build a semantic structural index for targeted review.
+      - id: mantis-summarize
+        skill: mantis-summarize
+        description: Generate security-focused repository summaries.
+      - id: mantis-architecture
+        skill: mantis-architecture
+        description: Build the Mantis knowledge base.
+      - id: mantis-threat-model
+        skill: mantis-threat-model
+        description: Generate trust-boundary and attacker model artifacts.
+      - id: mantis-plan
+        skill: mantis-plan
+        description: Create the targeted security review plan.
+      - id: mantis-researcher
+        skill: mantis-researcher
+        description: Perform planned defensive static research.
+      - id: mantis-dedupe
+        skill: mantis-dedupe
+        description: Consolidate duplicate findings.
+      - id: mantis-review
+        skill: mantis-review
+        description: Independently validate findings against source evidence.
+      - id: mantis-critic
+        skill: mantis-critic
+        description: Check production viability of reviewed findings.
+      - id: mantis-reproduce
+        skill: mantis-reproduce
+        description: Reproduce viable findings in approved isolation.
+      - id: mantis-chain
+        skill: mantis-chain
+        description: Analyze exploit chains across findings.
+      - id: mantis-patch
+        skill: mantis-patch
+        description: Produce and verify minimal security patches in isolation.
+      - id: mantis-calibrate
+        skill: mantis-calibrate
+        description: Calibrate final risk scores.
+      - id: mantis-reflect
+        skill: mantis-reflect
+        description: Capture execution learnings.
+      - id: mantis-report
+        skill: mantis-report
+        description: Generate the final review packet.
+      - id: mantis-pipeline-adapter
+        skill: mantis-pipeline-adapter
+        description: Optionally design a deterministic harness for custom orchestration.
+    blocking_conditions:
+      - Authorization, target scope or state root missing
+      - Snapshot provenance or sentinel mismatch
+      - Required sandboxing or human approval missing
+      - Generated code execution requested outside isolation
+      - Evidence unavailable for a vulnerability, reproduction or patch claim
+    outputs:
+      - campaign_scope.md
+      - historical_learnings.jsonl
+      - structural_index
+      - mantis-summary.md
+      - kb artifacts
+      - THREAT_MODEL.md
+      - plan.json
+      - reviewed findings
+      - reproduction results
+      - patch verification results
+      - review_packet_latest.md
+    final_report_sections:
+      - Scope and authorization
+      - Evidence summary
+      - Valid findings
+      - False positives and dismissed findings
+      - Reproduction and patch verification
+      - Residual risks and blockers

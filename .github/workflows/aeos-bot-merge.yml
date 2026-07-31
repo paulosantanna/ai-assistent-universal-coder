@@ -1,0 +1,88 @@
+name: AEOS Bot Pull Request
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "Operation to run: create-pr only. Merge is intentionally human-approved outside this workflow."
+        required: true
+        default: "create-pr"
+        type: choice
+        options:
+          - create-pr
+      head:
+        description: "Source branch for PR creation"
+        required: true
+        default: "audit/feature-newcommit"
+        type: string
+      base:
+        description: "Target branch"
+        required: true
+        default: "master"
+        type: string
+      title:
+        description: "PR title"
+        required: false
+        default: "AEOS governed update"
+        type: string
+      body:
+        description: "PR body"
+        required: false
+        default: "Automated AEOS update prepared through governed workflow. Merge requires protected branch checks, Judge PASS, readiness PASS, and human approval."
+        type: string
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  aeos-bot-pr:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.AEOS_BOT_TOKEN }}
+      ACTION: ${{ inputs.action }}
+      HEAD_BRANCH: ${{ inputs.head }}
+      BASE_BRANCH: ${{ inputs.base }}
+      PR_TITLE: ${{ inputs.title }}
+      PR_BODY: ${{ inputs.body }}
+    steps:
+      - name: Validate secret
+        run: test -n "$GH_TOKEN"
+
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.AEOS_BOT_TOKEN }}
+          fetch-depth: 0
+
+      - name: Validate governed PR inputs
+        run: |
+          set -euo pipefail
+          test "$ACTION" = "create-pr"
+          test "$BASE_BRANCH" = "master"
+          test -n "$HEAD_BRANCH"
+          test "$HEAD_BRANCH" != "$BASE_BRANCH"
+          git ls-remote --exit-code --heads origin "$HEAD_BRANCH"
+          git ls-remote --exit-code --heads origin "$BASE_BRANCH"
+
+      - name: Create pull request
+        id: create_pr
+        run: |
+          set -euo pipefail
+
+          existing_pr="$(gh pr list             --base "$BASE_BRANCH"             --head "$HEAD_BRANCH"             --state open             --json number             --jq '.[0].number // empty')"
+
+          if [ -n "$existing_pr" ]; then
+            echo "number=$existing_pr" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          pr_url="$(gh pr create             --base "$BASE_BRANCH"             --head "$HEAD_BRANCH"             --title "$PR_TITLE"             --body "$PR_BODY")"
+
+          pr_number="$(gh pr view "$pr_url" --json number --jq '.number')"
+          echo "number=$pr_number" >> "$GITHUB_OUTPUT"
+
+      - name: Governance merge notice
+        run: |
+          set -euo pipefail
+          echo "PR #${{ steps.create_pr.outputs.number }} is ready for review."
+          echo "This workflow cannot merge. Require branch protection, green checks, Judge PASS, readiness PASS, and human approval."

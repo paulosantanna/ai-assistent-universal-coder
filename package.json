@@ -1,25 +1,24 @@
 {
   "scripts": {
-"scripts": {
-  "aeos:route": "node scripts/aeos-skill-router.mjs",
-  "aeos:memory": "node scripts/aeos-chromatic-memory.mjs",
-  "aeos:guard:no-python": "node scripts/aeos-no-python-guard.mjs",
-  "aeos:guard:skill-adapters": "node scripts/aeos-skill-adapter-guard.mjs",
-  "aeos:bootstrap": "npm run aeos:guard:no-python && npm run aeos:guard:skill-adapters && npm --prefix runtime run build",
-  "aeos:bootstrap:deps": "npm ci && npm --prefix runtime ci",
-  "aeos:verify": "npm run aeos:guard:no-python && npm run aeos:guard:skill-adapters && npm --prefix runtime run build && npm run test:node:jest",
-  "aeos:verify:full": "npm run aeos:verify && npm run test:node:vitest && npm run test:node:mocha && npm run test:node:cucumber",
-  "test:node:jest": "jest --config jest.config.cjs",
-  "test:node:vitest": "vitest run --config vitest.config.ts",
-  "test:node:mocha": "mocha \"tests/node/**/*.test.cjs\"",
-  "test:node:cucumber": "cucumber-js --config cucumber.js",
-  "test:java:maven": ".tools/bin/mvn -f templates/test-toolchains/java-junit5/pom.xml test",
-  "test:java:gradle": ".tools/bin/gradle --no-daemon -p templates/test-toolchains/java-gradle-junit5 test",
-  "test:java": "npm run test:java:maven && npm run test:java:gradle",
-  "test:matrix": "npm run aeos:verify:full",
-  "test:matrix:full": "npm run aeos:verify:full && npm run test:java",
-  "test:all": "npm run aeos:verify:full && npm run test:java"
-}  },
+    "aeos:route": "node scripts/aeos-skill-router.mjs",
+    "aeos:memory": "node scripts/aeos-chromatic-memory.mjs",
+    "aeos:guard:no-python": "node scripts/aeos-no-python-guard.mjs",
+    "aeos:guard:skill-adapters": "node scripts/aeos-skill-adapter-guard.mjs",
+    "aeos:bootstrap": "npm run aeos:guard:no-python && npm run aeos:guard:skill-adapters && npm --prefix runtime run build",
+    "aeos:bootstrap:deps": "npm ci && npm --prefix runtime ci",
+    "aeos:verify": "npm run aeos:guard:no-python && npm run aeos:guard:skill-adapters && npm --prefix runtime run build && npm run test:node:jest",
+    "aeos:verify:full": "npm run aeos:verify && npm run test:node:vitest && npm run test:node:mocha && npm run test:node:cucumber",
+    "test:node:jest": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --config jest.config.cjs --runInBand",
+    "test:node:vitest": "vitest run --config vitest.config.ts",
+    "test:node:mocha": "mocha \"tests/node/**/*.test.cjs\"",
+    "test:node:cucumber": "cucumber-js --config cucumber.js",
+    "test:java:maven": ".tools/bin/mvn -f templates/test-toolchains/java-junit5/pom.xml test",
+    "test:java:gradle": ".tools/bin/gradle --no-daemon -p templates/test-toolchains/java-gradle-junit5 test",
+    "test:java": "npm run test:java:maven && npm run test:java:gradle",
+    "test:matrix": "npm run aeos:verify:full",
+    "test:matrix:full": "npm run aeos:verify:full && npm run test:java",
+    "test:all": "npm run aeos:verify:full && npm run test:java"
+  },
   "devDependencies": {
     "@cucumber/cucumber": "^13.0.0",
     "@modelcontextprotocol/inspector-cli": "^0.22.0",
@@ -33,3 +32,4 @@
     "vitest": "^4.1.10"
   }
 }
+

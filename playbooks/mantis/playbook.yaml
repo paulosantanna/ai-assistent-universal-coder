@@ -1,0 +1,63 @@
+playbook:
+  id: mantis
+  version: 1.0.0
+  risk: HIGH
+  objective: Run an authorized defensive Mantis security review campaign with stage isolation, evidence-backed findings, snapshot provenance, independent validation, reproduction gates, patch verification and reporting.
+  aliases: [mantis-security-review, mantis-audit, mantis-suite]
+  policies: [evidence-before-claims, defensive-security-only, authorization-before-target-access, snapshot-provenance-before-verdicts, sandbox-generated-code-and-patches, no-host-run-for-reproducers, independent-review-before-reporting, no-unverified-vulnerability-claims]
+  entry:
+    skill: mantis-meta-agent
+  required_inputs: [user_objective, authorized_target_repository, security_review_scope, state_root_or_workspace, sandbox_or_isolation_constraints]
+  waves:
+    - id: W0
+      name: Campaign setup and source context
+      mutation: false
+      steps:
+        - {id: W0-META, skill: mantis-meta-agent, outputs: [campaign_scope.md, mantis_state.md, stage_handoffs.md]}
+        - {id: W0-HISTORY, skill: mantis-history, depends_on: [W0-META], outputs: [historical_learnings.jsonl]}
+        - {id: W0-STRUCTURAL-INDEX, skill: mantis-structural-index, depends_on: [W0-META], outputs: [structural_index]}
+        - {id: W0-SUMMARIZE, skill: mantis-summarize, depends_on: [W0-HISTORY, W0-STRUCTURAL-INDEX], outputs: [mantis-summary.md]}
+    - id: W1
+      name: Knowledge base and threat model
+      mutation: false
+      steps:
+        - {id: W1-ARCHITECTURE, skill: mantis-architecture, depends_on: [W0-SUMMARIZE], outputs: [kb_architecture.md, kb_entities, kb_vulnerabilities]}
+        - {id: W1-THREAT-MODEL, skill: mantis-threat-model, depends_on: [W1-ARCHITECTURE], outputs: [THREAT_MODEL.md]}
+        - {id: W1-PLAN, skill: mantis-plan, depends_on: [W1-THREAT-MODEL], outputs: [plan.json]}
+    - id: W2
+      name: Research and finding triage
+      mutation: false
+      steps:
+        - {id: W2-RESEARCH, skill: mantis-researcher, depends_on: [W1-PLAN], outputs: [raw_findings]}
+        - {id: W2-DEDUPE, skill: mantis-dedupe, depends_on: [W2-RESEARCH], outputs: [deduplicated_findings]}
+        - {id: W2-REVIEW, skill: mantis-review, depends_on: [W2-DEDUPE], verdicts: [VALID, PROVISIONALLY_VALID, FALSE_POSITIVE, NEEDS_RESEARCH], outputs: [reviewed_findings]}
+        - {id: W2-CRITIC, skill: mantis-critic, depends_on: [W2-REVIEW], outputs: [production_viability_findings]}
+    - id: W3
+      name: Reproduction, chains and patch verification
+      mutation: controlled
+      steps:
+        - {id: W3-REPRODUCE, skill: mantis-reproduce, depends_on: [W2-CRITIC], requires_approval: true, outputs: [reproducer_scripts, reproduction_results]}
+        - {id: W3-CHAIN, skill: mantis-chain, depends_on: [W3-REPRODUCE], outputs: [exploit_chain_findings]}
+        - {id: W3-PATCH, skill: mantis-patch, depends_on: [W3-REPRODUCE, W3-CHAIN], requires_approval: true, outputs: [patch_diffs, patch_verification_results]}
+    - id: W4
+      name: Calibration, learning and report
+      mutation: false
+      steps:
+        - {id: W4-CALIBRATE, skill: mantis-calibrate, depends_on: [W3-PATCH], outputs: [risk_scores]}
+        - {id: W4-REFLECT, skill: mantis-reflect, depends_on: [W4-CALIBRATE], outputs: [learnings.jsonl]}
+        - {id: W4-REPORT, skill: mantis-report, depends_on: [W4-REFLECT], outputs: [review_packet_latest.md]}
+    - id: W5
+      name: Optional harness adaptation
+      mutation: controlled
+      steps:
+        - {id: W5-PIPELINE-ADAPTER, skill: mantis-pipeline-adapter, condition: user_requests_custom_mantis_harness, requires_approval: true, outputs: [pipeline_adapter_design.md, harness_plan.md]}
+  completion:
+    requires:
+      - target authorization and defensive review scope are recorded
+      - Mantis state root or workspace boundary is explicit
+      - generated code, reproducers and patches run only inside approved isolation
+      - findings are not reported as valid without review evidence
+      - reproduced findings include reproducibility evidence or are marked inconclusive
+      - patch verification does not claim VERIFIED_SECURE without required baseline, benign-control and re-attack evidence
+      - final report separates facts, assumptions, risks, false positives, limitations and blocking conditions
+      - no blocker, missing approval or failed required verification remains hidden

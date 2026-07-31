@@ -1,0 +1,115 @@
+{
+  "skill": "observability-root-cause-integrator",
+  "files": [
+    {
+      "path": "AGENT.md",
+      "sha256": "030535894652ebaed047a66862c65fbd8f2a8b3d562628b4c005ec94a1e2232b",
+      "bytes": 2667
+    },
+    {
+      "path": "evaluation/HONEST_EVALUATOR.md",
+      "sha256": "a9a075123ed1c79d998c4dee4fd1a12db1dd91a45b51a4e16e43b659042173a4",
+      "bytes": 735
+    },
+    {
+      "path": "knowledge/ANTI_FORGETTING.md",
+      "sha256": "4c5822c02939fa9a18fdfdf651a50e6531b27f7b5482abaa5418df4167149c53",
+      "bytes": 146
+    },
+    {
+      "path": "knowledge/CONTINUOUS_LEARNING.md",
+      "sha256": "f1b19e4fcfb26dd319ccc39de129b58c6408773fad15aa1834480e0d60bd3c07",
+      "bytes": 146
+    },
+    {
+      "path": "knowledge/KNOWLEDGE.md",
+      "sha256": "41d38e16e046244d60a410b578af80c6e4aa0f0395fc07cd5d995ecc832d02ff",
+      "bytes": 141
+    },
+    {
+      "path": "knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "aaf1bffbbbb97affc38dd3d68014eb0cab08112feebe55476bc9ef1ff06b5610",
+      "bytes": 233
+    },
+    {
+      "path": "knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "a41a226b16aa834fd9bceb47beccd5078844bcc7c99f3d7d8a676e43ba1fa4f6",
+      "bytes": 589
+    },
+    {
+      "path": "knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "85d732508fa46f48cbef7a2f1572b5688e66d8e4065d5306467a6760872c79fe",
+      "bytes": 613
+    },
+    {
+      "path": "knowledge/TOKEN_EFFICIENCY.md",
+      "sha256": "5e8c2f509fc99ece6d47ec20d70f1b389bf898d2e9e463e4767a4a081df7aeb8",
+      "bytes": 145
+    },
+    {
+      "path": "memory/DECISIONS.md",
+      "sha256": "1a2a5046f1cc0162de0e30a4638e35b7bc200418f813af7134a2ad07fe4ac7cc",
+      "bytes": 88
+    },
+    {
+      "path": "memory/EXECUTIONS.md",
+      "sha256": "99ee211e4b7a8dba3a433ee1d708702d5e301d6937ebe633b77e6cad0da7ad15",
+      "bytes": 99
+    },
+    {
+      "path": "memory/FAILURES.md",
+      "sha256": "d7ed6b40acd88be4c9a2a9207789bc6178b3358444c30ec584548faaf00dab06",
+      "bytes": 67
+    },
+    {
+      "path": "memory/LESSONS.md",
+      "sha256": "d5edca58e0db839a5d780b9da4dbacd0198172f7f49bb9191db1ce65d084bcf8",
+      "bytes": 65
+    },
+    {
+      "path": "memory/OPEN_RISKS.md",
+      "sha256": "29ff9cc1c30ff5f43574e0414e0aece47c7de3df5e0f6881e53354e9d1eb93f4",
+      "bytes": 70
+    },
+    {
+      "path": "memory/PATTERNS.md",
+      "sha256": "1b787d5021cf4af6e658bee93eeec886b999901b1c758dcabff061d716bc47fd",
+      "bytes": 62
+    },
+    {
+      "path": "README.md",
+      "sha256": "4c6c7f76da3c46b8ebd5490b5d38b65b19644c82dd0d166f9253db9721b4f862",
+      "bytes": 567
+    },
+    {
+      "path": "references/SOURCES.md",
+      "sha256": "9a2ed9016c201098f199ee6de1c0a0dd2161657857cf29abf59aa25f8afa6e7d",
+      "bytes": 1136
+    },
+    {
+      "path": "schemas/output.schema.json",
+      "sha256": "17e2df41d96f2061646148a04337b3ae715d8f6e97be1c9a254378657765184b",
+      "bytes": 1096
+    },
+    {
+      "path": "scripts/validate.py",
+      "sha256": "1865ba89da90f9d0bf6b7b94ecb0689caa91e1bda77d16efca81d1472cf055ec",
+      "bytes": 375
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "d4764651467347166dc37e1c55a5c90cd6117eec439dc095d452a712fd59ad4c",
+      "bytes": 8751
+    },
+    {
+      "path": "templates/OUTPUT.template.md",
+      "sha256": "18b2718398fef70fc7d0268b4b31fc61eb2900c852d64396e75a7c9292128ef8",
+      "bytes": 836
+    },
+    {
+      "path": "tests/test_structure.py",
+      "sha256": "d8fd492c75a665a961e9a87f0ee1abbb194e42fb98be05a338f0a335b8bea282",
+      "bytes": 347
+    }
+  ]
+}

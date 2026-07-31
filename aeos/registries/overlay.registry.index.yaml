@@ -5,6 +5,9 @@ note: "Registry fragments created by AEOS overlay packs. Merge into active regis
 registry_fragments:
   - path: aeos/registries/agents.registry.yaml
   - path: aeos/registries/agents.v0_7.registry.yaml
+  - path: aeos/additions/aidiabetic-urgent-improvement-v1/registries/agents.registry.overlay.yaml
+  - path: aeos/additions/aidiabetic-urgent-improvement-v1/registries/skills.registry.overlay.yaml
+  - path: aeos/additions/aidiabetic-urgent-improvement-v1/registries/enterprise-playbooks.registry.overlay.yaml
   - path: aeos/registries/blueprints.registry.yaml
   - path: aeos/registries/enterprise-playbooks.registry.yaml
   - path: aeos/registries/enterprise-skills.registry.yaml

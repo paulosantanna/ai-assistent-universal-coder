@@ -1,4 +1,51 @@
 {
   "type": "object",
-  "additionalProperties": true
+  "additionalProperties": true,
+  "required": [
+    "target_workspace",
+    "handoff",
+    "learning",
+    "memory",
+    "progress",
+    "evidence_bundle",
+    "analysis_bundle",
+    "subagent_handoffs",
+    "exception_chain",
+    "root_cause",
+    "fix_proposal",
+    "verification_plan",
+    "blocking_conditions"
+  ],
+  "properties": {
+    "target_workspace": { "type": "string" },
+    "handoff": { "type": "string" },
+    "learning": { "type": "string" },
+    "memory": { "type": "string" },
+    "progress": { "type": "string" },
+    "evidence_bundle": {
+      "type": "object",
+      "required": ["linha_do_tempo_runs"],
+      "properties": {
+        "linha_do_tempo_runs": { "type": "string" },
+        "branches": { "type": "array", "items": { "type": "string" } },
+        "commits": { "type": "array", "items": { "type": "string" } },
+        "worktrees": { "type": "array", "items": { "type": "string" } },
+        "github_actions_runs": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "analysis_bundle": {
+      "type": "object",
+      "required": ["diagnostico", "proposta_correcao"],
+      "properties": {
+        "diagnostico": { "type": "string" },
+        "proposta_correcao": { "type": "string" }
+      }
+    },
+    "subagent_handoffs": { "type": "array", "items": { "type": "string" } },
+    "exception_chain": { "type": "array", "items": { "type": "string" } },
+    "root_cause": { "type": "string" },
+    "fix_proposal": { "type": "string" },
+    "verification_plan": { "type": "array", "items": { "type": "string" } },
+    "blocking_conditions": { "type": "array", "items": { "type": "string" } }
+  }
 }

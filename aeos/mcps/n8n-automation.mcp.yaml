@@ -1,0 +1,18 @@
+id: n8n-automation
+version: 1.0.0
+transport: local-runtime
+risk_level: high
+write_allowed: true
+approval_required: true
+dry_run_default: true
+tools:
+  - n8n.configure
+  - n8n.status
+  - n8n.templates
+  - n8n.trigger
+guardrails:
+  - allowlisted_workflows_only
+  - remote_https_only
+  - no_credentials_in_url
+  - correlation_id_required
+  - cannot_approve_or_accept_specs

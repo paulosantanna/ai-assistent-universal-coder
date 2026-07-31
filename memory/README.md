@@ -1,14 +1,18 @@
 # AEOS Memory
 
-Long-term knowledge persistence and retrieval.
+Memory stores execution history, candidate lessons, decisions, failures and open risks. It is not a dumping ground for raw output.
 
-## Types
+Use the role scopes required by the AEOS constitution:
 
-| Type | Description | TTL |
-|------|-------------|-----|
-| Semantic | Concepts, facts, domain knowledge | 365d |
-| Architectural | ADRs, patterns, rationale | Permanent |
-| Procedural | How-to procedures, playbooks | 180d |
-| Episodic | Past events, successes, failures | 90d |
-| Operational | Environment configuration | 30d |
-| Lessons Learned | Do's and Don'ts | Permanent |
+- `root/` for root-level candidate memory.
+- `parents/<domain>/` for domain candidate memory.
+- `children/executions/<execution-id>/` for execution records.
+- `shared/` only for reviewed and promoted institutional knowledge.
+
+API and integration memory must be separated by organization, project and API acronym:
+
+```text
+memory/shared/apis/<ORG>/<PROJECT>/<API_ACRONYM>/
+```
+
+Each API memory folder should contain reviewed references, constraints, failure patterns, integration decisions and revalidation notes. Do not store credentials or raw sensitive output.

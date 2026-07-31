@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
+import { pathToFileURL } from "node:url";
 
 const repoRoot = resolve(process.cwd());
 const skillsRegistry = join(repoRoot, "aeos", "registries", "skills.registry.yaml");
@@ -22,47 +23,48 @@ function parseBlocks(text) {
     }));
 }
 
-function fail(message, details) {
-  console.error(JSON.stringify({ status: "FAIL", message, details }, null, 2));
-  process.exit(1);
+function failure(message, details) {
+  return { status: "FAIL", message, details };
 }
 
-const skillIds = parseIds(readFileSync(skillsRegistry, "utf8"));
-const mcpEntries = parseBlocks(readFileSync(mcpsRegistry, "utf8"));
-const lspProfiles = parseBlocks(readFileSync(lspConfig, "utf8"));
+export function validateSkillAdapters() {
+  const skillIds = parseIds(readFileSync(skillsRegistry, "utf8"));
+  const mcpEntries = parseBlocks(readFileSync(mcpsRegistry, "utf8"));
+  const lspProfiles = parseBlocks(readFileSync(lspConfig, "utf8"));
 
-const missingMcpSkills = mcpEntries.filter((entry) => !entry.governingSkill);
-const unknownMcpSkills = mcpEntries.filter((entry) => entry.governingSkill && !skillIds.has(entry.governingSkill));
-const unenforcedMcps = mcpEntries.filter((entry) => entry.skillEnforced !== "true");
-const missingLspSkills = lspProfiles.filter((entry) => !entry.governingSkill);
-const unknownLspSkills = lspProfiles.filter((entry) => entry.governingSkill && !skillIds.has(entry.governingSkill));
+  const missingMcpSkills = mcpEntries.filter((entry) => !entry.governingSkill);
+  const unknownMcpSkills = mcpEntries.filter((entry) => entry.governingSkill && !skillIds.has(entry.governingSkill));
+  const unenforcedMcps = mcpEntries.filter((entry) => entry.skillEnforced !== "true");
+  const missingLspSkills = lspProfiles.filter((entry) => !entry.governingSkill);
+  const unknownLspSkills = lspProfiles.filter((entry) => entry.governingSkill && !skillIds.has(entry.governingSkill));
 
-if (missingMcpSkills.length > 0) {
-  fail("Every MCP must declare governing_skill.", missingMcpSkills);
+  if (missingMcpSkills.length > 0) return failure("Every MCP must declare governing_skill.", missingMcpSkills);
+  if (unknownMcpSkills.length > 0) return failure("Every MCP governing_skill must exist in aeos/registries/skills.registry.yaml.", unknownMcpSkills);
+  if (unenforcedMcps.length > 0) return failure("Every MCP must enforce skill context with skill_enforced: true.", unenforcedMcps);
+  if (missingLspSkills.length > 0) return failure("Every LSP language profile must declare governing_skill.", missingLspSkills);
+  if (unknownLspSkills.length > 0) return failure("Every LSP governing_skill must exist in aeos/registries/skills.registry.yaml.", unknownLspSkills);
+
+  return {
+    status: "PASS",
+    mcpsChecked: mcpEntries.length,
+    lspProfilesChecked: lspProfiles.length,
+    governingSkills: [...new Set([
+      ...mcpEntries.map((entry) => entry.governingSkill),
+      ...lspProfiles.map((entry) => entry.governingSkill)
+    ])].sort()
+  };
 }
 
-if (unknownMcpSkills.length > 0) {
-  fail("Every MCP governing_skill must exist in aeos/registries/skills.registry.yaml.", unknownMcpSkills);
+if (import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+  const result = validateSkillAdapters();
+  const output = JSON.stringify(result, null, 2);
+  if (result.status === "PASS") {
+    console.log(output);
+  } else {
+    console.error(output);
+    process.exit(1);
+  }
 }
 
-if (unenforcedMcps.length > 0) {
-  fail("Every MCP must enforce skill context with skill_enforced: true.", unenforcedMcps);
-}
 
-if (missingLspSkills.length > 0) {
-  fail("Every LSP language profile must declare governing_skill.", missingLspSkills);
-}
 
-if (unknownLspSkills.length > 0) {
-  fail("Every LSP governing_skill must exist in aeos/registries/skills.registry.yaml.", unknownLspSkills);
-}
-
-console.log(JSON.stringify({
-  status: "PASS",
-  mcpsChecked: mcpEntries.length,
-  lspProfilesChecked: lspProfiles.length,
-  governingSkills: [...new Set([
-    ...mcpEntries.map((entry) => entry.governingSkill),
-    ...lspProfiles.map((entry) => entry.governingSkill)
-  ])].sort()
-}, null, 2));

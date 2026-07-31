@@ -2,6 +2,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { join, resolve } from "node:path";
+import { pathToFileURL } from "node:url";
 import { persistChromaticMemory } from "./aeos-chromatic-memory.mjs";
 
 const repoRoot = resolve(process.cwd());
@@ -106,7 +107,7 @@ export function routeRequest(request, options = {}) {
   return result;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   const request = process.argv.slice(2).join(" ").trim();
   if (!request) {
     console.error("Usage: node scripts/aeos-skill-router.mjs \"user request\"");
@@ -114,3 +115,5 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   }
   console.log(JSON.stringify(routeRequest(request), null, 2));
 }
+
+

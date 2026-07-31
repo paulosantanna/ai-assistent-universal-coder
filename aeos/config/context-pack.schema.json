@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AEOS Context Pack",
+  "type": "object",
+  "required": ["execution_id", "objective", "target_path", "files", "token_budget", "status"],
+  "properties": {
+    "execution_id": {"type": "string", "minLength": 1},
+    "objective": {"type": "string"},
+    "target_path": {"type": "string"},
+    "files": {"type": "array", "items": {"type": "object"}},
+    "excluded_files": {"type": "array", "items": {"type": "object"}},
+    "evidence_refs": {"type": "array", "items": {"type": "string"}},
+    "token_budget": {"type": "object"},
+    "status": {"type": "string", "enum": ["PASS", "BLOCKED"]}
+  }
+}

@@ -1,0 +1,117 @@
+playbook:
+  id: analayze-metricas
+  version: 1.0.0
+  risk: HIGH
+  objective: Deep isolated observability analysis and evidence-backed root-cause remediation planning.
+  aliases:
+    - analyze-metricas
+    - analyse-metricas
+  policies:
+    - evidence-before-claims
+    - isolated-specialist-agents
+    - no-peer-agent-communication
+    - read-only-tool-analysis-before-remediation
+    - simple-low-impact-fix-planning
+  entry:
+    skill: observability-root-cause-integrator
+  required_inputs:
+    - incident_objective
+    - incident_start_time_with_timezone
+    - incident_end_time_with_timezone
+    - affected_service_or_workload
+    - available_tool_exports_or_read_only_access
+    - repository_path_or_code_map
+  waves:
+    - id: W0
+      name: Evidence intake and scope validation
+      mutation: false
+      steps:
+        - id: W0-S1
+          skill: observability-root-cause-integrator
+          mode: intake
+          outputs: [scope.json, evidence-requirements.md, isolation-plan.md]
+        - id: W0-GATE
+          skill: observability-root-cause-integrator
+          mode: evidence-readiness-gate
+          depends_on: [W0-S1]
+          verdicts: [PASS, REWORK_REQUIRED, BLOCKED]
+    - id: W1
+      name: Isolated tool analyses
+      mutation: false
+      parallel_groups:
+        - [W1-DYNATRACE, W1-GRAFANA, W1-KUBERNETES, W1-OPENSHIFT, W1-SPLUNK]
+      steps:
+        - id: W1-DYNATRACE
+          skill: dynatrace-observability-staff
+          depends_on: [W0-GATE]
+          isolation: no_peer_agent_communication
+          outputs: [tool_analysis_report.json, evidence-index.md, handoff-to-root-cause-integrator.json]
+        - id: W1-GRAFANA
+          skill: grafana-observability-staff
+          depends_on: [W0-GATE]
+          isolation: no_peer_agent_communication
+          outputs: [tool_analysis_report.json, evidence-index.md, handoff-to-root-cause-integrator.json]
+        - id: W1-KUBERNETES
+          skill: kubernetes-observability-staff
+          depends_on: [W0-GATE]
+          isolation: no_peer_agent_communication
+          outputs: [tool_analysis_report.json, evidence-index.md, handoff-to-root-cause-integrator.json]
+        - id: W1-OPENSHIFT
+          skill: openshift-observability-staff
+          depends_on: [W0-GATE]
+          isolation: no_peer_agent_communication
+          outputs: [tool_analysis_report.json, evidence-index.md, handoff-to-root-cause-integrator.json]
+        - id: W1-SPLUNK
+          skill: splunk-observability-staff
+          depends_on: [W0-GATE]
+          isolation: no_peer_agent_communication
+          outputs: [tool_analysis_report.json, evidence-index.md, handoff-to-root-cause-integrator.json]
+    - id: W2
+      name: Cross-tool evidence integration and contradiction analysis
+      mutation: false
+      steps:
+        - id: W2-S1
+          skill: observability-root-cause-integrator
+          depends_on: [W1-DYNATRACE, W1-GRAFANA, W1-KUBERNETES, W1-OPENSHIFT, W1-SPLUNK]
+          mode: integrate-evidence
+          outputs: [cross-tool-timeline.md, contradiction-matrix.md, root-cause-candidates.json]
+        - id: W2-GATE
+          skill: observability-root-cause-integrator
+          depends_on: [W2-S1]
+          mode: honesty-gate
+          verdicts: [PASS, REWORK_REQUIRED, BLOCKED]
+    - id: W3
+      name: Repository code correlation
+      mutation: false
+      steps:
+        - id: W3-S1
+          skill: observability-root-cause-integrator
+          depends_on: [W2-GATE]
+          mode: correlate-with-code-map
+          outputs: [code-correlation.md, impacted-components.json, ownership-boundaries.md]
+    - id: W4
+      name: Staff remediation plan
+      mutation: plan_only
+      steps:
+        - id: W4-S1
+          skill: observability-root-cause-integrator
+          depends_on: [W3-S1]
+          mode: remediation-plan
+          strategy: simplest_safe_change
+          outputs: [staff-remediation-plan.md, verification-plan.md, rollback-plan.md]
+    - id: W5
+      name: Final evidence and readiness verdict
+      mutation: false
+      steps:
+        - id: W5-FINAL
+          skill: observability-root-cause-integrator
+          depends_on: [W4-S1]
+          mode: final-judge-input
+          verdicts: [PASS, REWORK_REQUIRED, BLOCKED]
+  completion:
+    requires:
+      - all specialist handoffs exist or are explicitly blocked with reason
+      - cross-tool contradiction matrix exists
+      - code correlation exists or is explicitly blocked
+      - remediation plan is simple, scoped, testable and reversible
+      - no unsupported root-cause claim remains

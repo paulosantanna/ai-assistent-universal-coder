@@ -1,0 +1,20 @@
+id: spec-driven-development
+version: 1.0.0
+transport: local-runtime
+risk_level: high
+write_allowed: true
+approval_required: true
+tools:
+  - spec.init
+  - spec.requirement
+  - spec.criterion
+  - spec.validate
+  - spec.approve
+  - spec.start
+  - spec.evidence
+  - spec.verify
+guardrails:
+  - approval_bound_to_normative_sha256
+  - no_implementation_without_current_approval
+  - no_acceptance_without_complete_evidence
+  - human_approval_cannot_be_delegated_to_n8n

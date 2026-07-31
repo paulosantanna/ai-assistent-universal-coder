@@ -2,6 +2,7 @@
 import { mkdirSync, appendFileSync, existsSync, writeFileSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { join, resolve } from "node:path";
+import { pathToFileURL } from "node:url";
 
 const repoRoot = resolve(process.cwd());
 const memoryRoot = join(repoRoot, "skills", "chromatic-mega-brain", "memory");
@@ -67,8 +68,10 @@ export function persistChromaticMemory(entry) {
   return { executionId, digest, memoryRoot, paths };
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   const request = process.argv.slice(2).join(" ").trim() || "manual memory update";
   const result = persistChromaticMemory({ request, selectedSkills: ["chromatic-mega-brain"] });
   console.log(JSON.stringify(result, null, 2));
 }
+
+

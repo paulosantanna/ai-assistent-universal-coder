@@ -10,3 +10,6 @@ Preferred patterns:
 - independent Judge;
 - governed knowledge promotion;
 - measurable completion.
+- repository-wide skill/playbook integration index with explicit do and do_not guidance.
+- generated integration memory kept inside the Chromatic package memory scope until reviewed.
+

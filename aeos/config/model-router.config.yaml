@@ -1,0 +1,66 @@
+model_router:
+  enabled: true
+  version: 0.1.0
+  default_profile: free_local
+  paid_profiles:
+    - paid_cheap
+    - paid_strong
+    - paid_judge
+  profiles:
+    deterministic:
+      paid: false
+      max_context_tokens: 1000000
+      stages:
+        - search
+        - diff
+        - lint
+        - typecheck
+        - tests
+        - static_scan
+    free_local:
+      paid: false
+      max_context_tokens: 12000
+      stages:
+        - triage
+        - summarization
+        - low_risk_analysis
+        - classification
+    free_cloud:
+      paid: false
+      max_context_tokens: 8000
+      stages:
+        - small_context_review
+        - simple_code_explanation
+    paid_cheap:
+      paid: true
+      max_context_tokens: 32000
+      stages:
+        - focused_patch
+        - test_generation
+        - medium_reasoning
+    paid_strong:
+      paid: true
+      max_context_tokens: 128000
+      stages:
+        - architecture_decision
+        - high_risk_refactor
+        - security_reasoning
+    paid_judge:
+      paid: true
+      max_context_tokens: 128000
+      stages:
+        - independent_review
+        - release_gate
+        - contradiction_analysis
+  escalation:
+    low: free_local
+    medium: paid_cheap
+    high: paid_strong
+    critical: paid_judge
+  approval:
+    require_for_paid_profiles: true
+    allow_paid_when_approval_id_present: true
+  blocking:
+    block_paid_when_deterministic_stage: true
+    block_when_context_exceeds_profile: true
+    block_unknown_stage: false

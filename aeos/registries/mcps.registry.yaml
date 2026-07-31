@@ -1,4 +1,31 @@
 mcps:
+- id: n8n-automation
+  type: automation-orchestrator
+  transport: local-runtime
+  config: aeos/mcps/n8n-automation.mcp.yaml
+  risk_level: high
+  governing_skill: tool-adapter-governor
+  skill_enforced: true
+  skill_intent: Expose n8n-automation only as a governed adapter consumed by AEOS skills.
+  capabilities: [WORKFLOW_CONFIGURE, WORKFLOW_TRIGGER, WORKFLOW_TRACE]
+  tools: [n8n.configure, n8n.status, n8n.templates, n8n.trigger]
+  write_allowed: true
+  dry_run_default: true
+  approval_required: true
+  enabled: true
+- id: spec-driven-development
+  type: specification-runtime
+  transport: local-runtime
+  config: aeos/mcps/spec-driven-development.mcp.yaml
+  risk_level: high
+  governing_skill: specs
+  skill_enforced: true
+  skill_intent: Expose spec-driven-development only as a governed adapter consumed by AEOS skills.
+  capabilities: [SPEC_CREATE, SPEC_VALIDATE, SPEC_APPROVE_CONTROLLED, SPEC_TRACEABILITY, SPEC_VERIFY]
+  tools: [spec.init, spec.requirement, spec.criterion, spec.validate, spec.approve, spec.start, spec.evidence, spec.verify]
+  write_allowed: true
+  approval_required: true
+  enabled: true
 - id: filesystem-readonly
   type: filesystem
   transport: stdio
@@ -123,6 +150,9 @@ mcps:
   transport: stdio
   config: aeos/mcps/medical-research.mcp.yaml
   risk_level: high
+  governing_skill: simulator-ai
+  skill_enforced: true
+  skill_intent: Expose medical-research only as a governed adapter consumed by AEOS skills.
   capabilities:
   - WEB_SEARCH
   - WEB_FETCH
@@ -449,12 +479,9 @@ mcps:
   transport: stdio
   config: aeos/mcps/docs-opentelemetry.mcp.yaml
   risk_level: low
-<<<<<<< HEAD
-=======
   governing_skill: observability-reporter
   skill_enforced: true
   skill_intent: Expose docs-opentelemetry only as a governed adapter consumed by AEOS skills.
->>>>>>> workmode-mega-aeos
   capabilities:
   - WEB_SEARCH
   - WEB_FETCH
@@ -472,12 +499,9 @@ mcps:
   transport: stdio
   config: aeos/mcps/docs-grafana.mcp.yaml
   risk_level: low
-<<<<<<< HEAD
-=======
   governing_skill: observability-reporter
   skill_enforced: true
   skill_intent: Expose docs-grafana only as a governed adapter consumed by AEOS skills.
->>>>>>> workmode-mega-aeos
   capabilities:
   - WEB_SEARCH
   - WEB_FETCH
@@ -496,12 +520,9 @@ mcps:
   transport: stdio
   config: aeos/mcps/docs-dynatrace.mcp.yaml
   risk_level: low
-<<<<<<< HEAD
-=======
   governing_skill: observability-reporter
   skill_enforced: true
   skill_intent: Expose docs-dynatrace only as a governed adapter consumed by AEOS skills.
->>>>>>> workmode-mega-aeos
   capabilities:
   - WEB_SEARCH
   - WEB_FETCH
@@ -520,12 +541,9 @@ mcps:
   transport: stdio
   config: aeos/mcps/docs-observability-dashboards.mcp.yaml
   risk_level: low
-<<<<<<< HEAD
-=======
   governing_skill: observability-reporter
   skill_enforced: true
   skill_intent: Expose docs-observability-dashboards only as a governed adapter consumed by AEOS skills.
->>>>>>> workmode-mega-aeos
   capabilities:
   - WEB_SEARCH
   - WEB_FETCH
@@ -539,3 +557,5 @@ mcps:
   write_allowed: false
   approval_required: false
   enabled: true
+
+
