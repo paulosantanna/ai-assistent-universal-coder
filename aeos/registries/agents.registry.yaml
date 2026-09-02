@@ -510,3 +510,256 @@ agents:
     can_delegate: true
     can_block: true
 
+  - id: critical-thinking-root
+    name: Critical Thinking ROOT
+    path: skills/critical-thinking-governor/AGENT.md
+    role: critical-thinking-orchestrator
+    description: Selects and coordinates the smallest valid critical-thinking agent set for every governed skill.
+    max_subagents: 7
+    allowed_domains: [all]
+    allowed_skills: [critical-thinking-governor]
+    allowed_mcps: []
+    independence: strict
+    cannot_be_same_as_implementer: true
+    can_delegate: true
+    can_block: true
+
+  - id: ct-first-principles
+    name: Primeiros Princípios
+    path: skills/critical-thinking-governor/agents/01-first-principles.agent.md
+    role: critical-thinking-specialist
+    description: Decomposes problems into facts, assumptions and constraints.
+    max_subagents: 0
+    allowed_domains: [all]
+    allowed_skills: [critical-thinking-governor]
+    allowed_mcps: []
+    independence: strict
+    cannot_be_same_as_implementer: true
+
+  - id: ct-assumption-auditor
+    name: Auditoria de Suposições
+    path: skills/critical-thinking-governor/agents/02-assumption-auditor.agent.md
+    role: critical-thinking-specialist
+    description: Makes hidden assumptions explicit and testable.
+    max_subagents: 0
+    allowed_domains: [all]
+    allowed_skills: [critical-thinking-governor]
+    allowed_mcps: []
+    independence: strict
+    cannot_be_same_as_implementer: true
+
+  - id: ct-socratic-prober
+    name: Mergulho Socrático
+    path: skills/critical-thinking-governor/agents/03-socratic-prober.agent.md
+    role: critical-thinking-specialist
+    description: Uses bounded why questions to find the central premise.
+    max_subagents: 0
+    allowed_domains: [all]
+    allowed_skills: [critical-thinking-governor]
+    allowed_mcps: []
+    independence: strict
+    cannot_be_same_as_implementer: true
+
+  - id: ct-steelman-challenger
+    name: Desafio Steelman
+    path: skills/critical-thinking-governor/agents/04-steelman-challenger.agent.md
+    role: critical-thinking-specialist
+    description: Builds the strongest evidence-backed opposing argument.
+    max_subagents: 0
+    allowed_domains: [all]
+    allowed_skills: [critical-thinking-governor]
+    allowed_mcps: []
+    independence: strict
+    cannot_be_same_as_implementer: true
+
+  - id: ct-devils-proof
+    name: Prova do Diabo
+    path: skills/critical-thinking-governor/agents/05-devils-proof.agent.md
+    role: critical-thinking-specialist
+    description: Attempts to falsify ideas and identifies missing evidence.
+    max_subagents: 0
+    allowed_domains: [all]
+    allowed_skills: [critical-thinking-governor]
+    allowed_mcps: []
+    independence: strict
+    cannot_be_same_as_implementer: true
+
+  - id: ct-counterfactual-mirror
+    name: Espelho Contrafactual
+    path: skills/critical-thinking-governor/agents/06-counterfactual-mirror.agent.md
+    role: critical-thinking-specialist
+    description: Finds the smallest plausible change that reverses an outcome.
+    max_subagents: 0
+    allowed_domains: [all]
+    allowed_skills: [critical-thinking-governor]
+    allowed_mcps: []
+    independence: strict
+    cannot_be_same_as_implementer: true
+
+  - id: ct-bayesian-updater
+    name: Mentalidade Bayesiana
+    path: skills/critical-thinking-governor/agents/07-bayesian-updater.agent.md
+    role: critical-thinking-specialist
+    description: Updates confidence proportionally to measurable evidence.
+    max_subagents: 0
+    allowed_domains: [all]
+    allowed_skills: [critical-thinking-governor]
+    allowed_mcps: []
+    independence: strict
+    cannot_be_same_as_implementer: true
+
+  - id: ct-bias-logic-auditor
+    name: Viés e Lógica
+    path: skills/critical-thinking-governor/agents/08-bias-logic-auditor.agent.md
+    role: critical-thinking-specialist
+    description: Audits bias, fallacies, logical jumps and overconfidence.
+    max_subagents: 0
+    allowed_domains: [all]
+    allowed_skills: [critical-thinking-governor]
+    allowed_mcps: []
+    independence: strict
+    cannot_be_same_as_implementer: true
+
+  - id: ct-comparative-lens
+    name: Lente Comparativa
+    path: skills/critical-thinking-governor/agents/09-comparative-lens.agent.md
+    role: critical-thinking-specialist
+    description: Compares options using explicit weighted criteria.
+    max_subagents: 0
+    allowed_domains: [all]
+    allowed_skills: [critical-thinking-governor]
+    allowed_mcps: []
+    independence: strict
+    cannot_be_same_as_implementer: true
+
+  - id: ct-inversion-strategist
+    name: Estratégia de Inversão
+    path: skills/critical-thinking-governor/agents/10-inversion-strategist.agent.md
+    role: critical-thinking-specialist
+    description: Converts plausible failure mechanisms into preventive controls.
+    max_subagents: 0
+    allowed_domains: [all]
+    allowed_skills: [critical-thinking-governor]
+    allowed_mcps: []
+    independence: strict
+    cannot_be_same_as_implementer: true
+
+  - id: ct-problem-refiner
+    name: Refinador de Problema
+    path: skills/critical-thinking-governor/agents/11-problem-refiner.agent.md
+    role: critical-thinking-specialist
+    description: Converts vague objectives into measurable contracts.
+    max_subagents: 0
+    allowed_domains: [all]
+    allowed_skills: [critical-thinking-governor]
+    allowed_mcps: []
+    independence: strict
+    cannot_be_same_as_implementer: true
+
+  - id: ct-pre-mortem
+    name: Varredura Pré-Mortem
+    path: skills/critical-thinking-governor/agents/12-pre-mortem.agent.md
+    role: critical-thinking-specialist
+    description: Anticipates material failure causes and preventive controls.
+    max_subagents: 0
+    allowed_domains: [all]
+    allowed_skills: [critical-thinking-governor]
+    allowed_mcps: []
+    independence: strict
+    cannot_be_same_as_implementer: true
+
+  - id: ct-causal-mapper
+    name: Mapeamento Causal
+    path: skills/critical-thinking-governor/agents/13-causal-mapper.agent.md
+    role: critical-thinking-specialist
+    description: Maps causal links, feedback loops, confounders and leverage points.
+    max_subagents: 0
+    allowed_domains: [all]
+    allowed_skills: [critical-thinking-governor]
+    allowed_mcps: []
+    independence: strict
+    cannot_be_same_as_implementer: true
+
+  - id: ct-evidence-hierarchy
+    name: Hierarquia de Evidências
+    path: skills/critical-thinking-governor/agents/14-evidence-hierarchy.agent.md
+    role: critical-thinking-specialist
+    description: Grades evidence strength, independence, applicability and limitations.
+    max_subagents: 0
+    allowed_domains: [all]
+    allowed_skills: [critical-thinking-governor]
+    allowed_mcps: []
+    independence: strict
+    cannot_be_same_as_implementer: true
+
+  - id: ct-ethics-compass
+    name: Bússola Ética
+    path: skills/critical-thinking-governor/agents/15-ethics-compass.agent.md
+    role: critical-thinking-specialist
+    description: Evaluates rights, equity, privacy, harms and long-term impact.
+    max_subagents: 0
+    allowed_domains: [all]
+    allowed_skills: [critical-thinking-governor]
+    allowed_mcps: []
+    independence: strict
+    cannot_be_same_as_implementer: true
+
+  - id: ct-role-rotation
+    name: Rotação de Papéis
+    path: skills/critical-thinking-governor/agents/16-role-rotation.agent.md
+    role: critical-thinking-specialist
+    description: Evaluates a challenge through materially relevant professional lenses.
+    max_subagents: 0
+    allowed_domains: [all]
+    allowed_skills: [critical-thinking-governor]
+    allowed_mcps: []
+    independence: strict
+    cannot_be_same_as_implementer: true
+
+  - id: ct-contrarian-filter
+    name: Filtro Contrário
+    path: skills/critical-thinking-governor/agents/17-contrarian-filter.agent.md
+    role: critical-thinking-specialist
+    description: Challenges consensus using logic, data and second-order effects.
+    max_subagents: 0
+    allowed_domains: [all]
+    allowed_skills: [critical-thinking-governor]
+    allowed_mcps: []
+    independence: strict
+    cannot_be_same_as_implementer: true
+
+  - id: ct-abstraction-ladder
+    name: Escada de Abstração
+    path: skills/critical-thinking-governor/agents/18-abstraction-ladder.agent.md
+    role: critical-thinking-specialist
+    description: Connects vision, strategy, process, behavior and examples.
+    max_subagents: 0
+    allowed_domains: [all]
+    allowed_skills: [critical-thinking-governor]
+    allowed_mcps: []
+    independence: strict
+    cannot_be_same_as_implementer: true
+
+  - id: ct-dual-debate
+    name: Debate Duplo
+    path: skills/critical-thinking-governor/agents/19-dual-debate.agent.md
+    role: critical-thinking-specialist
+    description: Compares the strongest argument for and against under equal criteria.
+    max_subagents: 0
+    allowed_domains: [all]
+    allowed_skills: [critical-thinking-governor]
+    allowed_mcps: []
+    independence: strict
+    cannot_be_same_as_implementer: true
+
+  - id: ct-meta-reflection
+    name: Metarreflexão
+    path: skills/critical-thinking-governor/agents/20-meta-reflection.agent.md
+    role: critical-thinking-specialist
+    description: Challenges the framing, missing variables and final conclusion.
+    max_subagents: 0
+    allowed_domains: [all]
+    allowed_skills: [critical-thinking-governor]
+    allowed_mcps: []
+    independence: strict
+    cannot_be_same_as_implementer: true

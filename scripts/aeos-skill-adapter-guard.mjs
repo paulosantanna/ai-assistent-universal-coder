@@ -55,7 +55,7 @@ export function validateSkillAdapters() {
   };
 }
 
-if (import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   const result = validateSkillAdapters();
   const output = JSON.stringify(result, null, 2);
   if (result.status === "PASS") {
@@ -65,6 +65,5 @@ if (import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
     process.exit(1);
   }
 }
-
 
 

@@ -4,6 +4,7 @@ import { createHash } from "node:crypto";
 import { join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { persistChromaticMemory } from "./aeos-chromatic-memory.mjs";
+import { buildCriticalThinkingPlan } from "./aeos-critical-thinking-governance.mjs";
 
 const repoRoot = resolve(process.cwd());
 const registryPath = join(repoRoot, "aeos", "registries", "skills.registry.yaml");
@@ -78,16 +79,38 @@ export function routeRequest(request, options = {}) {
   }
 
   const executionId = `route-${hash(`${Date.now()}:${request}`).slice(0, 12)}`;
-  const memory = persistChromaticMemory({
-    executionId,
+  const criticalThinkingPlans = selected.map((skill) => buildCriticalThinkingPlan({
+    skillId: skill.id,
+    riskLevel: skill.riskLevel,
     request,
-    selectedSkills: selected.map((skill) => skill.id)
-  });
+    mission: skill.mission
+  }));
+  const invalidCriticalThinkingPlans = criticalThinkingPlans.filter((plan) => plan.status !== "PASS");
+  if (invalidCriticalThinkingPlans.length > 0) {
+    throw new Error(
+      `Critical-thinking governance blocked routing: ${invalidCriticalThinkingPlans
+        .flatMap((plan) => plan.blockingConditions)
+        .join("; ")}`
+    );
+  }
+
+  const memory = persistChromaticMemory(
+    {
+      executionId,
+      request,
+      selectedSkills: selected.map((skill) => skill.id)
+    },
+    { memoryRoot: options.memoryRoot }
+  );
 
   const result = {
     executionId,
     request,
     selectedSkills: selected,
+    criticalThinkingGovernance: {
+      governingSkill: "critical-thinking-governor",
+      plans: criticalThinkingPlans
+    },
     rejectedTopCandidates: ranked.slice(selected.length, selected.length + 10),
     assumptions: [
       "Skill routing is based on registry metadata and request terms.",
@@ -95,19 +118,21 @@ export function routeRequest(request, options = {}) {
     ],
     gates: {
       chromaticMemoryPersisted: true,
+      criticalThinkingGoverned: criticalThinkingPlans.length === selected.length,
       explicitArchitectureChangeRequired: /architecture|arquitetura|migration|migracao|refactor/i.test(request),
       noPythonRuntimePolicy: "active orchestration must use Node/TypeScript or declarative skills"
     },
     memory
   };
 
-  mkdirSync(outputDir, { recursive: true });
-  writeFileSync(join(outputDir, "latest-skill-route.json"), JSON.stringify(result, null, 2), "utf8");
-  writeFileSync(join(outputDir, `${executionId}.json`), JSON.stringify(result, null, 2), "utf8");
+  const targetOutputDir = options.outputDir ? resolve(options.outputDir) : outputDir;
+  mkdirSync(targetOutputDir, { recursive: true });
+  writeFileSync(join(targetOutputDir, "latest-skill-route.json"), JSON.stringify(result, null, 2), "utf8");
+  writeFileSync(join(targetOutputDir, `${executionId}.json`), JSON.stringify(result, null, 2), "utf8");
   return result;
 }
 
-if (import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   const request = process.argv.slice(2).join(" ").trim();
   if (!request) {
     console.error("Usage: node scripts/aeos-skill-router.mjs \"user request\"");
@@ -115,5 +140,3 @@ if (import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   }
   console.log(JSON.stringify(routeRequest(request), null, 2));
 }
-
-

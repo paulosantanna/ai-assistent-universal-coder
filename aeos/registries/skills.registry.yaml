@@ -2252,6 +2252,56 @@ skills:
   - Required sandboxing or approval is unavailable
   - Evidence cannot be produced
   - Original Mantis contract or honest evaluator returns a blocker
+- id: critical-thinking-governor
+  path: skills/critical-thinking-governor/SKILL.md
+  version: 1.0.0
+  owner_agent: critical-thinking-root
+  risk_level: high
+  capabilities:
+  - REASONING_GOVERNANCE
+  - ASSUMPTION_AUDIT
+  - EVIDENCE_GRADING
+  - FAILURE_PREDICTION
+  - ETHICAL_REVIEW
+  - GENERATE_EVIDENCE
+  mission: Govern every registered AEOS skill with a bounded and auditable selection of critical-thinking agents.
+  allowed_actions:
+  - Read skill metadata and the user objective
+  - Select registered critical-thinking agents
+  - Generate a hashed governance plan
+  - Record assumptions, contradictions, risks and evidence requirements
+  forbidden_actions:
+  - Execute tools, MCPs or LSPs directly
+  - Mutate repository or production state
+  - Replace domain skills or the independent Judge
+  - Expose or persist private chain-of-thought
+  - Invent probabilities, evidence or sources
+  required_inputs:
+  - skill_id
+  - risk_level
+  - user_objective
+  output_schema:
+    type: object
+    required: [status, skill_id, selected_agents, plan_hash, evidence_refs, blocking_conditions]
+    properties:
+      status: { type: string }
+      skill_id: { type: string }
+      selected_agents: { type: array }
+      plan_hash: { type: string }
+      evidence_refs: { type: array }
+      blocking_conditions: { type: array }
+  quality_gates:
+  - All baseline agents are present
+  - Risk overlays are present
+  - Agent count stays inside configured limits
+  - Every selected agent exists in the registry
+  - Plan hash and evidence reference are recorded
+  stop_conditions:
+  - Governance configuration invalid
+  - Required agent missing
+  - Skill risk level unsupported
+  - Plan exceeds configured limits
+  - Evidence cannot be recorded
 - id: mantis-calibrate
   path: skills/mantis/mantis-calibrate/SKILL.md
   version: 1.0.0
