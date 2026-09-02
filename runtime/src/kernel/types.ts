@@ -217,7 +217,51 @@ export interface SkillRegistryEntry {
   owner_agent: string;
   risk_level: RiskLevel;
   capabilities: string[];
+  mission?: string;
   requires_human_approval_for?: string[];
+}
+
+export interface CriticalThinkingAgentDefinition {
+  order: number;
+  prompt_id: string;
+  id: string;
+  name: string;
+  path: string;
+  triggers: string[];
+}
+
+export interface CriticalThinkingConfig {
+  version: string;
+  governing_skill: string;
+  scope: string;
+  fail_closed: boolean;
+  min_agents: number;
+  max_agents: number;
+  baseline_agents: string[];
+  risk_overlays: Record<string, string[]>;
+  required_output_fields: string[];
+  agents: CriticalThinkingAgentDefinition[];
+}
+
+export interface CriticalThinkingSelectedAgent {
+  id: string;
+  promptId: string;
+  name: string;
+  path: string;
+  reason: string;
+}
+
+export interface CriticalThinkingPlan {
+  status: "PASS" | "FAIL";
+  version: string;
+  governingSkill: string;
+  skillId: string;
+  riskLevel: string;
+  selectedAgents: CriticalThinkingSelectedAgent[];
+  requiredOutputFields: string[];
+  failClosed: boolean;
+  blockingConditions: string[];
+  planHash: string;
 }
 
 export interface SkillsRegistry {
@@ -424,6 +468,7 @@ export interface ExecutionContext {
   permissionDecisions: PermissionDecision[];
   toolCalls: ToolCallRecord[];
   evidenceRecords: EvidenceRecord[];
+  criticalThinkingPlans: CriticalThinkingPlan[];
   judgeReport: JudgeReport | null;
   artifacts: string[];
   error?: string;

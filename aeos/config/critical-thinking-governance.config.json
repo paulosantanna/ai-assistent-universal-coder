@@ -1,0 +1,192 @@
+{
+  "version": "1.0.0",
+  "governing_skill": "critical-thinking-governor",
+  "scope": "all_registered_skills",
+  "fail_closed": true,
+  "min_agents": 4,
+  "max_agents": 7,
+  "baseline_agents": [
+    "ct-first-principles",
+    "ct-assumption-auditor",
+    "ct-evidence-hierarchy",
+    "ct-meta-reflection"
+  ],
+  "risk_overlays": {
+    "low": [],
+    "medium": ["ct-devils-proof"],
+    "high": ["ct-pre-mortem"],
+    "critical": ["ct-pre-mortem", "ct-ethics-compass"]
+  },
+  "required_output_fields": [
+    "facts",
+    "assumptions",
+    "evidence_refs",
+    "risks",
+    "recommendation",
+    "confidence",
+    "limitations",
+    "blocking_conditions"
+  ],
+  "agents": [
+    {
+      "order": 1,
+      "prompt_id": "CT-01",
+      "id": "ct-first-principles",
+      "name": "Primeiros Princípios",
+      "path": "skills/critical-thinking-governor/agents/01-first-principles.agent.md",
+      "triggers": ["fundamento", "primeiros principios", "constraint", "restricao", "reconstruir"]
+    },
+    {
+      "order": 2,
+      "prompt_id": "CT-02",
+      "id": "ct-assumption-auditor",
+      "name": "Auditoria de Suposições",
+      "path": "skills/critical-thinking-governor/agents/02-assumption-auditor.agent.md",
+      "triggers": ["suposicao", "assumption", "hipotese", "premissa", "incerteza"]
+    },
+    {
+      "order": 3,
+      "prompt_id": "CT-03",
+      "id": "ct-socratic-prober",
+      "name": "Mergulho Socrático",
+      "path": "skills/critical-thinking-governor/agents/03-socratic-prober.agent.md",
+      "triggers": ["por que", "why", "causa raiz", "root cause", "recorrente"]
+    },
+    {
+      "order": 4,
+      "prompt_id": "CT-04",
+      "id": "ct-steelman-challenger",
+      "name": "Desafio Steelman",
+      "path": "skills/critical-thinking-governor/agents/04-steelman-challenger.agent.md",
+      "triggers": ["argumento", "proposal", "proposta", "arquitetura", "architecture", "trade-off"]
+    },
+    {
+      "order": 5,
+      "prompt_id": "CT-05",
+      "id": "ct-devils-proof",
+      "name": "Prova do Diabo",
+      "path": "skills/critical-thinking-governor/agents/05-devils-proof.agent.md",
+      "triggers": ["provar", "falsificar", "validate", "validar", "evidencia ausente", "hypothesis"]
+    },
+    {
+      "order": 6,
+      "prompt_id": "CT-06",
+      "id": "ct-counterfactual-mirror",
+      "name": "Espelho Contrafactual",
+      "path": "skills/critical-thinking-governor/agents/06-counterfactual-mirror.agent.md",
+      "triggers": ["contrafactual", "counterfactual", "e se", "resultado oposto", "regressao", "incident"]
+    },
+    {
+      "order": 7,
+      "prompt_id": "CT-07",
+      "id": "ct-bayesian-updater",
+      "name": "Mentalidade Bayesiana",
+      "path": "skills/critical-thinking-governor/agents/07-bayesian-updater.agent.md",
+      "triggers": ["bayes", "probabilidade", "probability", "likelihood", "chance", "nova evidencia"]
+    },
+    {
+      "order": 8,
+      "prompt_id": "CT-08",
+      "id": "ct-bias-logic-auditor",
+      "name": "Viés e Lógica",
+      "path": "skills/critical-thinking-governor/agents/08-bias-logic-auditor.agent.md",
+      "triggers": ["vies", "bias", "falacia", "fallacy", "confianca", "confidence", "ancoragem"]
+    },
+    {
+      "order": 9,
+      "prompt_id": "CT-09",
+      "id": "ct-comparative-lens",
+      "name": "Lente Comparativa",
+      "path": "skills/critical-thinking-governor/agents/09-comparative-lens.agent.md",
+      "triggers": ["comparar", "compare", "opcao", "option", "custo-beneficio", "vendor", "escolher"]
+    },
+    {
+      "order": 10,
+      "prompt_id": "CT-10",
+      "id": "ct-inversion-strategist",
+      "name": "Estratégia de Inversão",
+      "path": "skills/critical-thinking-governor/agents/10-inversion-strategist.agent.md",
+      "triggers": ["inversao", "inversion", "evitar", "prevent", "garantir falha", "reliability"]
+    },
+    {
+      "order": 11,
+      "prompt_id": "CT-11",
+      "id": "ct-problem-refiner",
+      "name": "Refinador de Problema",
+      "path": "skills/critical-thinking-governor/agents/11-problem-refiner.agent.md",
+      "triggers": ["objetivo", "objective", "requisito", "requirement", "metrica", "acceptance", "ambiguo"]
+    },
+    {
+      "order": 12,
+      "prompt_id": "CT-12",
+      "id": "ct-pre-mortem",
+      "name": "Varredura Pré-Mortem",
+      "path": "skills/critical-thinking-governor/agents/12-pre-mortem.agent.md",
+      "triggers": ["pre-mortem", "falha", "failure", "producao", "production", "deploy", "release", "migracao"]
+    },
+    {
+      "order": 13,
+      "prompt_id": "CT-13",
+      "id": "ct-causal-mapper",
+      "name": "Mapeamento Causal",
+      "path": "skills/critical-thinking-governor/agents/13-causal-mapper.agent.md",
+      "triggers": ["causa", "causal", "dependency", "dependencia", "feedback", "alavanca", "root cause"]
+    },
+    {
+      "order": 14,
+      "prompt_id": "CT-14",
+      "id": "ct-evidence-hierarchy",
+      "name": "Hierarquia de Evidências",
+      "path": "skills/critical-thinking-governor/agents/14-evidence-hierarchy.agent.md",
+      "triggers": ["evidencia", "evidence", "fonte", "source", "documentacao", "research", "benchmark"]
+    },
+    {
+      "order": 15,
+      "prompt_id": "CT-15",
+      "id": "ct-ethics-compass",
+      "name": "Bússola Ética",
+      "path": "skills/critical-thinking-governor/agents/15-ethics-compass.agent.md",
+      "triggers": ["etica", "ethic", "equidade", "fairness", "direito", "privacy", "clinico", "financeiro", "safety"]
+    },
+    {
+      "order": 16,
+      "prompt_id": "CT-16",
+      "id": "ct-role-rotation",
+      "name": "Rotação de Papéis",
+      "path": "skills/critical-thinking-governor/agents/16-role-rotation.agent.md",
+      "triggers": ["stakeholder", "usuario", "user", "operacao", "product", "economia", "organizacao"]
+    },
+    {
+      "order": 17,
+      "prompt_id": "CT-17",
+      "id": "ct-contrarian-filter",
+      "name": "Filtro Contrário",
+      "path": "skills/critical-thinking-governor/agents/17-contrarian-filter.agent.md",
+      "triggers": ["critique", "criticar", "desafiar", "challenge", "discordar", "contrario", "controverso"]
+    },
+    {
+      "order": 18,
+      "prompt_id": "CT-18",
+      "id": "ct-abstraction-ladder",
+      "name": "Escada de Abstração",
+      "path": "skills/critical-thinking-governor/agents/18-abstraction-ladder.agent.md",
+      "triggers": ["visao", "vision", "estrategia", "strategy", "roadmap", "processo", "exemplo", "detalhe"]
+    },
+    {
+      "order": 19,
+      "prompt_id": "CT-19",
+      "id": "ct-dual-debate",
+      "name": "Debate Duplo",
+      "path": "skills/critical-thinking-governor/agents/19-dual-debate.agent.md",
+      "triggers": ["debate", "favor e contra", "pros and cons", "decisao", "decision", "proposta"]
+    },
+    {
+      "order": 20,
+      "prompt_id": "CT-20",
+      "id": "ct-meta-reflection",
+      "name": "Metarreflexão",
+      "path": "skills/critical-thinking-governor/agents/20-meta-reflection.agent.md",
+      "triggers": ["metarreflexao", "meta", "pergunta errada", "missing assumption", "conclusao"]
+    }
+  ]
+}

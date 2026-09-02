@@ -131,6 +131,16 @@ export class ReportWriter {
       lines.push(`- **Role:** ${ctx.agent.role}`);
     }
     lines.push("");
+    lines.push("## Critical-Thinking Governance");
+    lines.push("");
+    if (ctx.criticalThinkingPlans.length === 0) {
+      lines.push("_No critical-thinking plan recorded._");
+    } else {
+      for (const plan of ctx.criticalThinkingPlans) {
+        lines.push(`- **${plan.skillId}:** ${plan.selectedAgents.map((agent) => agent.id).join(", ")} (hash: \`${plan.planHash}\`)`);
+      }
+    }
+    lines.push("");
     lines.push("## Permission Decisions");
     lines.push("");
     const denied = ctx.permissionDecisions.filter((d) => !d.allowed);

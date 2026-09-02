@@ -15,6 +15,7 @@ import { PolicyEngine, type ActionRequest } from "./policy-engine.js";
 import { EvidenceStore } from "./evidence-store.js";
 import { ToolRouter } from "./tool-router.js";
 import { SkillExecutor, type SkillContext } from "./skill-executor.js";
+import { CriticalThinkingGovernor } from "./critical-thinking-governor.js";
 import { DeterministicJudge } from "./deterministic-judge.js";
 import { ReportWriter } from "./report-writer.js";
 import { randomUUID } from "node:crypto";
@@ -75,6 +76,7 @@ export class PlaybookEngine {
       const evidenceBase = join(targetPath, ".aeos", "evidence", ctx.executionId);
       const evidenceStore = new EvidenceStore(evidenceBase);
       const toolRouter = new ToolRouter(evidenceStore);
+      const criticalThinkingGovernor = new CriticalThinkingGovernor(aeosRoot);
 
       toolRouter.registerMCPs(mcps);
 
@@ -136,6 +138,28 @@ export class PlaybookEngine {
           continue;
         }
 
+        const criticalThinkingPlan = criticalThinkingGovernor.planForSkill(
+          skillEntry,
+          `${playbook.id} ${playbook.name}`
+        );
+        if (criticalThinkingPlan.status !== "PASS") {
+          throw new Error(
+            `Critical-thinking governance blocked skill '${skillEntry.id}': ${criticalThinkingPlan.blockingConditions.join("; ")}`
+          );
+        }
+        ctx.criticalThinkingPlans.push(criticalThinkingPlan);
+        const governanceEvidence = {
+          id: randomUUID(),
+          type: "source" as const,
+          claim: `Critical-thinking governance selected ${criticalThinkingPlan.selectedAgents.length} agents for skill '${skillEntry.id}'.`,
+          reference: criticalThinkingPlan.planHash,
+          source: criticalThinkingPlan.governingSkill,
+          timestamp: new Date().toISOString(),
+          verified: true
+        };
+        addEvidence(ctx, governanceEvidence);
+        evidenceStore.writeEvidence(governanceEvidence);
+
         const skillContext: SkillContext = {
           registryEntry: skillEntry,
           input: {
@@ -147,7 +171,8 @@ export class PlaybookEngine {
           },
           toolRouter,
           evidenceStore,
-          executionContext: ctx
+          executionContext: ctx,
+          criticalThinkingPlan
         };
 
         let output: SkillOutput;

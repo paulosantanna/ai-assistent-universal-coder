@@ -1,5 +1,6 @@
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
+const os = require("node:os");
 const path = require("node:path");
 const { pathToFileURL } = require("node:url");
 
@@ -46,28 +47,45 @@ describe("AEOS skill-first routing", () => {
 
   it("routes explicit Java bug requests to Java before JavaScript", async () => {
     const { routeRequest } = await import(moduleUrl("scripts/aeos-skill-router.mjs"));
-    const result = routeRequest("corrigir bug Java com testes e sem alterar arquitetura");
-    const ids = result.selectedSkills.map((skill) => skill.id);
+    const sandbox = fs.mkdtempSync(path.join(os.tmpdir(), "aeos-route-test-"));
+    try {
+      const result = routeRequest("corrigir bug Java com testes e sem alterar arquitetura", {
+        memoryRoot: path.join(sandbox, "memory"),
+        outputDir: path.join(sandbox, "router")
+      });
+      const ids = result.selectedSkills.map((skill) => skill.id);
 
-    assert.equal(ids[0], "chromatic-mega-brain");
-    assert.equal(ids.find((id) => id !== "chromatic-mega-brain"), "java-docs-bug-solver");
-    assert.equal(ids.includes("javascript-bug-solver"), false);
-    assert.equal(result.gates.chromaticMemoryPersisted, true);
+      assert.equal(ids[0], "chromatic-mega-brain");
+      assert.equal(ids.find((id) => id !== "chromatic-mega-brain"), "java-docs-bug-solver");
+      assert.equal(ids.includes("javascript-bug-solver"), false);
+      assert.equal(result.gates.chromaticMemoryPersisted, true);
+      assert.equal(result.gates.criticalThinkingGoverned, true);
+      assert.equal(result.criticalThinkingGovernance.plans.length, result.selectedSkills.length);
+      assert.equal(result.criticalThinkingGovernance.plans.every((plan) => plan.status === "PASS"), true);
+    } finally {
+      fs.rmSync(sandbox, { recursive: true, force: true });
+    }
   });
 
   it("persists mandatory Chromatic memory files", async () => {
     const { persistChromaticMemory } = await import(moduleUrl("scripts/aeos-chromatic-memory.mjs"));
-    const result = persistChromaticMemory({
-      request: "node test memory persistence",
-      selectedSkills: ["chromatic-mega-brain"]
-    });
+    const sandbox = fs.mkdtempSync(path.join(os.tmpdir(), "aeos-memory-test-"));
+    try {
+      const result = persistChromaticMemory(
+        {
+          request: "node test memory persistence",
+          selectedSkills: ["chromatic-mega-brain"]
+        },
+        { memoryRoot: path.join(sandbox, "memory") }
+      );
 
-    for (const file of ["MEMORY.md", "LEARNING.md", "HANDOFF.md", "PROGRESS.md"]) {
-      const fullPath = path.join(result.memoryRoot, file);
-      assert.equal(fs.existsSync(fullPath), true);
-      assert.match(fs.readFileSync(fullPath, "utf8"), /node test memory persistence/);
+      for (const file of ["MEMORY.md", "LEARNING.md", "HANDOFF.md", "PROGRESS.md"]) {
+        const fullPath = path.join(result.memoryRoot, file);
+        assert.equal(fs.existsSync(fullPath), true);
+        assert.match(fs.readFileSync(fullPath, "utf8"), /node test memory persistence/);
+      }
+    } finally {
+      fs.rmSync(sandbox, { recursive: true, force: true });
     }
   });
 });
-
-

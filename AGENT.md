@@ -35,6 +35,8 @@ The following rules are mandatory:
     updated before completion.
 15. Active WorkspaceSO orchestration must not depend on Python. Python source,
     bytecode and Python project metadata are forbidden in the AEOS workspace.
+16. Every registered skill must receive a valid, hashed Critical Thinking
+    governance plan before execution. Missing governance is a blocking failure.
 
 ---
 
@@ -65,7 +67,11 @@ These rules have constitutional precedence over local convenience:
 Operational entrypoints:
 
 - `npm run aeos:route -- "<request>"` selects skills and writes Chromatic memory.
+- `npm run aeos:critical-thinking -- --skill <id> --risk <level> "<request>"`
+  previews the bounded critical-thinking plan.
 - `npm run aeos:guard:no-python` blocks active Python orchestration.
+- `npm run aeos:guard:critical-thinking` verifies all-skill governance and the
+  complete 20-agent catalog.
 - `npm run aeos:verify` validates the no-Python active path and Node runtime.
 
 Detailed specification: `references/NO_PYTHON_SKILL_ORCHESTRATION.md`.
@@ -851,8 +857,6 @@ Whenever adding a skill, use the project's standard skill builder. Do not create
 skills by hand unless the skill builder is unavailable, and record that blocker
 with evidence before proceeding.
 
-<<<<<<< HEAD
-=======
 ### 13A.11 Skill-governed MCP and LSP adapters
 
 MCPs and LSPs are adapter surfaces only. They must never become independent
@@ -867,7 +871,30 @@ execution paths.
 - Adapter calls must write evidence with active skill id and governing skill.
 - The production gate must run `npm run aeos:guard:skill-adapters`.
 
->>>>>>> workmode-mega-aeos
+### 13A.12 Critical-thinking governance for every skill
+
+Every skill execution must pass through `critical-thinking-governor` before its
+domain executor runs.
+
+- The catalog contains exactly 20 critical-thinking specialist agents.
+- Every plan includes `ct-first-principles`, `ct-assumption-auditor`,
+  `ct-evidence-hierarchy` and `ct-meta-reflection`.
+- Risk overlays and semantic triggers may add specialists, but the configured
+  maximum must never be exceeded.
+- Activating all 20 agents by default is prohibited; select the smallest useful
+  set to control context, latency and performative debate.
+- Specialist agents analyze evidence only. They have no MCP, LSP, shell or
+  mutation authority.
+- Store conclusions, premises, evidence, contradictions and limitations; never
+  request or persist private chain-of-thought.
+- A skill executor must fail closed when its governance plan is absent, invalid,
+  belongs to another skill or lacks required agents.
+- Chromatic Synthesis and the independent Judge remain downstream controls and
+  cannot be replaced by critical-thinking agents.
+- The production gate must run `npm run aeos:guard:critical-thinking`.
+
+Detailed contract: `skills/critical-thinking-governor/references/GOVERNANCE_POLICY.md`.
+
 ---
 
 ## 14. Rule precedence
