@@ -38,6 +38,7 @@ export function createExecutionContext(
     permissionDecisions: [],
     toolCalls: [],
     evidenceRecords: [],
+    criticalThinkingPlans: [],
     judgeReport: null,
     artifacts: []
   };

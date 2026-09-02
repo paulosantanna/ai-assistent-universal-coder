@@ -2,7 +2,8 @@ import type {
   SkillRegistryEntry,
   SkillInput,
   SkillOutput,
-  ExecutionContext
+  ExecutionContext,
+  CriticalThinkingPlan
 } from "./types.js";
 import { ToolRouter } from "./tool-router.js";
 import { EvidenceStore } from "./evidence-store.js";
@@ -14,10 +15,20 @@ export interface SkillContext {
   toolRouter: ToolRouter;
   evidenceStore: EvidenceStore;
   executionContext: ExecutionContext;
+  criticalThinkingPlan: CriticalThinkingPlan;
 }
 
 export class SkillExecutor {
   async execute(skillId: string, context: SkillContext): Promise<SkillOutput> {
+    if (
+      !context.criticalThinkingPlan ||
+      context.criticalThinkingPlan.status !== "PASS" ||
+      context.criticalThinkingPlan.skillId !== skillId ||
+      context.criticalThinkingPlan.selectedAgents.length === 0
+    ) {
+      throw new Error(`Critical-thinking governance is missing or invalid for skill '${skillId}'.`);
+    }
+
     const defaultOutput: SkillOutput = {
       artifacts: [],
       evidence: [],
@@ -48,13 +59,21 @@ export class SkillExecutor {
 
         defaultOutput.facts.push(`Chromatic Mega Brain selected colors: ${selectedColors.join(", ")}`);
         defaultOutput.facts.push(`Decision type: ${decisionType}`);
-        defaultOutput.assumptions.push("Node runtime returns a governed chromatic scaffold; Python runtime produces the full evidence record.");
+        defaultOutput.assumptions.push("The Node runtime returns a governed chromatic scaffold; the governed execution path must persist the complete evidence record.");
         defaultOutput.risks.push("Chromatic synthesis must go through Judge before high-impact implementation.");
 
         if (highImpact && evidenceRefs.length === 0) {
           defaultOutput.errors.push("Evidence refs are required for high-impact chromatic decisions.");
         }
 
+        return defaultOutput;
+      }
+
+      case "critical-thinking-governor": {
+        const selected = context.criticalThinkingPlan.selectedAgents.map((agent) => agent.id);
+        defaultOutput.facts.push(`Critical-thinking plan ${context.criticalThinkingPlan.planHash} selected: ${selected.join(", ")}`);
+        defaultOutput.facts.push(`Governed skill: ${context.criticalThinkingPlan.skillId}`);
+        defaultOutput.assumptions.push("Selected agents provide structured findings without exposing private chain-of-thought.");
         return defaultOutput;
       }
 

@@ -135,3 +135,10 @@ Managed by AEOS Chromatic Mega Brain memory protocol.
 - Learning candidate: Route requests through skill registry before execution.
 - Validation requirement: Persist handoff and progress evidence for every material task.
 - Evidence hash: c29aa4899fcb5e2b18986fc2f00d0418d2bb2d0af5512e260a9669036d7e3507
+
+## 2026-09-02T01:03:02.996Z route-1456066e3e44
+
+- Request: Adicionar ao AEOS os 20 prompts de pensamento crítico como agentes especializados e governança transversal, proporcional e fail-closed de todas as skills do projeto
+- Learning candidate: Route requests through skill registry before execution.
+- Validation requirement: Persist handoff and progress evidence for every material task.
+- Evidence hash: 2d889c6328fd6aa336bd8f2f7a5fc9dde39fdceb938a6dfadce1451f628d98d7

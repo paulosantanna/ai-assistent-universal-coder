@@ -27,8 +27,11 @@ function ensureFile(path, title) {
   }
 }
 
-export function persistChromaticMemory(entry) {
-  mkdirSync(memoryRoot, { recursive: true });
+export function persistChromaticMemory(entry, options = {}) {
+  const targetMemoryRoot = options.memoryRoot
+    ? resolve(options.memoryRoot)
+    : memoryRoot;
+  mkdirSync(targetMemoryRoot, { recursive: true });
   const timestamp = now();
   const request = String(entry.request || "unspecified request");
   const selectedSkills = Array.isArray(entry.selectedSkills) ? entry.selectedSkills : [];
@@ -36,7 +39,7 @@ export function persistChromaticMemory(entry) {
   const digest = hash(JSON.stringify({ timestamp, request, selectedSkills, executionId }));
 
   const paths = Object.fromEntries(
-    Object.entries(files).map(([key, file]) => [key, join(memoryRoot, file)])
+    Object.entries(files).map(([key, file]) => [key, join(targetMemoryRoot, file)])
   );
 
   ensureFile(paths.memory, "MEMORY.md");
@@ -65,13 +68,11 @@ export function persistChromaticMemory(entry) {
     "utf8"
   );
 
-  return { executionId, digest, memoryRoot, paths };
+  return { executionId, digest, memoryRoot: targetMemoryRoot, paths };
 }
 
-if (import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   const request = process.argv.slice(2).join(" ").trim() || "manual memory update";
   const result = persistChromaticMemory({ request, selectedSkills: ["chromatic-mega-brain"] });
   console.log(JSON.stringify(result, null, 2));
 }
-
-
