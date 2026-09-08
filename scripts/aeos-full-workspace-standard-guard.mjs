@@ -1,19 +1,24 @@
 #!/usr/bin/env node
 import { existsSync, readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import path from 'node:path';
 
 const manifestPath = 'aeos/governance/workspace-governance.manifest.json';
 const errors = [];
 
 function norm(p) {
-  return p.replaceAll('\\', '/').replace(/^\.\//, '').replace(/\/$/, '');
+  const value = String(p ?? '').replaceAll('\\', '/').replace(/^\.\//, '').replace(/\/$/, '');
+  return value === '' ? '.' : value;
 }
 
 function under(file, root) {
   file = norm(file);
   root = norm(root);
+  if (root === '.') return true;
   return file === root || file.startsWith(`${root}/`);
+}
+
+function contractPath(root) {
+  return norm(root) === '.' ? 'AGENT.md' : `${norm(root)}/AGENT.md`;
 }
 
 function readText(file) {
@@ -51,7 +56,9 @@ for (const phrase of [
   'registries',
   'blueprints',
   'evals',
-  'runtime'
+  'runtime',
+  'policies',
+  'CI/CD'
 ]) {
   if (!rootContract.toLowerCase().includes(String(phrase).toLowerCase())) {
     errors.push(`AGENT.md missing full-workspace scope: ${phrase}`);
@@ -68,25 +75,30 @@ const governed = allTracked.filter(file =>
   !ignored(file) && (manifest.governedRoots || []).some(root => under(file, root))
 );
 
+if (manifest.coveragePolicy === 'all-tracked-files-governed-by-default') {
+  const unexpectedlyOutside = allTracked.filter(file => !ignored(file) && !governed.includes(file));
+  for (const file of unexpectedlyOutside) errors.push(`tracked file escaped governance:${file}`);
+}
+
 for (const root of manifest.localContractRoots || []) {
-  const contract = `${norm(root)}/AGENT.md`;
+  const contract = contractPath(root);
   if (!existsSync(contract)) {
     errors.push(`missing local governance contract:${contract}`);
     continue;
   }
   const text = readText(contract);
   if (!text.includes(manifest.standard)) errors.push(`${contract} missing standard marker:${manifest.standard}`);
-  if (!text.includes('AGENT.md')) errors.push(`${contract} must chain to root AGENT.md`);
+  if (contract !== 'AGENT.md' && !text.includes('AGENT.md')) errors.push(`${contract} must chain to root AGENT.md`);
   if (!text.includes('CODENAVI_FULL_WORKSPACE_STANDARD.md')) errors.push(`${contract} must chain to full workspace standard`);
 }
 
-// Every local AGENT/AGENTS contract inside governed roots must acknowledge CodENavi.
+// Existing local AGENT/AGENTS files are themselves governed artifacts. They must not remain stale.
 for (const file of governed.filter(f => /(^|\/)(AGENT|AGENTS)\.md$/i.test(f))) {
   const text = readText(file);
   if (!/CodENavi/i.test(text)) errors.push(`${file} is a stale agent contract without CodENavi inheritance`);
 }
 
-// Every governed file must be covered by at least one declared local contract root.
+// Every tracked artifact is covered by root governance; nearest local contracts specialize by subtree.
 for (const file of governed) {
   const coverage = (manifest.localContractRoots || [])
     .filter(root => under(file, root))
@@ -94,7 +106,7 @@ for (const file of governed) {
   if (!coverage.length) errors.push(`ungoverned tracked artifact:${file}`);
 }
 
-const counts = { totalGoverned: governed.length };
+const counts = { totalTracked: allTracked.length, totalGoverned: governed.length, ignored: allTracked.length - governed.length };
 for (const [kind, markers] of Object.entries(manifest.artifactMatchers || {})) {
   counts[kind] = governed.filter(file => markers.some(marker => file.toLowerCase().includes(marker.toLowerCase()))).length;
 }
@@ -119,13 +131,14 @@ for (const section of [
 }
 
 if (errors.length) {
-  console.error(JSON.stringify({ status: 'FAIL', standard: manifest.standard, counts, errors }, null, 2));
+  console.error(JSON.stringify({ status: 'FAIL', standard: manifest.standard, coveragePolicy: manifest.coveragePolicy, counts, errors }, null, 2));
   process.exit(1);
 }
 
 console.log(JSON.stringify({
   status: 'PASS',
   standard: manifest.standard,
+  coveragePolicy: manifest.coveragePolicy,
   lifecycle: manifest.requiredLifecycle,
   governedRoots: manifest.governedRoots.length,
   localContracts: manifest.localContractRoots.length,
