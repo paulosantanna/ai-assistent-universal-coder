@@ -107,3 +107,33 @@ skills:
     owner_agent: architect
     risk_level: high
     capabilities: [WEB_SEARCH, WEB_FETCH, KNOWLEDGE_RETRIEVAL, READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: kinghost-secure-connection
+    path: aeos/skills/generated/kinghost-secure-connection.skill.md
+    version: 1.1.0
+    owner_agent: security
+    risk_level: critical
+    capabilities: [NETWORK_CONNECT, SECRET_REFERENCE, GENERATE_EVIDENCE]
+  - id: kinghost-site-lifecycle
+    path: aeos/skills/generated/kinghost-site-lifecycle.skill.md
+    version: 1.1.0
+    owner_agent: orchestrator
+    risk_level: critical
+    capabilities: [NETWORK_CONNECT, READ_FILES, WRITE_FILES, DEPLOY, BACKUP, RESTORE, GENERATE_EVIDENCE]
+  - id: kinghost-data-analysis
+    path: aeos/skills/generated/kinghost-data-analysis.skill.md
+    version: 1.1.0
+    owner_agent: architect
+    risk_level: high
+    capabilities: [NETWORK_CONNECT, DATABASE_READ, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: kinghost-code-analysis
+    path: aeos/skills/generated/kinghost-code-analysis.skill.md
+    version: 1.1.0
+    owner_agent: coder
+    risk_level: high
+    capabilities: [NETWORK_CONNECT, READ_FILES, SCAN_DEPENDENCIES, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: kinghost-site-architecture-analysis
+    path: aeos/skills/generated/kinghost-site-architecture-analysis.skill.md
+    version: 1.1.0
+    owner_agent: architect
+    risk_level: high
+    capabilities: [NETWORK_CONNECT, READ_FILES, MAP_ARCHITECTURE, GENERATE_REPORT, GENERATE_EVIDENCE]

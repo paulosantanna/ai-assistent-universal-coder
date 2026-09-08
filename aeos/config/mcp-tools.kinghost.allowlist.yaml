@@ -1,5 +1,20 @@
 allowlist:
   kinghost-commerce:
+    - kinghost.health
+    - kinghost.session.open_ssh
+    - kinghost.session.open_mysql
+    - kinghost.session.open_postgres
+    - kinghost.session.info
+    - kinghost.session.close
+    - kinghost.fs.list
+    - kinghost.fs.read
+    - kinghost.fs.write
+    - kinghost.fs.mkdir
+    - kinghost.fs.rename
+    - kinghost.fs.delete
+    - kinghost.ssh.exec_readonly
+    - kinghost.db.query_readonly
+    - kinghost.db.query_mutation
     - kinghost.knowledge_search
     - kinghost.inspect_environment
     - kinghost.performance_audit
@@ -14,18 +29,25 @@ allowlist:
     - web.performance_budget
 
 blocked_mutations:
-  - kinghost.deploy_execute
-  - kinghost.database_write
-  - kinghost.database_drop
-  - kinghost.dns_write
+  - kinghost.ssh.exec_unrestricted
+  - kinghost.fs.rmtree
   - kinghost.secret_read
+  - kinghost.database_drop_unapproved
+  - kinghost.dns_write
   - commerce.catalog_publish
   - commerce.price_publish
   - commerce.inventory_publish
   - commerce.order_mutate
 
 policy:
-  read_and_plan_only: true
-  production_write_requires_future_controlled_adapter: true
+  authenticated_remote_access_allowed: true
+  ephemeral_credentials_only: true
+  session_reference_required_after_login: true
+  read_only_default: true
+  production_write_requires_approval: true
+  mutation_change_id_required: true
+  mutation_rollback_required: true
+  dry_run_default: true
+  host_identity_validation_required: true
   authenticated_browser_forbidden: true
   unrestricted_shell_forbidden: true
