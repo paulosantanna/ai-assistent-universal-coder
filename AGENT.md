@@ -5,6 +5,7 @@ Governance: CodENavi Full Workspace v2
 
 > Canonical root agent contract. Every agent, subagent, skill, playbook, MCP, LCP, LSP/language-server component, tool, runtime router/executor, registry, overlay, policy, permission set, blueprint, eval, memory/knowledge contract, CI/CD workflow, provider adapter and documentation generator inherits this file.
 > `references/CODENAVI_FULL_WORKSPACE_STANDARD.md` defines the mandatory cross-workspace contract. Local `AGENT.md` files may specialize it but may never weaken it.
+> `aeos/governance/codenavi-artifact-contract.v1.json` is the machine-readable runtime envelope that normalizes governed registry artifacts before execution.
 > The previous full constitution remains preserved at `references/AGENT_LEGACY_CONSTITUTION.md` and is authoritative where not superseded by stricter current governance.
 
 ## Mandatory invariants
@@ -29,6 +30,7 @@ Governance: CodENavi Full Workspace v2
 18. No artifact may escalate its own authority beyond registered capabilities, allowlists, policies or human approval.
 19. Local contracts may be stricter but never weaker than root governance.
 20. Generated artifacts are subject to the same verification expectations as human-authored artifacts.
+21. Every registry-resolved agent, subagent, skill, playbook, MCP, LCP, blueprint and LSP/workbench profile MUST carry the current machine-readable artifact governance envelope before use.
 
 ## Governed surfaces
 
@@ -48,7 +50,7 @@ The following are explicitly governed by this constitution and `references/CODEN
 - CI/CD, deployment and release automation;
 - workspace documentation and documentation generators.
 
-The machine-readable coverage contract is `aeos/governance/workspace-governance.manifest.json`. CI MUST fail when a governed subtree loses its local inheritance contract or becomes uncovered.
+The machine-readable coverage contract is `aeos/governance/workspace-governance.manifest.json`. The machine-readable per-artifact runtime contract is `aeos/governance/codenavi-artifact-contract.v1.json`. CI MUST fail when a governed subtree loses its local inheritance contract, becomes uncovered or when runtime registry normalization can return an artifact without the current envelope.
 
 ## Project intelligence
 
@@ -91,14 +93,17 @@ Record evidence, changed assumptions, residual risk, relevant docs/notebook/memo
 
 Before operating on a governed subtree, load the nearest local `AGENT.md` plus this root contract. The local contract specializes the universal standard for that artifact type. If a local contract conflicts with root governance, the stricter rule wins and the conflict is itself a governance defect to fix.
 
+Registry-resolved artifacts are additionally normalized at the runtime boundary with `CodENavi Artifact Contract v1`; a raw registry entry without that envelope is configuration data, not an execution-ready artifact.
+
 ## Precedence
 
 1. Human explicit instruction, subject to safety/security constraints.
 2. This `AGENT.md`.
 3. `references/CODENAVI_FULL_WORKSPACE_STANDARD.md`.
-4. `references/CODENAVI_WORKSPACE_STANDARD.md` and `references/CODENAVI_NOTEBOOK_SPEC.md`.
-5. Existing AEOS constitutional references including `references/AGENT_LEGACY_CONSTITUTION.md`.
-6. Nearest local `AGENT.md`/`AGENTS.md` and skill/playbook/MCP/LCP/LSP contracts, only when equal or stricter.
-7. Repository-local conventions.
+4. `aeos/governance/codenavi-artifact-contract.v1.json` for runtime-normalized artifact invariants.
+5. `references/CODENAVI_WORKSPACE_STANDARD.md` and `references/CODENAVI_NOTEBOOK_SPEC.md`.
+6. Existing AEOS constitutional references including `references/AGENT_LEGACY_CONSTITUTION.md`.
+7. Nearest local `AGENT.md`/`AGENTS.md` and skill/playbook/MCP/LCP/LSP contracts, only when equal or stricter.
+8. Repository-local conventions.
 
 No local file may weaken deny-by-default security, evidence requirements, lifecycle, verification, secret handling or approval/Judge/rollback controls.
