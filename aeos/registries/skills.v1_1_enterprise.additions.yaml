@@ -137,3 +137,9 @@ skills:
     owner_agent: architect
     risk_level: high
     capabilities: [NETWORK_CONNECT, READ_FILES, MAP_ARCHITECTURE, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: aura-voice
+    path: aeos/skills/generated/aura-voice.skill.md
+    version: 1.0.0
+    owner_agent: orchestrator
+    risk_level: high
+    capabilities: [READ_FILES, WRITE_SANDBOX_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]

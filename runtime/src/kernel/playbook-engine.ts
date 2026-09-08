@@ -3,23 +3,22 @@ import type {
   PlaybookRegistryEntry,
   SkillRegistryEntry,
   MCPRegistryEntry,
-  LCPRegistryEntry,
   LCPContent,
   AgentRegistryEntry,
   SkillOutput
 } from "./types.js";
 import { setContextStatus, addEvidence } from "./execution-context.js";
 import { ConfigLoader } from "./config-loader.js";
-import { PermissionEngine, type PermissionRequest } from "./permission-engine.js";
-import { PolicyEngine, type ActionRequest } from "./policy-engine.js";
+import { PermissionEngine } from "./permission-engine.js";
+import { PolicyEngine } from "./policy-engine.js";
 import { EvidenceStore } from "./evidence-store.js";
-import { KingHostToolRouter } from "./kinghost-tool-router.js";
+import { AuraVoiceToolRouter } from "./aura-voice-tool-router.js";
 import { SkillExecutor, type SkillContext } from "./skill-executor.js";
 import { CriticalThinkingGovernor } from "./critical-thinking-governor.js";
 import { DeterministicJudge } from "./deterministic-judge.js";
 import { ReportWriter } from "./report-writer.js";
 import { randomUUID } from "node:crypto";
-import { join, resolve } from "node:path";
+import { join } from "node:path";
 
 export class PlaybookEngine {
   private configLoader: ConfigLoader;
@@ -56,10 +55,9 @@ export class PlaybookEngine {
     config: any
   ): Promise<ExecutionContext> {
     const { createExecutionContext } = await import("./execution-context.js");
-
     const ctx = createExecutionContext(playbook.id, targetPath, aeosRoot, config);
     setContextStatus(ctx, "running");
-    let toolRouter: KingHostToolRouter | null = null;
+    let toolRouter: AuraVoiceToolRouter | null = null;
 
     try {
       ctx.resolvedPlaybook = playbook;
@@ -76,9 +74,8 @@ export class PlaybookEngine {
 
       const evidenceBase = join(targetPath, ".aeos", "evidence", ctx.executionId);
       const evidenceStore = new EvidenceStore(evidenceBase);
-      toolRouter = new KingHostToolRouter(evidenceStore, aeosRoot);
+      toolRouter = new AuraVoiceToolRouter(evidenceStore, aeosRoot);
       const criticalThinkingGovernor = new CriticalThinkingGovernor(aeosRoot);
-
       toolRouter.registerMCPs(mcps);
 
       this.checkAndRecord(
@@ -99,7 +96,6 @@ export class PlaybookEngine {
         actionName: "read",
         details: { direct: false }
       });
-
       const permDecision = {
         action: "filesystem-write-check",
         agentId: agent.id,
@@ -119,7 +115,6 @@ export class PlaybookEngine {
           resourceId: skillEntry.id,
           riskLevel: skillEntry.risk_level
         });
-
         ctx.permissionDecisions.push(skillCheck);
         evidenceStore.writePermissionDecision(skillCheck);
 
@@ -136,14 +131,9 @@ export class PlaybookEngine {
           continue;
         }
 
-        const criticalThinkingPlan = criticalThinkingGovernor.planForSkill(
-          skillEntry,
-          `${playbook.id} ${playbook.name}`
-        );
+        const criticalThinkingPlan = criticalThinkingGovernor.planForSkill(skillEntry, `${playbook.id} ${playbook.name}`);
         if (criticalThinkingPlan.status !== "PASS") {
-          throw new Error(
-            `Critical-thinking governance blocked skill '${skillEntry.id}': ${criticalThinkingPlan.blockingConditions.join("; ")}`
-          );
+          throw new Error(`Critical-thinking governance blocked skill '${skillEntry.id}': ${criticalThinkingPlan.blockingConditions.join("; ")}`);
         }
         ctx.criticalThinkingPlans.push(criticalThinkingPlan);
         const governanceEvidence = {
@@ -185,7 +175,6 @@ export class PlaybookEngine {
           addEvidence(ctx, ev);
           evidenceStore.writeEvidence(ev);
         }
-
         for (const risk of output.risks) {
           addEvidence(ctx, {
             id: randomUUID(),
@@ -199,41 +188,23 @@ export class PlaybookEngine {
         }
       }
 
-      const reportDir = join(targetPath, ".aeos", "reports");
       const judgeReport = this.judge.evaluate(ctx, evidenceStore);
       ctx.judgeReport = judgeReport;
+      if (judgeReport.verdict === "BLOCKED") ctx.status = "blocked";
+      else setContextStatus(ctx, "completed");
 
-      if (judgeReport.verdict === "BLOCKED") {
-        ctx.status = "blocked";
-        ctx.judgeReport = judgeReport;
-      } else {
-        setContextStatus(ctx, "completed");
-      }
-
-      const judgeArtifact = evidenceStore.writeGeneratedArtifact(
-        "../../reports/judge-report.md",
-        this.reportWriter.writeJudgeReport(judgeReport)
-      );
+      const judgeArtifact = evidenceStore.writeGeneratedArtifact("../../reports/judge-report.md", this.reportWriter.writeJudgeReport(judgeReport));
       ctx.artifacts.push(judgeArtifact);
-
-      const executionArtifact = evidenceStore.writeGeneratedArtifact(
-        "../../reports/execution-summary.md",
-        this.reportWriter.writeExecutionSummary(ctx)
-      );
+      const executionArtifact = evidenceStore.writeGeneratedArtifact("../../reports/execution-summary.md", this.reportWriter.writeExecutionSummary(ctx));
       ctx.artifacts.push(executionArtifact);
-
-      evidenceStore.writeGeneratedArtifact(
-        "../../reports/permission-decisions.md",
-        this.reportWriter.writePermissionDecisions(ctx.permissionDecisions)
-      );
+      evidenceStore.writeGeneratedArtifact("../../reports/permission-decisions.md", this.reportWriter.writePermissionDecisions(ctx.permissionDecisions));
 
       for (const artifact of ctx.artifacts) {
-        const relPath = artifact;
         ctx.evidenceRecords.push({
           id: randomUUID(),
           type: "source",
-          claim: `Generated artifact: ${relPath}`,
-          reference: relPath,
+          claim: `Generated artifact: ${artifact}`,
+          reference: artifact,
           source: "playbook-engine",
           timestamp: new Date().toISOString(),
           verified: true
@@ -242,9 +213,8 @@ export class PlaybookEngine {
     } catch (err) {
       setContextStatus(ctx, "failed", err instanceof Error ? err.message : String(err));
     } finally {
-      if (toolRouter) await toolRouter.shutdownKingHost();
+      if (toolRouter) await toolRouter.shutdownAuraVoice();
     }
-
     return ctx;
   }
 

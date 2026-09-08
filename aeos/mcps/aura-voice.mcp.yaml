@@ -1,0 +1,73 @@
+mcp:
+  id: aura-voice
+  name: Aura Voice Media Intelligence MCP
+  protocol: model-context-protocol
+  version: "2026-09-08"
+
+  transport:
+    type: stdio
+    command: node
+    args: ["aura-voice-tool/index.mjs"]
+
+  capabilities:
+    tools:
+      - name: aura.health
+        security: read-only
+        description: Verify Aura Voice tool and declared media/transcript capabilities.
+      - name: aura.media.inspect
+        security: read-only
+        description: Inspect media streams and technical metadata with ffprobe.
+      - name: aura.media.extract_audio
+        security: workspace-write
+        description: Extract 16 kHz mono WAV from authorized media with FFmpeg.
+      - name: aura.transcript.read
+        security: read-only
+        description: Read and normalize supported transcript formats without translating technical terminology.
+      - name: aura.transcribe.local
+        security: workspace-write
+        description: Transcribe authorized local audio using configured whisper.cpp CLI and model.
+      - name: aura.analyze.transcript
+        security: read-only
+        description: Deterministically segment and classify serious, humor, mixed and ambiguous speech.
+      - name: aura.corpus.ingest
+        security: workspace-write
+        description: Add authorized transcript samples to the governed semantic/evaluation corpus with provenance and hashes.
+
+  dependencies:
+    required:
+      - ffmpeg
+      - ffprobe
+      - whisper.cpp-compatible whisper-cli
+    environment:
+      - AURA_FFMPEG_BIN
+      - AURA_FFPROBE_BIN
+      - AURA_WHISPER_BIN
+      - AURA_WHISPER_MODEL
+      - AURA_TRANSCRIBE_TIMEOUT_MS
+
+  security:
+    network_access: false
+    shell_access: false
+    workspace_only: true
+    biometric_identity_inference: false
+    corpus_authorization_required: true
+    secrets_logging: forbidden
+    evidence_required: true
+    redaction_required: true
+
+  semantics:
+    preserve_original_technical_terms: true
+    translate_technical_terms: false
+    humor_is_context_not_fact: true
+    ambiguous_not_promoted_to_fact: true
+    deterministic_first_pass: true
+
+prompt_contract:
+  objective: "Transcribe and critically analyze recorded conversations while preserving technical language and separating humor from serious claims."
+  rules:
+    - "Never translate established technical/business nomenclature unless the speaker explicitly translates it."
+    - "Never treat a joke, pun, sarcasm cue or laughter-marked statement as a serious factual commitment without independent serious corroboration."
+    - "Retain humor and ambiguous segments as evidence; exclude them only from the serious-facts lane."
+    - "Do not infer speaker real-world identity from voice characteristics."
+    - "Do not invent missing words when ASR confidence/context is insufficient."
+    - "YouTube-derived corpus material requires explicit authorization/licensing provenance."
