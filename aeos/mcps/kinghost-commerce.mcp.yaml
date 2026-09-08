@@ -1,0 +1,118 @@
+mcp:
+  id: kinghost-commerce
+  name: KingHost Commerce Operations MCP
+  protocol: model-context-protocol
+  version: "2026-09-08"
+
+  transport:
+    type: stdio
+    command: kinghost-commerce-mcp
+    args: []
+
+  capabilities:
+    tools:
+      - name: kinghost.knowledge_search
+        description: Search governed KingHost knowledge and official documentation.
+        security: read-only
+      - name: kinghost.inspect_environment
+        description: Inventory hosting plan, runtime, domains, databases, DNS, SSL, application stack and resource constraints.
+        security: read-only
+      - name: kinghost.performance_audit
+        description: Analyze CPU time, memory, HTTP errors, cacheability, database hotspots, static assets and application bottlenecks.
+        security: read-only
+      - name: kinghost.deploy_plan
+        description: Produce a rollback-aware deployment plan for FTP, SSH or Git based publication.
+        security: read-only
+      - name: kinghost.database_plan
+        description: Produce safe SQL/query/index/schema optimization plans with explain-first behavior.
+        security: read-only
+      - name: kinghost.dns_plan
+        description: Produce DNS change plans for A, AAAA, CNAME, TXT, MX and SRV records.
+        security: read-only
+      - name: commerce.catalog_plan
+        description: Build normalized product, SKU, pricing, inventory and taxonomy plans for B2B/B2C channels.
+        security: read-only
+      - name: commerce.channel_mapping
+        description: Map local catalog and order models to marketplace/social/delivery channel contracts.
+        security: read-only
+      - name: commerce.price_sync_plan
+        description: Calculate channel-aware price synchronization plans including fees, floors and margins.
+        security: read-only
+      - name: commerce.logistics_plan
+        description: Build stock, fulfillment, SLA, shipping and delivery synchronization plans.
+        security: read-only
+      - name: web.modernization_plan
+        description: Plan safe modernization for JavaScript, TypeScript, Node.js, React, Angular, CSS, PHP and static assets.
+        security: read-only
+      - name: web.performance_budget
+        description: Create Core Web Vitals, backend latency, query, cache and asset performance budgets.
+        security: read-only
+
+  security:
+    allowed_domains:
+      - "king.host"
+      - "*.king.host"
+      - "developers.facebook.com"
+      - "business.instagram.com"
+      - "developers.tiktok.com"
+      - "developers.mercadolivre.com.br"
+      - "developer-docs.amazon.com"
+      - "developer.amazonservices.com"
+      - "developers.shopee.com"
+      - "developer.ifood.com.br"
+      - "developer.uber.com"
+      - "developer.99app.com"
+      - "developer.mozilla.org"
+      - "nodejs.org"
+      - "react.dev"
+      - "angular.dev"
+      - "web.dev"
+      - "owasp.org"
+    blocked_domains:
+      - "localhost"
+      - "127.0.0.1"
+      - "10.*"
+      - "172.16.*"
+      - "192.168.*"
+    credentials:
+      storage: forbidden
+      logging: forbidden
+      plaintext: forbidden
+    mutation:
+      production_write_default: false
+      database_write_default: false
+      dns_write_default: false
+      deploy_default: false
+      catalog_publish_default: false
+      approval_required_for_write: true
+      dry_run_required: true
+      rollback_required: true
+    audit:
+      evidence_required: true
+      log_tool_calls: true
+      redact_secrets: true
+
+  knowledge:
+    source_registry: aeos/knowledge/kinghost-commerce.sources.yaml
+    freshness_policy: aeos/policies/kinghost-commerce-freshness.policy.md
+    primary_authority: official-documentation
+    stale_after_days: 30
+    refresh_before_mutation: true
+
+prompt_contract:
+  objective: "Understand and operate KingHost-hosted commerce systems through evidence-first, reversible and least-privilege plans."
+  evidence_required: true
+  redact_outputs: true
+  rules:
+    - "Prefer official vendor documentation over blogs, forums or generated summaries."
+    - "Never infer an API or endpoint that is not documented."
+    - "Inspect the actual hosting/runtime constraints before recommending architecture."
+    - "Use EXPLAIN/analysis before database optimization and never issue destructive SQL by default."
+    - "Treat price, inventory, product and order synchronization as financial/operational mutations requiring approval."
+    - "Use idempotency, reconciliation and dead-letter handling for marketplace integrations."
+    - "Require backup, health check and rollback evidence before deployment."
+  stop_conditions:
+    - "required source is stale or unverifiable"
+    - "credentials would need to be exposed"
+    - "requested action exceeds declared capability"
+    - "production mutation lacks approval, dry-run or rollback"
