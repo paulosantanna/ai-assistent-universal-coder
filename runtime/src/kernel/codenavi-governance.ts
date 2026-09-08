@@ -1,4 +1,5 @@
-export const CODENAVI_STANDARD = "CodENavi Full Workspace v3" as const;
+export const CODENAVI_STANDARD = "CodENavi Artifact Contract v1" as const;
+export const CODENAVI_PARENT_STANDARD = "CodENavi Full Workspace v2" as const;
 export const CODENAVI_LIFECYCLE = [
   "BRIEFING",
   "RECON",
@@ -10,6 +11,7 @@ export const CODENAVI_LIFECYCLE = [
 
 export interface CodENaviRuntimeGovernance {
   standard: typeof CODENAVI_STANDARD;
+  parent_standard: typeof CODENAVI_PARENT_STANDARD;
   lifecycle: typeof CODENAVI_LIFECYCLE;
   evidence_required: true;
   verification_required: true;
@@ -24,6 +26,7 @@ export interface CodENaviRuntimeGovernance {
 
 export const CODENAVI_RUNTIME_GOVERNANCE: CodENaviRuntimeGovernance = Object.freeze({
   standard: CODENAVI_STANDARD,
+  parent_standard: CODENAVI_PARENT_STANDARD,
   lifecycle: CODENAVI_LIFECYCLE,
   evidence_required: true,
   verification_required: true,
@@ -56,6 +59,7 @@ export function hasCurrentGovernance(value: unknown): boolean {
   if (!value || typeof value !== "object") return false;
   const governance = (value as { governance?: Partial<CodENaviRuntimeGovernance> }).governance;
   return governance?.standard === CODENAVI_STANDARD
+    && governance.parent_standard === CODENAVI_PARENT_STANDARD
     && Array.isArray(governance.lifecycle)
     && governance.lifecycle.join("|") === CODENAVI_LIFECYCLE.join("|")
     && governance.evidence_required === true
