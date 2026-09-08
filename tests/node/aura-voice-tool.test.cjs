@@ -18,7 +18,7 @@ function callAura(action, params = {}) {
 }
 
 describe('Aura Voice tool', () => {
-  test('reports supported capabilities', async () => {
+  it('reports supported capabilities', async () => {
     const res = await callAura('aura.health');
     expect(res.success).toBe(true);
     expect(res.data.asr).toBe('whisper.cpp');
@@ -26,7 +26,7 @@ describe('Aura Voice tool', () => {
     expect(res.data.transcripts).toContain('.tft');
   });
 
-  test('preserves technical nomenclature and separates humor from serious content', async () => {
+  it('preserves technical nomenclature and separates humor from serious content', async () => {
     const text = [
       'A arquitetura precisa ser end-to-end e o fluxo B2C precisa ter rollback.',
       'Se der erro a gente joga o servidor pela janela, tô brincando kkk.',
@@ -40,7 +40,7 @@ describe('Aura Voice tool', () => {
     expect(res.data.statistics.humor).toBeGreaterThanOrEqual(1);
   });
 
-  test('does not ingest corpus without explicit authorization', async () => {
+  it('does not ingest corpus without explicit authorization', async () => {
     const res = await callAura('aura.corpus.ingest', { source: 'youtube:test', path: 'missing.txt', authorized: false });
     expect(res.success).toBe(false);
     expect(res.error).toMatch(/authorized=true/i);
