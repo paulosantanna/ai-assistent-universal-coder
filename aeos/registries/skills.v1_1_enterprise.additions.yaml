@@ -143,3 +143,51 @@ skills:
     owner_agent: orchestrator
     risk_level: high
     capabilities: [READ_FILES, WRITE_SANDBOX_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: codenavi
+    path: skills/codenavi/SKILL.md
+    version: 1.0.0
+    owner_agent: orchestrator
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: notebook-intelligence
+    path: skills/notebook-intelligence/SKILL.md
+    version: 1.0.0
+    owner_agent: architect
+    risk_level: medium
+    capabilities: [READ_FILES, WRITE_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: dependency-updater
+    path: skills/dependency-updater/SKILL.md
+    version: 1.0.0
+    owner_agent: coder
+    risk_level: high
+    capabilities: [READ_FILES, WRITE_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: pr-reviewer
+    path: skills/pr-reviewer/SKILL.md
+    version: 1.0.0
+    owner_agent: architect
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: docs-writer
+    path: skills/docs-writer/SKILL.md
+    version: 1.0.0
+    owner_agent: coder
+    risk_level: medium
+    capabilities: [READ_FILES, WRITE_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: local-secret-vault
+    path: skills/local-secret-vault/SKILL.md
+    version: 1.0.0
+    owner_agent: security
+    risk_level: critical
+    capabilities: [READ_FILES, SECRET_REFERENCE, GENERATE_EVIDENCE]
+  - id: jira-confluence-assistant
+    path: skills/jira-confluence-assistant/SKILL.md
+    version: 1.0.0
+    owner_agent: orchestrator
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: java-version-expert
+    path: skills/java-version-expert/SKILL.md
+    version: 1.0.0
+    owner_agent: coder
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
