@@ -1,0 +1,27 @@
+mcps:
+  - id: kinghost-commerce
+    type: hosting-commerce-knowledge
+    transport: stdio
+    config: aeos/mcps/kinghost-commerce.mcp.yaml
+    risk_level: high
+    governing_skill: kinghost-site-operator
+    skill_enforced: true
+    skill_intent: Expose KingHost and commerce knowledge only through governed AEOS skills; mutations remain blocked by default.
+    capabilities: [WEB_SEARCH, WEB_FETCH, KNOWLEDGE_RETRIEVAL, GENERATE_REPORT]
+    tools:
+      - kinghost.knowledge_search
+      - kinghost.inspect_environment
+      - kinghost.performance_audit
+      - kinghost.deploy_plan
+      - kinghost.database_plan
+      - kinghost.dns_plan
+      - commerce.catalog_plan
+      - commerce.channel_mapping
+      - commerce.price_sync_plan
+      - commerce.logistics_plan
+      - web.modernization_plan
+      - web.performance_budget
+    write_allowed: false
+    approval_required: true
+    dry_run_default: true
+    enabled: true
