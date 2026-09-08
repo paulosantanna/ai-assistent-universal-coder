@@ -1,6 +1,6 @@
 import { spawn, type ChildProcessWithoutNullStreams } from "node:child_process";
 import { createInterface, type Interface as ReadlineInterface } from "node:readline";
-import { resolve } from "node:path";
+import { dirname, resolve } from "node:path";
 import { randomUUID } from "node:crypto";
 import { ToolRouter } from "./tool-router.js";
 import { EvidenceStore } from "./evidence-store.js";
@@ -11,8 +11,52 @@ type Pending = {
   timer: NodeJS.Timeout;
 };
 
+const KINGHOST_ACTIONS = [
+  "kinghost.health",
+  "kinghost.session.open_ssh",
+  "kinghost.session.open_mysql",
+  "kinghost.session.open_postgres",
+  "kinghost.session.info",
+  "kinghost.session.close",
+  "kinghost.fs.list",
+  "kinghost.fs.read",
+  "kinghost.fs.write",
+  "kinghost.fs.mkdir",
+  "kinghost.fs.rename",
+  "kinghost.fs.delete",
+  "kinghost.ssh.exec_readonly",
+  "kinghost.db.query_readonly",
+  "kinghost.db.query_mutation",
+  "kinghost.knowledge_search",
+  "kinghost.inspect_environment",
+  "kinghost.performance_audit",
+  "kinghost.deploy_plan",
+  "kinghost.database_plan",
+  "kinghost.dns_plan",
+  "commerce.catalog_plan",
+  "commerce.channel_mapping",
+  "commerce.price_sync_plan",
+  "commerce.logistics_plan",
+  "web.modernization_plan",
+  "web.performance_budget"
+];
+
+const FALLBACK_ENTRY: MCPRegistryEntry = {
+  id: "kinghost-commerce",
+  type: "hosting-commerce-knowledge",
+  config: "aeos/mcps/kinghost-commerce.mcp.yaml",
+  risk_level: "critical",
+  capabilities: KINGHOST_ACTIONS,
+  governing_skill: "kinghost-site-operator",
+  skill_intent: "Governed KingHost adapter with ephemeral credentials and controlled mutations.",
+  skill_enforced: true,
+  write_allowed: true,
+  approval_required: true,
+  log_redaction_required: true
+};
+
 export class KingHostToolRouter extends ToolRouter {
-  private kinghostEntry: MCPRegistryEntry | null = null;
+  private kinghostEntry: MCPRegistryEntry = FALLBACK_ENTRY;
   private activeKingHostSkill: string | null = null;
   private process: ChildProcessWithoutNullStreams | null = null;
   private reader: ReadlineInterface | null = null;
@@ -22,6 +66,7 @@ export class KingHostToolRouter extends ToolRouter {
   constructor(evidenceStore: EvidenceStore, aeosRoot: string) {
     super(evidenceStore);
     this.adapterPath = resolve(aeosRoot, "kinghost-commerce-mcp", "index.mjs");
+    super.registerMCP(FALLBACK_ENTRY);
   }
 
   override registerMCP(entry: MCPRegistryEntry): void {
@@ -46,7 +91,6 @@ export class KingHostToolRouter extends ToolRouter {
     if (mcpId !== "kinghost-commerce") return super.callTool(mcpId, action, params);
 
     const entry = this.kinghostEntry;
-    if (!entry) return { success: false, error: "MCP 'kinghost-commerce' not registered" };
     if (!entry.governing_skill) return { success: false, error: "KingHost MCP blocked: missing governing_skill" };
 
     const skillId = typeof params.__aeosSkillId === "string"
@@ -80,7 +124,7 @@ export class KingHostToolRouter extends ToolRouter {
     if (this.process && !this.process.killed) return this.process;
 
     const child = spawn(process.execPath, [this.adapterPath], {
-      cwd: resolve(this.adapterPath, ".."),
+      cwd: dirname(this.adapterPath),
       stdio: ["pipe", "pipe", "pipe"],
       env: { ...process.env, AEOS_MCP_MODE: "kinghost-commerce" }
     });
@@ -98,12 +142,12 @@ export class KingHostToolRouter extends ToolRouter {
           ? { success: true, data: response.data }
           : { success: false, error: response.error || "KingHost adapter error" });
       } catch {
-        // Malformed adapter output is ignored and its request will time out fail-closed.
+        // Malformed adapter output is ignored; pending request times out fail-closed.
       }
     });
 
     child.stderr.on("data", () => {
-      // Deliberately do not copy adapter stderr into AEOS evidence: it may contain vendor errors.
+      // Do not copy raw vendor stderr into durable AEOS evidence.
     });
     child.on("exit", () => {
       this.process = null;
