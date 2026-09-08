@@ -6,47 +6,40 @@ mcp:
 
   transport:
     type: stdio
-    command: kinghost-commerce-mcp
-    args: []
+    command: node
+    args: ["kinghost-commerce-mcp/index.mjs"]
+    persistent: true
+    framing: jsonl
 
   capabilities:
     tools:
-      - name: kinghost.knowledge_search
-        description: Search governed KingHost knowledge and official documentation.
-        security: read-only
-      - name: kinghost.inspect_environment
-        description: Inventory hosting plan, runtime, domains, databases, DNS, SSL, application stack and resource constraints.
-        security: read-only
-      - name: kinghost.performance_audit
-        description: Analyze CPU time, memory, HTTP errors, cacheability, database hotspots, static assets and application bottlenecks.
-        security: read-only
-      - name: kinghost.deploy_plan
-        description: Produce a rollback-aware deployment plan for FTP, SSH or Git based publication.
-        security: read-only
-      - name: kinghost.database_plan
-        description: Produce safe SQL/query/index/schema optimization plans with explain-first behavior.
-        security: read-only
-      - name: kinghost.dns_plan
-        description: Produce DNS change plans for A, AAAA, CNAME, TXT, MX and SRV records.
-        security: read-only
-      - name: commerce.catalog_plan
-        description: Build normalized product, SKU, pricing, inventory and taxonomy plans for B2B/B2C channels.
-        security: read-only
-      - name: commerce.channel_mapping
-        description: Map local catalog and order models to marketplace/social/delivery channel contracts.
-        security: read-only
-      - name: commerce.price_sync_plan
-        description: Calculate channel-aware price synchronization plans including fees, floors and margins.
-        security: read-only
-      - name: commerce.logistics_plan
-        description: Build stock, fulfillment, SLA, shipping and delivery synchronization plans.
-        security: read-only
-      - name: web.modernization_plan
-        description: Plan safe modernization for JavaScript, TypeScript, Node.js, React, Angular, CSS, PHP and static assets.
-        security: read-only
-      - name: web.performance_budget
-        description: Create Core Web Vitals, backend latency, query, cache and asset performance budgets.
-        security: read-only
+      - {name: kinghost.health, description: "Check adapter health and active session count.", security: read-only}
+      - {name: kinghost.session.open_ssh, description: "Open authorized ephemeral SSH/SFTP session using runtime credentials.", security: credentialed}
+      - {name: kinghost.session.open_mysql, description: "Open authorized ephemeral MySQL session using runtime credentials.", security: credentialed}
+      - {name: kinghost.session.open_postgres, description: "Open authorized ephemeral PostgreSQL session using runtime credentials.", security: credentialed}
+      - {name: kinghost.session.info, description: "Return redacted metadata for an opaque session reference.", security: read-only}
+      - {name: kinghost.session.close, description: "Close an opaque session and erase runtime credential-bearing state.", security: read-only}
+      - {name: kinghost.fs.list, description: "List remote files/directories through SFTP.", security: read-only}
+      - {name: kinghost.fs.read, description: "Read bounded remote file content through SFTP.", security: read-only}
+      - {name: kinghost.fs.write, description: "Write an approved, rollback-bound remote file change.", security: write-controlled}
+      - {name: kinghost.fs.mkdir, description: "Create an approved remote directory.", security: write-controlled}
+      - {name: kinghost.fs.rename, description: "Rename an approved remote path with rollback reference.", security: write-controlled}
+      - {name: kinghost.fs.delete, description: "Delete an approved scoped remote file with rollback reference.", security: destructive-controlled}
+      - {name: kinghost.ssh.exec_readonly, description: "Execute a strict allowlist of non-mutating diagnostic commands.", security: read-only}
+      - {name: kinghost.db.query_readonly, description: "Execute bounded SELECT/SHOW/DESCRIBE/EXPLAIN database queries.", security: read-only}
+      - {name: kinghost.db.query_mutation, description: "Execute approved database mutations after dry-run/change/rollback gates.", security: destructive-controlled}
+      - {name: kinghost.knowledge_search, description: "Search governed KingHost knowledge and official documentation.", security: read-only}
+      - {name: kinghost.inspect_environment, description: "Inventory hosting plan, runtime, domains, databases, DNS, SSL, application stack and resource constraints.", security: read-only}
+      - {name: kinghost.performance_audit, description: "Analyze CPU time, memory, HTTP errors, cacheability, database hotspots, static assets and application bottlenecks.", security: read-only}
+      - {name: kinghost.deploy_plan, description: "Produce a rollback-aware deployment plan for FTP, SSH or Git based publication.", security: read-only}
+      - {name: kinghost.database_plan, description: "Produce safe SQL/query/index/schema optimization plans with explain-first behavior.", security: read-only}
+      - {name: kinghost.dns_plan, description: "Produce DNS change plans for A, AAAA, CNAME, TXT, MX and SRV records.", security: read-only}
+      - {name: commerce.catalog_plan, description: "Build normalized product, SKU, pricing, inventory and taxonomy plans for B2B/B2C channels.", security: read-only}
+      - {name: commerce.channel_mapping, description: "Map local catalog and order models to marketplace/social/delivery channel contracts.", security: read-only}
+      - {name: commerce.price_sync_plan, description: "Calculate channel-aware price synchronization plans including fees, floors and margins.", security: read-only}
+      - {name: commerce.logistics_plan, description: "Build stock, fulfillment, SLA, shipping and delivery synchronization plans.", security: read-only}
+      - {name: web.modernization_plan, description: "Plan safe modernization for JavaScript, TypeScript, Node.js, React, Angular, CSS, PHP and static assets.", security: read-only}
+      - {name: web.performance_budget, description: "Create Core Web Vitals, backend latency, query, cache and asset performance budgets.", security: read-only}
 
   security:
     allowed_domains:
@@ -77,7 +70,9 @@ mcp:
     credentials:
       storage: forbidden
       logging: forbidden
-      plaintext: forbidden
+      plaintext: ephemeral-runtime-only
+      session_reference: opaque
+      ttl_minutes: 15
     mutation:
       production_write_default: false
       database_write_default: false
@@ -87,6 +82,7 @@ mcp:
       approval_required_for_write: true
       dry_run_required: true
       rollback_required: true
+      change_id_required: true
     audit:
       evidence_required: true
       log_tool_calls: true
@@ -100,19 +96,20 @@ mcp:
     refresh_before_mutation: true
 
 prompt_contract:
-  objective: "Understand and operate KingHost-hosted commerce systems through evidence-first, reversible and least-privilege plans."
+  objective: "Understand and operate authorized KingHost-hosted commerce systems through evidence-first, reversible and least-privilege execution."
   evidence_required: true
   redact_outputs: true
   rules:
+    - "Credentials are runtime-only and must never enter Git, evidence, memory or reports."
     - "Prefer official vendor documentation over blogs, forums or generated summaries."
     - "Never infer an API or endpoint that is not documented."
-    - "Inspect the actual hosting/runtime constraints before recommending architecture."
-    - "Use EXPLAIN/analysis before database optimization and never issue destructive SQL by default."
-    - "Treat price, inventory, product and order synchronization as financial/operational mutations requiring approval."
-    - "Use idempotency, reconciliation and dead-letter handling for marketplace integrations."
+    - "Inspect actual hosting/runtime constraints before recommending architecture."
+    - "Use EXPLAIN/analysis before database optimization."
+    - "Require approved=true, change_id and rollback_ref for mutating operations."
     - "Require backup, health check and rollback evidence before deployment."
   stop_conditions:
     - "required source is stale or unverifiable"
-    - "credentials would need to be exposed"
-    - "requested action exceeds declared capability"
-    - "production mutation lacks approval, dry-run or rollback"
+    - "credentials would need durable storage"
+    - "host identity cannot be validated"
+    - "requested action exceeds MCP capability scope"
+    - "production mutation lacks approval, dry-run/change tracking or rollback"
