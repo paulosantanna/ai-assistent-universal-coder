@@ -24,6 +24,7 @@ import type {
 } from "./types.js";
 import { ConfigLoader } from "./config-loader.js";
 import { OverlayRegistryMerger } from "./overlay-registry-merger.js";
+import { governEntries, governEntry } from "./codenavi-governance.js";
 
 export class RegistryLoader {
   private loader: ConfigLoader;
@@ -36,31 +37,38 @@ export class RegistryLoader {
   }
 
   loadPlaybooks(): PlaybooksRegistry {
-    return this.loader.loadYaml<PlaybooksRegistry>("aeos/registries/playbooks.registry.yaml");
+    const registry = this.loader.loadYaml<PlaybooksRegistry>("aeos/registries/playbooks.registry.yaml");
+    return { ...registry, playbooks: governEntries(registry.playbooks) };
   }
 
   loadSkills(): SkillsRegistry {
-    return this.loader.loadYaml<SkillsRegistry>("aeos/registries/skills.registry.yaml");
+    const registry = this.loader.loadYaml<SkillsRegistry>("aeos/registries/skills.registry.yaml");
+    return { ...registry, skills: governEntries(registry.skills) };
   }
 
   loadMCPs(): MCPsRegistry {
-    return this.loader.loadYaml<MCPsRegistry>("aeos/registries/mcps.registry.yaml");
+    const registry = this.loader.loadYaml<MCPsRegistry>("aeos/registries/mcps.registry.yaml");
+    return { ...registry, mcps: governEntries(registry.mcps) };
   }
 
   loadLCPs(): LCPsRegistry {
-    return this.loader.loadYaml<LCPsRegistry>("aeos/registries/lcps.registry.yaml");
+    const registry = this.loader.loadYaml<LCPsRegistry>("aeos/registries/lcps.registry.yaml");
+    return { ...registry, lcps: governEntries(registry.lcps) };
   }
 
   loadAgents(): AgentsRegistry {
-    return this.loader.loadYaml<AgentsRegistry>("aeos/registries/agents.registry.yaml");
+    const registry = this.loader.loadYaml<AgentsRegistry>("aeos/registries/agents.registry.yaml");
+    return { ...registry, agents: governEntries(registry.agents) };
   }
 
   loadBlueprints(): BlueprintsRegistry {
-    return this.loader.loadYaml<BlueprintsRegistry>("aeos/registries/blueprints.registry.yaml");
+    const registry = this.loader.loadYaml<BlueprintsRegistry>("aeos/registries/blueprints.registry.yaml");
+    return { ...registry, blueprints: governEntries(registry.blueprints) };
   }
 
   loadWorkbenchProfiles(): WorkbenchProfilesRegistry {
-    return this.loader.loadYaml<WorkbenchProfilesRegistry>("aeos/registries/workbench-profiles.registry.yaml");
+    const registry = this.loader.loadYaml<WorkbenchProfilesRegistry>("aeos/registries/workbench-profiles.registry.yaml");
+    return { ...registry, profiles: governEntries(registry.profiles) };
   }
 
   loadOverlayIndex(): OverlayRegistryIndex {
@@ -68,7 +76,14 @@ export class RegistryLoader {
   }
 
   loadMergedFromOverlay(): MergeResult {
-    return this.merger.loadAndMergeWithStrategy("replace-duplicates");
+    const merged = this.merger.loadAndMergeWithStrategy("replace-duplicates");
+    return {
+      ...merged,
+      agents: governEntries(merged.agents),
+      subagents: governEntries(merged.subagents),
+      skills: governEntries(merged.skills),
+      playbooks: governEntries(merged.playbooks)
+    };
   }
 
   loadAllResolved(): {
@@ -102,23 +117,25 @@ export class RegistryLoader {
   }
 
   resolvePlaybook(playbooks: PlaybookRegistryEntry[], id: string): PlaybookRegistryEntry | null {
-    return (this.indexById(playbooks).get(id) as PlaybookRegistryEntry | undefined) ?? null;
+    const entry = this.indexById(playbooks).get(id) as PlaybookRegistryEntry | undefined;
+    return entry ? governEntry(entry) : null;
   }
 
   resolveSkills(skills: SkillRegistryEntry[], ids: string[]): SkillRegistryEntry[] {
-    return this.resolveMany(skills, ids) as SkillRegistryEntry[];
+    return governEntries(this.resolveMany(skills, ids) as SkillRegistryEntry[]);
   }
 
   resolveMCPs(mcps: MCPRegistryEntry[], ids: string[]): MCPRegistryEntry[] {
-    return this.resolveMany(mcps, ids) as MCPRegistryEntry[];
+    return governEntries(this.resolveMany(mcps, ids) as MCPRegistryEntry[]);
   }
 
   resolveLCPs(lcps: LCPRegistryEntry[], ids: string[]): LCPRegistryEntry[] {
-    return this.resolveMany(lcps, ids) as LCPRegistryEntry[];
+    return governEntries(this.resolveMany(lcps, ids) as LCPRegistryEntry[]);
   }
 
   resolveAgent(agents: AgentRegistryEntry[], id: string): AgentRegistryEntry | null {
-    return (this.indexById(agents).get(id) as AgentRegistryEntry | undefined) ?? null;
+    const entry = this.indexById(agents).get(id) as AgentRegistryEntry | undefined;
+    return entry ? governEntry(entry) : null;
   }
 
   private resolveMany<T extends { id: string }>(entries: T[], ids: string[]): T[] {
