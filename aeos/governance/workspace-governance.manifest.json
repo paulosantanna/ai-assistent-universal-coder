@@ -41,6 +41,7 @@
     "knowledge",
     "packages",
     "packages/aeos-language-server",
+    "playbooks",
     "references",
     "runtime",
     "scripts",
