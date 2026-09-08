@@ -7,6 +7,7 @@ describe('CodENavi workspace governance', () => {
     const agents = readFileSync('AGENTS.md', 'utf8');
     assert.match(agent, /BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF/);
     assert.match(agent, /CODENAVI_WORKSPACE_STANDARD\.md/);
+    assert.match(agent, /codenavi-artifact-contract\.v1\.json/);
     assert.match(agents, /AGENT\.md/);
     assert.match(agents, /CODENAVI_WORKSPACE_STANDARD\.md/);
   });
@@ -32,6 +33,18 @@ describe('CodENavi workspace governance', () => {
     for (const path of paths) {
       assert.equal(existsSync(path), true, `${path} missing`);
       assert.match(readFileSync(path, 'utf8'), /Governance: CodENavi v1/);
+    }
+  });
+
+  it('defines a machine-readable contract for every governed artifact class', () => {
+    const path = 'aeos/governance/codenavi-artifact-contract.v1.json';
+    assert.equal(existsSync(path), true);
+    const contract = JSON.parse(readFileSync(path, 'utf8'));
+    assert.equal(contract.standard, 'CodENavi Artifact Contract v1');
+    assert.deepEqual(contract.lifecycle, ['BRIEFING', 'RECON', 'PLAN', 'EXECUTE', 'VERIFY', 'DEBRIEF']);
+    for (const type of ['agent','skill','playbook','mcp','lcp','lsp','registry','blueprint','eval','memory_knowledge','runtime_tool','ci_release','documentation']) {
+      assert.ok(contract.artifact_types[type], `missing artifact contract for ${type}`);
+      assert.ok(contract.artifact_types[type].required_contracts.length > 0, `empty artifact contract for ${type}`);
     }
   });
 });
