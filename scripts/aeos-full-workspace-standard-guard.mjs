@@ -80,6 +80,7 @@ if (manifest.coveragePolicy === 'all-tracked-files-governed-by-default') {
   for (const file of unexpectedlyOutside) errors.push(`tracked file escaped governance:${file}`);
 }
 
+const localContracts = new Map();
 for (const root of manifest.localContractRoots || []) {
   const contract = contractPath(root);
   if (!existsSync(contract)) {
@@ -87,26 +88,48 @@ for (const root of manifest.localContractRoots || []) {
     continue;
   }
   const text = readText(contract);
+  localContracts.set(norm(root), { contract, text });
   if (!text.includes(manifest.standard)) errors.push(`${contract} missing standard marker:${manifest.standard}`);
   if (contract !== 'AGENT.md' && !text.includes('AGENT.md')) errors.push(`${contract} must chain to root AGENT.md`);
   if (!text.includes('CODENAVI_FULL_WORKSPACE_STANDARD.md')) errors.push(`${contract} must chain to full workspace standard`);
 }
 
-// Existing local AGENT/AGENTS files are themselves governed artifacts. They must not remain stale.
+function effectiveGovernance(file) {
+  return [...localContracts.entries()]
+    .filter(([root]) => under(file, root))
+    .sort((a, b) => norm(b[0]).length - norm(a[0]).length)
+    .find(([, value]) => value.text.includes(manifest.standard));
+}
+
+let legacyInheritedAgents = 0;
+let explicitV2Agents = 0;
 for (const file of governed.filter(f => /(^|\/)(AGENT|AGENTS)\.md$/i.test(f))) {
   const text = readText(file);
-  if (!/CodENavi/i.test(text)) errors.push(`${file} is a stale agent contract without CodENavi inheritance`);
+  if (text.includes(manifest.standard)) {
+    explicitV2Agents += 1;
+    continue;
+  }
+  const inherited = effectiveGovernance(file);
+  if (!inherited) {
+    errors.push(`${file} has no effective CodENavi v2 ancestor contract`);
+    continue;
+  }
+  // Preserve specialized legacy instructions, but root/local v2 governance has higher precedence.
+  legacyInheritedAgents += 1;
 }
 
-// Every tracked artifact is covered by root governance; nearest local contracts specialize by subtree.
 for (const file of governed) {
-  const coverage = (manifest.localContractRoots || [])
-    .filter(root => under(file, root))
-    .sort((a, b) => norm(b).length - norm(a).length);
-  if (!coverage.length) errors.push(`ungoverned tracked artifact:${file}`);
+  const coverage = effectiveGovernance(file);
+  if (!coverage) errors.push(`ungoverned tracked artifact:${file}`);
 }
 
-const counts = { totalTracked: allTracked.length, totalGoverned: governed.length, ignored: allTracked.length - governed.length };
+const counts = {
+  totalTracked: allTracked.length,
+  totalGoverned: governed.length,
+  ignored: allTracked.length - governed.length,
+  explicitV2Agents,
+  legacyInheritedAgents
+};
 for (const [kind, markers] of Object.entries(manifest.artifactMatchers || {})) {
   counts[kind] = governed.filter(file => markers.some(marker => file.toLowerCase().includes(marker.toLowerCase()))).length;
 }
