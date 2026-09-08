@@ -1,0 +1,31 @@
+allowlist:
+  kinghost-commerce:
+    - kinghost.knowledge_search
+    - kinghost.inspect_environment
+    - kinghost.performance_audit
+    - kinghost.deploy_plan
+    - kinghost.database_plan
+    - kinghost.dns_plan
+    - commerce.catalog_plan
+    - commerce.channel_mapping
+    - commerce.price_sync_plan
+    - commerce.logistics_plan
+    - web.modernization_plan
+    - web.performance_budget
+
+blocked_mutations:
+  - kinghost.deploy_execute
+  - kinghost.database_write
+  - kinghost.database_drop
+  - kinghost.dns_write
+  - kinghost.secret_read
+  - commerce.catalog_publish
+  - commerce.price_publish
+  - commerce.inventory_publish
+  - commerce.order_mutate
+
+policy:
+  read_and_plan_only: true
+  production_write_requires_future_controlled_adapter: true
+  authenticated_browser_forbidden: true
+  unrestricted_shell_forbidden: true

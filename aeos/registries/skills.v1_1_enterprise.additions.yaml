@@ -89,3 +89,21 @@ skills:
     owner_agent: security
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: kinghost-site-operator
+    path: aeos/skills/generated/kinghost-site-operator.skill.md
+    version: 1.1.0
+    owner_agent: architect
+    risk_level: high
+    capabilities: [WEB_SEARCH, WEB_FETCH, KNOWLEDGE_RETRIEVAL, READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: omnichannel-commerce-operator
+    path: aeos/skills/generated/omnichannel-commerce-operator.skill.md
+    version: 1.1.0
+    owner_agent: architect
+    risk_level: high
+    capabilities: [WEB_SEARCH, WEB_FETCH, KNOWLEDGE_RETRIEVAL, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: web-modernization-performance
+    path: aeos/skills/generated/web-modernization-performance.skill.md
+    version: 1.1.0
+    owner_agent: architect
+    risk_level: high
+    capabilities: [WEB_SEARCH, WEB_FETCH, KNOWLEDGE_RETRIEVAL, READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
