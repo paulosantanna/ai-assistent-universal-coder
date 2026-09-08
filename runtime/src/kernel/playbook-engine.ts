@@ -13,7 +13,7 @@ import { ConfigLoader } from "./config-loader.js";
 import { PermissionEngine, type PermissionRequest } from "./permission-engine.js";
 import { PolicyEngine, type ActionRequest } from "./policy-engine.js";
 import { EvidenceStore } from "./evidence-store.js";
-import { ToolRouter } from "./tool-router.js";
+import { KingHostToolRouter } from "./kinghost-tool-router.js";
 import { SkillExecutor, type SkillContext } from "./skill-executor.js";
 import { CriticalThinkingGovernor } from "./critical-thinking-governor.js";
 import { DeterministicJudge } from "./deterministic-judge.js";
@@ -59,6 +59,7 @@ export class PlaybookEngine {
 
     const ctx = createExecutionContext(playbook.id, targetPath, aeosRoot, config);
     setContextStatus(ctx, "running");
+    let toolRouter: KingHostToolRouter | null = null;
 
     try {
       ctx.resolvedPlaybook = playbook;
@@ -75,12 +76,11 @@ export class PlaybookEngine {
 
       const evidenceBase = join(targetPath, ".aeos", "evidence", ctx.executionId);
       const evidenceStore = new EvidenceStore(evidenceBase);
-      const toolRouter = new ToolRouter(evidenceStore);
+      toolRouter = new KingHostToolRouter(evidenceStore, aeosRoot);
       const criticalThinkingGovernor = new CriticalThinkingGovernor(aeosRoot);
 
       toolRouter.registerMCPs(mcps);
 
-      // Step 1: Permission check for agent
       this.checkAndRecord(
         ctx,
         evidenceStore,
@@ -94,7 +94,6 @@ export class PlaybookEngine {
         })
       );
 
-      // Step 2: Policy check
       const policyResult = this.policyEngine.checkAction({
         actionType: "filesystem_write",
         actionName: "read",
@@ -112,7 +111,6 @@ export class PlaybookEngine {
       ctx.permissionDecisions.push(permDecision);
       evidenceStore.writePermissionDecision(permDecision);
 
-      // Step 3: Execute skills sequentially
       for (const skillEntry of skills) {
         const skillCheck = this.permissionEngine.checkPermission({
           agentId: agent.id,
@@ -183,13 +181,11 @@ export class PlaybookEngine {
           toolRouter.setActiveSkill(null);
         }
 
-        // Record evidence from skill output
         for (const ev of output.evidence) {
           addEvidence(ctx, ev);
           evidenceStore.writeEvidence(ev);
         }
 
-        // Add risks to context
         for (const risk of output.risks) {
           addEvidence(ctx, {
             id: randomUUID(),
@@ -203,12 +199,10 @@ export class PlaybookEngine {
         }
       }
 
-      // Step 4: Run Judge
       const reportDir = join(targetPath, ".aeos", "reports");
       const judgeReport = this.judge.evaluate(ctx, evidenceStore);
       ctx.judgeReport = judgeReport;
 
-      // Determine final status before writing reports
       if (judgeReport.verdict === "BLOCKED") {
         ctx.status = "blocked";
         ctx.judgeReport = judgeReport;
@@ -216,7 +210,6 @@ export class PlaybookEngine {
         setContextStatus(ctx, "completed");
       }
 
-      // Step 5: Write reports (status is already set)
       const judgeArtifact = evidenceStore.writeGeneratedArtifact(
         "../../reports/judge-report.md",
         this.reportWriter.writeJudgeReport(judgeReport)
@@ -229,7 +222,6 @@ export class PlaybookEngine {
       );
       ctx.artifacts.push(executionArtifact);
 
-      // Write permission decisions summary
       evidenceStore.writeGeneratedArtifact(
         "../../reports/permission-decisions.md",
         this.reportWriter.writePermissionDecisions(ctx.permissionDecisions)
@@ -249,6 +241,8 @@ export class PlaybookEngine {
       }
     } catch (err) {
       setContextStatus(ctx, "failed", err instanceof Error ? err.message : String(err));
+    } finally {
+      if (toolRouter) await toolRouter.shutdownKingHost();
     }
 
     return ctx;
