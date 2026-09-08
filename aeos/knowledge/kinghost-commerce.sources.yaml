@@ -1,0 +1,61 @@
+knowledge_domain: kinghost-commerce
+version: "2026-09-08"
+policy:
+  authority_order: [official_vendor_docs, standards, first_party_engineering, trusted_secondary]
+  require_source_url: true
+  require_retrieved_at: true
+  reject_undocumented_capabilities: true
+  refresh_before_high_risk_action: true
+
+sources:
+  kinghost:
+    authority: official_vendor_docs
+    domains: [king.host]
+    topics:
+      - hosting plans and limits
+      - control panel and account operations
+      - domains DNS SSL certificates and email
+      - FTP SFTP SSH Git deployment
+      - PHP Node.js JavaScript runtimes
+      - MySQL PostgreSQL MongoDB and query operations
+      - WordPress and CMS operations
+      - backups logs monitoring resource usage and troubleshooting
+      - security hardening malware incident response and access control
+      - performance CPU memory cache HTTP errors and application optimization
+  frontend_backend:
+    authority: official_vendor_docs
+    domains: [developer.mozilla.org, nodejs.org, react.dev, angular.dev, web.dev, owasp.org]
+    topics: [javascript, typescript, nodejs, react, angular, css, html, accessibility, core-web-vitals, web-security]
+  commerce_channels:
+    authority: official_vendor_docs
+    providers:
+      - {id: instagram-meta, domains: [developers.facebook.com, business.instagram.com], scope: [catalog, commerce, instagram, webhooks]}
+      - {id: tiktok, domains: [developers.tiktok.com], scope: [commerce, content, auth, webhooks]}
+      - {id: mercado-livre, domains: [developers.mercadolivre.com.br], scope: [items, prices, stock, orders, shipping, questions]}
+      - {id: amazon, domains: [developer-docs.amazon.com, developer.amazonservices.com], scope: [catalog, listings, pricing, inventory, orders, fulfillment]}
+      - {id: shopee, domains: [developers.shopee.com], scope: [products, pricing, stock, orders, logistics]}
+      - {id: ifood, domains: [developer.ifood.com.br], scope: [catalog, merchant, orders, events, delivery]}
+      - {id: uber, domains: [developer.uber.com], scope: [delivery, auth, webhooks]}
+      - {id: 99, domains: [developer.99app.com], scope: [delivery, integration]}
+      - {id: keeta, domains: [], scope: [catalog, orders, delivery], status: verify-official-developer-program-before-use}
+
+learning_questions:
+  - What is supported by the customer's exact KingHost plan?
+  - What changed in official documentation since the last retrieval?
+  - Which operation is read-only versus mutating?
+  - What prerequisite, credential scope and rate limit applies?
+  - What can fail and where does that failure propagate?
+  - What evidence proves the change worked?
+  - How is the change rolled back or reconciled?
+  - Which source is authoritative when documentation conflicts?
+
+commerce_canonical_model:
+  entities: [product, variant, sku, price, price_rule, inventory, warehouse, order, customer, shipment, fulfillment, return, refund, channel_listing]
+  invariants:
+    - one internal canonical SKU identity per sellable variant
+    - channel IDs are mappings, never primary identities
+    - money uses explicit currency and decimal semantics
+    - inventory mutations are idempotent and auditable
+    - price floors and margin rules are validated before publication
+    - orders are reconciled against channel state
+    - webhook processing is idempotent and replay-safe
