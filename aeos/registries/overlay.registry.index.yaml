@@ -1,6 +1,6 @@
 ﻿# AEOS Overlay Registry Index
 
-generated_at: "2026-07-08T19:46:37.6750057-03:00"
+generated_at: "2026-09-08T20:05:00-03:00"
 note: "Registry fragments created by AEOS overlay packs. Merge into active registries only through audited AEOS playbook."
 registry_fragments:
   - path: aeos/registries/agents.registry.yaml
@@ -23,4 +23,5 @@ registry_fragments:
   - path: aeos/registries/skills.v0_7.additions.yaml
   - path: aeos/registries/skills.v0_8_to_v1_0.additions.yaml
   - path: aeos/registries/skills.v1_1_enterprise.additions.yaml
+  - path: aeos/registries/skills.image-ai-pack.additions.yaml
   - path: aeos/registries/workbench-profiles.registry.yaml
