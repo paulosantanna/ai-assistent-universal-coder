@@ -13,10 +13,14 @@ const SUPPORTED_MEDIA = new Set(['.mp4','.mov','.mkv','.webm','.avi','.wav','.mp
 const TECH_TERMS = [
   'end-to-end','e2e','b2b','b2c','api','rest','graphql','grpc','http','https','json','yaml','xml','sql','nosql','node.js','node','javascript','typescript','react','angular','java','spring boot','aws','azure','gcp','kubernetes','docker','ci/cd','devops','sre','rag','llm','mcp','lsp','oauth','jwt','webhook','frontend','backend','full-stack','microservice','microservices','cache','latency','throughput','rollback','deploy','deployment','observability','open telemetry','opentelemetry'
 ];
-const HUMOR_MARKERS = [
-  /\b(brincadeira|zoeira|zuera|piada|tô brincando|estou brincando|risos?|kkkk+|haha+|rsrs+)\b/i,
-  /\b(just kidding|i'm kidding|kidding|joke|laughs?|lol|lmao)\b/i,
+const STRONG_HUMOR_MARKERS = [
+  /\b(t[oô] brincando|estou brincando|era brincadeira|s[oó] brincadeira|just kidding|i(?:'|’)m kidding|only kidding)\b/i,
   /\[(risos?|laughter|laughs?)\]/i
+];
+const HUMOR_MARKERS = [
+  ...STRONG_HUMOR_MARKERS,
+  /\b(brincadeira|zoeira|zuera|piada|risos?|kkkk+|haha+|rsrs+)\b/i,
+  /\b(kidding|joke|laughs?|lol|lmao)\b/i
 ];
 const SERIOUS_MARKERS = [
   /\b(precisamos|devemos|obrigatório|risco|incidente|produção|production|security|segurança|deadline|prazo|arquitetura|architecture|bug|erro|error|falha|failure|deploy|database|banco de dados|custo|cost|cliente|customer|requisito|requirement)\b/i,
@@ -67,15 +71,20 @@ function preserveTerms(original, normalized) {
   return out;
 }
 function classifySegment(text) {
+  const strongHumor = STRONG_HUMOR_MARKERS.some(re => re.test(text));
   const humor = HUMOR_MARKERS.some(re => re.test(text));
   const serious = SERIOUS_MARKERS.some(re => re.test(text));
   let label = 'ambiguous';
   let confidence = 0.5;
-  if (humor && !serious) { label = 'humor'; confidence = 0.88; }
+
+  // Explicit self-disambiguation such as "tô brincando" / "just kidding" has
+  // higher semantic authority than incidental serious vocabulary inside the joke.
+  if (strongHumor) { label = 'humor'; confidence = 0.96; }
+  else if (humor && !serious) { label = 'humor'; confidence = 0.88; }
   else if (serious && !humor) { label = 'serious'; confidence = 0.84; }
   else if (serious && humor) { label = 'mixed'; confidence = 0.66; }
   else if (/[.!?]$/.test(text) && text.split(/\s+/).length >= 8) { label = 'serious_candidate'; confidence = 0.58; }
-  return { label, confidence, humor_signal: humor, serious_signal: serious };
+  return { label, confidence, humor_signal: humor, strong_humor_signal: strongHumor, serious_signal: serious };
 }
 function analyzeTranscript(text) {
   const lines = text.split(/\n+|(?<=[.!?])\s+(?=[A-ZÀ-Ú0-9])/u).map(x => x.trim()).filter(Boolean).slice(0, MAX_ANALYSIS_SEGMENTS);
@@ -149,7 +158,7 @@ function ingestCorpus(params) {
 }
 async function handle(action, params = {}) {
   switch (action) {
-    case 'aura.health': return { version: '1.0.0', media: [...SUPPORTED_MEDIA], transcripts: [...SUPPORTED_TEXT], asr: 'whisper.cpp', extraction: 'ffmpeg' };
+    case 'aura.health': return { version: '1.0.1', media: [...SUPPORTED_MEDIA], transcripts: [...SUPPORTED_TEXT], asr: 'whisper.cpp', extraction: 'ffmpeg' };
     case 'aura.media.inspect': return inspectMedia(String(params.path || ''));
     case 'aura.media.extract_audio': return extractAudio(String(params.input || ''), String(params.output || ''));
     case 'aura.transcript.read': { const text = readTranscript(String(params.path || '')); return { text, hash: sha256(text) }; }
