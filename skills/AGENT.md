@@ -1,118 +1,97 @@
-# AGENT.md
-# AEOS Skill Factory Agent
+# AEOS Canonical Skills / Skill Factory contract
 
-## Identity
+Governance: CodENavi Full Workspace v2
 
-You are the execution agent for the AEOS Skill Factory.
+This subtree inherits root `AGENT.md` and `references/CODENAVI_FULL_WORKSPACE_STANDARD.md`.
 
-You convert user intent into governed skill packages.
+All canonical skills, the Skill Factory, templates and generated skill packages follow **BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF**.
 
-## Hierarchy
+## Skill Factory identity
 
-```text
-Skill Factory Root
-→ Domain Designer
-→ File Generator
-→ Validator
-→ Knowledge Curator
-```
+The Skill Factory converts repeated engineering intent into governed, reusable skill packages. The product is not a prompt; the product is a bounded, validated and maintainable capability contract.
 
-Roles may be performed sequentially by one model or delegated to subagents.
+## Mandatory skill contract
 
-No generator may approve its own critical validation without an independent validation pass when risk is high.
+Every new or materially revised skill must define or inherit:
 
-## Four layers
+- name/id and mission;
+- activation criteria and exclusions/non-goals;
+- inputs and scope boundaries;
+- outputs and evidence;
+- owner agent and risk level;
+- required registered capabilities;
+- tool/MCP/LCP/LSP dependencies;
+- freshness requirements for APIs/frameworks/models/providers;
+- security/secret handling;
+- failure/stop/escalation conditions;
+- verification/evals;
+- handoff/debrief/documentation/notebook impact.
 
-### 1. Deep Understanding
+## Design rules
 
-Understand:
+1. Search for existing overlapping capabilities before creating another skill.
+2. Prefer one cohesive reusable capability over prompt duplication.
+3. Use the simplest sufficient architecture; no speculative modules or dependencies.
+4. Skill text does not grant authority. Runtime capability/policy/Judge/approval controls remain authoritative.
+5. Declarative-only skills must not claim executable behavior until adapters/runtime wiring and tests prove it.
+6. Verify current framework/API/model behavior against authoritative sources when freshness matters.
+7. Tests/evals verify contracts and realistic behavior, not incidental implementation details.
+8. No secrets/tokens/cookies/passwords/private keys in skills, examples, notebook, evidence or generated files.
+9. Generated code follows repository-native style and surgical-change rules.
+10. High-risk validation requires an independent validation pass; generators do not self-approve critical work.
 
-- the repeated task;
-- repository context;
-- expected user language;
-- required tools;
-- risk;
-- constraints;
-- intended reuse.
+## Skill Factory handoff
 
-### 2. Negative Knowledge
-
-Consult:
-
-- known bad skill structures;
-- activation collisions;
-- context bloat patterns;
-- fake validation;
-- uncontrolled memory;
-- unbounded authority;
-- unsupported tooling.
-
-### 3. Positive Knowledge
-
-Apply:
-
-- bounded scope;
-- explicit contracts;
-- deterministic validation;
-- evidence-based completion;
-- minimal sufficient architecture;
-- modular learning only when justified.
-
-### 4. Continuous Learning
-
-After generation:
-
-- record validator failures;
-- record useful design patterns;
-- identify template improvements;
-- create candidate lessons;
-- never promote raw output directly.
-
-## Required handoff
-
-The designer must hand off to the generator:
+Designer → generator:
 
 ```yaml
 skill_design:
   name:
   slug:
-  objective:
+  mission:
+  non_goals:
   activation:
   exclusions:
   inputs:
   outputs:
-  architecture_level:
+  owner_agent:
   risk_level:
-  required_files:
-  optional_modules:
+  capabilities:
+  dependencies:
+  evidence:
+  freshness:
+  security:
   validation_rules:
 ```
 
-The generator must hand off to the validator:
+Generator → validator:
 
 ```yaml
 validation_request:
   package_path:
-  declared_level:
-  required_files:
   expected_slug:
+  registered_path:
+  owner_agent:
+  risk_level:
+  capabilities:
   tests_required:
   manifest_required:
+  runtime_wiring_required:
 ```
 
 ## Stop conditions
 
-Stop when:
+Stop/fail closed when:
 
 - user intent cannot be represented safely;
-- requested authority is unsafe;
-- destructive behavior lacks approval;
-- required tools are unavailable;
-- package validation fails;
-- generated structure contradicts declared architecture.
+- requested authority exceeds registered capabilities;
+- destructive/production behavior lacks required approval;
+- required tools are unavailable or unsupported;
+- current API/provider behavior cannot be verified for a high-risk action;
+- validation/evals fail;
+- generated structure contradicts the declared contract;
+- a duplicate/overlapping skill would create governance ambiguity.
 
-## Final rule
+## Existing skills
 
-The product is not the prompt.
-
-The product is a validated, installable and maintainable skill package.
+All legacy skills under `skills/` inherit this contract immediately even if their original text predates CodENavi. When an old skill is materially touched, normalize its own contract toward this structure instead of preserving stale conventions.
