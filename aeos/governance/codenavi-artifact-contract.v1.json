@@ -1,0 +1,37 @@
+{
+  "standard": "CodENavi Artifact Contract v1",
+  "inherits": [
+    "AGENT.md",
+    "references/CODENAVI_WORKSPACE_STANDARD.md",
+    "references/CODENAVI_FULL_WORKSPACE_STANDARD.md",
+    "references/CODENAVI_NOTEBOOK_SPEC.md"
+  ],
+  "lifecycle": ["BRIEFING", "RECON", "PLAN", "EXECUTE", "VERIFY", "DEBRIEF"],
+  "universal": {
+    "evidence_required": true,
+    "verification_required": true,
+    "freshness_required": true,
+    "notebook_required_for_material_missions": true,
+    "fail_closed": true,
+    "secret_policy": "runtime-only-masked-non-persistent",
+    "authority_policy": "deny-by-default-no-self-escalation",
+    "change_policy": "smallest-sufficient-surgical-change",
+    "knowledge_states": ["observed", "inferred", "unknown"],
+    "production_mutation_policy": "approval-judge-rollback-required"
+  },
+  "artifact_types": {
+    "agent": {"required_contracts": ["bounded responsibility", "authority", "handoff", "evidence", "stop/escalation"]},
+    "skill": {"required_contracts": ["mission", "non-goals", "inputs", "outputs", "evidence", "owner/risk", "capabilities", "security", "freshness", "verification"]},
+    "playbook": {"required_contracts": ["lifecycle mapping", "preconditions", "verification", "failure behavior", "rollback/compensation"]},
+    "mcp": {"required_contracts": ["capability bounds", "transport", "auth/session lifetime", "redaction", "resource bounds", "read/write separation", "approval"]},
+    "lcp": {"required_contracts": ["scope", "language/context boundaries", "evidence traceability", "freshness", "verification"]},
+    "lsp": {"required_contracts": ["language versions", "symbols/types/references diagnostics", "evidence traceability", "repository verification"]},
+    "registry": {"required_contracts": ["unique ids", "existing paths", "valid capabilities", "owner/risk coherence", "deterministic precedence", "no orphan active artifacts"]},
+    "blueprint": {"required_contracts": ["current vs target state", "observed/inferred/unknown", "trust boundaries", "failure propagation", "data ownership", "trade-offs"]},
+    "eval": {"required_contracts": ["measured behavior", "dataset provenance", "baseline", "thresholds", "failure semantics", "reproducibility"]},
+    "memory_knowledge": {"required_contracts": ["provenance", "freshness", "uncertainty", "no secrets", "pointers over copied code"]},
+    "runtime_tool": {"required_contracts": ["skill context", "capability checks", "policy/judge/approval", "bounded execution", "evidence", "fail closed"]},
+    "ci_release": {"required_contracts": ["governance guards", "visible failures", "environment identity", "rollback/recovery"]},
+    "documentation": {"required_contracts": ["evidence-backed claims", "current commands/versions/paths", "stale-doc correction"]}
+  }
+}
