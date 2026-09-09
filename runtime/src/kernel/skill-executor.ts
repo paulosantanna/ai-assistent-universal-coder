@@ -8,6 +8,12 @@ import type {
 import { ToolRouter } from "./tool-router.js";
 import { EvidenceStore } from "./evidence-store.js";
 import { RepoScannerSkill } from "./skills/repo-scanner.js";
+import {
+  CODENAVI_CONTINUITY_SKILLS,
+  continuitySkillFacts,
+  validateContinuityText,
+  type ContinuitySkillId
+} from "./codenavi-continuity.js";
 import { basename, extname, join } from "node:path";
 
 export interface SkillContext {
@@ -38,6 +44,19 @@ export class SkillExecutor {
       assumptions: [],
       errors: []
     };
+
+    if (CODENAVI_CONTINUITY_SKILLS.has(skillId as ContinuitySkillId)) {
+      const rawInput = context.input as unknown as Record<string, unknown>;
+      const candidateText = [rawInput.content, rawInput.text, rawInput.entry, rawInput.payload]
+        .filter((value): value is string => typeof value === "string")
+        .join("\n");
+      defaultOutput.errors.push(...validateContinuityText(candidateText));
+      if (defaultOutput.errors.length > 0) return defaultOutput;
+
+      defaultOutput.facts.push(...continuitySkillFacts(skillId as ContinuitySkillId));
+      defaultOutput.facts.push("Continuity repository mutations remain subject to the normal AEOS Tool Router, permission, evidence and Judge gates.");
+      return defaultOutput;
+    }
 
     switch (skillId) {
       case "repo-scanner": {
