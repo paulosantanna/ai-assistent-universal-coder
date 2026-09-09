@@ -6,7 +6,7 @@ on:
     branches: [ master ]
 
 permissions:
-  contents: write
+  contents: read
   actions: read
 
 jobs:
@@ -26,21 +26,6 @@ jobs:
         with:
           node-version: '22'
           cache: npm
-
-      - name: Refresh root lockfile for dependency maintenance
-        if: github.event_name == 'pull_request' && github.head_ref == 'feature/codenavi-continuity-standard'
-        shell: bash
-        run: |
-          npm install --package-lock-only --ignore-scripts --no-audit --no-fund
-          if git diff --quiet -- package-lock.json; then
-            echo "Root lockfile already current."
-          else
-            git config user.name "aeos-dependency-maintenance"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add package-lock.json
-            git commit -m "chore(deps): refresh root lockfile"
-            git push origin HEAD:${GITHUB_HEAD_REF}
-          fi
 
       - name: Install Node dependencies
         run: npm run aeos:bootstrap:deps
