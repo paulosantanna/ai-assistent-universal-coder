@@ -8,6 +8,8 @@ import {
   validateCriticalThinkingConfig
 } from "./aeos-critical-thinking-governance.mjs";
 
+const CODENAVI_AGENT_ID = "codenavi-agent";
+
 function parseSkillBlocks(text) {
   return text
     .split(/\n(?=- id: )/g)
@@ -16,18 +18,6 @@ function parseSkillBlocks(text) {
       id: block.match(/^- id:\s*([^\n]+)/m)?.[1]?.trim() ?? "",
       riskLevel: block.match(/^\s*risk_level:\s*([^\n]+)/m)?.[1]?.trim() ?? "",
       mission: block.match(/^\s*mission:\s*([^\n]+)/m)?.[1]?.trim() ?? ""
-    }));
-}
-
-function parseAgentBlocks(text) {
-  return text
-    .split(/\n(?=\s{2}- id: )/g)
-    .filter((block) => /^\s{2}- id: /m.test(block))
-    .map((block) => ({
-      id: block.match(/^\s{2}- id:\s*([^\n]+)/m)?.[1]?.trim() ?? "",
-      path: block.match(/^\s{4}path:\s*([^\n]+)/m)?.[1]?.trim() ?? "",
-      role: block.match(/^\s{4}role:\s*([^\n]+)/m)?.[1]?.trim() ?? "",
-      allowedMcps: block.match(/^\s{4}allowed_mcps:\s*([^\n]+)/m)?.[1]?.trim() ?? ""
     }));
 }
 
@@ -44,38 +34,22 @@ export function validateCriticalThinkingGovernance(repoRoot = resolve(process.cw
   const skillsText = readFileSync(skillsRegistryPath, "utf8");
   const agentsText = readFileSync(agentsRegistryPath, "utf8");
   const skills = parseSkillBlocks(skillsText);
-  const registeredAgents = parseAgentBlocks(agentsText);
-  const agentIndex = new Map(registeredAgents.map((agent) => [agent.id, agent]));
   const skillIds = new Set(skills.map((skill) => skill.id));
 
   if (!skillIds.has(config.governing_skill)) {
     errors.push(`governing skill is not registered: ${config.governing_skill}`);
   }
 
-  const rootAgent = agentIndex.get("critical-thinking-root");
-  if (!rootAgent) errors.push("critical-thinking-root is not registered");
-  if (rootAgent && rootAgent.path !== "skills/critical-thinking-governor/AGENT.md") {
-    errors.push("critical-thinking-root path is invalid");
+  const agentIds = [...agentsText.matchAll(/^\s*- id:\s*([^\n]+)/gm)].map((match) => match[1].trim());
+  if (agentIds.length !== 1 || agentIds[0] !== CODENAVI_AGENT_ID) {
+    errors.push(`agent registry must contain only ${CODENAVI_AGENT_ID}`);
   }
+  if (!agentsText.includes("path: AGENT.md")) errors.push(`${CODENAVI_AGENT_ID} must point to AGENT.md`);
+  if (!/subagents:\s*\[\s*\]/m.test(agentsText)) errors.push("subagents must be an empty list");
 
-  for (const definition of config.agents) {
-    const registered = agentIndex.get(definition.id);
-    if (!registered) {
-      errors.push(`critical-thinking agent is not registered: ${definition.id}`);
-      continue;
-    }
-    if (registered.path !== definition.path) errors.push(`registry path mismatch for ${definition.id}`);
-    if (registered.role !== "critical-thinking-specialist") errors.push(`invalid role for ${definition.id}`);
-    if (registered.allowedMcps !== "[]") errors.push(`${definition.id} must have allowed_mcps: []`);
-    const absolutePath = join(repoRoot, definition.path);
-    if (!existsSync(absolutePath)) {
-      errors.push(`agent contract not found: ${definition.path}`);
-      continue;
-    }
-    const contract = readFileSync(absolutePath, "utf8");
-    if (!contract.includes(definition.prompt_id)) errors.push(`agent contract missing prompt id ${definition.prompt_id}`);
-    if (!contract.includes("Não execute ferramentas")) errors.push(`agent contract missing no-tool boundary: ${definition.id}`);
-    if (conflictMarkers(contract)) errors.push(`merge conflict marker found in ${definition.path}`);
+  for (const lens of config.lenses) {
+    if (!lens.prompt_id || !lens.id || !lens.name) errors.push("critical-thinking lens is incomplete");
+    if (!Array.isArray(lens.triggers) || lens.triggers.length === 0) errors.push(`lens ${lens.id ?? "?"} has no triggers`);
   }
 
   const invalidRiskSkills = skills.filter((skill) => !["low", "medium", "high", "critical"].includes(skill.riskLevel));
@@ -99,12 +73,12 @@ export function validateCriticalThinkingGovernance(repoRoot = resolve(process.cw
 
   const governedFiles = [
     "AGENT.md",
+    "AGENTS.md",
     "package.json",
     "aeos/registries/agents.registry.yaml",
     "aeos/registries/skills.registry.yaml",
     "aeos/config/critical-thinking-governance.config.json",
     "skills/critical-thinking-governor/SKILL.md",
-    "skills/critical-thinking-governor/AGENT.md",
     "scripts/aeos-critical-thinking-governance.mjs",
     "scripts/aeos-critical-thinking-guard.mjs",
     "runtime/src/kernel/critical-thinking-governor.ts",
@@ -125,10 +99,11 @@ export function validateCriticalThinkingGovernance(repoRoot = resolve(process.cw
   return {
     status: errors.length === 0 ? "PASS" : "FAIL",
     governingSkill: config.governing_skill,
-    specialistAgentsChecked: config.agents.length,
+    lensesChecked: config.lenses.length,
     skillsChecked: skills.length,
-    baselineAgents: config.baseline_agents,
-    maxAgentsPerPlan: config.max_agents,
+    baselineLenses: config.baseline_lenses,
+    maxLensesPerPlan: config.max_lenses,
+    agentId: CODENAVI_AGENT_ID,
     errors
   };
 }

@@ -2,150 +2,150 @@ skills:
   - id: java-8-expert
     path: skills/java-8-expert/SKILL.md
     version: 1.0.0
-    owner_agent: coder
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: java-11-expert
     path: skills/java-11-expert/SKILL.md
     version: 1.0.0
-    owner_agent: coder
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: java-17-expert
     path: skills/java-17-expert/SKILL.md
     version: 1.0.0
-    owner_agent: coder
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: java-21-expert
     path: skills/java-21-expert/SKILL.md
     version: 1.0.0
-    owner_agent: coder
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: camel-banking-expert
     path: skills/camel-banking-expert/SKILL.md
     version: 1.0.0
-    owner_agent: architect
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: confluence-assistant
     path: skills/confluence-assistant/SKILL.md
     version: 1.0.0
-    owner_agent: orchestrator
+    owner_agent: codenavi-agent
     risk_level: medium
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: jira-assistant
     path: skills/jira-assistant/SKILL.md
     version: 1.0.0
-    owner_agent: orchestrator
+    owner_agent: codenavi-agent
     risk_level: medium
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: jira-time-entry-assistant
     path: skills/jira-time-entry-assistant/SKILL.md
     version: 1.0.0
-    owner_agent: orchestrator
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: pr-comment-resolver
     path: skills/pr-comment-resolver/SKILL.md
     version: 1.0.0
-    owner_agent: coder
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: pr-reviewer-advanced
     path: skills/pr-reviewer-advanced/SKILL.md
     version: 1.0.0
-    owner_agent: architect
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: deployment-pipeline-expert
     path: skills/deployment-pipeline-expert/SKILL.md
     version: 1.0.0
-    owner_agent: architect
+    owner_agent: codenavi-agent
     risk_level: critical
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: incident-response-assistant
     path: skills/incident-response-assistant/SKILL.md
     version: 1.0.0
-    owner_agent: orchestrator
+    owner_agent: codenavi-agent
     risk_level: critical
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: servicenow-incident-assistant
     path: skills/servicenow-incident-assistant/SKILL.md
     version: 1.0.0
-    owner_agent: orchestrator
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: whatsapp-simulator
     path: skills/whatsapp-simulator/SKILL.md
     version: 1.0.0
-    owner_agent: coder
+    owner_agent: codenavi-agent
     risk_level: medium
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: automation-orchestrator
     path: skills/automation-orchestrator/SKILL.md
     version: 1.0.0
-    owner_agent: orchestrator
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: python-expert
     path: skills/python-expert/SKILL.md
     version: 1.0.0
-    owner_agent: coder
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: ai-engineering-expert
     path: skills/ai-engineering-expert/SKILL.md
     version: 1.0.0
-    owner_agent: architect
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, WEB_SEARCH, WEB_FETCH, KNOWLEDGE_RETRIEVAL, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: ai-architecture-expert
     path: skills/ai-architecture-expert/SKILL.md
     version: 1.0.0
-    owner_agent: architect
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, WEB_SEARCH, WEB_FETCH, KNOWLEDGE_RETRIEVAL, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: rag-expert
     path: skills/rag-expert/SKILL.md
     version: 1.0.0
-    owner_agent: architect
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: bm25-expert
     path: skills/bm25-expert/SKILL.md
     version: 1.0.0
-    owner_agent: architect
+    owner_agent: codenavi-agent
     risk_level: medium
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: fine-tuning-expert
     path: skills/fine-tuning-expert/SKILL.md
     version: 1.0.0
-    owner_agent: architect
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, WEB_SEARCH, WEB_FETCH, KNOWLEDGE_RETRIEVAL, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: lora-qlora-dora-expert
     path: skills/lora-qlora-dora-expert/SKILL.md
     version: 1.0.0
-    owner_agent: architect
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: ai-evals-expert
     path: skills/ai-evals-expert/SKILL.md
     version: 1.0.0
-    owner_agent: architect
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, WEB_SEARCH, WEB_FETCH, KNOWLEDGE_RETRIEVAL, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: llm-model-selection-expert
     path: skills/llm-model-selection-expert/SKILL.md
     version: 1.0.0
-    owner_agent: architect
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, WEB_SEARCH, WEB_FETCH, KNOWLEDGE_RETRIEVAL, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: ai-project-bootstrapper
     path: skills/ai-project-bootstrapper/SKILL.md
     version: 1.0.0
-    owner_agent: orchestrator
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]

@@ -221,12 +221,11 @@ export interface SkillRegistryEntry {
   requires_human_approval_for?: string[];
 }
 
-export interface CriticalThinkingAgentDefinition {
+export interface CriticalThinkingLensDefinition {
   order: number;
   prompt_id: string;
   id: string;
   name: string;
-  path: string;
   triggers: string[];
 }
 
@@ -235,19 +234,18 @@ export interface CriticalThinkingConfig {
   governing_skill: string;
   scope: string;
   fail_closed: boolean;
-  min_agents: number;
-  max_agents: number;
-  baseline_agents: string[];
+  min_lenses: number;
+  max_lenses: number;
+  baseline_lenses: string[];
   risk_overlays: Record<string, string[]>;
   required_output_fields: string[];
-  agents: CriticalThinkingAgentDefinition[];
+  lenses: CriticalThinkingLensDefinition[];
 }
 
-export interface CriticalThinkingSelectedAgent {
+export interface CriticalThinkingSelectedLens {
   id: string;
   promptId: string;
   name: string;
-  path: string;
   reason: string;
 }
 
@@ -257,7 +255,7 @@ export interface CriticalThinkingPlan {
   governingSkill: string;
   skillId: string;
   riskLevel: string;
-  selectedAgents: CriticalThinkingSelectedAgent[];
+  selectedLenses: CriticalThinkingSelectedLens[];
   requiredOutputFields: string[];
   failClosed: boolean;
   blockingConditions: string[];
@@ -316,6 +314,7 @@ export interface AgentRegistryEntry {
 
 export interface AgentsRegistry {
   agents: AgentRegistryEntry[];
+  subagents?: SubAgentRegistryEntry[];
 }
 
 // =============================================================================

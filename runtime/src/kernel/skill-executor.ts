@@ -25,7 +25,7 @@ export class SkillExecutor {
       !context.criticalThinkingPlan ||
       context.criticalThinkingPlan.status !== "PASS" ||
       context.criticalThinkingPlan.skillId !== skillId ||
-      context.criticalThinkingPlan.selectedAgents.length === 0
+      context.criticalThinkingPlan.selectedLenses.length === 0
     ) {
       throw new Error(`Critical-thinking governance is missing or invalid for skill '${skillId}'.`);
     }
@@ -140,10 +140,10 @@ export class SkillExecutor {
       }
 
       case "critical-thinking-governor": {
-        const selected = context.criticalThinkingPlan.selectedAgents.map((agent) => agent.id);
-        defaultOutput.facts.push(`Critical-thinking plan ${context.criticalThinkingPlan.planHash} selected: ${selected.join(", ")}`);
+        const selected = context.criticalThinkingPlan.selectedLenses.map((lens) => lens.id);
+        defaultOutput.facts.push(`Critical-thinking plan ${context.criticalThinkingPlan.planHash} selected lenses: ${selected.join(", ")}`);
         defaultOutput.facts.push(`Governed skill: ${context.criticalThinkingPlan.skillId}`);
-        defaultOutput.assumptions.push("Selected agents provide structured findings without exposing private chain-of-thought.");
+        defaultOutput.assumptions.push("Selected lenses provide structured findings without exposing private chain-of-thought.");
         return defaultOutput;
       }
 

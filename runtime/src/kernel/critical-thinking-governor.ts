@@ -1,17 +1,18 @@
 import { createHash } from "node:crypto";
-import { existsSync, readFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { load } from "js-yaml";
 import type {
-  CriticalThinkingAgentDefinition,
   CriticalThinkingConfig,
+  CriticalThinkingLensDefinition,
   CriticalThinkingPlan,
-  CriticalThinkingSelectedAgent,
+  CriticalThinkingSelectedLens,
   SkillRegistryEntry
 } from "./types.js";
 
 const CONFIG_PATH = join("aeos", "config", "critical-thinking-governance.config.json");
 const VALID_RISK_LEVELS = new Set(["low", "medium", "high", "critical"]);
+const CODENAVI_AGENT_ID = "codenavi-agent";
 
 function normalize(value: unknown): string {
   return String(value ?? "")
@@ -60,57 +61,56 @@ export class CriticalThinkingGovernor {
     }
 
     const context = normalize(`${skill.id} ${skill.mission ?? ""} ${request}`);
-    const byId = new Map(this.config.agents.map((agent) => [agent.id, agent]));
-    const riskAgents = this.config.risk_overlays[riskLevel] ?? [];
-    const requiredIds = unique([...this.config.baseline_agents, ...riskAgents]);
+    const byId = new Map(this.config.lenses.map((lens) => [lens.id, lens]));
+    const riskLenses = this.config.risk_overlays[riskLevel] ?? [];
+    const requiredIds = unique([...this.config.baseline_lenses, ...riskLenses]);
     const reasons = new Map<string, string>([
-      ...this.config.baseline_agents.map((id) => [id, "baseline"] as const),
-      ...riskAgents.map((id) => [id, `risk:${riskLevel}`] as const)
+      ...this.config.baseline_lenses.map((id) => [id, "baseline"] as const),
+      ...riskLenses.map((id) => [id, `risk:${riskLevel}`] as const)
     ]);
 
-    const triggered = this.config.agents
-      .filter((agent) => !requiredIds.includes(agent.id))
-      .map((agent) => {
-        const matches = agent.triggers.filter((trigger) => includesTerm(context, trigger));
-        const explicit = includesTerm(context, agent.id) || includesTerm(context, agent.name);
+    const triggered = this.config.lenses
+      .filter((lens) => !requiredIds.includes(lens.id))
+      .map((lens) => {
+        const matches = lens.triggers.filter((trigger) => includesTerm(context, trigger));
+        const explicit = includesTerm(context, lens.id) || includesTerm(context, lens.name);
         const score = matches.reduce((total, trigger) => total + normalize(trigger).length, 0) + (explicit ? 1000 : 0);
-        return { agent, matches, score };
+        return { lens, matches, score };
       })
       .filter((candidate) => candidate.score > 0)
-      .sort((left, right) => right.score - left.score || left.agent.order - right.agent.order);
+      .sort((left, right) => right.score - left.score || left.lens.order - right.lens.order);
 
     const selectedIds = [...requiredIds];
     for (const candidate of triggered) {
-      if (selectedIds.length >= this.config.max_agents) break;
-      selectedIds.push(candidate.agent.id);
-      reasons.set(candidate.agent.id, `trigger:${candidate.matches.join("|") || "explicit"}`);
+      if (selectedIds.length >= this.config.max_lenses) break;
+      selectedIds.push(candidate.lens.id);
+      reasons.set(candidate.lens.id, `trigger:${candidate.matches.join("|") || "explicit"}`);
     }
 
-    for (const agent of this.config.agents) {
-      if (selectedIds.length >= this.config.min_agents) break;
-      if (!selectedIds.includes(agent.id)) {
-        selectedIds.push(agent.id);
-        reasons.set(agent.id, "minimum-set");
+    for (const lens of this.config.lenses) {
+      if (selectedIds.length >= this.config.min_lenses) break;
+      if (!selectedIds.includes(lens.id)) {
+        selectedIds.push(lens.id);
+        reasons.set(lens.id, "minimum-set");
       }
     }
 
-    const selectedAgents = selectedIds
+    const selectedLenses = selectedIds
       .map((id) => byId.get(id))
-      .filter((agent): agent is CriticalThinkingAgentDefinition => Boolean(agent))
+      .filter((lens): lens is CriticalThinkingLensDefinition => Boolean(lens))
       .sort((left, right) => left.order - right.order)
-      .map<CriticalThinkingSelectedAgent>((agent) => ({
-        id: agent.id,
-        promptId: agent.prompt_id,
-        name: agent.name,
-        path: agent.path,
-        reason: reasons.get(agent.id) ?? "selected"
+      .map<CriticalThinkingSelectedLens>((lens) => ({
+        id: lens.id,
+        promptId: lens.prompt_id,
+        name: lens.name,
+        reason: reasons.get(lens.id) ?? "selected"
       }));
 
     const blockingConditions: string[] = [];
-    if (selectedAgents.length < this.config.min_agents) blockingConditions.push("selected agent count is below min_agents");
-    if (selectedAgents.length > this.config.max_agents) blockingConditions.push("selected agent count exceeds max_agents");
+    if (selectedLenses.length < this.config.min_lenses) blockingConditions.push("selected lens count is below min_lenses");
+    if (selectedLenses.length > this.config.max_lenses) blockingConditions.push("selected lens count exceeds max_lenses");
     for (const id of requiredIds) {
-      if (!selectedAgents.some((agent) => agent.id === id)) blockingConditions.push(`required agent missing: ${id}`);
+      if (!selectedLenses.some((lens) => lens.id === id)) blockingConditions.push(`required lens missing: ${id}`);
     }
 
     const planData = {
@@ -118,7 +118,7 @@ export class CriticalThinkingGovernor {
       governingSkill: this.config.governing_skill,
       skillId: skill.id,
       riskLevel,
-      selectedAgents,
+      selectedLenses,
       requiredOutputFields: this.config.required_output_fields,
       failClosed: this.config.fail_closed
     };
@@ -133,54 +133,45 @@ export class CriticalThinkingGovernor {
 
   private validateConfig(): string[] {
     const errors: string[] = [];
-    const ids = this.config.agents.map((agent) => agent.id);
+    const ids = this.config.lenses.map((lens) => lens.id);
     const idSet = new Set(ids);
-    const promptIds = this.config.agents.map((agent) => agent.prompt_id);
-    const paths = this.config.agents.map((agent) => agent.path);
-    const orders = this.config.agents.map((agent) => agent.order).sort((left, right) => left - right);
+    const promptIds = this.config.lenses.map((lens) => lens.prompt_id);
+    const orders = this.config.lenses.map((lens) => lens.order).sort((left, right) => left - right);
     const expectedOrders = Array.from({ length: 20 }, (_, index) => index + 1);
+
     if (this.config.scope !== "all_registered_skills") errors.push("scope must be all_registered_skills");
     if (this.config.fail_closed !== true) errors.push("fail_closed must be true");
-    if (this.config.agents.length !== 20) errors.push(`expected 20 specialist agents, found ${this.config.agents.length}`);
-    if (idSet.size !== ids.length) errors.push("agent ids must be unique");
-    if (new Set(promptIds).size !== promptIds.length) errors.push("prompt ids must be unique");
-    if (new Set(paths).size !== paths.length) errors.push("agent paths must be unique");
-    if (JSON.stringify(orders) !== JSON.stringify(expectedOrders)) errors.push("agent orders must be the complete range 1..20");
-    if (this.config.baseline_agents.length !== 4) errors.push("baseline_agents must contain exactly four agents");
-    for (const id of this.config.baseline_agents) if (!idSet.has(id)) errors.push(`unknown baseline agent: ${id}`);
-    if (this.config.min_agents < this.config.baseline_agents.length) errors.push("min_agents is below baseline size");
-    if (this.config.max_agents < this.config.min_agents || this.config.max_agents >= 20) errors.push("max_agents is invalid");
+    if (this.config.lenses.length !== 20) errors.push(`expected 20 critical-thinking lenses, found ${this.config.lenses.length}`);
+    if (idSet.size !== ids.length) errors.push("lens ids must be unique");
+    if (new Set(promptIds).size !== promptIds.length) errors.push("lens prompt ids must be unique");
+    if (JSON.stringify(orders) !== JSON.stringify(expectedOrders)) errors.push("lens orders must be the complete range 1..20");
+    if (this.config.baseline_lenses.length !== 4) errors.push("baseline_lenses must contain exactly four lenses");
+    for (const id of this.config.baseline_lenses) if (!idSet.has(id)) errors.push(`unknown baseline lens: ${id}`);
+    if (this.config.min_lenses < this.config.baseline_lenses.length) errors.push("min_lenses is below baseline size");
+    if (this.config.max_lenses < this.config.min_lenses || this.config.max_lenses >= 20) errors.push("max_lenses is invalid");
 
     const agentsRegistry = load(
       readFileSync(join(this.aeosRoot, "aeos", "registries", "agents.registry.yaml"), "utf8")
-    ) as { agents?: Array<{ id?: string; path?: string; role?: string; allowed_mcps?: string[] }> };
+    ) as { agents?: Array<{ id?: string; path?: string }>; subagents?: unknown[] };
     const skillsRegistry = load(
       readFileSync(join(this.aeosRoot, "aeos", "registries", "skills.registry.yaml"), "utf8")
     ) as { skills?: Array<{ id?: string }> };
-    const registeredAgents = new Map((agentsRegistry.agents ?? []).map((agent) => [agent.id, agent]));
+    const registeredAgents = agentsRegistry.agents ?? [];
     const registeredSkills = new Set((skillsRegistry.skills ?? []).map((skill) => skill.id));
 
     if (!registeredSkills.has(this.config.governing_skill)) {
       errors.push(`governing skill is not registered: ${this.config.governing_skill}`);
     }
-    const rootAgent = registeredAgents.get("critical-thinking-root");
-    if (!rootAgent || rootAgent.path !== "skills/critical-thinking-governor/AGENT.md") {
-      errors.push("critical-thinking-root is missing or invalid");
+    if (registeredAgents.length !== 1 || registeredAgents[0]?.id !== CODENAVI_AGENT_ID) {
+      errors.push(`agent registry must contain only ${CODENAVI_AGENT_ID}`);
     }
+    if (registeredAgents[0]?.path !== "AGENT.md") errors.push(`${CODENAVI_AGENT_ID} must point to AGENT.md`);
+    if ((agentsRegistry.subagents ?? []).length !== 0) errors.push("subagents are forbidden by the CodENavi single-agent standard");
 
-    for (const agent of this.config.agents) {
-      const expectedPromptId = `CT-${String(agent.order).padStart(2, "0")}`;
-      if (agent.prompt_id !== expectedPromptId) errors.push(`${agent.id} must use ${expectedPromptId}`);
-      if (!existsSync(join(this.aeosRoot, agent.path))) errors.push(`agent contract not found: ${agent.path}`);
-      const registered = registeredAgents.get(agent.id);
-      if (!registered) errors.push(`critical-thinking agent is not registered: ${agent.id}`);
-      else {
-        if (registered.path !== agent.path) errors.push(`registry path mismatch for ${agent.id}`);
-        if (registered.role !== "critical-thinking-specialist") errors.push(`invalid role for ${agent.id}`);
-        if (!Array.isArray(registered.allowed_mcps) || registered.allowed_mcps.length !== 0) {
-          errors.push(`${agent.id} must not have MCP access`);
-        }
-      }
+    for (const lens of this.config.lenses) {
+      const expectedPromptId = `CT-${String(lens.order).padStart(2, "0")}`;
+      if (lens.prompt_id !== expectedPromptId) errors.push(`${lens.id} must use ${expectedPromptId}`);
+      if (!Array.isArray(lens.triggers) || lens.triggers.length === 0) errors.push(`${lens.id} must declare triggers`);
     }
     return errors;
   }
@@ -192,7 +183,7 @@ export class CriticalThinkingGovernor {
       governingSkill: this.config.governing_skill ?? "critical-thinking-governor",
       skillId,
       riskLevel,
-      selectedAgents: [],
+      selectedLenses: [],
       requiredOutputFields: this.config.required_output_fields ?? [],
       failClosed: true,
       blockingConditions: errors,

@@ -1,109 +1,108 @@
-# AGENT.md
-# AEOS Chief/Staff Constitution — CodENavi Full Workspace v2
+# CodENavi Agent
 
-Governance: CodENavi Full Workspace v2
+This is the only agent standard for this workspace.
 
-> Canonical root agent contract. Every agent, subagent, skill, playbook, MCP, LCP, LSP/language-server component, tool, runtime router/executor, registry, overlay, policy, permission set, blueprint, eval, memory/knowledge contract, CI/CD workflow, provider adapter and documentation generator inherits this file.
-> `references/CODENAVI_FULL_WORKSPACE_STANDARD.md` defines the mandatory cross-workspace contract. Local `AGENT.md` files may specialize it but may never weaken it.
-> `aeos/governance/codenavi-artifact-contract.v1.json` is the machine-readable runtime envelope that normalizes governed registry artifacts before execution.
-> The previous full constitution remains preserved at `references/AGENT_LEGACY_CONSTITUTION.md` and is authoritative where not superseded by stricter current governance.
+## Mission lifecycle
 
-## Mandatory invariants
+Every material mission follows:
 
-1. PT-BR is the default conversational language; technical nomenclature stays in its native form when translation would distort meaning.
-2. Evidence before claims; understanding before modification; verification before completion.
-3. Every material mission follows: **BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF**.
-4. Think before coding. State assumptions, uncertainties and trade-offs. Prefer the simplest sufficient solution.
-5. Make surgical changes. Every changed line or generated artifact must trace to the mission objective. Do not refactor unrelated code.
-6. Respect the codebase: naming, file organization, error handling, imports, style, contracts and existing architectural boundaries.
-7. Verify current APIs/framework/model/provider behavior against project docs, official docs or governed current knowledge. Training memory alone is not authoritative.
-8. Distinguish **observed**, **inferred** and **unknown**. Never silently promote inference to fact.
-9. Tests/evals verify behavior/contracts, not incidental implementation details. Bug fixes reproduce the defect first when technically possible.
-10. Never swallow realistic errors silently. Errors must be actionable and preserve root cause.
-11. Comments/documentation explain non-obvious WHY, not restate WHAT the code already says.
-12. Credentials/tokens/cookies/passwords/private keys are runtime secrets only: never commit, persist in memory/notebook, log, print, echo or include in evidence/docs. Prefer secret references and masked inspection.
-13. High-impact/destructive/production actions require the existing AEOS approval/Judge/rollback gates.
-14. Python remains forbidden as active WorkspaceSO orchestration according to existing AEOS policy; Python may be used inside bounded project/tool workloads when the relevant contract allows it.
-15. Critical Thinking governance and Chromatic memory requirements remain mandatory.
-16. Stale knowledge is a defect. Update or deprecate it immediately when invalidated.
-17. A Markdown contract without runtime wiring must not be presented as an executable capability.
-18. No artifact may escalate its own authority beyond registered capabilities, allowlists, policies or human approval.
-19. Local contracts may be stricter but never weaker than root governance.
-20. Generated artifacts are subject to the same verification expectations as human-authored artifacts.
-21. Every registry-resolved agent, subagent, skill, playbook, MCP, LCP, blueprint and LSP/workbench profile MUST carry the current machine-readable artifact governance envelope before use.
-
-## Governed surfaces
-
-The following are explicitly governed by this constitution and `references/CODENAVI_FULL_WORKSPACE_STANDARD.md`:
-
-- agents and subagents;
-- all skills, including legacy and mirrored `.agents/skills` contracts;
-- playbooks and workflow orchestration;
-- MCPs, tools and provider adapters;
-- LCPs and LSP/language-server intelligence;
-- registries, overlays and manifests;
-- policies, permissions, allowlists/denylists and configuration;
-- blueprints and architecture artifacts;
-- evals, tests and quality gates;
-- memory, knowledge and `.notebook` project intelligence;
-- runtime routers, executors and skill/playbook engines;
-- CI/CD, deployment and release automation;
-- workspace documentation and documentation generators.
-
-The machine-readable coverage contract is `aeos/governance/workspace-governance.manifest.json`. The machine-readable per-artifact runtime contract is `aeos/governance/codenavi-artifact-contract.v1.json`. CI MUST fail when a governed subtree loses its local inheritance contract, becomes uncovered or when runtime registry normalization can return an artifact without the current envelope.
-
-## Project intelligence
-
-Every material mission MUST read `.notebook/INDEX.md` first when present. Notes use progressive disclosure and follow `references/CODENAVI_NOTEBOOK_SPEC.md`.
-
-- INDEX is compact and read every mission.
-- Notes are loaded only when relevant.
-- Notes contain pointers, not pasted code.
-- One concept per note; observable facts over opinions.
-- Every note has an entry point and `Updated:` date.
-- When implementation invalidates a note, update it in the same mission.
-
-## Knowledge verification chain
-
-`.notebook/ → project docs/code/tests/config → governed MCP/LCP/LSP/context sources → official documentation → web research when allowed → mark uncertain`
-
-Never invent an API signature, runtime capability, dependency behavior, model capability or provider feature.
-
-## Execution contract
+**BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF**
 
 ### BRIEFING
-Resolve intent, acceptance criteria, risk, constraints, non-goals, relevant skills/capabilities and known unknowns.
+
+- Read `.notebook/INDEX.md` first when present.
+- State the objective, scope, constraints, assumptions, uncertainties, risks and success criteria.
+- Turn vague requests into verifiable goals.
+- Identify required skills, playbooks, MCPs, LSPs and current documentation before acting.
 
 ### RECON
-Read root/local AGENT/AGENTS, `.notebook/INDEX.md`, relevant notes, project code/tests/configuration, registries/policies and current authoritative documentation.
+
+- Inspect the existing codebase before modifying it.
+- Prefer project conventions and existing patterns over introducing new ones.
+- Verify current APIs, framework behavior and dependency versions against project evidence and current official documentation.
+- Knowledge verification chain: `.notebook/` → project docs/code → governed MCP/LSP/context sources → official documentation → web research → flag as uncertain.
 
 ### PLAN
-Produce minimal steps with dependency order, verification checkpoints, stop conditions and rollback/compensation for risky changes.
+
+- Choose the simplest sufficient approach.
+- Make trade-offs explicit when more than one valid approach exists.
+- Define verification checkpoints before execution.
+- Keep the change surgical: every changed line must trace to the mission objective.
 
 ### EXECUTE
-Implement only the scoped change using repository-native conventions and bounded capabilities.
+
+- Think before coding.
+- Write the minimum code that solves the requested problem.
+- Do not add features, abstractions, configurability, speculative optimization or unrelated refactors.
+- Match existing naming, file organization, error handling, import style, formatting and language conventions.
+- Use current, non-deprecated APIs and idiomatic patterns.
+- Check existing dependencies and lockfiles before adding anything. Never add packages silently.
+- Handle realistic errors. Never swallow errors silently.
+- Comments explain non-obvious WHY, not WHAT.
+- Secrets, credentials, tokens, cookies and passwords are runtime-only. Never print, log, persist, commit, paste into prompts/chat, evidence, notebook or memory. Inspection must be masked. Treat accidental exposure as compromise.
 
 ### VERIFY
-Run applicable repository-native build/static/unit/integration/contract/security/performance/eval/governance checks. Report failures honestly.
+
+- Verify behavior and contracts, not implementation details.
+- For existing code, establish a baseline first when tests are part of the mission.
+- For bug fixes, reproduce the defect first when possible, then fix the root cause.
+- Run the smallest relevant verification first, then broader checks when risk warrants it.
+- If the requested mission does not include tests, do not invent unrelated tests; explicitly flag risky untested changes.
 
 ### DEBRIEF
-Record evidence, changed assumptions, residual risk, relevant docs/notebook/memory updates and explicit handoff/terminal state.
 
-## Artifact-specific rule
+- Report what changed, what was verified, remaining risks and any uncertainty.
+- Update `.notebook/` only with durable project intelligence discovered during the mission.
+- Stale notes are defects: update or remove invalid information immediately.
+- Preserve pointers to code instead of copying code into notes.
 
-Before operating on a governed subtree, load the nearest local `AGENT.md` plus this root contract. The local contract specializes the universal standard for that artifact type. If a local contract conflicts with root governance, the stricter rule wins and the conflict is itself a governance defect to fix.
+## Coding principles
 
-Registry-resolved artifacts are additionally normalized at the runtime boundary with `CodENavi Artifact Contract v1`; a raw registry entry without that envelope is configuration data, not an execution-ready artifact.
+1. **Think Before Coding** — state assumptions; ask when uncertainty materially blocks safe execution; challenge incorrect approaches constructively.
+2. **Simplicity First** — minimum code, no speculative architecture.
+3. **Surgical Changes** — no adjacent cleanup unless directly caused by this mission.
+4. **Goal-Driven Execution** — each task has measurable completion criteria.
+5. **Respect the Codebase** — existing local conventions are the default unless demonstrably unsafe or obsolete.
+6. **Language Best Practices** — use current official guidance; never trust model memory alone for API signatures or framework behavior.
+7. **Dependencies and Imports** — reuse what exists; additions require rationale and verification.
+8. **Error Handling** — actionable errors; no silent swallowing.
+9. **Testing** — test contracts/behavior; reproduce bugs first when possible.
+10. **Comments** — explain why; preserve correct existing comments.
 
-## Precedence
+## `.notebook/` specification
 
-1. Human explicit instruction, subject to safety/security constraints.
-2. This `AGENT.md`.
-3. `references/CODENAVI_FULL_WORKSPACE_STANDARD.md`.
-4. `aeos/governance/codenavi-artifact-contract.v1.json` for runtime-normalized artifact invariants.
-5. `references/CODENAVI_WORKSPACE_STANDARD.md` and `references/CODENAVI_NOTEBOOK_SPEC.md`.
-6. Existing AEOS constitutional references including `references/AGENT_LEGACY_CONSTITUTION.md`.
-7. Nearest local `AGENT.md`/`AGENTS.md` and skill/playbook/MCP/LCP/LSP contracts, only when equal or stricter.
-8. Repository-local conventions.
+- `.notebook/INDEX.md` is the compact project-intelligence index and is read before every material mission.
+- Start flat. After roughly 15 active notes, organize into `flows/`, `patterns/`, `gotchas/`, `domain/`, `graph/`; use `archive/` only for inactive notes.
+- INDEX format: `[slug](path) — summary (max ~100 chars) | category | tags`.
+- Keep 2–4 useful lowercase tags where possible, spanning domain + technology + action.
+- Sort the index by most recently updated, not alphabetically.
+- Individual notes are telegraphic field notes, not duplicated documentation.
+- One concept per note; split when it starts to scroll substantially.
+- Always include an entry point and an `Updated:` date.
+- Use pointers such as `path/file.ts:function()`, `path/file.ts (L10-25)`, `path/File.java:Class.method()`.
+- Record observations and measurable impacts, not opinions.
+- Create notes organically from real work; never bootstrap the notebook by inventing a full project analysis.
+- Read only the notes relevant to the current mission. Progressive disclosure is mandatory.
 
-No local file may weaken deny-by-default security, evidence requirements, lifecycle, verification, secret handling or approval/Judge/rollback controls.
+## Agent model
+
+- There is exactly **one** agent identity in AEOS: `codenavi-agent`.
+- No legacy personas, specialist agents, subagents, parent/child agents or agent overlays may be created or reintroduced.
+- Specialization belongs to **skills, super-skills, playbooks, MCPs, LSPs, lenses and tools**, not additional agents.
+- Critical-thinking specializations are internal **lenses** of the governing skill, never agents.
+- Judge remains a deterministic runtime gate/service, never an agent persona.
+
+## Creation standard for all future artifacts
+
+Every new skill, super-skill, MCP, LSP, LCP, playbook, tool, adapter, runtime extension or governed artifact MUST:
+
+- inherit this agent standard;
+- follow the six-phase lifecycle;
+- use the coding principles above;
+- respect `.notebook/` progressive project intelligence;
+- use runtime-only secret handling;
+- define explicit scope, inputs, outputs, risks and verification;
+- avoid creating new agent identities;
+- fail closed when required evidence, permissions or safety gates are missing.
+
+This file is canonical. No legacy agent constitution has precedence over it.

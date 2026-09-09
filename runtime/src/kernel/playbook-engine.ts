@@ -17,6 +17,7 @@ import { SkillExecutor, type SkillContext } from "./skill-executor.js";
 import { CriticalThinkingGovernor } from "./critical-thinking-governor.js";
 import { DeterministicJudge } from "./deterministic-judge.js";
 import { ReportWriter } from "./report-writer.js";
+import { CODENAVI_AGENT_ID } from "./codenavi-governance.js";
 import { randomUUID } from "node:crypto";
 import { join } from "node:path";
 
@@ -60,6 +61,13 @@ export class PlaybookEngine {
     let toolRouter: AuraVoiceToolRouter | null = null;
 
     try {
+      if (agent.id !== CODENAVI_AGENT_ID) {
+        throw new Error(`Single-agent governance violation: expected '${CODENAVI_AGENT_ID}', received '${agent.id}'`);
+      }
+      if (playbook.required_agents.length !== 1 || playbook.required_agents[0] !== CODENAVI_AGENT_ID) {
+        throw new Error(`Playbook '${playbook.id}' is not canonicalized to '${CODENAVI_AGENT_ID}'`);
+      }
+
       ctx.resolvedPlaybook = playbook;
       ctx.resolvedSkills = skills;
       ctx.resolvedMCPs = mcps;
@@ -139,7 +147,7 @@ export class PlaybookEngine {
         const governanceEvidence = {
           id: randomUUID(),
           type: "source" as const,
-          claim: `Critical-thinking governance selected ${criticalThinkingPlan.selectedAgents.length} agents for skill '${skillEntry.id}'.`,
+          claim: `Critical-thinking governance selected ${criticalThinkingPlan.selectedLenses.length} lenses for skill '${skillEntry.id}'.`,
           reference: criticalThinkingPlan.planHash,
           source: criticalThinkingPlan.governingSkill,
           timestamp: new Date().toISOString(),

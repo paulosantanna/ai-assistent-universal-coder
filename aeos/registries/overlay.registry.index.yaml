@@ -1,11 +1,9 @@
-﻿# AEOS Overlay Registry Index
+# AEOS Overlay Registry Index
 
-generated_at: "2026-09-08T20:08:00-03:00"
-note: "Registry fragments created by AEOS overlay packs. Merge into active registries only through audited AEOS playbook."
+generated_at: "2026-09-08T21:00:00-03:00"
+note: "CodENavi single-agent registry model. Only the canonical agent registry is active; specialization lives in skills, playbooks, MCPs, LSPs, LCPs and lenses."
 registry_fragments:
   - path: aeos/registries/agents.registry.yaml
-  - path: aeos/registries/agents.v0_7.registry.yaml
-  - path: aeos/additions/aidiabetic-urgent-improvement-v1/registries/agents.registry.overlay.yaml
   - path: aeos/additions/aidiabetic-urgent-improvement-v1/registries/skills.registry.overlay.yaml
   - path: aeos/additions/aidiabetic-urgent-improvement-v1/registries/enterprise-playbooks.registry.overlay.yaml
   - path: aeos/registries/blueprints.registry.yaml

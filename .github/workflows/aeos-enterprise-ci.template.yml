@@ -6,7 +6,7 @@ on:
     branches: [ master ]
 
 permissions:
-  contents: read
+  contents: write
   actions: read
 
 jobs:
@@ -17,6 +17,9 @@ jobs:
       AEOS_TMP: /tmp/aeos-tmp
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref }}
+          fetch-depth: 1
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -26,6 +29,21 @@ jobs:
 
       - name: Install Node dependencies
         run: npm run aeos:bootstrap:deps
+
+      - name: One-shot CodENavi registry canonicalization
+        if: github.event_name == 'pull_request' && github.head_ref == 'refactor/single-codenavi-agent-image-standard'
+        shell: bash
+        run: |
+          node scripts/aeos-canonicalize-skill-registry.mjs
+          if git diff --quiet -- aeos/registries/skills.registry.yaml; then
+            echo "Registry already canonical."
+          else
+            git config user.name "aeos-codenavi-migration"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add aeos/registries/skills.registry.yaml
+            git commit -m "refactor(aeos): canonicalize base skill ownership"
+            git push origin HEAD:${GITHUB_HEAD_REF}
+          fi
 
       - name: AEOS Node-only verification suite
         run: npm run aeos:verify:full

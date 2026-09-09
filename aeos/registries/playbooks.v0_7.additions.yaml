@@ -2,7 +2,7 @@ playbooks:
   - id: agent-runtime-smoke-test
     path: aeos/playbooks/agent-runtime-smoke-test.playbook.md
     risk_level: low
-    required_agents: [root, planner, architect, security, judge]
+    required_agents: [codenavi-agent]
     required_skills: [task-graph-builder, context-router, delegation-auditor]
     required_lcps: [global-rules, security-governance]
     allowed_mcps: [filesystem-readonly]
@@ -10,7 +10,7 @@ playbooks:
   - id: agent-delegated-project-analysis
     path: aeos/playbooks/agent-delegated-project-analysis.playbook.md
     risk_level: medium
-    required_agents: [root, planner, architect, security, documenter, judge]
+    required_agents: [codenavi-agent]
     required_skills: [repo-scanner, architecture-mapper, task-graph-builder, context-router, delegation-auditor]
     required_lcps: [global-rules, security-governance, documentation-standards]
     allowed_mcps: [filesystem-readonly, git-readonly]
@@ -18,7 +18,7 @@ playbooks:
   - id: subagent-risk-review
     path: aeos/playbooks/subagent-risk-review.playbook.md
     risk_level: medium
-    required_agents: [security, architect, judge]
+    required_agents: [codenavi-agent]
     required_skills: [delegation-auditor, agent-trace-validator, memory-governance-auditor]
     required_lcps: [global-rules, security-governance]
     allowed_mcps: [filesystem-readonly]
