@@ -9,7 +9,12 @@ const mcpsRegistry = join(repoRoot, "aeos", "registries", "mcps.registry.yaml");
 const lspConfig = join(repoRoot, "aeos", "config", "lsp-universal-project.config.yaml");
 
 function parseIds(text) {
-  return new Set([...text.matchAll(/^- id:\s*([^\n]+)/gm)].map((match) => match[1].trim()));
+  // Registry entries may be either flush-left or indented beneath the top-level `skills:` key.
+  // Limit indentation to the registry-entry level so nested schema/list IDs cannot masquerade as skills.
+  return new Set(
+    [...text.matchAll(/^[ \t]{0,2}-[ \t]+id:[ \t]*([^\n#]+)/gm)]
+      .map((match) => match[1].trim())
+  );
 }
 
 function parseBlocks(text) {
@@ -46,6 +51,7 @@ export function validateSkillAdapters() {
 
   return {
     status: "PASS",
+    skillsChecked: skillIds.size,
     mcpsChecked: mcpEntries.length,
     lspProfilesChecked: lspProfiles.length,
     governingSkills: [...new Set([
@@ -65,5 +71,4 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
     process.exit(1);
   }
 }
-
 
