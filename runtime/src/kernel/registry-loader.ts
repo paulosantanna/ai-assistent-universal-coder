@@ -91,6 +91,7 @@ export class RegistryLoader {
 
   loadAllResolved(): {
     agents: AgentRegistryEntry[];
+    subagents: [];
     skills: SkillRegistryEntry[];
     playbooks: PlaybookRegistryEntry[];
     mcps: MCPRegistryEntry[];
@@ -107,6 +108,8 @@ export class RegistryLoader {
 
     return {
       agents: mergeResult.agents,
+      // Compatibility field for legacy consumers. The single-agent model forbids runtime subagents.
+      subagents: [],
       skills: mergeResult.skills,
       playbooks: mergeResult.playbooks,
       mcps,

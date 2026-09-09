@@ -2,44 +2,24 @@
 import { existsSync, readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
-import yaml from "js-yaml";
 import {
   buildCriticalThinkingPlan,
   loadCriticalThinkingConfig,
   validateCriticalThinkingConfig
 } from "./aeos-critical-thinking-governance.mjs";
 
-const { load } = yaml;
 const CODENAVI_AGENT_ID = "codenavi-agent";
+const REGISTRY_ENTRY = /^[ \t]{0,2}-[ \t]+id:[ \t]*([^\n#]+)/m;
 
-function loadEffectiveSkills(repoRoot) {
-  const indexPath = join(repoRoot, "aeos", "registries", "overlay.registry.index.yaml");
-  const index = load(readFileSync(indexPath, "utf8"));
-  const fragments = Array.isArray(index?.registry_fragments) ? index.registry_fragments : [];
-  const effective = new Map();
-  const scannedFragments = [];
-
-  for (const fragment of fragments) {
-    const relativePath = typeof fragment === "string" ? fragment : fragment?.path;
-    if (!relativePath) continue;
-    const absolutePath = resolve(repoRoot, relativePath);
-    if (!existsSync(absolutePath)) continue;
-
-    const parsed = load(readFileSync(absolutePath, "utf8"));
-    if (!Array.isArray(parsed?.skills)) continue;
-    scannedFragments.push(relativePath);
-
-    for (const skill of parsed.skills) {
-      if (typeof skill?.id !== "string" || !skill.id.trim()) continue;
-      effective.set(skill.id.trim(), {
-        id: skill.id.trim(),
-        riskLevel: String(skill.risk_level ?? "").trim(),
-        mission: typeof skill.mission === "string" ? skill.mission.trim() : ""
-      });
-    }
-  }
-
-  return { skills: [...effective.values()], scannedFragments };
+function parseSkillBlocks(text) {
+  return text
+    .split(/\n(?=[ \t]{0,2}-[ \t]+id:[ \t]+)/g)
+    .filter((block) => REGISTRY_ENTRY.test(block))
+    .map((block) => ({
+      id: block.match(REGISTRY_ENTRY)?.[1]?.trim() ?? "",
+      riskLevel: block.match(/^\s*risk_level:\s*([^\n]+)/m)?.[1]?.trim() ?? "",
+      mission: block.match(/^\s*mission:\s*([^\n]+)/m)?.[1]?.trim() ?? ""
+    }));
 }
 
 function conflictMarkers(text) {
@@ -50,13 +30,15 @@ export function validateCriticalThinkingGovernance(repoRoot = resolve(process.cw
   const config = loadCriticalThinkingConfig(repoRoot);
   const configValidation = validateCriticalThinkingConfig(config);
   const errors = [...configValidation.errors];
+  const skillsRegistryPath = join(repoRoot, "aeos", "registries", "skills.registry.yaml");
   const agentsRegistryPath = join(repoRoot, "aeos", "registries", "agents.registry.yaml");
+  const skillsText = readFileSync(skillsRegistryPath, "utf8");
   const agentsText = readFileSync(agentsRegistryPath, "utf8");
-  const { skills, scannedFragments } = loadEffectiveSkills(repoRoot);
+  const skills = parseSkillBlocks(skillsText);
   const skillIds = new Set(skills.map((skill) => skill.id));
 
   if (!skillIds.has(config.governing_skill)) {
-    errors.push(`governing skill is not registered in the effective overlay registry: ${config.governing_skill}`);
+    errors.push(`governing skill is not registered: ${config.governing_skill}`);
   }
 
   const agentIds = [...agentsText.matchAll(/^\s*- id:\s*([^\n]+)/gm)].map((match) => match[1].trim());
@@ -95,7 +77,7 @@ export function validateCriticalThinkingGovernance(repoRoot = resolve(process.cw
     "AGENTS.md",
     "package.json",
     "aeos/registries/agents.registry.yaml",
-    "aeos/registries/overlay.registry.index.yaml",
+    "aeos/registries/skills.registry.yaml",
     "aeos/config/critical-thinking-governance.config.json",
     "skills/critical-thinking-governor/SKILL.md",
     "scripts/aeos-critical-thinking-governance.mjs",
@@ -120,7 +102,6 @@ export function validateCriticalThinkingGovernance(repoRoot = resolve(process.cw
     governingSkill: config.governing_skill,
     lensesChecked: config.lenses.length,
     skillsChecked: skills.length,
-    skillRegistryFragmentsChecked: scannedFragments.length,
     baselineLenses: config.baseline_lenses,
     maxLensesPerPlan: config.max_lenses,
     agentId: CODENAVI_AGENT_ID,
