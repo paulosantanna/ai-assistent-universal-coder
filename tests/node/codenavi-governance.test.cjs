@@ -12,6 +12,35 @@ describe('CodENavi workspace governance', () => {
     assert.match(agents, /CODENAVI_WORKSPACE_STANDARD\.md/);
   });
 
+  it('enforces one canonical agent and zero subagents/personas', () => {
+    const registry = readFileSync('aeos/registries/agents.registry.yaml', 'utf8');
+    const ids = [...registry.matchAll(/^\s*- id:\s*([^\n]+)/gm)].map((match) => match[1].trim());
+    assert.deepEqual(ids, ['codenavi-agent']);
+    assert.match(registry, /max_subagents:\s*0/);
+    assert.match(registry, /subagents:\s*\[\s*\]/);
+    assert.equal(existsSync('aeos/agents'), false, 'legacy aeos/agents directory must not exist');
+    assert.equal(existsSync('aeos/subagents'), false, 'legacy aeos/subagents directory must not exist');
+  });
+
+  it('uses lenses rather than critical-thinking agent personas', () => {
+    const config = JSON.parse(readFileSync('aeos/config/critical-thinking-governance.config.json', 'utf8'));
+    assert.equal(Array.isArray(config.lenses), true);
+    assert.equal(config.lenses.length, 20);
+    assert.equal(Object.prototype.hasOwnProperty.call(config, 'agents'), false);
+    assert.equal(Object.prototype.hasOwnProperty.call(config, 'baseline_agents'), false);
+    assert.equal(config.baseline_lenses.length, 4);
+  });
+
+  it('collapses permission identity to the canonical agent', () => {
+    const permissions = readFileSync('aeos/config/permissions.yaml', 'utf8');
+    assert.match(permissions, /default_policy:\s*deny-all/);
+    assert.match(permissions, /agent:\s*codenavi-agent/);
+    assert.doesNotMatch(permissions, /^roles:/m);
+    for (const legacy of ['root:', 'architect:', 'coder:', 'tester:', 'security:', 'devops:', 'judge:', 'documenter:']) {
+      assert.equal(permissions.includes(legacy), false, `legacy permission persona leaked: ${legacy}`);
+    }
+  });
+
   it('provides progressive notebook intelligence', () => {
     assert.equal(existsSync('.notebook/INDEX.md'), true);
     assert.equal(existsSync('references/CODENAVI_NOTEBOOK_SPEC.md'), true);
