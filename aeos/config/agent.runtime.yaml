@@ -1,21 +1,28 @@
 agent_runtime:
   enabled: true
-  version: 0.7.0
+  version: 1.0.0
   fail_closed: true
+  canonical_agent: codenavi-agent
+
   require_task_graph: true
   require_agent_trace: true
   require_context_routing: true
-  require_delegation_policy: true
   require_memory_gateway: true
   require_judge_validation: true
-
-  default_timeout_seconds: 900
-  max_subagents_per_task: 5
-  max_delegation_depth: 2
   require_token_budget: true
   token_budget_config: aeos/config/token-budget-governor.config.yaml
   require_change_tracking: true
   change_tracking_config: aeos/config/change-tracking.config.yaml
+
+  allow_agent_delegation: false
+  max_agent_instances: 1
+  default_timeout_seconds: 900
+
+  governance:
+    lifecycle: [BRIEFING, RECON, PLAN, EXECUTE, VERIFY, DEBRIEF]
+    evidence_required: true
+    fail_on_missing_canonical_agent: true
+    fail_on_additional_agent_identity: true
 
   prohibited:
     direct_tool_access: true
@@ -23,23 +30,14 @@ agent_runtime:
     raw_secret_context: true
     scope_expansion_without_approval: true
     autonomous_production_mutation: true
-    context_broadcast_to_all_subagents: true
     unrequested_work: true
+    additional_agent_identity: true
+    agent_delegation: true
+    persona_prompt_manifests: true
 
   trace:
     file: ".aeos/evidence/{execution_id}/agent-trace.jsonl"
-    hash_trace_entries: true
-    include_context_refs: true
-    include_evidence_refs: true
-
-  task_results:
-    dir: ".aeos/evidence/{execution_id}/tasks"
-    require_json: true
-    require_sha256: true
-
-  change_tracking:
-    manifest: ".aeos/sandbox/{execution_id}/.aeos/rollback/change-manifest.json"
-    rollback_plan: ".aeos/sandbox/{execution_id}/.aeos/rollback/rollback-plan.json"
-    rollback_summary: ".aeos/sandbox/{execution_id}/.aeos/rollback/rollback-plan.md"
-    evidence_type: "change-trace"
-    fail_on_untracked_mutation: true
+    include_skill_context: true
+    include_tool_decisions: true
+    include_permission_decisions: true
+    include_judge_verdict: true
