@@ -3,12 +3,12 @@ permissions:
 
   agent_to_mcp:
     - agent: codenavi-agent
-      mcps: [all]
+      mcps: ["*"]
       allow: true
 
   agent_to_skill:
     - agent: codenavi-agent
-      skills: [all]
+      skills: ["*"]
       allow: true
 
   escalation_rules:
