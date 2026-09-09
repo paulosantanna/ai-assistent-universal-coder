@@ -92,6 +92,12 @@ Every material mission follows:
 - Critical-thinking specializations are internal **lenses** of the governing skill, never agents.
 - Judge remains a deterministic runtime gate/service, never an agent persona.
 
+## Full workspace governance
+
+**Governance: CodENavi Full Workspace v2**
+
+The canonical agent governs the entire tracked workspace through `references/CODENAVI_FULL_WORKSPACE_STANDARD.md`. This includes skills, playbooks, MCPs, LCPs, LSPs, registries, blueprints, evals, runtime, policies, permissions, CI/CD, release automation, documentation, memory, knowledge, adapters and tools. Subtree guidance may specialize execution but cannot create another agent identity or weaken this root contract.
+
 ## Creation standard for all future artifacts
 
 Every new skill, super-skill, MCP, LSP, LCP, playbook, tool, adapter, runtime extension or governed artifact MUST:
