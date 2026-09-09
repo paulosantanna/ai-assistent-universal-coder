@@ -76,7 +76,8 @@ const governed = allTracked.filter(file =>
 );
 
 if (manifest.coveragePolicy === 'all-tracked-files-governed-by-default') {
-  const unexpectedlyOutside = allTracked.filter(file => !ignored(file) && !governed.includes(file));
+  const governedSet = new Set(governed);
+  const unexpectedlyOutside = allTracked.filter(file => !ignored(file) && !governedSet.has(file));
   for (const file of unexpectedlyOutside) errors.push(`tracked file escaped governance:${file}`);
 }
 
@@ -90,7 +91,6 @@ for (const root of manifest.localContractRoots || []) {
   const text = readText(contract);
   localContracts.set(norm(root), { contract, text });
   if (!text.includes(manifest.standard)) errors.push(`${contract} missing standard marker:${manifest.standard}`);
-  if (contract !== 'AGENT.md' && !text.includes('AGENT.md')) errors.push(`${contract} must chain to root AGENT.md`);
   if (!text.includes('CODENAVI_FULL_WORKSPACE_STANDARD.md')) errors.push(`${contract} must chain to full workspace standard`);
 }
 
@@ -101,21 +101,21 @@ function effectiveGovernance(file) {
     .find(([, value]) => value.text.includes(manifest.standard));
 }
 
-let legacyInheritedAgents = 0;
-let explicitV2Agents = 0;
+let inheritedInstructionContracts = 0;
+let explicitCanonicalContracts = 0;
 for (const file of governed.filter(f => /(^|\/)(AGENT|AGENTS)\.md$/i.test(f))) {
   const text = readText(file);
-  if (text.includes(manifest.standard)) {
-    explicitV2Agents += 1;
+  if (file === 'AGENT.md' || file === 'AGENTS.md') {
+    if (text.includes(manifest.standard)) explicitCanonicalContracts += 1;
+    else errors.push(`${file} is missing canonical ${manifest.standard} governance`);
     continue;
   }
-  const inherited = effectiveGovernance(file);
-  if (!inherited) {
-    errors.push(`${file} has no effective CodENavi v2 ancestor contract`);
+  if (!effectiveGovernance(file)) {
+    errors.push(`${file} has no effective canonical-agent ancestor contract`);
     continue;
   }
-  // Preserve specialized legacy instructions, but root/local v2 governance has higher precedence.
-  legacyInheritedAgents += 1;
+  // Local AGENT files are compatibility/domain instruction contracts, not separate identities.
+  inheritedInstructionContracts += 1;
 }
 
 for (const file of governed) {
@@ -127,8 +127,8 @@ const counts = {
   totalTracked: allTracked.length,
   totalGoverned: governed.length,
   ignored: allTracked.length - governed.length,
-  explicitV2Agents,
-  legacyInheritedAgents
+  explicitCanonicalContracts,
+  inheritedInstructionContracts
 };
 for (const [kind, markers] of Object.entries(manifest.artifactMatchers || {})) {
   counts[kind] = governed.filter(file => markers.some(marker => file.toLowerCase().includes(marker.toLowerCase()))).length;
@@ -136,7 +136,7 @@ for (const [kind, markers] of Object.entries(manifest.artifactMatchers || {})) {
 
 const fullStandard = readText(manifest.standardPath);
 for (const section of [
-  'Agents and subagents',
+  'Single agent and specialization',
   'Skills',
   'Playbooks',
   'MCPs/tools/provider adapters',
@@ -163,6 +163,7 @@ console.log(JSON.stringify({
   standard: manifest.standard,
   coveragePolicy: manifest.coveragePolicy,
   lifecycle: manifest.requiredLifecycle,
+  canonicalAgent: 'codenavi-agent',
   governedRoots: manifest.governedRoots.length,
   localContracts: manifest.localContractRoots.length,
   counts
