@@ -3,10 +3,14 @@ agents:
     name: CodENavi Agent
     path: AGENT.md
     role: codenavi
+    description: Single canonical AEOS agent identity governed by the CodENavi image standard.
+    max_subagents: 0
+    allowed_domains: [all]
+    allowed_skills: [all]
+    allowed_mcps: []
     can_delegate: false
     can_block: true
     independence: strict
-    allowed_mcps: []
     governance: codenavi-image-standard
 
 subagents: []
