@@ -9,6 +9,7 @@ import { SkillExecutor } from "./skill-executor.js";
 import { PlaybookEngine } from "./playbook-engine.js";
 import { DeterministicJudge } from "./deterministic-judge.js";
 import { ReportWriter } from "./report-writer.js";
+import { CODENAVI_AGENT_ID } from "./codenavi-governance.js";
 import type {
   ExecutionContext,
   AeosConfig,
@@ -96,6 +97,15 @@ export class KernelRuntime {
       const lcpValidation = this.schemaValidator.validateLCPsRegistry(lcpsRegistry);
       const agValidation = this.schemaValidator.validateAgentsRegistry(agentsRegistry);
 
+      const invalidRegistry = [pbValidation, skValidation, mcpValidation, lcpValidation, agValidation]
+        .find((validation) => !validation.valid);
+      if (invalidRegistry) {
+        return this.errorResult(
+          `Registry validation failed: ${invalidRegistry.errors.join("; ")}`,
+          playbookId, targetPath, startTime
+        );
+      }
+
       // Step 4: Resolve playbook
       const playbook = this.registryLoader.resolvePlaybook(playbooksRegistry.playbooks, playbookId);
       if (!playbook) {
@@ -117,14 +127,17 @@ export class KernelRuntime {
           const lcpContent = this.configLoader.loadYaml<LCPContent>(lcpEntry.path);
           lcpContents.push(lcpContent);
         } catch {
-          // LCP file may not exist yet; skip
+          // Missing optional LCP content is tolerated at this boundary; required evidence gates remain fail-closed later.
         }
       }
 
-      // Step 7: Resolve agent
-      const rootAgent = this.registryLoader.resolveAgent(agentsRegistry.agents, "root");
-      if (!rootAgent) {
-        return this.errorResult("Root agent not found in registry", playbookId, targetPath, startTime);
+      // Step 7: Resolve the only legal AEOS agent identity.
+      const codenaviAgent = this.registryLoader.resolveAgent(agentsRegistry.agents, CODENAVI_AGENT_ID);
+      if (!codenaviAgent) {
+        return this.errorResult(
+          `Canonical agent '${CODENAVI_AGENT_ID}' not found in registry`,
+          playbookId, targetPath, startTime
+        );
       }
 
       // Step 8: Create engines
@@ -149,7 +162,7 @@ export class KernelRuntime {
 
       // Step 10: Execute playbook
       const ctx = await playbookEngine.execute(
-        playbook, skills, mcps, lcpContents, rootAgent,
+        playbook, skills, mcps, lcpContents, codenaviAgent,
         targetPath, this.aeosRoot, config
       );
 
@@ -167,10 +180,9 @@ export class KernelRuntime {
         judgeVerdict: ctx.judgeReport?.verdict,
         judgeScore: ctx.judgeReport?.score,
         artifacts: ctx.artifacts,
-        evidenceDir: evidenceDir,
-        reportDir: reportDir
+        evidenceDir,
+        reportDir
       };
-
     } catch (err) {
       return this.errorResult(
         err instanceof Error ? err.message : String(err),
