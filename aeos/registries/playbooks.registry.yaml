@@ -2,7 +2,7 @@ playbooks:
   - id: spec-driven-delivery
     path: aeos/playbooks/enterprise/spec-driven-delivery.playbook.md
     risk_level: high
-    required_agents: [root, architect, coder, tester, security, judge]
+    required_agents: [codenavi-agent]
     required_skills: [chromatic-mega-brain, change-trace-auditor, test-generation, security-audit]
     required_lcps: [global-rules, spec-driven-development, security-governance, token-economy]
     allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, test-runner-controlled, spec-driven-development, n8n-automation]
@@ -10,7 +10,7 @@ playbooks:
   - id: n8n-automation-orchestration
     path: aeos/playbooks/enterprise/n8n-automation-orchestration.playbook.md
     risk_level: high
-    required_agents: [root, architect, devops, security, tester, judge]
+    required_agents: [codenavi-agent]
     required_skills: [chromatic-mega-brain, change-trace-auditor, security-audit, test-generation]
     required_lcps: [global-rules, spec-driven-development, security-governance, token-economy]
     allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, test-runner-controlled, spec-driven-development, n8n-automation]
@@ -18,7 +18,7 @@ playbooks:
   - id: project-analysis
     path: aeos/playbooks/project-analysis.playbook.md
     risk_level: low
-    required_agents: [root, architect, security, judge]
+    required_agents: [codenavi-agent]
     required_skills: [repo-scanner, architecture-mapper, chromatic-mega-brain, security-audit]
     required_lcps: [global-rules, security-governance]
     allowed_mcps: [filesystem-readonly, git-readonly]
@@ -26,7 +26,7 @@ playbooks:
   - id: chromatic-decision
     path: aeos/playbooks/chromatic-decision.playbook.md
     risk_level: high
-    required_agents: [architect, judge]
+    required_agents: [codenavi-agent]
     required_skills: [chromatic-mega-brain, risk-classifier, anti-hallucination-evaluator]
     required_lcps: [global-rules, security-governance, project-memory]
     allowed_mcps: [filesystem-readonly, git-readonly]
@@ -34,7 +34,7 @@ playbooks:
   - id: zero-to-production-project
     path: aeos/playbooks/zero-to-production-project.playbook.md
     risk_level: high
-    required_agents: [architect, coder, tester, security, devops, documenter, judge]
+    required_agents: [codenavi-agent]
     required_skills: [token-budget-governor, chromatic-mega-brain, universal-project-factory, change-trace-auditor, database-architecture-planner, production-deployment-planner, documentation, security-audit, test-generation]
     required_lcps: [global-rules, zero-to-production, token-economy, documentation-standards, security-governance]
     allowed_mcps: [universal-project, complete-docs, filesystem-readonly, filesystem-write-sandbox, test-runner-controlled, package-local]
@@ -42,7 +42,7 @@ playbooks:
   - id: documentation-generation
     path: aeos/playbooks/documentation-generation.playbook.md
     risk_level: medium
-    required_agents: [documenter, architect, judge]
+    required_agents: [codenavi-agent]
     required_skills: [documentation, architecture-mapper, chromatic-mega-brain]
     required_lcps: [global-rules, documentation-standards, security-governance]
     allowed_mcps: [filesystem-readonly, filesystem-write-sandbox]
@@ -50,7 +50,7 @@ playbooks:
   - id: security-secrets-audit
     path: aeos/playbooks/security-secrets-audit.playbook.md
     risk_level: high
-    required_agents: [security, judge]
+    required_agents: [codenavi-agent]
     required_skills: [security-audit]
     required_lcps: [global-rules, security-governance]
     allowed_mcps: [filesystem-readonly, git-readonly]
@@ -58,7 +58,7 @@ playbooks:
   - id: devcontainer-generation
     path: aeos/playbooks/devcontainer-generation.playbook.md
     risk_level: medium
-    required_agents: [devops, architect, judge]
+    required_agents: [codenavi-agent]
     required_skills: [repo-scanner, documentation]
     required_lcps: [global-rules, security-governance]
     allowed_mcps: [filesystem-readonly, filesystem-write-sandbox]
@@ -66,7 +66,7 @@ playbooks:
   - id: test-recovery
     path: aeos/playbooks/test-recovery.playbook.md
     risk_level: medium
-    required_agents: [tester, architect, judge]
+    required_agents: [codenavi-agent]
     required_skills: [test-generation, repo-scanner]
     required_lcps: [global-rules, security-governance]
     allowed_mcps: [filesystem-readonly, filesystem-write-sandbox]
@@ -74,7 +74,7 @@ playbooks:
   - id: code-change-proposal
     path: aeos/playbooks/code-change-proposal.playbook.md
     risk_level: high
-    required_agents: [coder, tester, security, judge]
+    required_agents: [codenavi-agent]
     required_skills: [chromatic-mega-brain, code-analyzer, patch-planner, test-generation, security-audit]
     required_lcps: [global-rules, security-governance]
     allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, git-readonly]
@@ -82,7 +82,7 @@ playbooks:
   - id: package-full-review
     path: aeos/playbooks/package-full-review.playbook.md
     risk_level: medium
-    required_agents: [judge, security]
+    required_agents: [codenavi-agent]
     required_skills: [packaging, security-audit]
     required_lcps: [global-rules, security-governance]
     allowed_mcps: [filesystem-readonly, filesystem-write-sandbox]
@@ -90,7 +90,7 @@ playbooks:
   - id: performance-optimization
     path: aeos/playbooks/performance-optimization.playbook.md
     risk_level: high
-    required_agents: [architect, coder, tester, judge]
+    required_agents: [codenavi-agent]
     required_skills: [performance-optimizer, token-budget-governor, change-trace-auditor, test-generation, chromatic-mega-brain]
     required_lcps: [global-rules, token-economy, security-governance]
     allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, test-runner-controlled, package-local]
@@ -98,7 +98,7 @@ playbooks:
   - id: observability-trace-metrics-logs
     path: aeos/playbooks/enterprise/observability-trace-metrics-logs.playbook.md
     risk_level: high
-    required_agents: [architect, devops, tester, security, judge]
+    required_agents: [codenavi-agent]
     required_skills: [performance-optimizer, documentation, test-generation, security-audit, chromatic-mega-brain]
     required_lcps: [global-rules, documentation-standards, security-governance]
     allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, test-runner-controlled, docs-opentelemetry, docs-grafana, docs-dynatrace, docs-observability-dashboards]
@@ -106,7 +106,7 @@ playbooks:
   - id: medical-diabetes-research-to-implementation
     path: aeos/playbooks/enterprise/medical-diabetes-research-to-implementation.playbook.md
     risk_level: critical
-    required_agents: [root, medical-evidence-researcher, architect, coder, tester, security, judge]
+    required_agents: [codenavi-agent]
     required_skills: [token-budget-governor, chromatic-mega-brain, documentation, security-audit, test-generation]
     required_lcps: [global-rules, security-governance, documentation-standards, token-economy]
     allowed_mcps: [medical-research, continuous-training, complete-docs, filesystem-readonly, filesystem-write-sandbox, test-runner-controlled, docs-python-current, docs-node-current, docs-typescript-current, docs-angular-current, docs-javascript-current, docs-java-11, docs-java-17, docs-java-21, docs-java-25, docs-java-26]
@@ -114,7 +114,7 @@ playbooks:
   - id: medical-ai-project-readiness-audit
     path: aeos/playbooks/enterprise/medical-ai-project-readiness-audit.playbook.md
     risk_level: critical
-    required_agents: [root, repository-cartographer, medical-evidence-researcher, architecture-governor, security, tester, judge]
+    required_agents: [codenavi-agent]
     required_skills: [chromatic-mega-brain, documentation, security-audit, test-generation]
     required_lcps: [global-rules, security-governance, documentation-standards]
     allowed_mcps: [medical-research, filesystem-readonly, git-readonly, test-runner-controlled, package-local, complete-docs, docs-opentelemetry, docs-grafana, docs-dynatrace, docs-observability-dashboards]
@@ -122,7 +122,7 @@ playbooks:
   - id: evidence-rag-knowledge-base-bootstrap
     path: aeos/playbooks/enterprise/evidence-rag-knowledge-base-bootstrap.playbook.md
     risk_level: high
-    required_agents: [root, evidence-researcher, rag-specialist, architect, coder, tester, judge]
+    required_agents: [codenavi-agent]
     required_skills: [chromatic-mega-brain, documentation, test-generation, security-audit]
     required_lcps: [global-rules, documentation-standards, security-governance]
     allowed_mcps: [medical-research, continuous-training, complete-docs, filesystem-readonly, filesystem-write-sandbox, test-runner-controlled, docs-python-current, docs-node-current, docs-typescript-current, docs-angular-current, docs-javascript-current, docs-java-11, docs-java-17, docs-java-21, docs-java-25, docs-java-26]
@@ -130,7 +130,7 @@ playbooks:
   - id: language-upgrade-research-implementation
     path: aeos/playbooks/enterprise/language-upgrade-research-implementation.playbook.md
     risk_level: high
-    required_agents: [root, language-researcher, architect, coder, tester, security, judge]
+    required_agents: [codenavi-agent]
     required_skills: [token-budget-governor, change-trace-auditor, documentation, test-generation, security-audit]
     required_lcps: [global-rules, security-governance, documentation-standards, token-economy]
     allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, git-readonly, test-runner-controlled, complete-docs, docs-java-11, docs-java-17, docs-java-21, docs-java-25, docs-java-26, docs-python-current, docs-node-current, docs-typescript-current, docs-angular-current, docs-javascript-current]
@@ -138,7 +138,7 @@ playbooks:
   - id: ai-project-research-implementation-orchestrator
     path: aeos/playbooks/enterprise/ai-project-research-implementation-orchestrator.playbook.md
     risk_level: critical
-    required_agents: [root, planner, architect, domain-researcher, coder, tester, security, devops, documenter, judge]
+    required_agents: [codenavi-agent]
     required_skills: [token-budget-governor, chromatic-mega-brain, universal-project-factory, change-trace-auditor, documentation, test-generation, security-audit]
     required_lcps: [global-rules, zero-to-production, token-economy, documentation-standards, security-governance]
     allowed_mcps: [universal-project, continuous-training, complete-docs, filesystem-readonly, filesystem-write-sandbox, git-readonly, test-runner-controlled, package-local, medical-research, docs-opentelemetry, docs-grafana, docs-dynatrace, docs-observability-dashboards, docs-python-current, docs-node-current, docs-typescript-current, docs-angular-current, docs-javascript-current, docs-java-11, docs-java-17, docs-java-21, docs-java-25, docs-java-26]
@@ -146,26 +146,7 @@ playbooks:
   - id: aidiabetic-urgent-improvement-v1
     path: aeos/playbooks/enterprise/aidiabetic-urgent-improvement-v1.playbook.yaml
     risk_level: critical
-    required_agents:
-      - improvement-program-orchestrator-agent
-      - repository-baseline-cartographer-agent
-      - e2e-critical-flow-engineer-agent
-      - openapi-contract-engineer-agent
-      - problem-details-error-governor-agent
-      - modularization-architecture-governor-agent
-      - clinical-rag-cache-engineer-agent
-      - external-health-resilience-engineer-agent
-      - configuration-governance-engineer-agent
-      - clinical-observability-engineer-agent
-      - c4-architecture-documenter-agent
-      - release-automation-engineer-agent
-      - dead-code-safety-pruner-agent
-      - precommit-quality-engineer-agent
-      - performance-slo-engineer-agent
-      - security-clinical-safety-reviewer-agent
-      - evidence-readiness-judge-agent
-      - token-context-governor-agent
-      - improvement-metrics-governor-agent
+    required_agents: [codenavi-agent]
     required_skills:
       - improvement-program-orchestrator
       - repository-baseline-cartographer
@@ -191,7 +172,7 @@ playbooks:
   - id: analayze-metricas
     path: playbooks/analayze-metricas/playbook.yaml
     risk_level: high
-    required_agents: [root, planner, judge, dynatrace-observability-staff-agent, grafana-observability-staff-agent, kubernetes-observability-staff-agent, openshift-observability-staff-agent, splunk-observability-staff-agent, observability-root-cause-integrator-agent]
+    required_agents: [codenavi-agent]
     required_skills: [dynatrace-observability-staff, grafana-observability-staff, kubernetes-observability-staff, openshift-observability-staff, splunk-observability-staff, observability-root-cause-integrator]
     required_lcps: [global-rules, security-governance]
     allowed_mcps: [filesystem-readonly, git-readonly, test-runner-controlled]
@@ -199,7 +180,7 @@ playbooks:
   - id: aeos-autonomous-evolution
     path: playbooks/aeos-autonomous-evolution/playbook.yaml
     risk_level: high
-    required_agents: [root, planner, coder, tester, architect, judge]
+    required_agents: [codenavi-agent]
     required_skills: [aeos-autonomous-learning-governor, telemetry-bug-root-cause-solver, kubernetes-code-context-mapper, observability-root-cause-integrator, patch-planner, chromatic-mega-brain, test-generation, diff-reviewer]
     required_lcps: [global-rules, security-governance, project-memory]
     allowed_mcps: [filesystem-readonly, git-readonly, filesystem-write-sandbox, test-runner-controlled]
@@ -207,7 +188,7 @@ playbooks:
   - id: ai-production-autopilot
     path: playbooks/ai-production-autopilot/playbook.yaml
     risk_level: critical
-    required_agents: [root, architect, coder, tester, security, devops, documenter, judge]
+    required_agents: [codenavi-agent]
     required_skills: [staff-iii-architecture-governor, staff-tdd-code-builder, documentation-11-layer-mapper, aeos-autonomous-learning-governor, security-audit, dependency-analyzer, test-generation, diff-reviewer]
     required_lcps: [global-rules, security-governance, documentation-standards, project-memory]
     allowed_mcps: [filesystem-readonly, git-readonly, filesystem-write-sandbox, test-runner-controlled, n8n-automation, package-local]
@@ -217,7 +198,7 @@ playbooks:
     path: playbooks/mantis/playbook.yaml
     risk_level: high
     objective: Run an authorized defensive Mantis security review campaign with stage isolation, evidence-backed findings, snapshot provenance, independent validation, reproduction gates, patch verification and reporting.
-    required_agents: [root, security, tester, coder, judge]
+    required_agents: [codenavi-agent]
     required_skills: [mantis-meta-agent, mantis-history, mantis-structural-index, mantis-summarize, mantis-architecture, mantis-threat-model, mantis-plan, mantis-researcher, mantis-dedupe, mantis-review, mantis-critic, mantis-reproduce, mantis-chain, mantis-patch, mantis-calibrate, mantis-reflect, mantis-report, mantis-pipeline-adapter]
     required_lcps: [global-rules, security-governance, project-memory]
     allowed_mcps: [filesystem-readonly, git-readonly, filesystem-write-sandbox, test-runner-controlled, package-local]
