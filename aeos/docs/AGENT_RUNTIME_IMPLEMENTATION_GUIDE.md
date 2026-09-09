@@ -1,39 +1,81 @@
-# Agent Runtime Implementation Guide
+# CodENavi Agent Runtime Implementation Guide
 
-## Minimum Vertical Slice
+Status: CURRENT
 
-Implement:
+## Runtime invariant
+
+AEOS executes with exactly one registered agent identity: `codenavi-agent`.
+
+Specialization is resolved as skills, playbooks, MCPs, LCPs, tools, adapters and critical-thinking lenses. Judge remains an independent deterministic runtime gate/service.
+
+## Minimum vertical slice
 
 ```text
 aeos run agent-runtime-smoke-test --target <path>
 ```
 
-Expected outputs:
+Expected evidence includes:
+
+- canonical agent resolution;
+- task graph;
+- selected skill contexts;
+- permission decisions;
+- tool/MCP routing decisions;
+- evidence references;
+- Judge verdict when required;
+- final status.
+
+## Initialization order
+
+1. Load `AGENT.md` and workspace governance.
+2. Load `aeos/config/agent.runtime.yaml`.
+3. Load `aeos/registries/agents.registry.yaml` and fail unless it contains exactly `codenavi-agent`.
+4. Load and merge skill/playbook/MCP/LCP registries.
+5. Apply CodENavi governance to resolved entries.
+6. Load permission, policy, token-budget and Tool Router configuration.
+7. Initialize evidence, approval and Judge services.
+8. Expose the runtime only after all fail-closed checks pass.
+
+## Mission execution
+
+`BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF`
+
+For each mission:
+
+1. resolve the requested playbook or bounded task;
+2. build a task graph;
+3. route only the necessary context;
+4. resolve required skills and allowed MCP/LCP capabilities;
+5. check policy and permissions before tool execution;
+6. persist evidence and redacted audit data;
+7. require approval/rollback for governed high-impact actions;
+8. run deterministic verification;
+9. obtain Judge verdict when the runtime policy requires it;
+10. emit a factual debrief.
+
+## Specialization model
+
+The canonical agent does not create additional identities. Different technical responsibilities are expressed through capability contracts and context slices. Parallel work means parallel bounded steps or tool calls, not parallel personas.
+
+## Failure behavior
+
+The runtime must fail closed when:
+
+- the canonical registry is missing or contains another identity;
+- a requested capability is unregistered;
+- policy or permission denies an operation;
+- mandatory evidence is missing;
+- a secret would be exposed;
+- required approval or rollback is absent;
+- deterministic verification or Judge blocks completion.
+
+## Verification
+
+Before accepting runtime changes:
 
 ```text
-.aeos/evidence/{execution_id}/task-graph.json
-.aeos/evidence/{execution_id}/agent-trace.jsonl
-.aeos/reports/{execution_id}/agent-runtime-smoke-test.md
-.aeos/reports/{execution_id}/judge-report.md
+npm run aeos:guard:single-agent
+npm run aeos:verify
 ```
 
-## Implementation Order
-
-1. Load `aeos/config/agent.runtime.yaml`.
-2. Load `aeos/config/delegation.policy.yaml`.
-3. Load agent registry.
-4. Validate agents and subagents.
-5. Implement TaskDefinition and TaskGraph.
-6. Implement DelegationPolicyEngine.
-7. Implement ContextRouter.
-8. Implement AgentTraceStore.
-9. Implement AgentRuntime smoke test.
-10. Implement Judge v7 validations.
-
-## Do Not Implement Yet
-
-- autonomous code mutation;
-- self-approval;
-- direct MCP calls from agents;
-- secrets runtime;
-- production mutation.
+Use `npm run aeos:verify:full` when integration/tooling changes require the complete Node verification matrix.
