@@ -18,13 +18,17 @@ import type {
   EnterpriseSkillRegistryEntry,
   EnterprisePlaybookRegistryEntry,
   MergeResult,
-  SubAgentRegistryEntry,
   CrossReferenceValidation,
   OverlayRegistryIndex
 } from "./types.js";
 import { ConfigLoader } from "./config-loader.js";
 import { OverlayRegistryMerger } from "./overlay-registry-merger.js";
-import { governEntries, governEntry } from "./codenavi-governance.js";
+import {
+  governEntries,
+  governEntry,
+  governPlaybookEntries,
+  governSkillEntries
+} from "./codenavi-governance.js";
 
 export class RegistryLoader {
   private loader: ConfigLoader;
@@ -38,12 +42,12 @@ export class RegistryLoader {
 
   loadPlaybooks(): PlaybooksRegistry {
     const registry = this.loader.loadYaml<PlaybooksRegistry>("aeos/registries/playbooks.registry.yaml");
-    return { ...registry, playbooks: governEntries(registry.playbooks) };
+    return { ...registry, playbooks: governPlaybookEntries(registry.playbooks) };
   }
 
   loadSkills(): SkillsRegistry {
     const registry = this.loader.loadYaml<SkillsRegistry>("aeos/registries/skills.registry.yaml");
-    return { ...registry, skills: governEntries(registry.skills) };
+    return { ...registry, skills: governSkillEntries(registry.skills) };
   }
 
   loadMCPs(): MCPsRegistry {
@@ -80,15 +84,13 @@ export class RegistryLoader {
     return {
       ...merged,
       agents: governEntries(merged.agents),
-      subagents: governEntries(merged.subagents),
-      skills: governEntries(merged.skills),
-      playbooks: governEntries(merged.playbooks)
+      skills: governSkillEntries(merged.skills),
+      playbooks: governPlaybookEntries(merged.playbooks)
     };
   }
 
   loadAllResolved(): {
     agents: AgentRegistryEntry[];
-    subagents: SubAgentRegistryEntry[];
     skills: SkillRegistryEntry[];
     playbooks: PlaybookRegistryEntry[];
     mcps: MCPRegistryEntry[];
@@ -105,7 +107,6 @@ export class RegistryLoader {
 
     return {
       agents: mergeResult.agents,
-      subagents: mergeResult.subagents,
       skills: mergeResult.skills,
       playbooks: mergeResult.playbooks,
       mcps,
@@ -118,11 +119,11 @@ export class RegistryLoader {
 
   resolvePlaybook(playbooks: PlaybookRegistryEntry[], id: string): PlaybookRegistryEntry | null {
     const entry = this.indexById(playbooks).get(id) as PlaybookRegistryEntry | undefined;
-    return entry ? governEntry(entry) : null;
+    return entry ? governPlaybookEntries([entry])[0] ?? null : null;
   }
 
   resolveSkills(skills: SkillRegistryEntry[], ids: string[]): SkillRegistryEntry[] {
-    return governEntries(this.resolveMany(skills, ids) as SkillRegistryEntry[]);
+    return governSkillEntries(this.resolveMany(skills, ids) as SkillRegistryEntry[]);
   }
 
   resolveMCPs(mcps: MCPRegistryEntry[], ids: string[]): MCPRegistryEntry[] {
