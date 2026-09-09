@@ -1,13 +1,12 @@
 import type {
   AgentRegistryEntry,
-  SubAgentRegistryEntry,
   SkillRegistryEntry,
   PlaybookRegistryEntry,
   MergeConflict,
-  MergeResult,
-  OverlayRegistryIndex
+  MergeResult
 } from "./types.js";
 import { ConfigLoader } from "./config-loader.js";
+import { CODENAVI_AGENT_ID } from "./codenavi-governance.js";
 
 export class OverlayRegistryMerger {
   private loader: ConfigLoader;
@@ -24,7 +23,6 @@ export class OverlayRegistryMerger {
     const fragments = index.registry_fragments.map(f => f.path);
 
     const allAgents: AgentRegistryEntry[] = [];
-    const allSubAgents: SubAgentRegistryEntry[] = [];
     const allSkills: SkillRegistryEntry[] = [];
     const allPlaybooks: PlaybookRegistryEntry[] = [];
 
@@ -45,25 +43,37 @@ export class OverlayRegistryMerger {
         continue;
       }
 
+      if (Array.isArray(data.subagents) && data.subagents.length > 0) {
+        conflicts.push({
+          registry: fragmentPath,
+          existing_id: "subagents",
+          source: "agents",
+          reason: "Subagent registry entries are forbidden by the CodENavi single-agent standard"
+        });
+      }
+
       if (Array.isArray(data.agents)) {
         for (const agent of data.agents as AgentRegistryEntry[]) {
+          if (agent.id !== CODENAVI_AGENT_ID) {
+            conflicts.push({
+              registry: fragmentPath,
+              existing_id: agent.id,
+              source: "agents",
+              reason: `Only ${CODENAVI_AGENT_ID} may exist in the active agent registry`
+            });
+            continue;
+          }
           if (agentIds.has(agent.id)) {
             conflicts.push({
               registry: fragmentPath,
               existing_id: agent.id,
               source: "agents",
-              reason: `Duplicate agent id "${agent.id}" in ${fragmentPath}`
+              reason: `Duplicate canonical agent id "${agent.id}" in ${fragmentPath}`
             });
           } else {
             agentIds.add(agent.id);
             allAgents.push(agent);
           }
-        }
-      }
-
-      if (Array.isArray(data.subagents)) {
-        for (const subagent of data.subagents as SubAgentRegistryEntry[]) {
-          allSubAgents.push(subagent);
         }
       }
 
@@ -100,24 +110,12 @@ export class OverlayRegistryMerger {
       }
     }
 
-    if (conflicts.length > 0) {
-      return {
-        merged: false,
-        conflicts,
-        warnings,
-        agents: allAgents,
-        subagents: allSubAgents,
-        skills: allSkills,
-        playbooks: allPlaybooks
-      };
-    }
-
     return {
-      merged: true,
-      conflicts: [],
+      merged: conflicts.length === 0,
+      conflicts,
       warnings,
       agents: allAgents,
-      subagents: allSubAgents,
+      subagents: [],
       skills: allSkills,
       playbooks: allPlaybooks
     };
@@ -128,14 +126,18 @@ export class OverlayRegistryMerger {
 
     if (result.conflicts.length === 0) return result;
 
-    if (strategy === "fail-on-duplicates") {
+    const structuralConflicts = result.conflicts.filter(conflict =>
+      conflict.existing_id === "subagents" ||
+      (conflict.source === "agents" && conflict.existing_id !== CODENAVI_AGENT_ID)
+    );
+    if (structuralConflicts.length > 0 || strategy === "fail-on-duplicates") {
       return result;
     }
 
     const warnings = [...result.warnings];
 
     if (strategy === "skip-duplicates") {
-      warnings.push(`Skipped ${result.conflicts.length} duplicates`);
+      warnings.push(`Skipped ${result.conflicts.length} duplicate registry entries`);
       return { ...result, merged: true, warnings };
     }
 
@@ -178,13 +180,13 @@ export class OverlayRegistryMerger {
         }
       }
 
-      warnings.push(`Replaced ${result.conflicts.length} duplicates with latest fragment version`);
+      warnings.push(`Replaced ${result.conflicts.length} duplicate entries with latest fragment version`);
       return {
         merged: true,
         conflicts: result.conflicts,
         warnings,
         agents: dedupedAgents,
-        subagents: result.subagents,
+        subagents: [],
         skills: dedupedSkills,
         playbooks: dedupedPlaybooks
       };
