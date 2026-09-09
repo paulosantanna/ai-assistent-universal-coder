@@ -16,6 +16,9 @@ jobs:
     env:
       AEOS_TMP: /tmp/aeos-tmp
     steps:
+      - name: Configure Git init defaults
+        run: git config --global init.defaultBranch master
+
       - uses: actions/checkout@v7
         with:
           ref: ${{ github.head_ref || github.ref }}
@@ -31,7 +34,30 @@ jobs:
         run: npm run aeos:bootstrap:deps
 
       - name: AEOS Node-only verification suite
+        id: verify
         run: npm run aeos:verify:full
+
+      - name: Collect CI verification evidence
+        if: always()
+        shell: bash
+        env:
+          VERIFY_OUTCOME: ${{ steps.verify.outcome }}
+        run: |
+          mkdir -p .aeos/evidence
+          node --input-type=module <<'NODE'
+          import { writeFileSync } from "node:fs";
+          const evidence = {
+            schema_version: "1.0.0",
+            workflow: process.env.GITHUB_WORKFLOW,
+            run_id: process.env.GITHUB_RUN_ID,
+            run_attempt: process.env.GITHUB_RUN_ATTEMPT,
+            commit: process.env.GITHUB_SHA,
+            ref: process.env.GITHUB_HEAD_REF || process.env.GITHUB_REF_NAME,
+            verification_outcome: process.env.VERIFY_OUTCOME,
+            generated_at: new Date().toISOString()
+          };
+          writeFileSync(".aeos/evidence/ci-verification.json", `${JSON.stringify(evidence, null, 2)}\n`);
+          NODE
 
       - name: Upload AEOS evidence artifacts
         if: always()
@@ -42,4 +68,4 @@ jobs:
             .aeos/evidence/**
             .aeos/reports/**
             .aeos/derived/registries/**
-          if-no-files-found: ignore
+          if-no-files-found: error
