@@ -2,14 +2,14 @@ const assert = require('node:assert/strict');
 const { existsSync, readFileSync } = require('node:fs');
 
 describe('CodENavi workspace governance', () => {
-  it('keeps AGENT and AGENTS aligned through canonical delegation', () => {
+  it('keeps AGENT and AGENTS as byte-identical canonical mirrors', () => {
     const agent = readFileSync('AGENT.md', 'utf8');
     const agents = readFileSync('AGENTS.md', 'utf8');
+    assert.equal(agent, agents);
     assert.match(agent, /BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF/);
-    assert.match(agent, /CODENAVI_WORKSPACE_STANDARD\.md/);
-    assert.match(agent, /codenavi-artifact-contract\.v1\.json/);
-    assert.match(agents, /AGENT\.md/);
-    assert.match(agents, /CODENAVI_WORKSPACE_STANDARD\.md/);
+    assert.match(agent, /codenavi-agent/);
+    assert.match(agent, /CodENavi Full Workspace v2/);
+    assert.match(agent, /CODENAVI_FULL_WORKSPACE_STANDARD\.md/);
   });
 
   it('enforces one canonical agent and zero subagents/personas', () => {
@@ -61,7 +61,7 @@ describe('CodENavi workspace governance', () => {
     ];
     for (const path of paths) {
       assert.equal(existsSync(path), true, `${path} missing`);
-      assert.match(readFileSync(path, 'utf8'), /Governance: CodENavi v1/);
+      assert.match(readFileSync(path, 'utf8'), /Governance: CodENavi (?:v1|Image Standard)/);
     }
   });
 
