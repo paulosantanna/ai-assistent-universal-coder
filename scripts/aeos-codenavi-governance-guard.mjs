@@ -4,9 +4,8 @@ import { existsSync, readFileSync } from 'node:fs';
 const required = [
   'AGENT.md',
   'AGENTS.md',
-  'references/CODENAVI_WORKSPACE_STANDARD.md',
-  'references/CODENAVI_NOTEBOOK_SPEC.md',
   '.notebook/INDEX.md',
+  'references/CODENAVI_CONTINUITY_STANDARD.md',
   'skills/codenavi/SKILL.md',
   'skills/notebook-intelligence/SKILL.md',
   'skills/dependency-updater/SKILL.md',
@@ -14,7 +13,12 @@ const required = [
   'skills/docs-writer/SKILL.md',
   'skills/local-secret-vault/SKILL.md',
   'skills/jira-confluence-assistant/SKILL.md',
-  'skills/java-version-expert/SKILL.md'
+  'skills/java-version-expert/SKILL.md',
+  'skills/continuity-bootstrapper/SKILL.md',
+  'skills/handoff-manager/SKILL.md',
+  'skills/memory-curator/SKILL.md',
+  'skills/progress-tracker/SKILL.md',
+  'skills/learning-curator/SKILL.md'
 ];
 
 const errors = [];
@@ -22,28 +26,42 @@ for (const path of required) {
   if (!existsSync(path)) errors.push(`missing:${path}`);
 }
 
-if (existsSync('AGENT.md')) {
-  const text = readFileSync('AGENT.md', 'utf8');
-  for (const phrase of ['BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF', '.notebook/INDEX.md', 'CODENAVI_WORKSPACE_STANDARD.md']) {
-    if (!text.includes(phrase)) errors.push(`AGENT.md missing required contract: ${phrase}`);
+const lifecycle = 'BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF';
+const continuityTokens = [
+  'CODENAVI_CONTINUITY_STANDARD.md',
+  'HANDOFF.md',
+  'MEMORY.md',
+  'PROGRESS.md',
+  'LEARNING.md'
+];
+
+if (existsSync('AGENT.md') && existsSync('AGENTS.md')) {
+  const agent = readFileSync('AGENT.md', 'utf8');
+  const agents = readFileSync('AGENTS.md', 'utf8');
+  if (agent !== agents) errors.push('AGENT.md and AGENTS.md must be byte-identical canonical contracts');
+  for (const phrase of [lifecycle, '.notebook/INDEX.md', ...continuityTokens]) {
+    if (!agent.includes(phrase)) errors.push(`AGENT.md missing required contract: ${phrase}`);
+  }
+  if (!agent.includes('exactly **one** agent identity in AEOS: `codenavi-agent`')) {
+    errors.push('AGENT.md must enforce the single codenavi-agent identity');
   }
 }
 
-if (existsSync('AGENTS.md')) {
-  const text = readFileSync('AGENTS.md', 'utf8');
-  if (!text.includes('AGENT.md')) errors.push('AGENTS.md must point to canonical AGENT.md');
-  if (!text.includes('CODENAVI_WORKSPACE_STANDARD.md')) errors.push('AGENTS.md must load CodENavi standard');
-}
-
-for (const path of required.filter(x => x.endsWith('/SKILL.md'))) {
+for (const path of required.filter((x) => x.endsWith('/SKILL.md'))) {
   if (!existsSync(path)) continue;
   const text = readFileSync(path, 'utf8');
   if (!text.includes('Governance: CodENavi v1')) errors.push(`${path} missing CodENavi governance marker`);
 }
 
 if (errors.length) {
-  console.error(JSON.stringify({ status: 'FAIL', errors }, null, 2));
+  console.error(JSON.stringify({ status: 'FAIL', standard: 'CodENavi v1', errors }, null, 2));
   process.exit(1);
 }
 
-console.log(JSON.stringify({ status: 'PASS', standard: 'CodENavi v1', requiredFiles: required.length }, null, 2));
+console.log(JSON.stringify({
+  status: 'PASS',
+  standard: 'CodENavi v1',
+  canonicalAgent: 'codenavi-agent',
+  requiredFiles: required.length,
+  continuityArtifacts: 4
+}, null, 2));
