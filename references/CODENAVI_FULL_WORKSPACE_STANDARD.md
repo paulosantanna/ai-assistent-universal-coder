@@ -2,9 +2,9 @@
 
 Governance: CodENavi Full Workspace v2
 
-This standard is mandatory for every governed AEOS artifact: agents, subagents, skills, playbooks, MCPs, LCPs, LSP/language-server components, tools, runtime routers/executors, registries, overlays, policies, permissions, blueprints, evals, memory/knowledge contracts, documentation generators, CI/CD governance and provider adapters.
+This standard is mandatory for every governed AEOS artifact: the canonical agent contract, skills, super-skills, playbooks, MCPs, LCPs, LSP/language-server components, tools, runtime routers/executors, registries, overlays, policies, permissions, blueprints, evals, memory/knowledge contracts, documentation generators, CI/CD governance and provider adapters.
 
-It extends `AGENT.md`, `references/CODENAVI_WORKSPACE_STANDARD.md` and `references/CODENAVI_NOTEBOOK_SPEC.md`. Local contracts may be stricter but never weaker.
+It extends `AGENT.md`, `references/CODENAVI_WORKSPACE_STANDARD.md` and `references/CODENAVI_NOTEBOOK_SPEC.md`. There is exactly one agent identity, `codenavi-agent`. Subtree guidance may specialize execution but may never create another agent identity or weaken root governance.
 
 ## Universal lifecycle
 
@@ -13,7 +13,7 @@ Every material operation MUST be representable as:
 **BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF**
 
 - **BRIEFING:** intent, acceptance criteria, risk, scope, non-goals, constraints, required capabilities and unknowns.
-- **RECON:** read root/local agent contracts, `.notebook/INDEX.md`, relevant evidence, code/config/tests and current authoritative docs.
+- **RECON:** read the canonical root contract, `.notebook/INDEX.md`, relevant evidence, code/config/tests and current authoritative docs.
 - **PLAN:** smallest sufficient steps, dependency order, verification checkpoints, stop conditions and rollback for risky changes.
 - **EXECUTE:** bounded action only; surgical changes; no unrelated refactor; deny-by-default authority.
 - **VERIFY:** behavior/contracts, security, architecture invariants, build/tests/evals/performance when applicable; never claim success without evidence.
@@ -39,8 +39,8 @@ Every material operation MUST be representable as:
 
 ## Contract by artifact type
 
-### Agents and subagents
-Must declare bounded responsibility, authority, handoff inputs/outputs, evidence expectations, stop/escalation conditions and lifecycle behavior. Delegation does not transfer unlimited authority. The delegating agent remains responsible for integration and verification.
+### Single agent and specialization
+`codenavi-agent` is the only agent identity. Specialization belongs to skills, super-skills, playbooks, MCPs, LSPs, LCPs, tools and critical-thinking lenses. Local `AGENT.md` files, where retained for compatibility or domain guidance, are instruction contracts inherited by the same canonical agent; they are not new personas and cannot delegate to subagents.
 
 ### Skills
 Must declare mission, non-goals, inputs, outputs, evidence, owner/risk, required capabilities, security boundaries, freshness requirements and verification. A skill is a reusable capability contract, not a permission bypass.
@@ -96,4 +96,4 @@ A governed artifact or mission is done only when:
 
 ## Inheritance
 
-The nearest `AGENT.md` may specialize this standard for a subtree. Every governed subtree MUST ultimately chain to the root `AGENT.md` and this file. Local instructions cannot weaken the root contract.
+`AGENT.md` is the canonical root contract for the entire tracked workspace. `AGENTS.md` is its byte-identical discovery mirror. Local instruction files may add domain constraints but inherit the canonical agent identity and this standard; they cannot weaken root governance or introduce personas, parent/child agents, subagents or agent overlays.
