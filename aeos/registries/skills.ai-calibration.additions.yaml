@@ -2,6 +2,6 @@ skills:
   - id: llm-calibration-temperature-expert
     path: skills/llm-calibration-temperature-expert/SKILL.md
     version: 1.0.0
-    owner_agent: architect
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, WEB_SEARCH, WEB_FETCH, KNOWLEDGE_RETRIEVAL, GENERATE_REPORT, GENERATE_EVIDENCE]
