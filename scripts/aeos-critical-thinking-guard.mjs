@@ -9,13 +9,14 @@ import {
 } from "./aeos-critical-thinking-governance.mjs";
 
 const CODENAVI_AGENT_ID = "codenavi-agent";
+const REGISTRY_ENTRY = /^[ \t]{0,2}-[ \t]+id:[ \t]*([^\n#]+)/m;
 
 function parseSkillBlocks(text) {
   return text
-    .split(/\n(?=- id: )/g)
-    .filter((block) => /^- id: /m.test(block))
+    .split(/\n(?=[ \t]{0,2}-[ \t]+id:[ \t]+)/g)
+    .filter((block) => REGISTRY_ENTRY.test(block))
     .map((block) => ({
-      id: block.match(/^- id:\s*([^\n]+)/m)?.[1]?.trim() ?? "",
+      id: block.match(REGISTRY_ENTRY)?.[1]?.trim() ?? "",
       riskLevel: block.match(/^\s*risk_level:\s*([^\n]+)/m)?.[1]?.trim() ?? "",
       mission: block.match(/^\s*mission:\s*([^\n]+)/m)?.[1]?.trim() ?? ""
     }));
