@@ -139,7 +139,7 @@ export class PlaybookEngine {
         const governanceEvidence = {
           id: randomUUID(),
           type: "source" as const,
-          claim: `Critical-thinking governance selected ${criticalThinkingPlan.selectedAgents.length} agents for skill '${skillEntry.id}'.`,
+          claim: `Critical-thinking governance selected ${criticalThinkingPlan.selectedLenses.length} lenses for skill '${skillEntry.id}'.`,
           reference: criticalThinkingPlan.planHash,
           source: criticalThinkingPlan.governingSkill,
           timestamp: new Date().toISOString(),
