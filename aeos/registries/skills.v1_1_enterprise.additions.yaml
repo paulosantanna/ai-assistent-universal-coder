@@ -2,192 +2,192 @@ skills:
   - id: workbench-profile-resolver
     path: aeos/skills/core/workbench-profile-resolver.skill.md
     version: 1.1.0
-    owner_agent: security
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: blueprint-generator
     path: aeos/skills/core/blueprint-generator.skill.md
     version: 1.1.0
-    owner_agent: security
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: skill-factory-generator
     path: aeos/skills/core/skill-factory-generator.skill.md
     version: 1.1.0
-    owner_agent: security
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: playbook-factory-generator
     path: aeos/skills/core/playbook-factory-generator.skill.md
     version: 1.1.0
-    owner_agent: security
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: evaluation-runner
     path: aeos/skills/core/evaluation-runner.skill.md
     version: 1.1.0
-    owner_agent: security
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: enterprise-security-auditor
     path: aeos/skills/core/enterprise-security-auditor.skill.md
     version: 1.1.0
-    owner_agent: security
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: compliance-audit-exporter
     path: aeos/skills/core/compliance-audit-exporter.skill.md
     version: 1.1.0
-    owner_agent: security
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: marketplace-curator
     path: aeos/skills/core/marketplace-curator.skill.md
     version: 1.1.0
-    owner_agent: security
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: unique-environment-auditor
     path: aeos/skills/core/unique-environment-auditor.skill.md
     version: 1.1.0
-    owner_agent: security
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: fixture-corpus-validator
     path: aeos/skills/core/fixture-corpus-validator.skill.md
     version: 1.1.0
-    owner_agent: security
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: redaction-evaluator
     path: aeos/skills/core/redaction-evaluator.skill.md
     version: 1.1.0
-    owner_agent: security
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: anti-hallucination-evaluator
     path: aeos/skills/core/anti-hallucination-evaluator.skill.md
     version: 1.1.0
-    owner_agent: security
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: mcp-poisoning-evaluator
     path: aeos/skills/core/mcp-poisoning-evaluator.skill.md
     version: 1.1.0
-    owner_agent: security
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: policy-bypass-evaluator
     path: aeos/skills/core/policy-bypass-evaluator.skill.md
     version: 1.1.0
-    owner_agent: security
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: judge-benchmark-runner
     path: aeos/skills/core/judge-benchmark-runner.skill.md
     version: 1.1.0
-    owner_agent: security
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: kinghost-site-operator
     path: aeos/skills/generated/kinghost-site-operator.skill.md
     version: 1.1.0
-    owner_agent: architect
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [WEB_SEARCH, WEB_FETCH, KNOWLEDGE_RETRIEVAL, READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: omnichannel-commerce-operator
     path: aeos/skills/generated/omnichannel-commerce-operator.skill.md
     version: 1.1.0
-    owner_agent: architect
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [WEB_SEARCH, WEB_FETCH, KNOWLEDGE_RETRIEVAL, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: web-modernization-performance
     path: aeos/skills/generated/web-modernization-performance.skill.md
     version: 1.1.0
-    owner_agent: architect
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [WEB_SEARCH, WEB_FETCH, KNOWLEDGE_RETRIEVAL, READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: kinghost-secure-connection
     path: aeos/skills/generated/kinghost-secure-connection.skill.md
     version: 1.1.0
-    owner_agent: security
+    owner_agent: codenavi-agent
     risk_level: critical
     capabilities: [NETWORK_CONNECT, SECRET_REFERENCE, GENERATE_EVIDENCE]
   - id: kinghost-site-lifecycle
     path: aeos/skills/generated/kinghost-site-lifecycle.skill.md
     version: 1.1.0
-    owner_agent: orchestrator
+    owner_agent: codenavi-agent
     risk_level: critical
     capabilities: [NETWORK_CONNECT, READ_FILES, WRITE_FILES, DEPLOY, BACKUP, RESTORE, GENERATE_EVIDENCE]
   - id: kinghost-data-analysis
     path: aeos/skills/generated/kinghost-data-analysis.skill.md
     version: 1.1.0
-    owner_agent: architect
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [NETWORK_CONNECT, DATABASE_READ, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: kinghost-code-analysis
     path: aeos/skills/generated/kinghost-code-analysis.skill.md
     version: 1.1.0
-    owner_agent: coder
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [NETWORK_CONNECT, READ_FILES, SCAN_DEPENDENCIES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: kinghost-site-architecture-analysis
     path: aeos/skills/generated/kinghost-site-architecture-analysis.skill.md
     version: 1.1.0
-    owner_agent: architect
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [NETWORK_CONNECT, READ_FILES, MAP_ARCHITECTURE, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: aura-voice
     path: aeos/skills/generated/aura-voice.skill.md
     version: 1.0.0
-    owner_agent: orchestrator
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, WRITE_SANDBOX_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: codenavi
     path: skills/codenavi/SKILL.md
     version: 1.0.0
-    owner_agent: orchestrator
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: notebook-intelligence
     path: skills/notebook-intelligence/SKILL.md
     version: 1.0.0
-    owner_agent: architect
+    owner_agent: codenavi-agent
     risk_level: medium
     capabilities: [READ_FILES, WRITE_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: dependency-updater
     path: skills/dependency-updater/SKILL.md
     version: 1.0.0
-    owner_agent: coder
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, WRITE_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: pr-reviewer
     path: skills/pr-reviewer/SKILL.md
     version: 1.0.0
-    owner_agent: architect
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: docs-writer
     path: skills/docs-writer/SKILL.md
     version: 1.0.0
-    owner_agent: coder
+    owner_agent: codenavi-agent
     risk_level: medium
     capabilities: [READ_FILES, WRITE_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: local-secret-vault
     path: skills/local-secret-vault/SKILL.md
     version: 1.0.0
-    owner_agent: security
+    owner_agent: codenavi-agent
     risk_level: critical
     capabilities: [READ_FILES, SECRET_REFERENCE, GENERATE_EVIDENCE]
   - id: jira-confluence-assistant
     path: skills/jira-confluence-assistant/SKILL.md
     version: 1.0.0
-    owner_agent: orchestrator
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: java-version-expert
     path: skills/java-version-expert/SKILL.md
     version: 1.0.0
-    owner_agent: coder
+    owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
