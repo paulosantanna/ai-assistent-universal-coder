@@ -1,7 +1,8 @@
 token_budget_governor:
   enabled: true
-  version: 1.0.0
+  version: 2.0.0
   default_provider: unknown
+
   provider_limits:
     gpt: 32000
     openai: 32000
@@ -11,28 +12,34 @@ token_budget_governor:
     deepseek-free: 8000
     local: 12000
     unknown: 8000
+
   output_reserve_tokens:
     default: 2000
     planning: 1500
     code_generation: 3000
     review: 2000
+
   thresholds:
     review_at_ratio: 0.75
     block_at_ratio: 1.0
-  subagents:
-    max_subagents_per_task: 5
-    default_parent_reserve_ratio: 0.25
+
+  context_slices:
+    max_parallel_skill_contexts: 5
+    canonical_agent_reserve_ratio: 0.25
     require_narrow_task_contract: true
-    forbid_context_broadcast: true
+    forbid_full_context_broadcast: true
     forbid_unrequested_exploration: true
     require_output_schema: true
+
   reduction_order:
-  - use_path_refs_instead_of_pasted_files
-  - summarize_prior_context
-  - load_only_relevant_lcp
-  - narrow_subagent_scope
-  - ask_for_missing_required_input
-  - stop_on_scope_expansion
+    - use_path_refs_instead_of_pasted_files
+    - summarize_prior_context
+    - load_only_relevant_lcp
+    - narrow_skill_context
+    - reduce_parallel_contexts
+    - ask_for_missing_required_input
+    - stop_on_scope_expansion
+
   provider_policy:
     gpt:
       prefer: balanced_generation_and_reasoning
@@ -41,11 +48,17 @@ token_budget_governor:
       prefer: file_refs_diffs_tests
       avoid: dumping_entire_files_when_patch_is_enough
     claude:
-      prefer: long_context_review_with_summaries
+      prefer: targeted_review_with_summaries
       avoid: using_long_context_when_targeted_reads_are_enough
     deepseek:
       prefer: compact_reasoning_and_code_tasks
-      avoid: broad_multi_agent_context
+      avoid: broad_parallel_context
     deepseek-free:
       prefer: smallest_task_slice
-      avoid: large_context_or_parallel_subagents
+      avoid: large_context_or_excessive_parallelism
+    local:
+      prefer: bounded_retrieval_and_cached_evidence
+      avoid: redundant_workspace_replay
+    unknown:
+      prefer: conservative_context_budget
+      avoid: provider_specific_assumptions
