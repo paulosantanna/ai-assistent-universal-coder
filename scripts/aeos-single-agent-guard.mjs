@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
-import { extname, relative, resolve, sep } from "node:path";
-import { load } from "js-yaml";
+import { extname, resolve } from "node:path";
+import yaml from "js-yaml";
 
+const { load } = yaml;
 const ROOT = resolve(process.cwd());
 const CANONICAL_AGENT = "codenavi-agent";
 const CANONICAL_AGENT_PATH = "AGENT.md";
