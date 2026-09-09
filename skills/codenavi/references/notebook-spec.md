@@ -57,7 +57,7 @@ Last updated: 2026-05-26
 Format per line:
 
 ```
-[slug](path) — summary (max ~100 chars) | category | tags
+- [slug](path) — summary (max ~100 chars) | category | tags
 ```
 
 Rules for INDEX.md:
@@ -101,20 +101,17 @@ Updated: 2026-05-26
    - `file/path.ts:functionName()` for functions
    - `file/path.ts` (L10-25) for specific line ranges
    - `file/path.ts:ClassName.method()` for class methods
-   Never paste code blocks into notes. Code changes, pointers can be re-checked. Pasted code becomes stale lies.
+   Never paste code blocks into notes. Code changes; pointers can be re-checked. Pasted code becomes stale lies.
 
-2. **One concept per note.** If it needs scrolling, split it.
-   A note about auth flow should not also cover session management unless they're inseparable.
+2. **One concept per note.** If it needs scrolling, split it. A note about auth flow should not also cover session management unless they're inseparable.
 
-3. **Minimal prose** Use fragments, arrows, dashes. Not sentences.
-   "middleware → verify JWT → load user → attach to request" is better than "The middleware verifies the JWT, loads the user, and attaches it to the request."
+3. **Minimal prose** Use fragments, arrows, dashes. Not sentences. “middleware → verify JWT → load user → attach to request” is better than “The middleware verifies the JWT, loads the user, and attaches it to the request.”
 
 4. **Always include Entry point.** Every note should have a clear starting point so the reader knows where to begin exploring.
 
 5. **Always include Updated date.** So the reader knows how fresh the information is.
 
-6. **No opinions, only observations.** "Uses Redux for state" not "Uses Redux instead of a better solution." If something is genuinely problematic, state the observable impact:
-   "Redux store has 47 top-level keys — finding relevant state requires searching across 12 reducers."
+6. **No opinions, only observations.** “Uses Redux for state” not “Uses Redux instead of a better solution.” If something is genuinely problematic, state the observable impact: “Redux store has 47 top-level keys — finding relevant state requires searching across 12 reducers.”
 
 ## Creating the .notebook/ for the First Time
 
@@ -148,7 +145,7 @@ When information becomes invalid (e.g., a flow changed because of your work), up
 The entire `.notebook/` system is designed for progressive disclosure:
 
 - **INDEX.md** is read every session (~5-50 lines). Cost: minimal.
-- **Individual notes** are read only when relevant to the current mission. The AI decides which to open based on INDEX.md and tags.
+- **Individual notes** are read only when relevant to the current mission. The AI decides which to open based on INDEX.md tags.
 - **Total cost per session**: INDEX.md + 0-5 relevant notes.
 
-If INDEX.md grows beyond 50 entries, consider archiving old notes into an `archive/` subdirectory and removing them from active index. Archived notes are still searchable but not loaded by default.
+If INDEX.md grows beyond 50 entries, consider archiving old notes into an `archive/` subdirectory and removing them from the active index. Archived notes are still searchable but not loaded by default.

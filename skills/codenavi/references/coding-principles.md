@@ -2,7 +2,7 @@
 
 Read this file during the Execute phase when implementing changes. These principles reduce common AI coding mistakes and ensure consistent, high-quality output.
 
-# 1. Think Before Coding
+## 1. Think Before Coding
 
 Before writing any code:
 
@@ -19,12 +19,12 @@ Write the minimum code that solves the problem.
 
 - No features beyond what was asked.
 - No abstractions for single-use code.
-- No "flexibility" or "configurability" that wasn't requested.
+- No “flexibility” or “configurability” that wasn't requested.
 - No error handling for impossible scenarios.
 - No speculative optimization.
 - If you wrote 200 lines and it could be 50, rewrite it.
 
-The test: "would a senior engineer say this is overcomplicated?"
+The test: “would a senior engineer say this is overcomplicated?”
 
 If yes, simplify.
 
@@ -32,7 +32,7 @@ If yes, simplify.
 
 When editing existing code:
 
-- Don't "improve" adjacent code, comments, or formatting.
+- Don't “improve” adjacent code, comments, or formatting.
 - Don't refactor things that aren't broken.
 - Match existing style, even if you'd do it differently.
 - If you notice unrelated issues, mention them — don't fix them.
@@ -48,11 +48,11 @@ The test: Every changed line traces directly to the mission objective.
 
 Transform vague tasks into verifiable goals:
 
-- "Add validation" → "Write tests for valid inputs, then make them pass"
-- "Fix the bug" → "Write a test that reproduces the bug, then fix the root cause"
-- "Refactor X" → "Ensure tests pass before and after"
+- “Add validation” → “Write tests for valid inputs, then make them pass”
+- “Fix the bug” → “Write a test that reproduces the bug, then fix the root cause”
+- “Refactor X” → “Ensure tests pass before and after”
 
-For multi-step tasks, state a brief plan with verification checkpoints. Strong success criteria enable autonomous execution. Weak criteria ("make it work") require frequent clarification — ask for better criteria rather than guessing.
+For multi-step tasks, state a brief plan with verification checkpoints. Strong success criteria enable autonomous execution. Weak criteria (“make it work”) require frequent clarification — ask for better criteria rather than guessing.
 
 ## 5. Respect the Codebase
 
@@ -77,9 +77,7 @@ Always follow the official best practices for the language and frameworks in use
 
 Critical: Never rely on training memory for API signatures, method parameters, or framework behavior. Always verify against current documentation using the Knowledge Verification Chain:
 
-```
-.notebook/ → project docs → MCP Context7 → web search → flag as uncertain
-```
+`.notebook/ → project docs → MCP Context7 → web search → flag as uncertain`
 
 ## 7. Dependencies and Imports
 
@@ -95,7 +93,7 @@ When adding new dependencies or imports:
 - Handle errors that can realistically occur.
 - Don't add catch blocks for theoretically impossible scenarios.
 - Use the project's existing error handling patterns.
-- Error messages should be actionable — tell what happened and what to do about it, not just "Something went wrong."
+- Error messages should be actionable — tell what happened and what to do about it, not just “Something went wrong.”
 - Never swallow errors silently (empty catch blocks) unless there's an explicit reason documented in a comment.
 
 ## 9. Testing
@@ -104,7 +102,7 @@ When tests are part of the mission:
 
 - Write tests that verify behavior, not implementation details.
 - Test the contract (input → output), not internal state.
-- Name tests descriptively: "should reject expired coupon" not "test 1" or "coupon_test".
+- Name tests descriptively: “should reject expired coupon” not “test 1” or “coupon_test”.
 - If modifying existing code, run tests first to establish a baseline.
 - If adding a bug fix, write a test that reproduces the bug first, then fix it.
 
@@ -112,7 +110,7 @@ When tests are NOT part of the mission:
 
 - Don't add tests unless asked.
 - But DO mention if the change is risky and untested:
-  "This change affects the payment flow but there are no tests covering this path. Consider adding tests for [specific cases]."
+  “This change affects the payment flow but there are no tests covering this path. Consider adding tests for [specific cases].”
 
 ## Comments
 
