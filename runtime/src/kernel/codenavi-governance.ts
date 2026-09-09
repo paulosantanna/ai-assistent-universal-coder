@@ -42,19 +42,29 @@ export const CODENAVI_RUNTIME_GOVERNANCE: CodENaviRuntimeGovernance = Object.fre
   production_mutation_policy: "approval-judge-rollback-required"
 });
 
+export type GovernedEntry<T extends object> = T & { governance: CodENaviRuntimeGovernance };
+export type GovernedSkillEntry<T extends object> = T & {
+  owner_agent: typeof CODENAVI_AGENT_ID;
+  governance: CodENaviRuntimeGovernance;
+};
+export type GovernedPlaybookEntry<T extends object> = T & {
+  required_agents: [typeof CODENAVI_AGENT_ID];
+  governance: CodENaviRuntimeGovernance;
+};
+
 /**
  * Registry files contain domain metadata; governance is attached at the runtime
  * boundary so legacy and overlay entries cannot bypass the current constitution.
  * Existing entry fields win only for domain semantics, never for governance.
  */
-export function governEntry<T extends object>(entry: T): T & { governance: CodENaviRuntimeGovernance } {
+export function governEntry<T extends object>(entry: T): GovernedEntry<T> {
   return {
     ...entry,
     governance: CODENAVI_RUNTIME_GOVERNANCE
   };
 }
 
-export function governEntries<T extends object>(entries: T[]): Array<T & { governance: CodENaviRuntimeGovernance }> {
+export function governEntries<T extends object>(entries: T[]): GovernedEntry<T>[] {
   return entries.map(governEntry);
 }
 
@@ -62,10 +72,7 @@ export function governEntries<T extends object>(entries: T[]): Array<T & { gover
  * Skill ownership is runtime-authoritative. Legacy owner_agent values describe
  * former personas only; they cannot create or select a second agent identity.
  */
-export function governSkillEntry<T extends object>(entry: T): T & {
-  owner_agent: typeof CODENAVI_AGENT_ID;
-  governance: CodENaviRuntimeGovernance;
-} {
+export function governSkillEntry<T extends object>(entry: T): GovernedSkillEntry<T> {
   return {
     ...entry,
     owner_agent: CODENAVI_AGENT_ID,
@@ -73,7 +80,7 @@ export function governSkillEntry<T extends object>(entry: T): T & {
   };
 }
 
-export function governSkillEntries<T extends object>(entries: T[]): Array<ReturnType<typeof governSkillEntry<T>>> {
+export function governSkillEntries<T extends object>(entries: T[]): GovernedSkillEntry<T>[] {
   return entries.map(governSkillEntry);
 }
 
@@ -81,10 +88,7 @@ export function governSkillEntries<T extends object>(entries: T[]): Array<Return
  * Playbooks may retain historical role labels in source registries for migration
  * traceability, but execution is always resolved to the single CodENavi agent.
  */
-export function governPlaybookEntry<T extends object>(entry: T): T & {
-  required_agents: [typeof CODENAVI_AGENT_ID];
-  governance: CodENaviRuntimeGovernance;
-} {
+export function governPlaybookEntry<T extends object>(entry: T): GovernedPlaybookEntry<T> {
   return {
     ...entry,
     required_agents: [CODENAVI_AGENT_ID],
@@ -92,7 +96,7 @@ export function governPlaybookEntry<T extends object>(entry: T): T & {
   };
 }
 
-export function governPlaybookEntries<T extends object>(entries: T[]): Array<ReturnType<typeof governPlaybookEntry<T>>> {
+export function governPlaybookEntries<T extends object>(entries: T[]): GovernedPlaybookEntry<T>[] {
   return entries.map(governPlaybookEntry);
 }
 
