@@ -29,9 +29,7 @@ export class ReportWriter {
     if (report.failures.length === 0) {
       lines.push("_No failures detected._");
     } else {
-      for (const f of report.failures) {
-        lines.push(`- ❌ ${f}`);
-      }
+      for (const f of report.failures) lines.push(`- ❌ ${f}`);
     }
     lines.push("");
     lines.push("## Risks");
@@ -39,9 +37,7 @@ export class ReportWriter {
     if (report.risks.length === 0) {
       lines.push("_No risks identified._");
     } else {
-      for (const r of report.risks) {
-        lines.push(`- ⚠️ ${r}`);
-      }
+      for (const r of report.risks) lines.push(`- ⚠️ ${r}`);
     }
     lines.push("");
     lines.push("## Files Affected");
@@ -49,9 +45,7 @@ export class ReportWriter {
     if (report.filesAffected.length === 0) {
       lines.push("_No files affected._");
     } else {
-      for (const f of report.filesAffected) {
-        lines.push(`- \`${f}\``);
-      }
+      for (const f of report.filesAffected) lines.push(`- \`${f}\``);
     }
     lines.push("");
     lines.push("## Tests Executed");
@@ -63,9 +57,7 @@ export class ReportWriter {
     if (report.requiredNextSteps.length === 0) {
       lines.push("_No required next steps._");
     } else {
-      for (const step of report.requiredNextSteps) {
-        lines.push(`- ${step}`);
-      }
+      for (const step of report.requiredNextSteps) lines.push(`- ${step}`);
     }
     lines.push("");
     lines.push("---");
@@ -99,9 +91,7 @@ export class ReportWriter {
     if (ctx.resolvedSkills.length === 0) {
       lines.push("_No skills resolved._");
     } else {
-      for (const sk of ctx.resolvedSkills) {
-        lines.push(`- ${sk.id} (v${sk.version})`);
-      }
+      for (const sk of ctx.resolvedSkills) lines.push(`- ${sk.id} (v${sk.version})`);
     }
     lines.push("");
     lines.push("## Resolved MCPs");
@@ -109,9 +99,7 @@ export class ReportWriter {
     if (ctx.resolvedMCPs.length === 0) {
       lines.push("_No MCPs resolved._");
     } else {
-      for (const mcp of ctx.resolvedMCPs) {
-        lines.push(`- ${mcp.id} (${mcp.type})`);
-      }
+      for (const mcp of ctx.resolvedMCPs) lines.push(`- ${mcp.id} (${mcp.type})`);
     }
     lines.push("");
     lines.push("## Resolved LCPs");
@@ -119,9 +107,7 @@ export class ReportWriter {
     if (ctx.resolvedLCPs.length === 0) {
       lines.push("_No LCPs resolved._");
     } else {
-      for (const lcp of ctx.resolvedLCPs) {
-        lines.push(`- ${lcp.id} (priority: ${lcp.priority})`);
-      }
+      for (const lcp of ctx.resolvedLCPs) lines.push(`- ${lcp.id} (priority: ${lcp.priority})`);
     }
     lines.push("");
     lines.push("## Agent");
@@ -137,7 +123,7 @@ export class ReportWriter {
       lines.push("_No critical-thinking plan recorded._");
     } else {
       for (const plan of ctx.criticalThinkingPlans) {
-        lines.push(`- **${plan.skillId}:** ${plan.selectedAgents.map((agent) => agent.id).join(", ")} (hash: \`${plan.planHash}\`)`);
+        lines.push(`- **${plan.skillId}:** ${plan.selectedLenses.map((lens) => lens.id).join(", ")} (hash: \`${plan.planHash}\`)`);
       }
     }
     lines.push("");
@@ -158,9 +144,7 @@ export class ReportWriter {
     if (ctx.artifacts.length === 0) {
       lines.push("_No artifacts generated._");
     } else {
-      for (const a of ctx.artifacts) {
-        lines.push(`- \`${a}\``);
-      }
+      for (const a of ctx.artifacts) lines.push(`- \`${a}\``);
     }
     lines.push("");
     lines.push("---");
