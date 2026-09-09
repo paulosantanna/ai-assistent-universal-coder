@@ -10,7 +10,7 @@ function moduleUrl(relativePath) {
 }
 
 describe("AEOS critical-thinking governance", () => {
-  it("governs every registered skill with exactly 20 registered specialists", async () => {
+  it("governs every registered skill with exactly 20 internal lenses", async () => {
     const { validateCriticalThinkingGovernance } = await import(
       moduleUrl("scripts/aeos-critical-thinking-guard.mjs")
     );
@@ -18,13 +18,14 @@ describe("AEOS critical-thinking governance", () => {
 
     assert.deepEqual(result.errors, []);
     assert.equal(result.status, "PASS");
-    assert.equal(result.specialistAgentsChecked, 20);
+    assert.equal(result.lensesChecked, 20);
     assert.equal(result.skillsChecked >= 100, true);
-    assert.equal(result.baselineAgents.length, 4);
-    assert.equal(result.maxAgentsPerPlan < 20, true);
+    assert.equal(result.baselineLenses.length, 4);
+    assert.equal(result.maxLensesPerPlan < 20, true);
+    assert.equal(result.agentId, "codenavi-agent");
   });
 
-  it("uses only the four-agent baseline for a simple low-risk task", async () => {
+  it("uses only the four-lens baseline for a simple low-risk task", async () => {
     const { buildCriticalThinkingPlan } = await import(
       moduleUrl("scripts/aeos-critical-thinking-governance.mjs")
     );
@@ -36,12 +37,12 @@ describe("AEOS critical-thinking governance", () => {
 
     assert.equal(plan.status, "PASS");
     assert.deepEqual(
-      plan.selectedAgents.map((agent) => agent.id),
+      plan.selectedLenses.map((lens) => lens.id),
       ["ct-first-principles", "ct-assumption-auditor", "ct-evidence-hierarchy", "ct-meta-reflection"]
     );
   });
 
-  it("adds critical-risk and explicit Bayesian agents without activating all agents", async () => {
+  it("adds critical-risk and explicit Bayesian lenses without activating all lenses", async () => {
     const { buildCriticalThinkingPlan } = await import(
       moduleUrl("scripts/aeos-critical-thinking-governance.mjs")
     );
@@ -50,7 +51,7 @@ describe("AEOS critical-thinking governance", () => {
       riskLevel: "critical",
       request: "estime com Bayes a probabilidade de falha antes do release clínico"
     });
-    const ids = plan.selectedAgents.map((agent) => agent.id);
+    const ids = plan.selectedLenses.map((lens) => lens.id);
 
     assert.equal(plan.status, "PASS");
     assert.equal(ids.includes("ct-pre-mortem"), true);
@@ -67,26 +68,26 @@ describe("AEOS critical-thinking governance", () => {
     const plan = buildCriticalThinkingPlan({
       skillId: "critical-thinking-governor",
       riskLevel: "high",
-      request: "aplicar seleção proporcional de agentes"
+      request: "aplicar seleção proporcional de lentes"
     });
 
     assert.equal(plan.status, "PASS");
-    assert.equal(plan.selectedAgents.some((agent) => agent.id === "ct-counterfactual-mirror"), false);
+    assert.equal(plan.selectedLenses.some((lens) => lens.id === "ct-counterfactual-mirror"), false);
   });
 
-  it("fails configuration validation when an agent id is duplicated", async () => {
+  it("fails configuration validation when a lens id is duplicated", async () => {
     const { loadCriticalThinkingConfig, validateCriticalThinkingConfig } = await import(
       moduleUrl("scripts/aeos-critical-thinking-governance.mjs")
     );
     const config = structuredClone(loadCriticalThinkingConfig(repoRoot));
-    config.agents[19].id = config.agents[0].id;
+    config.lenses[19].id = config.lenses[0].id;
 
     const result = validateCriticalThinkingConfig(config);
     assert.equal(result.status, "FAIL");
     assert.equal(result.errors.some((error) => error.includes("unique")), true);
   });
 
-  it("keeps script and runtime selection behavior equivalent", async () => {
+  it("keeps script and runtime lens selection behavior equivalent", async () => {
     const { buildCriticalThinkingPlan } = await import(
       moduleUrl("scripts/aeos-critical-thinking-governance.mjs")
     );
@@ -98,7 +99,7 @@ describe("AEOS critical-thinking governance", () => {
       id: "architecture-mapper",
       path: "aeos/skills/core/architecture-mapper.skill.md",
       version: "1.0.0",
-      owner_agent: "architect",
+      owner_agent: "codenavi-agent",
       risk_level: "high",
       capabilities: ["MAP_ARCHITECTURE"],
       mission: "Map architecture and dependencies"
@@ -114,12 +115,12 @@ describe("AEOS critical-thinking governance", () => {
 
     assert.equal(runtimePlan.status, "PASS");
     assert.deepEqual(
-      runtimePlan.selectedAgents.map((agent) => agent.id),
-      scriptPlan.selectedAgents.map((agent) => agent.id)
+      runtimePlan.selectedLenses.map((lens) => lens.id),
+      scriptPlan.selectedLenses.map((lens) => lens.id)
     );
   });
 
-  it("makes the runtime fail closed when an agent contract path is corrupted", async () => {
+  it("makes the runtime fail closed when a lens definition is corrupted", async () => {
     const { loadCriticalThinkingConfig } = await import(
       moduleUrl("scripts/aeos-critical-thinking-governance.mjs")
     );
@@ -127,19 +128,19 @@ describe("AEOS critical-thinking governance", () => {
       moduleUrl("runtime/dist/kernel/critical-thinking-governor.js")
     );
     const config = structuredClone(loadCriticalThinkingConfig(repoRoot));
-    config.agents[0].path = "skills/critical-thinking-governor/agents/missing.agent.md";
+    config.lenses[0].prompt_id = "BROKEN";
     const skill = {
       id: "repo-scanner",
       path: "aeos/skills/core/repo-scanner.skill.md",
       version: "1.0.0",
-      owner_agent: "architect",
+      owner_agent: "codenavi-agent",
       risk_level: "low",
       capabilities: ["READ_REPOSITORY"]
     };
 
     const plan = new CriticalThinkingGovernor(repoRoot, config).planForSkill(skill, "scan");
     assert.equal(plan.status, "FAIL");
-    assert.equal(plan.blockingConditions.some((condition) => condition.includes("not found")), true);
+    assert.equal(plan.blockingConditions.some((condition) => condition.includes("CT-01")), true);
   });
 
   it("blocks a direct SkillExecutor call without a valid governance plan", async () => {
