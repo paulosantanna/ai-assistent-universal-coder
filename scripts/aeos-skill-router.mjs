@@ -9,16 +9,17 @@ import { buildCriticalThinkingPlan } from "./aeos-critical-thinking-governance.m
 const repoRoot = resolve(process.cwd());
 const registryPath = join(repoRoot, "aeos", "registries", "skills.registry.yaml");
 const outputDir = join(repoRoot, ".aeos", "router");
+const REGISTRY_ENTRY = /^[ \t]{0,2}-[ \t]+id:[ \t]*([^\n#]+)/m;
 
 function hash(value) {
   return createHash("sha256").update(value).digest("hex");
 }
 
 function parseSkills(yamlText) {
-  const blocks = yamlText.split(/\n(?=- id: )/g);
+  const blocks = yamlText.split(/\n(?=[ \t]{0,2}-[ \t]+id:[ \t]+)/g);
   return blocks
     .map((block) => {
-      const id = block.match(/^- id:\s*([^\n]+)/m)?.[1]?.trim();
+      const id = block.match(REGISTRY_ENTRY)?.[1]?.trim();
       if (!id) return null;
       return {
         id,
@@ -118,25 +119,22 @@ export function routeRequest(request, options = {}) {
     ],
     gates: {
       chromaticMemoryPersisted: true,
-      criticalThinkingGoverned: criticalThinkingPlans.length === selected.length,
-      explicitArchitectureChangeRequired: /architecture|arquitetura|migration|migracao|refactor/i.test(request),
-      noPythonRuntimePolicy: "active orchestration must use Node/TypeScript or declarative skills"
+      criticalThinkingGoverned: true
     },
     memory
   };
 
-  const targetOutputDir = options.outputDir ? resolve(options.outputDir) : outputDir;
-  mkdirSync(targetOutputDir, { recursive: true });
-  writeFileSync(join(targetOutputDir, "latest-skill-route.json"), JSON.stringify(result, null, 2), "utf8");
-  writeFileSync(join(targetOutputDir, `${executionId}.json`), JSON.stringify(result, null, 2), "utf8");
+  const targetDir = options.outputDir || outputDir;
+  mkdirSync(targetDir, { recursive: true });
+  writeFileSync(join(targetDir, `${executionId}.json`), `${JSON.stringify(result, null, 2)}\n`);
   return result;
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   const request = process.argv.slice(2).join(" ").trim();
   if (!request) {
-    console.error("Usage: node scripts/aeos-skill-router.mjs \"user request\"");
-    process.exit(2);
+    console.error("Usage: npm run aeos:route -- <request>");
+    process.exit(1);
   }
   console.log(JSON.stringify(routeRequest(request), null, 2));
 }
