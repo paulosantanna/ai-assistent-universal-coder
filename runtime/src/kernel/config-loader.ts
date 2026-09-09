@@ -1,5 +1,5 @@
 import { existsSync, readFileSync, statSync } from "node:fs";
-import { join, resolve } from "node:path";
+import { resolve } from "node:path";
 import * as yaml from "js-yaml";
 import type {
   AeosConfig,
@@ -18,13 +18,17 @@ import type {
   OverlayRegistryIndex,
   SkillsAdditionsConfig,
   PlaybooksAdditionsConfig,
-  AgentsAdditionsConfig,
   SkillRegistryEntry,
   PlaybookRegistryEntry,
   AgentRegistryEntry,
   ValidationResult
 } from "./types.js";
 import { SchemaValidator } from "./schema-validator.js";
+import {
+  governEntries,
+  governPlaybookEntries,
+  governSkillEntries
+} from "./codenavi-governance.js";
 
 export class ConfigLoadError extends Error {
   constructor(message: string, public filePath: string) {
@@ -76,63 +80,63 @@ export class ConfigLoader {
     const config = this.loadYaml<PlaybooksRegistry>("aeos/registries/playbooks.registry.yaml");
     const result = this.validator.validatePlaybooksRegistry(config);
     this.reportValidation("playbooks.registry.yaml", result);
-    return config;
+    return { ...config, playbooks: governPlaybookEntries(config.playbooks) };
   }
 
   loadSkillsRegistry(): SkillsRegistry {
     const config = this.loadYaml<SkillsRegistry>("aeos/registries/skills.registry.yaml");
     const result = this.validator.validateSkillsRegistry(config);
     this.reportValidation("skills.registry.yaml", result);
-    return config;
+    return { ...config, skills: governSkillEntries(config.skills) };
   }
 
   loadMCPsRegistry(): MCPsRegistry {
     const config = this.loadYaml<MCPsRegistry>("aeos/registries/mcps.registry.yaml");
     const result = this.validator.validateMCPsRegistry(config);
     this.reportValidation("mcps.registry.yaml", result);
-    return config;
+    return { ...config, mcps: governEntries(config.mcps) };
   }
 
   loadLCPsRegistry(): LCPsRegistry {
     const config = this.loadYaml<LCPsRegistry>("aeos/registries/lcps.registry.yaml");
     const result = this.validator.validateLCPsRegistry(config);
     this.reportValidation("lcps.registry.yaml", result);
-    return config;
+    return { ...config, lcps: governEntries(config.lcps) };
   }
 
   loadAgentsRegistry(): AgentsRegistry {
     const config = this.loadYaml<AgentsRegistry>("aeos/registries/agents.registry.yaml");
     const result = this.validator.validateAgentsRegistry(config);
     this.reportValidation("agents.registry.yaml", result);
-    return config;
+    return { ...config, agents: governEntries(config.agents) };
   }
 
   loadBlueprintsRegistry(): BlueprintsRegistry {
     const config = this.loadYaml<BlueprintsRegistry>("aeos/registries/blueprints.registry.yaml");
     const result = this.validator.validateBlueprintsRegistry(config);
     this.reportValidation("blueprints.registry.yaml", result);
-    return config;
+    return { ...config, blueprints: governEntries(config.blueprints) };
   }
 
   loadWorkbenchProfilesRegistry(): WorkbenchProfilesRegistry {
     const config = this.loadYaml<WorkbenchProfilesRegistry>("aeos/registries/workbench-profiles.registry.yaml");
     const result = this.validator.validateWorkbenchProfilesRegistry(config);
     this.reportValidation("workbench-profiles.registry.yaml", result);
-    return config;
+    return { ...config, profiles: governEntries(config.profiles) };
   }
 
   loadEnterpriseSkillsRegistry(): EnterpriseSkillsRegistry {
     const config = this.loadYaml<EnterpriseSkillsRegistry>("aeos/registries/enterprise-skills.registry.yaml");
     const result = this.validator.validateEnterpriseSkillsRegistry(config);
     this.reportValidation("enterprise-skills.registry.yaml", result);
-    return config;
+    return { ...config, skills: governSkillEntries(config.skills) };
   }
 
   loadEnterprisePlaybooksRegistry(): EnterprisePlaybooksRegistry {
     const config = this.loadYaml<EnterprisePlaybooksRegistry>("aeos/registries/enterprise-playbooks.registry.yaml");
     const result = this.validator.validateEnterprisePlaybooksRegistry(config);
     this.reportValidation("enterprise-playbooks.registry.yaml", result);
-    return config;
+    return { ...config, playbooks: governPlaybookEntries(config.playbooks) };
   }
 
   loadOverlayRegistryIndex(): OverlayRegistryIndex {
@@ -148,7 +152,7 @@ export class ConfigLoader {
     const config = this.loadYaml<SkillsAdditionsConfig>(path);
     const result = this.validator.validateSkillsRegistry(config);
     this.reportValidation(path, result);
-    return config;
+    return { ...config, skills: governSkillEntries(config.skills) };
   }
 
   loadPlaybooksAdditions(version: string): PlaybooksAdditionsConfig | null {
@@ -157,13 +161,7 @@ export class ConfigLoader {
     const config = this.loadYaml<PlaybooksAdditionsConfig>(path);
     const result = this.validator.validatePlaybooksRegistry(config);
     this.reportValidation(path, result);
-    return config;
-  }
-
-  loadAgentsAdditions(version: string): AgentsAdditionsConfig | null {
-    const path = `aeos/registries/agents.${version}.additions.yaml`;
-    if (!this.fileExists(path)) return null;
-    return this.loadYaml<AgentsAdditionsConfig>(path);
+    return { ...config, playbooks: governPlaybookEntries(config.playbooks) };
   }
 
   loadAllRegistryData(): {
@@ -228,7 +226,7 @@ export class ConfigLoader {
   loadMarkdown(filePath: string): string {
     const abs = resolve(this.aeosRoot, filePath);
     if (!existsSync(abs)) {
-      throw new ConfigLoadError(`File not found`, abs);
+      throw new ConfigLoadError("File not found", abs);
     }
     const stat = statSync(abs);
     const cached = this.markdownCache.get(abs);
@@ -243,7 +241,7 @@ export class ConfigLoader {
   loadYaml<T>(relativePath: string): T {
     const abs = resolve(this.aeosRoot, relativePath);
     if (!existsSync(abs)) {
-      throw new ConfigLoadError(`File not found`, abs);
+      throw new ConfigLoadError("File not found", abs);
     }
     const stat = statSync(abs);
     const cached = this.yamlCache.get(abs);
