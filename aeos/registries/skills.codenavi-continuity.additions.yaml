@@ -1,0 +1,35 @@
+skills:
+  - id: continuity-bootstrapper
+    path: skills/continuity-bootstrapper/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: medium
+    capabilities: [READ_FILES, WRITE_SANDBOX_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+
+  - id: handoff-manager
+    path: skills/handoff-manager/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: medium
+    capabilities: [READ_FILES, WRITE_SANDBOX_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+
+  - id: memory-curator
+    path: skills/memory-curator/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: high
+    capabilities: [READ_FILES, WRITE_SANDBOX_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+
+  - id: progress-tracker
+    path: skills/progress-tracker/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: medium
+    capabilities: [READ_FILES, WRITE_SANDBOX_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+
+  - id: learning-curator
+    path: skills/learning-curator/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: high
+    capabilities: [READ_FILES, WRITE_SANDBOX_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]

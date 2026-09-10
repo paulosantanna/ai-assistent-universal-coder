@@ -1,5 +1,5 @@
 # Skill: java-version-expert
-Governance: CodENavi Image Standard
+Governance: CodENavi v1
 
 ## Mission
 Route Java work to the exact verified JDK profile without loading unrelated version knowledge.

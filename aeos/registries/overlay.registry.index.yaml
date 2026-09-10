@@ -1,6 +1,6 @@
 # AEOS Overlay Registry Index
 
-generated_at: "2026-09-08T21:00:00-03:00"
+generated_at: "2026-09-09T09:40:00-03:00"
 note: "CodENavi single-agent registry model. Only the canonical agent registry is active; specialization lives in skills, playbooks, MCPs, LSPs, LCPs and lenses."
 registry_fragments:
   - path: aeos/registries/agents.registry.yaml
@@ -23,4 +23,5 @@ registry_fragments:
   - path: aeos/registries/skills.v1_1_enterprise.additions.yaml
   - path: aeos/registries/skills.image-ai-pack.additions.yaml
   - path: aeos/registries/skills.ai-calibration.additions.yaml
+  - path: aeos/registries/skills.codenavi-continuity.additions.yaml
   - path: aeos/registries/workbench-profiles.registry.yaml

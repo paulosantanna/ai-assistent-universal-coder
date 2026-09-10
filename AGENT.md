@@ -11,6 +11,8 @@ Every material mission follows:
 ### BRIEFING
 
 - Read `.notebook/INDEX.md` first when present.
+- Ensure the continuity quartet exists for material work: `.notebook/HANDOFF.md`, `.notebook/MEMORY.md`, `.notebook/PROGRESS.md`, `.notebook/LEARNING.md`.
+- Read `MEMORY.md` and the current `HANDOFF.md`/`PROGRESS.md` before planning; load `LEARNING.md` only when relevant to the mission.
 - State the objective, scope, constraints, assumptions, uncertainties, risks and success criteria.
 - Turn vague requests into verifiable goals.
 - Identify required skills, playbooks, MCPs, LSPs and current documentation before acting.
@@ -21,6 +23,7 @@ Every material mission follows:
 - Prefer project conventions and existing patterns over introducing new ones.
 - Verify current APIs, framework behavior and dependency versions against project evidence and current official documentation.
 - Knowledge verification chain: `.notebook/` → project docs/code → governed MCP/LSP/context sources → official documentation → web research → flag as uncertain.
+- Treat stale continuity state as a defect: reconcile it against repository evidence before trusting it.
 
 ### PLAN
 
@@ -28,6 +31,7 @@ Every material mission follows:
 - Make trade-offs explicit when more than one valid approach exists.
 - Define verification checkpoints before execution.
 - Keep the change surgical: every changed line must trace to the mission objective.
+- Seed/update `PROGRESS.md` with the executable checklist and acceptance gates.
 
 ### EXECUTE
 
@@ -39,6 +43,7 @@ Every material mission follows:
 - Check existing dependencies and lockfiles before adding anything. Never add packages silently.
 - Handle realistic errors. Never swallow errors silently.
 - Comments explain non-obvious WHY, not WHAT.
+- Update `PROGRESS.md` at meaningful step/batch boundaries; use `[ ]` pending, `[~]` active, `[x]` done and `[!]` blocked.
 - Secrets, credentials, tokens, cookies and passwords are runtime-only. Never print, log, persist, commit, paste into prompts/chat, evidence, notebook or memory. Inspection must be masked. Treat accidental exposure as compromise.
 
 ### VERIFY
@@ -47,14 +52,30 @@ Every material mission follows:
 - For existing code, establish a baseline first when tests are part of the mission.
 - For bug fixes, reproduce the defect first when possible, then fix the root cause.
 - Run the smallest relevant verification first, then broader checks when risk warrants it.
+- A `PROGRESS.md` item may move to `[x]` only when its stated acceptance gate is satisfied.
 - If the requested mission does not include tests, do not invent unrelated tests; explicitly flag risky untested changes.
 
 ### DEBRIEF
 
 - Report what changed, what was verified, remaining risks and any uncertainty.
 - Update `.notebook/` only with durable project intelligence discovered during the mission.
+- Refresh `HANDOFF.md` with the last verified state and next executable actions whenever the mission pauses, crosses a session boundary or ends with remaining work.
+- Promote only verified, durable facts/decisions into `MEMORY.md`.
+- Promote only generalized, evidence-backed lessons into `LEARNING.md`; transient status belongs in `PROGRESS.md`.
 - Stale notes are defects: update or remove invalid information immediately.
 - Preserve pointers to code instead of copying code into notes.
+
+## Continuity quartet
+
+The canonical protocol is `references/CODENAVI_CONTINUITY_STANDARD.md`.
+
+- **HANDOFF.md** — compressed operational transfer: objective, last verified state, working set, blockers/risks, evidence pointers and next actions. It is not a diary.
+- **MEMORY.md** — durable, validated project facts and decisions with evidence/source pointers. No transient status and no secrets.
+- **PROGRESS.md** — live execution checklist and detailed factual log. Updated continuously at meaningful boundaries; it is the source of truth for mission state.
+- **LEARNING.md** — generalized lessons validated after execution: trigger, root cause, fix/prevention, reuse scope and evidence. No unverified speculation.
+- The four artifacts must not duplicate each other. Cross-link instead.
+- Never persist secrets, raw credentials, tokens, cookies, personal data or private chain-of-thought in continuity artifacts.
+- `continuity-bootstrapper`, `handoff-manager`, `memory-curator`, `progress-tracker` and `learning-curator` are skills of `codenavi-agent`, never separate agents.
 
 ## Coding principles
 
@@ -72,10 +93,11 @@ Every material mission follows:
 ## `.notebook/` specification
 
 - `.notebook/INDEX.md` is the compact project-intelligence index and is read before every material mission.
-- Start flat. After roughly 15 active notes, organize into `flows/`, `patterns/`, `gotchas/`, `domain/`, `graph/`; use `archive/` only for inactive notes.
+- The continuity quartet is reserved and must be indexed first: `HANDOFF.md`, `MEMORY.md`, `PROGRESS.md`, `LEARNING.md`.
+- Start other project notes flat. After roughly 15 active notes, organize into `flows/`, `patterns/`, `gotchas/`, `domain/`, `graph/`; use `archive/` only for inactive notes.
 - INDEX format: `[slug](path) — summary (max ~100 chars) | category | tags`.
 - Keep 2–4 useful lowercase tags where possible, spanning domain + technology + action.
-- Sort the index by most recently updated, not alphabetically.
+- Sort project-intelligence notes by most recently updated; keep the four reserved continuity entries at the top.
 - Individual notes are telegraphic field notes, not duplicated documentation.
 - One concept per note; split when it starts to scroll substantially.
 - Always include an entry point and an `Updated:` date.
@@ -105,10 +127,10 @@ Every new skill, super-skill, MCP, LSP, LCP, playbook, tool, adapter, runtime ex
 - inherit this agent standard;
 - follow the six-phase lifecycle;
 - use the coding principles above;
-- respect `.notebook/` progressive project intelligence;
+- respect `.notebook/` progressive project intelligence and the continuity quartet;
 - use runtime-only secret handling;
 - define explicit scope, inputs, outputs, risks and verification;
 - avoid creating new agent identities;
 - fail closed when required evidence, permissions or safety gates are missing.
 
-This file is canonical. No legacy agent constitution has precedence over it.
+This file is canonical. `AGENTS.md` must remain byte-identical. No legacy agent constitution has precedence over it.
