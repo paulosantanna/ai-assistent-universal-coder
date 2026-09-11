@@ -19,6 +19,20 @@ mcp_runtime:
     health_check_required: true
     fail_closed: true
 
+  external_connectors:
+    fail_soft_when_auth_revoked: true
+    auth_revoked_error_codes:
+      - token_revoked
+      - invalid_grant
+      - unauthorized_client
+    blocked_actions:
+      - credential_extraction
+      - cookie_extraction
+      - token_recovery_from_browser_storage
+      - token_persistence_in_repository
+    operator_action: "Reconnect the affected app/account in Codex or ChatGPT connectors, then rerun the MCP health check."
+    diagnostics_command: "npm run aeos:guard:codex-apps-oauth -- --log-file <startup-log>"
+
   transports:
     stdio:
       enabled: true

@@ -11,6 +11,7 @@
     "aeos:guard:full-workspace": "node scripts/aeos-full-workspace-standard-guard.mjs",
     "aeos:guard:artifact-contracts": "node scripts/aeos-artifact-contract-guard.mjs",
     "aeos:guard:single-agent": "node scripts/aeos-single-agent-guard.mjs",
+    "aeos:guard:codex-apps-oauth": "node scripts/aeos-codex-apps-oauth-guard.mjs",
     "aeos:kinghost:deps": "npm --prefix kinghost-commerce-mcp install --ignore-scripts --no-audit --no-fund",
     "aeos:kinghost:smoke": "npm --prefix kinghost-commerce-mcp run smoke",
     "aeos:bootstrap": "npm run aeos:guard:single-agent && npm run aeos:guard:no-python && npm run aeos:guard:skill-adapters && npm run aeos:guard:critical-thinking && npm run aeos:guard:codenavi && npm run aeos:guard:continuity && npm run aeos:guard:full-workspace && npm run aeos:guard:artifact-contracts && npm --prefix runtime run build",
