@@ -1,0 +1,58 @@
+mcps:
+  - id: wordpress-expert
+    type: wordpress-knowledge-operations
+    transport: stdio
+    config:
+      command: node
+      args:
+        - aeos/mcp-servers/wordpress-expert-mcp.mjs
+    risk_level: critical
+    governing_skill: wordpress-expert
+    skill_enforced: true
+    skill_intent:
+      - wordpress
+      - wp-admin
+      - gutenberg
+      - theme
+      - plugin
+      - site-editor
+      - wordpress-rest-api
+    capabilities:
+      - WORDPRESS_KNOWLEDGE
+      - WORDPRESS_REMOTE_READ
+      - WORDPRESS_BETA_MAPPING
+      - WORDPRESS_GOVERNED_WRITE
+      - EXTERNAL_LINK_PLANNING
+      - MEDIA_IMPORT
+    tools:
+      - wordpress.knowledge.catalog
+      - wordpress.knowledge.curriculum
+      - wordpress.knowledge.source_policy
+      - wordpress.knowledge.fetch
+      - wordpress.knowledge.search
+      - wordpress.knowledge.crawl_official
+      - wordpress.knowledge.index_status
+      - wordpress.site.discover
+      - wordpress.site.map_status
+      - wordpress.site.map_beta
+      - wordpress.site.map_get
+      - wordpress.rest.options
+      - wordpress.content.list
+      - wordpress.content.get
+      - wordpress.content.upsert
+      - wordpress.content.trash
+      - wordpress.content.delete_permanent
+      - wordpress.settings.read
+      - wordpress.settings.update
+      - wordpress.plugins.list
+      - wordpress.plugins.install
+      - wordpress.plugins.set_status
+      - wordpress.design.update
+      - wordpress.media.import_url
+      - wordpress.integrations.link_plan
+      - wordpress.admin.session_plan
+    filesystem_write: metadata-only
+    network_write: approval-required
+    production_write: approval-required
+    secret_values: runtime-only
+    enabled: true
