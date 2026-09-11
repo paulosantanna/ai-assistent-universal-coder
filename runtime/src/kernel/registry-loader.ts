@@ -23,12 +23,7 @@ import type {
 } from "./types.js";
 import { ConfigLoader } from "./config-loader.js";
 import { OverlayRegistryMerger } from "./overlay-registry-merger.js";
-import {
-  governEntries,
-  governEntry,
-  governPlaybookEntries,
-  governSkillEntries
-} from "./codenavi-governance.js";
+import { governEntries, governEntry, governPlaybookEntries, governSkillEntries } from "./codenavi-governance.js";
 
 export class RegistryLoader {
   private loader: ConfigLoader;
@@ -51,8 +46,19 @@ export class RegistryLoader {
   }
 
   loadMCPs(): MCPsRegistry {
-    const registry = this.loader.loadYaml<MCPsRegistry>("aeos/registries/mcps.registry.yaml");
-    return { ...registry, mcps: governEntries(registry.mcps) };
+    const index = this.loadOverlayIndex();
+    const merged = new Map<string, MCPRegistryEntry>();
+    for (const fragment of index.registry_fragments) {
+      if (!this.loader.fileExists(fragment.path)) continue;
+      const data = this.loader.loadYaml<any>(fragment.path);
+      if (!Array.isArray(data?.mcps)) continue;
+      for (const entry of data.mcps as MCPRegistryEntry[]) merged.set(entry.id, entry);
+    }
+    if (merged.size === 0) {
+      const registry = this.loader.loadYaml<MCPsRegistry>("aeos/registries/mcps.registry.yaml");
+      return { ...registry, mcps: governEntries(registry.mcps) };
+    }
+    return { mcps: governEntries([...merged.values()]) } as MCPsRegistry;
   }
 
   loadLCPs(): LCPsRegistry {
@@ -108,7 +114,6 @@ export class RegistryLoader {
 
     return {
       agents: mergeResult.agents,
-      // Compatibility field for legacy consumers. The single-agent model forbids runtime subagents.
       subagents: [],
       skills: mergeResult.skills,
       playbooks: mergeResult.playbooks,
@@ -157,13 +162,9 @@ export class RegistryLoader {
 
   private indexById<T extends { id: string }>(entries: T[]): Map<string, T> {
     const cached = this.indexes.get(entries);
-    if (cached) {
-      return cached as Map<string, T>;
-    }
+    if (cached) return cached as Map<string, T>;
     const index = new Map<string, T>();
-    for (const entry of entries) {
-      index.set(entry.id, entry);
-    }
+    for (const entry of entries) index.set(entry.id, entry);
     this.indexes.set(entries, index as Map<string, { id: string }>);
     return index;
   }
