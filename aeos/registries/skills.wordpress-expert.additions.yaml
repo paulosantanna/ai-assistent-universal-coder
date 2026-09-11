@@ -1,0 +1,66 @@
+skills:
+  - id: wordpress-expert
+    path: skills/wordpress-expert/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: critical
+    capabilities:
+      - READ_REPOSITORY
+      - READ_FILES
+      - KNOWLEDGE_RETRIEVAL
+      - WORDPRESS_REMOTE_DISCOVERY
+      - WORDPRESS_BETA_MAPPING
+      - WORDPRESS_CONTENT_MANAGEMENT
+      - WORDPRESS_LAYOUT_MANAGEMENT
+      - WORDPRESS_PLUGIN_MANAGEMENT
+      - WORDPRESS_MEDIA_MANAGEMENT
+      - FRONTEND_STAFF_ENGINEERING
+      - ACCESSIBILITY_REVIEW
+      - PERFORMANCE_REVIEW
+      - SECURITY_REVIEW
+      - EXTERNAL_API_INTEGRATION
+      - GENERATE_EVIDENCE
+      - GENERATE_ROLLBACK
+    production_ready: true
+    mission: Operate authorized WordPress sites end to end with Staff-level frontend engineering, one-shot Beta mapping, current WordPress evidence and governed production mutation.
+    allowed_actions:
+      - Build and reuse a first-run Beta site map
+      - Retrieve current WordPress official documentation and secondary Reddit evidence
+      - Read and modify authorized WordPress content through allowlisted MCP tools
+      - Modify supported templates, template parts, navigation and global styles
+      - Install and activate WordPress.org plugins under approval
+      - Import official third-party service icons into WordPress media
+      - Plan and implement documented external links and provider APIs
+      - Generate backup, rollback, verification and evidence plans
+    forbidden_actions:
+      - Create additional agent or subagent identities
+      - Remap a site baseline on every execution
+      - Persist passwords, Application Passwords, tokens or cookies
+      - Edit WordPress Core
+      - Run arbitrary shell or wp eval
+      - Write directly to the production database
+      - Invent third-party API endpoints or credentials
+      - Install nulled or unverified plugin/theme packages
+      - Bypass production approval or rollback requirements
+      - Overwrite or delete the first-run Beta map
+    required_inputs:
+      - site_url
+      - objective
+      - authorization_scope
+    quality_gates:
+      - Official WordPress evidence supports version-sensitive decisions
+      - Reddit evidence is clearly secondary
+      - Beta mapping runs once per site fingerprint
+      - Frontend changes meet semantic, responsive and accessibility standards
+      - Production mutations have rollback and post-change verification
+      - Secrets remain runtime-only
+      - Third-party APIs use current official provider documentation
+    stop_conditions:
+      - Site authorization is missing or ambiguous
+      - Beta map cannot be created on first contact
+      - Required official documentation cannot be verified
+      - Required WordPress capability is unavailable
+      - Production rollback cannot be defined
+      - Secret exposure is detected
+      - Provider API contract cannot be verified
+      - Post-change verification fails
