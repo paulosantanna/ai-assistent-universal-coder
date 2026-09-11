@@ -48,6 +48,16 @@ execution:
 
 security:
   block_plaintext_secrets: true
+  plaintext_secret_scope: "tracked_workspace_and_persisted_artifacts"
+  allow_external_runtime_cookie_file: true
+  runtime_cookie_file_auth_required_when_selected: true
+  runtime_cookie_file_reference_only_in_config: true
+  runtime_cookie_file_copy_into_workspace: false
+  runtime_cookie_file_contents_in_prompts: false
+  runtime_cookie_file_contents_in_logs: false
+  runtime_cookie_file_contents_in_evidence: false
+  runtime_cookie_file_contents_in_notebook: false
+  runtime_cookie_file_contents_in_bundles: false
   block_secret_logging: true
   block_destructive_actions_without_approval: true
   block_network_exfiltration: true
@@ -68,6 +78,7 @@ security:
     - github_actions_secrets
     - vault_optional
     - runtime_memory_only
+    - external_runtime_cookie_file_reference
 
 judge:
   min_score: 9.0
