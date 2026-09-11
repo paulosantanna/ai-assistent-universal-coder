@@ -1,0 +1,55 @@
+skill: devops-pipeline-engineering
+owner_agent: codenavi-agent
+version: 1.0.0
+
+capabilities:
+  read:
+    - repository.metadata
+    - repository.refs
+    - repository.diff
+    - github.actions.workflows
+    - github.actions.runs
+    - github.actions.jobs
+    - github.actions.checks
+    - github.actions.logs_redacted
+    - github.pull_requests
+    - github.branch_protection
+    - github.releases
+  mutate_with_policy:
+    - git.branch.create
+    - git.stage.selective
+    - git.commit.create
+    - git.push.non_protected_branch
+    - github.pull_request.create
+    - github.pull_request.update
+    - github.actions.rerun_failed
+    - github.actions.rerun_job
+    - github.workflow.update
+    - github.release.create_draft
+  mutate_with_explicit_approval:
+    - github.pull_request.merge
+    - github.branch.delete
+    - github.branch_protection.update
+    - github.release.publish
+    - github.actions.workflow_dispatch
+  permanently_denied:
+    - github.repository.delete
+    - github.secret.read_value
+    - github.secret.export
+    - github.pat.scope_escalation
+    - github.branch_protection.bypass
+    - git.force_push
+    - git.history.rewrite_remote
+    - evidence.finalized.rewrite
+    - audit_trail.delete
+
+constraints:
+  secrets_runtime_only: true
+  token_reference_only: true
+  default_merge_mode: approval_required
+  latest_sha_only: true
+  require_branch_protection: true
+  require_judge_for_high_risk: true
+  require_evidence_verify: true
+  require_secret_scan: true
+  require_rollback_plan: true
