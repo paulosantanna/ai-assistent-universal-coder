@@ -1,0 +1,56 @@
+skill: wordpress-expert
+owner_agent: codenavi-agent
+version: 1.0.0
+
+read:
+  - wordpress.public_site
+  - wordpress.wp_admin_authenticated_metadata
+  - wordpress.rest_index
+  - wordpress.content_metadata
+  - wordpress.theme_inventory
+  - wordpress.plugin_inventory
+  - wordpress.navigation
+  - wordpress.templates_patterns
+  - wordpress.safe_settings_metadata
+  - wordpress.frontend_assets
+  - wordpress.external_integrations
+  - wordpress_knowledge.all
+
+mutate_with_policy:
+  - wordpress.content.create_update
+  - wordpress.media.create_update
+  - wordpress.navigation.update
+  - wordpress.layout.update
+  - wordpress.theme_child_or_custom.update
+  - wordpress.plugin_custom.update
+  - wordpress.block_pattern_template.update
+  - wordpress.external_link.update
+  - wordpress.cache.invalidate
+
+mutate_with_explicit_approval:
+  - wordpress.production.plugin_install_update
+  - wordpress.production.theme_install_update
+  - wordpress.production.settings_high_risk
+  - wordpress.production.payment_or_order_integration
+  - wordpress.content.delete
+  - wordpress.plugin.delete
+  - wordpress.theme.delete
+  - wordpress.database.mutate
+
+permanently_denied:
+  - wordpress.core.edit_for_feature_work
+  - wordpress.cookie.persist_raw
+  - wordpress.cookie.log_raw
+  - wordpress.cookie.prompt_raw
+  - wordpress.nonce.persist_raw
+  - wordpress.secret.expose_frontend
+  - wordpress.authorization.bypass
+  - wordpress.capability.bypass
+
+constraints:
+  cookie_file_runtime_auth_allowed: true
+  beta_mapping_first_run_only: true
+  full_remap_requires_explicit_intent: true
+  rollback_required_for_production_mutation: true
+  official_docs_required_for_material_api_claims: true
+  reddit_is_non_normative: true

@@ -1,4 +1,12 @@
 allowlist:
+  runtime-auth:
+  - auth.session.open_cookie_file
+  - auth.session.open_environment
+  - auth.session.info
+  - auth.session.list
+  - auth.session.close
+  runtime-http:
+  - http.authenticated.request
   filesystem-readonly:
   - filesystem.list
   - filesystem.read

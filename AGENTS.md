@@ -44,7 +44,7 @@ Every material mission follows:
 - Handle realistic errors. Never swallow errors silently.
 - Comments explain non-obvious WHY, not WHAT.
 - Update `PROGRESS.md` at meaningful step/batch boundaries; use `[ ]` pending, `[~]` active, `[x]` done and `[!]` blocked.
-- Secrets, credentials, tokens, cookies and passwords are runtime-only. Never print, log, persist, commit, paste into prompts/chat, evidence, notebook or memory. Inspection must be masked. Treat accidental exposure as compromise.
+- Secrets, credentials, tokens, cookies and passwords are runtime credentials. They may be consumed from approved runtime secret providers, including an external cookie/cookie-jar file reference when session-based authentication is required. AEOS may read and use that external cookie file for authentication, but must never copy its raw contents into tracked workspace files, commits, prompts/chat, evidence, notebook, memory, bundles or ordinary logs. Inspection/output must be masked/redacted. Treat accidental exposure as compromise.
 
 ### VERIFY
 
@@ -74,7 +74,7 @@ The canonical protocol is `references/CODENAVI_CONTINUITY_STANDARD.md`.
 - **PROGRESS.md** — live execution checklist and detailed factual log. Updated continuously at meaningful boundaries; it is the source of truth for mission state.
 - **LEARNING.md** — generalized lessons validated after execution: trigger, root cause, fix/prevention, reuse scope and evidence. No unverified speculation.
 - The four artifacts must not duplicate each other. Cross-link instead.
-- Never persist secrets, raw credentials, tokens, cookies, personal data or private chain-of-thought in continuity artifacts.
+- Never persist secrets, raw credentials, tokens, cookies, personal data or private chain-of-thought in continuity artifacts. Runtime cookie-file authentication may be referenced by provider/path identifier only; never store cookie contents in continuity artifacts.
 - `continuity-bootstrapper`, `handoff-manager`, `memory-curator`, `progress-tracker` and `learning-curator` are skills of `codenavi-agent`, never separate agents.
 
 ## Coding principles
@@ -128,7 +128,7 @@ Every new skill, super-skill, MCP, LSP, LCP, playbook, tool, adapter, runtime ex
 - follow the six-phase lifecycle;
 - use the coding principles above;
 - respect `.notebook/` progressive project intelligence and the continuity quartet;
-- use runtime-only secret handling;
+- use governed runtime secret handling, including external runtime cookie/cookie-jar file references when a remote system requires session authentication;
 - define explicit scope, inputs, outputs, risks and verification;
 - avoid creating new agent identities;
 - fail closed when required evidence, permissions or safety gates are missing.

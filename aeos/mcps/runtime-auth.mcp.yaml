@@ -1,0 +1,40 @@
+mcp:
+  id: runtime-auth
+  name: AEOS Runtime Authentication Broker
+  protocol: model-context-protocol
+  version: "2026-09-11"
+  transport:
+    type: in-process
+  capabilities:
+    tools:
+      - name: auth.session.open_cookie_file
+        security: runtime-secret
+        description: Open an external cookie/cookie-jar file as an opaque in-memory authentication session.
+      - name: auth.session.open_environment
+        security: runtime-secret
+        description: Open an environment-variable credential as an opaque in-memory session.
+      - name: auth.session.info
+        security: read-only
+        description: Return non-secret metadata for one runtime authentication session.
+      - name: auth.session.list
+        security: read-only
+        description: List non-secret metadata for active runtime authentication sessions.
+      - name: auth.session.close
+        security: controlled
+        description: Destroy one runtime authentication session and its in-memory credential material.
+  security:
+    secret_values_returned: false
+    external_cookie_file_reference_only: true
+    cookie_contents_persisted: false
+    cookie_contents_logged: false
+    session_refs_opaque: true
+    default_ttl_seconds: 900
+    max_ttl_seconds: 7200
+prompt_contract:
+  objective: Provide every AEOS skill/MCP with governed runtime authentication through opaque session references.
+  evidence_required: true
+  redact_outputs: true
+  response_rules:
+    - Never return cookie, password, token, Authorization header or environment-secret values.
+    - Configuration may store only provider/path/environment references, never credential contents.
+    - Runtime session references may be passed to governed adapters; raw credential material may not be passed through model context.

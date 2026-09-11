@@ -1,0 +1,27 @@
+mcp:
+  id: runtime-http
+  name: AEOS Authenticated Runtime HTTP
+  protocol: model-context-protocol
+  version: "2026-09-11"
+  transport:
+    type: in-process
+  capabilities:
+    tools:
+      - name: http.authenticated.request
+        security: controlled
+        description: Execute bounded HTTPS against a session-scoped host while materializing credentials only inside the Tool Router.
+  security:
+    https_required: true
+    ssrf_private_network_blocked: true
+    redirect_following: false
+    cookie_header_internal_only: true
+    max_response_bytes: 5242880
+    mutation_requires_approved_true: true
+prompt_contract:
+  objective: Allow any governed skill to call an authenticated remote HTTP/REST surface without receiving raw credentials.
+  evidence_required: true
+  redact_outputs: true
+  response_rules:
+    - Require __aeosAuthSessionRef/session_ref for authenticated calls.
+    - Never permit caller-supplied Cookie or Authorization headers to override the broker.
+    - GET/HEAD/OPTIONS are read operations; POST/PUT/PATCH/DELETE require an approved governed change gate.
