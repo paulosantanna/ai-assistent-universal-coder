@@ -1,0 +1,23 @@
+mcps:
+  - id: wordpress-knowledge
+    type: wordpress-knowledge
+    transport: stdio
+    config: aeos/mcps/wordpress-knowledge.mcp.yaml
+    risk_level: low
+    governing_skill: wordpress-expert
+    skill_enforced: true
+    skill_intent: Expose evidence-first WordPress documentation and community knowledge only through the WordPress Expert super-skill or governed research flows.
+    capabilities: [WEB_SEARCH, WEB_FETCH, KNOWLEDGE_RETRIEVAL, WORDPRESS_DOCS, WORDPRESS_COMMUNITY_PATTERNS, WORDPRESS_SECURITY_GUIDANCE]
+    tools:
+      - wordpress_knowledge.source_catalog
+      - wordpress_knowledge.topic_map
+      - wordpress_knowledge.search_plan
+      - wordpress_knowledge.fetch_policy
+      - wordpress_knowledge.reddit_pattern_plan
+      - wordpress_knowledge.integration_map
+      - wordpress_knowledge.security_gate
+      - wordpress_knowledge.beta_mapping_plan
+      - wordpress_knowledge.source_policy
+    write_allowed: false
+    approval_required: false
+    enabled: true

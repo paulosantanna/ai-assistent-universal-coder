@@ -1,0 +1,8 @@
+playbooks:
+  - id: wordpress-expert-site-lifecycle
+    path: aeos/playbooks/wordpress-expert-site-lifecycle.playbook.md
+    risk_level: high
+    required_agents: [codenavi-agent]
+    required_skills: [wordpress-expert]
+    required_mcps: [wordpress-knowledge, browser]
+    required_lcps: [global-rules, security-governance]

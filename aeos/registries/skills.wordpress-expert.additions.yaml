@@ -1,0 +1,33 @@
+skills:
+  - id: wordpress-expert
+    path: skills/wordpress-expert/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: high
+    capabilities:
+      - WORDPRESS_KNOWLEDGE
+      - WORDPRESS_BETA_MAPPING
+      - WORDPRESS_REMOTE_SESSION
+      - WORDPRESS_CONTENT_MANAGEMENT
+      - WORDPRESS_THEME_ENGINEERING
+      - WORDPRESS_PLUGIN_ENGINEERING
+      - WORDPRESS_BLOCK_ENGINEERING
+      - WORDPRESS_LAYOUT_ENGINEERING
+      - WORDPRESS_EXTERNAL_INTEGRATIONS
+      - WORDPRESS_PRODUCTION_OPERATIONS
+      - ACCESSIBILITY_REVIEW
+      - FRONTEND_PERFORMANCE_REVIEW
+      - ROLLBACK_PLANNING
+    mission: Staff-level WordPress engineering from one-shot remote mapping through governed production changes and third-party integrations.
+    required_mcps:
+      - wordpress-knowledge
+      - browser
+    allowed_secret_sources:
+      - external_runtime_cookie_file_reference
+    quality_gates:
+      - Beta Mapping occurs only on first valid site contact unless explicit remap
+      - Official WordPress documentation grounds material API/security decisions
+      - Raw cookie/nonces/secrets never persist
+      - WordPress core is not edited for feature work
+      - Production mutation has rollback and post-change verification
+      - Icon-only third-party links remain accessible

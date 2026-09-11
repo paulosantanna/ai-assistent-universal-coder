@@ -1,0 +1,58 @@
+mcp:
+  id: wordpress-knowledge
+  name: WordPress Structured Knowledge MCP
+  protocol: model-context-protocol
+  version: "1.0.0"
+  transport:
+    type: stdio
+    command: node
+    args:
+      - aeos/mcp-servers/wordpress-knowledge-mcp.mjs
+  capabilities:
+    tools:
+      - { name: wordpress_knowledge.source_catalog, security: read-only }
+      - { name: wordpress_knowledge.topic_map, security: read-only }
+      - { name: wordpress_knowledge.search_plan, security: read-only }
+      - { name: wordpress_knowledge.fetch_policy, security: read-only }
+      - { name: wordpress_knowledge.reddit_pattern_plan, security: read-only }
+      - { name: wordpress_knowledge.integration_map, security: read-only }
+      - { name: wordpress_knowledge.security_gate, security: read-only }
+      - { name: wordpress_knowledge.beta_mapping_plan, security: read-only }
+      - { name: wordpress_knowledge.source_policy, security: read-only }
+  source_profile:
+    primary:
+      - https://developer.wordpress.org/
+      - https://developer.wordpress.org/rest-api/
+      - https://developer.wordpress.org/plugins/
+      - https://developer.wordpress.org/themes/
+      - https://developer.wordpress.org/block-editor/
+      - https://developer.wordpress.org/cli/commands/
+      - https://developer.wordpress.org/reference/
+      - https://wordpress.org/documentation/
+      - https://make.wordpress.org/core/
+    community:
+      - https://www.reddit.com/r/Wordpress/
+      - https://www.reddit.com/r/WordpressPlugins/
+      - https://www.reddit.com/r/WordpressThemes/
+  security:
+    write_allowed: false
+    credentials_allowed: false
+    allowed_domains:
+      - developer.wordpress.org
+      - wordpress.org
+      - make.wordpress.org
+      - www.reddit.com
+      - reddit.com
+    redaction_required: true
+  evidence_policy:
+    official_priority: mandatory
+    reddit_role: experiential-only
+    cite_material_claims: true
+    freshness_required: true
+    contradiction_resolution: official-current-docs-win-normative-conflicts
+prompt_contract:
+  objective: Build structured, evidence-first WordPress engineering knowledge without treating community opinion as normative documentation.
+  stop_conditions:
+    - requested source is outside allowlist
+    - material claim lacks evidence
+    - community claim conflicts with current official documentation and cannot be reconciled
