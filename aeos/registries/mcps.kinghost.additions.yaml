@@ -23,6 +23,9 @@ mcps:
       - kinghost.ssh.exec_readonly
       - kinghost.db.query_readonly
       - kinghost.db.query_mutation
+      - kinghost.access.request_plan
+      - kinghost.admin.super_plan
+      - kinghost.cdc.workspace_plan
       - kinghost.knowledge_search
       - kinghost.inspect_environment
       - kinghost.performance_audit
@@ -51,6 +54,9 @@ mcps:
       - kinghost.ssh.exec_readonly
       - kinghost.db.query_readonly
       - kinghost.db.query_mutation
+      - kinghost.access.request_plan
+      - kinghost.admin.super_plan
+      - kinghost.cdc.workspace_plan
       - kinghost.knowledge_search
       - kinghost.inspect_environment
       - kinghost.performance_audit

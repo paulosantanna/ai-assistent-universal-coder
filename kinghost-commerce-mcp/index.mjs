@@ -13,6 +13,7 @@ const DEFAULT_TTL_MS = 15 * 60 * 1000;
 
 const READONLY_SQL = /^\s*(select|show|describe|desc|explain|with\b[\s\S]*select)\b/i;
 const MUTATING_SQL = /\b(insert|update|delete|replace|merge|truncate|drop|alter|create|grant|revoke|rename|call|load\s+data|lock\s+tables|unlock\s+tables)\b/i;
+const HIGH_RISK_SQL = /\b(truncate|drop|grant|revoke|load\s+data|lock\s+tables|unlock\s+tables)\b/i;
 const READONLY_SHELL = new Set(["pwd", "ls", "find", "stat", "du", "df", "cat", "head", "tail", "grep", "wc", "file", "uname", "node", "php"]);
 
 function now() { return Date.now(); }
@@ -21,6 +22,13 @@ function ok(data = {}) { return { success: true, data }; }
 function fail(error, code = "BLOCKED") { return { success: false, error, code }; }
 function redactMessage(message) {
   return String(message ?? "").replace(/(password|passwd|token|secret|private[_-]?key)\s*[=:]\s*\S+/gi, "$1=***REDACTED***");
+}
+function asList(value) { return Array.isArray(value) ? value.filter(Boolean).map(String) : []; }
+function requireNoCredentialDiscovery(params) {
+  const mode = String(params?.access_mode || params?.mode || "").toLowerCase();
+  if (/(discover|extract|harvest|cookie|session_dump|credential_scan)/.test(mode)) {
+    throw new Error("Credential discovery/extraction is forbidden; use ephemeral runtime credentials or approved secret references");
+  }
 }
 
 function ensureAuthorized(params) {
@@ -165,12 +173,22 @@ function requireMutationGate(params) {
   if (!params.rollback_ref && params.operation !== "mkdir") throw new Error("rollback_ref required for remote mutation");
 }
 
+function requireScopedPath(params, path) {
+  const scopeRoot = String(params.scope_root || params.remote_scope_root || "").trim();
+  if (!scopeRoot) return;
+  const normalizedRoot = scopeRoot.endsWith("/") ? scopeRoot : `${scopeRoot}/`;
+  if (!(path === scopeRoot || path.startsWith(normalizedRoot))) {
+    throw new Error("remote path is outside the approved scope_root");
+  }
+}
+
 async function writeRemote(params) {
   requireMutationGate(params);
   const s = getSession(params.session_ref, "ssh");
   const path = String(params.path || "");
   const content = params.encoding === "base64" ? Buffer.from(String(params.content || ""), "base64") : Buffer.from(String(params.content || ""), "utf8");
   if (!path) return fail("path is required");
+  requireScopedPath(params, path);
   if (params.dry_run === true) return ok({ dry_run: true, path, bytes: content.length, sha256: sha256(content), change_id: params.change_id });
   await new Promise((resolve, reject) => {
     const stream = s.sftp.createWriteStream(path, { flags: params.append === true ? "a" : "w", mode: params.mode || 0o640 });
@@ -185,6 +203,7 @@ async function mkdirRemote(params) {
   requireMutationGate({ ...params, operation: "mkdir" });
   const s = getSession(params.session_ref, "ssh");
   const path = String(params.path || "");
+  requireScopedPath(params, path);
   if (params.dry_run === true) return ok({ dry_run: true, path, change_id: params.change_id });
   await new Promise((resolve, reject) => s.sftp.mkdir(path, { mode: params.mode || 0o750 }, err => err ? reject(err) : resolve()));
   return ok({ path, created: true, change_id: params.change_id });
@@ -196,6 +215,8 @@ async function renameRemote(params) {
   const from = String(params.from || "");
   const to = String(params.to || "");
   if (!from || !to) return fail("from and to are required");
+  requireScopedPath(params, from);
+  requireScopedPath(params, to);
   if (params.dry_run === true) return ok({ dry_run: true, from, to, change_id: params.change_id });
   await new Promise((resolve, reject) => s.sftp.rename(from, to, err => err ? reject(err) : resolve()));
   return ok({ from, to, renamed: true, change_id: params.change_id });
@@ -206,6 +227,7 @@ async function deleteRemote(params) {
   const s = getSession(params.session_ref, "ssh");
   const path = String(params.path || "");
   if (!path || path === "/" || path === ".") return fail("unsafe delete path");
+  requireScopedPath(params, path);
   if (params.dry_run === true) return ok({ dry_run: true, path, change_id: params.change_id });
   await new Promise((resolve, reject) => s.sftp.unlink(path, err => err ? reject(err) : resolve()));
   return ok({ path, deleted: true, change_id: params.change_id });
@@ -244,6 +266,7 @@ async function queryDb(params, mutation) {
   if (mutation) {
     requireMutationGate(params);
     if (!classification.mutating) return fail("Mutation tool requires a mutating SQL statement");
+    if (HIGH_RISK_SQL.test(sql) && params.high_risk_approved !== true) return fail("High-risk SQL requires high_risk_approved=true in addition to the normal mutation gate");
     if (params.dry_run !== false) return ok({ dry_run: true, classification, sql_sha256: sha256(sql), change_id: params.change_id });
   }
   if (s.kind === "mysql") {
@@ -253,6 +276,104 @@ async function queryDb(params, mutation) {
   }
   const result = await s.db.query(sql, Array.isArray(params.values) ? params.values : []);
   return ok({ rows: result.rows.slice(0, MAX_QUERY_ROWS), row_count: result.rowCount, fields: result.fields?.map(f => f.name) || [], truncated: result.rows.length > MAX_QUERY_ROWS });
+}
+
+function accessRequestPlan(params) {
+  requireNoCredentialDiscovery(params);
+  return ok({
+    status: "PLAN",
+    target: String(params.target || ""),
+    supported_access_methods: [
+      "ephemeral username/password supplied at execution time",
+      "approved secret reference resolved outside source control",
+      "SSH private key reference from an approved secret provider",
+      "short-lived official token/session when KingHost supports it"
+    ],
+    forbidden_access_methods: [
+      "cookie/session extraction",
+      "credential discovery or scraping",
+      "password/token persistence in Git, evidence, memory or logs",
+      "host-key or TLS validation bypass"
+    ],
+    required_evidence: ["operator authorization", "target host/account", "protocol", "scope_root", "rollback path for mutations"],
+    next_actions: ["open an ephemeral session", "inspect capabilities", "return only an opaque session_ref"]
+  });
+}
+
+function adminSuperPlan(params) {
+  requireNoCredentialDiscovery(params);
+  const objectives = asList(params.objectives);
+  return ok({
+    status: "PLAN",
+    target: String(params.target || ""),
+    objectives,
+    phases: [
+      "BRIEFING: prove authorization, scope and mutation risk",
+      "RECON: inventory plan, domains, SSL, runtimes, databases, files, logs and WordPress/CMS state",
+      "PLAN: produce bounded change-set, backups, preflight checks and rollback",
+      "EXECUTE: run only approved MCP actions with dry-run evidence first",
+      "VERIFY: HTTP health, logs, database checks, assets, checkout/login flows and performance budget",
+      "DEBRIEF: redacted evidence, session close, residual risks and follow-up"
+    ],
+    capabilities: [
+      "SFTP file read/write in approved scope",
+      "read-only SSH diagnostics",
+      "MySQL/PostgreSQL read-only query and gated mutation",
+      "deployment/database/DNS/performance planning",
+      "CDC workspace change planning and verification"
+    ],
+    blocked: ["credential extraction", "unrestricted shell", "unscoped deletion", "DNS/database destructive mutation without high-risk approval"]
+  });
+}
+
+function cdcWorkspacePlan(params) {
+  return ok({
+    status: "PLAN",
+    mode: "change-diff-control",
+    target: String(params.target || ""),
+    workflow: [
+      "capture remote inventory hashes for selected files/database objects",
+      "compare workspace artifact hashes against remote evidence",
+      "generate a bounded diff/change-set",
+      "dry-run write/query operations",
+      "apply only approved scoped mutations",
+      "verify post-state hashes, HTTP behavior and rollback viability"
+    ],
+    required_inputs: ["session_ref", "scope_root", "change_id", "rollback_ref", "approved artifact paths"],
+    outputs: ["pre_state", "diff", "dry_run_result", "post_state", "rollback_evidence"]
+  });
+}
+
+function knowledgeSearch(params) {
+  return ok({
+    status: "PLAN",
+    query: String(params.query || ""),
+    source_registry: "aeos/knowledge/kinghost-commerce.sources.yaml",
+    freshness_policy: "aeos/policies/kinghost-commerce-freshness.policy.md",
+    note: "Use official KingHost/provider documentation before material decisions; this adapter does not fabricate undocumented APIs."
+  });
+}
+
+function inspectEnvironmentPlan(params) {
+  return ok({
+    status: "PLAN",
+    target: String(params.target || ""),
+    checks: ["hosting plan", "domains", "DNS", "SSL", "PHP/Node/runtime versions", "databases", "disk usage", "logs", "CMS/plugins/themes", "backup posture"],
+    read_only_actions: ["kinghost.fs.list", "kinghost.fs.read", "kinghost.ssh.exec_readonly", "kinghost.db.query_readonly"],
+    evidence_required: true
+  });
+}
+
+function namedPlan(name, params, steps) {
+  return ok({
+    status: "PLAN",
+    plan_type: name,
+    target: String(params.target || params.site || ""),
+    steps,
+    approval_required_for_mutation: true,
+    dry_run_required: true,
+    rollback_required: true
+  });
 }
 
 async function dispatch(action, params = {}) {
@@ -274,6 +395,21 @@ async function dispatch(action, params = {}) {
     case "kinghost.ssh.exec_readonly": return execReadonly(params);
     case "kinghost.db.query_readonly": return queryDb(params, false);
     case "kinghost.db.query_mutation": return queryDb(params, true);
+    case "kinghost.access.request_plan": return accessRequestPlan(params);
+    case "kinghost.admin.super_plan": return adminSuperPlan(params);
+    case "kinghost.cdc.workspace_plan": return cdcWorkspacePlan(params);
+    case "kinghost.knowledge_search": return knowledgeSearch(params);
+    case "kinghost.inspect_environment": return inspectEnvironmentPlan(params);
+    case "kinghost.performance_audit": return namedPlan("kinghost.performance_audit", params, ["capture baseline", "inspect logs/resources", "analyze cache/assets/database", "define budgets", "verify after change"]);
+    case "kinghost.deploy_plan": return namedPlan("kinghost.deploy_plan", params, ["identify publish method", "snapshot remote state", "prepare diff", "dry-run", "deploy approved changes", "health check", "rollback on failure"]);
+    case "kinghost.database_plan": return namedPlan("kinghost.database_plan", params, ["inventory schema", "run read-only diagnostics", "EXPLAIN first", "prepare reversible SQL", "dry-run", "apply only approved mutation"]);
+    case "kinghost.dns_plan": return namedPlan("kinghost.dns_plan", params, ["inventory records", "plan TTL window", "prepare exact record changes", "verify propagation", "rollback record set"]);
+    case "commerce.catalog_plan": return namedPlan("commerce.catalog_plan", params, ["normalize products/SKUs", "map categories", "validate prices", "plan import/update", "verify catalog"]);
+    case "commerce.channel_mapping": return namedPlan("commerce.channel_mapping", params, ["map canonical catalog", "verify provider contract", "define payload transforms", "plan reconciliation"]);
+    case "commerce.price_sync_plan": return namedPlan("commerce.price_sync_plan", params, ["calculate fees/floors/margins", "prepare channel prices", "dry-run sync", "verify deltas"]);
+    case "commerce.logistics_plan": return namedPlan("commerce.logistics_plan", params, ["map stock source", "define SLA/shipping rules", "plan provider handoff", "verify fulfillment states"]);
+    case "web.modernization_plan": return namedPlan("web.modernization_plan", params, ["inventory frontend/backend stack", "define safe UI changes", "prepare diff", "performance/accessibility checks", "rollback"]);
+    case "web.performance_budget": return namedPlan("web.performance_budget", params, ["set Core Web Vitals targets", "set backend/query budgets", "set asset budgets", "define regression gates"]);
     case "kinghost.health": return ok({ adapter: "kinghost-commerce-mcp", sessions: sessions.size, uptime_seconds: Math.round(process.uptime()) });
     default: return fail(`Unknown action: ${action}`, "UNKNOWN_ACTION");
   }

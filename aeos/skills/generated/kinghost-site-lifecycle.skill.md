@@ -23,7 +23,7 @@ Create, change, deploy, verify and roll back authorized KingHost-hosted sites th
 2. Inspect the real hosting plan, runtime, disk/database/resource constraints and current site state.
 3. Snapshot/backup all mutation targets.
 4. Produce deterministic diff/change-set and blast-radius analysis.
-5. Execute dry-run/preflight.
+5. Execute CDC-style change-diff-control and dry-run/preflight.
 6. Route production mutation through approval/Judge.
 7. Apply the smallest atomic change possible.
 8. Verify HTTP health, application behavior, logs, assets, DB compatibility and performance budget.

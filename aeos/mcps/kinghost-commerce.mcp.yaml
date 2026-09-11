@@ -28,6 +28,9 @@ mcp:
       - {name: kinghost.ssh.exec_readonly, description: "Execute a strict allowlist of non-mutating diagnostic commands.", security: read-only}
       - {name: kinghost.db.query_readonly, description: "Execute bounded SELECT/SHOW/DESCRIBE/EXPLAIN database queries.", security: read-only}
       - {name: kinghost.db.query_mutation, description: "Execute approved database mutations after dry-run/change/rollback gates.", security: destructive-controlled}
+      - {name: kinghost.access.request_plan, description: "Plan authorized KingHost access using runtime credentials or secret references without credential discovery.", security: read-only}
+      - {name: kinghost.admin.super_plan, description: "Build an end-to-end governed KingHost administration plan across access, inventory, change, verification and rollback.", security: read-only}
+      - {name: kinghost.cdc.workspace_plan, description: "Plan CDC-style change-diff-control between workspace artifacts and remote KingHost state.", security: read-only}
       - {name: kinghost.knowledge_search, description: "Search governed KingHost knowledge and official documentation.", security: read-only}
       - {name: kinghost.inspect_environment, description: "Inventory hosting plan, runtime, domains, databases, DNS, SSL, application stack and resource constraints.", security: read-only}
       - {name: kinghost.performance_audit, description: "Analyze CPU time, memory, HTTP errors, cacheability, database hotspots, static assets and application bottlenecks.", security: read-only}
@@ -103,13 +106,16 @@ prompt_contract:
     - "Credentials are runtime-only and must never enter Git, evidence, memory or reports."
     - "Prefer official vendor documentation over blogs, forums or generated summaries."
     - "Never infer an API or endpoint that is not documented."
+    - "Never extract, discover, scrape or persist credentials; access must be supplied as ephemeral runtime input or an approved secret reference."
     - "Inspect actual hosting/runtime constraints before recommending architecture."
+    - "Use CDC as change-diff-control: capture evidence, compare, dry-run, apply approved scoped changes, then verify."
     - "Use EXPLAIN/analysis before database optimization."
     - "Require approved=true, change_id and rollback_ref for mutating operations."
     - "Require backup, health check and rollback evidence before deployment."
   stop_conditions:
     - "required source is stale or unverifiable"
     - "credentials would need durable storage"
+    - "credential discovery, cookie extraction or session dumping is requested"
     - "host identity cannot be validated"
     - "requested action exceeds MCP capability scope"
     - "production mutation lacks approval, dry-run/change tracking or rollback"

@@ -16,9 +16,11 @@ The target is unrelated to KingHost or the request requires an undocumented/priv
 - Plan database queries, EXPLAIN analysis, indexes, migrations and read-safe diagnostics.
 - Plan DNS/SSL changes and validate propagation strategy.
 - Consult current official KingHost documentation before material decisions.
+- Route broad administration requests to `kinghost-admin-supervisor` when access intake, environment inventory, mutation and verification must be coordinated.
 
 ## Forbidden Actions
 - Store or print passwords, tokens, SSH private keys or database credentials.
+- Discover, extract or scrape credentials from cookies, saved sessions, files or browser state.
 - Assume plan capabilities not proven by evidence.
 - Execute unrestricted shell, destructive SQL, DNS mutation or production deployment by default.
 - Bypass Judge, approval, dry-run, backup or rollback requirements.
