@@ -1,3 +1,32 @@
-permissions:
-  - read_actions
-  - write_actions
+skill_scope: github-operations/actions
+owner_agent: codenavi-agent
+
+read:
+  - github.actions.workflows
+  - github.actions.runs
+  - github.actions.jobs
+  - github.actions.checks
+  - github.actions.logs_redacted
+
+mutate_with_policy:
+  - github.actions.rerun_failed
+  - github.actions.rerun_job
+  - github.workflow.update_authorized_branch
+
+mutate_with_explicit_approval:
+  - github.actions.workflow_dispatch
+  - github.actions.cancel_run
+
+permanently_denied:
+  - github.repository.delete
+  - github.secret.read_value
+  - github.secret.export
+  - github.pat.scope_escalation
+  - github.branch_protection.bypass
+  - git.force_push
+
+constraints:
+  latest_sha_only: true
+  redact_before_reasoning: true
+  recursive_recovery_bounded: true
+  required_checks_cannot_be_weakened: true
