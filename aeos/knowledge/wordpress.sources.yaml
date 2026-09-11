@@ -1,0 +1,97 @@
+schema_version: '1.0.0'
+knowledge_domain: wordpress
+freshness_policy: refresh-at-execution-for-version-sensitive-claims
+authority_order:
+  - official-wordpress-developer-documentation
+  - official-core-release-notes-and-source-reference
+  - official-support-and-make-wordpress
+  - community-secondary-evidence
+  - reddit-experience-reports
+
+sources:
+  - id: wp-rest-api
+    kind: official
+    authority: normative
+    url: https://developer.wordpress.org/rest-api/
+    topics: [authentication, discovery, routes, requests, responses]
+  - id: wp-rest-reference
+    kind: official
+    authority: normative
+    url: https://developer.wordpress.org/rest-api/reference/
+    topics: [posts, pages, media, users, settings, themes, plugins, templates, global-styles]
+  - id: wp-plugin-handbook
+    kind: official
+    authority: normative
+    url: https://developer.wordpress.org/plugins/
+    topics: [plugins, hooks, security, settings, http-api]
+  - id: wp-theme-handbook
+    kind: official
+    authority: normative
+    url: https://developer.wordpress.org/themes/
+    topics: [themes, block-themes, classic-themes, templates, theme-json, assets]
+  - id: wp-block-editor-handbook
+    kind: official
+    authority: normative
+    url: https://developer.wordpress.org/block-editor/
+    topics: [gutenberg, blocks, block-json, packages, data, components, site-editor]
+  - id: wp-common-apis
+    kind: official
+    authority: normative
+    url: https://developer.wordpress.org/apis/
+    topics: [http-api, options, metadata, filesystem, transients, security]
+  - id: wp-advanced-administration
+    kind: official
+    authority: normative
+    url: https://developer.wordpress.org/advanced-administration/
+    topics: [administration, performance, server, security, multisite]
+  - id: wp-coding-standards
+    kind: official
+    authority: normative
+    url: https://developer.wordpress.org/coding-standards/
+    topics: [php, javascript, css, html, accessibility]
+  - id: wp-cli
+    kind: official
+    authority: normative
+    url: https://developer.wordpress.org/cli/commands/
+    topics: [wp-cli, maintenance, plugins, themes, search-replace, database]
+  - id: wp-core-field-guides
+    kind: official
+    authority: authoritative-change-log
+    url: https://make.wordpress.org/core/tag/field-guide/
+    topics: [releases, developer-notes, deprecations, compatibility]
+  - id: wordpress-releases
+    kind: official
+    authority: authoritative-release
+    url: https://wordpress.org/news/category/releases/
+    topics: [release, security-release, maintenance-release]
+  - id: reddit-wordpress
+    kind: reddit
+    authority: community-secondary
+    url: https://www.reddit.com/r/Wordpress/
+    topics: [operations, hosting, plugins, themes, troubleshooting]
+  - id: reddit-prowordpress
+    kind: reddit
+    authority: community-secondary
+    url: https://www.reddit.com/r/ProWordPress/
+    topics: [professional-development, architecture, gutenberg, performance]
+  - id: reddit-woocommerce
+    kind: reddit
+    authority: community-secondary
+    url: https://www.reddit.com/r/woocommerce/
+    topics: [commerce, checkout, plugins, integrations]
+
+reddit_policy:
+  normative: false
+  production_decision_requires:
+    - official-documentation-corroboration
+    - or-multiple-independent-community-reports-plus-local-reproduction
+  never_treat_as_api_contract: true
+
+cache_policy:
+  root: .aeos/wordpress/knowledge/cache
+  complete-corpus-copy: false
+  bounded-snapshots: true
+  persist-source-url: true
+  persist-source-hash: true
+  persist-fetch-time: true
+  republish-full-source: false
