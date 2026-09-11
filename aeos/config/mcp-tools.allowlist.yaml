@@ -137,6 +137,33 @@ allowlist:
   - project.production_checklist
   - project.scaffold_manifest
   - project.scaffold_package
+  wordpress-expert:
+  - wordpress.knowledge.catalog
+  - wordpress.knowledge.curriculum
+  - wordpress.knowledge.source_policy
+  - wordpress.knowledge.fetch
+  - wordpress.knowledge.search
+  - wordpress.knowledge.crawl_official
+  - wordpress.knowledge.index_status
+  - wordpress.site.discover
+  - wordpress.site.map_status
+  - wordpress.site.map_beta
+  - wordpress.site.map_get
+  - wordpress.rest.options
+  - wordpress.content.list
+  - wordpress.content.get
+  - wordpress.content.upsert
+  - wordpress.content.trash
+  - wordpress.content.delete_permanent
+  - wordpress.settings.read
+  - wordpress.settings.update
+  - wordpress.plugins.list
+  - wordpress.plugins.install
+  - wordpress.plugins.set_status
+  - wordpress.design.update
+  - wordpress.media.import_url
+  - wordpress.integrations.link_plan
+  - wordpress.admin.session_plan
 blocked_tools:
 - shell.exec
 - shell.unrestricted
