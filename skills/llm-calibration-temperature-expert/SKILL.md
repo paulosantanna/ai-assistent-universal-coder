@@ -1,3 +1,8 @@
+---
+name: llm-calibration-temperature-expert
+description: "Use for LLM Calibration & Temperature Expert."
+---
+
 # LLM Calibration & Temperature Expert
 Governance: CodENavi v1
 

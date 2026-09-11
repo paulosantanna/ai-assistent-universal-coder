@@ -5,8 +5,8 @@ mcp:
   version: '2026-07-13'
   transport:
     type: stdio
-    command: medical-research-mcp
-    args: []
+    command: node
+    args: ["aeos/mcp-servers/aeos-readonly-mcp.mjs", "--mode", "medical-research"]
   capabilities:
     tools:
     - name: qualified_medical_sources

@@ -1,3 +1,8 @@
+---
+name: mantis-summarize
+description: "Use for SKILL.md."
+---
+
 # SKILL.md
 # mantis-summarize
 
@@ -144,4 +149,3 @@ Complete only when:
 - limitations are disclosed;
 - no blocking finding remains;
 - the honest evaluator verdict is `PASS` or explicitly disclosed as `REVIEW`.
-

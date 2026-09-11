@@ -1,3 +1,8 @@
+---
+name: jira-confluence-assistant
+description: "Use for Skill: jira-confluence-assistant."
+---
+
 # Skill: jira-confluence-assistant
 Governance: CodENavi v1
 

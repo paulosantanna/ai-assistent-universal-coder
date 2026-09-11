@@ -1,3 +1,8 @@
+---
+name: ai-evals-expert
+description: "Use for AI Evals Expert."
+---
+
 # AI Evals Expert
 Governance: CodENavi v1
 

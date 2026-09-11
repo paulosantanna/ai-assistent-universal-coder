@@ -1,3 +1,8 @@
+---
+name: perfect-skill
+description: "Use for SKILL.md."
+---
+
 # SKILL.md
 # Dependency Audit
 

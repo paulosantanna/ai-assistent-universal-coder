@@ -1,3 +1,8 @@
+---
+name: bm25-expert
+description: "Use for BM25 Expert."
+---
+
 # BM25 Expert
 Governance: CodENavi v1
 

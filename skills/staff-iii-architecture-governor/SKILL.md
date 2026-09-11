@@ -1,3 +1,8 @@
+---
+name: staff-iii-architecture-governor
+description: "Use for SKILL.md."
+---
+
 # SKILL.md
 # staff-iii-architecture-governor
 

@@ -1,3 +1,8 @@
+---
+name: handoff-manager
+description: "Use for Skill: handoff-manager."
+---
+
 # Skill: handoff-manager
 Governance: CodENavi v1
 

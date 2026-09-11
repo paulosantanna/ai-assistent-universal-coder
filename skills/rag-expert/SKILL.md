@@ -1,3 +1,8 @@
+---
+name: rag-expert
+description: "Use for RAG Expert."
+---
+
 # RAG Expert
 Governance: CodENavi v1
 

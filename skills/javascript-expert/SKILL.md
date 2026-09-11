@@ -1,3 +1,8 @@
+---
+name: javascript-expert
+description: "Use for JavaScript Expert."
+---
+
 # JavaScript Expert
 Governance: CodENavi Full Workspace v2
 

@@ -1,3 +1,8 @@
+---
+name: mantis-meta-agent
+description: "Use for SKILL.md."
+---
+
 # SKILL.md
 # mantis-meta-agent
 
@@ -144,4 +149,3 @@ Complete only when:
 - limitations are disclosed;
 - no blocking finding remains;
 - the honest evaluator verdict is `PASS` or explicitly disclosed as `REVIEW`.
-

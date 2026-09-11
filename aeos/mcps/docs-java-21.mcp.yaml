@@ -5,8 +5,11 @@ mcp:
   version: '2026-07-12'
   transport:
     type: stdio
-    command: language-docs-mcp
+    command: node
     args:
+    - aeos/mcp-servers/aeos-readonly-mcp.mjs
+    - --mode
+    - language-docs
     - --profile
     - docs-java-21
   capabilities:

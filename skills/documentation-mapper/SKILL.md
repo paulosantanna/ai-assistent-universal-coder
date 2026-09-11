@@ -1,3 +1,8 @@
+---
+name: documentation-mapper
+description: "Use for SKILL.md."
+---
+
 # SKILL.md
 # AEOS Documentation Mapper
 

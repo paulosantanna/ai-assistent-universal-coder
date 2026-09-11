@@ -1,3 +1,8 @@
+---
+name: aeos-autonomous-learning-governor
+description: "Use for SKILL.md."
+---
+
 # SKILL.md
 # AEOS Autonomous Learning Governor
 

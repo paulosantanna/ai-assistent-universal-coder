@@ -1,3 +1,8 @@
+---
+name: kubernetes-code-context-mapper
+description: "Use for SKILL.md."
+---
+
 # SKILL.md
 # Kubernetes Code Context Mapper
 

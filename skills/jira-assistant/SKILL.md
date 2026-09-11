@@ -1,3 +1,8 @@
+---
+name: jira-assistant
+description: "Use for Jira Assistant."
+---
+
 # Jira Assistant
 Governance: CodENavi v1
 

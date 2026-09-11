@@ -1,3 +1,8 @@
+---
+name: grafana-observability-staff
+description: "Use for SKILL.md."
+---
+
 # SKILL.md
 # Grafana Observability Staff
 

@@ -1,3 +1,8 @@
+---
+name: codenavi
+description: "Use for Skill: codenavi."
+---
+
 # Skill: codenavi
 Governance: CodENavi v1
 

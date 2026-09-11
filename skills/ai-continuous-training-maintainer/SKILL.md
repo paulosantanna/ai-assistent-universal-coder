@@ -1,3 +1,8 @@
+---
+name: ai-continuous-training-maintainer
+description: "Use for SKILL.md."
+---
+
 # SKILL.md
 # AI Continuous Training Maintainer
 

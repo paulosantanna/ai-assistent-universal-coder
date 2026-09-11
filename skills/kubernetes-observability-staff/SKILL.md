@@ -1,3 +1,8 @@
+---
+name: kubernetes-observability-staff
+description: "Use for SKILL.md."
+---
+
 # SKILL.md
 # Kubernetes Observability Staff
 

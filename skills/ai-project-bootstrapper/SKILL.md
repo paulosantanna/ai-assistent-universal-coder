@@ -1,3 +1,8 @@
+---
+name: ai-project-bootstrapper
+description: "Use for AI Project Bootstrapper."
+---
+
 # AI Project Bootstrapper
 Governance: CodENavi v1
 

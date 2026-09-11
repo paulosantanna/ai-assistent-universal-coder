@@ -1,3 +1,8 @@
+---
+name: angular-20-expert
+description: "Use for Angular 20 Expert."
+---
+
 # Angular 20 Expert
 Governance: CodENavi Full Workspace v2
 

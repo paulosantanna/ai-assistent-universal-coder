@@ -1,3 +1,8 @@
+---
+name: local-secret-vault
+description: "Use for Skill: local-secret-vault."
+---
+
 # Skill: local-secret-vault
 Governance: CodENavi v1
 

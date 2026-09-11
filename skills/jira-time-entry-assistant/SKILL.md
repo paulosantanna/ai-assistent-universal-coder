@@ -1,3 +1,8 @@
+---
+name: jira-time-entry-assistant
+description: "Use for Jira Time Entry Assistant."
+---
+
 # Jira Time Entry Assistant
 Governance: CodENavi v1
 

@@ -1,3 +1,8 @@
+---
+name: splunk-observability-staff
+description: "Use for SKILL.md."
+---
+
 # SKILL.md
 # Splunk Observability Staff
 

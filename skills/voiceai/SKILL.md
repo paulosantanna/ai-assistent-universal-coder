@@ -1,3 +1,8 @@
+---
+name: voiceai
+description: "Use for SKILL.md."
+---
+
 # SKILL.md
 # voiceai
 
@@ -245,4 +250,3 @@ Complete only when:
 - output validates against `schemas/output.schema.json`;
 - evidence refs and residual risks are reported;
 - no blocking finding remains.
-

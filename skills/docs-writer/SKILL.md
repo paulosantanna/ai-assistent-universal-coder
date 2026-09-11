@@ -1,3 +1,8 @@
+---
+name: docs-writer
+description: "Use for Skill: docs-writer."
+---
+
 # Skill: docs-writer
 Governance: CodENavi v1
 

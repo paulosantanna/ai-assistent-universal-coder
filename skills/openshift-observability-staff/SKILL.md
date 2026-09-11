@@ -1,3 +1,8 @@
+---
+name: openshift-observability-staff
+description: "Use for SKILL.md."
+---
+
 # SKILL.md
 # OpenShift Observability Staff
 

@@ -1,3 +1,8 @@
+---
+name: llm-model-selection-expert
+description: "Use for LLM Model Selection Expert."
+---
+
 # LLM Model Selection Expert
 Governance: CodENavi v1
 

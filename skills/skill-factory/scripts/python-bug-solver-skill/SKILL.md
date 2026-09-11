@@ -1,3 +1,8 @@
+---
+name: python-bug-solver-skill
+description: "Use for SKILL.md."
+---
+
 # SKILL.md
 # Python Bug Solver Skill
 

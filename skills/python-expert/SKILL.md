@@ -1,3 +1,8 @@
+---
+name: python-expert
+description: "Use for Python Expert."
+---
+
 # Python Expert
 Governance: CodENavi Full Workspace v2
 

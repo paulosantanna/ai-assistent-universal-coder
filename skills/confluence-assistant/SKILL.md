@@ -1,3 +1,8 @@
+---
+name: confluence-assistant
+description: "Use for Confluence Assistant."
+---
+
 # Confluence Assistant
 Governance: CodENavi v1
 

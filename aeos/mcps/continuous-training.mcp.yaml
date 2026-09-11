@@ -14,8 +14,8 @@ mcp:
 
   transport:
     type: stdio
-    command: continuous-training-mcp
-    args: []
+    command: node
+    args: ["aeos/mcp-servers/aeos-readonly-mcp.mjs", "--mode", "continuous-training"]
 
   capabilities:
     tools:

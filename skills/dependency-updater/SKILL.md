@@ -1,3 +1,8 @@
+---
+name: dependency-updater
+description: "Use for Skill: dependency-updater."
+---
+
 # Skill: dependency-updater
 Governance: CodENavi v1
 

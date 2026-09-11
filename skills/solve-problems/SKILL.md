@@ -1,3 +1,8 @@
+---
+name: solve-problems
+description: "Use for SKILL.md."
+---
+
 # SKILL.md
 # solve-problems
 

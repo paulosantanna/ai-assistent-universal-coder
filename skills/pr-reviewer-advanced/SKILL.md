@@ -1,3 +1,8 @@
+---
+name: pr-reviewer-advanced
+description: "Use for Advanced PR Reviewer."
+---
+
 # Advanced PR Reviewer
 Governance: CodENavi v1
 

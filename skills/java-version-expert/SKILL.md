@@ -1,3 +1,8 @@
+---
+name: java-version-expert
+description: "Use for Skill: java-version-expert."
+---
+
 # Skill: java-version-expert
 Governance: CodENavi v1
 

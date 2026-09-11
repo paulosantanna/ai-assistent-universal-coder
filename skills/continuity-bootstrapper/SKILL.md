@@ -1,3 +1,8 @@
+---
+name: continuity-bootstrapper
+description: "Use for Skill: continuity-bootstrapper."
+---
+
 # Skill: continuity-bootstrapper
 Governance: CodENavi v1
 

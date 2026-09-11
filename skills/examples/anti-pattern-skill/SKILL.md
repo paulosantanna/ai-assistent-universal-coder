@@ -1,3 +1,8 @@
+---
+name: anti-pattern-skill
+description: "Use for Bad Skill Example."
+---
+
 # Bad Skill Example
 
 Activate for everything.

@@ -1,3 +1,8 @@
+---
+name: pr-comment-resolver
+description: "Use for PR Comment Resolver."
+---
+
 # PR Comment Resolver
 Governance: CodENavi v1
 

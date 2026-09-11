@@ -5,8 +5,8 @@ mcp:
   version: '2026-07-12'
   transport:
     type: stdio
-    command: universal-project-mcp
-    args: []
+    command: node
+    args: ["aeos/mcp-servers/aeos-readonly-mcp.mjs", "--mode", "universal-project"]
   capabilities:
     tools:
     - name: project.plan

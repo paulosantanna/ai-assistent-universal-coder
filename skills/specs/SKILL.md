@@ -1,3 +1,8 @@
+---
+name: specs
+description: "Use for SKILL.md."
+---
+
 # SKILL.md
 # specs
 
@@ -234,4 +239,3 @@ This skill was designed using external primary documentation and local AEOS gove
 - Kiro Requirements-First workflow: `https://kiro.dev/docs/specs/feature-specs/requirements-first/`
 - Claude Code skills documentation: `https://code.claude.com/docs/en/slash-commands`
 - AEOS local contracts: `AGENT.md`, `HANDOFF.md`, `MEMORY_SCHEMA.md`, verification/TESTING_ENGINE.md
-

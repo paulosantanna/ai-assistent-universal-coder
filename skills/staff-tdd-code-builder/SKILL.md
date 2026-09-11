@@ -1,3 +1,8 @@
+---
+name: staff-tdd-code-builder
+description: "Use for SKILL.md."
+---
+
 # SKILL.md
 # staff-tdd-code-builder
 

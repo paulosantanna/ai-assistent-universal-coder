@@ -1,3 +1,8 @@
+---
+name: progress-tracker
+description: "Use for Skill: progress-tracker."
+---
+
 # Skill: progress-tracker
 Governance: CodENavi v1
 

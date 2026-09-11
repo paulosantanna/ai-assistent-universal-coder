@@ -1,3 +1,8 @@
+---
+name: chromatic-mega-brain
+description: "Use for SKILL.md."
+---
+
 # SKILL.md
 # AEOS Chromatic Mega Brain
 

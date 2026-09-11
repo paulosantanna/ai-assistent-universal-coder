@@ -1,3 +1,8 @@
+---
+name: simulator-ai
+description: "Use for SKILL.md."
+---
+
 # SKILL.md
 # simulator-ai
 

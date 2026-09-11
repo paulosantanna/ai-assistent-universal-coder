@@ -5,8 +5,8 @@ mcp:
   version: '2026-07-12'
   transport:
     type: stdio
-    command: complete-docs-mcp
-    args: []
+    command: node
+    args: ["aeos/mcp-servers/aeos-readonly-mcp.mjs", "--mode", "complete-docs"]
   capabilities:
     tools:
     - name: docs.plan

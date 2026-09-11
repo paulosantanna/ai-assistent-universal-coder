@@ -1,3 +1,8 @@
+---
+name: skills-index
+description: "Use for SKILL.md."
+---
+
 # SKILL.md
 # AEOS Skill Factory
 

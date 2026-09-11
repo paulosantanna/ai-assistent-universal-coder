@@ -1,3 +1,8 @@
+---
+name: memory-curator
+description: "Use for Skill: memory-curator."
+---
+
 # Skill: memory-curator
 Governance: CodENavi v1
 

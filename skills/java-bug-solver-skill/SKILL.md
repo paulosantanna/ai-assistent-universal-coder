@@ -1,3 +1,8 @@
+---
+name: java-bug-solver-skill
+description: "Use for SKILL.md."
+---
+
 # SKILL.md
 # Java Bug Solver Skill
 

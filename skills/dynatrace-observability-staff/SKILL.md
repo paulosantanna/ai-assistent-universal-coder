@@ -1,3 +1,8 @@
+---
+name: dynatrace-observability-staff
+description: "Use for SKILL.md."
+---
+
 # SKILL.md
 # Dynatrace Observability Staff
 

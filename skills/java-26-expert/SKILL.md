@@ -1,3 +1,8 @@
+---
+name: java-26-expert
+description: "Use for Java 26 Expert."
+---
+
 # Java 26 Expert
 Governance: CodENavi Full Workspace v2
 

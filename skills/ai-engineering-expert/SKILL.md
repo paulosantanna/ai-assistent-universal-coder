@@ -1,3 +1,8 @@
+---
+name: ai-engineering-expert
+description: "Use for AI Engineering Expert."
+---
+
 # AI Engineering Expert
 Governance: CodENavi v1
 

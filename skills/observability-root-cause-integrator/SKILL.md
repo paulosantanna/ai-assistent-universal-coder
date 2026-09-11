@@ -1,3 +1,8 @@
+---
+name: observability-root-cause-integrator
+description: "Use for SKILL.md."
+---
+
 # SKILL.md
 # Observability Root Cause Integrator
 

@@ -1,3 +1,8 @@
+---
+name: learning-curator
+description: "Use for Skill: learning-curator."
+---
+
 # Skill: learning-curator
 Governance: CodENavi v1
 

@@ -1,3 +1,8 @@
+---
+name: pr-reviewer
+description: "Use for Skill: pr-reviewer."
+---
+
 # Skill: pr-reviewer
 Governance: CodENavi v1
 

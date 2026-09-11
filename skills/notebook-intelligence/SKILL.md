@@ -1,3 +1,8 @@
+---
+name: notebook-intelligence
+description: "Use for Skill: notebook-intelligence."
+---
+
 # Skill: notebook-intelligence
 Governance: CodENavi v1
 

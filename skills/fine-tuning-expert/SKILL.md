@@ -1,3 +1,8 @@
+---
+name: fine-tuning-expert
+description: "Use for Fine-Tuning Expert."
+---
+
 # Fine-Tuning Expert
 Governance: CodENavi v1
 

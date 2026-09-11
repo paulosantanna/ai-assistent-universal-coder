@@ -1,3 +1,8 @@
+---
+name: ai-architecture-expert
+description: "Use for AI Architecture Expert."
+---
+
 # AI Architecture Expert
 Governance: CodENavi v1
 

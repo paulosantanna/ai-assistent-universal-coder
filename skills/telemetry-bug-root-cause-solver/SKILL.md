@@ -1,3 +1,8 @@
+---
+name: telemetry-bug-root-cause-solver
+description: "Use for SKILL.md."
+---
+
 # SKILL.md
 # Telemetry Bug Root Cause Solver
 
