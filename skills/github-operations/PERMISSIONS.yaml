@@ -1,2 +1,57 @@
-permissions:
-  - all
+skill: github-operations
+owner_agent: codenavi-agent
+version: 1.0.0
+
+capabilities:
+  read:
+    - git.status
+    - git.diff
+    - git.log
+    - git.refs
+    - github.repository.metadata
+    - github.pull_requests
+    - github.issues
+    - github.releases
+    - github.actions.workflows
+    - github.actions.runs
+    - github.actions.jobs
+    - github.actions.checks
+    - github.actions.logs_redacted
+    - github.branch_protection
+  mutate_with_policy:
+    - git.branch.create
+    - git.branch.rename
+    - git.stage.selective
+    - git.commit.create
+    - git.fetch
+    - git.pull
+    - git.push.authorized_branch
+    - github.pull_request.create
+    - github.pull_request.update
+    - github.actions.rerun_failed
+    - github.actions.rerun_job
+    - github.bundle.create
+    - github.bundle.verify
+  mutate_with_explicit_approval:
+    - github.pull_request.merge
+    - github.branch.delete
+    - github.branch_protection.update
+    - github.release.publish
+    - github.actions.workflow_dispatch
+  permanently_denied:
+    - github.repository.delete
+    - github.secret.read_value
+    - github.secret.export
+    - github.pat.scope_escalation
+    - github.branch_protection.bypass
+    - git.force_push
+    - audit_trail.delete
+    - evidence.finalized.rewrite
+
+constraints:
+  secrets_runtime_only: true
+  no_plaintext_pat_in_config: true
+  structured_command_args_only: true
+  shell_true_forbidden: true
+  default_merge_mode: approval_required
+  verify_remote_state_after_mutation: true
