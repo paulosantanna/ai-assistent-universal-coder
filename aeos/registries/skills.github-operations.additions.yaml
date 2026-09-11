@@ -1,0 +1,54 @@
+skills:
+  - id: github-operations
+    path: skills/github-operations/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: high
+    capabilities:
+      - READ_GIT_METADATA
+      - READ_GITHUB_METADATA
+      - READ_GITHUB_ACTIONS
+      - READ_GITHUB_CHECKS
+      - READ_REDACTED_LOGS
+      - WRITE_AUTHORIZED_BRANCH
+      - CREATE_ATOMIC_COMMITS
+      - PUSH_AUTHORIZED_BRANCH
+      - CREATE_PULL_REQUEST
+      - UPDATE_PULL_REQUEST
+      - RERUN_GITHUB_ACTIONS
+      - CREATE_GIT_BUNDLE
+      - VERIFY_GIT_BUNDLE
+      - GENERATE_REPORT
+      - GENERATE_EVIDENCE
+    mission: Provide governed Git and GitHub operations with runtime-only authentication, permanent repository-deletion deny and verified remote-state mutation.
+    allowed_actions:
+      - Inspect repository, refs, diffs, pull requests, checks, workflows and redacted logs
+      - Create authorized branches, selective commits and pushes
+      - Create and update pull requests
+      - Rerun workflow jobs under policy
+      - Create and verify Git bundles
+      - Execute approved merge only after latest-SHA gate revalidation
+    forbidden_actions:
+      - Delete repositories
+      - Read or export existing secret values
+      - Expose or persist PATs, tokens, cookies or credentials
+      - Widen PAT scopes automatically
+      - Bypass branch protection
+      - Force-push by default
+      - Rewrite finalized evidence or delete audit trail
+    required_inputs:
+      - repository
+      - operation
+      - authorization_scope
+    quality_gates:
+      - Runtime-only secret references
+      - Structured command arguments only
+      - Remote state is re-read after mutation
+      - Latest expected SHA is verified before merge
+      - Repository deletion remains DENY_PERMANENT
+    stop_conditions:
+      - Ambiguous repository or ref
+      - Missing permission or approval
+      - Secret exposure
+      - PAT scope insufficient
+      - Repository deletion requested
