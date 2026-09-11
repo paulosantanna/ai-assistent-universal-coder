@@ -9,8 +9,9 @@ function moduleUrl(relativePath) {
 
 describe("AEOS DevOps pipeline engineering governance", () => {
   let governance;
+  const setup = typeof beforeAll === "function" ? beforeAll : before;
 
-  beforeAll(async () => {
+  setup(async () => {
     governance = await import(moduleUrl("scripts/aeos-devops-pipeline-governance.mjs"));
   });
 
