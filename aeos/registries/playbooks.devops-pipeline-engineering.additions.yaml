@@ -4,6 +4,7 @@ playbooks:
     risk_level: high
     required_agents: [codenavi-agent]
     required_skills:
+      - github-operations
       - devops-pipeline-engineering
       - security-audit
       - rollback-planner
