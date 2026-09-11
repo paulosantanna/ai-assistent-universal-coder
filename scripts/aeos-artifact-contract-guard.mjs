@@ -13,8 +13,9 @@ for (const path of [contractPath, runtimePath, loaderPath]) {
 function functionWindow(source, functionName) {
   const start = source.indexOf(`${functionName}(`);
   if (start < 0) return null;
-  const nextMethod = source.indexOf('\n  ', start + functionName.length + 1);
-  const end = nextMethod > start ? nextMethod : Math.min(source.length, start + 5000);
+  const tail = source.slice(start + functionName.length + 1);
+  const nextMethodMatch = /\n  [A-Za-z][A-Za-z0-9_]*\(/.exec(tail);
+  const end = nextMethodMatch ? start + functionName.length + 1 + nextMethodMatch.index : source.length;
   return source.slice(start, end);
 }
 
