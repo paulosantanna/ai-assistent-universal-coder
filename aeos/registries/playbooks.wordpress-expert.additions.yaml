@@ -1,0 +1,25 @@
+playbooks:
+  - id: wordpress-site-onboarding-beta
+    path: aeos/playbooks/wordpress-site-onboarding-beta.playbook.md
+    risk_level: medium
+    required_agents: [codenavi-agent]
+    required_skills:
+      - wordpress-expert
+    required_lcps:
+      - global-rules
+      - security-governance
+    allowed_mcps:
+      - wordpress-expert
+  - id: wordpress-production-change
+    path: aeos/playbooks/wordpress-production-change.playbook.md
+    risk_level: critical
+    required_agents: [codenavi-agent]
+    required_skills:
+      - wordpress-expert
+      - security-audit
+      - rollback-planner
+    required_lcps:
+      - global-rules
+      - security-governance
+    allowed_mcps:
+      - wordpress-expert
