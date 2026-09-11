@@ -55,8 +55,21 @@ jobs:
           short_sha="${head_sha:0:12}"
           bundle_name="aeos-devops-pipeline-engineering-${short_sha}.bundle"
           bundle_path="${bundle_dir}/${bundle_name}"
+          bundle_scope="delta-from-master"
 
-          git bundle create "$bundle_path" HEAD "^${base_sha}"
+          if [[ "$base_sha" == "$head_sha" ]]; then
+            parent_sha="$(git rev-parse "${head_sha}^" 2>/dev/null || true)"
+            if [[ -n "$parent_sha" ]]; then
+              git bundle create "$bundle_path" HEAD "^${parent_sha}"
+              bundle_scope="head-commit"
+            else
+              git bundle create "$bundle_path" HEAD
+              bundle_scope="full-history-root"
+            fi
+          else
+            git bundle create "$bundle_path" HEAD "^${base_sha}"
+          fi
+
           git bundle verify "$bundle_path"
           git bundle list-heads "$bundle_path" > "${bundle_path}.heads.txt"
 
@@ -66,6 +79,7 @@ jobs:
           BUNDLE_PATH="$bundle_path" \
           BUNDLE_NAME="$bundle_name" \
           BUNDLE_SHA256="$bundle_sha256" \
+          BUNDLE_SCOPE="$bundle_scope" \
           BASE_SHA="$base_sha" \
           HEAD_SHA="$head_sha" \
           SOURCE_BRANCH="$branch_name" \
@@ -96,6 +110,7 @@ jobs:
             bundle: {
               filename: process.env.BUNDLE_NAME,
               sha256: process.env.BUNDLE_SHA256,
+              scope: process.env.BUNDLE_SCOPE,
               size_bytes: statSync(path).size,
               verified: true,
               heads: readFileSync(`${path}.heads.txt`, "utf8").trim().split(/\r?\n/).filter(Boolean)
