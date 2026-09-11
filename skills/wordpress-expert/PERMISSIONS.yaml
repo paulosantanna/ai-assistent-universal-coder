@@ -1,0 +1,59 @@
+skill: wordpress-expert
+owner_agent: codenavi-agent
+version: 1.0.0
+
+capabilities:
+  read:
+    - wordpress.knowledge.catalog
+    - wordpress.knowledge.curriculum
+    - wordpress.knowledge.source_policy
+    - wordpress.knowledge.fetch
+    - wordpress.knowledge.search
+    - wordpress.knowledge.crawl_official
+    - wordpress.knowledge.index_status
+    - wordpress.site.discover
+    - wordpress.site.map_status
+    - wordpress.site.map_beta
+    - wordpress.site.map_get
+    - wordpress.rest.options
+    - wordpress.content.list
+    - wordpress.content.get
+    - wordpress.settings.read
+    - wordpress.plugins.list
+    - wordpress.integrations.link_plan
+    - wordpress.admin.session_plan
+  mutate_with_policy_and_approval:
+    - wordpress.content.upsert
+    - wordpress.content.trash
+    - wordpress.settings.update
+    - wordpress.plugins.install
+    - wordpress.plugins.set_status
+    - wordpress.design.update
+    - wordpress.media.import_url
+  destructive_with_explicit_double_gate:
+    - wordpress.content.delete_permanent
+  permanently_denied:
+    - wordpress.core.modify
+    - wordpress.database.write_direct
+    - wordpress.shell.unrestricted
+    - wordpress.wp_eval
+    - wordpress.browser.export_cookies
+    - wordpress.browser.persist_password
+    - wordpress.secret.read_value
+    - wordpress.secret.export
+    - wordpress.beta_map.overwrite
+    - wordpress.beta_map.delete
+    - wordpress.plugin.install_unverified_package
+    - wordpress.production.disable_security_control
+
+constraints:
+  default_mode: read-only
+  beta_mapping_first_run_only: true
+  secrets_runtime_only: true
+  application_password_api_only: true
+  ssrf_guard_required: true
+  production_write_requires_approval: true
+  rollback_required_for_high_and_critical: true
+  trash_first: true
+  permanent_delete_runtime_gate: AEOS_WORDPRESS_ALLOW_PERMANENT_DELETE
+  mutation_runtime_gate: AEOS_WORDPRESS_MUTATION_MODE
