@@ -1,7 +1,8 @@
 model_router:
-  enabled: true
+  enabled: false
   version: 0.1.0
-  default_profile: free_local
+  reason: "Workspace-level policy blocks Ollama, hosted LLMs, OpenAI-compatible gateways and every AI provider."
+  default_profile: deterministic
   paid_profiles:
     - paid_cheap
     - paid_strong
@@ -59,8 +60,12 @@ model_router:
     critical: paid_judge
   approval:
     require_for_paid_profiles: true
-    allow_paid_when_approval_id_present: true
+    allow_paid_when_approval_id_present: false
   blocking:
+    block_all_ai_providers: true
+    block_ollama: true
+    block_hosted_llms: true
+    block_openai_compatible_gateways: true
     block_paid_when_deterministic_stage: true
     block_when_context_exceeds_profile: true
-    block_unknown_stage: false
+    block_unknown_stage: true

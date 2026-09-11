@@ -111,53 +111,13 @@ aeos audit run-gates E:\GitHub\aidiabetic-research
 aeos context pack E:\GitHub\aidiabetic-research
 ```
 
-## Optional Ollama setup
+## AI provider policy
 
-Install Ollama and start it locally, then configure AEOS:
+AI providers are disabled for this workspace. Do not configure Ollama, hosted LLMs,
+DeepSeek-compatible APIs, OpenAI-compatible gateways, OpenCode model gateways or
+any other model runtime from AEOS.
 
-```powershell
-aeos provider configure ollama http://localhost:11434 llama3.1 E:\GitHub\aidiabetic-research
-aeos provider status E:\GitHub\aidiabetic-research
-aeos provider models E:\GitHub\aidiabetic-research
-```
-
-Replace `llama3.1` with the model installed on your machine, for example:
-
-```powershell
-aeos agent run audit ollama qwen2.5-coder E:\GitHub\aidiabetic-research
-aeos agent latest E:\GitHub\aidiabetic-research
-```
-
-## Optional DeepSeek and OpenAI-compatible providers
-
-Hosted providers should be configured through environment variables. AEOS stores
-the environment variable name, not the secret value.
-
-DeepSeek-compatible:
-
-```powershell
-$env:DEEPSEEK_API_KEY = "<token from your environment>"
-aeos provider configure deepseek deepseek-chat DEEPSEEK_API_KEY E:\GitHub\aidiabetic-research
-aeos agent run audit deepseek deepseek-chat E:\GitHub\aidiabetic-research
-```
-
-Local OpenAI-compatible server such as LM Studio or llama.cpp:
-
-```powershell
-aeos provider configure openai-compatible http://localhost:1234/v1 local-model "" E:\GitHub\aidiabetic-research
-aeos agent run audit openai-compatible local-model E:\GitHub\aidiabetic-research
-```
-
-OpenCode with the same local or gateway model:
-
-```powershell
-aeos provider template opencode E:\GitHub\aidiabetic-research
-aeos provider configure opencode http://127.0.0.1:1234/v1 local-model "" E:\GitHub\aidiabetic-research
-aeos agent run audit opencode local-model E:\GitHub\aidiabetic-research
-```
-
-Use the generated provider template as the base for `opencode.json`. Keep raw
-keys out of repository files; use OpenCode auth or environment variables.
+`aeos provider status` remains available only to confirm the disabled state.
 
 ## Update an existing installation
 

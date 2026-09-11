@@ -19,6 +19,11 @@ agent_runtime:
 
   prohibited:
     direct_tool_access: true
+    ai_provider_access: true
+    ollama_access: true
+    hosted_llm_access: true
+    openai_compatible_gateway_access: true
+    opencode_model_gateway_access: true
     self_judging: true
     raw_secret_context: true
     scope_expansion_without_approval: true

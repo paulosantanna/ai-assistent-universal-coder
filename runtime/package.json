@@ -1,7 +1,7 @@
 {
   "name": "@aeos/runtime-core",
   "version": "0.9.1",
-  "description": "AEOS Runtime Core v9.1 - Ollama model discovery and local agent execution",
+  "description": "AEOS Runtime Core v9.1 - deterministic workspace runtime with AI providers disabled",
   "type": "module",
   "bin": {
     "aeos": "./dist/cli/index.js"

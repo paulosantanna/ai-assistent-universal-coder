@@ -3,13 +3,7 @@ token_budget_governor:
   version: 1.0.0
   default_provider: unknown
   provider_limits:
-    gpt: 32000
-    openai: 32000
-    codex: 24000
-    claude: 32000
-    deepseek: 16000
-    deepseek-free: 8000
-    local: 12000
+    deterministic: 8000
     unknown: 8000
   output_reserve_tokens:
     default: 2000
@@ -34,18 +28,6 @@ token_budget_governor:
   - ask_for_missing_required_input
   - stop_on_scope_expansion
   provider_policy:
-    gpt:
-      prefer: balanced_generation_and_reasoning
-      avoid: repeated_full_context_replays
-    codex:
+    deterministic:
       prefer: file_refs_diffs_tests
-      avoid: dumping_entire_files_when_patch_is_enough
-    claude:
-      prefer: long_context_review_with_summaries
-      avoid: using_long_context_when_targeted_reads_are_enough
-    deepseek:
-      prefer: compact_reasoning_and_code_tasks
-      avoid: broad_multi_agent_context
-    deepseek-free:
-      prefer: smallest_task_slice
-      avoid: large_context_or_parallel_subagents
+      avoid: model_or_provider_execution

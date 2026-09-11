@@ -39,18 +39,8 @@ Gates and audit:
   aeos report latest [projectPath]
 
 Provider and agent execution:
-  aeos provider configure ollama [baseUrl] [model] [projectPath]
-  aeos provider configure deepseek [model] [apiKeyEnv] [projectPath]
-  aeos provider configure openai-compatible [baseUrl] [model] [apiKeyEnv] [projectPath]
-  aeos provider configure opencode [baseUrl] [model] [apiKeyEnv] [projectPath]
+  AI providers are disabled for this workspace.
   aeos provider status [projectPath]
-  aeos provider models [projectPath]
-  aeos agent run audit ollama [model] [projectPath]
-  aeos agent run audit deepseek [model] [projectPath]
-  aeos agent run audit openai-compatible [model] [projectPath]
-  aeos agent run audit opencode [model] [projectPath]
-  aeos agent run judge ollama [model] [projectPath]
-  aeos agent run remediate ollama [model] [projectPath]
   aeos agent runs [projectPath]
   aeos agent latest [projectPath]
 
@@ -63,9 +53,6 @@ Prompts / agents:
   aeos lessons add "<summary>" [projectPath]
 
 Bridge / context:
-  aeos bridge opencode [projectPath]
-  aeos bridge codex [projectPath]
-  aeos bridge cursor [projectPath]
   aeos context pack [projectPath]
   aeos remediate plan [projectPath]
   aeos backlog generate [projectPath]
@@ -77,12 +64,6 @@ Operationalization:
   aeos policy generate [projectPath]
   aeos ci github [projectPath]
   aeos release check [projectPath]
-  aeos provider template openai [projectPath]
-  aeos provider template anthropic [projectPath]
-  aeos provider template ollama [projectPath]
-  aeos provider template deepseek [projectPath]
-  aeos provider template openai-compatible [projectPath]
-  aeos provider template opencode [projectPath]
 
 Task/evidence/memory:
   aeos plan "<objective>" [projectPath]
@@ -153,9 +134,9 @@ function objective(v: string): AgentObjective {
 }
 
 function providerName(v: string): ProviderName {
-  const allowed: ProviderName[] = ["ollama", "deepseek", "openai-compatible", "opencode"];
-  if (!allowed.includes(v as ProviderName)) throw new Error(`Invalid executable provider: ${v}`);
-  return v as ProviderName;
+  const blocked = ["ollama", "deepseek", "openai-compatible", "opencode"];
+  if (blocked.includes(v)) throw new Error(`AI providers are disabled for this workspace: ${v}`);
+  throw new Error(`Invalid executable provider: ${v}`);
 }
 
 async function main(): Promise<void> {
@@ -203,17 +184,7 @@ async function main(): Promise<void> {
       case "provider": {
         const sub = req(args[0], "provider subcommand");
         if (sub === "configure") {
-          const provider = providerName(req(args[1], "provider"));
-          if (provider === "ollama") {
-            print(core.providerConfigureOllama(p(args[4]), req(args[2], "baseUrl"), req(args[3], "model")));
-            return;
-          }
-          if (provider === "deepseek") {
-            print(core.providerConfigure(p(args[4]), provider, undefined, req(args[2], "model"), args[3] || "DEEPSEEK_API_KEY"));
-            return;
-          }
-          print(core.providerConfigure(p(args[5]), provider, req(args[2], "baseUrl"), req(args[3], "model"), args[4] || ""));
-          return;
+          throw new Error("AI providers are disabled for this workspace.");
         }
         if (sub === "status") {
           print(core.providerStatus(p(args[1])));
@@ -224,8 +195,7 @@ async function main(): Promise<void> {
           return;
         }
         if (sub === "template") {
-          const provider = req(args[1], "provider name");
-          if (provider === "openai" || provider === "anthropic" || provider === "ollama" || provider === "deepseek" || provider === "openai-compatible" || provider === "opencode") { print(core.providerTemplate(p(args[2]), provider)); return; }
+          throw new Error("AI provider templates are disabled for this workspace.");
         }
         throw new Error(`Unknown provider command.`);
       }
@@ -233,10 +203,7 @@ async function main(): Promise<void> {
       case "agent": {
         const sub = req(args[0], "agent subcommand");
         if (sub === "run") {
-          const obj = objective(req(args[1], "objective"));
-          const provider = providerName(req(args[2], "provider"));
-          print(await core.agentRun(p(args[4]), obj, provider, args[3]));
-          return;
+          throw new Error("AI agent provider execution is disabled for this workspace.");
         }
         if (sub === "runs") { print(core.agentRuns(p(args[1]))); return; }
         if (sub === "latest") { print(core.agentLatest(p(args[1]))); return; }
@@ -270,9 +237,7 @@ async function main(): Promise<void> {
       }
 
       case "bridge": {
-        const tool = req(args[0], "bridge tool");
-        if (tool === "opencode" || tool === "codex" || tool === "cursor") { print(core.bridge(p(args[1]), tool)); return; }
-        throw new Error(`Unknown bridge tool: ${tool}`);
+        throw new Error("AI tool bridges are disabled for this workspace.");
       }
 
       case "context": {
