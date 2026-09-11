@@ -49,61 +49,8 @@ function listMd(dir) {
         return [];
     return readdirSync(dir).filter((name) => name.toLowerCase().endsWith(".md"));
 }
-function providerDefaults(provider) {
-    if (provider === "ollama") {
-        return {
-            baseUrl: "http://localhost:11434",
-            model: "llama3.1",
-            maxInputChars: 50000,
-            maxOutputTokens: 1600,
-            temperature: 0.1,
-            economyMode: false
-        };
-    }
-    if (provider === "deepseek") {
-        return {
-            baseUrl: "https://api.deepseek.com",
-            model: "deepseek-chat",
-            apiKeyEnv: "DEEPSEEK_API_KEY",
-            maxInputChars: 24000,
-            maxOutputTokens: 1200,
-            temperature: 0.1,
-            economyMode: true
-        };
-    }
-    if (provider === "opencode") {
-        return {
-            baseUrl: "http://127.0.0.1:1234/v1",
-            model: "local-model",
-            apiKeyEnv: "",
-            maxInputChars: 32000,
-            maxOutputTokens: 1200,
-            temperature: 0.1,
-            economyMode: true
-        };
-    }
-    return {
-        baseUrl: "http://localhost:1234/v1",
-        model: "local-model",
-        apiKeyEnv: "",
-        maxInputChars: 32000,
-        maxOutputTokens: 1200,
-        temperature: 0.1,
-        economyMode: true
-    };
-}
-function compactForBudget(prompt, maxInputChars) {
-    if (prompt.length <= maxInputChars)
-        return prompt;
-    const head = Math.floor(maxInputChars * 0.58);
-    const tail = Math.max(1000, maxInputChars - head - 220);
-    return [
-        prompt.slice(0, head),
-        "",
-        `...[AEOS COMPACTED ${prompt.length - head - tail} chars to preserve token budget]...`,
-        "",
-        prompt.slice(-tail)
-    ].join("\n");
+function blockedAiProviderMessage() {
+    return "AI providers are disabled for this workspace. Do not configure Ollama, hosted LLMs, OpenAI-compatible gateways, OpenCode model gateways, or any other AI runtime from AEOS.";
 }
 export class AeosCore {
     version = "0.9.1";
@@ -353,132 +300,38 @@ export class AeosCore {
         return latest ? { latestReport: latest } : { message: "No audit report found." };
     }
     providerConfigureOllama(projectPath, baseUrl, model) {
-        return this.providerConfigure(projectPath, "ollama", baseUrl, model);
+        void baseUrl;
+        void model;
+        return this.providerConfigure(projectPath, "disabled");
     }
     providerConfigure(projectPath, provider, baseUrl, model, apiKeyEnv) {
         this.ensureRuntime(projectPath);
-        const defaults = providerDefaults(provider);
-        const config = {
-            provider,
-            baseUrl: baseUrl || defaults.baseUrl,
-            model: model || defaults.model,
-            apiKeyEnv: apiKeyEnv ?? defaults.apiKeyEnv,
-            maxInputChars: defaults.maxInputChars,
-            maxOutputTokens: defaults.maxOutputTokens,
-            temperature: defaults.temperature,
-            economyMode: defaults.economyMode,
-            updatedAt: now()
-        };
-        writeJson(join(projectPath, ".aeos-runtime", "providers", "provider-config.json"), config);
-        this.evidence(projectPath, `${provider} provider configured`, "config", ".aeos-runtime/providers/provider-config.json");
-        return config;
+        void provider;
+        void baseUrl;
+        void model;
+        void apiKeyEnv;
+        throw new Error(blockedAiProviderMessage());
     }
     providerStatus(projectPath) {
         this.ensureRuntime(projectPath);
-        const config = readJson(join(projectPath, ".aeos-runtime", "providers", "provider-config.json"));
-        return config ?? {
+        return {
             configured: false,
-            message: "No provider configured. Use: aeos provider configure ollama http://localhost:11434 <model> <projectPath>"
+            blocked: true,
+            provider: "disabled",
+            allowedProviders: [],
+            message: blockedAiProviderMessage()
         };
     }
     async providerModels(projectPath) {
         this.ensureRuntime(projectPath);
-        const config = readJson(join(projectPath, ".aeos-runtime", "providers", "provider-config.json"));
-        const provider = config?.provider ?? "ollama";
-        const baseUrl = (config?.baseUrl ?? providerDefaults(provider).baseUrl).replace(/\/$/, "");
-        if (provider !== "ollama") {
-            return this.providerModelsOpenAiCompatible(config ?? {
-                provider,
-                baseUrl,
-                model: providerDefaults(provider).model,
-                apiKeyEnv: providerDefaults(provider).apiKeyEnv,
-                updatedAt: now()
-            });
-        }
-        const response = await fetch(`${baseUrl}/api/tags`, {
-            method: "GET"
-        });
-        if (!response.ok) {
-            const text = await response.text();
-            throw new Error(`Ollama models request failed: HTTP ${response.status} ${text}`);
-        }
-        const data = await response.json();
-        const models = (data.models ?? []).map((model) => ({
-            name: model.name ?? model.model ?? "unknown",
-            modifiedAt: model.modified_at,
-            size: model.size,
-            digest: model.digest,
-            details: model.details
-        }));
-        return {
-            provider: "ollama",
-            baseUrl,
-            count: models.length,
-            models
-        };
+        throw new Error(blockedAiProviderMessage());
     }
     async agentRun(projectPath, objective, provider, modelOverride) {
         this.ensureRuntime(projectPath);
-        const providerConfig = readJson(join(projectPath, ".aeos-runtime", "providers", "provider-config.json"));
-        const activeProvider = provider;
-        const defaults = providerDefaults(activeProvider);
-        const baseUrl = providerConfig?.provider === activeProvider ? providerConfig.baseUrl : defaults.baseUrl;
-        const model = modelOverride || (providerConfig?.provider === activeProvider ? providerConfig.model : defaults.model);
-        const config = {
-            ...defaults,
-            ...(providerConfig?.provider === activeProvider ? providerConfig : {}),
-            provider: activeProvider,
-            baseUrl,
-            model,
-            updatedAt: providerConfig?.updatedAt ?? now()
-        };
-        if (!model) {
-            throw new Error(`Missing ${activeProvider} model. Use: aeos provider configure ${activeProvider} <baseUrl> <model> [apiKeyEnv] <projectPath>`);
-        }
-        const runId = id();
-        const startedAt = now();
-        const rawPrompt = this.renderAgentPrompt(projectPath, objective);
-        const prompt = compactForBudget(rawPrompt, config.maxInputChars ?? 24000);
-        const promptRel = `.aeos-runtime/agent-runs/agent-prompt-${objective}-${runId}.md`;
-        const responseRel = `.aeos-runtime/agent-runs/agent-response-${objective}-${runId}.md`;
-        const runRel = `.aeos-runtime/agent-runs/agent-run-${objective}-${runId}.json`;
-        writeFileSync(join(projectPath, promptRel), `${prompt}\n`, "utf8");
-        let success = false;
-        let error;
-        let responseText = "";
-        try {
-            responseText = await this.callProvider(config, prompt);
-            success = true;
-        }
-        catch (err) {
-            error = err instanceof Error ? err.message : String(err);
-            responseText = [
-                "# AEOS Agent Run Failed",
-                "",
-                `- Objective: ${objective}`,
-                `- Provider: ${activeProvider}`,
-                `- Model: ${model}`,
-                `- Error: ${error}`
-            ].join("\n");
-        }
-        writeFileSync(join(projectPath, responseRel), `${responseText}\n`, "utf8");
-        const run = {
-            runId,
-            objective,
-            provider: activeProvider,
-            model,
-            projectPath,
-            promptPath: promptRel,
-            responsePath: responseRel,
-            startedAt,
-            finishedAt: now(),
-            success,
-            error
-        };
-        writeJson(join(projectPath, runRel), run);
-        this.evidence(projectPath, `AEOS agent run ${objective} completed with success=${success}`, "command", runRel);
-        this.memory(projectPath, success ? "evidence" : "finding", `Agent run ${objective} using ${activeProvider}/${model}: success=${success}`);
-        return run;
+        void objective;
+        void provider;
+        void modelOverride;
+        throw new Error(blockedAiProviderMessage());
     }
     agentRuns(projectPath) {
         const dir = join(projectPath, ".aeos-runtime", "agent-runs");
@@ -627,17 +480,9 @@ export class AeosCore {
         return this.artifact(projectPath, "lessons", `lesson-${slug(summary)}`, "lesson", content);
     }
     bridge(projectPath, tool) {
-        const content = [
-            `# AEOS ${tool} Bridge`,
-            "",
-            "Load `.aeos/AGENT.md` first. Then use the context below.",
-            "",
-            this.renderContextPack(projectPath),
-            "",
-            "## Tool guidance",
-            this.toolGuidance(tool)
-        ].join("\n");
-        return this.artifact(projectPath, "bridges", `${tool}-bridge`, "bridge", content);
+        this.ensureRuntime(projectPath);
+        void tool;
+        throw new Error("AI tool bridges are disabled for this workspace.");
     }
     contextPack(projectPath) {
         return this.artifact(projectPath, "context", "aeos-context-pack", "context", this.renderContextPack(projectPath));
@@ -808,68 +653,9 @@ export class AeosCore {
         return this.artifact(projectPath, "release", "release-readiness", "release", content);
     }
     providerTemplate(projectPath, provider) {
-        const envVar = provider === "openai"
-            ? "OPENAI_API_KEY"
-            : provider === "anthropic"
-                ? "ANTHROPIC_API_KEY"
-                : provider === "deepseek"
-                    ? "DEEPSEEK_API_KEY"
-                    : provider === "openai-compatible"
-                        ? "AEOS_OPENAI_COMPATIBLE_API_KEY"
-                        : provider === "opencode"
-                            ? "AEOS_OPENCODE_API_KEY or local OpenAI-compatible server without a key"
-                            : "OLLAMA_BASE_URL";
-        const executable = provider === "ollama" || provider === "deepseek" || provider === "openai-compatible" || provider === "opencode";
-        const opencodeConfig = provider === "opencode"
-            ? [
-                "",
-                "## opencode.json",
-                "",
-                "Place this file at the target project root when OpenCode should share the same local or gateway model as AEOS.",
-                "",
-                "```json",
-                "{",
-                "  \"$schema\": \"https://opencode.ai/config.json\",",
-                "  \"provider\": {",
-                "    \"aeos-local\": {",
-                "      \"npm\": \"@ai-sdk/openai-compatible\",",
-                "      \"name\": \"AEOS Local/OpenCode Provider\",",
-                "      \"options\": {",
-                "        \"baseURL\": \"http://127.0.0.1:1234/v1\"",
-                "      },",
-                "      \"models\": {",
-                "        \"local-model\": {",
-                "          \"name\": \"Local model\",",
-                "          \"limit\": {",
-                "            \"context\": 32000,",
-                "            \"output\": 1200",
-                "          }",
-                "        }",
-                "      }",
-                "    }",
-                "  }",
-                "}",
-                "```",
-                "",
-                "Use `aeos provider configure opencode <baseUrl> <model> <apiKeyEnv> <projectPath>` with the same values. Keep secrets in environment variables or OpenCode auth, not in repository files."
-            ]
-            : [];
-        const content = [
-            `# AEOS Provider Template — ${provider}`,
-            "",
-            `- Required env: ${envVar}`,
-            "- Store only env var names in AEOS config. Never write raw API keys to repository files.",
-            "",
-            "## Rules",
-            "- Provider output is not evidence.",
-            "- Validate provider output with repo files, gates and judge.",
-            "- Do not send secrets or sensitive data unless explicitly authorized and compliant.",
-            "- Use economy mode and compact prompts for free or low-quota providers.",
-            "",
-            executable ? "## Runtime status\n\nThis provider is executable through `aeos agent run ... <provider>`." : "## Runtime status\n\nThis is a template only.",
-            ...opencodeConfig
-        ].join("\n");
-        return this.artifact(projectPath, "providers", `${provider}-provider-template`, "provider", content);
+        void projectPath;
+        void provider;
+        throw new Error(blockedAiProviderMessage());
     }
     plan(projectPath, objective) {
         this.ensureRuntime(projectPath);
@@ -999,108 +785,6 @@ export class AeosCore {
             "Use this package as the release/handoff entrypoint for human or agent review."
         ].join("\n");
         return this.artifact(projectPath, "delivery", "delivery-package", "delivery", content);
-    }
-    async callProvider(config, prompt) {
-        if (config.provider === "ollama") {
-            return this.callOllama(config.baseUrl, config.model, prompt);
-        }
-        return this.callOpenAiCompatible(config, prompt);
-    }
-    async callOllama(baseUrl, model, prompt) {
-        const cleanBaseUrl = baseUrl.replace(/\/$/, "");
-        const response = await fetch(`${cleanBaseUrl}/api/generate`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                model,
-                prompt,
-                stream: false
-            })
-        });
-        if (!response.ok) {
-            const text = await response.text();
-            throw new Error(`Ollama request failed: HTTP ${response.status} ${text}`);
-        }
-        const data = await response.json();
-        if (data.error) {
-            throw new Error(data.error);
-        }
-        return data.response ?? "";
-    }
-    apiKey(config) {
-        if (!config.apiKeyEnv)
-            return undefined;
-        const value = process.env[config.apiKeyEnv];
-        if (!value) {
-            throw new Error(`Missing API key env var: ${config.apiKeyEnv}`);
-        }
-        return value;
-    }
-    async providerModelsOpenAiCompatible(config) {
-        const cleanBaseUrl = config.baseUrl.replace(/\/$/, "");
-        const apiKey = this.apiKey(config);
-        const headers = {};
-        if (apiKey)
-            headers.Authorization = `Bearer ${apiKey}`;
-        const response = await fetch(`${cleanBaseUrl}/models`, {
-            method: "GET",
-            headers
-        });
-        if (!response.ok) {
-            const text = await response.text();
-            throw new Error(`${config.provider} models request failed: HTTP ${response.status} ${text}`);
-        }
-        const data = await response.json();
-        const models = (data.data ?? []).map((model) => ({
-            name: model.id ?? "unknown",
-            object: model.object,
-            owner: model.owned_by
-        }));
-        return {
-            provider: config.provider,
-            baseUrl: cleanBaseUrl,
-            count: models.length,
-            models
-        };
-    }
-    async callOpenAiCompatible(config, prompt) {
-        const cleanBaseUrl = config.baseUrl.replace(/\/$/, "");
-        const apiKey = this.apiKey(config);
-        const headers = {
-            "Content-Type": "application/json"
-        };
-        if (apiKey)
-            headers.Authorization = `Bearer ${apiKey}`;
-        const response = await fetch(`${cleanBaseUrl}/chat/completions`, {
-            method: "POST",
-            headers,
-            body: JSON.stringify({
-                model: config.model,
-                messages: [
-                    {
-                        role: "system",
-                        content: "You are an AEOS governed engineering agent. Be concise, evidence-first, and do only the requested task."
-                    },
-                    {
-                        role: "user",
-                        content: prompt
-                    }
-                ],
-                temperature: config.temperature ?? 0.1,
-                max_tokens: config.maxOutputTokens ?? 1200
-            })
-        });
-        if (!response.ok) {
-            const text = await response.text();
-            throw new Error(`${config.provider} request failed: HTTP ${response.status} ${text}`);
-        }
-        const data = await response.json();
-        if (data.error) {
-            throw new Error(typeof data.error === "string" ? data.error : data.error.message ?? "Provider returned an error");
-        }
-        return data.choices?.[0]?.message?.content ?? data.choices?.[0]?.text ?? "";
     }
     renderAgentPrompt(projectPath, objective) {
         const base = [
@@ -1271,13 +955,6 @@ export class AeosCore {
             "## Gate results",
             this.gatesResults(projectPath).slice(-10).map((gate) => `- ${gate.gateId}: exitCode=${gate.exitCode}`).join("\n") || "- None"
         ].join("\n");
-    }
-    toolGuidance(tool) {
-        if (tool === "opencode")
-            return "Point OpenCode instructions to `.aeos/AGENT.md`; use generated prompts as task specs.";
-        if (tool === "codex")
-            return "Paste the context pack before implementation requests and require evidence-backed changes.";
-        return "Add `.aeos/AGENT.md` and generated bridge/context files to Cursor project rules.";
     }
     latestAudit(projectPath) {
         const dir = join(projectPath, ".aeos-runtime", "reports");

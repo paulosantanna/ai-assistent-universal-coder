@@ -50,11 +50,6 @@ export declare class AeosCore {
     snapshotCreate(projectPath: string): GeneratedArtifact;
     checklistGenerate(projectPath: string): GeneratedArtifact;
     deliveryPackage(projectPath: string): GeneratedArtifact;
-    private callProvider;
-    private callOllama;
-    private apiKey;
-    private providerModelsOpenAiCompatible;
-    private callOpenAiCompatible;
     private renderAgentPrompt;
     private ensureRuntime;
     private loadOrCreateScan;
@@ -66,7 +61,6 @@ export declare class AeosCore {
     private memory;
     private renderAuditMarkdown;
     private renderContextPack;
-    private toolGuidance;
     private latestAudit;
     private artifact;
     private count;

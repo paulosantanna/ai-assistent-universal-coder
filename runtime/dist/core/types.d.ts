@@ -69,7 +69,7 @@ export interface GeneratedArtifact {
     path: string;
     createdAt: string;
 }
-export type ProviderName = "ollama" | "deepseek" | "openai-compatible" | "opencode";
+export type ProviderName = "disabled";
 export interface ProviderConfig {
     provider: ProviderName;
     baseUrl: string;
