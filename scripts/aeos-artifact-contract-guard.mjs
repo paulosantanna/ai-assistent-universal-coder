@@ -10,6 +10,14 @@ for (const path of [contractPath, runtimePath, loaderPath]) {
   if (!existsSync(path)) errors.push(`missing:${path}`);
 }
 
+function functionWindow(source, functionName) {
+  const start = source.indexOf(`${functionName}(`);
+  if (start < 0) return null;
+  const nextMethod = source.indexOf('\n  ', start + functionName.length + 1);
+  const end = nextMethod > start ? nextMethod : Math.min(source.length, start + 5000);
+  return source.slice(start, end);
+}
+
 if (!errors.length) {
   const contract = JSON.parse(readFileSync(contractPath, 'utf8'));
   const runtime = readFileSync(runtimePath, 'utf8');
@@ -28,25 +36,43 @@ if (!errors.length) {
   if (!runtime.includes('CodENavi Full Workspace v2')) errors.push('runtime governance parent mismatch');
   if (!runtime.includes('governEntry') || !runtime.includes('governEntries')) errors.push('runtime normalizer missing');
 
-  const requiredLoaders = ['loadPlaybooks','loadSkills','loadMCPs','loadLCPs','loadAgents','loadBlueprints','loadWorkbenchProfiles','loadMergedFromOverlay'];
-  for (const fn of requiredLoaders) {
-    const start = loader.indexOf(`${fn}(`);
-    if (start < 0) {
+  const requiredLoaders = new Map([
+    ['loadPlaybooks', ['governPlaybookEntries']],
+    ['loadSkills', ['governSkillEntries']],
+    ['loadMCPs', ['governEntries']],
+    ['loadLCPs', ['governEntries']],
+    ['loadAgents', ['governEntries']],
+    ['loadBlueprints', ['governEntries']],
+    ['loadWorkbenchProfiles', ['governEntries']],
+    ['loadMergedFromOverlay', ['governEntries', 'governSkillEntries', 'governPlaybookEntries']]
+  ]);
+  for (const [fn, requiredNormalizers] of requiredLoaders) {
+    const window = functionWindow(loader, fn);
+    if (!window) {
       errors.push(`registry loader missing:${fn}`);
       continue;
     }
-    const window = loader.slice(start, start + 900);
-    if (!window.includes('governEntr')) errors.push(`${fn} does not normalize governance`);
+    for (const normalizer of requiredNormalizers) {
+      if (!window.includes(normalizer)) errors.push(`${fn} missing required governance normalizer:${normalizer}`);
+    }
   }
 
-  for (const fn of ['resolvePlaybook','resolveSkills','resolveMCPs','resolveLCPs','resolveAgent']) {
-    const start = loader.indexOf(`${fn}(`);
-    if (start < 0) {
+  const requiredResolvers = new Map([
+    ['resolvePlaybook', ['governPlaybookEntries']],
+    ['resolveSkills', ['governSkillEntries']],
+    ['resolveMCPs', ['governEntries']],
+    ['resolveLCPs', ['governEntries']],
+    ['resolveAgent', ['governEntry']]
+  ]);
+  for (const [fn, requiredNormalizers] of requiredResolvers) {
+    const window = functionWindow(loader, fn);
+    if (!window) {
       errors.push(`resolver missing:${fn}`);
       continue;
     }
-    const window = loader.slice(start, start + 700);
-    if (!window.includes('governEntr')) errors.push(`${fn} may return ungoverned artifact`);
+    for (const normalizer of requiredNormalizers) {
+      if (!window.includes(normalizer)) errors.push(`${fn} missing required governance normalizer:${normalizer}`);
+    }
   }
 }
 
