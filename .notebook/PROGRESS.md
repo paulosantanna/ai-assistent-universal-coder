@@ -3,54 +3,44 @@
 Updated: 2026-09-11
 
 ## Mission
-- Objective: implement governed GitHub Operations + DevOps Pipeline Engineering with full GitHub Actions monitoring, latest-SHA validation, bounded recursive recovery, token economy and Work Bundle integration under the single `codenavi-agent` model.
-- Success criteria: active registered skills/playbook + deterministic runtime governance + tests + CI green + merge-ready PR without repository-deletion capability or secret exposure.
+- Objective: deliver workspace-wide governed runtime authentication for all AEOS skills/MCPs plus the WordPress Knowledge MCP and `wordpress-expert` super-skill, then merge and verify the final `master` pipeline.
+- Success criteria: runtime-auth available through the Tool Router to every resolved playbook, WordPress one-shot Beta Mapping and production contracts registered, PRs consolidated, merge completed, latest functional `master` SHA green.
 
 ## Current phase
-- DEBRIEF
+- COMPLETED / DEBRIEF
 
 ## Live checklist
-- [x] Reconcile mission with canonical single-agent governance.
-- [x] Create `aeos/feature-devops-pipeline-engineering` from current `master`.
-- [x] Add `devops-pipeline-engineering` skill contracts.
-- [x] Upgrade `github-operations` from placeholder to governed dependency.
-- [x] Replace legacy Action `SUBAGENTS.md` placeholder with guardian lenses/work units.
-- [x] Register GitHub/DevOps skill fragments and recursive recovery playbook in active overlay.
-- [x] Make skill router resolve active overlay skill fragments.
-- [x] Add deterministic latest-SHA pipeline/guardian/fingerprint/progress/merge governance runtime.
-- [x] Add Node tests for DevOps governance and overlay-aware routing.
-- [x] Open PR #26 and monitor GitHub Actions.
-- [x] Classify and repair CI failures at root cause.
-- [x] Reach green CI on implementation SHA `23125681230458d575d079816a634c265cdc5946`.
-- [x] Refresh continuity quartet in one documentation commit.
-- [ ] Verify the final continuity-only head SHA in GitHub Actions.
-- [ ] Generate final Work Bundle locally after final-head green CI.
-- [ ] Merge only after explicit approval and latest-SHA revalidation.
+- [x] Generalize cookie/runtime credential handling beyond WordPress through a central `RuntimeAuthBroker`.
+- [x] Add core `runtime-auth` MCP with opaque session references, TTL and host scoping.
+- [x] Add core `runtime-http` MCP so authenticated HTTPS materializes credentials only inside the Tool Router.
+- [x] Keep raw cookies/tokens/passwords out of prompts, logs, evidence, notebook, memory and bundles.
+- [x] Make active overlay skills, playbooks, MCPs and LCPs load in runtime rather than exist only on disk.
+- [x] Inject `runtime-auth` and `runtime-http` into every resolved playbook MCP set.
+- [x] Add WordPress Knowledge MCP with official documentation as normative authority and Reddit as community evidence.
+- [x] Add `wordpress-expert` super-skill with Staff-level WordPress/front-end lenses and one-shot Beta Mapping.
+- [x] Update WordPress lifecycle to use opaque runtime auth sessions for wp-admin/REST preflight and governed mutations.
+- [x] Close superseded PR #27 without merge.
+- [x] Validate PR #28 head SHA `321a6ff4e3967361b3eee56a9899877923a4a580` with AEOS Enterprise CI run #154: `completed/success`.
+- [x] Merge PR #28 into `master` as commit `096c9edc5c6a61dcff81a21bfd83a7a0bab00187`.
+- [x] Validate merged `master` with AEOS Enterprise CI run #155: `completed/success`.
+- [x] Confirm the only check run on merge SHA was `aeos-quality-gates`, `completed/success`.
+- [x] Confirm verified Work Bundle and evidence artifacts were produced by run #155.
 
 ## Verification gates
-- [x] `aeos:guard:single-agent`
-- [x] `aeos:verify`
-- [x] `aeos:verify:full`
-- [x] DevOps governance tests
-- [x] overlay router tests
-- [x] secret/PAT values absent from implementation artifacts
-- [x] repository deletion remains `DENY_PERMANENT`
-- [~] Pull-request CI green for the final head SHA after this documentation commit
+- [x] `aeos:verify:full` on PR #28 final head.
+- [x] Runtime build/test coverage includes external cookie jar, workspace-cookie denial, host scope, evidence redaction and overlay MCP injection.
+- [x] GitHub Actions run #154 green before merge.
+- [x] GitHub Actions push run #155 green after merge.
+- [x] `master` points to verified merge SHA `096c9edc5c6a61dcff81a21bfd83a7a0bab00187` at mission close.
+- [x] No repository-deletion capability was introduced.
+- [x] No raw runtime credential material was persisted.
 
-## Recovery log
-- Cycle 1 / SHA `f3875e25c4d86d121a1617f3f4e61b93a7a445a1`: Jest failed because the new shared test used Mocha hook `before`; root cause isolated to test-runner lifecycle API.
-- Cycle 2 / SHA `c0b1bebd8e675135e7c132857f9be105b14a66c0`: Jest passed but Mocha failed because `beforeAll` is Jest-specific; root cause refined to cross-runner lifecycle portability.
-- Cycle 3 / SHA `23125681230458d575d079816a634c265cdc5946`: portable setup hook selected `beforeAll` for Jest and `before` for Mocha; AEOS Enterprise CI completed successfully.
+## Durable implementation facts
+- `runtime/src/kernel/runtime-auth-broker.ts` owns in-memory credential sessions and opaque `session_ref` handles.
+- `runtime/src/kernel/tool-router.ts` owns credential materialization for authenticated runtime HTTP and redacts credential-like fields before evidence persistence.
+- `runtime/src/kernel/registry-loader.ts` resolves active overlay registry fragments and injects core Runtime Auth MCPs into playbooks.
+- `references/CODENAVI_RUNTIME_AUTH_STANDARD.md` is the workspace-wide authentication contract.
+- `wordpress-expert-site-lifecycle` consumes the same universal runtime-auth layer; it is not a WordPress-only exception.
 
-## Detailed factual log
-- Canonical PR #23 requires one `codenavi-agent`; per-Action requested subagents are implemented as `WorkflowGuardianLens` and `JobGuardianWorkUnit` contexts.
-- Active overlay includes `skills.github-operations.additions.yaml`, `skills.devops-pipeline-engineering.additions.yaml` and `playbooks.devops-pipeline-engineering.additions.yaml`.
-- `scripts/aeos-skill-router.mjs` resolves active overlay skill fragments instead of only the base registry.
-- `scripts/aeos-devops-pipeline-governance.mjs` enforces latest-SHA success, guardian coverage, secret redaction, failure fingerprinting/grouping, progress limits, merge readiness and permanent denials.
-- GitHub API HTTP success is never used as CI success; required Actions/checks must be terminal `success` for the current SHA.
-- Repository deletion is permanently denied/manual-only. PAT/secret values are runtime-only.
-
-## Open decisions / blockers
-- Final CI is required for the continuity-only head generated by this notebook update.
-- Git bundle creation is a local Git operation; generate it only after the final head is green.
-- Merge remains approval-required and is intentionally not automated.
+## Known non-blocking follow-up
+- Future adapters that currently accept direct credential fields should migrate to opaque Runtime Auth sessions when they are next modified. The universal broker is available now; migration is incremental rather than a breaking mass rewrite.

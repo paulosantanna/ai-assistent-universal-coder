@@ -4,6 +4,26 @@ Updated: 2026-09-11
 
 ## Validated learnings
 
+### Centralize runtime credentials behind opaque sessions
+- Context/trigger: session-authenticated systems such as remote WordPress require cookie jars, while workspace rules prohibit persisting credential values.
+- Problem/failure mode: implementing cookie reading separately in each skill/MCP either duplicates security logic or pushes raw credentials into model/tool parameters.
+- Root cause: credential acquisition and credential use were coupled to domain adapters.
+- Verified correction/prevention: keep acquisition/materialization in a central runtime broker; return opaque session refs; make governed adapters consume the session internally with TTL, host scoping, redaction and shutdown cleanup.
+- Reuse scope: every AEOS integration that requires cookies, environment credentials or future credential-provider adapters.
+- Evidence: `runtime/src/kernel/runtime-auth-broker.ts`, `runtime/src/kernel/tool-router.ts`, `references/CODENAVI_RUNTIME_AUTH_STANDARD.md`, AEOS Enterprise CI runs #154/#155.
+- Confidence: high
+- Updated: 2026-09-11
+
+### Overlay registries must be active in the execution runtime
+- Context/trigger: WordPress skills/playbooks/MCPs were correctly indexed as overlay fragments but the kernel still loaded several base registries directly.
+- Problem/failure mode: an artifact can exist, pass documentation/static checks and still be unreachable by real playbook execution.
+- Root cause: registry overlay resolution and execution-time registry loading had diverged.
+- Verified correction/prevention: load base + active overlay fragments by registry type with deterministic replacement order; test that overlay-only skill/playbook/MCP IDs resolve and that core runtime MCPs are injected.
+- Reuse scope: all future AEOS registry extensions.
+- Evidence: `runtime/src/kernel/registry-loader.ts`, `tests/node/runtime-auth-broker.test.cjs`.
+- Confidence: high
+- Updated: 2026-09-11
+
 ### Separate continuity concerns instead of using one oversized memory file
 - Context/trigger: long-running workspace work needs state continuity across sessions without contaminating durable memory with transient logs.
 - Problem/failure mode: mixing current progress, durable facts, handoff state and generalized lessons creates stale or contradictory context.
@@ -31,15 +51,5 @@ Updated: 2026-09-11
 - Verified correction/prevention: bind run/job/check evidence and merge approval to expected head SHA; rediscover all relevant runs after every push.
 - Reuse scope: every GitHub Actions recovery/merge workflow.
 - Evidence: `scripts/aeos-devops-pipeline-governance.mjs`, `skills/devops-pipeline-engineering/SKILL.md`.
-- Confidence: high
-- Updated: 2026-09-11
-
-### Overlay registries must be resolved by runtime routing, not merely indexed on disk
-- Context/trigger: new DevOps/GitHub skills were added as overlay fragments.
-- Problem/failure mode: `aeos-skill-router.mjs` originally read only `skills.registry.yaml`, so valid overlay skills could exist but never be selected.
-- Root cause: runtime routing and registry overlay architecture had diverged.
-- Verified correction/prevention: resolve active skill fragments from `overlay.registry.index.yaml`, merge by skill id in authoritative overlay order and test routing of overlay-only skills.
-- Reuse scope: all future skill registry fragments.
-- Evidence: `scripts/aeos-skill-router.mjs`, `tests/node/skill-router-overlay.test.cjs`.
 - Confidence: high
 - Updated: 2026-09-11
