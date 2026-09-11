@@ -60,12 +60,8 @@ export class AuraVoiceToolRouter extends KingHostToolRouter {
     if (mcpId !== "aura-voice") return super.callTool(mcpId, action, params);
     const entry = this.auraEntry;
     const skillId = typeof params.__aeosSkillId === "string" ? params.__aeosSkillId : this.activeAuraSkill;
-    if (entry.skill_enforced !== false && !skillId) {
-      return { success: false, error: "Aura Voice MCP blocked: active AEOS skill context required" };
-    }
-    if (!entry.capabilities.includes(action)) {
-      return { success: false, error: `Action '${action}' not allowlisted for Aura Voice MCP` };
-    }
+    if (entry.skill_enforced !== false && !skillId) return { success: false, error: "Aura Voice MCP blocked: active AEOS skill context required" };
+    if (!entry.capabilities.includes(action)) return { success: false, error: `Action '${action}' not allowlisted for Aura Voice MCP` };
     const forwarded = { ...params };
     delete forwarded.__aeosSkillId;
     return this.callAuraAdapter(action, forwarded);
@@ -82,6 +78,7 @@ export class AuraVoiceToolRouter extends KingHostToolRouter {
     }
     this.auraPending.clear();
     await this.shutdownKingHost();
+    this.shutdownRuntimeAuth();
   }
 
   private ensureAuraProcess(): ChildProcessWithoutNullStreams {

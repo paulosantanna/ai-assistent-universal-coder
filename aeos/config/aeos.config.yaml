@@ -18,6 +18,26 @@ runtime:
   require_observability: true
   require_parallel_execution: false
 
+runtime_auth:
+  enabled: true
+  universal_skill_access: true
+  core_mcps:
+    - runtime-auth
+    - runtime-http
+  default_ttl_seconds: 900
+  max_ttl_seconds: 7200
+  max_cookie_file_bytes: 2097152
+  allow_external_cookie_file: true
+  allow_workspace_cookie_file: false
+  raw_secret_values_to_model: false
+  raw_secret_values_to_evidence: false
+  raw_secret_values_to_logs: false
+  authenticated_http:
+    https_required: true
+    private_network_blocked: true
+    follow_redirects: false
+    max_response_bytes: 5242880
+
 registries:
   agents: "aeos/registries/agents.registry.yaml"
   skills: "aeos/registries/skills.registry.yaml"

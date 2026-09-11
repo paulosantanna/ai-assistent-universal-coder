@@ -1,0 +1,29 @@
+mcps:
+  - id: runtime-auth
+    type: runtime-auth
+    config: aeos/mcps/runtime-auth.mcp.yaml
+    risk_level: high
+    capabilities:
+      - auth.session.open_cookie_file
+      - auth.session.open_environment
+      - auth.session.info
+      - auth.session.list
+      - auth.session.close
+    governing_skill: tool-adapter-governor
+    skill_intent: Universal runtime credential broker for every governed AEOS skill/MCP.
+    skill_enforced: true
+    write_allowed: false
+    approval_required: false
+    log_redaction_required: true
+  - id: runtime-http
+    type: runtime-http
+    config: aeos/mcps/runtime-http.mcp.yaml
+    risk_level: high
+    capabilities:
+      - http.authenticated.request
+    governing_skill: tool-adapter-governor
+    skill_intent: Universal authenticated HTTPS bridge consuming only opaque runtime auth sessions.
+    skill_enforced: true
+    write_allowed: true
+    approval_required: true
+    log_redaction_required: true

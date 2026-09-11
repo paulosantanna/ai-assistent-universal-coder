@@ -23,12 +23,9 @@ import type {
 } from "./types.js";
 import { ConfigLoader } from "./config-loader.js";
 import { OverlayRegistryMerger } from "./overlay-registry-merger.js";
-import {
-  governEntries,
-  governEntry,
-  governPlaybookEntries,
-  governSkillEntries
-} from "./codenavi-governance.js";
+import { governEntries, governEntry, governPlaybookEntries, governSkillEntries } from "./codenavi-governance.js";
+
+const CORE_RUNTIME_MCPS = ["runtime-auth", "runtime-http"];
 
 export class RegistryLoader {
   private loader: ConfigLoader;
@@ -41,23 +38,19 @@ export class RegistryLoader {
   }
 
   loadPlaybooks(): PlaybooksRegistry {
-    const registry = this.loader.loadYaml<PlaybooksRegistry>("aeos/registries/playbooks.registry.yaml");
-    return { ...registry, playbooks: governPlaybookEntries(registry.playbooks) };
+    return { playbooks: governPlaybookEntries(this.loadOverlayEntries<PlaybookRegistryEntry>("playbooks", "aeos/registries/playbooks.registry.yaml")) };
   }
 
   loadSkills(): SkillsRegistry {
-    const registry = this.loader.loadYaml<SkillsRegistry>("aeos/registries/skills.registry.yaml");
-    return { ...registry, skills: governSkillEntries(registry.skills) };
+    return { skills: governSkillEntries(this.loadOverlayEntries<SkillRegistryEntry>("skills", "aeos/registries/skills.registry.yaml")) };
   }
 
   loadMCPs(): MCPsRegistry {
-    const registry = this.loader.loadYaml<MCPsRegistry>("aeos/registries/mcps.registry.yaml");
-    return { ...registry, mcps: governEntries(registry.mcps) };
+    return { mcps: governEntries(this.loadOverlayEntries<MCPRegistryEntry>("mcps", "aeos/registries/mcps.registry.yaml")) };
   }
 
   loadLCPs(): LCPsRegistry {
-    const registry = this.loader.loadYaml<LCPsRegistry>("aeos/registries/lcps.registry.yaml");
-    return { ...registry, lcps: governEntries(registry.lcps) };
+    return { lcps: governEntries(this.loadOverlayEntries<LCPRegistryEntry>("lcps", "aeos/registries/lcps.registry.yaml")) };
   }
 
   loadAgents(): AgentsRegistry {
@@ -81,12 +74,7 @@ export class RegistryLoader {
 
   loadMergedFromOverlay(): MergeResult {
     const merged = this.merger.loadAndMergeWithStrategy("replace-duplicates");
-    return {
-      ...merged,
-      agents: governEntries(merged.agents),
-      skills: governSkillEntries(merged.skills),
-      playbooks: governPlaybookEntries(merged.playbooks)
-    };
+    return { ...merged, agents: governEntries(merged.agents), skills: governSkillEntries(merged.skills), playbooks: governPlaybookEntries(merged.playbooks) };
   }
 
   loadAllResolved(): {
@@ -101,21 +89,15 @@ export class RegistryLoader {
     mergeResult: MergeResult;
   } {
     const mergeResult = this.loadMergedFromOverlay();
-    const mcps = this.loadMCPs().mcps;
-    const lcps = this.loadLCPs().lcps;
-    const blueprints = this.loadBlueprints().blueprints;
-    const profiles = this.loadWorkbenchProfiles().profiles;
-
     return {
       agents: mergeResult.agents,
-      // Compatibility field for legacy consumers. The single-agent model forbids runtime subagents.
       subagents: [],
-      skills: mergeResult.skills,
-      playbooks: mergeResult.playbooks,
-      mcps,
-      lcps,
-      blueprints,
-      profiles,
+      skills: this.loadSkills().skills,
+      playbooks: this.loadPlaybooks().playbooks,
+      mcps: this.loadMCPs().mcps,
+      lcps: this.loadLCPs().lcps,
+      blueprints: this.loadBlueprints().blueprints,
+      profiles: this.loadWorkbenchProfiles().profiles,
       mergeResult
     };
   }
@@ -130,7 +112,7 @@ export class RegistryLoader {
   }
 
   resolveMCPs(mcps: MCPRegistryEntry[], ids: string[]): MCPRegistryEntry[] {
-    return governEntries(this.resolveMany(mcps, ids) as MCPRegistryEntry[]);
+    return governEntries(this.resolveMany(mcps, [...ids, ...CORE_RUNTIME_MCPS]) as MCPRegistryEntry[]);
   }
 
   resolveLCPs(lcps: LCPRegistryEntry[], ids: string[]): LCPRegistryEntry[] {
@@ -140,6 +122,26 @@ export class RegistryLoader {
   resolveAgent(agents: AgentRegistryEntry[], id: string): AgentRegistryEntry | null {
     const entry = this.indexById(agents).get(id) as AgentRegistryEntry | undefined;
     return entry ? governEntry(entry) : null;
+  }
+
+  private loadOverlayEntries<T extends { id: string }>(key: "skills" | "playbooks" | "mcps" | "lcps", basePath: string): T[] {
+    const merged = new Map<string, T>();
+    const addFrom = (path: string): void => {
+      if (!this.loader.fileExists(path)) return;
+      const data = this.loader.loadYaml<Record<string, unknown>>(path);
+      const entries = data[key];
+      if (!Array.isArray(entries)) return;
+      for (const item of entries) {
+        if (item && typeof item === "object" && typeof (item as { id?: unknown }).id === "string") {
+          const entry = item as T;
+          merged.set(entry.id, entry);
+        }
+      }
+    };
+    addFrom(basePath);
+    const index = this.loadOverlayIndex();
+    for (const fragment of index.registry_fragments) addFrom(fragment.path);
+    return [...merged.values()];
   }
 
   private resolveMany<T extends { id: string }>(entries: T[], ids: string[]): T[] {
@@ -157,13 +159,9 @@ export class RegistryLoader {
 
   private indexById<T extends { id: string }>(entries: T[]): Map<string, T> {
     const cached = this.indexes.get(entries);
-    if (cached) {
-      return cached as Map<string, T>;
-    }
+    if (cached) return cached as Map<string, T>;
     const index = new Map<string, T>();
-    for (const entry of entries) {
-      index.set(entry.id, entry);
-    }
+    for (const entry of entries) index.set(entry.id, entry);
     this.indexes.set(entries, index as Map<string, { id: string }>);
     return index;
   }
