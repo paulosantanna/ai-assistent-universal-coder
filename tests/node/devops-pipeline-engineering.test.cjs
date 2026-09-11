@@ -10,7 +10,7 @@ function moduleUrl(relativePath) {
 describe("AEOS DevOps pipeline engineering governance", () => {
   let governance;
 
-  before(async () => {
+  beforeAll(async () => {
     governance = await import(moduleUrl("scripts/aeos-devops-pipeline-governance.mjs"));
   });
 
