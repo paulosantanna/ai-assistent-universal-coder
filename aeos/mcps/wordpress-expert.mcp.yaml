@@ -1,0 +1,84 @@
+mcp:
+  id: wordpress-expert
+  name: WordPress Expert Knowledge and Operations MCP
+  protocol: model-context-protocol
+  version: '1.0.0'
+  transport:
+    type: stdio
+    command: node
+    args:
+      - aeos/mcp-servers/wordpress-expert-mcp.mjs
+  capabilities:
+    tools:
+      - wordpress.knowledge.catalog
+      - wordpress.knowledge.curriculum
+      - wordpress.knowledge.source_policy
+      - wordpress.knowledge.fetch
+      - wordpress.knowledge.search
+      - wordpress.knowledge.crawl_official
+      - wordpress.knowledge.index_status
+      - wordpress.site.discover
+      - wordpress.site.map_status
+      - wordpress.site.map_beta
+      - wordpress.site.map_get
+      - wordpress.rest.options
+      - wordpress.content.list
+      - wordpress.content.get
+      - wordpress.content.upsert
+      - wordpress.content.trash
+      - wordpress.content.delete_permanent
+      - wordpress.settings.read
+      - wordpress.settings.update
+      - wordpress.plugins.list
+      - wordpress.plugins.install
+      - wordpress.plugins.set_status
+      - wordpress.design.update
+      - wordpress.media.import_url
+      - wordpress.integrations.link_plan
+      - wordpress.admin.session_plan
+  runtime:
+    state_root: env://AEOS_WORDPRESS_STATE_ROOT
+    site_url: env://AEOS_WORDPRESS_SITE_URL
+    rest_user: env://AEOS_WORDPRESS_USER
+    application_password: env://AEOS_WORDPRESS_APP_PASSWORD
+    mutation_mode: env://AEOS_WORDPRESS_MUTATION_MODE
+    allow_permanent_delete: env://AEOS_WORDPRESS_ALLOW_PERMANENT_DELETE
+    allow_private_network: env://AEOS_WORDPRESS_ALLOW_PRIVATE_NETWORK
+  defaults:
+    mutation_mode: read-only
+    permanent_delete: false
+    private_network: false
+    beta_mapping: create-once-reuse-afterwards
+    knowledge_model: official-normative-plus-reddit-secondary
+  security:
+    runtime_secrets_only: true
+    secrets_in_tool_arguments: false
+    redact_outputs: true
+    ssrf_guard: true
+    bounded_downloads: true
+    arbitrary_shell: false
+    arbitrary_rest_write: false
+    direct_database_write: false
+    browser_cookie_export: false
+    wp_admin_password_persistence: false
+    production_write_requires_approval: true
+    permanent_delete_requires_double_gate: true
+
+rules:
+  - WordPress official documentation is normative; Reddit is secondary community evidence.
+  - Version-sensitive claims must be refreshed from official WordPress sources at execution time.
+  - Application Passwords are for API authentication and are never treated as interactive wp-admin passwords.
+  - The first run for a site creates exactly one Beta map keyed by the normalized site fingerprint; later runs reuse it.
+  - Site mapping stores architecture/capability metadata only and must not persist passwords, tokens, cookies or personal user data.
+  - Production mutations require AEOS approval, rollback planning, evidence and AEOS_WORDPRESS_MUTATION_MODE=approved-write.
+  - Content deletion is trash-first; permanent deletion requires both runtime opt-in and literal confirmation.
+  - Theme/plugin source editing in production is not performed through an unrestricted file editor or arbitrary shell.
+  - External API endpoints for 99, Mercado Livre, Mercado Pago, Keeta, TikTok, iFood or other providers must come from their official current documentation; endpoints are never invented.
+  - External service icons prefer official brand assets cached locally; favicon .ico is a fallback and licensing/accessibility requirements remain mandatory.
+
+prompt_contract:
+  role: governed-wordpress-knowledge-and-operations-adapter
+  governing_skill: wordpress-expert
+  evidence_required: true
+  latest_source_required_for_version_sensitive_claims: true
+  production_default: plan-before-mutate
