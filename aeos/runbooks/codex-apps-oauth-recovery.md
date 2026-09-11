@@ -23,3 +23,7 @@ Use this runbook when startup logs show `codex_apps` failing with `HTTP 401` and
 ## Expected Guard Output
 
 For revoked auth, the guard returns `blocked_external_auth`, `fail_soft: true`, and remediation steps. This means the workspace can keep loading local skills and local MCP servers while the external connector waits for an operator reconnection.
+
+## Startup Policy
+
+`codex_apps` is optional when OAuth is revoked. A `token_revoked` response must not prevent local stdio MCPs such as `complete-docs`, `continuous-training`, language docs, `medical-research`, or `universal-project` from starting. Do not try to repair this by extracting cookies, browser storage, credentials, or tokens.

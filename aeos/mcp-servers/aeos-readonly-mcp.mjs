@@ -108,6 +108,10 @@ function resultContent(value) {
 }
 
 function handle(message) {
+  if (Array.isArray(message)) {
+    const responses = message.map(handle).filter(Boolean);
+    return responses.length ? responses : null;
+  }
   const { id, method, params = {} } = message;
   if (method === "initialize") {
     return {
@@ -115,8 +119,13 @@ function handle(message) {
       id,
       result: {
         protocolVersion: params.protocolVersion || "2024-11-05",
-        capabilities: { tools: {} },
-        serverInfo: { name: `aeos-readonly-${mode}`, version: "1.0.0" }
+        capabilities: {
+          tools: { listChanged: false },
+          prompts: { listChanged: false },
+          resources: { subscribe: false, listChanged: false }
+        },
+        serverInfo: { name: `aeos-readonly-${mode}`, version: "1.0.1" },
+        instructions: "Read-only AEOS fallback MCP. No credential access, no mutation, no network side effects."
       }
     };
   }
@@ -125,7 +134,10 @@ function handle(message) {
   if (method === "tools/call") {
     return { jsonrpc: "2.0", id, result: { content: resultContent(callTool(params.name, params.arguments || {})), isError: false } };
   }
+  if (method === "prompts/list") return { jsonrpc: "2.0", id, result: { prompts: [] } };
+  if (method === "resources/list") return { jsonrpc: "2.0", id, result: { resources: [] } };
   if (method === "ping") return { jsonrpc: "2.0", id, result: {} };
+  if (id === undefined || id === null) return null;
   return { jsonrpc: "2.0", id, error: { code: -32601, message: `Unknown method: ${method}` } };
 }
 
@@ -143,16 +155,21 @@ process.stdin.on("data", chunk => {
 
 function parseBuffer() {
   while (buffer.length) {
-    const headerEnd = buffer.indexOf("\r\n\r\n");
+    let headerEnd = buffer.indexOf("\r\n\r\n");
+    let separatorLength = 4;
+    if (headerEnd < 0) {
+      headerEnd = buffer.indexOf("\n\n");
+      separatorLength = 2;
+    }
     if (headerEnd >= 0) {
       const header = buffer.slice(0, headerEnd).toString("utf8");
       const match = /Content-Length:\s*(\d+)/i.exec(header);
       if (!match) {
-        buffer = buffer.slice(headerEnd + 4);
+        buffer = buffer.slice(headerEnd + separatorLength);
         continue;
       }
       const length = Number(match[1]);
-      const start = headerEnd + 4;
+      const start = headerEnd + separatorLength;
       if (buffer.length < start + length) return;
       const body = buffer.slice(start, start + length).toString("utf8");
       buffer = buffer.slice(start + length);

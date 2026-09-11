@@ -21,6 +21,9 @@ mcp_runtime:
 
   external_connectors:
     fail_soft_when_auth_revoked: true
+    optional_when_auth_revoked:
+      - codex_apps
+    startup_policy: "Do not fail local MCP startup when optional external connectors report revoked OAuth."
     auth_revoked_error_codes:
       - token_revoked
       - invalid_grant
