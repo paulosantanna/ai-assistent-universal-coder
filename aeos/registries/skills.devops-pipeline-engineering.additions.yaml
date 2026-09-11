@@ -1,0 +1,66 @@
+skills:
+  - id: devops-pipeline-engineering
+    path: skills/devops-pipeline-engineering/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: high
+    capabilities:
+      - READ_REPOSITORY
+      - READ_FILES
+      - READ_GIT_METADATA
+      - READ_GITHUB_ACTIONS
+      - READ_GITHUB_CHECKS
+      - READ_REDACTED_LOGS
+      - WRITE_AUTHORIZED_BRANCH
+      - CREATE_ATOMIC_COMMITS
+      - PUSH_AUTHORIZED_BRANCH
+      - CREATE_PULL_REQUEST
+      - UPDATE_PULL_REQUEST
+      - RERUN_GITHUB_ACTIONS
+      - MONITOR_GITHUB_ACTIONS
+      - GENERATE_REPORT
+      - GENERATE_EVIDENCE
+      - CREATE_GIT_BUNDLE
+    mission: Govern Git/GitHub CI/CD creation, monitoring, bounded recursive recovery, merge readiness and bundle handoff for the latest head SHA.
+    allowed_actions:
+      - Inspect Git repository state and protected-branch requirements
+      - Discover and monitor all relevant GitHub Actions runs, jobs, matrix jobs and checks
+      - Build redacted failure evidence packets and failure fingerprints
+      - Group equivalent failures into one root-cause repair plan
+      - Apply authorized surgical CI/code/test repairs through governed write tools
+      - Create selective atomic commits and push authorized non-protected branches
+      - Create and update pull requests
+      - Rerun failed workflow jobs when failure is classified as transient or after a validated repair
+      - Produce merge-readiness decisions and Work Bundle artifacts
+    forbidden_actions:
+      - Create any additional agent or subagent identity
+      - Delete repositories
+      - Read or export GitHub secret values
+      - Expose or persist PATs, tokens, cookies or credentials
+      - Widen PAT scopes automatically
+      - Bypass branch protection
+      - Force-push by default
+      - Hide failures with arbitrary skip, xfail, continue-on-error or reduced quality gates
+      - Merge with stale SHA evidence or failing/pending required checks
+      - Rewrite finalized evidence or delete audit history
+    required_inputs:
+      - repository
+      - target_branch
+      - authorization_scope
+    quality_gates:
+      - Single codenavi-agent invariant is preserved
+      - Every relevant workflow run has guardian-lens coverage
+      - Every required check is evaluated against the latest head SHA
+      - Equivalent failures are root-cause grouped before repair
+      - Recursive repair has cycle, progress, token and timeout limits
+      - Secret redaction occurs before reasoning or evidence persistence
+      - Judge and Evidence Verify pass before merge readiness
+      - Repository deletion remains DENY_PERMANENT
+    stop_conditions:
+      - Human-only approval or secret value is required
+      - PAT scope is insufficient
+      - GitHub or external service incident blocks reliable verification
+      - Recovery cycle or token budget is exhausted
+      - Same failure repeats without progress
+      - Recovery oscillation is detected
+      - Repository deletion is requested

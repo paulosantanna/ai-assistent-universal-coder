@@ -1,0 +1,16 @@
+playbooks:
+  - id: devops-recursive-pipeline-recovery
+    path: aeos/playbooks/devops-recursive-pipeline-recovery.playbook.md
+    risk_level: high
+    required_agents: [codenavi-agent]
+    required_skills:
+      - github-operations
+      - devops-pipeline-engineering
+      - security-audit
+      - rollback-planner
+    required_lcps:
+      - global-rules
+      - security-governance
+    allowed_mcps:
+      - filesystem-readonly
+      - git-readonly

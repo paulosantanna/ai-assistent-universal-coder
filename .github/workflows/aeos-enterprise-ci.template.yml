@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v7
         with:
           ref: ${{ github.head_ref || github.ref }}
-          fetch-depth: 1
+          fetch-depth: 0
 
       - name: Set up Node
         uses: actions/setup-node@v7
@@ -36,6 +36,111 @@ jobs:
       - name: AEOS Node-only verification suite
         id: verify
         run: npm run aeos:verify:full
+
+      - name: Build verified AEOS Work Bundle
+        id: work_bundle
+        if: steps.verify.outcome == 'success'
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git fetch origin master --no-tags
+
+          bundle_dir=".aeos/bundles/devops-pipeline-engineering"
+          mkdir -p "$bundle_dir"
+
+          branch_name="${GITHUB_HEAD_REF:-${GITHUB_REF_NAME}}"
+          base_sha="$(git merge-base HEAD origin/master)"
+          head_sha="$(git rev-parse HEAD)"
+          short_sha="${head_sha:0:12}"
+          bundle_name="aeos-devops-pipeline-engineering-${short_sha}.bundle"
+          bundle_path="${bundle_dir}/${bundle_name}"
+
+          git bundle create "$bundle_path" HEAD "^${base_sha}"
+          git bundle verify "$bundle_path"
+          git bundle list-heads "$bundle_path" > "${bundle_path}.heads.txt"
+
+          bundle_sha256="$(sha256sum "$bundle_path" | awk '{print $1}')"
+          printf '%s  %s\n' "$bundle_sha256" "$bundle_name" > "${bundle_path}.sha256"
+
+          BUNDLE_PATH="$bundle_path" \
+          BUNDLE_NAME="$bundle_name" \
+          BUNDLE_SHA256="$bundle_sha256" \
+          BASE_SHA="$base_sha" \
+          HEAD_SHA="$head_sha" \
+          SOURCE_BRANCH="$branch_name" \
+          node --input-type=module <<'NODE'
+          import { readFileSync, statSync, writeFileSync } from "node:fs";
+
+          const path = process.env.BUNDLE_PATH;
+          const manifest = {
+            schema_version: "1.0.0",
+            bundle_id: `devops-pipeline-engineering-${process.env.HEAD_SHA.slice(0, 12)}`,
+            name: "aeos-devops-pipeline-engineering-v1",
+            execution_source: "github-actions",
+            source_repository: process.env.GITHUB_REPOSITORY,
+            source_branch: process.env.SOURCE_BRANCH,
+            base_commit: process.env.BASE_SHA,
+            head_commit: process.env.HEAD_SHA,
+            workflow: process.env.GITHUB_WORKFLOW,
+            workflow_run_id: process.env.GITHUB_RUN_ID,
+            workflow_run_attempt: process.env.GITHUB_RUN_ATTEMPT,
+            verification: {
+              aeos_verify_full: "PASS",
+              latest_sha_only: true
+            },
+            security: {
+              repository_delete: "DENY_PERMANENT",
+              secrets_persisted: false
+            },
+            bundle: {
+              filename: process.env.BUNDLE_NAME,
+              sha256: process.env.BUNDLE_SHA256,
+              size_bytes: statSync(path).size,
+              verified: true,
+              heads: readFileSync(`${path}.heads.txt`, "utf8").trim().split(/\r?\n/).filter(Boolean)
+            },
+            merge_policy: "approval_required",
+            generated_at: new Date().toISOString()
+          };
+          writeFileSync(`${path}.manifest.json`, `${JSON.stringify(manifest, null, 2)}\n`);
+          NODE
+
+          cat > "${bundle_path}.import.ps1" <<'PS1'
+          param(
+            [Parameter(Mandatory=$true)]
+            [string]$Target
+          )
+
+          $ErrorActionPreference = "Stop"
+          $Bundle = (Get-ChildItem -Path $PSScriptRoot -Filter "*.bundle" | Select-Object -First 1).FullName
+          if (-not $Bundle) { throw "No .bundle file found beside this script." }
+
+          Set-Location $Target
+          git status
+          git bundle verify $Bundle
+          git fetch $Bundle "HEAD:refs/remotes/aeos-bundle/devops-pipeline-engineering"
+          git log --oneline --decorate --graph "HEAD..refs/remotes/aeos-bundle/devops-pipeline-engineering"
+          git diff HEAD "refs/remotes/aeos-bundle/devops-pipeline-engineering" --stat
+          Write-Host "Bundle fetched for review. Merge is intentionally NOT executed."
+          PS1
+
+          cat > "${bundle_path}.rollback.ps1" <<'PS1'
+          param(
+            [Parameter(Mandatory=$true)]
+            [string]$Target
+          )
+
+          Set-Location $Target
+          Write-Host "No destructive rollback command is executed automatically."
+          Write-Host "Before integration create a backup branch, for example: git branch backup/pre-devops-pipeline-engineering"
+          Write-Host "If a local unpushed merge must be abandoned, review and run the reset manually."
+          Write-Host "If history is already shared, prefer an explicit reviewed revert instead of history rewrite."
+          PS1
+
+          echo "bundle_path=$bundle_path" >> "$GITHUB_OUTPUT"
+          echo "bundle_name=$bundle_name" >> "$GITHUB_OUTPUT"
+          echo "bundle_sha256=$bundle_sha256" >> "$GITHUB_OUTPUT"
 
       - name: Collect CI verification evidence
         if: always()
@@ -69,3 +174,12 @@ jobs:
             .aeos/reports/**
             .aeos/derived/registries/**
           if-no-files-found: error
+
+      - name: Upload verified AEOS Work Bundle
+        if: steps.verify.outcome == 'success'
+        uses: actions/upload-artifact@v7
+        with:
+          name: aeos-devops-pipeline-engineering-bundle-${{ github.run_id }}
+          path: .aeos/bundles/devops-pipeline-engineering/**
+          if-no-files-found: error
+          compression-level: 0

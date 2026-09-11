@@ -1,37 +1,31 @@
-skill: github-operations
+skill: devops-pipeline-engineering
 owner_agent: codenavi-agent
 version: 1.0.0
 
 capabilities:
   read:
-    - git.status
-    - git.diff
-    - git.log
-    - git.refs
-    - github.repository.metadata
-    - github.pull_requests
-    - github.issues
-    - github.releases
+    - repository.metadata
+    - repository.refs
+    - repository.diff
     - github.actions.workflows
     - github.actions.runs
     - github.actions.jobs
     - github.actions.checks
     - github.actions.logs_redacted
+    - github.pull_requests
     - github.branch_protection
+    - github.releases
   mutate_with_policy:
     - git.branch.create
-    - git.branch.rename
     - git.stage.selective
     - git.commit.create
-    - git.fetch
-    - git.pull
-    - git.push.authorized_branch
+    - git.push.non_protected_branch
     - github.pull_request.create
     - github.pull_request.update
     - github.actions.rerun_failed
     - github.actions.rerun_job
-    - github.bundle.create
-    - github.bundle.verify
+    - github.workflow.update
+    - github.release.create_draft
   mutate_with_explicit_approval:
     - github.pull_request.merge
     - github.branch.delete
@@ -45,13 +39,17 @@ capabilities:
     - github.pat.scope_escalation
     - github.branch_protection.bypass
     - git.force_push
-    - audit_trail.delete
+    - git.history.rewrite_remote
     - evidence.finalized.rewrite
+    - audit_trail.delete
 
 constraints:
   secrets_runtime_only: true
-  no_plaintext_pat_in_config: true
-  structured_command_args_only: true
-  shell_true_forbidden: true
+  token_reference_only: true
   default_merge_mode: approval_required
-  verify_remote_state_after_mutation: true
+  latest_sha_only: true
+  require_branch_protection: true
+  require_judge_for_high_risk: true
+  require_evidence_verify: true
+  require_secret_scan: true
+  require_rollback_plan: true

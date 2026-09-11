@@ -1,13 +1,14 @@
 #!/usr/bin/env node
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { createHash } from "node:crypto";
-import { join, resolve } from "node:path";
+import { basename, join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { persistChromaticMemory } from "./aeos-chromatic-memory.mjs";
 import { buildCriticalThinkingPlan } from "./aeos-critical-thinking-governance.mjs";
 
 const repoRoot = resolve(process.cwd());
 const registryPath = join(repoRoot, "aeos", "registries", "skills.registry.yaml");
+const overlayIndexPath = join(repoRoot, "aeos", "registries", "overlay.registry.index.yaml");
 const outputDir = join(repoRoot, ".aeos", "router");
 const REGISTRY_ENTRY = /^[ \t]{0,2}-[ \t]+id:[ \t]*([^\n#]+)/m;
 
@@ -33,6 +34,51 @@ function parseSkills(yamlText) {
     .filter(Boolean);
 }
 
+function normalizeRegistryFragmentPath(rawPath) {
+  return rawPath.trim().replace(/^['"]|['"]$/g, "");
+}
+
+export function resolveActiveSkillRegistryFragments(options = {}) {
+  const root = options.repoRoot || repoRoot;
+  const fallback = options.registryPath || join(root, "aeos", "registries", "skills.registry.yaml");
+  const index = options.overlayIndexPath || join(root, "aeos", "registries", "overlay.registry.index.yaml");
+
+  if (!existsSync(index)) return existsSync(fallback) ? [fallback] : [];
+
+  const overlayText = readFileSync(index, "utf8");
+  const fragments = [];
+  for (const match of overlayText.matchAll(/^\s*-\s+path:\s*([^\n#]+)$/gm)) {
+    const relativePath = normalizeRegistryFragmentPath(match[1]);
+    const absolutePath = resolve(root, relativePath);
+    if (!existsSync(absolutePath)) continue;
+
+    // Registry naming is heterogeneous across historical overlays. Content shape,
+    // not filename alone, decides whether a fragment contributes skill entries.
+    const fragmentText = readFileSync(absolutePath, "utf8");
+    if (!/^skills:\s*$/m.test(fragmentText)) continue;
+    fragments.push(absolutePath);
+  }
+
+  if (!fragments.includes(fallback) && existsSync(fallback)) fragments.unshift(fallback);
+  return fragments;
+}
+
+export function loadActiveSkills(options = {}) {
+  const fragments = resolveActiveSkillRegistryFragments(options);
+  const merged = new Map();
+
+  for (const fragment of fragments) {
+    const text = readFileSync(fragment, "utf8");
+    for (const skill of parseSkills(text)) {
+      // Overlay order is authoritative: later fragments may intentionally refine
+      // metadata for an earlier skill id without duplicating runtime candidates.
+      merged.set(skill.id, { ...skill, registryFragment: basename(fragment) });
+    }
+  }
+
+  return [...merged.values()];
+}
+
 function scoreSkill(skill, request) {
   const text = `${skill.id} ${skill.mission} ${skill.capabilities.join(" ")} ${skill.path}`.toLowerCase();
   const requestLower = request.toLowerCase();
@@ -51,7 +97,8 @@ function scoreSkill(skill, request) {
     ["documentation", ["documentacao", "documentation", "mermaid", "docs"]],
     ["performance", ["performance", "latency", "throughput", "otimizar"]],
     ["token", ["token", "budget", "desperdicio"]],
-    ["observability", ["observability", "grafana", "opentelemetry", "logs", "metrics"]]
+    ["observability", ["observability", "grafana", "opentelemetry", "logs", "metrics"]],
+    ["devops", ["devops", "ci/cd", "pipeline", "esteira", "github actions", "workflow", "merge", "push", "pull request"]]
   ];
   for (const [needle, aliases] of boosts) {
     if (aliases.some((alias) => requestLower.includes(alias)) && text.includes(needle)) score += 8;
@@ -66,8 +113,7 @@ function scoreSkill(skill, request) {
 }
 
 export function routeRequest(request, options = {}) {
-  const yamlText = readFileSync(registryPath, "utf8");
-  const skills = parseSkills(yamlText);
+  const skills = loadActiveSkills(options);
   const ranked = skills
     .map((skill) => ({ ...skill, score: scoreSkill(skill, request) }))
     .filter((skill) => skill.score > 0)
@@ -114,12 +160,13 @@ export function routeRequest(request, options = {}) {
     },
     rejectedTopCandidates: ranked.slice(selected.length, selected.length + 10),
     assumptions: [
-      "Skill routing is based on registry metadata and request terms.",
+      "Skill routing is based on active overlay registry metadata and request terms.",
       "Execution still requires each selected skill to have an implemented executor or playbook contract."
     ],
     gates: {
       chromaticMemoryPersisted: true,
-      criticalThinkingGoverned: true
+      criticalThinkingGoverned: true,
+      overlayRegistryResolved: true
     },
     memory
   };
