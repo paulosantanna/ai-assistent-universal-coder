@@ -25,5 +25,6 @@ registry_fragments:
   - path: aeos/registries/skills.image-ai-pack.additions.yaml
   - path: aeos/registries/skills.ai-calibration.additions.yaml
   - path: aeos/registries/skills.codenavi-continuity.additions.yaml
+  - path: aeos/registries/skills.github-operations.additions.yaml
   - path: aeos/registries/skills.devops-pipeline-engineering.additions.yaml
   - path: aeos/registries/workbench-profiles.registry.yaml
