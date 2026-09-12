@@ -263,7 +263,7 @@ npm run aeos:verify:full
 Governance:
 
 ```bash
-npm run aeos:guard:no-python
+npm run aeos:guard:python-workspace
 npm run aeos:guard:skill-adapters
 npm run aeos:guard:critical-thinking
 npm run aeos:guard:codenavi

@@ -1,0 +1,17 @@
+skill: nx-workspace
+owner_agent: codenavi-agent
+version: 1.0.0
+source: nx-workspace
+read:
+  - repository.files
+  - nx.workspace_graph
+mutate_with_policy:
+  - nx.workspace_config.write
+mutate_with_explicit_approval:
+  - git.commit
+  - git.push
+  - ci.workflow.mutate
+  - production.deploy
+permanently_denied:
+  - agent.identity.create
+  - secret.persist_in_notebook

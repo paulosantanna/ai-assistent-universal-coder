@@ -1,0 +1,15 @@
+skill: security-ownership-map
+owner_agent: codenavi-agent
+version: 1.0.0
+source: security-ownership-map@1.0.0
+read:
+  - repository.git_history
+  - repository.files
+mutate_with_policy:
+  - ownership.map.export
+mutate_with_explicit_approval:
+  - git.commit
+  - python.package.add
+permanently_denied:
+  - agent.identity.create
+  - pii.persist_author_emails_in_notebook

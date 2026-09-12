@@ -1,0 +1,31 @@
+skill: spec-driven-lean
+owner_agent: codenavi-agent
+version: 1.0.0
+source: tlc-spec-lean@1.0.0
+
+read:
+  - repository.files
+  - specs.feature_artifacts
+  - notebook.continuity
+
+mutate_with_policy:
+  - specs.feature_artifacts.write
+  - repository.local_implementation
+
+mutate_with_explicit_approval:
+  - git.commit
+  - git.push
+  - production.deploy
+  - production.database.mutate
+
+permanently_denied:
+  - agent.identity.create
+  - tests.weaken_or_delete_to_pass
+  - checks.edit_after_approval_except_additive_doors
+  - secret.persist_in_specs_or_notebook
+
+constraints:
+  default_profile: light
+  builder_must_not_write_verification_md: true
+  remote_actions_require_explicit_go_ahead: true
+  specs_preflight_not_waived: true

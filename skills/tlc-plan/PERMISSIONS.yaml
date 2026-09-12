@@ -1,0 +1,16 @@
+skill: tlc-plan
+owner_agent: codenavi-agent
+version: 0.2.0
+source: tlc-plan@0.2.0
+read:
+  - repository.files
+  - decided.source_documents
+mutate_with_policy:
+  - tasks.artifacts.write
+  - decided.source_documents.amend_when_wrong
+mutate_with_explicit_approval:
+  - git.commit
+permanently_denied:
+  - agent.identity.create
+  - secret.persist_in_tasks
+  - scope.grow_without_user

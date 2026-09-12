@@ -1,8 +1,39 @@
 # LEARNING
 
-Updated: 2026-09-11
+Updated: 2026-09-12
 
 ## Validated learnings
+
+### Zero-Python inventory blocks assimilated skill gates
+- Context/trigger: feature skills that ship `scripts/*.py` were copied into the workspace while `aeos-no-python-guard.mjs` still failed on any `*.py`.
+- Problem/failure mode: assimilation could look complete in registries and still be blocked by bootstrap/verify.
+- Root cause: a workspace-wide language ban treated skill tools as policy violations.
+- Verified correction/prevention: allow Python in the workspace; keep Node for kernel orchestration; make the guard require declared skill scripts instead of forbidding them.
+- Reuse scope: any later assimilation of a skill that ships Python validators or project metadata.
+- Evidence: `references/PYTHON_WORKSPACE_POLICY.md`, `scripts/aeos-python-workspace-guard.mjs`, `.notebook/PROGRESS.md`
+- Confidence: high
+- Updated: 2026-09-12
+
+
+### Bootstrap containerized WordPress through a physical script
+- Context/trigger: local WordPress installation and WooCommerce seed data needed to run inside a Docker container without leaking generated credentials.
+- Problem/failure mode: ad hoc PHP fed through a container stdin can be interpreted inconsistently and makes exit-status validation less clear.
+- Root cause: bootstrap logic was coupled to shell transport rather than a versioned PHP entry point.
+- Verified correction/prevention: run a repository-owned bootstrap PHP script through `docker compose exec`, pass the generated local admin secret only as a runtime environment variable, and fail PowerShell on a non-zero exit code.
+- Reuse scope: local Docker WordPress initialization and other containerized PHP migrations.
+- Evidence: `E:\GitHub\repos-workspace\reidoabc\scripts\bootstrap-local-wordpress.ps1`, `.notebook\PROGRESS.md`.
+- Confidence: high
+- Updated: 2026-09-12
+
+### Validate external cookie files before any content preview
+- Context/trigger: WordPress runtime access was requested through an external cookie path, but the requested `.txt` file was missing and a nearby file was not a cookie jar.
+- Problem/failure mode: treating a nearby credential-looking file as a cookie source can expose plaintext credentials during diagnostics and still fail authentication.
+- Root cause: file existence and cookie-jar format were not validated before inspecting nearby candidate content.
+- Verified correction/prevention: first verify exact path existence, then validate Netscape/Set-Cookie shape without printing contents; if invalid, stop credential handling and request/procure a real cookie jar or governed backup/export access.
+- Reuse scope: any AEOS workflow that consumes external cookie/cookie-jar files for authenticated HTTP.
+- Evidence: `.notebook/PROGRESS.md`, `.aeos/wordpress/sites/3015e2f77281a57c0f638d5ae2f64ed86a7694fbe018bbe926f36319d945d6d5/security-audit.json`
+- Confidence: high
+- Updated: 2026-09-11
 
 ### Centralize runtime credentials behind opaque sessions
 - Context/trigger: session-authenticated systems such as remote WordPress require cookie jars, while workspace rules prohibit persisting credential values.

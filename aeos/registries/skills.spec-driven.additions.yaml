@@ -1,0 +1,72 @@
+skills:
+  - id: spec-driven
+    path: skills/spec-driven/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: high
+    capabilities:
+      - READ_REPOSITORY
+      - READ_FILES
+      - GENERATE_REPORT
+      - SPEC_DRIVEN_FEATURE_WORKFLOW
+    production_ready: true
+    mission: Auto-sized Specify/Design/Tasks/Execute feature workflow with scripted gates and independent verification.
+    allowed_actions:
+      - Read repository context needed to specify a feature
+      - Write .specs feature artifacts
+      - Run skill-local Python validators
+      - Implement locally against an approved spec
+    forbidden_actions:
+      - Create another agent identity
+      - Write validation.md as the implementing author
+      - Weaken or delete tests to pass a gate
+      - Push, deploy or change production data without explicit go-ahead
+      - Waive AEOS specs, security or approval gates
+    required_inputs:
+      - user_objective
+      - target_scope
+    quality_gates:
+      - validate_spec.py exits 0 before spec confirmation
+      - validate_tasks.py exits 0 when tasks.md exists
+      - validate_state.py exits 0 before done
+      - VerifierLens is independent of the implementer
+    stop_conditions:
+      - Objective or scope missing
+      - Validator exit non-zero
+      - Required approval missing
+      - Remote or destructive action requested without explicit go-ahead
+  - id: spec-driven-lean
+    path: skills/spec-driven-lean/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: high
+    capabilities:
+      - READ_REPOSITORY
+      - READ_FILES
+      - GENERATE_REPORT
+      - SPEC_DRIVEN_LEAN_FEATURE_WORKFLOW
+    production_ready: true
+    mission: Lean Plan/Checks/Build/Verify workflow that freezes proof-backed obligations before implementation.
+    allowed_actions:
+      - Write plan.md and checks.md under .specs
+      - Run skill-local Python validators
+      - Implement locally against approved checks
+    forbidden_actions:
+      - Create another agent identity
+      - Write verification.md as the builder
+      - Weaken checks or tests to pass a gate
+      - Push, deploy or change production data without explicit go-ahead
+      - Waive AEOS specs, security or approval gates
+    required_inputs:
+      - user_objective
+      - target_scope
+    quality_gates:
+      - validate_plan.py exits 0 before plan approval
+      - validate_checks.py exits 0 before build
+      - validate_verification.py exits 0 before done
+      - Verification profile matches the approved checks
+    stop_conditions:
+      - Objective or scope missing
+      - Validator exit non-zero
+      - Required approval missing
+      - Remote or destructive action requested without explicit go-ahead

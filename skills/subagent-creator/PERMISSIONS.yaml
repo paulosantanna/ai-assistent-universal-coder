@@ -1,0 +1,16 @@
+skill: subagent-creator
+owner_agent: codenavi-agent
+version: 1.0.0
+source: subagent-creator
+read:
+  - repository.files
+mutate_with_policy:
+  - skills.lenses.write
+mutate_with_explicit_approval:
+  - git.commit
+permanently_denied:
+  - agent.identity.create
+  - agents.registry.add_identity
+constraints:
+  remap_subagents_to_lenses: true
+  cursor_specific_uses_cursor_subagent_creator: true

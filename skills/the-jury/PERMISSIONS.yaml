@@ -1,0 +1,12 @@
+skill: the-jury
+owner_agent: codenavi-agent
+version: 1.0.0
+source: the-jury@1.0.0
+read:
+  - repository.files
+mutate_with_policy:
+  - notebook.progress.write
+permanently_denied:
+  - agent.identity.create
+constraints:
+  jurors_are_lenses: true

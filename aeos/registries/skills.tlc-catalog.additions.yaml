@@ -1,0 +1,477 @@
+skills:
+  - id: not-your-babysitter
+    path: skills/not-your-babysitter/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: high
+    capabilities:
+      - READ_REPOSITORY
+      - READ_FILES
+      - AUTONOMOUS_OPERATOR_MODE
+    production_ready: true
+    mission: Drive a task to a verified result with evidence-or-stop and minimal interruption.
+    allowed_actions:
+      - Execute locally against verified evidence
+      - Write continuity notes
+    forbidden_actions:
+      - Create another agent identity
+      - Guess or fake done
+      - Push, deploy or change production data without explicit go-ahead
+    required_inputs:
+      - user_objective
+    quality_gates:
+      - Claims cite evidence from this run
+    stop_conditions:
+      - Destructive action without explicit go-ahead
+      - Dead-end after exhausting sources
+  - id: cursor-subagent-creator
+    path: skills/cursor-subagent-creator/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: high
+    capabilities:
+      - READ_REPOSITORY
+      - GENERATE_REPORT
+      - LENS_WORK_UNIT_DESIGN
+    production_ready: true
+    mission: Design isolated Cursor work units as lenses of codenavi-agent.
+    allowed_actions:
+      - Write lens work-unit files
+    forbidden_actions:
+      - Create another agent identity
+      - Register a second owner_agent
+    required_inputs:
+      - user_objective
+    quality_gates:
+      - Output states owner_agent is codenavi-agent
+    stop_conditions:
+      - Request to create a new AEOS agent identity
+  - id: skill-architect
+    path: skills/skill-architect/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: medium
+    capabilities:
+      - READ_REPOSITORY
+      - GENERATE_REPORT
+      - SKILL_DESIGN
+    production_ready: true
+    mission: Design and validate a new AEOS skill through Discovery then Architecture.
+    allowed_actions:
+      - Write skill packages owned by codenavi-agent
+      - Run validate_skill.py
+    forbidden_actions:
+      - Create another agent identity
+      - Skip Discovery when writing SKILL.md
+    required_inputs:
+      - user_objective
+    quality_gates:
+      - validate_skill.py exits 0
+    stop_conditions:
+      - Outcome or success criteria missing
+  - id: technical-design-doc-creator
+    path: skills/technical-design-doc-creator/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: medium
+    capabilities:
+      - READ_REPOSITORY
+      - GENERATE_REPORT
+      - TECHNICAL_DESIGN_DOC
+    production_ready: true
+    mission: Write an architecture-level TDD with mandatory sections sized to the project.
+    allowed_actions:
+      - Write design documents
+    forbidden_actions:
+      - Create another agent identity
+      - Persist secrets in the TDD
+      - Waive specs preflight when implementation follows
+    required_inputs:
+      - user_objective
+      - target_scope
+    quality_gates:
+      - Mandatory TDD sections present
+    stop_conditions:
+      - Problem or scope missing
+  - id: best-practices
+    path: skills/best-practices/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: medium
+    capabilities:
+      - READ_REPOSITORY
+      - GENERATE_REPORT
+      - WEB_BEST_PRACTICES_AUDIT
+    production_ready: true
+    mission: Apply current web security, compatibility and code-quality practices.
+    allowed_actions:
+      - Audit and apply surgical remediations
+    forbidden_actions:
+      - Create another agent identity
+      - Weaken or delete tests to pass
+    required_inputs:
+      - user_objective
+    quality_gates:
+      - Current official guidance checked for security claims
+    stop_conditions:
+      - Target files unspecified and cannot be inferred
+  - id: the-fool
+    path: skills/the-fool/SKILL.md
+    version: 2.0.0
+    owner_agent: codenavi-agent
+    risk_level: low
+    capabilities:
+      - READ_REPOSITORY
+      - GENERATE_REPORT
+      - CRITICAL_CHALLENGE
+    production_ready: true
+    mission: Steelman then challenge a plan or claim without implementing it.
+    allowed_actions:
+      - Read context and write critique
+    forbidden_actions:
+      - Create another agent identity
+      - Implement the challenged solution in this skill
+    required_inputs:
+      - user_objective
+    quality_gates:
+      - Thesis steelmanned before challenges
+    stop_conditions:
+      - Position cannot be extracted
+  - id: the-jury
+    path: skills/the-jury/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: medium
+    capabilities:
+      - READ_REPOSITORY
+      - GENERATE_REPORT
+      - PANEL_VERDICT
+    production_ready: true
+    mission: Run a 3-5 lens panel and emit one verdict with dissent and a next action.
+    allowed_actions:
+      - Simulate juror lenses
+      - Run tally.py
+    forbidden_actions:
+      - Create another agent identity
+      - Abstain from a verdict
+    required_inputs:
+      - user_objective
+    quality_gates:
+      - Blind round completed before deliberation
+      - Verdict block emitted
+    stop_conditions:
+      - Decision frame cannot be stated
+  - id: ai-seo
+    path: skills/ai-seo/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: medium
+    capabilities:
+      - READ_REPOSITORY
+      - GENERATE_REPORT
+      - AI_SEO_STRATEGY
+    production_ready: true
+    mission: Plan programmatic SEO, competitor-alternative pages and GEO measurement.
+    allowed_actions:
+      - Write SEO strategy and content contracts
+    forbidden_actions:
+      - Create another agent identity
+      - Persist SEO API secrets
+    required_inputs:
+      - user_objective
+    quality_gates:
+      - Current tool/SERP claims dated when stated as current
+    stop_conditions:
+      - Goal or domain context missing
+  - id: nx-workspace
+    path: skills/nx-workspace/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: medium
+    capabilities:
+      - READ_REPOSITORY
+      - READ_FILES
+      - NX_WORKSPACE_MANAGEMENT
+    production_ready: true
+    mission: Configure, explore and optimize Nx monorepo workspaces with affected analysis and caching.
+    allowed_actions:
+      - Inspect Nx projects and resolved project config
+      - Change local nx.json and project boundaries
+    forbidden_actions:
+      - Create another agent identity
+      - Persist Nx Cloud or registry secrets
+      - Push or change CI without explicit go-ahead
+    required_inputs:
+      - user_objective
+    quality_gates:
+      - Live nx show / nx.json used before config claims
+    stop_conditions:
+      - Workspace is not an Nx repo and migration was not requested
+  - id: subagent-creator
+    path: skills/subagent-creator/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: high
+    capabilities:
+      - READ_REPOSITORY
+      - GENERATE_REPORT
+      - LENS_WORK_UNIT_DESIGN
+    production_ready: true
+    mission: Design isolated agent-agnostic work units as lenses of codenavi-agent.
+    allowed_actions:
+      - Write lens work-unit files
+    forbidden_actions:
+      - Create another agent identity
+      - Register a second owner_agent
+    required_inputs:
+      - user_objective
+    quality_gates:
+      - Output states owner_agent is codenavi-agent
+    stop_conditions:
+      - Request to create a new AEOS agent identity
+      - Cursor-only file requested without switching to cursor-subagent-creator
+  - id: tlc-plan
+    path: skills/tlc-plan/SKILL.md
+    version: 0.2.0
+    owner_agent: codenavi-agent
+    risk_level: medium
+    capabilities:
+      - READ_REPOSITORY
+      - READ_FILES
+      - GENERATE_REPORT
+      - DECIDED_SOURCE_TASK_CUT
+    production_ready: true
+    mission: Cut a decided PRD, design doc or ticket into grounded tasks with observable criteria.
+    allowed_actions:
+      - Read decided sources and the repository
+      - Write .tasks artifacts
+      - Amend a source that contradicts the code
+    forbidden_actions:
+      - Create another agent identity
+      - Invent criteria nobody decided
+      - Implement the tasks
+      - Grow scope without the user
+    required_inputs:
+      - decided_source
+    quality_gates:
+      - Criteria are observable with concrete values
+      - Surface walk and nine-dimension sweep have landings
+    stop_conditions:
+      - No decided source
+      - User asked only to implement
+  - id: learning-opportunities
+    path: skills/learning-opportunities/SKILL.md
+    version: 1.1.0
+    owner_agent: codenavi-agent
+    risk_level: low
+    capabilities:
+      - READ_REPOSITORY
+      - GENERATE_REPORT
+      - DELIBERATE_LEARNING_EXERCISE
+    production_ready: true
+    mission: Offer optional short exercises after architectural work so the user practices the change.
+    allowed_actions:
+      - Ask once to run an optional exercise
+      - Point the user at repository files
+    forbidden_actions:
+      - Create another agent identity
+      - Continue generating after posing a question
+      - Promote unverified exercise text into LEARNING.md
+    required_inputs:
+      - user_objective
+    quality_gates:
+      - Offer is optional and one sentence
+      - Pause after each question
+    stop_conditions:
+      - User declined or signaled urgency
+      - Two exercises already completed this session
+  - id: perf-astro
+    path: skills/perf-astro/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: medium
+    capabilities:
+      - READ_REPOSITORY
+      - READ_FILES
+      - ASTRO_PERFORMANCE
+    production_ready: true
+    mission: Apply Astro-specific performance patterns for critical CSS, compression, fonts and LCP.
+    allowed_actions:
+      - Read Astro config and layouts
+      - Apply surgical Astro performance changes
+    forbidden_actions:
+      - Create another agent identity
+      - Add packages without lockfile/integration recon
+      - Invent Lighthouse scores
+    required_inputs:
+      - user_objective
+    quality_gates:
+      - Live astro.config and version checked first
+    stop_conditions:
+      - Project is not Astro and migration was not requested
+  - id: core-web-vitals
+    path: skills/core-web-vitals/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: medium
+    capabilities:
+      - READ_REPOSITORY
+      - GENERATE_REPORT
+      - CORE_WEB_VITALS
+    production_ready: true
+    mission: Diagnose and remediate LCP, INP and CLS from measured evidence.
+    allowed_actions:
+      - Read pages and assets that affect vitals
+      - Apply surgical CWV remediations
+    forbidden_actions:
+      - Create another agent identity
+      - Invent Lighthouse or field scores
+    required_inputs:
+      - user_objective
+    quality_gates:
+      - Metric claims cite a measurement from this run
+    stop_conditions:
+      - No measurable target page or report
+  - id: perf-lighthouse
+    path: skills/perf-lighthouse/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: medium
+    capabilities:
+      - READ_REPOSITORY
+      - GENERATE_REPORT
+      - LIGHTHOUSE_AUDIT
+    production_ready: true
+    mission: Run and interpret Lighthouse reports and optional performance budgets.
+    allowed_actions:
+      - Run local Lighthouse
+      - Write budget files
+    forbidden_actions:
+      - Create another agent identity
+      - Invent scores
+      - Change CI without explicit go-ahead
+    required_inputs:
+      - user_objective
+    quality_gates:
+      - Quoted scores come from a report file
+    stop_conditions:
+      - Target URL or local app missing
+  - id: perf-web-optimization
+    path: skills/perf-web-optimization/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: medium
+    capabilities:
+      - READ_REPOSITORY
+      - READ_FILES
+      - WEB_PERFORMANCE_OPTIMIZATION
+    production_ready: true
+    mission: Measure then reduce bundle size, image weight, caching and page speed.
+    allowed_actions:
+      - Apply surgical performance remediations
+    forbidden_actions:
+      - Create another agent identity
+      - Invent timings or scores
+      - Add packages without lockfile recon
+    required_inputs:
+      - user_objective
+    quality_gates:
+      - Change is preceded by a measurement
+    stop_conditions:
+      - No measurable bottleneck identified
+  - id: security-best-practices
+    path: skills/security-best-practices/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: high
+    capabilities:
+      - READ_REPOSITORY
+      - GENERATE_REPORT
+      - LANGUAGE_SECURITY_REVIEW
+    production_ready: true
+    mission: Apply language and framework security guidance and produce evidence-backed reports.
+    allowed_actions:
+      - Read in-scope source
+      - Write a security best-practices report
+    forbidden_actions:
+      - Create another agent identity
+      - Persist secrets in reports or notebook
+    required_inputs:
+      - user_objective
+    quality_gates:
+      - Findings cite file:line evidence
+    stop_conditions:
+      - Scope is not a security request
+  - id: security-ownership-map
+    path: skills/security-ownership-map/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: medium
+    capabilities:
+      - READ_REPOSITORY
+      - GENERATE_REPORT
+      - SECURITY_OWNERSHIP_MAP
+    production_ready: true
+    mission: Build git-history ownership, bus factor and sensitive-code maps via skill-local Python.
+    allowed_actions:
+      - Run skill-local ownership scripts
+      - Write map exports to a named out dir
+    forbidden_actions:
+      - Create another agent identity
+      - Persist author emails in notebook
+      - Add networkx silently to this repo
+    required_inputs:
+      - user_objective
+    quality_gates:
+      - Scripts invoked from the skill directory
+    stop_conditions:
+      - Request is not security-oriented ownership
+  - id: security-threat-model
+    path: skills/security-threat-model/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: high
+    capabilities:
+      - READ_REPOSITORY
+      - GENERATE_REPORT
+      - REPO_THREAT_MODEL
+    production_ready: true
+    mission: Write a repo-grounded threat model with abuse paths and evidenced mitigations.
+    allowed_actions:
+      - Read in-scope paths
+      - Write a threat-model markdown file
+    forbidden_actions:
+      - Create another agent identity
+      - Claim architecture without evidence
+      - Persist secrets in the model
+    required_inputs:
+      - user_objective
+      - target_scope
+    quality_gates:
+      - Output follows references/prompt-template.md
+    stop_conditions:
+      - Scope is architecture-only or a best-practices review
+  - id: web-quality-audit
+    path: skills/web-quality-audit/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: medium
+    capabilities:
+      - READ_REPOSITORY
+      - GENERATE_REPORT
+      - WEB_QUALITY_AUDIT
+    production_ready: true
+    mission: Multi-area web quality review of performance, accessibility, SEO and best practices.
+    allowed_actions:
+      - Read HTML and related assets
+      - Write an evidence-backed audit report
+      - Run scripts/analyze.sh as a heuristic
+    forbidden_actions:
+      - Create another agent identity
+      - Invent Lighthouse scores
+    required_inputs:
+      - user_objective
+    quality_gates:
+      - Findings cite file:line or a measured report
+    stop_conditions:
+      - Request is a single-area audit handled by a specialist

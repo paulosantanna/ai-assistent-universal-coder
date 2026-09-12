@@ -9,5 +9,6 @@ Flow: `AGENT.md` → `references/CODENAVI_WORKSPACE_STANDARD.md` → selected sk
 - New skills must state `Governance: CodENavi v1` and cannot weaken root rules.
 - `.notebook/INDEX.md` is read before every material mission.
 - Secrets remain runtime-only and masked.
+- Python is allowed in the workspace; see `references/PYTHON_WORKSPACE_POLICY.md`.
 
-Updated: 2026-09-08
+Updated: 2026-09-12

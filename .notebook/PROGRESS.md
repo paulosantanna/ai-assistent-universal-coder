@@ -1,46 +1,38 @@
 # PROGRESS
 
-Updated: 2026-09-11
+Updated: 2026-09-12
 
 ## Mission
-- Objective: deliver workspace-wide governed runtime authentication for all AEOS skills/MCPs plus the WordPress Knowledge MCP and `wordpress-expert` super-skill, then merge and verify the final `master` pipeline.
-- Success criteria: runtime-auth available through the Tool Router to every resolved playbook, WordPress one-shot Beta Mapping and production contracts registered, PRs consolidated, merge completed, latest functional `master` SHA green.
+- Objective: align the local Rei do ABC WooCommerce account/Google-auth and cart flows with the visual reference package, while retaining native WooCommerce state and secure OAuth.
+- Scope: runtime at `E:\GitHub\repos-workspace\reidoabc`; reference-only package `E:\GitHub\repos-workspace\reidoabc-wordpress` is read-only. No commit unless requested.
+- Success criteria: `/my-account/` offers branded login, account creation and Google OAuth when configured; a valid cart route renders a reference-aligned native WooCommerce cart; no simulated/localStorage cart is reintroduced.
 
-## Current phase
-- COMPLETED / DEBRIEF
+## Current Phase
+- PLAN
 
-## Live checklist
-- [x] Generalize cookie/runtime credential handling beyond WordPress through a central `RuntimeAuthBroker`.
-- [x] Add core `runtime-auth` MCP with opaque session references, TTL and host scoping.
-- [x] Add core `runtime-http` MCP so authenticated HTTPS materializes credentials only inside the Tool Router.
-- [x] Keep raw cookies/tokens/passwords out of prompts, logs, evidence, notebook, memory and bundles.
-- [x] Make active overlay skills, playbooks, MCPs and LCPs load in runtime rather than exist only on disk.
-- [x] Inject `runtime-auth` and `runtime-http` into every resolved playbook MCP set.
-- [x] Add WordPress Knowledge MCP with official documentation as normative authority and Reddit as community evidence.
-- [x] Add `wordpress-expert` super-skill with Staff-level WordPress/front-end lenses and one-shot Beta Mapping.
-- [x] Update WordPress lifecycle to use opaque runtime auth sessions for wp-admin/REST preflight and governed mutations.
-- [x] Close superseded PR #27 without merge.
-- [x] Validate PR #28 head SHA `321a6ff4e3967361b3eee56a9899877923a4a580` with AEOS Enterprise CI run #154: `completed/success`.
-- [x] Merge PR #28 into `master` as commit `096c9edc5c6a61dcff81a21bfd83a7a0bab00187`.
-- [x] Validate merged `master` with AEOS Enterprise CI run #155: `completed/success`.
-- [x] Confirm the only check run on merge SHA was `aeos-quality-gates`, `completed/success`.
-- [x] Confirm verified Work Bundle and evidence artifacts were produced by run #155.
+## Live Checklist
+- [x] BRIEFING: target is local `http://localhost:8087`; reference package must remain unmodified.
+- [x] RECON: active theme is `reidoabc-gourmet-reference`; commerce is native WooCommerce plus `reidoabc-commerce-runtime`.
+- [x] RECON: `/my-account/` currently renders the default English WooCommerce login and has no registration form; `/cart/` returns 404.
+- [~] PLAN: style native WooCommerce account/cart contracts with the gourmet reference, expose secure Google OAuth and repair the cart endpoint.
+- [ ] EXECUTE: update runtime theme/plugin only.
+- [ ] VERIFY: PHP lint, endpoint status and browser functional/visual smoke.
+- [ ] DEBRIEF: refresh continuity state with verified evidence.
 
-## Verification gates
-- [x] `aeos:verify:full` on PR #28 final head.
-- [x] Runtime build/test coverage includes external cookie jar, workspace-cookie denial, host scope, evidence redaction and overlay MCP injection.
-- [x] GitHub Actions run #154 green before merge.
-- [x] GitHub Actions push run #155 green after merge.
-- [x] `master` points to verified merge SHA `096c9edc5c6a61dcff81a21bfd83a7a0bab00187` at mission close.
-- [x] No repository-deletion capability was introduced.
-- [x] No raw runtime credential material was persisted.
+## Verification Gates
+- [ ] Reference package has no modifications.
+- [ ] `/my-account/` contains account-creation and Google-auth controls, with OAuth unavailable state handled safely.
+- [ ] Cart link resolves successfully and has native WooCommerce cart controls styled to the gourmet reference.
+- [ ] Changed PHP files pass lint; browser checks find no console/page errors for account and cart.
 
-## Durable implementation facts
-- `runtime/src/kernel/runtime-auth-broker.ts` owns in-memory credential sessions and opaque `session_ref` handles.
-- `runtime/src/kernel/tool-router.ts` owns credential materialization for authenticated runtime HTTP and redacts credential-like fields before evidence persistence.
-- `runtime/src/kernel/registry-loader.ts` resolves active overlay registry fragments and injects core Runtime Auth MCPs into playbooks.
-- `references/CODENAVI_RUNTIME_AUTH_STANDARD.md` is the workspace-wide authentication contract.
-- `wordpress-expert-site-lifecycle` consumes the same universal runtime-auth layer; it is not a WordPress-only exception.
-
-## Known non-blocking follow-up
-- Future adapters that currently accept direct credential fields should migrate to opaque Runtime Auth sessions when they are next modified. The universal broker is available now; migration is incremental rather than a breaking mass rewrite.
+## Factual Log
+- 2026-09-12: The active runtime routes account/cart through native WooCommerce; the inspiration package's legacy modal cart uses simulated browser storage and must not replace the real cart.
+- 2026-09-12: Direct smoke: `/my-account/` is default WooCommerce English login without registration; `/cart/` is HTTP 404.
+- 2026-09-12: Copied `nx-workspace` from `E:\GitHub\.cursor\skills\nx-workspace`. Frontmatter 278/0 invalid. Overlay load tests passed.
+- 2026-09-12: Copied `subagent-creator`; remapped to lenses of `codenavi-agent`.
+- 2026-09-12: Copied `tlc-plan` 0.2.0 from `E:\GitHub\.cursor\skills\tlc-plan`.
+- 2026-09-12: Copied `learning-opportunities` 1.1.0 from `E:\GitHub\.cursor\skills\learning-opportunities`.
+- 2026-09-12: Copied `perf-astro` from `E:\GitHub\.cursor\skills\perf-astro`.
+- 2026-09-12: Copied `core-web-vitals`, `perf-lighthouse` and `perf-web-optimization`.
+- 2026-09-12: Copied `security-best-practices`, `security-ownership-map` and `security-threat-model`.
+- 2026-09-12: Copied `web-quality-audit` 1.0 from `E:\GitHub\.cursor\skills\web-quality-audit`.

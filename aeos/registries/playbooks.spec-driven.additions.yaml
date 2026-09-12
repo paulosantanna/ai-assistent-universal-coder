@@ -1,0 +1,15 @@
+playbooks:
+  - id: spec-driven-feature-lifecycle
+    path: aeos/playbooks/spec-driven-feature-lifecycle.playbook.md
+    risk_level: high
+    required_agents: [codenavi-agent]
+    required_skills: [spec-driven, specs]
+    required_lcps: [global-rules, spec-driven-development, security-governance]
+    allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, test-runner-controlled, spec-driven-development]
+  - id: spec-driven-lean-feature-lifecycle
+    path: aeos/playbooks/spec-driven-lean-feature-lifecycle.playbook.md
+    risk_level: high
+    required_agents: [codenavi-agent]
+    required_skills: [spec-driven-lean, specs]
+    required_lcps: [global-rules, spec-driven-development, security-governance]
+    allowed_mcps: [filesystem-readonly, filesystem-write-sandbox, test-runner-controlled, spec-driven-development]

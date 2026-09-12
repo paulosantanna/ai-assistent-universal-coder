@@ -1,0 +1,15 @@
+skill: web-quality-audit
+owner_agent: codenavi-agent
+version: 1.0.0
+source: web-quality-audit@1.0
+read:
+  - repository.files
+mutate_with_policy:
+  - quality.audit.report.write
+mutate_with_explicit_approval:
+  - git.commit
+  - repository.local_implementation
+permanently_denied:
+  - agent.identity.create
+  - metrics.invent_scores
+  - secret.persist_in_report

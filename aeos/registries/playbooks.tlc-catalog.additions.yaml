@@ -1,0 +1,28 @@
+playbooks:
+  - id: tlc-catalog-skills
+    path: aeos/playbooks/tlc-catalog-skills.playbook.md
+    risk_level: high
+    required_agents: [codenavi-agent]
+    required_skills:
+      - not-your-babysitter
+      - cursor-subagent-creator
+      - skill-architect
+      - technical-design-doc-creator
+      - best-practices
+      - the-fool
+      - the-jury
+      - ai-seo
+      - nx-workspace
+      - subagent-creator
+      - tlc-plan
+      - learning-opportunities
+      - perf-astro
+      - core-web-vitals
+      - perf-lighthouse
+      - perf-web-optimization
+      - security-best-practices
+      - security-ownership-map
+      - security-threat-model
+      - web-quality-audit
+    required_lcps: [global-rules, security-governance]
+    allowed_mcps: [filesystem-readonly, filesystem-write-sandbox]

@@ -28,6 +28,10 @@ The skill executor treats mutating skills as blocked unless the request carries 
 
 Read-only inspection does not require this gate.
 
+## Related feature workflows
+
+Assimilated feature skills `spec-driven` and `spec-driven-lean` produce `.specs/` artifacts. They do not replace this preflight. A current approved feature spec, or lean plan plus checks, may be cited as `specs` evidence when it includes testable requirements, acceptance/proofs and approval.
+
 ## Validation
 
 ```powershell

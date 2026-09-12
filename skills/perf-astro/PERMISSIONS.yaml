@@ -1,0 +1,16 @@
+skill: perf-astro
+owner_agent: codenavi-agent
+version: 1.0.0
+source: perf-astro
+read:
+  - repository.files
+mutate_with_policy:
+  - astro.config.write
+  - astro.layout.write
+mutate_with_explicit_approval:
+  - git.commit
+  - npm.package.add
+  - production.deploy
+permanently_denied:
+  - agent.identity.create
+  - secret.persist_in_notebook

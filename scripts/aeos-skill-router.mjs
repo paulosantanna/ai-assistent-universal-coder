@@ -98,7 +98,29 @@ function scoreSkill(skill, request) {
     ["performance", ["performance", "latency", "throughput", "otimizar"]],
     ["token", ["token", "budget", "desperdicio"]],
     ["observability", ["observability", "grafana", "opentelemetry", "logs", "metrics"]],
-    ["devops", ["devops", "ci/cd", "pipeline", "esteira", "github actions", "workflow", "merge", "push", "pull request"]]
+    ["devops", ["devops", "ci/cd", "pipeline", "esteira", "github actions", "workflow", "merge", "push", "pull request"]],
+    ["spec-driven", ["spec-driven", "tlc-spec-driven", "specify", "ears"]],
+    ["spec-driven-lean", ["spec-driven-lean", "tlc-spec-lean", "write the checks"]],
+    ["not-your-babysitter", ["not-your-babysitter", "babysitter", "nanny mode", "hand-holding"]],
+    ["cursor-subagent-creator", ["cursor subagent", "cursor agent", "subagent-creator"]],
+    ["skill-architect", ["skill-architect", "create a skill", "design a skill"]],
+    ["technical-design-doc-creator", ["technical-design-doc", "design doc", "tdd", "rfc"]],
+    ["best-practices", ["best-practices", "best practices", "security audit"]],
+    ["the-fool", ["the-fool", "devil's advocate", "pre-mortem", "red team"]],
+    ["the-jury", ["the-jury", "convene a jury", "monte um juri", "painel"]],
+    ["ai-seo", ["ai-seo", "programmatic seo", "ai overviews", "organic traffic"]],
+    ["nx-workspace", ["nx-workspace", "nx monorepo", "nx affected", "nx.json"]],
+    ["subagent-creator", ["subagent-creator", "create subagent", "specialized assistant", "create verifier"]],
+    ["tlc-plan", ["tlc-plan", "write the task", "cut this prd", "turn this design doc"]],
+    ["learning-opportunities", ["learning-opportunities", "learning exercise", "teach me", "help me understand"]],
+    ["perf-astro", ["perf-astro", "astro performance", "astro lighthouse", "astro-critters"]],
+    ["core-web-vitals", ["core-web-vitals", "core web vitals", "fix lcp", "reduce cls", "optimize inp"]],
+    ["perf-lighthouse", ["perf-lighthouse", "run lighthouse", "lighthouse score", "performance budget"]],
+    ["perf-web-optimization", ["perf-web-optimization", "bundle size", "page speed", "slow site", "lazy loading"]],
+    ["security-best-practices", ["security-best-practices", "security best practices", "secure-by-default"]],
+    ["security-ownership-map", ["security-ownership-map", "bus factor", "orphaned sensitive", "codeowners"]],
+    ["security-threat-model", ["security-threat-model", "threat model", "abuse paths", "appsec threat"]],
+    ["web-quality-audit", ["web-quality-audit", "audit my site", "review web quality", "check page quality"]]
   ];
   for (const [needle, aliases] of boosts) {
     if (aliases.some((alias) => requestLower.includes(alias)) && text.includes(needle)) score += 8;
