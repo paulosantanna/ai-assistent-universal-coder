@@ -85,6 +85,7 @@ describe("AEOS universal runtime authentication", () => {
     const playbooks = loader.loadPlaybooks().playbooks.map((item) => item.id);
     const mcps = loader.loadMCPs().mcps.map((item) => item.id);
     assert.equal(skills.includes("wordpress-expert"), true);
+    assert.equal(skills.includes("kinghost-expert"), true);
     assert.equal(skills.includes("spec-driven"), true);
     assert.equal(skills.includes("spec-driven-lean"), true);
     assert.equal(skills.includes("not-your-babysitter"), true);
@@ -103,10 +104,13 @@ describe("AEOS universal runtime authentication", () => {
     assert.equal(skills.includes("security-threat-model"), true);
     assert.equal(skills.includes("web-quality-audit"), true);
     assert.equal(playbooks.includes("wordpress-expert-site-lifecycle"), true);
+    assert.equal(playbooks.includes("kinghost-expert-production-lifecycle"), true);
     assert.equal(playbooks.includes("spec-driven-feature-lifecycle"), true);
     assert.equal(playbooks.includes("spec-driven-lean-feature-lifecycle"), true);
     assert.equal(playbooks.includes("tlc-catalog-skills"), true);
     assert.equal(mcps.includes("wordpress-knowledge"), true);
+    assert.equal(mcps.includes("kinghost-control"), true);
+    assert.equal(mcps.includes("kinghost-commerce"), true);
     assert.equal(mcps.includes("runtime-auth"), true);
     assert.equal(mcps.includes("runtime-http"), true);
     const resolved = loader.resolveMCPs(loader.loadMCPs().mcps, ["filesystem-readonly"]).map((item) => item.id);

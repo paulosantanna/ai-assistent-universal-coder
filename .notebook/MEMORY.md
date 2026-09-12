@@ -94,6 +94,12 @@ Updated: 2026-09-12
 - Evidence: `skills/spec-driven/SKILL.md`, `skills/spec-driven-lean/SKILL.md`, `aeos/registries/overlay.registry.index.yaml`
 - Updated: 2026-09-12
 
+### KingHost control MCP and expert super-skill
+- Status: active
+- Fact: `kinghost-control` is the deterministic MCP for KingHost environments, opaque credential bind, WordPress/PHP/MySQL plans and FTP publish. `kinghost-expert` is the governing super-skill; production follows a fixed FSM and may authenticate with an external cookie jar or Playwright. Passwords are never persisted or returned to the model.
+- Evidence: `aeos/mcps/kinghost-control.mcp.yaml`, `skills/kinghost-expert/SKILL.md`, `kinghost-control-mcp/index.mjs`, `aeos/playbooks/kinghost-expert-production-lifecycle.playbook.md`
+- Updated: 2026-09-12
+
 ### TLC catalog skills copied into the workspace
 - Status: active
 - Fact: Installed TLC skills `not-your-babysitter`, `cursor-subagent-creator`, `subagent-creator`, `skill-architect`, `technical-design-doc-creator`, `best-practices`, `the-fool`, `the-jury`, `ai-seo`, `nx-workspace`, `tlc-plan`, `learning-opportunities`, `perf-astro`, `core-web-vitals`, `perf-lighthouse`, `perf-web-optimization`, `security-best-practices`, `security-ownership-map`, `security-threat-model` and `web-quality-audit` live under `skills/` and overlay fragment `aeos/registries/skills.tlc-catalog.additions.yaml`. All are owned by `codenavi-agent`. `cursor-subagent-creator`, `subagent-creator` and `the-jury` remap source subagents to lenses; they must not register another agent identity. Session teaching from `learning-opportunities` is not a LEARNING.md promotion unless `learning-curator` verifies it. `security-audit` / `threat-modeler` remain the existing AEOS audit playbooks; the TLC trio does not replace them.

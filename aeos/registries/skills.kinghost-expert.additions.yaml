@@ -1,0 +1,29 @@
+skills:
+  - id: kinghost-expert
+    path: skills/kinghost-expert/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: high
+    capabilities:
+      - KINGHOST_ENVIRONMENT
+      - KINGHOST_CREDENTIAL_BIND
+      - KINGHOST_FTP_PUBLISH
+      - KINGHOST_PHP_CONFIG
+      - KINGHOST_MYSQL
+      - WORDPRESS_PRODUCTION_OPERATIONS
+      - ROLLBACK_PLANNING
+    mission: Deterministic KingHost WordPress/PHP production changes and FTP publish from the workspace using opaque credential refs and cookie or Playwright sessions.
+    required_mcps:
+      - kinghost-control
+      - wordpress-knowledge
+      - browser
+    allowed_secret_sources:
+      - external_runtime_cookie_file_reference
+      - env_reference
+      - secret_reference
+    quality_gates:
+      - Production FSM states advance in order
+      - Credentials remain opaque refs
+      - WordPress core and wp-config.php are not uploaded without high-risk approval
+      - FTP APPLY has dry-run, approval, rollback and post-change verification
+      - Cookie/Playwright secrets never persist

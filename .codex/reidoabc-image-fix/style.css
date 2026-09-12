@@ -1,25 +1,25 @@
 /*
-Theme Name: Rei do ABC Gourmet
+Theme Name: Storely Child Rei do ABC (Gourmet Cream & Black Mode)
 Theme URI: https://reidoabc.com.br
-Description: Tema filho gourmet do Rei do ABC para WordPress e WooCommerce.
+Description: Tema filho oficial para o Rei do ABC com fundo preto (#07070a), paleta Creme Gourmet / Dourado Champagne (#d8b456), coroa ampliada para 68px na faixa 'Somos todos Reis do ABC', favicons de imagem gourmet (motoboy e telefone), modais de autenticação no padrão Google, carrinho de compras interativo, auto-preenchimento de CEP via ViaCEP, QR Code PIX do estabelecimento e checkout Mercado Pago.
 Author: Rei do ABC Team
 Author URI: https://reidoabc.com.br
 Template: storely
-Version: 13.0.0
-Requires PHP: 8.5
-Text Domain: reidoabc-gourmet
+Version: 12.0.0
+Requires PHP: 8.2
+Text Domain: storely-child
 */
 
 :root {
-  --primary-color: #302c9b; /* Creme Dourado Gourmet */
-  --primary-dark: #211f6d; /* Escuro Gourmet */
-  --primary-light: #d8d6ff; /* Creme Claro */
-  --cream-accent: #f5f4ff; /* Creme Luxo */
-  --accent-gold: #5b57c9;
-  --accent-gold-light: #ededff;
-  --bg-color: #080817; /* Fundo Preto */
+  --primary-color: #d8b456; /* Creme Dourado Gourmet */
+  --primary-dark: #231d13; /* Escuro Gourmet */
+  --primary-light: #f3e3b3; /* Creme Claro */
+  --cream-accent: #fdf8eb; /* Creme Luxo */
+  --accent-gold: #e6c875;
+  --accent-gold-light: #faf3de;
+  --bg-color: #07070a; /* Fundo Preto */
   --surface-color: #121118; /* Surface dos cards */
-  --surface-border: #25244f;
+  --surface-border: #2c251a;
   --text-dark: #ffffff;
   --text-muted: #b8b0a0;
   --border-radius: 12px;
@@ -67,7 +67,7 @@ body, html {
   display: inline-block;
   margin-right: 14px;
   flex-shrink: 0;
-  filter: drop-shadow(0 2px 8px rgba(48, 44, 155, 0.35));
+  filter: drop-shadow(0 2px 8px rgba(216, 180, 86, 0.35));
   transition: transform 0.3s ease;
 }
 
@@ -77,12 +77,12 @@ body, html {
 
 /* Top Header Bar & Brand */
 .top-header-bar {
-  background-color: #050510;
+  background-color: #030305;
   padding: 0.75rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid rgba(48, 44, 155, 0.4);
+  border-bottom: 2px solid rgba(216, 180, 86, 0.4);
 }
 
 .top-crown-brand {
@@ -94,8 +94,8 @@ body, html {
 }
 
 .top-crown-brand img {
-  height: 42px;
-  width: auto;
+  width: clamp(96px, 8vw, 120px);
+  height: clamp(53px, 4.43vw, 66px);
   object-fit: contain;
 }
 
@@ -159,7 +159,7 @@ body, html {
   border: 1px solid var(--surface-border);
   border-radius: 6px;
   overflow: hidden;
-  background: #111024;
+  background: #0a0907;
 }
 
 .search-form input {
@@ -176,7 +176,7 @@ body, html {
   padding: 0 1rem;
   border: none;
   border-left: 1px solid var(--surface-border);
-  background: #161532;
+  background: #15130d;
   outline: none;
   font-size: 0.9rem;
   color: var(--text-muted);
@@ -213,7 +213,7 @@ body, html {
 
 .carousel-container:hover {
   transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 20px 45px rgba(48, 44, 155, 0.3), 0 0 30px rgba(216, 214, 255, 0.25), 0 0 0 2px var(--primary-color);
+  box-shadow: 0 20px 45px rgba(216, 180, 86, 0.3), 0 0 30px rgba(243, 227, 179, 0.25), 0 0 0 2px var(--primary-color);
 }
 
 .carousel-slide {
@@ -274,7 +274,7 @@ body, html {
   transform: translateY(-50%);
   background: rgba(7, 7, 10, 0.45);
   color: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(48, 44, 155, 0.3);
+  border: 1px solid rgba(216, 180, 86, 0.3);
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -295,7 +295,7 @@ body, html {
   background: var(--primary-color) !important;
   color: #000000 !important;
   transform: translateY(-50%) scale(1.15) !important;
-  box-shadow: 0 0 15px rgba(48, 44, 155, 0.8);
+  box-shadow: 0 0 15px rgba(216, 180, 86, 0.8);
 }
 
 /* Callout Row Banners 3D Elevation */
@@ -313,7 +313,7 @@ body, html {
 
 .callout-card {
   position: relative;
-  background: linear-gradient(135deg, #242258 0%, #343179 50%, #191839 100%);
+  background: linear-gradient(135deg, #1f1910 0%, #3a2e19 50%, #17120a 100%);
   background-size: 200% 200%;
   color: #ffffff;
   border-radius: 20px;
@@ -330,7 +330,7 @@ body, html {
 .callout-card:hover {
   transform: translateY(-8px) scale(1.02);
   background-position: 100% 100%;
-  box-shadow: 0 20px 45px rgba(48, 44, 155, 0.35), 0 0 30px rgba(216, 214, 255, 0.3), 0 0 0 2px var(--primary-color);
+  box-shadow: 0 20px 45px rgba(216, 180, 86, 0.35), 0 0 30px rgba(243, 227, 179, 0.3), 0 0 0 2px var(--primary-color);
 }
 
 .btn-callout {
@@ -353,9 +353,7 @@ body, html {
 /* Footer Section */
 .main-site-footer {
   position: relative;
-  background: linear-gradient(rgba(3, 3, 7, 0.95), rgba(3, 3, 7, 0.98)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1600&q=80');
-  background-size: cover;
-  background-position: center;
+  background: #08070c;
   color: #ffffff;
   padding: 3rem 1rem 1.5rem;
   margin-top: 4rem;
@@ -369,7 +367,7 @@ body, html {
   justify-content: space-between;
   align-items: center;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(48, 44, 155, 0.2);
+  border-bottom: 1px solid rgba(216, 180, 86, 0.2);
   font-weight: 700;
 }
 
@@ -398,7 +396,7 @@ body, html {
   width: 22px;
   height: 22px;
   object-fit: contain;
-  filter: drop-shadow(0 1px 4px rgba(48, 44, 155, 0.4));
+  filter: drop-shadow(0 1px 4px rgba(216, 180, 86, 0.4));
   transition: transform 0.3s ease;
 }
 
@@ -426,7 +424,7 @@ body, html {
   border-radius: 20px;
   width: 100%;
   max-width: 540px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(48, 44, 155, 0.15);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(216, 180, 86, 0.15);
   overflow: hidden;
   position: relative;
   max-height: 90vh;
@@ -435,7 +433,7 @@ body, html {
 }
 
 .modal-header-gourmet {
-  background: #0b0a1d;
+  background: #09080c;
   padding: 1.25rem 1.75rem;
   border-bottom: 1px solid var(--surface-border);
   display: flex;
@@ -526,82 +524,4 @@ body, html {
 .gourmet-toast.show {
   transform: translateY(0);
   opacity: 1;
-}
-
-/* WooCommerce uses the same visual language as the storefront. */
-.footer-col { text-align: left; }
-.footer-logo { display: block; height: 55px; margin: 0 0 1rem; width: auto; object-fit: contain; object-position: left center; }
-.footer-quick-links { display: flex; gap: 2rem; }
-.product-card h3 a, .footer-col a { color: inherit; text-decoration: none; }
-.product-card h3 a:hover, .footer-col a:hover { color: var(--primary-color); }
-.woocommerce .button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit {
-  background: var(--primary-color);
-  color: #fff;
-  border-radius: 6px;
-  font-weight: 800;
-}
-.woocommerce .button:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover { background: var(--primary-light); color: #080817; }
-.woocommerce form .form-row input.input-text, .woocommerce form .form-row textarea, .woocommerce form .form-row select {
-  background: #111024;
-  border: 1px solid var(--surface-border);
-  color: #fff;
-  border-radius: 6px;
-  padding: .75rem;
-}
-.woocommerce form .form-row label, .woocommerce-checkout-review-order-table, .woocommerce table.shop_table { color: var(--text-dark); }
-.woocommerce table.shop_table, .woocommerce-cart-form, .woocommerce-checkout-review-order { border-color: var(--surface-border); background: var(--surface-color); }
-.woocommerce-message, .woocommerce-info, .woocommerce-error { border-top-color: var(--primary-color); background: #111024; color: #fff; }
-.woocommerce-message::before, .woocommerce-info::before { color: var(--primary-color); }
-.reidoabc-empty-products { max-width: 1200px; margin: 1rem auto; padding: 1rem; color: var(--text-muted); }
-
-.feature-bar-section { max-width: 1200px; margin: 0 auto; padding: 1rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
-.feature-box { background: #111024; border: 1px solid var(--surface-border); border-radius: 8px; padding: 1.25rem; min-height: 120px; display: flex; align-items: center; }
-.feature-box h2 { color: var(--primary-light); font-size: 1.1rem; margin: 0 0 .35rem; }
-.feature-box p { color: var(--text-muted); margin: 0; }
-.products-section { max-width: 1200px; margin: 3rem auto; padding: 0 1rem; }
-.section-pill-header { color: var(--primary-light); font-size: 1.65rem; margin: 0 0 1.25rem; }
-.product-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
-.product-card { background: var(--surface-color); border: 1px solid var(--surface-border); border-radius: 8px; min-height: 380px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; }
-.product-card > div { padding: 0 1rem; }
-.product-card > div:last-child { padding: 0 1rem 1rem; }
-.product-card-image-link { display: block; }
-.product-img { width: 100%; height: 190px; object-fit: cover; display: block; background: #111024; }
-.product-card h3 { color: #fff; font-size: 1rem; line-height: 1.35; margin: 1rem 0; min-height: 3em; }
-.price { color: var(--primary-light); font-weight: 800; margin: 0 0 .75rem; }
-.price .woocommerce-Price-currencySymbol { margin-right: .2rem; }
-.btn-add-cart { background: var(--primary-color) !important; color: #fff !important; border-radius: 6px; padding: .7rem .8rem; text-align: center; text-decoration: none; display: block; font-weight: 800; }
-.btn-add-cart:hover { background: var(--primary-light) !important; color: #080817 !important; }
-.favicons-badge-grid { display: grid; gap: .6rem; }
-.favicons-badge-grid.social-icons { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-bottom: 1.5rem; }
-.favicons-badge-grid.order-icons { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-.favicon-icon-card { width: 38px; height: 38px; border: 1px solid var(--surface-border); border-radius: 6px; display: grid; place-items: center; background: #111024; }
-.favicon-icon-card:hover { border-color: var(--primary-color); background: #242258; }
-.favicon-icon-card img { max-width: 22px; max-height: 22px; display: block; }
-.search-form button { background: var(--primary-color) !important; color: #fff !important; }
-.btn-category-dropdown, .btn-callout { background: var(--primary-color) !important; color: #fff !important; border-radius: 6px; }
-.callout-card { border-radius: 8px; background: linear-gradient(135deg, #242258 0%, #343179 100%); }
-
-@media (max-width: 760px) {
-  .top-header-bar { padding: .75rem 1rem; min-height: 64px; justify-content: flex-start; }
-  .top-crown-brand { margin: 0; }
-  .top-crown-brand img { height: 34px; }
-  .top-user-actions { position: static; margin-left: auto; gap: .75rem; font-size: .78rem; }
-  .top-user-actions a:first-child span { display: none; }
-  .search-nav-bar { padding: .75rem 1rem; }
-  .search-container, .search-form, .footer-top-strip, .footer-quick-links { flex-direction: column; align-items: stretch; }
-  .search-form select { border-left: 0; border-top: 1px solid var(--surface-border); min-height: 42px; }
-  .search-form button { min-height: 42px; }
-  .hero-carousel-section { margin: .75rem auto; padding: 0; }
-  .carousel-container { height: 340px; border-radius: 0; }
-  .carousel-overlay { padding: 1.25rem; }
-  .carousel-overlay h1, .carousel-overlay h2 { font-size: 1.45rem; }
-  .feature-bar-section, .delivery-row-grid, .footer-main-grid { grid-template-columns: 1fr; }
-  .product-grid { grid-template-columns: 1fr; gap: .75rem; }
-  .product-card { padding: .75rem; min-width: 0; }
-  .product-card h3 { font-size: .9rem; }
-  .product-card { min-height: 0; }
-  .product-img { height: 230px; }
-  .footer-top-strip { gap: 1rem; }
-  .footer-crown-logo { height: 44px; }
-  .favicons-badge-grid.order-icons { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }

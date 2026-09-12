@@ -74,3 +74,78 @@ mcps:
     dry_run_default: true
     log_redaction_required: true
     enabled: true
+  - id: kinghost-control
+    type: hosting-control-plane
+    transport: stdio
+    config: aeos/mcps/kinghost-control.mcp.yaml
+    risk_level: critical
+    governing_skill: kinghost-expert
+    skill_enforced: true
+    skill_intent: Deterministic KingHost environment, credential-ref, WordPress/PHP/MySQL and FTP production control without persisting secrets.
+    capabilities:
+      - kinghost_control.health
+      - kinghost_control.environment.catalog
+      - kinghost_control.environment.select
+      - kinghost_control.plugin.catalog
+      - kinghost_control.credential.bind
+      - kinghost_control.credential.info
+      - kinghost_control.credential.close
+      - kinghost_control.fsm.state
+      - kinghost_control.fsm.advance
+      - kinghost_control.wordpress.inventory_plan
+      - kinghost_control.wordpress.change_plan
+      - kinghost_control.php.config_plan
+      - kinghost_control.mysql.plan_readonly
+      - kinghost_control.mysql.plan_mutation
+      - kinghost_control.mysql.session.open
+      - kinghost_control.mysql.query_readonly
+      - kinghost_control.mysql.query_mutation
+      - kinghost_control.ftp.session.open
+      - kinghost_control.ftp.list
+      - kinghost_control.ftp.read
+      - kinghost_control.ftp.upload
+      - kinghost_control.ftp.mkdir
+      - kinghost_control.ftp.delete
+      - kinghost_control.session.close
+      - kinghost_control.panel.auth_plan
+      - kinghost_control.backup.plan
+      - kinghost_control.rollback.plan
+      - kinghost_control.verify.smoke_plan
+      - kinghost_control.deploy.workspace_to_production
+      - kinghost_control.knowledge_search
+    tools:
+      - kinghost_control.health
+      - kinghost_control.environment.catalog
+      - kinghost_control.environment.select
+      - kinghost_control.plugin.catalog
+      - kinghost_control.credential.bind
+      - kinghost_control.credential.info
+      - kinghost_control.credential.close
+      - kinghost_control.fsm.state
+      - kinghost_control.fsm.advance
+      - kinghost_control.wordpress.inventory_plan
+      - kinghost_control.wordpress.change_plan
+      - kinghost_control.php.config_plan
+      - kinghost_control.mysql.plan_readonly
+      - kinghost_control.mysql.plan_mutation
+      - kinghost_control.mysql.session.open
+      - kinghost_control.mysql.query_readonly
+      - kinghost_control.mysql.query_mutation
+      - kinghost_control.ftp.session.open
+      - kinghost_control.ftp.list
+      - kinghost_control.ftp.read
+      - kinghost_control.ftp.upload
+      - kinghost_control.ftp.mkdir
+      - kinghost_control.ftp.delete
+      - kinghost_control.session.close
+      - kinghost_control.panel.auth_plan
+      - kinghost_control.backup.plan
+      - kinghost_control.rollback.plan
+      - kinghost_control.verify.smoke_plan
+      - kinghost_control.deploy.workspace_to_production
+      - kinghost_control.knowledge_search
+    write_allowed: true
+    approval_required: true
+    dry_run_default: true
+    log_redaction_required: true
+    enabled: true

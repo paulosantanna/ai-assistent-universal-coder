@@ -11,7 +11,15 @@ type Pending = {
   timer: NodeJS.Timeout;
 };
 
-const KINGHOST_ACTIONS = [
+type AdapterState = {
+  process: ChildProcessWithoutNullStreams | null;
+  reader: ReadlineInterface | null;
+  pending: Map<string, Pending>;
+  adapterPath: string;
+  envMode: string;
+};
+
+const KINGHOST_COMMERCE_ACTIONS = [
   "kinghost.health",
   "kinghost.session.open_ssh",
   "kinghost.session.open_mysql",
@@ -41,12 +49,45 @@ const KINGHOST_ACTIONS = [
   "web.performance_budget"
 ];
 
-const FALLBACK_ENTRY: MCPRegistryEntry = {
+const KINGHOST_CONTROL_ACTIONS = [
+  "kinghost_control.health",
+  "kinghost_control.environment.catalog",
+  "kinghost_control.environment.select",
+  "kinghost_control.plugin.catalog",
+  "kinghost_control.credential.bind",
+  "kinghost_control.credential.info",
+  "kinghost_control.credential.close",
+  "kinghost_control.fsm.state",
+  "kinghost_control.fsm.advance",
+  "kinghost_control.wordpress.inventory_plan",
+  "kinghost_control.wordpress.change_plan",
+  "kinghost_control.php.config_plan",
+  "kinghost_control.mysql.plan_readonly",
+  "kinghost_control.mysql.plan_mutation",
+  "kinghost_control.mysql.session.open",
+  "kinghost_control.mysql.query_readonly",
+  "kinghost_control.mysql.query_mutation",
+  "kinghost_control.ftp.session.open",
+  "kinghost_control.ftp.list",
+  "kinghost_control.ftp.read",
+  "kinghost_control.ftp.upload",
+  "kinghost_control.ftp.mkdir",
+  "kinghost_control.ftp.delete",
+  "kinghost_control.session.close",
+  "kinghost_control.panel.auth_plan",
+  "kinghost_control.backup.plan",
+  "kinghost_control.rollback.plan",
+  "kinghost_control.verify.smoke_plan",
+  "kinghost_control.deploy.workspace_to_production",
+  "kinghost_control.knowledge_search"
+];
+
+const FALLBACK_COMMERCE: MCPRegistryEntry = {
   id: "kinghost-commerce",
   type: "hosting-commerce-knowledge",
   config: "aeos/mcps/kinghost-commerce.mcp.yaml",
   risk_level: "critical",
-  capabilities: KINGHOST_ACTIONS,
+  capabilities: KINGHOST_COMMERCE_ACTIONS,
   governing_skill: "kinghost-site-operator",
   skill_intent: "Governed KingHost adapter with ephemeral credentials and controlled mutations.",
   skill_enforced: true,
@@ -55,23 +96,51 @@ const FALLBACK_ENTRY: MCPRegistryEntry = {
   log_redaction_required: true
 };
 
+const FALLBACK_CONTROL: MCPRegistryEntry = {
+  id: "kinghost-control",
+  type: "hosting-control-plane",
+  config: "aeos/mcps/kinghost-control.mcp.yaml",
+  risk_level: "critical",
+  capabilities: KINGHOST_CONTROL_ACTIONS,
+  governing_skill: "kinghost-expert",
+  skill_intent: "Deterministic KingHost control plane for environments, credential refs, WordPress/PHP/MySQL and FTP.",
+  skill_enforced: true,
+  write_allowed: true,
+  approval_required: true,
+  log_redaction_required: true
+};
+
 export class KingHostToolRouter extends ToolRouter {
-  private kinghostEntry: MCPRegistryEntry = FALLBACK_ENTRY;
+  private kinghostEntries = new Map<string, MCPRegistryEntry>([
+    ["kinghost-commerce", FALLBACK_COMMERCE],
+    ["kinghost-control", FALLBACK_CONTROL]
+  ]);
   private activeKingHostSkill: string | null = null;
-  private process: ChildProcessWithoutNullStreams | null = null;
-  private reader: ReadlineInterface | null = null;
-  private pending = new Map<string, Pending>();
-  private readonly adapterPath: string;
+  private readonly adapters = new Map<string, AdapterState>();
 
   constructor(evidenceStore: EvidenceStore, aeosRoot: string) {
     super(evidenceStore);
-    this.adapterPath = resolve(aeosRoot, "kinghost-commerce-mcp", "index.mjs");
-    super.registerMCP(FALLBACK_ENTRY);
+    this.adapters.set("kinghost-commerce", {
+      process: null,
+      reader: null,
+      pending: new Map(),
+      adapterPath: resolve(aeosRoot, "kinghost-commerce-mcp", "index.mjs"),
+      envMode: "kinghost-commerce"
+    });
+    this.adapters.set("kinghost-control", {
+      process: null,
+      reader: null,
+      pending: new Map(),
+      adapterPath: resolve(aeosRoot, "kinghost-control-mcp", "index.mjs"),
+      envMode: "kinghost-control"
+    });
+    super.registerMCP(FALLBACK_COMMERCE);
+    super.registerMCP(FALLBACK_CONTROL);
   }
 
   override registerMCP(entry: MCPRegistryEntry): void {
     super.registerMCP(entry);
-    if (entry.id === "kinghost-commerce") this.kinghostEntry = entry;
+    if (entry.id === "kinghost-commerce" || entry.id === "kinghost-control") this.kinghostEntries.set(entry.id, entry);
   }
 
   override registerMCPs(entries: MCPRegistryEntry[]): void {
@@ -88,9 +157,11 @@ export class KingHostToolRouter extends ToolRouter {
     action: string,
     params: Record<string, unknown>
   ): Promise<ToolResult> {
-    if (mcpId !== "kinghost-commerce") return super.callTool(mcpId, action, params);
+    if (mcpId !== "kinghost-commerce" && mcpId !== "kinghost-control") {
+      return super.callTool(mcpId, action, params);
+    }
 
-    const entry = this.kinghostEntry;
+    const entry = this.kinghostEntries.get(mcpId) ?? (mcpId === "kinghost-control" ? FALLBACK_CONTROL : FALLBACK_COMMERCE);
     if (!entry.governing_skill) return { success: false, error: "KingHost MCP blocked: missing governing_skill" };
 
     const skillId = typeof params.__aeosSkillId === "string"
@@ -105,28 +176,33 @@ export class KingHostToolRouter extends ToolRouter {
 
     const forwarded = { ...params };
     delete forwarded.__aeosSkillId;
-    return this.callPersistentAdapter(action, forwarded);
+    return this.callPersistentAdapter(mcpId, action, forwarded);
   }
 
   async shutdownKingHost(): Promise<void> {
-    if (this.process && !this.process.killed) this.process.kill("SIGTERM");
-    this.reader?.close();
-    this.process = null;
-    this.reader = null;
-    for (const { resolve, timer } of this.pending.values()) {
-      clearTimeout(timer);
-      resolve({ success: false, error: "KingHost MCP bridge shut down" });
+    for (const [id, adapter] of this.adapters.entries()) {
+      if (adapter.process && !adapter.process.killed) adapter.process.kill("SIGTERM");
+      adapter.reader?.close();
+      adapter.process = null;
+      adapter.reader = null;
+      for (const { resolve, timer } of adapter.pending.values()) {
+        clearTimeout(timer);
+        resolve({ success: false, error: "KingHost MCP bridge shut down" });
+      }
+      adapter.pending.clear();
+      this.adapters.set(id, adapter);
     }
-    this.pending.clear();
   }
 
-  private ensureProcess(): ChildProcessWithoutNullStreams {
-    if (this.process && !this.process.killed) return this.process;
+  private ensureProcess(mcpId: string): ChildProcessWithoutNullStreams {
+    const adapter = this.adapters.get(mcpId);
+    if (!adapter) throw new Error(`Unknown KingHost adapter ${mcpId}`);
+    if (adapter.process && !adapter.process.killed) return adapter.process;
 
-    const child = spawn(process.execPath, [this.adapterPath], {
-      cwd: dirname(this.adapterPath),
+    const child = spawn(process.execPath, [adapter.adapterPath], {
+      cwd: dirname(adapter.adapterPath),
       stdio: ["pipe", "pipe", "pipe"],
-      env: { ...process.env, AEOS_MCP_MODE: "kinghost-commerce" }
+      env: { ...process.env, AEOS_MCP_MODE: adapter.envMode }
     });
 
     const reader = createInterface({ input: child.stdout, crlfDelay: Infinity });
@@ -134,10 +210,10 @@ export class KingHostToolRouter extends ToolRouter {
       try {
         const response = JSON.parse(line) as { request_id?: string; success?: boolean; data?: unknown; error?: string };
         if (!response.request_id) return;
-        const pending = this.pending.get(response.request_id);
+        const pending = adapter.pending.get(response.request_id);
         if (!pending) return;
         clearTimeout(pending.timer);
-        this.pending.delete(response.request_id);
+        adapter.pending.delete(response.request_id);
         pending.resolve(response.success
           ? { success: true, data: response.data }
           : { success: false, error: response.error || "KingHost adapter error" });
@@ -150,32 +226,34 @@ export class KingHostToolRouter extends ToolRouter {
       // Do not copy raw vendor stderr into durable AEOS evidence.
     });
     child.on("exit", () => {
-      this.process = null;
-      this.reader?.close();
-      this.reader = null;
-      for (const { resolve, timer } of this.pending.values()) {
+      adapter.process = null;
+      adapter.reader?.close();
+      adapter.reader = null;
+      for (const { resolve, timer } of adapter.pending.values()) {
         clearTimeout(timer);
         resolve({ success: false, error: "KingHost MCP process exited unexpectedly" });
       }
-      this.pending.clear();
+      adapter.pending.clear();
     });
 
-    this.process = child;
-    this.reader = reader;
+    adapter.process = child;
+    adapter.reader = reader;
     return child;
   }
 
-  private callPersistentAdapter(action: string, params: Record<string, unknown>): Promise<ToolResult> {
-    const child = this.ensureProcess();
+  private callPersistentAdapter(mcpId: string, action: string, params: Record<string, unknown>): Promise<ToolResult> {
+    const adapter = this.adapters.get(mcpId);
+    if (!adapter) return Promise.resolve({ success: false, error: `Unknown KingHost adapter ${mcpId}` });
+    const child = this.ensureProcess(mcpId);
     const requestId = randomUUID();
     const timeoutMs = Math.min(Math.max(Number(params.timeout_ms ?? 30000), 1000), 120000);
 
     return new Promise<ToolResult>((resolveResult) => {
       const timer = setTimeout(() => {
-        this.pending.delete(requestId);
+        adapter.pending.delete(requestId);
         resolveResult({ success: false, error: `KingHost MCP action '${action}' timed out` });
       }, timeoutMs);
-      this.pending.set(requestId, { resolve: resolveResult, timer });
+      adapter.pending.set(requestId, { resolve: resolveResult, timer });
       child.stdin.write(JSON.stringify({ request_id: requestId, action, params }) + "\n");
     });
   }

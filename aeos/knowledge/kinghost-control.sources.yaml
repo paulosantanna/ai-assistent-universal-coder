@@ -1,0 +1,27 @@
+knowledge_domain: kinghost-control
+version: "2026-09-12"
+policy:
+  authority_order: [official_vendor_docs, wordpress_official_docs, first_party_engineering]
+  require_source_url: true
+  reject_undocumented_capabilities: true
+  refresh_before_high_risk_action: true
+
+sources:
+  kinghost:
+    authority: official_vendor_docs
+    domains: [king.host]
+    topics:
+      - control panel
+      - FTP SFTP SSH
+      - PHP version and runtime
+      - MySQL and phpMyAdmin
+      - WordPress hosting
+      - DNS SSL email
+      - backups logs cron
+  wordpress:
+    authority: official_vendor_docs
+    domains: [developer.wordpress.org, wordpress.org]
+    topics:
+      - themes plugins
+      - REST and wp-admin
+      - production-safe changes

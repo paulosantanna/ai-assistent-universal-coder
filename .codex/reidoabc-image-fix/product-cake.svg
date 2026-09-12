@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 960" role="img" aria-labelledby="title desc">
+  <title id="title">Pedaço de torta gourmet</title>
+  <desc id="desc">Ilustração de uma fatia de torta artesanal em prato escuro.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#15100f"/><stop offset="1" stop-color="#050506"/></linearGradient>
+    <linearGradient id="plate" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#3a3534"/><stop offset="1" stop-color="#151314"/></linearGradient>
+    <linearGradient id="cream" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff4d8"/><stop offset="1" stop-color="#d9b36b"/></linearGradient>
+    <linearGradient id="chocolate" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#71422a"/><stop offset="1" stop-color="#29130e"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8d982"/><stop offset="1" stop-color="#a86e19"/></linearGradient>
+    <filter id="shadow"><feGaussianBlur stdDeviation="24"/></filter>
+  </defs>
+  <rect width="1200" height="960" fill="url(#bg)"/>
+  <circle cx="160" cy="160" r="180" fill="#c89a43" opacity=".08"/><circle cx="1040" cy="800" r="240" fill="#c89a43" opacity=".05"/>
+  <ellipse cx="610" cy="746" rx="410" ry="104" fill="#000" opacity=".55" filter="url(#shadow)"/>
+  <ellipse cx="610" cy="705" rx="430" ry="126" fill="url(#plate)" stroke="#bf9142" stroke-opacity=".55" stroke-width="7"/>
+  <ellipse cx="610" cy="688" rx="350" ry="82" fill="#120f10"/>
+  <path d="M390 650 L552 300 Q586 230 640 300 L850 650Z" fill="url(#cream)" stroke="#e8c97f" stroke-width="7"/>
+  <path d="M421 581 L809 581 L850 650 L390 650Z" fill="url(#chocolate)"/>
+  <path d="M468 480 L739 480 L776 540 L441 540Z" fill="#70381f" opacity=".88"/>
+  <path d="M505 391 L674 391 L710 448 L477 448Z" fill="#fff7e6" opacity=".9"/>
+  <path d="M552 300 Q586 230 640 300 L696 391 L505 391Z" fill="url(#chocolate)"/>
+  <path d="M402 650 H851" stroke="#f0d385" stroke-width="8" stroke-linecap="round" opacity=".72"/>
+  <g fill="url(#gold)" stroke="#6f4715" stroke-width="3"><circle cx="589" cy="278" r="26"/><circle cx="634" cy="303" r="20"/><circle cx="552" cy="324" r="17"/><circle cx="684" cy="342" r="15"/></g>
+  <g fill="#fff1c9" opacity=".75"><circle cx="346" cy="228" r="4"/><circle cx="885" cy="192" r="5"/><circle cx="931" cy="295" r="3"/></g>
+</svg>

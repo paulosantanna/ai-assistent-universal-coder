@@ -63,7 +63,7 @@ Local contracts specialize the root standard and cannot weaken it.
 | Packages | `packages/AGENT.md` | package-local build/test contracts |
 | Templates | `templates/AGENT.md` | representative generated-output validation |
 | Documentation | `docs/AGENT.md` | evidence-backed docs + stale-doc correction |
-| Provider adapters | `kinghost-commerce-mcp/AGENT.md`, `aura-voice-tool/AGENT.md` | adapter-specific runtime gates |
+| Provider adapters | `kinghost-commerce-mcp/AGENT.md`, `kinghost-control-mcp/AGENT.md`, `aura-voice-tool/AGENT.md` | adapter-specific runtime gates |
 | Editor/workspace config | `.vscode/AGENT.md` | documented project toolchain/security |
 | Legacy runtime | `AEOS_RUNTIME_MVP_v1/AGENT.md` | current root standard overrides legacy rules |
 

@@ -1,6 +1,6 @@
 # AEOS Overlay Registry Index
 
-generated_at: "2026-09-12T12:28:00-03:00"
+generated_at: "2026-09-12T16:56:00-03:00"
 note: "CodENavi single-agent registry model. Only the canonical agent registry is active; specialization lives in skills, playbooks, MCPs, LSPs, LCPs and lenses."
 registry_fragments:
   - path: aeos/registries/agents.registry.yaml
@@ -13,6 +13,7 @@ registry_fragments:
   - path: aeos/registries/mcps.registry.yaml
   - path: aeos/registries/mcps.runtime-auth.additions.yaml
   - path: aeos/registries/mcps.wordpress-knowledge.additions.yaml
+  - path: aeos/registries/mcps.kinghost.additions.yaml
   - path: aeos/registries/playbooks.registry.yaml
   - path: aeos/registries/playbooks.v0_6.additions.yaml
   - path: aeos/registries/playbooks.v0_7.additions.yaml
@@ -20,6 +21,7 @@ registry_fragments:
   - path: aeos/registries/playbooks.v1_1_enterprise.additions.yaml
   - path: aeos/registries/playbooks.devops-pipeline-engineering.additions.yaml
   - path: aeos/registries/playbooks.wordpress-expert.additions.yaml
+  - path: aeos/registries/playbooks.kinghost-expert.additions.yaml
   - path: aeos/registries/playbooks.spec-driven.additions.yaml
   - path: aeos/registries/playbooks.tlc-catalog.additions.yaml
   - path: aeos/registries/skills.registry.yaml
@@ -33,6 +35,7 @@ registry_fragments:
   - path: aeos/registries/skills.github-operations.additions.yaml
   - path: aeos/registries/skills.devops-pipeline-engineering.additions.yaml
   - path: aeos/registries/skills.wordpress-expert.additions.yaml
+  - path: aeos/registries/skills.kinghost-expert.additions.yaml
   - path: aeos/registries/skills.spec-driven.additions.yaml
   - path: aeos/registries/skills.tlc-catalog.additions.yaml
   - path: aeos/registries/workbench-profiles.registry.yaml

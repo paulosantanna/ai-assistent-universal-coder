@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 960" role="img" aria-labelledby="title desc">
+  <title id="title">Barra de chocolate gourmet</title>
+  <desc id="desc">Ilustração de uma barra de chocolate artesanal com pistaches.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#120d0a"/><stop offset="1" stop-color="#050506"/></linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8a5531"/><stop offset=".45" stop-color="#4b2415"/><stop offset="1" stop-color="#1d0c08"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffdf87"/><stop offset="1" stop-color="#9b651c"/></linearGradient>
+    <filter id="shadow"><feGaussianBlur stdDeviation="24"/></filter>
+  </defs>
+  <rect width="1200" height="960" fill="url(#bg)"/>
+  <path d="M0 130 Q280 40 520 130 T1200 110V0H0Z" fill="#d5aa53" opacity=".06"/>
+  <ellipse cx="610" cy="755" rx="420" ry="92" fill="#000" opacity=".6" filter="url(#shadow)"/>
+  <g transform="translate(310 245) rotate(-8 300 225)">
+    <rect x="0" y="0" width="600" height="450" rx="34" fill="url(#bar)" stroke="#d4a04c" stroke-width="8"/>
+    <g fill="none" stroke="#c78643" stroke-opacity=".65" stroke-width="7"><path d="M150 8V442M300 8V442M450 8V442M8 150H592M8 300H592"/></g>
+    <g fill="#f0c867" opacity=".72"><path d="M22 28H130L112 132H24Z"/><path d="M172 178H278L259 282H171Z"/><path d="M323 328H428L409 430H321Z"/></g>
+    <g fill="#6d8b39" stroke="#bad168" stroke-width="5"><circle cx="220" cy="89" r="27"/><circle cx="359" cy="121" r="23"/><circle cx="489" cy="81" r="28"/><circle cx="101" cy="237" r="24"/><circle cx="427" cy="248" r="25"/><circle cx="246" cy="370" r="25"/><circle cx="528" cy="368" r="21"/></g>
+  </g>
+  <g fill="url(#gold)" opacity=".8"><circle cx="190" cy="620" r="17"/><circle cx="936" cy="258" r="20"/><circle cx="996" cy="682" r="12"/></g>
+</svg>
