@@ -1,0 +1,99 @@
+mcp:
+  id: kinghost-control
+  name: KingHost Deterministic Control MCP
+  protocol: model-context-protocol
+  version: "1.0.0"
+
+  transport:
+    type: stdio
+    command: node
+    args: ["kinghost-control-mcp/index.mjs"]
+    persistent: true
+    framing: jsonl
+
+  capabilities:
+    tools:
+      - { name: kinghost_control.health, security: read-only }
+      - { name: kinghost_control.environment.catalog, security: read-only }
+      - { name: kinghost_control.environment.select, security: read-only }
+      - { name: kinghost_control.plugin.catalog, security: read-only }
+      - { name: kinghost_control.credential.bind, security: credentialed }
+      - { name: kinghost_control.credential.info, security: read-only }
+      - { name: kinghost_control.credential.close, security: read-only }
+      - { name: kinghost_control.fsm.state, security: read-only }
+      - { name: kinghost_control.fsm.advance, security: write-controlled }
+      - { name: kinghost_control.wordpress.inventory_plan, security: read-only }
+      - { name: kinghost_control.wordpress.change_plan, security: read-only }
+      - { name: kinghost_control.php.config_plan, security: read-only }
+      - { name: kinghost_control.mysql.plan_readonly, security: read-only }
+      - { name: kinghost_control.mysql.plan_mutation, security: read-only }
+      - { name: kinghost_control.mysql.session.open, security: credentialed }
+      - { name: kinghost_control.mysql.query_readonly, security: read-only }
+      - { name: kinghost_control.mysql.query_mutation, security: destructive-controlled }
+      - { name: kinghost_control.ftp.session.open, security: credentialed }
+      - { name: kinghost_control.ftp.list, security: read-only }
+      - { name: kinghost_control.ftp.read, security: read-only }
+      - { name: kinghost_control.ftp.upload, security: write-controlled }
+      - { name: kinghost_control.ftp.mkdir, security: write-controlled }
+      - { name: kinghost_control.ftp.delete, security: destructive-controlled }
+      - { name: kinghost_control.session.close, security: read-only }
+      - { name: kinghost_control.panel.auth_plan, security: read-only }
+      - { name: kinghost_control.backup.plan, security: read-only }
+      - { name: kinghost_control.rollback.plan, security: read-only }
+      - { name: kinghost_control.verify.smoke_plan, security: read-only }
+      - { name: kinghost_control.deploy.workspace_to_production, security: read-only }
+      - { name: kinghost_control.knowledge_search, security: read-only }
+
+  security:
+    allowed_domains:
+      - "king.host"
+      - "*.king.host"
+      - "*.kinghost.com.br"
+      - "developer.wordpress.org"
+      - "wordpress.org"
+    credentials:
+      storage: forbidden
+      logging: forbidden
+      plaintext: ephemeral-runtime-only
+      session_reference: opaque
+      ttl_minutes: 15
+      bind_sources:
+        - env_reference
+        - secret_reference
+        - runtime_memory
+        - cookie_session_panel
+    mutation:
+      production_write_default: false
+      database_write_default: false
+      deploy_default: false
+      approval_required_for_write: true
+      dry_run_required: true
+      rollback_required: true
+      change_id_required: true
+    audit:
+      evidence_required: true
+      log_tool_calls: true
+      redact_secrets: true
+
+  knowledge:
+    source_registry: aeos/knowledge/kinghost-control.sources.yaml
+    freshness_policy: aeos/policies/kinghost-commerce-freshness.policy.md
+    primary_authority: official-documentation
+    stale_after_days: 30
+
+prompt_contract:
+  objective: "Deterministically select KingHost environments, bind already-provisioned credentials as opaque refs, and plan or apply scoped WordPress/PHP/MySQL/FTP changes without leaking secrets."
+  evidence_required: true
+  redact_outputs: true
+  rules:
+    - "Bind already-created login/password material from env, secret references, runtime memory or a cookie-authenticated panel session. Never scrape, brute-force or persist secrets."
+    - "Return credential_ref/session_ref and redacted username/host only."
+    - "Production FTP/MySQL writes require approved=true, change_id, dry-run and rollback_ref."
+    - "Do not edit WordPress core or wp-config.php without high_risk_approved."
+    - "Panel and wp-admin auth uses external cookie files or Playwright; cookie contents stay in runtime-auth."
+  stop_conditions:
+    - "credential discovery or password dump requested"
+    - "environment identity is unknown"
+    - "production mutation lacks approval, dry-run or rollback"
+    - "path escapes workspace or remote root"
+    - "undocumented KingHost private API is required"

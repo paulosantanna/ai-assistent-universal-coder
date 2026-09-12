@@ -1,0 +1,8 @@
+playbooks:
+  - id: kinghost-expert-production-lifecycle
+    path: aeos/playbooks/kinghost-expert-production-lifecycle.playbook.md
+    risk_level: high
+    required_agents: [codenavi-agent]
+    required_skills: [kinghost-expert]
+    required_mcps: [kinghost-control, wordpress-knowledge, browser]
+    required_lcps: [global-rules, security-governance]

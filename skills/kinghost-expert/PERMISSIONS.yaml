@@ -1,0 +1,42 @@
+skill: kinghost-expert
+owner_agent: codenavi-agent
+version: 1.0.0
+
+read:
+  - kinghost.environment.catalog
+  - kinghost.plugin.catalog
+  - kinghost.credential.metadata
+  - kinghost.ftp.list_read
+  - kinghost.mysql.readonly
+  - kinghost.panel.identity
+  - wordpress_knowledge.all
+
+mutate_with_policy:
+  - kinghost.ftp.upload_scoped_wp_content
+  - kinghost.ftp.mkdir_scoped
+  - kinghost.php.panel_config
+  - wordpress.theme_child_or_custom.update
+  - wordpress.plugin_custom.update
+
+mutate_with_explicit_approval:
+  - kinghost.production.ftp_apply
+  - kinghost.mysql.mutate
+  - kinghost.ftp.delete
+  - wordpress.production.settings_high_risk
+  - kinghost.wordpress.core_or_wpconfig
+
+permanently_denied:
+  - kinghost.credential.persist_raw
+  - kinghost.credential.log_raw
+  - kinghost.credential.prompt_raw
+  - kinghost.credential.discover_or_scrape
+  - kinghost.cookie.persist_raw
+  - wordpress.core.edit_for_feature_work
+
+constraints:
+  cookie_file_runtime_auth_allowed: true
+  playwright_with_cookie_session_allowed: true
+  ftp_dry_run_default: true
+  rollback_required_for_production_mutation: true
+  fsm_order_enforced: true
+  official_docs_required_for_material_api_claims: true

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "aeos://schemas/kinghost-environment.schema.json",
+  "title": "KingHost environment binding",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "kind"],
+  "properties": {
+    "id": { "type": "string", "enum": ["local", "staging", "production"] },
+    "kind": { "type": "string", "enum": ["local-runtime", "kinghost-host"] },
+    "site_url": { "type": "string", "format": "uri" },
+    "workspace_root": { "type": "string" },
+    "remote_root": { "type": "string", "default": "wp-content" },
+    "ftp_host_env": { "type": "string" },
+    "ftp_user_env": { "type": "string" },
+    "ftp_password_env": { "type": "string" },
+    "mysql_host_env": { "type": "string" },
+    "mysql_user_env": { "type": "string" },
+    "mysql_password_env": { "type": "string" },
+    "mysql_database_env": { "type": "string" },
+    "panel_cookie_file_ref": { "type": "string", "description": "External cookie-jar path identifier, never cookie contents" },
+    "wp_admin_cookie_file_ref": { "type": "string" }
+  }
+}

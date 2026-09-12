@@ -16,7 +16,7 @@
     "aeos:guard:codex-apps-oauth": "node scripts/aeos-codex-apps-oauth-guard.mjs",
     "aeos:mcp:startup-smoke": "node scripts/aeos-mcp-startup-smoke.mjs",
     "aeos:kinghost:deps": "npm --prefix kinghost-commerce-mcp install --ignore-scripts --no-audit --no-fund",
-    "aeos:kinghost:smoke": "npm --prefix kinghost-commerce-mcp run smoke",
+    "aeos:kinghost:smoke": "npm --prefix kinghost-commerce-mcp run smoke && npm --prefix kinghost-control-mcp run smoke",
     "aeos:bootstrap": "npm run aeos:guard:single-agent && npm run aeos:guard:skill-frontmatter && npm run aeos:guard:python-workspace && npm run aeos:guard:skill-adapters && npm run aeos:guard:critical-thinking && npm run aeos:guard:codenavi && npm run aeos:guard:continuity && npm run aeos:guard:full-workspace && npm run aeos:guard:artifact-contracts && npm --prefix runtime run build",
     "aeos:bootstrap:deps": "npm ci && npm --prefix runtime ci && npm run aeos:kinghost:deps",
     "aeos:verify": "npm run aeos:guard:single-agent && npm run aeos:guard:skill-frontmatter && npm run aeos:guard:python-workspace && npm run aeos:guard:skill-adapters && npm run aeos:guard:critical-thinking && npm run aeos:guard:codenavi && npm run aeos:guard:continuity && npm run aeos:guard:full-workspace && npm run aeos:guard:artifact-contracts && npm --prefix runtime run build && npm run test:node:jest",

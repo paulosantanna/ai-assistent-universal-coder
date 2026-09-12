@@ -1,0 +1,14 @@
+{
+  "name": "@aeos/kinghost-control-mcp",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Deterministic KingHost control-plane MCP for environments, credential refs, WordPress/PHP/MySQL and FTP production publish.",
+  "scripts": {
+    "start": "node index.mjs",
+    "smoke": "node index.mjs --self-test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
