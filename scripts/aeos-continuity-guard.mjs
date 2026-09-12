@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import yaml from "js-yaml";
+import { listGitTrackedFiles } from "./lib/git-tracked-files.mjs";
 
 const ROOT = resolve(process.cwd());
 const REQUIRED = [
@@ -26,8 +26,7 @@ const REQUIRED = [
 const SKILLS = ["continuity-bootstrapper", "handoff-manager", "memory-curator", "progress-tracker", "learning-curator"];
 
 function tracked() {
-  return new Set(execFileSync("git", ["ls-files"], { cwd: ROOT, encoding: "utf8" })
-    .split(/\r?\n/).filter(Boolean).map((p) => p.replaceAll("\\", "/")));
+  return new Set(listGitTrackedFiles({ cwd: ROOT }));
 }
 function read(path) { return readFileSync(resolve(ROOT, path), "utf8"); }
 

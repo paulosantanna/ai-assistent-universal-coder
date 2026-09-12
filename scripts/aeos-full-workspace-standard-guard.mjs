@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { existsSync, readFileSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
+import { listGitTrackedFiles } from './lib/git-tracked-files.mjs';
 
 const manifestPath = 'aeos/governance/workspace-governance.manifest.json';
 const errors = [];
@@ -65,10 +65,7 @@ for (const phrase of [
   }
 }
 
-const allTracked = execFileSync('git', ['ls-files', '-z'], { encoding: 'utf8' })
-  .split('\0')
-  .filter(Boolean)
-  .map(norm);
+const allTracked = listGitTrackedFiles().map(norm);
 
 const ignored = (file) => (manifest.ignoredPathPrefixes || []).some(prefix => under(file, prefix));
 const governed = allTracked.filter(file =>

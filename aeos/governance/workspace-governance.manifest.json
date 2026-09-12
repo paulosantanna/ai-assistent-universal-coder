@@ -28,6 +28,7 @@
     "coverage/",
     ".tools/",
     "aeos/evidence/",
-    "aeos/fixtures/"
+    "aeos/fixtures/",
+    ".work/"
   ]
 }

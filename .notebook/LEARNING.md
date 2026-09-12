@@ -4,6 +4,26 @@ Updated: 2026-09-12
 
 ## Validated learnings
 
+### `git ls-files` through default execFileSync overflows after large worktrees
+- Context/trigger: tracking `.work/reidoabc-wordpress-runtime` grew the index past 13k paths; `aeos-single-agent-guard` called `execFileSync("git", ["ls-files", "-z"])`.
+- Problem/failure mode: CI dies in the first quality gate with `ENOBUFS` before later guards run.
+- Root cause: Node's default `maxBuffer` is 1 MiB; a NUL-terminated full-tree listing exceeds it.
+- Verified correction/prevention: list tracked files through a shared helper with a 64 MiB buffer; ignore vendor `.work/` in full-workspace and Python inventory.
+- Reuse scope: any guard that shells `git ls-files` against a large tracked tree.
+- Evidence: Actions run `34705050420`, `scripts/lib/git-tracked-files.mjs`
+- Confidence: high
+- Updated: 2026-09-12
+
+### WooCommerce page assignment and rewrite state must be verified separately
+- Context/trigger: the local WooCommerce cart page was published and assigned, yet its generated `/cart/` URL returned HTTP 404.
+- Problem/failure mode: confirming only `woocommerce_cart_page_id` can falsely suggest the customer route is available.
+- Root cause: permalink rewrite rules were stale after page setup.
+- Verified correction/prevention: verify the public route itself after assigning WooCommerce pages; flush rewrites when the page exists and its canonical URL still 404s.
+- Reuse scope: local WordPress/WooCommerce bootstrap or page reassignment.
+- Evidence: `.notebook/PROGRESS.md`, `E:\GitHub\repos-workspace\reidoabc` local runtime smoke on 2026-09-12.
+- Confidence: high
+- Updated: 2026-09-12
+
 ### Zero-Python inventory blocks assimilated skill gates
 - Context/trigger: feature skills that ship `scripts/*.py` were copied into the workspace while `aeos-no-python-guard.mjs` still failed on any `*.py`.
 - Problem/failure mode: assimilation could look complete in registries and still be blocked by bootstrap/verify.

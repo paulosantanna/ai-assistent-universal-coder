@@ -3,7 +3,7 @@ import { existsSync, readdirSync, statSync } from "node:fs";
 import { join, relative, resolve } from "node:path";
 
 const repoRoot = resolve(process.cwd());
-const ignored = new Set([".git", "node_modules", ".pytest_cache", "__pycache__"]);
+const ignored = new Set([".git", "node_modules", ".pytest_cache", "__pycache__", ".work"]);
 const ignoredPrefixes = [".aeos/tmp"];
 const metadataNames = new Set(["pyproject.toml", "pytest.ini", "behave.ini"]);
 

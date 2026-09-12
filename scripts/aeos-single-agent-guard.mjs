@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import { extname, resolve } from "node:path";
 import yaml from "js-yaml";
+import { listGitTrackedFiles } from "./lib/git-tracked-files.mjs";
 
 const { load } = yaml;
 const ROOT = resolve(process.cwd());
@@ -10,10 +10,7 @@ const CANONICAL_AGENT = "codenavi-agent";
 const CANONICAL_AGENT_PATH = "AGENT.md";
 
 function trackedFiles() {
-  return execFileSync("git", ["ls-files", "-z"], { cwd: ROOT, encoding: "utf8" })
-    .split("\0")
-    .filter(Boolean)
-    .map((path) => path.replaceAll("\\", "/"));
+  return listGitTrackedFiles({ cwd: ROOT });
 }
 
 function read(path) {
