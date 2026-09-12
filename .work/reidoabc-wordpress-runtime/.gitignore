@@ -1,0 +1,13 @@
+.env
+.env.local
+.build-downloads/
+.build-extract/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/debug.log
+wp-content/uploads/wc-logs/
+wp-content/uploads/woocommerce-placeholder.webp
+wp-content/uploads/woocommerce_uploads/
+wp-content/uploads/wpforms/
+wp-config-local.php
+*.log

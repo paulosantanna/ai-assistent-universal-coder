@@ -1,0 +1,47 @@
+services:
+  db:
+    image: mysql:8.4
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW --skip-name-resolve --max-connections=300 --innodb-buffer-pool-size=256M --slow-query-log=1 --long-query-time=1
+    environment:
+      MYSQL_DATABASE: ${REIDOABC_DB_NAME:-reidoabc_local}
+      MYSQL_USER: ${REIDOABC_DB_USER:-reidoabc_local}
+      MYSQL_PASSWORD: ${REIDOABC_DB_PASSWORD:?run scripts/start-local.ps1 first}
+      MYSQL_ROOT_PASSWORD: ${REIDOABC_DB_ROOT_PASSWORD:?run scripts/start-local.ps1 first}
+    volumes:
+      - reidoabc_wordpress_db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -p$$MYSQL_ROOT_PASSWORD --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  wordpress:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${REIDOABC_PORT:-8088}:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: ${REIDOABC_DB_NAME:-reidoabc_local}
+      WORDPRESS_DB_USER: ${REIDOABC_DB_USER:-reidoabc_local}
+      WORDPRESS_DB_PASSWORD: ${REIDOABC_DB_PASSWORD:?run scripts/start-local.ps1 first}
+      WORDPRESS_HOME: http://localhost:${REIDOABC_PORT:-8088}
+      WORDPRESS_SITEURL: http://localhost:${REIDOABC_PORT:-8088}
+      WORDPRESS_AUTH_KEY: ${REIDOABC_AUTH_KEY:?run scripts/start-local.ps1 first}
+      WORDPRESS_SECURE_AUTH_KEY: ${REIDOABC_SECURE_AUTH_KEY:?run scripts/start-local.ps1 first}
+      WORDPRESS_LOGGED_IN_KEY: ${REIDOABC_LOGGED_IN_KEY:?run scripts/start-local.ps1 first}
+      WORDPRESS_NONCE_KEY: ${REIDOABC_NONCE_KEY:?run scripts/start-local.ps1 first}
+      WORDPRESS_AUTH_SALT: ${REIDOABC_AUTH_SALT:?run scripts/start-local.ps1 first}
+      WORDPRESS_SECURE_AUTH_SALT: ${REIDOABC_SECURE_AUTH_SALT:?run scripts/start-local.ps1 first}
+      WORDPRESS_LOGGED_IN_SALT: ${REIDOABC_LOGGED_IN_SALT:?run scripts/start-local.ps1 first}
+      WORDPRESS_NONCE_SALT: ${REIDOABC_NONCE_SALT:?run scripts/start-local.ps1 first}
+      WP_ENVIRONMENT_TYPE: local
+      WP_DEBUG: "false"
+      REIDOABC_DATA_ENCRYPTION: local-development
+    volumes:
+      - ./:/var/www/html
+
+volumes:
+  reidoabc_wordpress_db:

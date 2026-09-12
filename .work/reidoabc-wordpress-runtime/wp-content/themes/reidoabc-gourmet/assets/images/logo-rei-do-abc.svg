@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 90" width="300" height="90">
+  <g transform="translate(150, 32)">
+    <!-- Crown Base & Spikes -->
+    <path d="M-45 8 L-35 -24 L-15 -4 L0 -34 L15 -4 L35 -24 L45 8 Z" fill="url(#goldGrad)" stroke="#B37E14" stroke-width="1.5"/>
+    <circle cx="-35" cy="-24" r="3.5" fill="#FFF"/>
+    <circle cx="0" cy="-34" r="4.5" fill="#FFF"/>
+    <circle cx="35" cy="-24" r="3.5" fill="#FFF"/>
+    <rect x="-45" y="10" width="90" height="8" rx="2" fill="url(#goldGradDark)"/>
+    <!-- Jewels on crown base -->
+    <circle cx="-30" cy="14" r="2" fill="#E60000"/>
+    <circle cx="-15" cy="14" r="2" fill="#0055FF"/>
+    <circle cx="0" cy="14" r="2.5" fill="#FFF"/>
+    <circle cx="15" cy="14" r="2" fill="#0055FF"/>
+    <circle cx="30" cy="14" r="2" fill="#E60000"/>
+  </g>
+  <!-- Text REI DO ABC -->
+  <text x="150" y="74" font-family="'Outfit', 'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-size="20" letter-spacing="3" fill="#D4AF37" text-anchor="middle">REI DO ABC</text>
+  
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCE082"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#AA7C11"/>
+    </linearGradient>
+    <linearGradient id="goldGradDark" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#AA7C11"/>
+      <stop offset="50%" stop-color="#FCE082"/>
+      <stop offset="100%" stop-color="#AA7C11"/>
+    </linearGradient>
+  </defs>
+</svg>

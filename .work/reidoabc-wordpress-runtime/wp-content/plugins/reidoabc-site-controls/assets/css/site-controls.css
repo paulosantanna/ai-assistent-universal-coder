@@ -1,0 +1,66 @@
+.reidoabc-product-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.reidoabc-product-table th,
+.reidoabc-product-table td {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.reidoabc-product-table th {
+  color: #302c9b;
+  font-weight: 700;
+}
+
+.reidoabc-commerce-links {
+  margin-top: 1rem;
+}
+
+.reidoabc-commerce-links__title {
+  color: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+}
+
+.reidoabc-commerce-links__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.reidoabc-commerce-links__item {
+  margin: 0;
+}
+
+.reidoabc-commerce-links__link {
+  align-items: center;
+  background: rgba(48, 44, 155, 0.1);
+  border: 1px solid rgba(48, 44, 155, 0.22);
+  border-radius: 8px;
+  display: inline-flex;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.5rem;
+}
+
+.reidoabc-commerce-links__link:hover,
+.reidoabc-commerce-links__link:focus-visible {
+  background: #302c9b;
+  border-color: #d7b75f;
+  outline: 2px solid #d7b75f;
+  outline-offset: 2px;
+}
+
+.reidoabc-commerce-links__icon {
+  display: block;
+  height: 28px;
+  width: 28px;
+}

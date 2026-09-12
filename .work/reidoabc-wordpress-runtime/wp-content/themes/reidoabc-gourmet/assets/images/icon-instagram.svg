@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <radialGradient id="igGrad" cx="30%" cy="107%" r="125%">
+    <stop offset="0%" stop-color="#fdf497"/>
+    <stop offset="5%" stop-color="#fdf497"/>
+    <stop offset="45%" stop-color="#fd5949"/>
+    <stop offset="60%" stop-color="#d6249f"/>
+    <stop offset="90%" stop-color="#285AEB"/>
+  </radialGradient>
+  <rect width="32" height="32" rx="8" fill="url(#igGrad)"/>
+  <path d="M16 9c-3.866 0-7 3.134-7 7s3.134 7 7 7 7-3.134 7-7-3.134-7-7-7zm0 11.5c-2.485 0-4.5-2.015-4.5-4.5s2.015-4.5 4.5-4.5 4.5 2.015 4.5 4.5-2.015 4.5-4.5 4.5zm7.5-12c0 .828-.672 1.5-1.5 1.5s-1.5-.672-1.5-1.5.672-1.5 1.5-1.5 1.5.672 1.5 1.5z" fill="#FFF"/>
+</svg>

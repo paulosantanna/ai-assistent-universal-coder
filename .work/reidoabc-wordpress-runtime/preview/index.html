@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rei do ABC - Prévia Local</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.php">
+      <img src="../wp-content/uploads/2025/04/Logo-Simples-Dourado.png" alt="Rei do ABC">
+      <span>Rei do ABC</span>
+    </a>
+    <span>PHP 8.5 + WordPress 7.1 local</span>
+  </header>
+
+  <nav class="nav" aria-label="Busca">
+    <form class="search">
+      <button class="category" type="button">Produtos</button>
+      <input type="search" placeholder="Pesquise produtos aqui">
+      <select aria-label="Categoria">
+        <option>Pedaços de Tortas</option>
+        <option>Barras de Chocolate</option>
+      </select>
+      <button type="submit">OK</button>
+    </form>
+  </nav>
+
+  <main>
+    <section class="hero" aria-label="Carrossel principal">
+      <div class="hero-frame">
+        <img src="../wp-content/uploads/2025/08/Banner-Pistache-2.jpg" alt="Primeiro slide mapeado do Rei do ABC" data-replacement-slot="../wp-content/themes/reidoabc-storely-child/assets/images/hero-slide-1-replacement.jpg">
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Produtos</h2>
+      <div class="notice">
+        A Store API pública atual não retornou produtos nas categorias Pedaços de Tortas ou Barras de Chocolate. O plugin local filtra a loja para mostrar somente esses grupos quando eles existirem no WooCommerce.
+      </div>
+      <table class="product-table">
+        <thead>
+          <tr>
+            <th>Produto</th>
+            <th>Categoria</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Pedaços de Tortas</td>
+            <td>Categoria permitida</td>
+            <td>Aguardando cadastro/importação no WooCommerce</td>
+          </tr>
+          <tr>
+            <td>Barras de Chocolate</td>
+            <td>Categoria permitida</td>
+            <td>Aguardando cadastro/importação no WooCommerce</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <section>
+        <h3>Fale Conosco</h3>
+        <p>R. André Capretz Filho, 16 - Rudge Ramos, São Bernardo do Campo, SP</p>
+        <p><a href="https://api.whatsapp.com/send/?phone=5511948948977">WhatsApp</a></p>
+      </section>
+      <section>
+        <h3>Categorias</h3>
+        <p>Pedaços de Tortas</p>
+        <p>Barras de Chocolate</p>
+      </section>
+      <section>
+        <h3>Redes Sociais</h3>
+        <div class="social-row" aria-label="Redes Sociais">
+          <a class="icon-link" href="https://api.whatsapp.com/send/?phone=5511948948977" aria-label="WhatsApp"><span>WA</span></a>
+        </div>
+        <h3>Encomendas para todo o Brasil</h3>
+        <div class="commerce-row">
+          <a class="icon-link" href="https://www.mercadolivre.com.br/" aria-label="Mercado Livre"><img src="../wp-content/plugins/reidoabc-site-controls/assets/icons/mercado-livre.png" alt=""></a>
+          <a class="icon-link" href="https://www.mercadopago.com.br/" aria-label="Mercado Pago"><img src="../wp-content/plugins/reidoabc-site-controls/assets/icons/mercado-pago.png" alt=""></a>
+          <a class="icon-link" href="https://www.tiktok.com/" aria-label="TikTok Store"><img src="../wp-content/plugins/reidoabc-site-controls/assets/icons/tiktok-store.png" alt=""></a>
+          <a class="icon-link" href="https://www.99app.com/" aria-label="99"><img src="../wp-content/plugins/reidoabc-site-controls/assets/icons/99.png" alt=""></a>
+          <a class="icon-link" href="https://www.ifood.com.br/" aria-label="iFood"><img src="../wp-content/plugins/reidoabc-site-controls/assets/icons/ifood.png" alt=""></a>
+          <a class="icon-link" href="https://www.keeta.com/" aria-label="Keeta"><img src="../wp-content/plugins/reidoabc-site-controls/assets/icons/keeta.png" alt=""></a>
+        </div>
+      </section>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,42 @@
+Options -Indexes
+
+<FilesMatch "^(wp-config\.php|\.env|\.env\.local|composer\.(json|lock)|readme\.html|license\.txt)$">
+    Require all denied
+</FilesMatch>
+
+<Files "xmlrpc.php">
+    Require all denied
+</Files>
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP_HOST} !^(localhost|127\.0\.0\.1)(:[0-9]+)?$ [NC]
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteRule ^scripts/ - [F,L]
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" "expr=%{HTTPS} == 'on'"
+</IfModule>
+
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/avif "access plus 1 year"
+ExpiresByType image/webp "access plus 1 year"
+ExpiresByType image/jpeg "access plus 1 year"
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType image/svg+xml "access plus 1 year"
+ExpiresByType text/css "access plus 7 days"
+ExpiresByType application/javascript "access plus 7 days"
+</IfModule>
