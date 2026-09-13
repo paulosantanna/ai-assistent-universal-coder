@@ -37,7 +37,7 @@ mcp:
           type: json
 
       - name: create_pull_request
-        description: Create a new pull request
+        description: Create a new pull request. Body must include a Why/Porquê section.
         security: write
         input:
           title: string
@@ -46,6 +46,7 @@ mcp:
           base: string
         constraints:
           - approval_required: true
+          - pr_why_section_required: true
 
       - name: list_issues
         description: List repository issues
@@ -91,6 +92,7 @@ prompt_contract:
     - "Return evidence refs for material facts."
     - "Mark assumptions and missing inputs explicitly."
     - "Do not expose secrets, credentials, raw tokens or sensitive values."
+  - "Reject pull-request create/update when the body lacks a Why/Porquê section."
   stop_conditions:
     - "required input is missing"
     - "permission or policy is denied"

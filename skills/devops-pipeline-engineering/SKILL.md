@@ -42,7 +42,7 @@ Do not activate for unrelated code changes, production deployment not explicitly
 8. Never hide failure with `continue-on-error`, arbitrary `skip/xfail`, removed tests, reduced coverage or disabled security gates.
 9. Never force-push by default, bypass branch protection, invent secrets, read existing secret values or widen PAT scopes automatically.
 10. Repository deletion is `DENY_PERMANENT` even if requested by the owner. It can only be performed manually outside AEOS.
-11. Merge defaults to `approval_required` and is allowed only against the expected latest SHA after revalidation.
+11. Merge defaults to `approval_required` and is allowed only against the expected latest SHA after revalidation, and only when the open PR has a verified Why/Porquê section.
 12. Secrets are runtime-only and never enter prompts, Token Manager context, logs, evidence, notebook, bundles or commits.
 
 ## Success contract
@@ -84,7 +84,7 @@ The skill may instantiate these bounded lenses/work units under `codenavi-agent`
 - `performance-ci`: timeout, resource and cache analysis;
 - `release-engineering`: artifacts, tags, bundles, provenance and release readiness;
 - `branch-protection`: required checks and protection validation without bypass;
-- `pr-governance`: review/readiness/merge evidence;
+- `pr-governance`: review/readiness/merge evidence and the required Why/Porquê section;
 - `rollback-recovery`: safe compensation plan;
 - `token-economy`: compact evidence packets, cache and budget enforcement.
 
@@ -118,7 +118,7 @@ Stop with `BLOCKED` on cycle exhaustion, repeated no-progress fingerprints, osci
 
 ## Git/GitHub authority
 
-Allowed when policies/gates permit: inspect, branch, selective stage, commit, fetch, pull, push, PR create/update, workflow inspect/rerun, issue/release metadata, bundle create/verify, check/status inspection and approved merge.
+Allowed when policies/gates permit: inspect, branch, selective stage, commit, fetch, pull, push, PR create/update (Why/Porquê required), workflow inspect/rerun, issue/release metadata, bundle create/verify, check/status inspection and approved merge.
 
 High-risk operations require approval and revalidation. Force-push remains disabled by default.
 
@@ -157,6 +157,7 @@ Merge prerequisites:
 - all required checks successful on that SHA;
 - branch protection satisfied;
 - no unresolved mandatory review/environment gate;
+- open PR body contains a verified Why/Porquê section (motivation/context for the worktree, not a placeholder);
 - secret scan PASS;
 - Judge PASS;
 - Evidence Verify PASS;

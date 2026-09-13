@@ -17,9 +17,13 @@ Tracked configuration may contain only a secret reference such as `env://GITHUB_
 
 Every mutable operation is bound to repository, ref/branch, expected SHA where applicable, risk class, policy decision, permission decision and rollback/compensation. Re-read remote state after mutation.
 
+## Pull request Why policy
+
+Every open PR body must include a Why/Porquê section that states the motivation for the change. This is required for worktree context and durable project knowledge. Create/update is denied when Why is missing, empty or a placeholder. Merge is denied on the same defect even if required checks are green.
+
 ## Merge policy
 
-Default `approval_required`. Merge requires latest expected head SHA, successful required checks, branch protection/reviews satisfied, Judge PASS, Evidence Verify PASS and secret scan PASS. If head SHA changes, approval and CI evidence must be revalidated.
+Default `approval_required`. Merge requires latest expected head SHA, successful required checks, branch protection/reviews satisfied, a verified Why/Porquê section, Judge PASS, Evidence Verify PASS and secret scan PASS. If head SHA changes, approval and CI evidence must be revalidated.
 
 ## Repository deletion
 

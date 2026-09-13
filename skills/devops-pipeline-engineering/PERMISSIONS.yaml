@@ -47,6 +47,7 @@ constraints:
   secrets_runtime_only: true
   token_reference_only: true
   default_merge_mode: approval_required
+  pr_why_required: true
   latest_sha_only: true
   require_branch_protection: true
   require_judge_for_high_risk: true

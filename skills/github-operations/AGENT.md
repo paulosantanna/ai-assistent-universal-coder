@@ -17,6 +17,7 @@ Use `BRIEFING -> RECON -> PLAN -> EXECUTE -> VERIFY -> DEBRIEF` for every materi
 - Never read/export existing GitHub secret values or widen PAT scopes automatically.
 - Repository deletion is permanently denied and manual-only outside AEOS.
 - A tool/API HTTP success is not proof that the intended Git/GitHub state was reached; verify state after action.
+- Every open PR must include a Why/Porquê section that states why the change exists, so later worktrees keep adequate context. Create, update and merge are blocked without it.
 
 ## High-risk gate
 

@@ -3,29 +3,28 @@
 Updated: 2026-09-13
 
 ## Active Mission
-- Objective: create `kotlin-expert` in the `java-21-expert` pattern, loading the current stable Kotlin release.
-- [x] BRIEFING: continuity + `java-21-expert` / `docs-*-current` patterns.
-- [x] RECON: skill layout, overlay registry, language-docs MCP, latest Kotlin 2.4.20.
-- [x] PLAN: skill trio + `docs-kotlin-current` + registry/allowlist/playbook wiring.
-- [x] EXECUTE: skill files, MCP, registries, overlay tests, continuity.
-- [x] VERIFY: frontmatter, skill-adapter, MCP smoke, overlay Jest, `aeos:verify`.
-- [x] DEBRIEF: continuity updated; PR #33.
+- Objective: resolve PR #33 conflicts with master and merge kotlin-expert.
+- [x] BRIEFING: PR #33 DIRTY/CONFLICTING after #34 landed on master.
+- [x] RECON: conflicts limited to notebook quartet; skill/MCP files auto-merged.
+- [x] PLAN: keep both Kotlin and PR-Why durable facts; rewrite handoff for this merge.
+- [~] EXECUTE: resolve notebook conflicts.
+- [ ] VERIFY: local gates + required Actions on the new head SHA.
+- [ ] MERGE: merge #33 when latest SHA is green.
 
 ## Current Phase
-- DEBRIEF
+- EXECUTE
 
 ## Verification Gates
-- [x] `skills/kotlin-expert/` matches `java-21-expert` contract (SKILL.md, TOKEN_PROFILE.yaml, references/INDEX.md).
-- [x] `docs-kotlin-current` resolved_version is current stable Kotlin 2.4.20.
-- [x] Overlay resolves `kotlin-expert` and `docs-kotlin-current`.
-- [x] Skill frontmatter (291 scanned, 0 invalid), skill-adapter and MCP startup smoke PASS (`docs-kotlin-current`: 6 tools).
-- [x] `npm run aeos:verify` PASS (11 Jest suites / 53 tests). Router selects `kotlin-expert` for Kotlin requests.
+- [ ] Notebook conflicts resolved with both Kotlin and Why/Porquê facts retained.
+- [ ] `kotlin-expert` and `docs-kotlin-current` still present after merge with master.
+- [ ] Required Actions on the new head SHA are green.
+- [ ] PR #33 merged into master.
 
 ## Factual Log
-- 2026-09-13: Official Kotlin current stable is 2.4.20 (GitHub `v2.4.20`, 2026-09-07; kotlinlang.org/docs/whatsnew2420.html).
-- 2026-09-13: Added skill `skills/kotlin-expert` and MCP `docs-kotlin-current`; governing_skill is `kotlin-expert`.
-- 2026-09-13: Local `aeos:verify` PASS after runtime `tsc` build.
+- 2026-09-13: `git merge origin/master` into `cursor/kotlin-expert-1d4f` conflicted in HANDOFF, PROGRESS, MEMORY, LEARNING.
+- 2026-09-13: PR #34 (Why/Porquê) is already on master; that is the conflict source.
 
 ## Previous Missions
+- Require Why/Porquê on every open PR; PR #34 merged (`b71c1bb9`); master CI `34789704932` SUCCESS.
+- `kotlin-expert` + `docs-kotlin-current` (Kotlin 2.4.20); PR #33.
 - KingHost control MCP and `kinghost-expert` super-skill.
-- CI ENOBUFS recovery on `8282a497` / Actions `34707694897`.

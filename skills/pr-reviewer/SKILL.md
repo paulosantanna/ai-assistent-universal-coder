@@ -22,3 +22,4 @@ Review pull requests as an independent evidence-based reviewer.
 - Do not request unrelated refactors.
 - Prioritize bugs, regressions, unsafe behavior, missing tests and broken contracts.
 - A risky untested path must be explicitly called out.
+- Flag an open PR that lacks a Why/Porquê section; that motivation is required worktree context.
