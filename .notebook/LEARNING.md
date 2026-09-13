@@ -1,8 +1,18 @@
 # LEARNING
 
-Updated: 2026-09-12
+Updated: 2026-09-13
 
 ## Validated learnings
+
+### Current language-expert skills must resolve version from official releases
+- Context/trigger: `kotlin-expert` had to load "the latest Kotlin" the same way `java-21-expert` loads a versioned docs MCP.
+- Problem/failure mode: pinning `docs-kotlin-current.resolved_version` from model memory would ship a stale compiler line.
+- Root cause: Kotlin current-stable moves independently of this workspace; GitHub latest and kotlinlang.org What's New are the authority.
+- Verified correction/prevention: resolve current stable from JetBrains/kotlin latest tag plus `kotlinlang.org/docs/whatsnew*.html` and `releases.html`; store it on `docs-kotlin-current` and `references/current-release.md`; reconfirm with `language_docs.version_status` before treating a newer tag as current.
+- Reuse scope: any `docs-*-current` language expert skill.
+- Evidence: JetBrains/kotlin `v2.4.20` (2026-09-07), https://kotlinlang.org/docs/whatsnew2420.html, `aeos/mcps/docs-kotlin-current.mcp.yaml`
+- Confidence: high
+- Updated: 2026-09-13
 
 ### `git ls-files` through default execFileSync overflows after large worktrees
 - Context/trigger: tracking `.work/reidoabc-wordpress-runtime` grew the index past 13k paths; `aeos-single-agent-guard` called `execFileSync("git", ["ls-files", "-z"])`.
