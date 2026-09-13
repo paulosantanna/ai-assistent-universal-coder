@@ -43,11 +43,11 @@ A plaintext PAT in tracked YAML/config is a blocking secret-exposure finding. Re
 - create/switch/rename branches;
 - selective stage and atomic commit;
 - fetch/pull/push authorized branches;
-- create/update pull requests;
+- create/update pull requests (Why/Porquê section required);
 - rerun failed workflow runs/jobs;
 - create draft releases and authorized releases;
 - create/verify Git bundles;
-- approved merge after latest-SHA revalidation.
+- approved merge after latest-SHA revalidation and a verified Why/Porquê section.
 
 High-risk mutation requires Policy/Permission/Judge/approval as defined by the calling playbook.
 
@@ -77,6 +77,24 @@ Repository deletion response:
 ```
 
 AEOS may state that repository deletion must be performed manually by the user in GitHub, but must not generate or execute a deletion command/API call.
+
+## Pull request Why contract
+
+Every open pull request MUST describe **why** the change exists, not only what changed. The Why/Porquê section is required so later worktrees, reviews and continuity notes keep adequate context.
+
+Required body section (English `Why` or Portuguese `Porquê`/`Porque`):
+
+```markdown
+## Why
+<motivation, problem, constraint or knowledge gap this change exists to solve>
+```
+
+Rules:
+
+- `github.pull_request.create` and `github.pull_request.update` are blocked when the body lacks a Why/Porquê section, the section is empty, or it is a placeholder (`TBD`, `N/A`, `see title`, `see diff`).
+- Why must explain motivation/context for the worktree. Restating the title or listing files is not sufficient.
+- Merge readiness and merge execution inherit this gate. A green pipeline does not authorize merge when Why is missing.
+- Do not invent a Why. If the operator cannot state why the change exists, stop and request that context.
 
 ## Operation planning
 

@@ -41,4 +41,4 @@ A new commit alone is not progress.
 
 ## Merge requirement
 
-Merge is `approval_required` by default and is permitted only after immediate revalidation of the expected latest head SHA and all mandatory repository gates.
+Merge is `approval_required` by default and is permitted only after immediate revalidation of the expected latest head SHA, all mandatory repository gates, and a verified Why/Porquê section on the open PR.

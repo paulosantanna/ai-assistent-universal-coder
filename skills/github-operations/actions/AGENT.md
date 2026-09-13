@@ -12,7 +12,7 @@ This subtree inherits root `AGENT.md` and `skills/github-operations/AGENT.md`. I
 - Apply the smallest root-cause fix; never mask the gate.
 - After corrective push, invalidate old-SHA CI evidence and rediscover all relevant runs/checks.
 - Continue only while progress and budgets remain.
-- Merge readiness requires all required latest-SHA checks green plus governance gates.
+- Merge readiness requires all required latest-SHA checks green, a verified Why/Porquê section on the open PR, plus governance gates.
 
 ## Prohibited
 

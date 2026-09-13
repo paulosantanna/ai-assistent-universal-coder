@@ -20,7 +20,7 @@ AEOS has one canonical agent identity: `codenavi-agent`. This skill does not cre
 10. test locally, Judge, commit and push;
 11. repeat until green or bounded stop condition;
 12. revalidate latest SHA;
-13. produce merge readiness decision;
+13. produce merge readiness decision (blocked if Why/Porquê is missing);
 14. optionally create Work Bundle artifacts.
 
 ## Pipeline success

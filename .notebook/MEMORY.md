@@ -1,6 +1,6 @@
 # MEMORY
 
-Updated: 2026-09-12
+Updated: 2026-09-13
 
 ## Active memory
 
@@ -105,3 +105,9 @@ Updated: 2026-09-12
 - Fact: Installed TLC skills `not-your-babysitter`, `cursor-subagent-creator`, `subagent-creator`, `skill-architect`, `technical-design-doc-creator`, `best-practices`, `the-fool`, `the-jury`, `ai-seo`, `nx-workspace`, `tlc-plan`, `learning-opportunities`, `perf-astro`, `core-web-vitals`, `perf-lighthouse`, `perf-web-optimization`, `security-best-practices`, `security-ownership-map`, `security-threat-model` and `web-quality-audit` live under `skills/` and overlay fragment `aeos/registries/skills.tlc-catalog.additions.yaml`. All are owned by `codenavi-agent`. `cursor-subagent-creator`, `subagent-creator` and `the-jury` remap source subagents to lenses; they must not register another agent identity. Session teaching from `learning-opportunities` is not a LEARNING.md promotion unless `learning-curator` verifies it. `security-audit` / `threat-modeler` remain the existing AEOS audit playbooks; the TLC trio does not replace them.
 - Evidence: `aeos/registries/skills.tlc-catalog.additions.yaml`, `skills/cursor-subagent-creator/SKILL.md`, `skills/the-jury/SKILL.md`
 - Updated: 2026-09-12
+
+### Open PRs require a Why/Porquê section
+- Status: active
+- Fact: Every open pull request must describe why the change exists. `github-operations` and `devops-pipeline-engineering` block PR create/update/merge when Why/Porquê is missing, empty or a placeholder. The gate exists so later worktrees keep adequate context. Executable check: `scripts/aeos-devops-pipeline-governance.mjs` `evaluatePrWhy()` / `mergeReadiness()`.
+- Evidence: `skills/github-operations/SKILL.md`, `skills/devops-pipeline-engineering/SKILL.md`, `scripts/aeos-devops-pipeline-governance.mjs`, `.github/PULL_REQUEST_TEMPLATE.md`
+- Updated: 2026-09-13

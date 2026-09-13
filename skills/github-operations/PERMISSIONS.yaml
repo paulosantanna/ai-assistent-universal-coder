@@ -54,4 +54,5 @@ constraints:
   structured_command_args_only: true
   shell_true_forbidden: true
   default_merge_mode: approval_required
+  pr_why_required: true
   verify_remote_state_after_mutation: true

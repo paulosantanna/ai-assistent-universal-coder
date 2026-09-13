@@ -20,8 +20,8 @@ These are governed command intents resolved by AEOS. They are not unrestricted s
 - `aeos github fetch`
 - `aeos github pull`
 - `aeos github push`
-- `aeos github pr create`
-- `aeos github pr update`
+- `aeos github pr create` (body must include Why/Porquê)
+- `aeos github pr update` (body must keep Why/Porquê)
 - `aeos github actions rerun-failed`
 - `aeos github actions rerun-job`
 - `aeos github bundle create`
@@ -34,7 +34,7 @@ These are governed command intents resolved by AEOS. They are not unrestricted s
 - `aeos github workflow dispatch`
 - `aeos github merge execute`
 
-Merge execution must include the expected current head SHA and revalidate it immediately before mutation.
+Merge execution must include the expected current head SHA and revalidate it immediately before mutation. Merge is denied when the open PR body lacks a verified Why/Porquê section.
 
 ## Permanent deny command
 

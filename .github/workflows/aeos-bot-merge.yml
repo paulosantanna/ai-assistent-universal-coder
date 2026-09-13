@@ -28,7 +28,7 @@ on:
       body:
         description: "PR body"
         required: false
-        default: "Automated AEOS update prepared through governed workflow. Merge requires protected branch checks, Judge PASS, readiness PASS, and human approval."
+        default: "## Why\nAutomated AEOS update prepared through governed workflow. The Why section exists so later worktrees keep the motivation for the change, not only the file list.\n\nMerge requires protected branch checks, Judge PASS, readiness PASS, verified Why/Porquê, and human approval."
         type: string
 
 permissions:
