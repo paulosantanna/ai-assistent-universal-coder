@@ -95,6 +95,12 @@ skills:
     owner_agent: codenavi-agent
     risk_level: high
     capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
+  - id: kotlin-expert
+    path: skills/kotlin-expert/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: high
+    capabilities: [READ_FILES, GENERATE_REPORT, GENERATE_EVIDENCE]
   - id: ai-engineering-expert
     path: skills/ai-engineering-expert/SKILL.md
     version: 1.0.0

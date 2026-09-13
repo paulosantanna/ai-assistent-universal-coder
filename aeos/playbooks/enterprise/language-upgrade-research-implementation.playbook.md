@@ -41,6 +41,7 @@ compatibility analysis, implementation plan, tests and rollback evidence.
 - docs-typescript-current, when TypeScript is involved
 - docs-angular-current, when Angular is involved
 - docs-javascript-current, when JavaScript is involved
+- docs-kotlin-current, when Kotlin is involved
 
 ## Execution Flow
 

@@ -53,6 +53,25 @@ describe("AEOS active overlay skill routing", () => {
       assert.equal(byId.get(id).ownerAgent, "codenavi-agent", id);
       assert.equal(byId.get(id).registryFragment, "skills.tlc-catalog.additions.yaml", id);
     }
+    assert.equal(byId.has("kotlin-expert"), true);
+    assert.equal(byId.get("kotlin-expert").ownerAgent, "codenavi-agent");
+    assert.equal(byId.get("kotlin-expert").path, "skills/kotlin-expert/SKILL.md");
+  });
+
+  it("routes Kotlin implementation intent to kotlin-expert", async () => {
+    const { routeRequest } = await import(moduleUrl("scripts/aeos-skill-router.mjs"));
+    const sandbox = fs.mkdtempSync(path.join(os.tmpdir(), "aeos-kotlin-route-"));
+    try {
+      const result = routeRequest(
+        "implement this kotlin multiplatform coroutine change against current kotlinx",
+        { memoryRoot: path.join(sandbox, "memory"), outputDir: path.join(sandbox, "router"), limit: 8 }
+      );
+      const ids = result.selectedSkills.map((skill) => skill.id);
+      assert.equal(ids.includes("kotlin-expert"), true);
+      assert.equal(result.gates.overlayRegistryResolved, true);
+    } finally {
+      fs.rmSync(sandbox, { recursive: true, force: true });
+    }
   });
 
   it("routes GitHub Actions recovery intent to the DevOps skill", async () => {

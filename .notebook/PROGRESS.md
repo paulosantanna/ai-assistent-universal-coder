@@ -1,31 +1,28 @@
 # PROGRESS
 
-Updated: 2026-09-12
+Updated: 2026-09-13
 
 ## Active Mission
-- Objective: add deterministic KingHost control MCP and `kinghost-expert` super-skill for WordPress/PHP FTP production publish.
-- [x] BRIEFING: continuity + existing `kinghost-commerce` / `wordpress-expert` patterns.
-- [x] RECON: overlay, runtime auth, Tool Router, credential policy.
-- [x] PLAN: new `kinghost-control` MCP; super-skill FSM; cookie/Playwright; no secret persistence.
-- [x] EXECUTE: MCP adapter, skill/playbook/registries, Tool Router dual adapter, tests.
-- [x] VERIFY: MCP smoke; Jest control + overlay load; runtime build; frontmatter/adapters/artifact/full-workspace PASS.
-- [x] DEBRIEF: continuity updated; no live KingHost publish; no commit requested.
+- Objective: create `kotlin-expert` in the `java-21-expert` pattern, loading the current stable Kotlin release.
+- [x] BRIEFING: continuity + `java-21-expert` / `docs-*-current` patterns.
+- [x] RECON: skill layout, overlay registry, language-docs MCP, latest Kotlin 2.4.20.
+- [x] PLAN: skill trio + `docs-kotlin-current` + registry/allowlist/playbook wiring.
+- [~] EXECUTE: skill files, MCP, registries, overlay tests, continuity.
+- [ ] VERIFY: frontmatter, skill-adapters, MCP smoke, overlay load, runtime build.
+- [ ] DEBRIEF: commit, push, PR; remaining risks.
 
 ## Current Phase
-- DEBRIEF
+- EXECUTE
 
 ## Verification Gates
-- [x] Overlay resolves `kinghost-control`, `kinghost-commerce`, `kinghost-expert`, `kinghost-expert-production-lifecycle`.
-- [x] Credential bind from env returns opaque ref and redacts password.
-- [x] FSM rejects skipped APPLY.
-- [x] Skill frontmatter includes `kinghost-expert` (290 scanned, 0 invalid).
+- [ ] `skills/kotlin-expert/` matches `java-21-expert` contract (SKILL.md, TOKEN_PROFILE.yaml, references/INDEX.md).
+- [ ] `docs-kotlin-current` resolved_version is current stable Kotlin 2.4.20.
+- [ ] Overlay resolves `kotlin-expert` and `docs-kotlin-current`.
+- [ ] Skill frontmatter, skill-adapter and MCP startup smoke PASS.
 
 ## Factual Log
-- 2026-09-12: Added `kinghost-control-mcp` JSONL adapter with environment catalog, credential bind, KingHost tool catalog, WordPress/PHP/MySQL plans, FTP client and production FSM.
-- 2026-09-12: Added super-skill `skills/kinghost-expert` and playbook `kinghost-expert-production-lifecycle`.
-- 2026-09-12: `KingHostToolRouter` now bridges both `kinghost-commerce` and `kinghost-control`.
-- 2026-09-12: Live FTP/MySQL against KingHost was not executed; no production credentials were supplied.
+- 2026-09-13: Official Kotlin current stable is 2.4.20 (GitHub `v2.4.20`, 2026-09-07; kotlinlang.org/docs/whatsnew2420.html).
 
 ## Previous Missions
+- KingHost control MCP and `kinghost-expert` super-skill.
 - CI ENOBUFS recovery on `8282a497` / Actions `34707694897`.
-- Local Rei do ABC storefront/account/cart/image integrity on `E:\GitHub\repos-workspace\reidoabc`; reference package unmodified.

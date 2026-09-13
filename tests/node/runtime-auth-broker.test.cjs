@@ -103,6 +103,7 @@ describe("AEOS universal runtime authentication", () => {
     assert.equal(skills.includes("security-ownership-map"), true);
     assert.equal(skills.includes("security-threat-model"), true);
     assert.equal(skills.includes("web-quality-audit"), true);
+    assert.equal(skills.includes("kotlin-expert"), true);
     assert.equal(playbooks.includes("wordpress-expert-site-lifecycle"), true);
     assert.equal(playbooks.includes("kinghost-expert-production-lifecycle"), true);
     assert.equal(playbooks.includes("spec-driven-feature-lifecycle"), true);
@@ -113,6 +114,7 @@ describe("AEOS universal runtime authentication", () => {
     assert.equal(mcps.includes("kinghost-commerce"), true);
     assert.equal(mcps.includes("runtime-auth"), true);
     assert.equal(mcps.includes("runtime-http"), true);
+    assert.equal(mcps.includes("docs-kotlin-current"), true);
     const resolved = loader.resolveMCPs(loader.loadMCPs().mcps, ["filesystem-readonly"]).map((item) => item.id);
     assert.equal(resolved.includes("runtime-auth"), true);
     assert.equal(resolved.includes("runtime-http"), true);

@@ -254,3 +254,30 @@ language_documentation_sources:
       url: https://developer.mozilla.org/en-US/docs/Web/JavaScript
       authority: official-practical
       type: documentation
+  - id: docs-kotlin-current
+    name: Kotlin Current Documentation MCP
+    language: kotlin
+    version: current
+    resolved_version: '2.4.20'
+    status: current-stable
+    domains:
+    - kotlinlang.org
+    - github.com
+    - api.github.com
+    sources:
+    - name: Kotlin Documentation
+      url: https://kotlinlang.org/docs/home.html
+      authority: official
+      type: documentation
+    - name: Kotlin 2.4.20 What's New
+      url: https://kotlinlang.org/docs/whatsnew2420.html
+      authority: official
+      type: release
+    - name: Kotlin Releases
+      url: https://kotlinlang.org/docs/releases.html
+      authority: official
+      type: release
+    - name: Kotlin GitHub Releases
+      url: https://github.com/JetBrains/kotlin/releases
+      authority: official
+      type: release
