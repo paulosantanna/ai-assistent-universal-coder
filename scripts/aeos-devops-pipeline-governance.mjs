@@ -260,15 +260,67 @@ export function evaluateRecoveryLimits({ cycle = 0, rootCauseCycles = 0, totalCo
   return { decision: "CONTINUE", reason: "WITHIN_LIMITS" };
 }
 
-export function mergeReadiness({ expectedHeadSha, actualHeadSha, pipeline, judge = "BLOCKED", evidenceVerify = "BLOCKED", secretScan = "BLOCKED", approval = "REQUIRED", protectionSatisfied = false }) {
-  if (!expectedHeadSha || expectedHeadSha !== actualHeadSha) return { decision: "MERGE_DENIED", reason: "HEAD_SHA_CHANGED" };
-  if (pipeline?.status !== "PASS") return { decision: "MERGE_DENIED", reason: "PIPELINE_NOT_GREEN" };
-  if (judge !== "PASS") return { decision: "MERGE_DENIED", reason: "JUDGE_NOT_PASS" };
-  if (evidenceVerify !== "PASS") return { decision: "MERGE_DENIED", reason: "EVIDENCE_NOT_PASS" };
-  if (secretScan !== "PASS") return { decision: "MERGE_DENIED", reason: "SECRET_SCAN_NOT_PASS" };
-  if (!protectionSatisfied) return { decision: "MERGE_DENIED", reason: "BRANCH_PROTECTION_NOT_SATISFIED" };
-  if (approval !== "GRANTED") return { decision: "READY_FOR_APPROVAL", reason: "EXPLICIT_APPROVAL_REQUIRED" };
-  return { decision: "MERGE_ALLOWED", reason: "ALL_GATES_PASS" };
+const WHY_HEADING = /(?:^|\n)\s{0,3}#{1,3}\s*(why(?:\s+this\s+change)?|porqu[eê]|porque)(?=[\s:#]|$)[^\n]*\n+([\s\S]*?)(?=\n\s{0,3}#{1,3}\s|\s*$)/i;
+const WHY_LABELED = /(?:^|\n)\s*(?:\*\*)?(why(?:\s+this\s+change)?|porqu[eê]|porque)(?:\*\*)?\s*[:\-]\s*(\S[\s\S]*?)(?=\n\s{0,3}#{1,3}\s|\s*$)/i;
+const WHY_PLACEHOLDER = /^(tbd|n\/?a|todo|see title|see diff|none|-|\.|placeholder)(?:[\s.!]*)?$/i;
+const MIN_WHY_CHARS = 40;
+
+export function evaluatePrWhy(body) {
+  const text = String(body ?? "").replace(/\r\n/g, "\n");
+  if (!text.trim()) {
+    return { status: "BLOCKED", reason: "PR_WHY_MISSING", why: "" };
+  }
+
+  const match = WHY_HEADING.exec(text) || WHY_LABELED.exec(text);
+  if (!match) {
+    return { status: "BLOCKED", reason: "PR_WHY_SECTION_REQUIRED", why: "" };
+  }
+
+  const why = String(match[2] ?? "")
+    .replace(/<!--[\s\S]*?-->/g, "")
+    .replace(/^\s*[-*]\s+/gm, "")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  if (!why) return { status: "BLOCKED", reason: "PR_WHY_EMPTY", why: "" };
+  if (WHY_PLACEHOLDER.test(why)) return { status: "BLOCKED", reason: "PR_WHY_PLACEHOLDER", why };
+  if (why.length < MIN_WHY_CHARS) return { status: "BLOCKED", reason: "PR_WHY_TOO_SHORT", why };
+
+  return { status: "PASS", reason: "PR_WHY_PRESENT", why };
+}
+
+export function evaluatePrOpen({ title, body } = {}) {
+  const why = evaluatePrWhy(body);
+  if (why.status !== "PASS") {
+    return { status: "BLOCKED", reason: why.reason, title: title ?? "", why };
+  }
+  return { status: "PASS", reason: "PR_WHY_PRESENT", title: title ?? "", why };
+}
+
+export function mergeReadiness({
+  expectedHeadSha,
+  actualHeadSha,
+  pipeline,
+  judge = "BLOCKED",
+  evidenceVerify = "BLOCKED",
+  secretScan = "BLOCKED",
+  approval = "REQUIRED",
+  protectionSatisfied = false,
+  prBody,
+  prWhy
+} = {}) {
+  const why = prWhy && typeof prWhy === "object" && prWhy.status
+    ? prWhy
+    : evaluatePrWhy(prBody);
+  if (!expectedHeadSha || expectedHeadSha !== actualHeadSha) return { decision: "MERGE_DENIED", reason: "HEAD_SHA_CHANGED", prWhy: why };
+  if (pipeline?.status !== "PASS") return { decision: "MERGE_DENIED", reason: "PIPELINE_NOT_GREEN", prWhy: why };
+  if (why.status !== "PASS") return { decision: "MERGE_DENIED", reason: why.reason || "PR_WHY_REQUIRED", prWhy: why };
+  if (judge !== "PASS") return { decision: "MERGE_DENIED", reason: "JUDGE_NOT_PASS", prWhy: why };
+  if (evidenceVerify !== "PASS") return { decision: "MERGE_DENIED", reason: "EVIDENCE_NOT_PASS", prWhy: why };
+  if (secretScan !== "PASS") return { decision: "MERGE_DENIED", reason: "SECRET_SCAN_NOT_PASS", prWhy: why };
+  if (!protectionSatisfied) return { decision: "MERGE_DENIED", reason: "BRANCH_PROTECTION_NOT_SATISFIED", prWhy: why };
+  if (approval !== "GRANTED") return { decision: "READY_FOR_APPROVAL", reason: "EXPLICIT_APPROVAL_REQUIRED", prWhy: why };
+  return { decision: "MERGE_ALLOWED", reason: "ALL_GATES_PASS", prWhy: why };
 }
 
 if (process.argv[1]?.endsWith("aeos-devops-pipeline-governance.mjs")) {

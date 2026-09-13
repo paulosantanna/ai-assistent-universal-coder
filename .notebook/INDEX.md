@@ -1,7 +1,7 @@
 # .notebook
 > Project intelligence — read before every material mission
 
-Last updated: 2026-09-12
+Last updated: 2026-09-13
 
 - [HANDOFF](HANDOFF.md) — last verified transfer state and exact next actions | continuity | handoff, state, execution
 - [MEMORY](MEMORY.md) — durable evidence-backed project facts and decisions | continuity | memory, decisions, evidence

@@ -20,6 +20,8 @@ Track `queued`, `requested`, `waiting`, `pending`, `in_progress`, `completed` pl
 
 A required check is successful only when it belongs to the latest SHA and its terminal conclusion is `success`. `neutral`/`skipped` require explicit non-required classification.
 
+While monitoring an open PR, treat a missing/placeholder Why/Porquê section as a governance defect. Do not report merge readiness while that section is absent, even if required checks are green.
+
 ## Freshness
 
 A corrective push changes the head SHA and invalidates previous-SHA success evidence. Re-discover the complete relevant run/check set for the new SHA.

@@ -44,9 +44,13 @@ Return `BLOCKED` for:
 
 Default: `approval_required`.
 
-A merge plan must record PR, base, expected head SHA, required checks, Judge status, evidence status, secret-scan status, protection/review status, merge strategy and rollback/compensation.
+A merge plan must record PR, base, expected head SHA, required checks, Why/Porquê verification, Judge status, evidence status, secret-scan status, protection/review status, merge strategy and rollback/compensation.
 
-Merge execution must re-fetch the head SHA and required checks immediately before mutation. Head movement invalidates approval and requires revalidation.
+Merge execution must re-fetch the head SHA and required checks immediately before mutation. Head movement invalidates approval and requires revalidation. Missing, empty or placeholder Why/Porquê denies merge even when the pipeline is green.
+
+## Pull request Why policy
+
+Every open PR must describe why the change exists. Create/update/merge are blocked without a Why/Porquê section so later worktrees and continuity notes keep adequate context. Do not invent a Why.
 
 ## Secret policy
 

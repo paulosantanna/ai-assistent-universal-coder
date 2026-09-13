@@ -119,6 +119,7 @@ describe("AEOS DevOps pipeline engineering governance", () => {
       latestSha: "sha",
       runs: [{ id: 1, head_sha: "sha", status: "completed", conclusion: "success" }]
     });
+    const whyBody = "## Why\nOpen PRs must keep the motivation for later worktrees, not only a file list.";
     const stale = governance.mergeReadiness({
       expectedHeadSha: "old",
       actualHeadSha: "sha",
@@ -127,7 +128,8 @@ describe("AEOS DevOps pipeline engineering governance", () => {
       evidenceVerify: "PASS",
       secretScan: "PASS",
       protectionSatisfied: true,
-      approval: "GRANTED"
+      approval: "GRANTED",
+      prBody: whyBody
     });
     assert.equal(stale.decision, "MERGE_DENIED");
 
@@ -139,8 +141,40 @@ describe("AEOS DevOps pipeline engineering governance", () => {
       evidenceVerify: "PASS",
       secretScan: "PASS",
       protectionSatisfied: true,
-      approval: "REQUIRED"
+      approval: "REQUIRED",
+      prBody: whyBody
     });
     assert.equal(ready.decision, "READY_FOR_APPROVAL");
+  });
+
+  it("blocks PR open and merge when Why/Porquê is missing or placeholder", () => {
+    const pipeline = governance.evaluatePipelineState({
+      latestSha: "sha",
+      runs: [{ id: 1, head_sha: "sha", status: "completed", conclusion: "success" }]
+    });
+    const missing = governance.evaluatePrOpen({ title: "fix ci", body: "## Summary\nChanged workflows." });
+    assert.equal(missing.status, "BLOCKED");
+    assert.equal(missing.reason, "PR_WHY_SECTION_REQUIRED");
+
+    const placeholder = governance.evaluatePrWhy("## Why\nTBD");
+    assert.equal(placeholder.status, "BLOCKED");
+    assert.equal(placeholder.reason, "PR_WHY_PLACEHOLDER");
+
+    const portuguese = governance.evaluatePrWhy("## Porquê\nO worktree perde o motivo da mudança se o PR só lista arquivos alterados.");
+    assert.equal(portuguese.status, "PASS");
+
+    const denied = governance.mergeReadiness({
+      expectedHeadSha: "sha",
+      actualHeadSha: "sha",
+      pipeline,
+      judge: "PASS",
+      evidenceVerify: "PASS",
+      secretScan: "PASS",
+      protectionSatisfied: true,
+      approval: "GRANTED",
+      prBody: "## Summary\nGreen CI only."
+    });
+    assert.equal(denied.decision, "MERGE_DENIED");
+    assert.equal(denied.reason, "PR_WHY_SECTION_REQUIRED");
   });
 });

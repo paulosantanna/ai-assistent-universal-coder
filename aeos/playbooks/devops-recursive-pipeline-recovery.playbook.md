@@ -32,7 +32,7 @@ Create or repair GitHub Actions CI/CD, monitor every required run/job/check for 
 4. Establish local baseline tests and current head SHA.
 5. Create/harden workflows only when required by the mission.
 6. Run focused local verification and secret scan.
-7. Create a selective, atomic commit and authorized push when mutation is permitted.
+7. Create a selective, atomic commit and authorized push when mutation is permitted. Open or update the PR only with a Why/Porquê section that states why the change exists.
 8. Discover every relevant workflow run/check for the new head SHA.
 9. Allocate one `WorkflowGuardianLens` per run and one bounded job work unit per job/matrix child.
 10. Monitor until terminal state or an actionable failure becomes available.
@@ -78,6 +78,7 @@ Create or repair GitHub Actions CI/CD, monitor every required run/job/check for 
 - recovery oscillation;
 - cycle/token/time limit reached;
 - destructive migration or deployment outside explicit authorization;
+- missing Why/Porquê section on the open PR;
 - Judge or Evidence Verify failure;
 - any required check unsuccessful on the latest SHA.
 

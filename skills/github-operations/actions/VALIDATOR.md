@@ -11,7 +11,8 @@ A pipeline execution is valid only when:
 7. no failure was hidden by weakened tests/coverage/security/branch-protection configuration;
 8. secrets were redacted before logs reached reasoning/evidence;
 9. recovery stayed within cycle/time/token limits;
-10. Judge, Evidence Verify and secret scan pass before merge readiness.
+10. Judge, Evidence Verify and secret scan pass before merge readiness;
+11. the open PR body contains a verified Why/Porquê section (motivation/context, not a placeholder or a restatement of the diff).
 
 ## Recursive validation
 
@@ -19,7 +20,7 @@ After every corrective push, discard previous-SHA success as merge evidence, dis
 
 ## Merge validation
 
-Immediately before merge, re-read PR head SHA and required checks. Any head movement or new pending/failing required check invalidates readiness.
+Immediately before merge, re-read PR head SHA, required checks and the Why/Porquê section. Any head movement, new pending/failing required check, or missing/placeholder Why invalidates readiness.
 
 ## Permanent denial validation
 

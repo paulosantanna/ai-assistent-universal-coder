@@ -1,8 +1,18 @@
 # LEARNING
 
-Updated: 2026-09-12
+Updated: 2026-09-13
 
 ## Validated learnings
+
+### Do not use ASCII `\\b` after accented PR-heading keywords
+- Context/trigger: `evaluatePrWhy("## Porquê\\n...")` was BLOCKED while `## Why` passed.
+- Problem/failure mode: Portuguese Why headings would fail the required-PR-context gate.
+- Root cause: `ê` is not an ASCII word character, so `porqu[eê]\\b` never sees a word boundary before the newline.
+- Verified correction/prevention: terminate the keyword with `(?=[\\s:#]|$)` instead of `\\b`.
+- Reuse scope: any heading parser for Portuguese/Unicode keywords.
+- Evidence: `tests/node/devops-pipeline-engineering.test.cjs`, `scripts/aeos-devops-pipeline-governance.mjs`
+- Confidence: high
+- Updated: 2026-09-13
 
 ### `git ls-files` through default execFileSync overflows after large worktrees
 - Context/trigger: tracking `.work/reidoabc-wordpress-runtime` grew the index past 13k paths; `aeos-single-agent-guard` called `execFileSync("git", ["ls-files", "-z"])`.
