@@ -428,6 +428,29 @@ mcps:
   write_allowed: false
   approval_required: false
   enabled: true
+- id: docs-kotlin-current
+  type: language-docs
+  transport: stdio
+  config: aeos/mcps/docs-kotlin-current.mcp.yaml
+  risk_level: low
+  governing_skill: kotlin-expert
+  skill_enforced: true
+  skill_intent: Expose docs-kotlin-current only as a governed adapter consumed by AEOS skills.
+  capabilities:
+  - WEB_SEARCH
+  - WEB_FETCH
+  - KNOWLEDGE_RETRIEVAL
+  - LANGUAGE_DOCS
+  tools:
+  - language_docs.search
+  - language_docs.fetch
+  - language_docs.lookup_symbol
+  - language_docs.version_status
+  - language_docs.migration_delta
+  - language_docs.source_policy
+  write_allowed: false
+  approval_required: false
+  enabled: true
 - id: complete-docs
   type: documentation
   transport: stdio

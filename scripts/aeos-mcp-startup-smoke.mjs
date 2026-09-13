@@ -11,6 +11,7 @@ const MCP_CASES = [
   ["docs-java-25", ["--mode", "language-docs", "--profile", "docs-java-25"]],
   ["docs-java-26", ["--mode", "language-docs", "--profile", "docs-java-26"]],
   ["docs-javascript-current", ["--mode", "language-docs", "--profile", "docs-javascript-current"]],
+  ["docs-kotlin-current", ["--mode", "language-docs", "--profile", "docs-kotlin-current"]],
   ["docs-node-current", ["--mode", "language-docs", "--profile", "docs-node-current"]],
   ["docs-python-current", ["--mode", "language-docs", "--profile", "docs-python-current"]],
   ["docs-typescript-current", ["--mode", "language-docs", "--profile", "docs-typescript-current"]],

@@ -3,28 +3,28 @@
 Updated: 2026-09-13
 
 ## Active Mission
-- Objective: require every open PR to describe WHY the change exists, then open/merge this PR and watch Actions until green.
-- [x] BRIEFING: continuity + github-operations / devops-pipeline-engineering contracts.
-- [x] RECON: PR create/update/merge/monitoring surfaces and mergeReadiness gate.
-- [x] PLAN: skill/policy/validator + executable why-gate + PR template + tests.
-- [x] EXECUTE: apply Why rule and wire merge readiness.
-- [x] VERIFY: DevOps Jest (10/10) + `aeos:verify` PASS (11 suites / 53 tests).
-- [ ] PR/MERGE: open with Why, watch Actions, merge when latest SHA is green.
+- Objective: resolve PR #33 conflicts with master and merge kotlin-expert.
+- [x] BRIEFING: PR #33 DIRTY/CONFLICTING after #34 landed on master.
+- [x] RECON: conflicts limited to notebook quartet; skill/MCP files auto-merged.
+- [x] PLAN: keep both Kotlin and PR-Why durable facts; rewrite handoff for this merge.
+- [x] EXECUTE: resolve notebook conflicts.
+- [~] VERIFY: local gates + required Actions on the new head SHA.
+- [ ] MERGE: merge #33 when latest SHA is green.
 
 ## Current Phase
-- VERIFY
+- EXECUTE
 
 ## Verification Gates
-- [x] github-operations and devops-pipeline-engineering require a Why/Porquê section on every open PR.
-- [x] `mergeReadiness` denies merge when Why is missing/placeholder.
-- [x] DevOps Jest covers Why pass/fail cases.
-- [ ] Opened PR includes Why; required Actions on latest SHA are green; merge completed.
+- [ ] Notebook conflicts resolved with both Kotlin and Why/Porquê facts retained.
+- [ ] `kotlin-expert` and `docs-kotlin-current` still present after merge with master.
+- [ ] Required Actions on the new head SHA are green.
+- [ ] PR #33 merged into master.
 
 ## Factual Log
-- 2026-09-13: Target skills are `github-operations` and `devops-pipeline-engineering`.
-- 2026-09-13: `evaluatePrWhy` / `evaluatePrOpen` / `mergeReadiness` enforce Why. Word-boundary `\b` after `Porquê` was dropped because `ê` is not an ASCII word character.
-- 2026-09-13: Local `aeos:verify` PASS.
+- 2026-09-13: `git merge origin/master` into `cursor/kotlin-expert-1d4f` conflicted in HANDOFF, PROGRESS, MEMORY, LEARNING.
+- 2026-09-13: Conflicts resolved; merge commit `89b5d005` pushed. Overlay/Why Jest 19/19 PASS. Awaiting required Actions on this SHA.
 
 ## Previous Missions
-- `kotlin-expert` + `docs-kotlin-current` (Kotlin 2.4.20); PR #33 open with `aeos-quality-gates` SUCCESS.
+- Require Why/Porquê on every open PR; PR #34 merged (`b71c1bb9`); master CI `34789704932` SUCCESS.
+- `kotlin-expert` + `docs-kotlin-current` (Kotlin 2.4.20); PR #33.
 - KingHost control MCP and `kinghost-expert` super-skill.

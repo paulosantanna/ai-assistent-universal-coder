@@ -106,6 +106,12 @@ Updated: 2026-09-13
 - Evidence: `aeos/registries/skills.tlc-catalog.additions.yaml`, `skills/cursor-subagent-creator/SKILL.md`, `skills/the-jury/SKILL.md`
 - Updated: 2026-09-12
 
+### Kotlin current-stable language expert
+- Status: active
+- Fact: `kotlin-expert` follows the `java-21-expert` skill contract and loads current stable Kotlin through `docs-kotlin-current`. Resolved version is Kotlin 2.4.20. The MCP is governed by `kotlin-expert`.
+- Evidence: `skills/kotlin-expert/SKILL.md`, `aeos/mcps/docs-kotlin-current.mcp.yaml`, `aeos/docs/sources/language-docs.registry.yaml`
+- Updated: 2026-09-13
+
 ### Open PRs require a Why/Porquê section
 - Status: active
 - Fact: Every open pull request must describe why the change exists. `github-operations` and `devops-pipeline-engineering` block PR create/update/merge when Why/Porquê is missing, empty or a placeholder. The gate exists so later worktrees keep adequate context. Executable check: `scripts/aeos-devops-pipeline-governance.mjs` `evaluatePrWhy()` / `mergeReadiness()`.

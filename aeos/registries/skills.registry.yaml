@@ -932,6 +932,39 @@ skills:
       - Required independent subagents are unavailable
       - Top-down exception chain cannot be tied to an evidence-backed root cause
       - 'Per-destination HANDOFF.md, LEARNING.md, MEMORY.md, PROGRESS.md, README.md or analysis artifacts cannot be created'
+  - id: kotlin-expert
+    path: skills/kotlin-expert/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: high
+    capabilities:
+      - READ_FILES
+      - KNOWLEDGE_RETRIEVAL
+      - GENERATE_REPORT
+      - GENERATE_EVIDENCE
+    mission: Implement Kotlin production systems against the current stable Kotlin release via docs-kotlin-current.
+    allowed_actions:
+      - Read authorized files through Tool Router
+      - Query docs-kotlin-current for current Kotlin API, release and migration evidence
+      - Generate reports in .aeos/reports
+      - Generate evidence in .aeos/evidence
+    forbidden_actions:
+      - Direct filesystem access
+      - Direct Git mutation
+      - Secret value exposure
+      - Unsupported language or version claims
+      - Implicit experimental or opt-in Kotlin APIs
+    required_inputs:
+      - target_path
+      - objective
+    quality_gates:
+      - Kotlin version claims cite docs-kotlin-current or official release evidence
+      - Repository claims cite inspected files
+      - No secrets are exposed
+    stop_conditions:
+      - Docs MCP unavailable
+      - Target Kotlin version cannot be detected
+      - Evidence cannot be produced
   - id: node-bug-solver
     path: aeos/skills/generated/node-bug-solver.skill.md
     version: 1.0.0

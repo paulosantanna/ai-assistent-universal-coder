@@ -133,6 +133,13 @@ allowlist:
   - language_docs.version_status
   - language_docs.migration_delta
   - language_docs.source_policy
+  docs-kotlin-current:
+  - language_docs.search
+  - language_docs.fetch
+  - language_docs.lookup_symbol
+  - language_docs.version_status
+  - language_docs.migration_delta
+  - language_docs.source_policy
   complete-docs:
   - docs.plan
   - docs.mermaid_template

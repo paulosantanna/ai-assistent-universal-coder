@@ -3,18 +3,18 @@
 Updated: 2026-09-13
 
 ## Objective
-- Require Why/Porquê on every open PR, then open this PR, merge it and watch Actions until green.
+- Resolve PR #33 conflicts with `master` and merge `kotlin-expert` after latest-SHA CI is green.
 
 ## Last Verified State
-- Skill/policy/validator/playbook/PR template/governance gate implemented; local tests not yet run in this revision.
+- Conflicts are only in `.notebook/{HANDOFF,PROGRESS,MEMORY,LEARNING}.md` after merging `origin/master` (PR #34 Why/Porquê) into `cursor/kotlin-expert-1d4f`.
+- Kotlin skill/MCP files did not conflict.
+- Merge not yet completed.
 
 ## Working Set
-- `skills/github-operations/`
-- `skills/devops-pipeline-engineering/`
-- `scripts/aeos-devops-pipeline-governance.mjs`
-- `tests/node/devops-pipeline-engineering.test.cjs`
-- `.github/PULL_REQUEST_TEMPLATE.md`
+- `.notebook/{HANDOFF,PROGRESS,MEMORY,LEARNING}.md`
+- `skills/kotlin-expert/`
+- `aeos/mcps/docs-kotlin-current.mcp.yaml`
 
 ## Risks And Next Actions
-- Run DevOps Jest and `aeos:verify` subset.
-- Open PR with Why, monitor required checks on latest SHA, merge after green.
+- Finish conflict resolution, push, revalidate required checks on the new head SHA, merge PR #33.
+- Reconfirm Kotlin currency with `docs-kotlin-current` if a newer GitHub tag appears after 2.4.20.

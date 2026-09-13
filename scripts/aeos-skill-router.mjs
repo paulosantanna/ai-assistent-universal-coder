@@ -120,14 +120,15 @@ function scoreSkill(skill, request) {
     ["security-best-practices", ["security-best-practices", "security best practices", "secure-by-default"]],
     ["security-ownership-map", ["security-ownership-map", "bus factor", "orphaned sensitive", "codeowners"]],
     ["security-threat-model", ["security-threat-model", "threat model", "abuse paths", "appsec threat"]],
-    ["web-quality-audit", ["web-quality-audit", "audit my site", "review web quality", "check page quality"]]
+    ["web-quality-audit", ["web-quality-audit", "audit my site", "review web quality", "check page quality"]],
+    ["kotlin-expert", ["kotlin", "kotlin multiplatform", "kmp", "kotlinx", "kotlin gradle"]]
   ];
   for (const [needle, aliases] of boosts) {
     if (aliases.some((alias) => requestLower.includes(alias)) && text.includes(needle)) score += 8;
   }
 
   const requestedJava = /\bjava\b/.test(requestLower) && !/\bjavascript\b/.test(requestLower);
-  if (requestedJava && /\b(javascript|typescript|node|angular|python)\b/.test(skill.id.toLowerCase())) {
+  if (requestedJava && /\b(javascript|typescript|node|angular|python|kotlin)\b/.test(skill.id.toLowerCase())) {
     score -= 25;
   }
 
