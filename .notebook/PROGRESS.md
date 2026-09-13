@@ -7,8 +7,8 @@ Updated: 2026-09-13
 - [x] BRIEFING: PR #33 DIRTY/CONFLICTING after #34 landed on master.
 - [x] RECON: conflicts limited to notebook quartet; skill/MCP files auto-merged.
 - [x] PLAN: keep both Kotlin and PR-Why durable facts; rewrite handoff for this merge.
-- [~] EXECUTE: resolve notebook conflicts.
-- [ ] VERIFY: local gates + required Actions on the new head SHA.
+- [x] EXECUTE: resolve notebook conflicts.
+- [~] VERIFY: local gates + required Actions on the new head SHA.
 - [ ] MERGE: merge #33 when latest SHA is green.
 
 ## Current Phase
@@ -22,7 +22,7 @@ Updated: 2026-09-13
 
 ## Factual Log
 - 2026-09-13: `git merge origin/master` into `cursor/kotlin-expert-1d4f` conflicted in HANDOFF, PROGRESS, MEMORY, LEARNING.
-- 2026-09-13: PR #34 (Why/Porquê) is already on master; that is the conflict source.
+- 2026-09-13: Conflicts resolved; merge commit `89b5d005` pushed. Overlay/Why Jest 19/19 PASS. Awaiting required Actions on this SHA.
 
 ## Previous Missions
 - Require Why/Porquê on every open PR; PR #34 merged (`b71c1bb9`); master CI `34789704932` SUCCESS.
