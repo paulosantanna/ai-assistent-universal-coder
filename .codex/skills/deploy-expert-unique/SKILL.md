@@ -20,7 +20,7 @@ Use this skill only for the AIHealthResearch AWS deployment pipeline. It is inte
 
 ## Required GitHub gates
 
-- CVEs Google expert: `google/osv-scanner-action/osv-scanner-action@v2.6.0` against `requirements.lock`, `requirements-dev.lock`, and `requirements-training.lock`.
+- CVEs Google expert: `google/osv-scanner-action/osv-scanner-action@v2.6.0` with `--no-resolve` against the declared runtime manifest. Transitive dependency CVEs are governed by the lock-file `pip-audit` checks.
 - SAST-expert: `github/codeql-action/init@v3` and `github/codeql-action/analyze@v3` for Python.
 - Security-expert: `bandit -q -r src scripts`, `pip-audit -r requirements.lock`, and `pip-audit -r requirements-training.lock`.
 - deploy-expert contract gate: `python scripts/validate_deployment_pipeline.py` and `python scripts/validate_security_gates.py`.
