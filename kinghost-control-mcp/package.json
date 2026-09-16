@@ -1,9 +1,9 @@
 {
   "name": "@aeos/kinghost-control-mcp",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "private": true,
   "type": "module",
-  "description": "KingHost Hospedagem control-plane MCP: cookie-jar panel login, domain select, WordPress/PHP/MySQL/WooCommerce, site clone and FTP production publish.",
+  "description": "KingHost Hospedagem control-plane MCP: governed panel/domain knowledge, FTP/MySQL execution, WordPress/PHP publish, backup/security/email/performance operations and rollback-safe production control.",
   "scripts": {
     "start": "node index.mjs",
     "smoke": "node index.mjs --self-test"
