@@ -1,6 +1,6 @@
 ---
 name: kinghost-expert
-description: Super-skill for complete KingHost Hospedagem operations: panel auth, domains/DNS/SSL, FTP/SSH/Git publish, WordPress/PHP/MySQL, backups, email, antivirus/WAF, cache/performance and rollback-safe production changes.
+description: Super-skill for complete KingHost Hospedagem operations: panel auth, domains/DNS/SSL, absolute FTP-visible site clone, governed FTP/SSH/Git publish, WordPress/PHP/MySQL, backups, email, antivirus/WAF, cache/performance and rollback-safe production changes.
 ---
 
 # KingHost Expert Super-Skill
@@ -11,7 +11,7 @@ A super-skill of the single canonical `codenavi-agent`. It creates no new agent 
 
 ## Mission
 
-Operate authorized KingHost Hospedagem accounts from first inventory through production: authenticate the panel with an **external runtime cookie/cookie-jar** reference, list/select domains, create/manage supported hosting resources through documented panel surfaces, inspect and mutate FTP/MySQL safely, operate WordPress/PHP, publish code, manage DNS/SSL/e-mail, request/restore backups, run antivirus/WAF controls, tune cache/performance and verify/rollback changes.
+Operate authorized KingHost Hospedagem accounts from first inventory through production: authenticate the panel with an **external runtime cookie/cookie-jar** reference, list/select domains, create/manage supported hosting resources through documented panel surfaces, clone the complete FTP-visible site tree with integrity reconciliation, inspect and mutate FTP/MySQL safely, operate WordPress/PHP, publish code, manage DNS/SSL/e-mail, request/restore backups, run antivirus/WAF controls, tune cache/performance and verify/rollback changes.
 
 Full hosting operating contract: `skills/kinghost-expert/HOSTING_OPERATIONS.md`.
 
@@ -44,6 +44,7 @@ Existing integrations remain stable while the hosting surface expands:
 
 - bind **already created** FTP/MySQL/WordPress identities as opaque runtime references; never rediscover their passwords;
 - use `kinghost_control.site.clone` for governed site clone planning/execution;
+- use `kinghost_control.ftp.tree.upload` for governed FTP publication under mutation gates;
 - preserve playbook id `kinghost-wordpress-publish` and command `npm run aeos:kinghost:publish` for the one-command WordPress publish path;
 - keep `domain.list` / `domain.select` as the canonical domain-selection contract.
 
@@ -55,6 +56,8 @@ Existing integrations remain stable while the hosting surface expands:
 - `kinghost-email-expert`: mailbox/Webmail/client/DNS/recovery workflows.
 - `kinghost-performance-expert`: hosting/app/database performance, Varnish/cache and PHP runtime.
 - `kinghost-database-expert`: MySQL creation/access/migration/query/backup/recovery.
+- `kinghost-clone-site-expert`: integrity-reconciled, remote-read-only clone of the entire FTP-visible site tree, with explicit database completeness boundaries.
+- `kinghost-site-publish-ftp-expert`: manifest-driven PHP/WordPress FTP publication with backup, approval, rollback and application smoke.
 
 These are skill lenses of `codenavi-agent`, not independent agent identities.
 
@@ -107,7 +110,8 @@ Use internal lenses, never subagents:
 
 - `kinghost-environment`: plan/domain/service availability;
 - `domain-dns-ssl`: hostname, records, certificates and propagation;
-- `ftp-publish`: clone/upload/WebFTP/Git publication;
+- `ftp-clone`: complete FTP-visible inventory/download/reconciliation with no remote mutation;
+- `ftp-publish`: manifest-driven upload with protected paths, rollback and verification;
 - `wordpress-architecture`: WordPress/plugins/WooCommerce;
 - `php-runtime`: PHP compatibility/configuration/cron;
 - `mysql-safety`: read-first SQL, migrations, backups and recovery;
@@ -128,6 +132,8 @@ Never edit WordPress core for feature work. `wp-config.php`, `wp-admin/` and `wp
 
 ## Service-specific invariants
 
+- FTP clone: remote side is read-only; every FTP-visible path must be reconciled as copied, secret-excluded, inaccessible, unsupported or failed; an FTP-only WordPress copy is not database-complete.
+- FTP publish: use an approved manifest; no implicit remote deletion; protected paths fail closed; transfer success alone is not PASS.
 - DNS: snapshot all records before write; preserve unrelated records; verify authoritative resolution.
 - SSL: confirm hostname/DNS prerequisites; verify certificate and mixed content after activation.
 - Backup: restore never begins without current-state snapshot and rollback.
