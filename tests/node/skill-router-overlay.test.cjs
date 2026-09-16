@@ -56,6 +56,25 @@ describe("AEOS active overlay skill routing", () => {
     assert.equal(byId.has("kotlin-expert"), true);
     assert.equal(byId.get("kotlin-expert").ownerAgent, "codenavi-agent");
     assert.equal(byId.get("kotlin-expert").path, "skills/kotlin-expert/SKILL.md");
+    assert.equal(byId.has("kinghost-expert"), true);
+    assert.equal(byId.get("kinghost-expert").ownerAgent, "codenavi-agent");
+    assert.equal(byId.get("kinghost-expert").registryFragment, "skills.kinghost-expert.additions.yaml");
+  });
+
+  it("routes KingHost WordPress publish intent to kinghost-expert", async () => {
+    const { routeRequest } = await import(moduleUrl("scripts/aeos-skill-router.mjs"));
+    const sandbox = fs.mkdtempSync(path.join(os.tmpdir(), "aeos-kinghost-route-"));
+    try {
+      const result = routeRequest(
+        "publique o wordpress woocommerce no kinghost hospedagem",
+        { memoryRoot: path.join(sandbox, "memory"), outputDir: path.join(sandbox, "router"), limit: 8 }
+      );
+      const ids = result.selectedSkills.map((skill) => skill.id);
+      assert.equal(ids.includes("kinghost-expert"), true);
+      assert.equal(result.gates.overlayRegistryResolved, true);
+    } finally {
+      fs.rmSync(sandbox, { recursive: true, force: true });
+    }
   });
 
   it("routes Kotlin implementation intent to kotlin-expert", async () => {

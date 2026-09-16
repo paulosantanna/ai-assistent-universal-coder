@@ -1,7 +1,7 @@
 skills:
   - id: kinghost-expert
     path: skills/kinghost-expert/SKILL.md
-    version: 1.1.0
+    version: 1.2.0
     owner_agent: codenavi-agent
     risk_level: high
     capabilities:

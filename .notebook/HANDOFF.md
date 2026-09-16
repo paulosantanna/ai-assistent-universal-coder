@@ -3,16 +3,21 @@
 Updated: 2026-09-16
 
 ## Objective
-- Repair PR #42 CI, merge into master, follow required Actions until the merged SHA is green.
+- Ship the one-command KingHost WordPress/WooCommerce publish playbook (`kinghost-wordpress-publish`).
 
 ## Last Verified State
-- Root cause: unquoted `skill_intent` colon broke overlay YAML parse (`35052357725`).
-- Local Jest: kinghost-control + runtime-auth 15/15 PASS after quoting the scalar.
-- PR still draft: https://github.com/paulosantanna/ai-assistent-universal-coder/pull/42
+- `npm run aeos:verify` PASS (guards + Jest 12 suites / 65 tests).
+- `kinghost-control-mcp` `--self-test` PASS.
+- CLI `--help` returns playbook `kinghost-wordpress-publish`.
+- Live FTP APPLY against a real KingHost account remains operator-gated.
 
 ## Working Set
-- `aeos/registries/mcps.kinghost.additions.yaml`
-- `tests/node/kinghost-control-mcp.test.cjs`
+- `aeos/playbooks/kinghost-wordpress-publish.playbook.md`
+- `scripts/aeos-kinghost-publish.mjs`
+- `kinghost-control-mcp/index.mjs`
+- `kinghost-control-mcp/wordpress-ops.mjs`
+- `aeos/registries/playbooks.kinghost-expert.additions.yaml`
 
 ## Risks And Next Actions
-- Push the YAML fix, wait for latest-SHA AEOS Enterprise CI SUCCESS, merge #42, wait for master SHA SUCCESS.
+- VERIFY Jest/guards, then open the PR.
+- APPLY still needs operator cookie-jar/FTP env and `AEOS_KINGHOST_APPROVED=true`.

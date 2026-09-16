@@ -16,6 +16,7 @@ describe('KingHost control MCP contracts', () => {
     assert.match(text, /kinghost_control\.panel\.session\.open_cookie_file/);
     assert.match(text, /kinghost_control\.domain\.list/);
     assert.match(text, /kinghost_control\.site\.clone/);
+    assert.match(text, /kinghost_control\.publish\.preflight/);
     assert.match(text, /storage: forbidden/);
   });
 
@@ -35,6 +36,8 @@ describe('KingHost control MCP contracts', () => {
     assert.match(skill, /domain\.list/);
     assert.match(skill, /site\.clone/);
     assert.match(skill, /WooCommerce/);
+    assert.match(skill, /kinghost-wordpress-publish/);
+    assert.match(skill, /aeos:kinghost:publish/);
     const permissions = fs.readFileSync(path.join(root, 'skills/kinghost-expert/PERMISSIONS.yaml'), 'utf8');
     assert.match(permissions, /kinghost\.credential\.discover_or_scrape/);
     assert.match(permissions, /permanently_denied:/);
@@ -98,6 +101,7 @@ describe('KingHost control MCP contracts', () => {
     const blob = JSON.stringify(result.data.matches).toLowerCase();
     assert.match(blob, /woocommerce/);
     assert.match(blob, /painel\.kinghost\.com\.br/);
+    assert.match(blob, /aeos:kinghost:publish|kinghost-wordpress-publish/);
     const plugins = await mod.dispatch('kinghost_control.plugin.catalog', {});
     assert.equal(plugins.success, true);
     assert.ok(plugins.data.wordpress_plugins.some((plugin) => plugin.slug === 'woocommerce'));
@@ -192,5 +196,33 @@ describe('KingHost control MCP contracts', () => {
       wp.parsePhpSerializedPluginList('a:1:{i:0;s:27:"woocommerce/woocommerce.php";}'),
       ['woocommerce/woocommerce.php']
     );
+  });
+
+  it('preflights one-command publish for a local WordPress/WooCommerce tree', async () => {
+    const mod = await import(pathToFileURL(path.join(root, 'kinghost-control-mcp/index.mjs')).href);
+    const wp = await import(pathToFileURL(path.join(root, 'kinghost-control-mcp/wordpress-ops.mjs')).href);
+    const tree = fs.mkdtempSync(path.join(os.tmpdir(), 'kinghost-wp-'));
+    fs.mkdirSync(path.join(tree, 'wp-content', 'themes', 'demo'), { recursive: true });
+    fs.mkdirSync(path.join(tree, 'wp-content', 'plugins', 'woocommerce'), { recursive: true });
+    fs.writeFileSync(path.join(tree, 'wp-content', 'plugins', 'woocommerce', 'woocommerce.php'), '<?php');
+    fs.writeFileSync(path.join(tree, 'wp-config.php'), "define('DB_PASSWORD', 'must-not-upload');");
+    process.env.KINGHOST_FTP_PASSWORD = 'never-return-this-ftp-secret';
+    const preflight = await mod.dispatch('kinghost_control.publish.preflight', { workspace_root: tree });
+    assert.equal(preflight.success, true);
+    assert.equal(preflight.data.status, 'READY');
+    assert.equal(preflight.data.playbook_id, 'kinghost-wordpress-publish');
+    assert.equal(preflight.data.inspection.wordpress, true);
+    assert.equal(preflight.data.inspection.woocommerce_plugin_present, true);
+    assert.equal(preflight.data.inspection.wp_config_present, true);
+    assert.ok(preflight.data.inspection.excluded_by_default.includes('wp-config.php'));
+    assert.equal(preflight.data.woocommerce.replace_database_allowed, false);
+    assert.ok(preflight.data.woocommerce.preserve_on_production.some((item) => /orders/i.test(item)));
+    assert.ok(preflight.data.credential_presence.present_env_names.includes('KINGHOST_FTP_PASSWORD'));
+    assert.equal(JSON.stringify(preflight).includes('never-return-this-ftp-secret'), false);
+    assert.equal(JSON.stringify(preflight).includes('must-not-upload'), false);
+    const inspected = wp.inspectLocalWordpressTree(tree);
+    assert.equal(inspected.layout, 'wordpress_root');
+    fs.rmSync(tree, { recursive: true, force: true });
+    delete process.env.KINGHOST_FTP_PASSWORD;
   });
 });

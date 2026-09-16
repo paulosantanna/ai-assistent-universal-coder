@@ -39,7 +39,7 @@ AEOS combines:
 - Chromatic Memory and governed knowledge promotion;
 - Java/version expertise and modernization support;
 - PR review and dependency maintenance;
-- KingHost/site/commerce operations under explicit security gates;
+- KingHost/site/commerce operations under explicit security gates, including one-command WordPress/WooCommerce publish to already-hosted KingHost domains (`npm run aeos:kinghost:publish`);
 - deny-by-default capability and secret handling.
 
 ## Quick start

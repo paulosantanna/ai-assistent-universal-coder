@@ -1,6 +1,6 @@
 skill: kinghost-expert
 owner_agent: codenavi-agent
-version: 1.1.0
+version: 1.2.0
 
 read:
   - kinghost.environment.catalog
@@ -10,6 +10,7 @@ read:
   - kinghost.credential.metadata
   - kinghost.ftp.list_read
   - kinghost.ftp.clone_dry_run
+  - kinghost.publish.preflight
   - kinghost.mysql.readonly
   - kinghost.panel.identity
   - wordpress_knowledge.all

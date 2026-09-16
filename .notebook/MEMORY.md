@@ -94,6 +94,12 @@ Updated: 2026-09-16
 - Evidence: `skills/spec-driven/SKILL.md`, `skills/spec-driven-lean/SKILL.md`, `aeos/registries/overlay.registry.index.yaml`
 - Updated: 2026-09-12
 
+### KingHost one-command WordPress publish
+- Status: active
+- Fact: Playbook `kinghost-wordpress-publish` publishes a locally altered WordPress/PHP/WooCommerce tree onto an already-hosted KingHost domain via `npm run aeos:kinghost:publish`. Default APPLY is scoped `wp-content` code. Live orders, customers, `siteurl`/`home`, payment secrets and `wp-config.php` stay on production. `--replace-database` is blocked on this path.
+- Evidence: `aeos/playbooks/kinghost-wordpress-publish.playbook.md`, `scripts/aeos-kinghost-publish.mjs`, `kinghost-control-mcp/index.mjs:publishPreflight`
+- Updated: 2026-09-16
+
 ### KingHost control MCP and expert super-skill
 - Status: active
 - Fact: `kinghost-control` is the KingHost Hospedagem control plane: cookie-jar panel login, existing domain list/select, already-created user inventory (redacted), WordPress/PHP/MySQL/WooCommerce, site clone and FTP tree publish. `kinghost-expert` governs the production FSM. Passwords and cookie values are never persisted or returned to the model. `kinghost-commerce` remains the SSH/SFTP/Postgres commerce adapter.

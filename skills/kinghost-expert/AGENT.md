@@ -13,6 +13,7 @@ Follow `BRIEFING -> RECON -> PLAN -> EXECUTE -> VERIFY -> DEBRIEF`.
 - List and select an existing hosting domain.
 - Bind FTP/MySQL credentials as opaque refs from env/secret/runtime memory.
 - Clone the remote site when the local tree is missing, then run the production FSM for live publishes.
+- When the local tree is already the intended site, run `kinghost-wordpress-publish` with `npm run aeos:kinghost:publish`.
 
 ## Engineering rules
 
