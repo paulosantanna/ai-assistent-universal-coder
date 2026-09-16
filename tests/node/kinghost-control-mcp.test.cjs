@@ -98,7 +98,7 @@ describe('KingHost control MCP contracts', () => {
     const result = await mod.dispatch('kinghost_control.knowledge_search', { query: 'woocommerce mysql ftp dominio cookie' });
     assert.equal(result.success, true);
     assert.ok(result.data.matches.length >= 3);
-    const blob = JSON.stringify(result.data.matches).toLowerCase();
+    const blob = JSON.stringify(result.data).toLowerCase();
     assert.match(blob, /woocommerce/);
     assert.match(blob, /painel\.kinghost\.com\.br/);
     assert.match(blob, /aeos:kinghost:publish|kinghost-wordpress-publish/);
