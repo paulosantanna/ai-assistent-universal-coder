@@ -74,6 +74,7 @@ mcps:
     dry_run_default: true
     log_redaction_required: true
     enabled: true
+
   - id: kinghost-control
     type: hosting-control-plane
     transport: stdio
@@ -81,7 +82,7 @@ mcps:
     risk_level: critical
     governing_skill: kinghost-expert
     skill_enforced: true
-    skill_intent: "Deterministic KingHost Hospedagem control: cookie-jar panel login, domain list/select, already-created users, WordPress/PHP/MySQL, clone and FTP production publish without persisting secrets."
+    skill_intent: "Deterministic KingHost Hospedagem control and knowledge: panel/domain selection, DNS/SSL, FTP/Git/WordPress/PHP/MySQL, backups, email, antivirus/WAF, cache/performance and rollback-safe production operations without persisting secrets or inventing private APIs."
     capabilities:
       - kinghost_control.health
       - kinghost_control.environment.catalog
