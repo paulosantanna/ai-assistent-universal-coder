@@ -1,7 +1,7 @@
 skills:
   - id: kinghost-expert
     path: skills/kinghost-expert/SKILL.md
-    version: 1.3.0
+    version: 1.4.0
     owner_agent: codenavi-agent
     risk_level: high
     capabilities:
@@ -11,7 +11,9 @@ skills:
       - KINGHOST_CREDENTIAL_BIND
       - KINGHOST_COOKIE_PANEL
       - KINGHOST_SITE_CLONE
+      - KINGHOST_ABSOLUTE_FTP_CLONE
       - KINGHOST_FTP_PUBLISH
+      - KINGHOST_GOVERNED_FTP_PUBLISH
       - KINGHOST_GIT_PUBLISH
       - KINGHOST_PHP_CONFIG
       - KINGHOST_MYSQL
@@ -22,7 +24,7 @@ skills:
       - WORDPRESS_PRODUCTION_OPERATIONS
       - WORDPRESS_WOOCOMMERCE
       - ROLLBACK_PLANNING
-    mission: Complete governed KingHost Hospedagem control from panel authentication through domains/DNS/SSL, FTP/Git/WordPress/PHP/MySQL, backup/recovery, email, antivirus/WAF, performance and production verification.
+    mission: Complete governed KingHost Hospedagem control from panel authentication through domains/DNS/SSL, absolute FTP-visible site clone, governed FTP/Git publish, WordPress/PHP/MySQL, backup/recovery, email, antivirus/WAF, performance and production verification.
     required_mcps: [kinghost-control, wordpress-knowledge, browser]
     allowed_secret_sources: [external_runtime_cookie_file_reference, env_reference, secret_reference]
     quality_gates:
@@ -32,6 +34,8 @@ skills:
       - WordPress core and wp-config.php are not uploaded without high-risk approval
       - High-impact mutation has inventory, rollback and post-change verification
       - Cookie/Playwright/mailbox/database secrets never persist
+      - FTP clone has no silently unaccounted remote paths
+      - FTP publish requires manifest reconciliation and application smoke
 
   - id: kinghost-backup-recovery-expert
     path: skills/kinghost-backup-recovery-expert/SKILL.md
@@ -80,3 +84,29 @@ skills:
     risk_level: high
     capabilities: [KINGHOST_MYSQL_CREATE, KINGHOST_MYSQL_ACCESS, DATABASE_BACKUP, DATABASE_MIGRATION, DATABASE_PERFORMANCE]
     required_mcps: [kinghost-control, browser]
+
+  - id: kinghost-clone-site-expert
+    path: skills/kinghost-clone-site-expert/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: medium
+    capabilities: [KINGHOST_ABSOLUTE_FTP_CLONE, KINGHOST_FTP_INVENTORY, KINGHOST_FTP_DOWNLOAD, CLONE_INTEGRITY_RECONCILIATION]
+    required_mcps: [kinghost-control]
+    quality_gates:
+      - Clone path is remote read-only
+      - Every FTP-visible path is explicitly accounted for
+      - Secret-bearing files are never exposed to model/evidence
+      - FTP-only clone is not misrepresented as database-complete
+
+  - id: kinghost-site-publish-ftp-expert
+    path: skills/kinghost-site-publish-ftp-expert/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: high
+    capabilities: [KINGHOST_GOVERNED_FTP_PUBLISH, KINGHOST_PUBLISH_MANIFEST, KINGHOST_FTP_UPLOAD, FTP_ROLLBACK, APPLICATION_SMOKE]
+    required_mcps: [kinghost-control, browser]
+    quality_gates:
+      - Production upload has inventory snapshot diff backup approval and verification
+      - Protected WordPress/core/secret paths fail closed by default
+      - Remote deletion is opt-in and rollback-safe
+      - FTP transfer success alone cannot yield PASS
