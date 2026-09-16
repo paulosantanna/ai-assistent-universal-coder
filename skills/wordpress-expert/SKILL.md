@@ -1,6 +1,6 @@
 ---
 name: wordpress-expert
-description: Staff-level WordPress engineering super-skill for one-shot site mapping, governed remote wp-admin operations, themes/plugins/blocks/layout, third-party integrations and production-safe changes.
+description: Staff-level WordPress engineering super-skill for one-shot site mapping, the complete installed plugin universe, governed remote wp-admin operations, themes/blocks/layout, third-party integrations and production-safe changes.
 ---
 
 # WordPress Expert Super-Skill
@@ -11,7 +11,7 @@ A super-skill of the single canonical `codenavi-agent`. It creates no new agent 
 
 ## Mission
 
-Create, inspect, map, modify, integrate, troubleshoot and operate WordPress sites from first contact through production changes while preserving rollback, security, accessibility and evidence.
+Create, inspect, map, modify, integrate, troubleshoot and operate WordPress sites from first contact through production changes while preserving rollback, security, accessibility and evidence. Use **every plugin present in the site** (`wp-content/plugins` and `wp-content/mu-plugins`), not a WooCommerce-only or catalog-only subset. The complete plugin universe ships with `kinghost-wordpress-publish`.
 
 ## Knowledge dependency
 
@@ -33,7 +33,7 @@ If `.aeos/wordpress/sites/<site-id>/beta-map.json` does not exist or fails schem
 2. verify target hostname and wp-admin identity without persisting user PII;
 3. discover `/wp-json/`, namespaces and supported methods;
 4. map WordPress version, theme mode, active theme/parent-child relation;
-5. map plugins and versions/activation state;
+5. map **all** installed plugins (regular, must-use, single-file), versions and activation state — never a sampled catalog;
 6. map pages, post types, navigation, templates/template parts/patterns and key settings by metadata/IDs;
 7. map front-end assets, builders, custom plugin namespaces, CDN/cache/security indicators and external integrations;
 8. map safe rollback/backup affordances;
@@ -52,7 +52,7 @@ Use internal lenses, never subagents:
 - `staff-frontend`: semantic HTML, CSS architecture, JS, responsive behavior, design systems, performance;
 - `gutenberg-blocks`: blocks, patterns, templates, Site Editor, theme.json;
 - `classic-theme`: template hierarchy, child themes, functions.php, enqueueing;
-- `plugin-engineering`: plugin structure, hooks, settings, CPTs, REST endpoints, activation/uninstall;
+- `plugin-engineering`: **complete plugin universe** — every installed regular/must-use/file plugin, hooks, settings, CPTs, REST endpoints, activation/uninstall;
 - `accessibility`: WCAG-oriented keyboard/focus/contrast/semantics/ARIA validation;
 - `wordpress-security`: capabilities, nonce, validation, sanitization, escaping, upload safety;
 - `wordpress-performance`: asset budgets, image strategy, caching, query cost, Core Web Vitals considerations;
@@ -60,6 +60,16 @@ Use internal lenses, never subagents:
 - `production-operations`: backup, staging, deploy, cache purge, smoke, rollback and incident recovery.
 
 Before medium/high-risk mutation ask: **Would a Staff Front-End/WordPress Engineer implement this change this way in production, considering WordPress extension points, accessibility, performance, security, rollback and maintainability?**
+
+## Complete plugin universe
+
+The installed plugin set of the target site is first-class. Procedure: `skills/wordpress-expert/PLUGINS.md`.
+
+- Inventory every slug in `wp-content/plugins` and `wp-content/mu-plugins` (active, inactive and must-use).
+- Do not cap work at WooCommerce or a static popular-plugin list.
+- Consult `wordpress-knowledge` (`plugin_universe_plan`, Plugin Handbook, `https://wordpress.org/plugins/`) before material third-party plugin API claims.
+- Local inventory: `listLocalWordpressPlugins` / `inspectLocalWordpressTree`.
+- KingHost publish (`kinghost-wordpress-publish` / `npm run aeos:kinghost:publish`) includes the full local plugin trees with the theme. Live orders, customers, payment secrets and `wp-config.php` stay on production.
 
 ## Mutation hierarchy
 
@@ -80,7 +90,7 @@ Never edit WordPress core for feature work.
 - create or modify plugins and custom blocks;
 - alter layout, responsive behavior, typography, colors, spacing and interactions;
 - add/remove links, buttons, menus, widgets/blocks and external integrations;
-- install/activate/deactivate/update plugins/themes under policy;
+- install/activate/deactivate/update **any installed or requested** plugin/theme under policy; do not ignore non-WooCommerce plugins present in the tree;
 - use REST API, wp-admin session, WP-CLI or repository deployment path when available and safer;
 - diagnose PHP/JS/CSS/template/plugin conflicts;
 - stage, verify and promote changes to production under production gates.
@@ -103,6 +113,7 @@ Before production write:
 - staging/dry-run used when risk warrants;
 - security/accessibility/performance impact considered;
 - no secret/cookie/nonces are persisted;
+- complete installed plugin inventory is known (not a sampled subset);
 - post-change smoke and visual/functional verification defined.
 
 High-risk operations require explicit approval according to Policy Engine.

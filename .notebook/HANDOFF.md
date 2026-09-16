@@ -3,16 +3,20 @@
 Updated: 2026-09-16
 
 ## Objective
-- Repair PR #42 CI, merge into master, follow required Actions until the merged SHA is green.
+- Same branch/PR as the KingHost one-command publish: `wordpress-expert` must use every installed WordPress plugin, not a WooCommerce/catalog subset.
 
 ## Last Verified State
-- Root cause: unquoted `skill_intent` colon broke overlay YAML parse (`35052357725`).
-- Local Jest: kinghost-control + runtime-auth 15/15 PASS after quoting the scalar.
-- PR still draft: https://github.com/paulosantanna/ai-assistent-universal-coder/pull/42
+- `npm run aeos:verify` PASS (12 suites / 66 tests) after wordpress-expert complete plugin universe.
+- Draft PR: https://github.com/paulosantanna/ai-assistent-universal-coder/pull/43
 
 ## Working Set
-- `aeos/registries/mcps.kinghost.additions.yaml`
-- `tests/node/kinghost-control-mcp.test.cjs`
+- `skills/wordpress-expert/SKILL.md`
+- `skills/wordpress-expert/PLUGINS.md`
+- `kinghost-control-mcp/wordpress-ops.mjs`
+- `aeos/mcp-servers/wordpress-knowledge-mcp.mjs`
+- `aeos/playbooks/kinghost-wordpress-publish.playbook.md`
 
 ## Risks And Next Actions
-- Push the YAML fix, wait for latest-SHA AEOS Enterprise CI SUCCESS, merge #42, wait for master SHA SUCCESS.
+- Draft PR: https://github.com/paulosantanna/ai-assistent-universal-coder/pull/43
+- VERIFY Jest/guards, then push onto #43.
+- Live KingHost APPLY remains operator-gated.

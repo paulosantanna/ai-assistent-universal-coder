@@ -92,6 +92,7 @@ const KINGHOST_CONTROL_ACTIONS = [
   "kinghost_control.rollback.plan",
   "kinghost_control.verify.smoke_plan",
   "kinghost_control.deploy.workspace_to_production",
+  "kinghost_control.publish.preflight",
   "kinghost_control.knowledge_search"
 ];
 

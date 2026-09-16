@@ -2,7 +2,7 @@ mcp:
   id: kinghost-control
   name: KingHost Deterministic Control MCP
   protocol: model-context-protocol
-  version: "1.1.0"
+  version: "1.2.0"
 
   transport:
     type: stdio
@@ -55,6 +55,7 @@ mcp:
       - { name: kinghost_control.rollback.plan, security: read-only }
       - { name: kinghost_control.verify.smoke_plan, security: read-only }
       - { name: kinghost_control.deploy.workspace_to_production, security: write-controlled }
+      - { name: kinghost_control.publish.preflight, security: read-only }
       - { name: kinghost_control.knowledge_search, security: read-only }
 
   security:

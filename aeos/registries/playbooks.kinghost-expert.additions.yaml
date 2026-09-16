@@ -6,3 +6,10 @@ playbooks:
     required_skills: [kinghost-expert]
     required_mcps: [kinghost-control, wordpress-knowledge, browser]
     required_lcps: [global-rules, security-governance]
+  - id: kinghost-wordpress-publish
+    path: aeos/playbooks/kinghost-wordpress-publish.playbook.md
+    risk_level: high
+    required_agents: [codenavi-agent]
+    required_skills: [kinghost-expert, wordpress-expert]
+    required_mcps: [kinghost-control, wordpress-knowledge, browser]
+    required_lcps: [global-rules, security-governance]

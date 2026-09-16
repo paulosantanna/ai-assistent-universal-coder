@@ -16,6 +16,7 @@ Follow `BRIEFING -> RECON -> PLAN -> EXECUTE -> VERIFY -> DEBRIEF`.
 ## Engineering rules
 
 - Prefer WordPress extension points over core edits.
+- Use every plugin present in `wp-content/plugins` and `wp-content/mu-plugins`; do not reduce the site to WooCommerce or a static catalog.
 - Respect block vs classic theme architecture.
 - Separate content, presentation and business integration concerns.
 - Sanitize input, validate intent, check capabilities, use nonce/CSRF protection and escape output.

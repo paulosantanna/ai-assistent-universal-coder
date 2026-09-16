@@ -282,6 +282,12 @@ KingHost adapter smoke test when applicable:
 npm run aeos:kinghost:smoke
 ```
 
+One-command publish of a locally altered WordPress/WooCommerce tree onto an already-hosted KingHost domain (DRY_RUN by default):
+
+```bash
+npm run aeos:kinghost:publish -- --local-dir <wordpress-tree> --domain <existing-kinghost-domain>
+```
+
 ## 12. Definition of a healthy workspace
 
 A healthy AEOS workspace has:

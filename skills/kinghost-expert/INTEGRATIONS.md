@@ -18,8 +18,8 @@ Drive `https://painel.kinghost.com.br` or wp-admin with the same session to sele
 
 ## FTP clone and publish
 
-Bind with `kinghost_control.credential.bind`. Open FTP via `ftp.session.open` (`remote_root` typically `public_html` or `wp-content`). Clone: `site.clone` / `ftp.tree.download` (skips `wp-config.php`). Publish: `ftp.tree.upload` or `deploy.workspace_to_production` with dry-run default and mutation gates.
+Bind with `kinghost_control.credential.bind`. Open FTP via `ftp.session.open` (`remote_root` typically `public_html` or `wp-content`). Clone: `site.clone` / `ftp.tree.download` (skips `wp-config.php`). Publish: `ftp.tree.upload` or `deploy.workspace_to_production` with dry-run default and mutation gates. One-command: `npm run aeos:kinghost:publish` → `kinghost_control.publish.preflight` then the production FSM.
 
 ## MySQL / WooCommerce
 
-`mysql.session.open` then `mysql.wordpress.inventory` / `wordpress.users.list` / `wordpress.plugins.inventory`. WooCommerce is a WordPress plugin under `wp-content/plugins/woocommerce`, not a KingHost product. Requires `mysql2` from `npm run aeos:kinghost:deps`. External MySQL needs the panel IP allowlist.
+`mysql.session.open` then `mysql.wordpress.inventory` / `wordpress.users.list` / `wordpress.plugins.inventory`. WooCommerce is a WordPress plugin under `wp-content/plugins/woocommerce`, not a KingHost product. Requires `mysql2` from `npm run aeos:kinghost:deps`. External MySQL needs the panel IP allowlist. The one-command playbook publishes scoped `wp-content` code and preserves live orders/customers/payment secrets.

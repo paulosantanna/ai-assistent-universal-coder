@@ -34,6 +34,12 @@ Updated: 2026-09-16
 - Evidence: `runtime/src/kernel/registry-loader.ts`, `tests/node/runtime-auth-broker.test.cjs`
 - Updated: 2026-09-11
 
+### WordPress complete plugin universe
+- Status: active
+- Fact: `wordpress-expert` inventories and operates every plugin in `wp-content/plugins` and `wp-content/mu-plugins` (regular, must-use, single-file; active and inactive). A static catalog is not a ceiling. `kinghost-wordpress-publish` uploads those full plugin trees with the theme.
+- Evidence: `skills/wordpress-expert/PLUGINS.md`, `kinghost-control-mcp/wordpress-ops.mjs:listLocalWordpressPlugins`, `wordpress_knowledge.plugin_universe_plan`
+- Updated: 2026-09-16
+
 ### WordPress first-run Beta Mapping
 - Status: active
 - Fact: `wordpress-expert` performs a full read-only Beta Mapping only when no valid consolidated site map exists. Later runs reuse the map and use lightweight drift/preflight; full remap requires explicit request or invalid/corrupt map.
@@ -93,6 +99,12 @@ Updated: 2026-09-16
 - Fact: Installed Tech Lead's Club `tlc-spec-driven` 3.3.0 and `tlc-spec-lean` 1.0.0 are governed AEOS skills `spec-driven` and `spec-driven-lean`, owned by `codenavi-agent`. Source sub-agent roles are lenses. `specs` remains the mutating preflight. Overlay fragment: `aeos/registries/skills.spec-driven.additions.yaml`.
 - Evidence: `skills/spec-driven/SKILL.md`, `skills/spec-driven-lean/SKILL.md`, `aeos/registries/overlay.registry.index.yaml`
 - Updated: 2026-09-12
+
+### KingHost one-command WordPress publish
+- Status: active
+- Fact: Playbook `kinghost-wordpress-publish` publishes a locally altered WordPress/PHP/WooCommerce tree onto an already-hosted KingHost domain via `npm run aeos:kinghost:publish`. Default APPLY is scoped `wp-content` code. Live orders, customers, `siteurl`/`home`, payment secrets and `wp-config.php` stay on production. `--replace-database` is blocked on this path.
+- Evidence: `aeos/playbooks/kinghost-wordpress-publish.playbook.md`, `scripts/aeos-kinghost-publish.mjs`, `kinghost-control-mcp/index.mjs:publishPreflight`
+- Updated: 2026-09-16
 
 ### KingHost control MCP and expert super-skill
 - Status: active

@@ -178,7 +178,7 @@ const ARTICLES = [
   {
     id: "woocommerce",
     title: "WooCommerce e plugins de e-commerce em KingHost",
-    topics: ["woocommerce", "ecommerce", "e-commerce", "plugin", "loja"],
+    topics: ["woocommerce", "ecommerce", "e-commerce", "plugin", "loja", "publicar", "publish"],
     source_url: "https://developer.wordpress.org/plugins/",
     retrieved_at: RETRIEVED_AT,
     body: [
@@ -186,7 +186,9 @@ const ARTICLES = [
       "Inventário: FTP da pasta plugins + option active_plugins (PHP serialized) + SHOW TABLES LIKE '%woocommerce%'.",
       "Produtos: post type product. Pedidos: HPOS wc_orders ou posts shop_order. Checkout/páginas: opções woocommerce_*_page_id; verificar a rota HTTP, não só o option.",
       "Pagamentos (Mercado Pago, PayPal, Stripe) guardam segredos em options: nunca dump de option_value com chave/token.",
-      "Publicar tema/plugin custom via FTP scoped; ativação preferencialmente wp-admin/REST autenticado com cookie, não SQL em wp_options."
+      "Publicar tema/plugin custom via FTP scoped; ativação preferencialmente wp-admin/REST autenticado com cookie, não SQL em wp_options.",
+      "wordpress-expert usa o universo completo de plugins instalados (wp-content/plugins e mu-plugins), não só WooCommerce nem um catálogo estático.",
+      "Publish one-command: código em wp-content por padrão, incluindo todos os plugins locais. Pedidos, clientes, siteurl/home e segredos de pagamento da produção não são sobrescritos pelo site local. --replace-database é high-risk e fora do comando único."
     ].join(" ")
   },
   {
@@ -204,13 +206,14 @@ const ARTICLES = [
   {
     id: "clone-deploy",
     title: "Clonar o site da Hospedagem e subir alteração local",
-    topics: ["clone", "deploy", "workspace", "producao", "produção", "sync"],
+    topics: ["clone", "deploy", "workspace", "producao", "produção", "sync", "publicar", "comando", "one-command", "publish"],
     source_url: "https://king.host/wiki/base-de-conhecimento/gerenciar-ftp/",
     retrieved_at: RETRIEVED_AT,
     body: [
       "Fluxo: cookie do painel → listar/selecionar domínio → bind FTP/MySQL → FSM → inventário → clone para workspace → editar local → diff → dry-run → backup → APPLY → smoke → CLOSE.",
       "Clone grava arquivos no workspace_root escolhido; manifesto sem segredos. wp-config.php e dumps SQL com senha são skipped.",
       "Upload devolve só a árvore aprovada. Uploads/mídia grandes exigem include_uploads=true. Dry-run é o default de produção.",
+      "Comando único do site já alterado localmente: npm run aeos:kinghost:publish -- --local-dir <árvore> --domain <domínio-já-hospedado>. Playbook kinghost-wordpress-publish.",
       "PASS exige HTTP/Playwright do estado resultante, não só código FTP 226."
     ].join(" ")
   },

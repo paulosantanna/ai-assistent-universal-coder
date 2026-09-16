@@ -4,6 +4,7 @@ const OFFICIAL_SOURCES = [
   { id: "wp-dev", name: "WordPress Developer Resources", base: "https://developer.wordpress.org/", authority: "official", weight: 100 },
   { id: "wp-rest", name: "REST API Handbook", base: "https://developer.wordpress.org/rest-api/", authority: "official", weight: 100 },
   { id: "wp-plugin", name: "Plugin Handbook", base: "https://developer.wordpress.org/plugins/", authority: "official", weight: 100 },
+  { id: "wp-plugin-dir", name: "WordPress Plugin Directory", base: "https://wordpress.org/plugins/", authority: "official", weight: 90 },
   { id: "wp-theme", name: "Theme Handbook", base: "https://developer.wordpress.org/themes/", authority: "official", weight: 100 },
   { id: "wp-block", name: "Block Editor Handbook", base: "https://developer.wordpress.org/block-editor/", authority: "official", weight: 100 },
   { id: "wp-cli", name: "WP-CLI", base: "https://developer.wordpress.org/cli/commands/", authority: "official", weight: 95 },
@@ -22,7 +23,7 @@ const TOPICS = {
   architecture: ["core lifecycle", "hooks", "actions", "filters", "template hierarchy", "REST API", "capabilities"],
   frontend: ["block editor", "Site Editor", "theme.json", "templates", "patterns", "responsive CSS", "JavaScript", "accessibility", "performance"],
   themes: ["block themes", "classic themes", "child themes", "assets", "template hierarchy", "global styles"],
-  plugins: ["plugin architecture", "hooks", "activation", "uninstall", "settings", "custom post types", "REST endpoints"],
+  plugins: ["complete installed plugin universe", "regular plugins", "must-use plugins", "single-file plugins", "plugin architecture", "hooks", "activation", "uninstall", "settings", "custom post types", "REST endpoints", "plugin directory"],
   security: ["capabilities", "nonces", "sanitization", "escaping", "validation", "CSRF", "XSS", "SQL injection", "file uploads"],
   operations: ["wp-admin", "cookie auth", "REST nonce", "WP-CLI", "staging", "backup", "rollback", "cache", "cron"],
   integrations: ["external APIs", "webhooks", "deep links", "payments", "marketplaces", "social links", "brand icons", "favicons"],
@@ -44,6 +45,7 @@ function listTools() {
     tool("wordpress_knowledge.integration_map", "Return WordPress-side integration concerns for an external provider.", { provider: { type: "string" }, interaction: { type: "string" } }),
     tool("wordpress_knowledge.security_gate", "Return WordPress security checklist for a proposed change.", { change_type: { type: "string" } }),
     tool("wordpress_knowledge.beta_mapping_plan", "Return one-shot read-only Beta Mapping plan for a remote WordPress site."),
+    tool("wordpress_knowledge.plugin_universe_plan", "Return the complete installed-plugin inventory and publish contract for wordpress-expert."),
     tool("wordpress_knowledge.source_policy", "Return source authority, freshness, contradiction and citation policy.")
   ];
 }
@@ -127,7 +129,7 @@ function betaMappingPlan() {
       "site URL and WordPress version",
       "REST API index and namespaces",
       "active theme + parent/child relationship",
-      "installed plugins + activation state + versions",
+      "installed plugins — complete set (regular, must-use, single-file) + activation state + versions; never a sampled catalog",
       "block/classic theme mode and Site Editor capability",
       "pages/posts/content types counts and IDs without unnecessary body duplication",
       "menus/navigation structures",
@@ -148,6 +150,24 @@ function betaMappingPlan() {
   };
 }
 
+function pluginUniversePlan() {
+  return {
+    governing_skill: "wordpress-expert",
+    source_of_truth: ["wp-content/plugins", "wp-content/mu-plugins", "remote FTP plugin listing", "active_plugins option as activation state only"],
+    include: ["regular directory plugins", "single-file plugins", "must-use plugins", "active and inactive"],
+    exclude_from_cap: ["WooCommerce-only subset", "static popular-plugin catalog as a ceiling"],
+    knowledge: ["https://developer.wordpress.org/plugins/", "https://wordpress.org/plugins/"],
+    local_inventory: "kinghost-control-mcp/wordpress-ops.mjs:listLocalWordpressPlugins",
+    publish: {
+      playbook_id: "kinghost-wordpress-publish",
+      one_command: "npm run aeos:kinghost:publish -- --local-dir <wordpress-tree> --domain <existing-kinghost-domain>",
+      upload: ["wp-content/plugins", "wp-content/mu-plugins", "wp-content/themes"],
+      preserve_on_production: ["orders", "customers", "payment secrets", "siteurl", "home", "wp-config.php"]
+    },
+    never: ["invent missing plugins", "dump gateway option secrets", "edit WordPress core for missing plugin features"]
+  };
+}
+
 function call(name, input = {}) {
   if (name === "wordpress_knowledge.source_catalog") return { official: OFFICIAL_SOURCES, community: COMMUNITY_SOURCES };
   if (name === "wordpress_knowledge.topic_map") {
@@ -160,6 +180,7 @@ function call(name, input = {}) {
   if (name === "wordpress_knowledge.integration_map") return integrationMap(input);
   if (name === "wordpress_knowledge.security_gate") return securityGate(input);
   if (name === "wordpress_knowledge.beta_mapping_plan") return betaMappingPlan();
+  if (name === "wordpress_knowledge.plugin_universe_plan") return pluginUniversePlan();
   if (name === "wordpress_knowledge.source_policy") return {
     normative_priority: ["WordPress official developer documentation", "WordPress official project/support documentation", "current source/code evidence", "Reddit community evidence"],
     reddit_role: "operational experience, edge cases, failure modes and community patterns; never normative authority by itself",

@@ -14,7 +14,14 @@ import {
   panelSessionCount
 } from "./cookie-session.mjs";
 import { listTree, downloadTree, uploadTree, parseFtpListing } from "./ftp-tree.mjs";
-import { listWordpressUsers, listWordpressPlugins, wordpressInventory } from "./wordpress-ops.mjs";
+import {
+  listWordpressUsers,
+  listWordpressPlugins,
+  wordpressInventory,
+  inspectLocalWordpressTree,
+  woocommercePublishPolicy,
+  publishCredentialPresence
+} from "./wordpress-ops.mjs";
 
 const credentials = new Map();
 const ftpSessions = new Map();
@@ -488,6 +495,8 @@ function deployWorkspacePlan(params) {
     workspace_root: params.workspace_root || null,
     remote_root: params.remote_root || "wp-content",
     domain: selectedDomain.get("default") || params.domain || null,
+    playbook_id: "kinghost-wordpress-publish",
+    one_command: "npm run aeos:kinghost:publish -- --local-dir <wordpress-tree> --domain <existing-kinghost-domain>",
     steps: [
       "open panel cookie jar",
       "list and select existing KingHost domain",
@@ -505,6 +514,38 @@ function deployWorkspacePlan(params) {
     ],
     required_gates: ["approved=true", "change_id", "rollback_ref", "dry_run evidence"]
   };
+}
+
+function publishPreflight(params) {
+  const workspaceRoot = params.workspace_root || params.local_dir || process.cwd();
+  const inspection = inspectLocalWordpressTree(workspaceRoot, {
+    include_uploads: params.include_uploads === true
+  });
+  const replaceDatabase = params.replace_database === true;
+  const status = inspection.wordpress && !replaceDatabase ? "READY" : "BLOCKED";
+  return ok({
+    status,
+    playbook_id: "kinghost-wordpress-publish",
+    environment_id: params.environment_id || selectedEnvironment.get("default") || "production",
+    domain: selectedDomain.get("default") || params.domain || null,
+    inspection,
+    woocommerce: {
+      ...woocommercePublishPolicy(),
+      plugin_present_locally: inspection.woocommerce_plugin_present,
+      replace_database_requested: replaceDatabase,
+      replace_database_allowed: false
+    },
+    plugins: inspection.plugins || { installed: [], count: 0, slugs: [] },
+    credential_presence: publishCredentialPresence(),
+    deploy_plan: deployWorkspacePlan(params),
+    blocking_conditions: [
+      ...(inspection.wordpress ? [] : ["local tree is not a WordPress/PHP layout"]),
+      ...(replaceDatabase ? ["--replace-database is blocked in the one-command path"] : [])
+    ],
+    next: inspection.wordpress
+      ? ["domain.list / domain.select", "bind FTP", "dry-run deploy.workspace_to_production"]
+      : ["point --local-dir at the WordPress root or wp-content tree"]
+  });
 }
 
 async function deployWorkspace(params) {
@@ -871,6 +912,8 @@ async function dispatchAction(action, params = {}) {
       return verifySmokePlan(params);
     case "kinghost_control.deploy.workspace_to_production":
       return deployWorkspace(params);
+    case "kinghost_control.publish.preflight":
+      return publishPreflight(params);
     case "kinghost_control.knowledge_search":
       return searchKnowledge(params);
     default:

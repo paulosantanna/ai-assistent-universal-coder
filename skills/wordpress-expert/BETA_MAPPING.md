@@ -14,7 +14,7 @@ Run full mapping only when `.aeos/wordpress/sites/<site-id>/beta-map.json` is ab
 2. authenticated cookie-session validation and wp-admin reachability;
 3. WordPress/core version and REST index/namespaces;
 4. block/classic theme architecture, active theme and parent/child topology;
-5. plugins, versions and activation state;
+5. plugins — **complete installed set** (regular, must-use, single-file), versions and activation state; never a sampled catalog;
 6. post types, taxonomies, page/post IDs/counts/status summaries;
 7. navigation/menus, templates, template parts, patterns and widgets/sidebars where applicable;
 8. safe site settings/permalink metadata;

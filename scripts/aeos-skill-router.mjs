@@ -121,7 +121,9 @@ function scoreSkill(skill, request) {
     ["security-ownership-map", ["security-ownership-map", "bus factor", "orphaned sensitive", "codeowners"]],
     ["security-threat-model", ["security-threat-model", "threat model", "abuse paths", "appsec threat"]],
     ["web-quality-audit", ["web-quality-audit", "audit my site", "review web quality", "check page quality"]],
-    ["kotlin-expert", ["kotlin", "kotlin multiplatform", "kmp", "kotlinx", "kotlin gradle"]]
+    ["kotlin-expert", ["kotlin", "kotlin multiplatform", "kmp", "kotlinx", "kotlin gradle"]],
+    ["kinghost-expert", ["kinghost", "hospedagem", "woocommerce", "publicar wordpress", "publish wordpress", "ftp kinghost", "painel.kinghost"]],
+    ["wordpress-expert", ["wordpress-expert", "universo de plugins", "todos os plugins", "plugin universe", "wp-content/plugins"]]
   ];
   for (const [needle, aliases] of boosts) {
     if (aliases.some((alias) => requestLower.includes(alias)) && text.includes(needle)) score += 8;

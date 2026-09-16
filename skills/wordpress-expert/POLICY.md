@@ -20,7 +20,7 @@ Production mutation requires target verification, authenticated cookie session, 
 
 ## WordPress extension policy
 
-Do not edit WordPress core for feature work. Prefer supported settings, blocks/site editor, child theme/site-specific plugin, then custom plugin/block. Direct DB/file edits are last resort.
+Do not edit WordPress core for feature work. Prefer supported settings, blocks/site editor, child theme/site-specific plugin, then custom plugin/block. Direct DB/file edits are last resort. Operate the complete installed plugin universe (`wp-content/plugins` + `wp-content/mu-plugins`); do not ignore non-WooCommerce plugins.
 
 ## Security policy
 

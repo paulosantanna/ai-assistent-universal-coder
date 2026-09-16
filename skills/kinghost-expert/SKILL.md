@@ -13,6 +13,12 @@ A super-skill of the single canonical `codenavi-agent`. It creates no new agent 
 
 Operate authorized KingHost Hospedagem accounts from the workspace: authenticate the control panel with an external cookie jar, list and select existing domains, read already-created users, clone WordPress/PHP sites, change scoped artifacts (including e-commerce plugins such as WooCommerce), integrate PHP/WordPress with MySQL, and publish the locally altered tree to production through KingHost FTP.
 
+The one-command path for a site that is already hosted and already altered locally is playbook `kinghost-wordpress-publish`:
+
+```bash
+npm run aeos:kinghost:publish -- --local-dir <wordpress-tree> --domain <existing-kinghost-domain>
+```
+
 ## Knowledge and MCP dependency
 
 Material KingHost/WordPress/PHP/MySQL work uses:
@@ -50,7 +56,7 @@ The model and notebook may see `credential_ref`, `session_ref`, `panel_session_r
 6. Inventory plugins (WooCommerce and others) via FTP and/or `mysql.wordpress.inventory`.
 7. If the workspace tree is missing, `site.clone` (dry-run first; skip `wp-config.php`).
 8. Change the local WordPress/PHP/plugin/theme tree.
-9. Production publish follows the FSM below.
+9. Production publish follows the FSM below. For the already-altered local tree, run `kinghost-wordpress-publish` / `npm run aeos:kinghost:publish` instead of inventing a second procedure.
 
 ## Deterministic production FSM
 
@@ -118,7 +124,7 @@ Before APPLY:
 - `approved=true` and `change_id` are present;
 - no secret material would be uploaded.
 
-PASS requires verified front-end/wp-admin state, not FTP transfer success alone.
+PASS requires verified front-end/wp-admin state, not FTP transfer success alone. WooCommerce live orders, customers, `siteurl`/`home` and payment secrets stay on production unless a separate high-risk database replace is approved.
 
 ## Completion
 

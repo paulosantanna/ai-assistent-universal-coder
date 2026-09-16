@@ -106,6 +106,7 @@ describe("AEOS universal runtime authentication", () => {
     assert.equal(skills.includes("kotlin-expert"), true);
     assert.equal(playbooks.includes("wordpress-expert-site-lifecycle"), true);
     assert.equal(playbooks.includes("kinghost-expert-production-lifecycle"), true);
+    assert.equal(playbooks.includes("kinghost-wordpress-publish"), true);
     assert.equal(playbooks.includes("spec-driven-feature-lifecycle"), true);
     assert.equal(playbooks.includes("spec-driven-lean-feature-lifecycle"), true);
     assert.equal(playbooks.includes("tlc-catalog-skills"), true);

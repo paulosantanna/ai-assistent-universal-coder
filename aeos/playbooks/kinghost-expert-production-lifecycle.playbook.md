@@ -1,5 +1,7 @@
 # Playbook: kinghost-expert-production-lifecycle
 
+General KingHost production FSM. For an already-altered local WordPress/WooCommerce tree on an already-hosted domain, use `kinghost-wordpress-publish` (`npm run aeos:kinghost:publish`) instead of this playbook.
+
 ## Required agent
 
 - `codenavi-agent` only.

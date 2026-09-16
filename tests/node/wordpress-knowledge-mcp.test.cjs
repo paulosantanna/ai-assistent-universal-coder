@@ -7,6 +7,8 @@ describe('WordPress knowledge MCP contracts', () => {
   it('registers official WordPress and Reddit sources without write credentials', () => {
     const text = fs.readFileSync(path.join(root, 'aeos/mcps/wordpress-knowledge.mcp.yaml'), 'utf8');
     assert.match(text, /developer\.wordpress\.org/);
+    assert.match(text, /wordpress\.org\/plugins/);
+    assert.match(text, /plugin_universe_plan/);
     assert.match(text, /reddit\.com\/r\/Wordpress/);
     assert.match(text, /write_allowed: false/);
     assert.match(text, /credentials_allowed: false/);
@@ -17,6 +19,11 @@ describe('WordPress knowledge MCP contracts', () => {
     assert.match(skill, /One-shot invariant/i);
     assert.match(skill, /external runtime cookie\/cookie-jar/i);
     assert.match(skill, /never fully regenerated automatically/i);
+    assert.match(skill, /complete plugin universe/i);
+    assert.match(skill, /wp-content\/plugins/);
+    const plugins = fs.readFileSync(path.join(root, 'skills/wordpress-expert/PLUGINS.md'), 'utf8');
+    assert.match(plugins, /entire installed plugin set/i);
+    assert.match(plugins, /kinghost-wordpress-publish/);
   });
 
   it('keeps WordPress core feature edits prohibited', () => {
