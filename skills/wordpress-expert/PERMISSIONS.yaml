@@ -1,6 +1,6 @@
 skill: wordpress-expert
 owner_agent: codenavi-agent
-version: 1.1.0
+version: 1.2.0
 
 read:
   - wordpress.public_site
@@ -55,3 +55,7 @@ constraints:
   rollback_required_for_production_mutation: true
   official_docs_required_for_material_api_claims: true
   reddit_is_non_normative: true
+  development_context_required_for_code_mutation: true
+  ai_generated_code_is_non_normative: true
+  generated_diff_review_required: true
+  fabricated_verification_evidence_denied: true
