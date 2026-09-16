@@ -63,12 +63,14 @@ describe('KingHost full hosting knowledge pack', () => {
       'kinghost-domain-dns-ssl-expert',
       'kinghost-email-expert',
       'kinghost-performance-expert',
-      'kinghost-database-expert'
+      'kinghost-database-expert',
+      'kinghost-clone-site-expert',
+      'kinghost-site-publish-ftp-expert'
     ]) {
       assert.match(registry, new RegExp(`id: ${skill}`));
       assert.ok(fs.existsSync(path.join(root, 'skills', skill, 'SKILL.md')), `missing ${skill}/SKILL.md`);
     }
-    assert.match(registry, /version: 1\.3\.0/);
+    assert.match(registry, /version: 1\.4\.0/);
     assert.match(registry, /owner_agent: codenavi-agent/);
   });
 
@@ -81,5 +83,24 @@ describe('KingHost full hosting knowledge pack', () => {
     assert.match(ops, /DNS, SSL and domains/);
     assert.match(ops, /Performance/);
     assert.match(ops, /E-mail operations/);
+  });
+
+  it('defines absolute FTP-visible clone reconciliation without remote mutation', () => {
+    const skill = fs.readFileSync(path.join(root, 'skills/kinghost-clone-site-expert/SKILL.md'), 'utf8');
+    assert.match(skill, /absolute clone of the FTP-visible site tree/i);
+    assert.match(skill, /remote clone operations are read-only/i);
+    assert.match(skill, /COPIED.*SECRET_EXCLUDED.*INACCESSIBLE.*UNSUPPORTED.*FAILED/s);
+    assert.match(skill, /FTP-only copy as a complete application clone/i);
+    assert.match(skill, /No successful clone claim is permitted with unexplained missing files/i);
+  });
+
+  it('defines governed PHP/WordPress FTP publication with rollback and smoke verification', () => {
+    const skill = fs.readFileSync(path.join(root, 'skills/kinghost-site-publish-ftp-expert/SKILL.md'), 'utf8');
+    assert.match(skill, /manifest-driven/i);
+    assert.match(skill, /backup.*approval.*rollback.*application smoke/is);
+    assert.match(skill, /wp-config\.php/);
+    assert.match(skill, /DELETE_CANDIDATE/);
+    assert.match(skill, /successful FTP response alone must never produce `PASS`/i);
+    assert.match(skill, /ROLLBACK_REQUIRED/);
   });
 });
