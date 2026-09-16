@@ -40,13 +40,14 @@ describe('KingHost full hosting knowledge pack', () => {
     assert.ok(ids.includes('performance-varnish'));
     const blob = JSON.stringify(result.data).toLowerCase();
     assert.match(blob, /youtube\.com\/@kinghost/);
-    assert.match(blob, /undocumented private panel apis|undocumented private/);
+    assert.match(blob, /video-derived claims are educational evidence/);
 
     const catalog = await mod.dispatch('kinghost_control.plugin.catalog', {});
     const toolIds = catalog.data.panel_tools.map((item) => item.id);
     for (const expected of ['dns', 'ssl', 'backup', 'antivirus', 'waf', 'varnish', 'performance', 'email', 'git-deploy', 'mysql', 'wordpress']) {
       assert.ok(toolIds.includes(expected), `missing panel tool ${expected}`);
     }
+    assert.match(catalog.data.note, /Undocumented private panel APIs are unsupported/);
   });
 
   it('registers the specialized KingHost skills under codenavi-agent', () => {
