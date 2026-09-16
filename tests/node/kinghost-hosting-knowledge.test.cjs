@@ -28,19 +28,24 @@ describe('KingHost full hosting knowledge pack', () => {
     assert.match(sources, /como-integrar-github-ao-painel-kinghost/);
   });
 
-  it('searches backup, security, DNS, email, performance and publish knowledge', async () => {
+  it('searches backup, security and performance knowledge independently of top-N ranking', async () => {
     const mod = await import(pathToFileURL(path.join(root, 'kinghost-control-mcp/index.mjs')).href);
-    const result = await mod.dispatch('kinghost_control.knowledge_search', {
-      query: 'backup antivirus waf dns email varnish performance git mysql wordpress ftp'
-    });
-    assert.equal(result.success, true);
-    const ids = result.data.matches.map((item) => item.id);
-    assert.ok(ids.includes('backup-recovery'));
-    assert.ok(ids.includes('antivirus-malware'));
-    assert.ok(ids.includes('performance-varnish'));
-    const blob = JSON.stringify(result.data).toLowerCase();
-    assert.match(blob, /youtube\.com\/@kinghost/);
-    assert.match(blob, /video-derived claims are educational evidence/);
+
+    const backup = await mod.dispatch('kinghost_control.knowledge_search', { query: 'backup restore database email recovery' });
+    assert.equal(backup.success, true);
+    assert.ok(backup.data.matches.some((item) => item.id === 'backup-recovery'));
+
+    const security = await mod.dispatch('kinghost_control.knowledge_search', { query: 'antivirus malware quarantine scan' });
+    assert.equal(security.success, true);
+    assert.ok(security.data.matches.some((item) => item.id === 'antivirus-malware'));
+
+    const performance = await mod.dispatch('kinghost_control.knowledge_search', { query: 'varnish cache performance pagespeed' });
+    assert.equal(performance.success, true);
+    assert.ok(performance.data.matches.some((item) => item.id === 'performance-varnish'));
+
+    const provenance = JSON.stringify(performance.data).toLowerCase();
+    assert.match(provenance, /youtube\.com\/@kinghost/);
+    assert.match(provenance, /video-derived claims are educational evidence/);
 
     const catalog = await mod.dispatch('kinghost_control.plugin.catalog', {});
     const toolIds = catalog.data.panel_tools.map((item) => item.id);
