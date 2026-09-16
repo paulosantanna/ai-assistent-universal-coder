@@ -2,7 +2,7 @@ mcp:
   id: kinghost-control
   name: KingHost Deterministic Control MCP
   protocol: model-context-protocol
-  version: "1.2.0"
+  version: "1.3.0"
 
   transport:
     type: stdio
@@ -73,11 +73,7 @@ mcp:
       plaintext: ephemeral-runtime-only
       session_reference: opaque
       ttl_minutes: 15
-      bind_sources:
-        - env_reference
-        - secret_reference
-        - runtime_memory
-        - cookie_session_panel
+      bind_sources: [env_reference, secret_reference, runtime_memory, cookie_session_panel]
     mutation:
       production_write_default: false
       database_write_default: false
@@ -95,23 +91,31 @@ mcp:
     source_registry: aeos/knowledge/kinghost-control.sources.yaml
     freshness_policy: aeos/policies/kinghost-commerce-freshness.policy.md
     primary_authority: official-documentation
+    secondary_authority: official-kinghost-youtube
     stale_after_days: 30
+    video_mutation_policy: corroborate-with-current-docs-or-live-panel
 
 prompt_contract:
-  objective: "Operate KingHost Hospedagem end to end: cookie-jar panel login, list/select existing domains, bind already-created users, clone WordPress/PHP sites, change workspace artifacts, and publish to production FTP/MySQL without leaking secrets."
+  objective: "Operate KingHost Hospedagem end to end: panel authentication, domains/DNS/SSL, FTP/Git/WordPress/PHP/MySQL, backup/recovery, email, antivirus/WAF, cache/performance and production-safe publish without leaking secrets or inventing private APIs."
   evidence_required: true
   redact_outputs: true
   rules:
     - "Bind already-created login/password material from env, secret references, runtime memory or a cookie-authenticated panel session. Never scrape, brute-force or persist secrets."
     - "Open the KingHost panel with an external workspace cookie-jar via panel.session.open_cookie_file. Return panel_session_ref only."
-    - "List and select existing hosting domains before inventory, clone or production publish."
-    - "Return credential_ref/session_ref, usernames and redacted host only. Never return passwords, hashes, cookies or unmasked emails."
+    - "List and select the exact hosting domain/environment before inventory or mutation."
+    - "Use kinghost_control.knowledge_search before material hosting operations and refresh current official documentation for high-risk actions."
+    - "Official @kinghost videos are educational evidence; mutable behavior learned from video must be corroborated by current KingHost documentation or the live panel."
+    - "For panel-only controls (DNS, SSL, backup request, antivirus, WAF, email, Varnish/performance, Git integration), use governed browser/Playwright against documented UI rather than undocumented private endpoints."
+    - "Return credential_ref/session_ref, usernames and redacted host only. Never return passwords, hashes, cookies, mailbox secrets or unmasked sensitive data."
     - "Production FTP/MySQL writes require approved=true, change_id, dry-run and rollback_ref."
     - "Do not edit WordPress core or wp-config.php without high_risk_approved."
-    - "Clone skips wp-config.php. WooCommerce and other plugins are wp-content artifacts plus MySQL state, not KingHost panel APIs."
+    - "Antivirus quarantine, WAF, cache and restore actions require post-change application verification; a panel success message is not PASS."
+    - "DNS writes require prior record snapshot and rollback; database restore requires current-state snapshot."
   stop_conditions:
     - "credential discovery or password dump requested"
     - "environment or domain identity is unknown"
-    - "production mutation lacks approval, dry-run or rollback"
+    - "requested capability is not present in the current plan/panel"
+    - "production mutation lacks approval, rollback or required dry-run evidence"
     - "path escapes workspace or remote root"
     - "undocumented KingHost private API is required"
+    - "video-only evidence conflicts with current docs or live panel"
