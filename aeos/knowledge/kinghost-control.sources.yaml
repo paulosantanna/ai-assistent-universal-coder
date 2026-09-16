@@ -1,10 +1,11 @@
 knowledge_domain: kinghost-control
-version: "2026-09-16"
+version: "2026-09-16.2"
 policy:
-  authority_order: [official_vendor_docs, wordpress_official_docs, first_party_engineering]
+  authority_order: [official_vendor_docs, official_vendor_video, wordpress_official_docs, first_party_engineering]
   require_source_url: true
   reject_undocumented_capabilities: true
   refresh_before_high_risk_action: true
+  video_claims_require_doc_corroboration_for_mutation: true
 
 sources:
   kinghost:
@@ -12,25 +13,79 @@ sources:
     domains: [king.host, painel.kinghost.com.br, kinghost.com.br]
     topics:
       - control panel login cookie
-      - existing domains and domain select
-      - FTP SFTP clone and publish
-      - PHP version and runtime
-      - MySQL phpMyAdmin additional users
-      - WordPress hosting installer and manager
-      - WooCommerce as WordPress plugin
-      - DNS SSL email
-      - backups logs cron
+      - hosting domain and subdomain management
+      - DNS A CNAME MX TXT and restore defaults
+      - FTP WebFTP SSH clone and publish
+      - PHP version runtime Composer and cron
+      - MySQL phpMyAdmin database creation users backup and restore
+      - WordPress hosting installer manager plugins themes and WooCommerce
+      - SSL Lets Encrypt HTTPS and email SSL
+      - email account creation webmail IMAP POP SMTP and backup
+      - site FTP database and email backup recovery
+      - antivirus malware scan quarantine and false-positive recovery
+      - Smart WAF and web security
+      - Varnish cache purge and performance statistics
+      - resource consumption performance and PageSpeed
+      - GitHub GitLab Bitbucket publication
+      - logs and operational verification
     urls:
       - https://painel.kinghost.com.br
       - https://king.host/wiki/
+      - https://king.host/wiki/artigo/manual-de-primeiros-passos/
       - https://king.host/wiki/artigo/como-acessar-painel-de-controle/
       - https://king.host/wiki/base-de-conhecimento/gerenciar-ftp/
+      - https://king.host/wiki/base-de-conhecimento/ftp/
+      - https://king.host/wiki/base-de-conhecimento/mysql/
       - https://king.host/wiki/artigo/como-criar-um-banco-de-dados-mysql/
       - https://king.host/wiki/artigo/como-criar-usuario-adicional-para-mysql/
+      - https://king.host/wiki/artigo/como-solicitar-backup/
+      - https://king.host/wiki/artigo/email-profissional-como-solicitar-backup-dos-seus-emails-perdidos/
+      - https://king.host/wiki/artigo/escanear-seu-site-antivirus/
+      - https://king.host/wiki/artigo/como-configurar-e-utilizar-o-smart-waf/
+      - https://king.host/wiki/artigo/varnish-cache/
+      - https://king.host/wiki/artigo/verificar-performance-do-site/
+      - https://king.host/wiki/artigo/otimizar-sua-aplicacao/
+      - https://king.host/wiki/artigo/como-alterar-versao-php-do-meu-site/
+      - https://king.host/wiki/artigo/como-configurar-cronjob/
+      - https://king.host/wiki/base-de-conhecimento/git/
+      - https://king.host/wiki/artigo/como-integrar-github-ao-painel-kinghost/
+      - https://king.host/wiki/artigo/instalar-certificado-ssl-lets-encrypt/
+      - https://king.host/wiki/artigo/como-instalar-e-configurar-o-ssl-em-um-site-wordpress/
+      - https://king.host/wiki/artigo/configurar-ssl-email/
+      - https://king.host/wiki/artigo/criar-subdominio/
       - https://king.host/wiki/artigo/como-gerenciar-o-wordpress-no-painel-de-controle-da-kinghost/
       - https://king.host/wiki/artigo/instale-o-wordpress-facilmente-com-o-instalador-automatico/
+      - https://site.king.host/hospedagem-de-sites
+  kinghost_youtube:
+    authority: official_vendor_video
+    channel: https://www.youtube.com/@kinghost
+    ingestion_policy:
+      - process only public official-channel videos relevant to hosting operations
+      - preserve title video_id publication date and source URL
+      - use aura-voice transcript/evidence semantics when an official transcript or authorized media input is available
+      - do not promote a video-only operational claim to mutation authority until corroborated by current official KingHost documentation or the live panel
+      - promotional content may enrich terminology but cannot define executable behavior
+    verified_videos:
+      - title: Backup da Hospedagem de Sites e Emails da KingHost - Como funciona | KingHost
+        url: https://www.youtube.com/watch?v=dyrH9JIi5Ug
+        topics: [backup, ftp, database, email, recovery]
+      - title: Conheça o Novo Painel de Controle da KingHost
+        url: https://www.youtube.com/watch?v=OL0EVGh8BBk
+        topics: [panel, dns, ftp, statistics, ssl, email]
+      - title: Como Gerenciar DNS na KingHost (Guia Completo para Iniciantes!)
+        url: https://www.youtube.com/watch?v=6cqy_R7OGu8
+        topics: [dns, A, CNAME, MX, TXT, subdomain, cdn]
+      - title: Como Criar E-mail Profissional com Seu Domínio na KingHost (Passo a Passo)!
+        url: https://www.youtube.com/watch?v=OzTvUGCMLtg
+        topics: [email, domain, webmail, outlook, thunderbird, mobile]
+      - title: Como Criar um Email Profissional - Passo a Passo
+        url: https://www.youtube.com/watch?v=ZjhtLjHxkN8
+        topics: [domain, dns, email]
+      - title: Hospedagem de Sites - Painel de Controle da KingHost
+        url: https://www.youtube.com/watch?v=9jOGI4WZbWw
+        topics: [panel, hosting, management]
   wordpress:
-    authority: official_vendor_docs
+    authority: wordpress_official_docs
     domains: [developer.wordpress.org, wordpress.org]
     topics:
       - themes plugins

@@ -1,131 +1,158 @@
 ---
 name: kinghost-expert
-description: Super-skill for KingHost Hospedagem: cookie-jar panel login, domain list/select, already-created users, WordPress/PHP/MySQL/WooCommerce changes, site clone and production FTP publish from the workspace.
+description: Super-skill for complete KingHost Hospedagem operations: panel auth, domains/DNS/SSL, FTP/SSH/Git publish, WordPress/PHP/MySQL, backups, email, antivirus/WAF, cache/performance and rollback-safe production changes.
 ---
 
 # KingHost Expert Super-Skill
 
 ## Identity
 
-A super-skill of the single canonical `codenavi-agent`. It creates no new agent identity. Specialization is implemented as internal lenses.
+A super-skill of the single canonical `codenavi-agent`. It creates no new agent identity. Specialization is implemented as internal lenses and companion skills.
 
 ## Mission
 
-Operate authorized KingHost Hospedagem accounts from the workspace: authenticate the control panel with an external cookie jar, list and select existing domains, read already-created users, clone WordPress/PHP sites, change scoped artifacts (including e-commerce plugins such as WooCommerce), integrate PHP/WordPress with MySQL, and publish the locally altered tree to production through KingHost FTP.
+Operate authorized KingHost Hospedagem accounts from first inventory through production: authenticate the panel with an **external runtime cookie/cookie-jar** reference, list/select domains, create/manage supported hosting resources through documented panel surfaces, inspect and mutate FTP/MySQL safely, operate WordPress/PHP, publish code, manage DNS/SSL/e-mail, request/restore backups, run antivirus/WAF controls, tune cache/performance and verify/rollback changes.
 
-The one-command path for a site that is already hosted and already altered locally is playbook `kinghost-wordpress-publish`:
+Full hosting operating contract: `skills/kinghost-expert/HOSTING_OPERATIONS.md`.
 
-```bash
-npm run aeos:kinghost:publish -- --local-dir <wordpress-tree> --domain <existing-kinghost-domain>
-```
+## Knowledge and media learning
 
-## Knowledge and MCP dependency
+Material KingHost work uses `kinghost_control.knowledge_search` and `aeos/knowledge/kinghost-control.sources.yaml` before claims or mutations.
 
-Material KingHost/WordPress/PHP/MySQL work uses:
+Authority order:
 
-- `kinghost-control` as the executable control plane (cookie login, domains, users, clone, FTP tree, MySQL, production FSM);
-- `kinghost_control.knowledge_search` before claiming panel/FTP/MySQL/WordPress hosting facts;
-- `wordpress-knowledge` for WordPress API/security semantics;
-- `wordpress-expert` lenses when mapping or mutating WordPress itself;
-- `kinghost-commerce` only when SSH/SFTP/Postgres commerce sessions are the safer protocol;
-- `runtime-auth` / `runtime-http` for additional cookie sessions;
-- `browser` or Playwright for panel/wp-admin confirmation and post-deploy smoke.
+1. current KingHost official documentation and live authenticated panel;
+2. official `@kinghost` YouTube videos as educational evidence;
+3. WordPress official documentation for WordPress internals;
+4. first-party repository engineering evidence.
 
-Official KingHost wiki (`https://king.host/wiki/`, panel `https://painel.kinghost.com.br`) and WordPress documentation are normative. Undocumented private panel APIs are unsupported and fail closed.
+The repository media-analysis model is `aura-voice`. When an official transcript or authorized media input is available, apply its provenance rules: preserve technical terminology, retain source/timestamps when available, separate facts from assumptions and never promote uncertain content into executable truth. Video-only operational claims must be corroborated by current KingHost documentation or the live panel before mutation.
+
+Undocumented private KingHost panel APIs are unsupported and fail closed.
+
+## Executable dependencies
+
+- `kinghost-control`: cookie panel session, domains, credentials, FTP, MySQL, clone, production FSM, knowledge.
+- governed `browser`/Playwright: panel-only tools such as DNS, SSL, backup request, antivirus, WAF, e-mail, Varnish/performance, Git integration and resource creation.
+- `wordpress-expert`: WordPress themes/plugins/blocks/content and WordPress production engineering.
+- `kinghost-commerce`: only when SSH/SFTP/Postgres commerce sessions are the safer documented protocol.
+- `runtime-auth` / `runtime-http`: extra authenticated runtime sessions without exposing secrets.
+
+### Compatibility contract
+
+Existing integrations remain stable while the hosting surface expands:
+
+- bind **already created** FTP/MySQL/WordPress identities as opaque runtime references; never rediscover their passwords;
+- use `kinghost_control.site.clone` for governed site clone planning/execution;
+- preserve playbook id `kinghost-wordpress-publish` and command `npm run aeos:kinghost:publish` for the one-command WordPress publish path;
+- keep `domain.list` / `domain.select` as the canonical domain-selection contract.
+
+## Companion skills
+
+- `kinghost-backup-recovery-expert`: web/FTP, database and e-mail backup/restore.
+- `kinghost-security-expert`: antivirus, quarantine, WAF and SSL security operations.
+- `kinghost-domain-dns-ssl-expert`: domains, subdomains, DNS and certificate lifecycle.
+- `kinghost-email-expert`: mailbox/Webmail/client/DNS/recovery workflows.
+- `kinghost-performance-expert`: hosting/app/database performance, Varnish/cache and PHP runtime.
+- `kinghost-database-expert`: MySQL creation/access/migration/query/backup/recovery.
+
+These are skill lenses of `codenavi-agent`, not independent agent identities.
 
 ## Credential contract
 
-Obtain **already created** logins by binding them from approved runtime sources. Do not invent, scrape, brute-force or persist passwords.
+Obtain already-provisioned logins from approved runtime sources. Do not invent, scrape, brute-force or persist passwords.
 
 Approved sources:
 
 1. environment variable references (`KINGHOST_FTP_USER`, `KINGHOST_FTP_PASSWORD`, MySQL equivalents, `KINGHOST_DOMAINS`);
 2. approved secret-manager references materialized by `runtime-auth`;
 3. ephemeral runtime memory supplied by the Tool Router;
-4. KingHost panel **cookie/cookie-jar file** consumed in place via `kinghost_control.panel.session.open_cookie_file`.
+4. KingHost panel cookie/cookie-jar file consumed in place via `kinghost_control.panel.session.open_cookie_file`.
 
-The model and notebook may see `credential_ref`, `session_ref`, `panel_session_ref`, username, host, port, domain and environment id. They must never see passwords, cookie values, nonces, `user_pass` hashes or `wp-config.php` secrets.
+The model/notebook may see opaque refs, usernames, host, port, domain and environment id when necessary. They must never see passwords, raw cookies, nonces, `user_pass` hashes, mailbox secrets or `wp-config.php` secrets.
 
 ## Hospedagem operating loop
 
-1. Open the panel cookie jar (`panel.session.open_cookie_file`).
-2. `domain.list` then `domain.select` for an existing hosting domain.
-3. `environment.select` (`local` | `staging` | `production`).
-4. Bind already-created FTP and MySQL usernames as opaque refs.
-5. `users.list` / `wordpress.users.list` (redacted) — never dump passwords.
-6. Inventory plugins (WooCommerce and others) via FTP and/or `mysql.wordpress.inventory`.
-7. If the workspace tree is missing, `site.clone` (dry-run first; skip `wp-config.php`).
-8. Change the local WordPress/PHP/plugin/theme tree.
-9. Production publish follows the FSM below. For the already-altered local tree, run `kinghost-wordpress-publish` / `npm run aeos:kinghost:publish` instead of inventing a second procedure.
+1. open panel session;
+2. `domain.list` / `domain.select`;
+3. select `local|staging|production`;
+4. `knowledge_search` for the requested hosting surface;
+5. inventory current state and plan capability availability;
+6. bind required secrets as opaque refs;
+7. snapshot current state and establish rollback;
+8. create bounded diff/operation plan and dry-run when supported;
+9. obtain required approval;
+10. mutate through documented MCP tool or governed panel UI;
+11. verify resulting external/application/data state;
+12. rollback on verification failure;
+13. close sessions and ephemeral credentials.
 
 ## Deterministic production FSM
 
-Every production publish follows this order. Skipping a state is a stop condition.
+For code/data production publish:
 
-1. `IDLE`
-2. `ENV_SELECTED` — `local` | `staging` | `production` plus selected domain
-3. `CREDENTIALS_BOUND` — opaque FTP and optional MySQL/wp-admin refs
-4. `PANEL_AUTH` — cookie or Playwright identity check
-5. `INVENTORY` — remote scoped tree + WordPress/PHP/MySQL metadata
-6. `SNAPSHOT` — hashes/backup/`rollback_ref`
-7. `DIFF` — workspace vs remote
-8. `DRY_RUN` — FTP tree STOR/SQL list without mutation
-9. `BACKUP` — confirm restore path
-10. `APPLY` — approved scoped FTP/PHP/SQL (`ftp.tree.upload` or `deploy.workspace_to_production`)
-11. `VERIFY` — cookie/Playwright smoke of resulting state
-12. `CLOSE` — destroy runtime credential material
+`IDLE -> ENV_SELECTED -> CREDENTIALS_BOUND -> PANEL_AUTH -> INVENTORY -> SNAPSHOT -> DIFF -> DRY_RUN -> BACKUP -> APPLY -> VERIFY -> CLOSE`
 
-`ROLLBACK` is legal from `APPLY` or `VERIFY` on failure.
+`ROLLBACK` is legal after APPLY/VERIFY failure. Advance with `kinghost_control.fsm.advance`.
 
-Advance with `kinghost_control.fsm.advance`. Treat planning tools as plans until APPLY succeeds and VERIFY passes.
+The existing one-command WordPress path remains:
 
-## Lenses
+```bash
+npm run aeos:kinghost:publish -- --local-dir <wordpress-tree> --domain <existing-kinghost-domain>
+```
+
+## Hosting lenses
 
 Use internal lenses, never subagents:
 
-- `kinghost-environment`: plan limits, domain list/select, PHP version, FTP root;
-- `wordpress-architecture`: themes, plugins, WooCommerce, hooks, REST, capabilities;
-- `php-runtime`: version, ini, extensions, fatals;
-- `mysql-safety`: read-first, EXPLAIN-first, reversible SQL, table-prefix detection;
-- `ftp-publish`: scoped clone/upload, no core edits;
-- `panel-auth`: cookie/Playwright KingHost panel;
-- `production-operations`: backup, smoke, cache, rollback.
+- `kinghost-environment`: plan/domain/service availability;
+- `domain-dns-ssl`: hostname, records, certificates and propagation;
+- `ftp-publish`: clone/upload/WebFTP/Git publication;
+- `wordpress-architecture`: WordPress/plugins/WooCommerce;
+- `php-runtime`: PHP compatibility/configuration/cron;
+- `mysql-safety`: read-first SQL, migrations, backups and recovery;
+- `email-operations`: mailbox/Webmail/DNS/backup;
+- `hosting-security`: antivirus/quarantine/WAF/SSL;
+- `hosting-performance`: resource metrics, Varnish/cache, PageSpeed and query/app bottlenecks;
+- `production-operations`: backup, smoke, rollback and incident recovery.
 
 ## Mutation hierarchy
 
-1. WordPress/plugin/theme settings via authenticated wp-admin/REST when safer;
-2. workspace child theme or site plugin (including e-commerce extensions);
-3. scoped FTP of `wp-content/themes`, `wp-content/plugins`, `wp-content/mu-plugins` or selected PHP assets;
-4. PHP version/ini through the KingHost Configuração PHP (panel cookie/Playwright);
-5. MySQL only when no supported WordPress API exists.
+1. supported application/panel settings;
+2. WordPress REST/wp-admin/plugin/theme settings through `wordpress-expert`;
+3. versioned workspace code + Git/FTP scoped publish;
+4. documented PHP/runtime/panel configuration;
+5. database mutation only when no safer application migration/API exists.
 
 Never edit WordPress core for feature work. `wp-config.php`, `wp-admin/` and `wp-includes/` require explicit high-risk approval.
 
-## Cookie and Playwright
+## Service-specific invariants
 
-Primary panel authentication is an **external runtime cookie/cookie-jar file reference** opened by the control MCP. Playwright/browser may reuse that session to:
-
-- list and choose the KingHost account/domain;
-- open FTP/MySQL/PHP/WordPress tools;
-- verify production after FTP upload.
-
-Cookie files stay outside the tracked workspace (commonly referenced as the workspace cookier path, never copied in). Contents are never copied into Git, `.aeos` evidence, notebook, prompts or screenshots that would expose secrets.
+- DNS: snapshot all records before write; preserve unrelated records; verify authoritative resolution.
+- SSL: confirm hostname/DNS prerequisites; verify certificate and mixed content after activation.
+- Backup: restore never begins without current-state snapshot and rollback.
+- Antivirus: detections are candidates until analyzed; quarantine is not automatic proof of malware; false positives require safe restoration path.
+- WAF: monitor-first and narrow exceptions; verify login/API/checkout/webhooks.
+- Varnish/cache: capture DNS when activation may affect it; never cache user-specific/authenticated flows without proof.
+- Email: mailbox passwords and message contents remain outside model/evidence; verify MX/current provider requirements.
+- MySQL: SELECT/SHOW/DESCRIBE/EXPLAIN default; mutations are bounded, reversible and approved.
+- Git/FTP publish: successful transfer/webhook is not PASS until application smoke succeeds.
 
 ## Production gates
 
-Before APPLY:
+Before any high-impact production write:
 
-- domain is listed/selected and environment matches the live host;
-- credentials are bound as opaque refs;
-- Beta Map exists for WordPress sites (`wordpress-expert` one-shot rule);
-- scoped diff is bounded to requested files;
-- backup/`rollback_ref` exists;
-- dry-run evidence exists;
-- `approved=true` and `change_id` are present;
-- no secret material would be uploaded.
-
-PASS requires verified front-end/wp-admin state, not FTP transfer success alone. WooCommerce live orders, customers, `siteurl`/`home` and payment secrets stay on production unless a separate high-risk database replace is approved.
+- domain/environment identity confirmed;
+- capability exists in current plan/panel;
+- authoritative knowledge refreshed;
+- credentials remain opaque;
+- current-state inventory/snapshot exists;
+- rollback path exists;
+- bounded diff/operation plan exists;
+- approval/change id recorded where required;
+- secret material cannot leak into uploaded artifacts/evidence;
+- post-change verification is defined.
 
 ## Completion
 
-Return `PASS`, `REVIEW`, `BLOCKED` or `ROLLBACK_REQUIRED` with environment id, selected domain, change_id, redacted session refs, verification evidence and residual risk.
+Return `PASS`, `REVIEW`, `BLOCKED` or `ROLLBACK_REQUIRED` with selected environment/domain, redacted refs, operation/change id, verification evidence, source references and residual risk. Never claim success from a panel toast, FTP status, scan completion or database command alone.
