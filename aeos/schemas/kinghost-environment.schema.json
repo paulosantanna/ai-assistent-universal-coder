@@ -8,6 +8,7 @@
   "properties": {
     "id": { "type": "string", "enum": ["local", "staging", "production"] },
     "kind": { "type": "string", "enum": ["local-runtime", "kinghost-host"] },
+    "domain": { "type": "string", "description": "Existing KingHost Hospedagem domain selected from domain.list" },
     "site_url": { "type": "string", "format": "uri" },
     "workspace_root": { "type": "string" },
     "remote_root": { "type": "string", "default": "wp-content" },

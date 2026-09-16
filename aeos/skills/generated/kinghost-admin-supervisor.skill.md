@@ -7,6 +7,7 @@ Administer authorized KingHost environments end to end through the governed King
 The request asks to manage KingHost hosting, domains, DNS, SSL, FTP/SFTP/SSH, databases, WordPress/PHP, deployments, logs, backups, performance, product/catalog data or workspace-to-host changes through AEOS.
 
 ## Uses MCP
+- kinghost-control
 - kinghost-commerce
 
 ## Access Contract

@@ -20,18 +20,21 @@
 ## Flow
 
 1. Read continuity and resolve workspace WordPress/PHP tree plus target KingHost site.
-2. `kinghost_control.environment.select` (`local` | `staging` | `production`).
-3. Open panel/wp-admin cookie via `runtime-auth`, or Playwright with that cookie; keep only `session_ref`.
-4. Bind already-provisioned FTP/MySQL credentials through `kinghost_control.credential.bind` (`env_reference`, `secret_reference` or `runtime_memory`).
-5. Advance FSM: `CREDENTIALS_BOUND` → `PANEL_AUTH` → `INVENTORY`.
-6. If WordPress and no valid Beta Map exists, run `wordpress-expert` mapping-only first.
-7. Snapshot remote scoped files; create `rollback_ref`.
-8. Diff workspace vs remote; refuse WordPress core / `wp-config.php` without high-risk approval.
-9. Dry-run FTP upload (`dry_run` default true).
-10. APPLY only with `approved=true`, `change_id` and `rollback_ref`.
-11. VERIFY with cookie or Playwright; layout changes need desktop and mobile.
-12. On failure, ROLLBACK and close sessions.
-13. On success, CLOSE credential/FTP/MySQL/auth sessions and return PASS with redacted evidence.
+2. Open the panel cookie jar with `kinghost_control.panel.session.open_cookie_file` (absolute path outside Git). Keep only `panel_session_ref`.
+3. `kinghost_control.domain.list` then `domain.select` for an existing Hospedagem domain. `KINGHOST_DOMAINS` is an allowed fallback.
+4. `kinghost_control.environment.select` (`local` | `staging` | `production`) including the selected domain.
+5. Bind already-provisioned FTP/MySQL credentials through `kinghost_control.credential.bind` (`env_reference`, `secret_reference` or `runtime_memory`).
+6. `users.list` / `wordpress.users.list` for already-created identities (redacted). Inventory plugins including WooCommerce.
+7. Advance FSM: `CREDENTIALS_BOUND` → `PANEL_AUTH` → `INVENTORY`.
+8. If the local tree is missing, `site.clone` (dry-run first; skip `wp-config.php`).
+9. If WordPress and no valid Beta Map exists, run `wordpress-expert` mapping-only first.
+10. Snapshot remote scoped files; create `rollback_ref`.
+11. Diff workspace vs remote; refuse WordPress core / `wp-config.php` without high-risk approval.
+12. Dry-run `ftp.tree.upload` or `deploy.workspace_to_production` (`dry_run` default true).
+13. APPLY only with `approved=true`, `change_id` and `rollback_ref`.
+14. VERIFY with cookie or Playwright; layout changes need desktop and mobile.
+15. On failure, ROLLBACK and close sessions.
+16. On success, CLOSE credential/FTP/MySQL/panel sessions and return PASS with redacted evidence.
 
 ## Production PASS
 

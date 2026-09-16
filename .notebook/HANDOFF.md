@@ -1,20 +1,18 @@
 # HANDOFF
 
-Updated: 2026-09-13
+Updated: 2026-09-16
 
 ## Objective
-- Resolve PR #33 conflicts with `master` and merge `kotlin-expert` after latest-SHA CI is green.
+- Repair PR #42 CI, merge into master, follow required Actions until the merged SHA is green.
 
 ## Last Verified State
-- Conflicts are only in `.notebook/{HANDOFF,PROGRESS,MEMORY,LEARNING}.md` after merging `origin/master` (PR #34 Why/Porquê) into `cursor/kotlin-expert-1d4f`.
-- Kotlin skill/MCP files did not conflict.
-- Merge not yet completed.
+- Root cause: unquoted `skill_intent` colon broke overlay YAML parse (`35052357725`).
+- Local Jest: kinghost-control + runtime-auth 15/15 PASS after quoting the scalar.
+- PR still draft: https://github.com/paulosantanna/ai-assistent-universal-coder/pull/42
 
 ## Working Set
-- `.notebook/{HANDOFF,PROGRESS,MEMORY,LEARNING}.md`
-- `skills/kotlin-expert/`
-- `aeos/mcps/docs-kotlin-current.mcp.yaml`
+- `aeos/registries/mcps.kinghost.additions.yaml`
+- `tests/node/kinghost-control-mcp.test.cjs`
 
 ## Risks And Next Actions
-- Finish conflict resolution, push, revalidate required checks on the new head SHA, merge PR #33.
-- Reconfirm Kotlin currency with `docs-kotlin-current` if a newer GitHub tag appears after 2.4.20.
+- Push the YAML fix, wait for latest-SHA AEOS Enterprise CI SUCCESS, merge #42, wait for master SHA SUCCESS.

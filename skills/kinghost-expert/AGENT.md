@@ -9,9 +9,10 @@ Follow `BRIEFING -> RECON -> PLAN -> EXECUTE -> VERIFY -> DEBRIEF`.
 ## First actions
 
 - Identify the workspace WordPress/PHP tree and the KingHost environment.
-- Open cookie/Playwright panel or wp-admin session through `runtime-auth` when needed.
+- Open the panel cookie jar with `kinghost_control.panel.session.open_cookie_file`.
+- List and select an existing hosting domain.
 - Bind FTP/MySQL credentials as opaque refs from env/secret/runtime memory.
-- Run the production FSM in order for live publishes.
+- Clone the remote site when the local tree is missing, then run the production FSM for live publishes.
 
 ## Engineering rules
 

@@ -5,12 +5,24 @@ import { readFileSync, existsSync, statSync } from "node:fs";
 import { resolve, relative, sep, dirname, join } from "node:path";
 import { pathToFileURL, fileURLToPath } from "node:url";
 import { FtpClient } from "./ftp-client.mjs";
+import { knowledgeSearch, pluginCatalog } from "./knowledge.mjs";
+import {
+  openCookieFile,
+  panelSessionInfo,
+  closePanelSession,
+  fetchPanelReadonly,
+  panelSessionCount
+} from "./cookie-session.mjs";
+import { listTree, downloadTree, uploadTree, parseFtpListing } from "./ftp-tree.mjs";
+import { listWordpressUsers, listWordpressPlugins, wordpressInventory } from "./wordpress-ops.mjs";
 
 const credentials = new Map();
 const ftpSessions = new Map();
 const mysqlSessions = new Map();
 const fsmRuns = new Map();
 const selectedEnvironment = new Map();
+const selectedDomain = new Map();
+const knownDomains = new Map();
 
 const MAX_READ_BYTES = 2_000_000;
 const DEFAULT_TTL_MS = 15 * 60 * 1000;
@@ -35,27 +47,6 @@ const ENVIRONMENTS = [
   { id: "production", label: "KingHost production", mutation_default: "approval-dry-run-rollback", ftp_default: true }
 ];
 
-const KINGHOST_TOOLS = [
-  { id: "ftp", family: "publish", title: "FTP" },
-  { id: "sftp", family: "publish", title: "SFTP" },
-  { id: "ssh", family: "publish", title: "SSH" },
-  { id: "file-manager", family: "files", title: "File Manager" },
-  { id: "mysql", family: "database", title: "MySQL" },
-  { id: "phpmyadmin", family: "database", title: "phpMyAdmin" },
-  { id: "postgres", family: "database", title: "PostgreSQL" },
-  { id: "php-version", family: "runtime", title: "PHP version manager" },
-  { id: "wordpress", family: "application", title: "WordPress" },
-  { id: "dns", family: "network", title: "DNS" },
-  { id: "ssl", family: "network", title: "SSL certificates" },
-  { id: "email", family: "network", title: "Email" },
-  { id: "backup", family: "operations", title: "Backups" },
-  { id: "cron", family: "operations", title: "Cron" },
-  { id: "logs", family: "operations", title: "Logs" },
-  { id: "resources", family: "operations", title: "Resource monitor" },
-  { id: "git-deploy", family: "publish", title: "Git publication" },
-  { id: "domains", family: "network", title: "Domains and subdomains" }
-];
-
 const WP_BLOCKED_REMOTE = [
   /^\/?wp-admin(\/|$)/i,
   /^\/?wp-includes(\/|$)/i,
@@ -63,7 +54,7 @@ const WP_BLOCKED_REMOTE = [
   /(^|\/)wp-config-sample\.php$/i
 ];
 
-const SECRET_KEYS = /(password|passwd|secret|token|cookie|authorization|private[_-]?key|nonce)/i;
+const SECRET_KEYS = /^(password|passwd|secret|token|cookies?|authorization|private[_-]?key|nonce)$/i;
 const READONLY_SQL = /^\s*(select|show|describe|desc|explain|with\b[\s\S]*select)\b/i;
 const MUTATING_SQL = /\b(insert|update|delete|replace|merge|truncate|drop|alter|create|grant|revoke|rename|call|load\s+data)\b/i;
 const HIGH_RISK_SQL = /\b(truncate|drop|grant|revoke|load\s+data)\b/i;
@@ -197,15 +188,25 @@ function bindCredential(params) {
   }
 
   if (sourceClass === "cookie_session_panel") {
+    if (params.cookie_file_path || params.path) {
+      const panel = openCookieFile(params);
+      return ok({
+        status: "BOUND",
+        source_class: sourceClass,
+        kind,
+        ...panel,
+        next: "Confirm panel identity with panel.fetch_readonly, then domain.list / domain.select. Bind FTP/MySQL via env_reference or runtime_memory. Never copy panel passwords into evidence."
+      });
+    }
     if (!params.session_ref && !params.__aeosAuthSessionRef) {
-      return fail("cookie_session_panel requires an opaque runtime-auth session_ref");
+      return fail("cookie_session_panel requires cookie_file_path or an opaque runtime-auth session_ref");
     }
     return ok({
       status: "PLAN",
       source_class: sourceClass,
       kind,
       session_ref_present: true,
-      next: "Use Playwright/browser with the cookie session to confirm the KingHost panel identity, then bind FTP/MySQL via env_reference or runtime_memory. Never copy panel passwords into evidence."
+      next: "This process cannot materialize a runtime-auth session_ref. Prefer kinghost_control.panel.session.open_cookie_file with the workspace cookie-jar path."
     });
   }
 
@@ -239,9 +240,130 @@ function environmentSelect(params) {
   const env = envRecord(id);
   if (!env) return fail(`Unknown environment_id. Allowed: ${ENVIRONMENTS.map((item) => item.id).join(", ")}`);
   selectedEnvironment.set("default", env.id);
+  const domain = String(params.domain || selectedDomain.get("default") || "").trim().toLowerCase();
+  if (domain) selectedDomain.set("default", domain);
   const changeId = String(params.change_id || randomUUID());
-  fsmRuns.set(changeId, { change_id: changeId, state: "ENV_SELECTED", environment_id: env.id, history: ["IDLE", "ENV_SELECTED"] });
-  return ok({ environment: env, change_id: changeId, fsm_state: "ENV_SELECTED" });
+  fsmRuns.set(changeId, {
+    change_id: changeId,
+    state: "ENV_SELECTED",
+    environment_id: env.id,
+    domain: domain || null,
+    history: ["IDLE", "ENV_SELECTED"]
+  });
+  return ok({ environment: env, domain: domain || null, change_id: changeId, fsm_state: "ENV_SELECTED" });
+}
+
+function parseDomainList(value) {
+  if (Array.isArray(value)) return value.map((item) => String(item).trim().toLowerCase()).filter(Boolean);
+  return String(value || "").split(/[,;\s]+/).map((item) => item.trim().toLowerCase()).filter(Boolean);
+}
+
+function parsePluginDirs(listing) {
+  return parseFtpListing(listing)
+    .filter((entry) => entry.type === "dir")
+    .map((entry) => entry.name);
+}
+
+function rememberDomains(domains, source) {
+  const records = domains.map((domain) => ({ domain, source }));
+  const current = knownDomains.get("default") || [];
+  const merged = new Map(current.map((item) => [item.domain, item]));
+  for (const record of records) merged.set(record.domain, record);
+  const list = [...merged.values()].sort((a, b) => a.domain.localeCompare(b.domain));
+  knownDomains.set("default", list);
+  return list;
+}
+
+async function domainList(params) {
+  const collected = [];
+  const operator = parseDomainList(params.domains || params.domain || process.env.KINGHOST_DOMAINS || "");
+  if (operator.length) collected.push(...rememberDomains(operator, "operator_or_env"));
+  const panelRef = params.panel_session_ref;
+  if (panelRef) {
+    const fetched = await fetchPanelReadonly({
+      panel_session_ref: panelRef,
+      url: params.panel_url || "https://painel.kinghost.com.br/"
+    });
+    if (fetched.login_page) {
+      return fail("Panel cookie session returned the login page; refresh the external cookie jar");
+    }
+    if (fetched.domains.length) collected.push(...rememberDomains(fetched.domains, "panel_html"));
+    if (!operator.length && fetched.domains.length === 0) {
+      return ok({
+        domains: knownDomains.get("default") || [],
+        panel: { status: fetched.status, login_page: fetched.login_page, url: fetched.url },
+        note: "Panel HTML did not expose domain names. Pass domains[] or KINGHOST_DOMAINS, or list FTP home directories."
+      });
+    }
+  }
+  if (params.session_ref && ftpSessions.has(params.session_ref)) {
+    const tree = await listTree(getFtp(params.session_ref).client, params.path || ".", { max_entries: 200, include_uploads: true, skip_wp_config: false });
+    const fromFtp = tree.dirs
+      .map((dir) => dir.split("/").filter(Boolean).pop())
+      .filter((name) => name && name.includes(".") && !name.startsWith("."));
+    if (fromFtp.length) collected.push(...rememberDomains(fromFtp, "ftp"));
+  }
+  const domains = knownDomains.get("default") || collected;
+  if (domains.length === 0) {
+    return fail("No KingHost domains found. Bind a panel cookie session, set KINGHOST_DOMAINS, or pass domains[]");
+  }
+  return ok({
+    domains,
+    selected: selectedDomain.get("default") || null,
+    panel_url: "https://painel.kinghost.com.br"
+  });
+}
+
+function domainSelect(params) {
+  const domain = String(params.domain || "").trim().toLowerCase();
+  if (!domain) return fail("domain is required");
+  const known = knownDomains.get("default") || [];
+  if (known.length && !known.some((item) => item.domain === domain) && params.allow_unlisted !== true) {
+    return fail(`Unknown domain '${domain}'. List domains first or pass allow_unlisted=true`);
+  }
+  if (!known.some((item) => item.domain === domain)) rememberDomains([domain], "selected");
+  selectedDomain.set("default", domain);
+  const envId = String(params.environment_id || selectedEnvironment.get("default") || "").trim();
+  let changeId = String(params.change_id || "");
+  if (envId && envRecord(envId)) {
+    const selected = environmentSelect({ environment_id: envId, domain, change_id: changeId || undefined });
+    return ok({ domain, ...(selected.data || {}) });
+  }
+  if (changeId && fsmRuns.has(changeId)) fsmRuns.get(changeId).domain = domain;
+  return ok({ domain, environment_id: envId || null, change_id: changeId || null });
+}
+
+function boundUsernames() {
+  return [...credentials.values()].map((entry) => ({
+    kind: entry.kind,
+    username: entry.username,
+    host: entry.host,
+    source: "bound_credential"
+  }));
+}
+
+async function listUsers(params) {
+  const users = {
+    panel: [],
+    ftp: boundUsernames().filter((item) => item.kind === "ftp" || item.kind === "sftp"),
+    mysql: boundUsernames().filter((item) => item.kind === "mysql"),
+    wordpress: [],
+    operator: parseDomainList(params.usernames || params.users).map((username) => ({ username, source: "operator" }))
+  };
+  if (params.panel_session_ref) {
+    users.panel.push({
+      ...panelSessionInfo(params.panel_session_ref),
+      note: "Panel identity is the cookie session; KingHost does not document a public account-user API. Usernames already created are read from FTP/MySQL binds and WordPress tables."
+    });
+  }
+  if (params.session_ref && mysqlSessions.has(params.session_ref)) {
+    const wp = await listWordpressUsers(getMysql(params.session_ref).db);
+    users.wordpress = wp.users;
+  }
+  return ok({
+    users,
+    never_returned: ["passwords", "password hashes", "cookies", "unmasked emails"]
+  });
 }
 
 function fsmGet(changeId) {
@@ -319,18 +441,19 @@ function panelAuthPlan(params) {
   return ok({
     status: "PLAN",
     method,
-    allowed_hosts: ["king.host", "*.king.host", "*.kinghost.com.br"],
+    panel_url: "https://painel.kinghost.com.br",
+    allowed_hosts: ["painel.kinghost.com.br", "king.host", "*.king.host", "*.kinghost.com.br", "*.kinghost.net"],
     cookie: {
       source: "external runtime cookie/cookie-jar file reference",
-      open_via: "runtime-auth auth.session.open_cookie_file",
+      open_via: "kinghost_control.panel.session.open_cookie_file or runtime-auth auth.session.open_cookie_file",
       never_persist: ["cookie values", "panel passwords", "FTP passwords shown in UI"]
     },
     playwright: {
       use: "browser MCP or Playwright with the same cookie session",
-      goals: ["confirm account/site identity", "select environment/domain", "open PHP/MySQL/FTP tool pages", "verify post-deploy"],
+      goals: ["confirm account/site identity", "list and select domain", "open PHP/MySQL/FTP/WordPress tools", "verify post-deploy"],
       forbidden: ["copy passwords into chat, notebook or evidence"]
     },
-    next: "After panel identity is confirmed, bind FTP/MySQL credentials from env_reference or runtime_memory"
+    next: "After panel identity is confirmed, domain.list then domain.select, then bind FTP/MySQL from env_reference or runtime_memory"
   });
 }
 
@@ -354,27 +477,24 @@ function verifySmokePlan(params) {
   });
 }
 
-function knowledgeSearch(params) {
-  return ok({
-    status: "PLAN",
-    query: String(params.query || ""),
-    source_registry: "aeos/knowledge/kinghost-control.sources.yaml",
-    freshness_policy: "aeos/policies/kinghost-commerce-freshness.policy.md",
-    official: ["https://king.host/", "https://king.host/wiki/", "https://king.host/blog/"]
-  });
+function searchKnowledge(params) {
+  return ok(knowledgeSearch(params.query || params.q || "", { limit: Number(params.limit || 8) }));
 }
 
 function deployWorkspacePlan(params) {
-  return ok({
-    status: "PLAN",
+  return {
+    status: params.session_ref ? "READY" : "PLAN",
     fsm: FSM_ORDER,
     workspace_root: params.workspace_root || null,
     remote_root: params.remote_root || "wp-content",
+    domain: selectedDomain.get("default") || params.domain || null,
     steps: [
-      "select environment",
+      "open panel cookie jar",
+      "list and select existing KingHost domain",
+      "select environment local|staging|production",
       "bind FTP and optional MySQL/wp-admin credentials",
-      "panel auth via cookie or Playwright",
       "inventory remote scoped tree",
+      "clone to workspace when the local tree is missing",
       "snapshot hashes",
       "diff workspace vs remote",
       "dry-run FTP STOR list",
@@ -384,6 +504,50 @@ function deployWorkspacePlan(params) {
       "close sessions"
     ],
     required_gates: ["approved=true", "change_id", "rollback_ref", "dry_run evidence"]
+  };
+}
+
+async function deployWorkspace(params) {
+  const plan = deployWorkspacePlan(params);
+  if (!params.session_ref) return ok(plan);
+  requireMutationGate(params);
+  const session = getFtp(params.session_ref);
+  const remoteRoot = String(params.remote_root || session.remoteRoot || "wp-content");
+  const result = await uploadTree(session.client, {
+    remoteRoot: remoteAllowed(session.remoteRoot, remoteRoot, { highRisk: params.high_risk_approved === true }),
+    workspaceRoot: params.workspace_root || process.cwd(),
+    localDir: params.local_dir || params.local_path || ".",
+    dryRun: params.dry_run !== false,
+    includeUploads: params.include_uploads === true,
+    skipWpConfig: params.high_risk_approved !== true,
+    maxFiles: Number(params.max_files || 500)
+  });
+  return ok({
+    ...plan,
+    status: result.dry_run ? "DRY_RUN" : "APPLIED",
+    ...result,
+    change_id: params.change_id,
+    rollback_ref: params.rollback_ref
+  });
+}
+
+async function cloneSite(params) {
+  const session = getFtp(params.session_ref);
+  const remoteRoot = remoteAllowed(session.remoteRoot, params.remote_root || session.remoteRoot, { highRisk: true });
+  const result = await downloadTree(session.client, {
+    remoteRoot,
+    workspaceRoot: params.workspace_root || process.cwd(),
+    localDir: params.local_dir || params.local_path || ".",
+    dryRun: params.dry_run !== false,
+    includeUploads: params.include_uploads === true,
+    skipWpConfig: params.skip_wp_config !== false,
+    maxFiles: Number(params.max_files || 500)
+  });
+  return ok({
+    status: result.dry_run ? "DRY_RUN" : "CLONED",
+    domain: selectedDomain.get("default") || params.domain || null,
+    skipped_secrets: ["wp-config.php"],
+    ...result
   });
 }
 
@@ -566,10 +730,21 @@ async function closeRef(params) {
     credentials.delete(ref);
     return ok({ closed: true, kind: "credential", credential_ref: ref });
   }
+  if (closePanelSession(ref)) {
+    return ok({ closed: true, kind: "panel", panel_session_ref: ref });
+  }
   return fail("Unknown session_ref or credential_ref");
 }
 
 async function dispatch(action, params = {}) {
+  try {
+    return await dispatchAction(action, params);
+  } catch (error) {
+    return fail(redact(error instanceof Error ? error.message : String(error)), "ERROR");
+  }
+}
+
+async function dispatchAction(action, params = {}) {
   switch (action) {
     case "kinghost_control.health":
       return ok({
@@ -577,15 +752,22 @@ async function dispatch(action, params = {}) {
         credentials: credentials.size,
         ftp_sessions: ftpSessions.size,
         mysql_sessions: mysqlSessions.size,
+        panel_sessions: panelSessionCount(),
         fsm_runs: fsmRuns.size,
+        selected_domain: selectedDomain.get("default") || null,
         uptime_seconds: Math.round(process.uptime())
       });
     case "kinghost_control.environment.catalog":
-      return ok({ environments: ENVIRONMENTS });
+      return ok({
+        environments: ENVIRONMENTS,
+        panel_url: "https://painel.kinghost.com.br",
+        domains: knownDomains.get("default") || [],
+        selected_domain: selectedDomain.get("default") || null
+      });
     case "kinghost_control.environment.select":
       return environmentSelect(params);
     case "kinghost_control.plugin.catalog":
-      return ok({ tools: KINGHOST_TOOLS, note: "Catalog is the governed KingHost control-panel surface; undocumented private APIs are unsupported." });
+      return ok(pluginCatalog());
     case "kinghost_control.credential.bind":
       return bindCredential(params);
     case "kinghost_control.credential.info":
@@ -599,7 +781,7 @@ async function dispatch(action, params = {}) {
     case "kinghost_control.wordpress.inventory_plan":
       return ok({
         status: "PLAN",
-        collect: ["WordPress version", "active theme", "plugins", "php version", "scoped wp-content tree"],
+        collect: ["WordPress version", "active theme", "plugins including WooCommerce", "php version", "scoped wp-content tree", "existing wp_users (redacted)", "table prefix", "domain"],
         persist: ".aeos/wordpress/sites/<site-id>/beta-map.json via wordpress-expert",
         never_persist: ["passwords", "cookies", "nonces", "wp-config secrets"]
       });
@@ -633,6 +815,54 @@ async function dispatch(action, params = {}) {
       return closeRef(params);
     case "kinghost_control.panel.auth_plan":
       return panelAuthPlan(params);
+    case "kinghost_control.panel.session.open_cookie_file":
+      return ok(openCookieFile(params));
+    case "kinghost_control.panel.session.info":
+      return ok(panelSessionInfo(params.panel_session_ref || params.session_ref));
+    case "kinghost_control.panel.fetch_readonly":
+      return ok(await fetchPanelReadonly(params));
+    case "kinghost_control.domain.list":
+      return domainList(params);
+    case "kinghost_control.domain.select":
+      return domainSelect(params);
+    case "kinghost_control.users.list":
+      return listUsers(params);
+    case "kinghost_control.wordpress.users.list":
+      return ok(await listWordpressUsers(getMysql(params.session_ref).db, { prefix: params.table_prefix }));
+    case "kinghost_control.wordpress.plugins.inventory":
+      if (params.session_ref && mysqlSessions.has(params.session_ref)) {
+        return ok(await listWordpressPlugins(getMysql(params.session_ref).db, { prefix: params.table_prefix }));
+      }
+      if (params.session_ref && ftpSessions.has(params.session_ref)) {
+        const session = getFtp(params.session_ref);
+        const remotePath = remoteAllowed(session.remoteRoot, params.path || "wp-content/plugins");
+        const result = await session.client.list(remotePath);
+        return ok({ path: remotePath, plugins: parsePluginDirs(result.listing) });
+      }
+      return fail("wordpress.plugins.inventory requires a mysql or ftp session_ref");
+    case "kinghost_control.ftp.tree.list":
+      return ok(await listTree(getFtp(params.session_ref).client, remoteAllowed(getFtp(params.session_ref).remoteRoot, params.path || getFtp(params.session_ref).remoteRoot), params));
+    case "kinghost_control.ftp.tree.download":
+      return cloneSite(params);
+    case "kinghost_control.ftp.tree.upload":
+      requireMutationGate(params);
+      return ok({
+        ...(await uploadTree(getFtp(params.session_ref).client, {
+          remoteRoot: remoteAllowed(getFtp(params.session_ref).remoteRoot, params.remote_root || getFtp(params.session_ref).remoteRoot, { highRisk: params.high_risk_approved === true }),
+          workspaceRoot: params.workspace_root || process.cwd(),
+          localDir: params.local_dir || ".",
+          dryRun: params.dry_run !== false,
+          includeUploads: params.include_uploads === true,
+          skipWpConfig: params.high_risk_approved !== true,
+          maxFiles: Number(params.max_files || 500)
+        })),
+        change_id: params.change_id,
+        rollback_ref: params.rollback_ref
+      });
+    case "kinghost_control.site.clone":
+      return cloneSite(params);
+    case "kinghost_control.mysql.wordpress.inventory":
+      return ok(await wordpressInventory(getMysql(params.session_ref).db));
     case "kinghost_control.backup.plan":
       return backupPlan(params);
     case "kinghost_control.rollback.plan":
@@ -640,9 +870,9 @@ async function dispatch(action, params = {}) {
     case "kinghost_control.verify.smoke_plan":
       return verifySmokePlan(params);
     case "kinghost_control.deploy.workspace_to_production":
-      return deployWorkspacePlan(params);
+      return deployWorkspace(params);
     case "kinghost_control.knowledge_search":
-      return knowledgeSearch(params);
+      return searchKnowledge(params);
     default:
       return fail(`Unknown action: ${action}`, "UNKNOWN_ACTION");
   }
@@ -663,7 +893,7 @@ async function handleEnvelope(envelope) {
   }
 }
 
-export { dispatch, handleEnvelope, FSM_ORDER };
+export { dispatch, handleEnvelope, FSM_ORDER, parsePluginDirs };
 
 const isMain = process.argv[1]
   ? resolve(process.argv[1]).toLowerCase() === fileURLToPath(import.meta.url).toLowerCase()
@@ -672,8 +902,9 @@ const isMain = process.argv[1]
 if (isMain && process.argv.includes("--self-test")) {
   const health = await handleEnvelope({ request_id: "self-test", action: "kinghost_control.health", params: {} });
   const catalog = await handleEnvelope({ request_id: "self-env", action: "kinghost_control.environment.catalog", params: {} });
-  console.log(JSON.stringify({ health, catalog_ok: catalog.success === true }));
-  process.exit(health.success && catalog.success ? 0 : 1);
+  const knowledge = await handleEnvelope({ request_id: "self-know", action: "kinghost_control.knowledge_search", params: { query: "woocommerce ftp dominio" } });
+  console.log(JSON.stringify({ health, catalog_ok: catalog.success === true, knowledge_ok: knowledge.success === true }));
+  process.exit(health.success && catalog.success && knowledge.success ? 0 : 1);
 }
 
 if (isMain) {

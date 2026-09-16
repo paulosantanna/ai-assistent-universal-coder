@@ -1,6 +1,6 @@
 # MEMORY
 
-Updated: 2026-09-13
+Updated: 2026-09-16
 
 ## Active memory
 
@@ -96,9 +96,9 @@ Updated: 2026-09-13
 
 ### KingHost control MCP and expert super-skill
 - Status: active
-- Fact: `kinghost-control` is the deterministic MCP for KingHost environments, opaque credential bind, WordPress/PHP/MySQL plans and FTP publish. `kinghost-expert` is the governing super-skill; production follows a fixed FSM and may authenticate with an external cookie jar or Playwright. Passwords are never persisted or returned to the model.
-- Evidence: `aeos/mcps/kinghost-control.mcp.yaml`, `skills/kinghost-expert/SKILL.md`, `kinghost-control-mcp/index.mjs`, `aeos/playbooks/kinghost-expert-production-lifecycle.playbook.md`
-- Updated: 2026-09-12
+- Fact: `kinghost-control` is the KingHost Hospedagem control plane: cookie-jar panel login, existing domain list/select, already-created user inventory (redacted), WordPress/PHP/MySQL/WooCommerce, site clone and FTP tree publish. `kinghost-expert` governs the production FSM. Passwords and cookie values are never persisted or returned to the model. `kinghost-commerce` remains the SSH/SFTP/Postgres commerce adapter.
+- Evidence: `aeos/mcps/kinghost-control.mcp.yaml`, `skills/kinghost-expert/SKILL.md`, `kinghost-control-mcp/index.mjs`, `kinghost-control-mcp/knowledge.mjs`
+- Updated: 2026-09-16
 
 ### TLC catalog skills copied into the workspace
 - Status: active

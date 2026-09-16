@@ -1,18 +1,22 @@
 skills:
   - id: kinghost-expert
     path: skills/kinghost-expert/SKILL.md
-    version: 1.0.0
+    version: 1.1.0
     owner_agent: codenavi-agent
     risk_level: high
     capabilities:
       - KINGHOST_ENVIRONMENT
+      - KINGHOST_DOMAIN_SELECT
       - KINGHOST_CREDENTIAL_BIND
+      - KINGHOST_COOKIE_PANEL
+      - KINGHOST_SITE_CLONE
       - KINGHOST_FTP_PUBLISH
       - KINGHOST_PHP_CONFIG
       - KINGHOST_MYSQL
       - WORDPRESS_PRODUCTION_OPERATIONS
+      - WORDPRESS_WOOCOMMERCE
       - ROLLBACK_PLANNING
-    mission: Deterministic KingHost WordPress/PHP production changes and FTP publish from the workspace using opaque credential refs and cookie or Playwright sessions.
+    mission: KingHost Hospedagem control from cookie-jar login through domain select, user inventory, site clone, WordPress/PHP/MySQL/WooCommerce changes and FTP production publish.
     required_mcps:
       - kinghost-control
       - wordpress-knowledge
