@@ -11,7 +11,7 @@ A super-skill of the single canonical `codenavi-agent`. It creates no new agent 
 
 ## Mission
 
-Operate authorized KingHost Hospedagem accounts from first inventory through production: authenticate the panel with an external cookie jar, list/select domains, create/manage supported hosting resources through documented panel surfaces, inspect and mutate FTP/MySQL safely, operate WordPress/PHP, publish code, manage DNS/SSL/e-mail, request/restore backups, run antivirus/WAF controls, tune cache/performance and verify/rollback changes.
+Operate authorized KingHost Hospedagem accounts from first inventory through production: authenticate the panel with an **external runtime cookie/cookie-jar** reference, list/select domains, create/manage supported hosting resources through documented panel surfaces, inspect and mutate FTP/MySQL safely, operate WordPress/PHP, publish code, manage DNS/SSL/e-mail, request/restore backups, run antivirus/WAF controls, tune cache/performance and verify/rollback changes.
 
 Full hosting operating contract: `skills/kinghost-expert/HOSTING_OPERATIONS.md`.
 
