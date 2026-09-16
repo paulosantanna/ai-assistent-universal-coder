@@ -9,10 +9,10 @@ Updated: 2026-09-16
 - [x] PLAN: add `kinghost-wordpress-publish`, `publish.preflight`, `npm run aeos:kinghost:publish`, WooCommerce preserve-live-data policy.
 - [x] EXECUTE: playbook, MCP preflight, CLI, overlay, tests, notebook.
 - [x] VERIFY: Jest 65/65, guards PASS, control MCP smoke PASS.
-- [ ] DEBRIEF: PR with Why/Porquê.
+- [x] DEBRIEF: draft PR #43 opened.
 
 ## Current Phase
-- VERIFY
+- DEBRIEF
 
 ## Verification Gates
 - [x] `kinghost-wordpress-publish` loads from overlay.

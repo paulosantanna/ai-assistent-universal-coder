@@ -19,5 +19,6 @@ Updated: 2026-09-16
 - `aeos/registries/playbooks.kinghost-expert.additions.yaml`
 
 ## Risks And Next Actions
-- VERIFY Jest/guards, then open the PR.
-- APPLY still needs operator cookie-jar/FTP env and `AEOS_KINGHOST_APPROVED=true`.
+- Draft PR: https://github.com/paulosantanna/ai-assistent-universal-coder/pull/43
+- Wait for required Actions on this head SHA, then merge when green.
+- Live APPLY still needs operator cookie-jar/FTP env and `AEOS_KINGHOST_APPROVED=true`.
