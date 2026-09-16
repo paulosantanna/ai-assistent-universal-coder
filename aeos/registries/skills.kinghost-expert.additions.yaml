@@ -1,33 +1,82 @@
 skills:
   - id: kinghost-expert
     path: skills/kinghost-expert/SKILL.md
-    version: 1.2.0
+    version: 1.3.0
     owner_agent: codenavi-agent
     risk_level: high
     capabilities:
       - KINGHOST_ENVIRONMENT
       - KINGHOST_DOMAIN_SELECT
+      - KINGHOST_DOMAIN_DNS_SSL
       - KINGHOST_CREDENTIAL_BIND
       - KINGHOST_COOKIE_PANEL
       - KINGHOST_SITE_CLONE
       - KINGHOST_FTP_PUBLISH
+      - KINGHOST_GIT_PUBLISH
       - KINGHOST_PHP_CONFIG
       - KINGHOST_MYSQL
+      - KINGHOST_BACKUP_RECOVERY
+      - KINGHOST_EMAIL_OPERATIONS
+      - KINGHOST_ANTIVIRUS_WAF
+      - KINGHOST_CACHE_PERFORMANCE
       - WORDPRESS_PRODUCTION_OPERATIONS
       - WORDPRESS_WOOCOMMERCE
       - ROLLBACK_PLANNING
-    mission: KingHost Hospedagem control from cookie-jar login through domain select, user inventory, site clone, WordPress/PHP/MySQL/WooCommerce changes and FTP production publish.
-    required_mcps:
-      - kinghost-control
-      - wordpress-knowledge
-      - browser
-    allowed_secret_sources:
-      - external_runtime_cookie_file_reference
-      - env_reference
-      - secret_reference
+    mission: Complete governed KingHost Hospedagem control from panel authentication through domains/DNS/SSL, FTP/Git/WordPress/PHP/MySQL, backup/recovery, email, antivirus/WAF, performance and production verification.
+    required_mcps: [kinghost-control, wordpress-knowledge, browser]
+    allowed_secret_sources: [external_runtime_cookie_file_reference, env_reference, secret_reference]
     quality_gates:
-      - Production FSM states advance in order
+      - Production FSM states advance in order for code/data publish
       - Credentials remain opaque refs
+      - Current KingHost docs or live panel corroborate mutable video-derived knowledge
       - WordPress core and wp-config.php are not uploaded without high-risk approval
-      - FTP APPLY has dry-run, approval, rollback and post-change verification
-      - Cookie/Playwright secrets never persist
+      - High-impact mutation has inventory, rollback and post-change verification
+      - Cookie/Playwright/mailbox/database secrets never persist
+
+  - id: kinghost-backup-recovery-expert
+    path: skills/kinghost-backup-recovery-expert/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: high
+    capabilities: [KINGHOST_BACKUP, KINGHOST_RESTORE, FTP_RECOVERY, DATABASE_RECOVERY, EMAIL_RECOVERY, ROLLBACK_PLANNING]
+    required_mcps: [kinghost-control, browser]
+
+  - id: kinghost-security-expert
+    path: skills/kinghost-security-expert/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: high
+    capabilities: [KINGHOST_ANTIVIRUS, KINGHOST_QUARANTINE, KINGHOST_WAF, KINGHOST_SSL_SECURITY, INCIDENT_VERIFICATION]
+    required_mcps: [kinghost-control, browser]
+
+  - id: kinghost-domain-dns-ssl-expert
+    path: skills/kinghost-domain-dns-ssl-expert/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: high
+    capabilities: [KINGHOST_DOMAIN_CREATE, KINGHOST_SUBDOMAIN, KINGHOST_DNS, KINGHOST_SSL, DNS_ROLLBACK]
+    required_mcps: [kinghost-control, browser]
+
+  - id: kinghost-email-expert
+    path: skills/kinghost-email-expert/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: high
+    capabilities: [KINGHOST_EMAIL_CREATE, KINGHOST_WEBMAIL, KINGHOST_MAIL_DNS, KINGHOST_EMAIL_BACKUP]
+    required_mcps: [kinghost-control, browser]
+
+  - id: kinghost-performance-expert
+    path: skills/kinghost-performance-expert/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: medium
+    capabilities: [KINGHOST_PERFORMANCE, KINGHOST_VARNISH, KINGHOST_PHP_PERFORMANCE, DATABASE_PERFORMANCE, PAGESPEED_REVIEW]
+    required_mcps: [kinghost-control, browser]
+
+  - id: kinghost-database-expert
+    path: skills/kinghost-database-expert/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: high
+    capabilities: [KINGHOST_MYSQL_CREATE, KINGHOST_MYSQL_ACCESS, DATABASE_BACKUP, DATABASE_MIGRATION, DATABASE_PERFORMANCE]
+    required_mcps: [kinghost-control, browser]
