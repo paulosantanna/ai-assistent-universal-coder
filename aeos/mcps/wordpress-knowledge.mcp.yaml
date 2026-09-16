@@ -18,12 +18,14 @@ mcp:
       - { name: wordpress_knowledge.integration_map, security: read-only }
       - { name: wordpress_knowledge.security_gate, security: read-only }
       - { name: wordpress_knowledge.beta_mapping_plan, security: read-only }
+      - { name: wordpress_knowledge.plugin_universe_plan, security: read-only }
       - { name: wordpress_knowledge.source_policy, security: read-only }
   source_profile:
     primary:
       - https://developer.wordpress.org/
       - https://developer.wordpress.org/rest-api/
       - https://developer.wordpress.org/plugins/
+      - https://wordpress.org/plugins/
       - https://developer.wordpress.org/themes/
       - https://developer.wordpress.org/block-editor/
       - https://developer.wordpress.org/cli/commands/

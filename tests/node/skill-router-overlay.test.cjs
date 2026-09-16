@@ -61,6 +61,22 @@ describe("AEOS active overlay skill routing", () => {
     assert.equal(byId.get("kinghost-expert").registryFragment, "skills.kinghost-expert.additions.yaml");
   });
 
+  it("routes complete WordPress plugin-universe intent to wordpress-expert", async () => {
+    const { routeRequest } = await import(moduleUrl("scripts/aeos-skill-router.mjs"));
+    const sandbox = fs.mkdtempSync(path.join(os.tmpdir(), "aeos-wp-plugins-route-"));
+    try {
+      const result = routeRequest(
+        "use wordpress-expert com todos os plugins do wp-content/plugins",
+        { memoryRoot: path.join(sandbox, "memory"), outputDir: path.join(sandbox, "router"), limit: 8 }
+      );
+      const ids = result.selectedSkills.map((skill) => skill.id);
+      assert.equal(ids.includes("wordpress-expert"), true);
+      assert.equal(result.gates.overlayRegistryResolved, true);
+    } finally {
+      fs.rmSync(sandbox, { recursive: true, force: true });
+    }
+  });
+
   it("routes KingHost WordPress publish intent to kinghost-expert", async () => {
     const { routeRequest } = await import(moduleUrl("scripts/aeos-skill-router.mjs"));
     const sandbox = fs.mkdtempSync(path.join(os.tmpdir(), "aeos-kinghost-route-"));

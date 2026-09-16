@@ -26,9 +26,9 @@
 4. Derive site_id and check Beta Map.
 5. If no valid consolidated map exists: perform one-shot read-only Beta Mapping, validate schema, persist safe map and stop or continue only under explicit same-run mutation authorization.
 6. If map exists: skip full mapping and run lightweight drift/preflight.
-7. Consult `wordpress-knowledge` MCP for material implementation decisions.
-8. Classify requested change risk and choose supported WordPress extension point.
-9. Build change/rollback plan.
+7. Consult `wordpress-knowledge` MCP for material implementation decisions, including `plugin_universe_plan`.
+8. Inventory **all** installed plugins (`wp-content/plugins` + `wp-content/mu-plugins`); do not sample a catalog. Classify requested change risk and choose a supported WordPress extension point (any installed plugin, theme, block or setting).
+9. Build change/rollback plan. When publishing to KingHost, include the complete local plugin trees via `kinghost-wordpress-publish`.
 10. For medium/high-risk changes, prefer staging or preview when available.
 11. Apply controlled mutation through `runtime-http`, authenticated browser/wp-admin, REST/WP-CLI/repository path available to the site. Runtime HTTP POST/PUT/PATCH/DELETE requires `approved=true` plus normal AEOS gates.
 12. Verify capability/nonce semantics for cookie-authenticated REST writes; a nonce may be consumed in runtime but must not be persisted as durable evidence.

@@ -28,7 +28,7 @@ AI utterance that must run this playbook (do not invent a second procedure):
 ## Required skills
 
 - `kinghost-expert` (governing)
-- `wordpress-expert` when a WordPress Beta Map is missing or drift is material
+- `wordpress-expert` for the complete installed plugin universe, Beta Mapping and plugin/theme mutation
 
 ## Required MCPs
 
@@ -63,12 +63,12 @@ AI utterance that must run this playbook (do not invent a second procedure):
 | `--replace-database` | no | Default false; high-risk; never default for WooCommerce shops |
 | `--apply` | no | Default false (DRY_RUN) |
 
-## WooCommerce / plugin policy
+## Plugin universe / WooCommerce policy
 
-Default APPLY uploads scoped code only:
+`wordpress-expert` inventories **every** local plugin (regular, must-use, single-file). Default APPLY uploads the complete scoped code trees:
 
 - `wp-content/themes`
-- `wp-content/plugins` (custom and requested plugin files, including WooCommerce plugin files when present locally)
+- `wp-content/plugins` (all installed plugins, including WooCommerce when present)
 - `wp-content/mu-plugins`
 
 Default APPLY does **not** overwrite production:
@@ -91,8 +91,8 @@ Product catalog SQL and `wp-content/uploads` require explicit high-risk approval
 5. `environment.select` (`local` \| `staging` \| `production`) including that domain.
 6. Bind already-created FTP (and optional MySQL) credentials as opaque refs.
 7. Advance FSM: `CREDENTIALS_BOUND` → `PANEL_AUTH` → `INVENTORY`.
-8. Inventory remote plugins/themes and WooCommerce tables. Do not dump option secrets.
-9. If a WordPress Beta Map is missing, run `wordpress-expert` mapping-only, then continue only with explicit same-run publish authorization.
+8. Inventory **all** remote plugins/themes (not a WooCommerce-only sample) plus WooCommerce tables when present. Do not dump option secrets.
+9. Run `wordpress-expert` plugin-universe inventory. If a WordPress Beta Map is missing, mapping-only first, then continue only with explicit same-run publish authorization.
 10. Snapshot remote scoped files; create `rollback_ref`. Skip `wp-config.php`.
 11. Diff local scoped tree vs remote. Refuse core / `wp-config.php` without `high_risk_approved`.
 12. Dry-run `deploy.workspace_to_production` or `ftp.tree.upload` (`dry_run` default true). Default `remote_root` is `wp-content`.

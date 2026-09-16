@@ -13,7 +13,11 @@ function makeWordpressTree() {
   const tree = fs.mkdtempSync(path.join(os.tmpdir(), "kinghost-publish-"));
   fs.mkdirSync(path.join(tree, "wp-content", "themes", "demo"), { recursive: true });
   fs.mkdirSync(path.join(tree, "wp-content", "plugins", "woocommerce"), { recursive: true });
-  fs.writeFileSync(path.join(tree, "wp-content", "plugins", "woocommerce", "woocommerce.php"), "<?php");
+  fs.mkdirSync(path.join(tree, "wp-content", "plugins", "contact-form-7"), { recursive: true });
+  fs.mkdirSync(path.join(tree, "wp-content", "mu-plugins"), { recursive: true });
+  fs.writeFileSync(path.join(tree, "wp-content", "plugins", "woocommerce", "woocommerce.php"), "<?php\n/* Plugin Name: WooCommerce */");
+  fs.writeFileSync(path.join(tree, "wp-content", "plugins", "contact-form-7", "wp-contact-form-7.php"), "<?php\n/* Plugin Name: Contact Form 7 */");
+  fs.writeFileSync(path.join(tree, "wp-content", "mu-plugins", "site-guard.php"), "<?php\n/* Plugin Name: Site Guard */");
   fs.writeFileSync(path.join(tree, "wp-content", "themes", "demo", "style.css"), "/* theme */");
   return tree;
 }
@@ -27,6 +31,7 @@ describe("KingHost WordPress one-command publish", () => {
     assert.match(playbook, /npm run aeos:kinghost:publish/);
     assert.match(playbook, /preserve_on_production|orders/);
     assert.match(playbook, /WooCommerce/);
+    assert.match(playbook, /every.*local plugin|complete installed plugin universe/i);
     const pkg = JSON.parse(fs.readFileSync(path.join(repoRoot, "package.json"), "utf8"));
     assert.equal(pkg.scripts["aeos:kinghost:publish"], "node scripts/aeos-kinghost-publish.mjs");
   });
@@ -42,6 +47,9 @@ describe("KingHost WordPress one-command publish", () => {
       assert.equal(result.data.status, "DRY_RUN");
       assert.equal(result.data.ftp_bound, false);
       assert.equal(result.data.inspection.woocommerce_plugin_present, true);
+      assert.ok(result.data.inspection.plugins.slugs.includes("woocommerce"));
+      assert.ok(result.data.inspection.plugins.slugs.includes("contact-form-7"));
+      assert.ok(result.data.inspection.plugins.slugs.includes("site-guard"));
       assert.equal(result.data.apply_requested, false);
       assert.ok(result.data.next.some((item) => /KINGHOST_FTP_USER/i.test(item)));
     } finally {

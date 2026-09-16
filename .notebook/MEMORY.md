@@ -34,6 +34,12 @@ Updated: 2026-09-16
 - Evidence: `runtime/src/kernel/registry-loader.ts`, `tests/node/runtime-auth-broker.test.cjs`
 - Updated: 2026-09-11
 
+### WordPress complete plugin universe
+- Status: active
+- Fact: `wordpress-expert` inventories and operates every plugin in `wp-content/plugins` and `wp-content/mu-plugins` (regular, must-use, single-file; active and inactive). A static catalog is not a ceiling. `kinghost-wordpress-publish` uploads those full plugin trees with the theme.
+- Evidence: `skills/wordpress-expert/PLUGINS.md`, `kinghost-control-mcp/wordpress-ops.mjs:listLocalWordpressPlugins`, `wordpress_knowledge.plugin_universe_plan`
+- Updated: 2026-09-16
+
 ### WordPress first-run Beta Mapping
 - Status: active
 - Fact: `wordpress-expert` performs a full read-only Beta Mapping only when no valid consolidated site map exists. Later runs reuse the map and use lightweight drift/preflight; full remap requires explicit request or invalid/corrupt map.

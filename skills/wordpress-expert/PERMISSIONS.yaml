@@ -1,6 +1,6 @@
 skill: wordpress-expert
 owner_agent: codenavi-agent
-version: 1.0.0
+version: 1.1.0
 
 read:
   - wordpress.public_site
@@ -9,6 +9,7 @@ read:
   - wordpress.content_metadata
   - wordpress.theme_inventory
   - wordpress.plugin_inventory
+  - wordpress.plugin_inventory_all
   - wordpress.navigation
   - wordpress.templates_patterns
   - wordpress.safe_settings_metadata

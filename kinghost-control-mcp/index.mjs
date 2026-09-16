@@ -535,6 +535,7 @@ function publishPreflight(params) {
       replace_database_requested: replaceDatabase,
       replace_database_allowed: false
     },
+    plugins: inspection.plugins || { installed: [], count: 0, slugs: [] },
     credential_presence: publishCredentialPresence(),
     deploy_plan: deployWorkspacePlan(params),
     blocking_conditions: [

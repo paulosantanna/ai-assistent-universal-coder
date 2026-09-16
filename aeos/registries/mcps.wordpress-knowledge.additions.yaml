@@ -17,6 +17,7 @@ mcps:
       - wordpress_knowledge.integration_map
       - wordpress_knowledge.security_gate
       - wordpress_knowledge.beta_mapping_plan
+      - wordpress_knowledge.plugin_universe_plan
       - wordpress_knowledge.source_policy
     write_allowed: false
     approval_required: false

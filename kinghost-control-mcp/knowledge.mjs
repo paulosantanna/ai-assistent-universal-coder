@@ -187,7 +187,8 @@ const ARTICLES = [
       "Produtos: post type product. Pedidos: HPOS wc_orders ou posts shop_order. Checkout/páginas: opções woocommerce_*_page_id; verificar a rota HTTP, não só o option.",
       "Pagamentos (Mercado Pago, PayPal, Stripe) guardam segredos em options: nunca dump de option_value com chave/token.",
       "Publicar tema/plugin custom via FTP scoped; ativação preferencialmente wp-admin/REST autenticado com cookie, não SQL em wp_options.",
-      "Publish one-command: código em wp-content por padrão. Pedidos, clientes, siteurl/home e segredos de pagamento da produção não são sobrescritos pelo site local. --replace-database é high-risk e fora do comando único."
+      "wordpress-expert usa o universo completo de plugins instalados (wp-content/plugins e mu-plugins), não só WooCommerce nem um catálogo estático.",
+      "Publish one-command: código em wp-content por padrão, incluindo todos os plugins locais. Pedidos, clientes, siteurl/home e segredos de pagamento da produção não são sobrescritos pelo site local. --replace-database é high-risk e fora do comando único."
     ].join(" ")
   },
   {

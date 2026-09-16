@@ -204,7 +204,12 @@ describe('KingHost control MCP contracts', () => {
     const tree = fs.mkdtempSync(path.join(os.tmpdir(), 'kinghost-wp-'));
     fs.mkdirSync(path.join(tree, 'wp-content', 'themes', 'demo'), { recursive: true });
     fs.mkdirSync(path.join(tree, 'wp-content', 'plugins', 'woocommerce'), { recursive: true });
-    fs.writeFileSync(path.join(tree, 'wp-content', 'plugins', 'woocommerce', 'woocommerce.php'), '<?php');
+    fs.mkdirSync(path.join(tree, 'wp-content', 'plugins', 'contact-form-7'), { recursive: true });
+    fs.mkdirSync(path.join(tree, 'wp-content', 'mu-plugins'), { recursive: true });
+    fs.writeFileSync(path.join(tree, 'wp-content', 'plugins', 'woocommerce', 'woocommerce.php'), "<?php\n/* Plugin Name: WooCommerce */");
+    fs.writeFileSync(path.join(tree, 'wp-content', 'plugins', 'contact-form-7', 'contact-form-7.php'), "<?php\n/* Plugin Name: Contact Form 7 */");
+    fs.writeFileSync(path.join(tree, 'wp-content', 'plugins', 'hello.php'), "<?php\n/* Plugin Name: Hello Dolly */");
+    fs.writeFileSync(path.join(tree, 'wp-content', 'mu-plugins', 'site-guard.php'), "<?php\n/* Plugin Name: Site Guard */");
     fs.writeFileSync(path.join(tree, 'wp-config.php'), "define('DB_PASSWORD', 'must-not-upload');");
     process.env.KINGHOST_FTP_PASSWORD = 'never-return-this-ftp-secret';
     const preflight = await mod.dispatch('kinghost_control.publish.preflight', { workspace_root: tree });
@@ -213,6 +218,11 @@ describe('KingHost control MCP contracts', () => {
     assert.equal(preflight.data.playbook_id, 'kinghost-wordpress-publish');
     assert.equal(preflight.data.inspection.wordpress, true);
     assert.equal(preflight.data.inspection.woocommerce_plugin_present, true);
+    assert.ok(preflight.data.plugins.slugs.includes('woocommerce'));
+    assert.ok(preflight.data.plugins.slugs.includes('contact-form-7'));
+    assert.ok(preflight.data.plugins.slugs.includes('hello'));
+    assert.ok(preflight.data.plugins.slugs.includes('site-guard'));
+    assert.equal(preflight.data.plugins.mu_plugin_count, 1);
     assert.equal(preflight.data.inspection.wp_config_present, true);
     assert.ok(preflight.data.inspection.excluded_by_default.includes('wp-config.php'));
     assert.equal(preflight.data.woocommerce.replace_database_allowed, false);
