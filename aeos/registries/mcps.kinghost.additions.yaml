@@ -81,7 +81,7 @@ mcps:
     risk_level: critical
     governing_skill: kinghost-expert
     skill_enforced: true
-    skill_intent: Deterministic KingHost Hospedagem control: cookie-jar panel login, domain list/select, already-created users, WordPress/PHP/MySQL, clone and FTP production publish without persisting secrets.
+    skill_intent: "Deterministic KingHost Hospedagem control: cookie-jar panel login, domain list/select, already-created users, WordPress/PHP/MySQL, clone and FTP production publish without persisting secrets."
     capabilities:
       - kinghost_control.health
       - kinghost_control.environment.catalog

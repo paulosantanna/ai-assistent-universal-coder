@@ -3,33 +3,30 @@
 Updated: 2026-09-16
 
 ## Active Mission
-- Objective: give KingHost Hospedagem MCP/skills enough knowledge and tools for WordPress/PHP/MySQL, plugins/e-commerce, users, domains, cookie login, clone and production publish.
-- [x] BRIEFING: notebook + existing kinghost-control/commerce surface.
-- [x] RECON: control MCP was plan-heavy; no domain list, cookie bind, clone or tree publish.
-- [x] PLAN: extend kinghost-control + kinghost-expert; keep commerce for SSH/SFTP/Postgres.
-- [x] EXECUTE: control MCP 1.1 modules (knowledge, cookie-session, ftp-tree, wordpress-ops) and skill/playbook updates.
-- [x] VERIFY: node tests + kinghost smoke.
-- [x] DEBRIEF: commit, push, PR.
+- Objective: fix PR #42 CI failure, merge into master, follow required Actions until green on the merged SHA.
+- [x] BRIEFING: AEOS Enterprise CI / aeos-quality-gates failed on #42.
+- [x] RECON: `runtime-auth-broker.test.cjs` YAML parse error in `mcps.kinghost.additions.yaml` L84 unquoted colon in `skill_intent`.
+- [x] PLAN: quote the scalar; add overlay YAML contract test; re-run Jest; push; merge when latest SHA is green.
+- [x] EXECUTE: quoted `skill_intent`; contract test added.
+- [~] VERIFY: local Jest 15/15 on kinghost + runtime-auth; await latest-SHA Actions.
+- [ ] MERGE: merge #42 into master after required checks pass on the new head SHA.
+- [ ] MASTER CI: required Actions on the merge SHA are SUCCESS.
 
 ## Current Phase
-- DEBRIEF
+- VERIFY
 
 ## Verification Gates
-- [x] Knowledge search returns official KingHost/WordPress hosting facts (WooCommerce, FTP, domains, cookie).
-- [x] Cookie-jar bind returns panel_session_ref and never cookie values.
-- [x] Domain list/select from operator/env inventory.
-- [x] Users list returns already-created usernames without passwords.
-- [x] `node tests/node/kinghost-control-mcp.test.cjs` (Jest 9/9 and Mocha 9 passing).
-- [x] `npm --prefix kinghost-control-mcp run smoke` passes.
-- [ ] Live panel/FTP against a real KingHost account — not available here.
+- [x] Root cause identified: unquoted YAML colon in `skill_intent`.
+- [x] `tests/node/kinghost-control-mcp.test.cjs` and `runtime-auth-broker.test.cjs` PASS locally (15/15).
+- [ ] Required Actions on the new PR head SHA are green.
+- [ ] PR #42 merged into master.
+- [ ] Required Actions on the master merge SHA are green.
 
 ## Factual Log
-- 2026-09-16: Recon showed environment.catalog hardcoded local/staging/production; cookie_session_panel and deploy.workspace_to_production were PLAN-only; plugin.catalog was panel tools, not WordPress plugins.
-- 2026-09-16: Added executable cookie/domain/user/clone/tree-upload tools and a wiki-backed knowledge corpus.
-- 2026-09-16: Draft PR #42 opened from `cursor/kinghost-control-full-hosting-7c52`.
+- 2026-09-16: CI run `35052357725` job `104655281205` failed at `npm run test:node:jest`. ConfigLoadError: bad indentation of a mapping entry at `aeos/registries/mcps.kinghost.additions.yaml:84`.
+- 2026-09-16: Quoted `skill_intent` and added a regression test that the value stays quoted.
 
 ## Previous Missions
+- KingHost Hospedagem control MCP v1.1; draft PR #42.
 - Resolve PR #33 conflicts with master and merge kotlin-expert.
 - Require Why/Porquê on every open PR; PR #34 merged (`b71c1bb9`); master CI `34789704932` SUCCESS.
-- `kotlin-expert` + `docs-kotlin-current` (Kotlin 2.4.20); PR #33.
-- KingHost control MCP and `kinghost-expert` super-skill.

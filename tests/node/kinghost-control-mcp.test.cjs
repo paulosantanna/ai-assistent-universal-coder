@@ -19,6 +19,13 @@ describe('KingHost control MCP contracts', () => {
     assert.match(text, /storage: forbidden/);
   });
 
+  it('keeps kinghost overlay YAML parseable when skill_intent contains a colon', () => {
+    const text = fs.readFileSync(path.join(root, 'aeos/registries/mcps.kinghost.additions.yaml'), 'utf8');
+    const intent = text.match(/id: kinghost-control[\s\S]*?skill_intent:\s*(.+)/);
+    assert.ok(intent, 'kinghost-control skill_intent must exist');
+    assert.match(intent[1], /^['"].+['"]\s*$/);
+  });
+
   it('defines kinghost-expert FSM, cookie and Playwright production rules', () => {
     const skill = fs.readFileSync(path.join(root, 'skills/kinghost-expert/SKILL.md'), 'utf8');
     assert.match(skill, /ENV_SELECTED/);

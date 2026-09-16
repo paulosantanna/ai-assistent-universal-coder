@@ -1,8 +1,18 @@
 # LEARNING
 
-Updated: 2026-09-13
+Updated: 2026-09-16
 
 ## Validated learnings
+
+### Quote YAML scalars that contain a colon
+- Context/trigger: AEOS Enterprise CI failed on PR #42 while `runtime-auth-broker.test.cjs` loaded overlay registries.
+- Problem/failure mode: a descriptive `skill_intent` with `control: cookie-jar` made js-yaml throw `bad indentation of a mapping entry`.
+- Root cause: unquoted YAML plain scalars cannot contain `: ` ; the overlay loader parses the fragment strictly.
+- Verified correction/prevention: quote `skill_intent` (and similar free-text scalars) whenever they include a colon; add a contract test that the value is quoted.
+- Reuse scope: every AEOS overlay YAML fragment (`skill_intent`, `mission`, descriptions).
+- Evidence: Actions run `35052357725`, `aeos/registries/mcps.kinghost.additions.yaml`, `tests/node/runtime-auth-broker.test.cjs`
+- Confidence: high
+- Updated: 2026-09-16
 
 ### Current language-expert skills must resolve version from official releases
 - Context/trigger: `kotlin-expert` had to load "the latest Kotlin" the same way `java-21-expert` loads a versioned docs MCP.

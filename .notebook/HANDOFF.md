@@ -3,20 +3,16 @@
 Updated: 2026-09-16
 
 ## Objective
-- Complete KingHost Hospedagem control MCP so cookie-jar login, domain list/select, already-created users, WordPress/PHP/MySQL/WooCommerce, site clone and production FTP publish are executable.
+- Repair PR #42 CI, merge into master, follow required Actions until the merged SHA is green.
 
 ## Last Verified State
-- `kinghost-control` v1.1 adds panel cookie bind, domain inventory, redacted user listing, FTP tree clone/upload and searchable hosting knowledge.
-- Jest/Mocha 9/9, control smoke and `aeos:kinghost:smoke` passed.
-- Live KingHost panel/FTP/MySQL against a real account is not verified in this environment.
-- Draft PR: https://github.com/paulosantanna/ai-assistent-universal-coder/pull/42
+- Root cause: unquoted `skill_intent` colon broke overlay YAML parse (`35052357725`).
+- Local Jest: kinghost-control + runtime-auth 15/15 PASS after quoting the scalar.
+- PR still draft: https://github.com/paulosantanna/ai-assistent-universal-coder/pull/42
 
 ## Working Set
-- `kinghost-control-mcp/`
-- `aeos/mcps/kinghost-control.mcp.yaml`
-- `skills/kinghost-expert/`
+- `aeos/registries/mcps.kinghost.additions.yaml`
 - `tests/node/kinghost-control-mcp.test.cjs`
 
 ## Risks And Next Actions
-- Verify with a real external cookie jar + FTP/MySQL env binds on an authorized account.
-- Confirm panel HTML domain extraction against the current painel.kinghost.com.br markup; `KINGHOST_DOMAINS` remains the fail-closed fallback.
+- Push the YAML fix, wait for latest-SHA AEOS Enterprise CI SUCCESS, merge #42, wait for master SHA SUCCESS.
