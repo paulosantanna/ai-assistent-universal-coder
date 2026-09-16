@@ -38,6 +38,15 @@ Undocumented private KingHost panel APIs are unsupported and fail closed.
 - `kinghost-commerce`: only when SSH/SFTP/Postgres commerce sessions are the safer documented protocol.
 - `runtime-auth` / `runtime-http`: extra authenticated runtime sessions without exposing secrets.
 
+### Compatibility contract
+
+Existing integrations remain stable while the hosting surface expands:
+
+- bind **already created** FTP/MySQL/WordPress identities as opaque runtime references; never rediscover their passwords;
+- use `kinghost_control.site.clone` for governed site clone planning/execution;
+- preserve playbook id `kinghost-wordpress-publish` and command `npm run aeos:kinghost:publish` for the one-command WordPress publish path;
+- keep `domain.list` / `domain.select` as the canonical domain-selection contract.
+
 ## Companion skills
 
 - `kinghost-backup-recovery-expert`: web/FTP, database and e-mail backup/restore.
