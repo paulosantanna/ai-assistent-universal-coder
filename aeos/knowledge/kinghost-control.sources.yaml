@@ -1,5 +1,5 @@
 knowledge_domain: kinghost-control
-version: "2026-09-12"
+version: "2026-09-16"
 policy:
   authority_order: [official_vendor_docs, wordpress_official_docs, first_party_engineering]
   require_source_url: true
@@ -9,19 +9,32 @@ policy:
 sources:
   kinghost:
     authority: official_vendor_docs
-    domains: [king.host]
+    domains: [king.host, painel.kinghost.com.br, kinghost.com.br]
     topics:
-      - control panel
-      - FTP SFTP SSH
+      - control panel login cookie
+      - existing domains and domain select
+      - FTP SFTP clone and publish
       - PHP version and runtime
-      - MySQL and phpMyAdmin
-      - WordPress hosting
+      - MySQL phpMyAdmin additional users
+      - WordPress hosting installer and manager
+      - WooCommerce as WordPress plugin
       - DNS SSL email
       - backups logs cron
+    urls:
+      - https://painel.kinghost.com.br
+      - https://king.host/wiki/
+      - https://king.host/wiki/artigo/como-acessar-painel-de-controle/
+      - https://king.host/wiki/base-de-conhecimento/gerenciar-ftp/
+      - https://king.host/wiki/artigo/como-criar-um-banco-de-dados-mysql/
+      - https://king.host/wiki/artigo/como-criar-usuario-adicional-para-mysql/
+      - https://king.host/wiki/artigo/como-gerenciar-o-wordpress-no-painel-de-controle-da-kinghost/
+      - https://king.host/wiki/artigo/instale-o-wordpress-facilmente-com-o-instalador-automatico/
   wordpress:
     authority: official_vendor_docs
     domains: [developer.wordpress.org, wordpress.org]
     topics:
       - themes plugins
+      - WooCommerce
       - REST and wp-admin
+      - users roles
       - production-safe changes

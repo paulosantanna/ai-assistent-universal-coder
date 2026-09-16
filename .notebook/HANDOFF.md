@@ -1,20 +1,20 @@
 # HANDOFF
 
-Updated: 2026-09-13
+Updated: 2026-09-16
 
 ## Objective
-- Resolve PR #33 conflicts with `master` and merge `kotlin-expert` after latest-SHA CI is green.
+- Complete KingHost Hospedagem control MCP so cookie-jar login, domain list/select, already-created users, WordPress/PHP/MySQL/WooCommerce, site clone and production FTP publish are executable.
 
 ## Last Verified State
-- Conflicts are only in `.notebook/{HANDOFF,PROGRESS,MEMORY,LEARNING}.md` after merging `origin/master` (PR #34 Why/Porquê) into `cursor/kotlin-expert-1d4f`.
-- Kotlin skill/MCP files did not conflict.
-- Merge not yet completed.
+- `kinghost-control` v1.1 adds panel cookie bind, domain inventory, redacted user listing, FTP tree clone/upload and searchable hosting knowledge.
+- Live KingHost panel/FTP/MySQL against a real account is not verified in this environment.
 
 ## Working Set
-- `.notebook/{HANDOFF,PROGRESS,MEMORY,LEARNING}.md`
-- `skills/kotlin-expert/`
-- `aeos/mcps/docs-kotlin-current.mcp.yaml`
+- `kinghost-control-mcp/`
+- `aeos/mcps/kinghost-control.mcp.yaml`
+- `skills/kinghost-expert/`
+- `tests/node/kinghost-control-mcp.test.cjs`
 
 ## Risks And Next Actions
-- Finish conflict resolution, push, revalidate required checks on the new head SHA, merge PR #33.
-- Reconfirm Kotlin currency with `docs-kotlin-current` if a newer GitHub tag appears after 2.4.20.
+- Verify with a real external cookie jar + FTP/MySQL env binds on an authorized account.
+- Confirm panel HTML domain extraction against the current painel.kinghost.com.br markup; `KINGHOST_DOMAINS` remains the fail-closed fallback.

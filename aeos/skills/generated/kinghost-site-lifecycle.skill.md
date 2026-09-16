@@ -4,7 +4,8 @@
 Create, change, deploy, verify and roll back authorized KingHost-hosted sites through kinghost-commerce MCP.
 
 ## Uses MCP
-- kinghost-commerce
+- kinghost-control for Hospedagem cookie login, domains, clone, WordPress/PHP/MySQL and FTP
+- kinghost-commerce when SSH/SFTP/Postgres commerce sessions are required
 
 ## Operations
 - CREATE_SITE

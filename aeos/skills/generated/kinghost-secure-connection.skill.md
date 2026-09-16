@@ -4,10 +4,12 @@
 Establish governed authenticated sessions to authorized KingHost resources for other AEOS skills without persisting credentials.
 
 ## Uses MCP
-- kinghost-commerce
+- kinghost-control for panel cookie-jar, FTP and MySQL
+- kinghost-commerce for SSH/SFTP/Postgres
 
 ## Supported Authentication Inputs
-- username + password supplied at execution time
+- external cookie/cookie-jar file consumed in place for the KingHost panel (`kinghost_control.panel.session.open_cookie_file`)
+- username + password supplied at execution time for already-created FTP/MySQL users
 - SSH key reference supplied through an approved secret provider
 - short-lived session/token when officially supported
 - operator-provided database credentials used only for an opaque runtime session
@@ -19,6 +21,8 @@ Credentials are runtime inputs, never knowledge. Passwords, tokens and private k
 - Resolve the authorized target host/account.
 - Validate host identity before authentication.
 - Establish FTP/SFTP/SSH/database/control-plane sessions only through the governed MCP adapter.
+- Open a KingHost panel session from an external cookie jar without copying cookie values.
+- List existing domains and already-created usernames as redacted metadata.
 - Test authentication and minimum required permissions.
 - Return an opaque session reference to downstream skills.
 - Close/revoke the session after the governed operation.

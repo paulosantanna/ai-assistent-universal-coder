@@ -2,7 +2,7 @@ mcp:
   id: kinghost-control
   name: KingHost Deterministic Control MCP
   protocol: model-context-protocol
-  version: "1.0.0"
+  version: "1.1.0"
 
   transport:
     type: stdio
@@ -38,17 +38,32 @@ mcp:
       - { name: kinghost_control.ftp.delete, security: destructive-controlled }
       - { name: kinghost_control.session.close, security: read-only }
       - { name: kinghost_control.panel.auth_plan, security: read-only }
+      - { name: kinghost_control.panel.session.open_cookie_file, security: credentialed }
+      - { name: kinghost_control.panel.session.info, security: read-only }
+      - { name: kinghost_control.panel.fetch_readonly, security: read-only }
+      - { name: kinghost_control.domain.list, security: read-only }
+      - { name: kinghost_control.domain.select, security: read-only }
+      - { name: kinghost_control.users.list, security: read-only }
+      - { name: kinghost_control.wordpress.users.list, security: read-only }
+      - { name: kinghost_control.wordpress.plugins.inventory, security: read-only }
+      - { name: kinghost_control.ftp.tree.list, security: read-only }
+      - { name: kinghost_control.ftp.tree.download, security: read-only }
+      - { name: kinghost_control.ftp.tree.upload, security: write-controlled }
+      - { name: kinghost_control.site.clone, security: read-only }
+      - { name: kinghost_control.mysql.wordpress.inventory, security: read-only }
       - { name: kinghost_control.backup.plan, security: read-only }
       - { name: kinghost_control.rollback.plan, security: read-only }
       - { name: kinghost_control.verify.smoke_plan, security: read-only }
-      - { name: kinghost_control.deploy.workspace_to_production, security: read-only }
+      - { name: kinghost_control.deploy.workspace_to_production, security: write-controlled }
       - { name: kinghost_control.knowledge_search, security: read-only }
 
   security:
     allowed_domains:
       - "king.host"
       - "*.king.host"
+      - "painel.kinghost.com.br"
       - "*.kinghost.com.br"
+      - "*.kinghost.net"
       - "developer.wordpress.org"
       - "wordpress.org"
     credentials:
@@ -82,18 +97,20 @@ mcp:
     stale_after_days: 30
 
 prompt_contract:
-  objective: "Deterministically select KingHost environments, bind already-provisioned credentials as opaque refs, and plan or apply scoped WordPress/PHP/MySQL/FTP changes without leaking secrets."
+  objective: "Operate KingHost Hospedagem end to end: cookie-jar panel login, list/select existing domains, bind already-created users, clone WordPress/PHP sites, change workspace artifacts, and publish to production FTP/MySQL without leaking secrets."
   evidence_required: true
   redact_outputs: true
   rules:
     - "Bind already-created login/password material from env, secret references, runtime memory or a cookie-authenticated panel session. Never scrape, brute-force or persist secrets."
-    - "Return credential_ref/session_ref and redacted username/host only."
+    - "Open the KingHost panel with an external workspace cookie-jar via panel.session.open_cookie_file. Return panel_session_ref only."
+    - "List and select existing hosting domains before inventory, clone or production publish."
+    - "Return credential_ref/session_ref, usernames and redacted host only. Never return passwords, hashes, cookies or unmasked emails."
     - "Production FTP/MySQL writes require approved=true, change_id, dry-run and rollback_ref."
     - "Do not edit WordPress core or wp-config.php without high_risk_approved."
-    - "Panel and wp-admin auth uses external cookie files or Playwright; cookie contents stay in runtime-auth."
+    - "Clone skips wp-config.php. WooCommerce and other plugins are wp-content artifacts plus MySQL state, not KingHost panel APIs."
   stop_conditions:
     - "credential discovery or password dump requested"
-    - "environment identity is unknown"
+    - "environment or domain identity is unknown"
     - "production mutation lacks approval, dry-run or rollback"
     - "path escapes workspace or remote root"
     - "undocumented KingHost private API is required"

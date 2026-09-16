@@ -10,7 +10,8 @@ KingHost hosting, DNS, SSL, FTP/SFTP/SSH, Git publication, databases, WordPress/
 The target is unrelated to KingHost or the request requires an undocumented/private provider API.
 
 ## Allowed Actions
-- Inventory the actual hosting plan, runtime, domains, DNS, SSL, databases, application stack and limits.
+- Inventory the actual hosting plan, runtime, domains, DNS, SSL, databases, application stack and limits through `kinghost-control` (cookie-jar panel, `domain.list`/`domain.select`, redacted `users.list`) and `kinghost-commerce` when SSH is the protocol.
+- Clone a site to the workspace and publish scoped WordPress/PHP/WooCommerce changes through KingHost FTP with dry-run, approval and rollback.
 - Diagnose logs, HTTP errors, resource pressure and deployment constraints.
 - Plan FTP/SFTP/SSH/Git deployments with backup, health checks and rollback.
 - Plan database queries, EXPLAIN analysis, indexes, migrations and read-safe diagnostics.

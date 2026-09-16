@@ -1,22 +1,28 @@
 skill: kinghost-expert
 owner_agent: codenavi-agent
-version: 1.0.0
+version: 1.1.0
 
 read:
   - kinghost.environment.catalog
   - kinghost.plugin.catalog
+  - kinghost.domain.list
+  - kinghost.users.list_redacted
   - kinghost.credential.metadata
   - kinghost.ftp.list_read
+  - kinghost.ftp.clone_dry_run
   - kinghost.mysql.readonly
   - kinghost.panel.identity
   - wordpress_knowledge.all
 
 mutate_with_policy:
   - kinghost.ftp.upload_scoped_wp_content
+  - kinghost.ftp.tree_upload_scoped
   - kinghost.ftp.mkdir_scoped
+  - kinghost.site.clone_to_workspace
   - kinghost.php.panel_config
   - wordpress.theme_child_or_custom.update
   - wordpress.plugin_custom.update
+  - wordpress.woocommerce.scoped_update
 
 mutate_with_explicit_approval:
   - kinghost.production.ftp_apply

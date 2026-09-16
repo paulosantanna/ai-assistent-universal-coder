@@ -54,6 +54,19 @@ allowlist:
     - kinghost_control.ftp.delete
     - kinghost_control.session.close
     - kinghost_control.panel.auth_plan
+    - kinghost_control.panel.session.open_cookie_file
+    - kinghost_control.panel.session.info
+    - kinghost_control.panel.fetch_readonly
+    - kinghost_control.domain.list
+    - kinghost_control.domain.select
+    - kinghost_control.users.list
+    - kinghost_control.wordpress.users.list
+    - kinghost_control.wordpress.plugins.inventory
+    - kinghost_control.ftp.tree.list
+    - kinghost_control.ftp.tree.download
+    - kinghost_control.ftp.tree.upload
+    - kinghost_control.site.clone
+    - kinghost_control.mysql.wordpress.inventory
     - kinghost_control.backup.plan
     - kinghost_control.rollback.plan
     - kinghost_control.verify.smoke_plan

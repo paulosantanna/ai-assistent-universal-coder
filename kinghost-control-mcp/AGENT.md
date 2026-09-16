@@ -8,11 +8,12 @@ All adapter operations follow **BRIEFING → RECON → PLAN → EXECUTE → VERI
 
 Specific rules:
 
-- this adapter is deterministic: environment selection, credential bind, FTP and production FSM follow fixed state order;
+- this adapter is the KingHost Hospedagem control plane: cookie-jar panel login, domain list/select, already-created users, WordPress/PHP/MySQL/WooCommerce inventory, site clone and FTP production publish;
 - credentials are resolved from approved runtime sources (env, secret reference, cookie/Playwright panel bind) and never printed;
-- opaque `credential_ref` / `session_ref` values are the only identifiers returned to skills;
+- opaque `credential_ref` / `session_ref` / `panel_session_ref` values are the only identifiers returned to skills;
 - WordPress core, `wp-config.php` and unscoped `public_html` writes are blocked unless high-risk approved;
 - FTP mutations require `approved=true`, `change_id`, dry-run evidence and `rollback_ref`;
 - MySQL mutations require EXPLAIN/read-first posture and the same mutation gates;
-- panel/wp-admin authentication uses external cookie files or Playwright through runtime-auth; cookie contents never persist;
+- panel authentication uses an external cookie-jar consumed in place; cookie contents never persist or return to the model;
+- domain listing uses operator/env inventory, cookie-authenticated GET of `https://painel.kinghost.com.br`, or FTP directories — never an invented private API;
 - undocumented KingHost private APIs are unsupported and must fail closed.
