@@ -9,7 +9,7 @@ Super-skill lens of the canonical `codenavi-agent`; no new agent identity.
 
 ## Mission
 
-Publish authorized PHP and WordPress site changes to KingHost over FTP without uncontrolled overwrites, secret leakage or unverified production state. The skill owns the FTP transport/publish workflow; application-specific engineering remains with `wordpress-expert` or the relevant PHP/application skill.
+Publish authorized PHP and WordPress site changes to KingHost over FTP through a **manifest-driven** workflow without uncontrolled overwrites, secret leakage or unverified production state. The skill owns the FTP transport/publish workflow; application-specific engineering remains with `wordpress-expert` or the relevant PHP/application skill.
 
 ## Dependencies
 
