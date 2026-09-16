@@ -7,7 +7,9 @@ Updated: 2026-09-16
 
 ## Last Verified State
 - `kinghost-control` v1.1 adds panel cookie bind, domain inventory, redacted user listing, FTP tree clone/upload and searchable hosting knowledge.
+- Jest/Mocha 9/9, control smoke and `aeos:kinghost:smoke` passed.
 - Live KingHost panel/FTP/MySQL against a real account is not verified in this environment.
+- Draft PR: https://github.com/paulosantanna/ai-assistent-universal-coder/pull/42
 
 ## Working Set
 - `kinghost-control-mcp/`

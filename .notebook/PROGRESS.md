@@ -9,7 +9,7 @@ Updated: 2026-09-16
 - [x] PLAN: extend kinghost-control + kinghost-expert; keep commerce for SSH/SFTP/Postgres.
 - [x] EXECUTE: control MCP 1.1 modules (knowledge, cookie-session, ftp-tree, wordpress-ops) and skill/playbook updates.
 - [x] VERIFY: node tests + kinghost smoke.
-- [~] DEBRIEF: commit, push, PR.
+- [x] DEBRIEF: commit, push, PR.
 
 ## Current Phase
 - DEBRIEF
@@ -26,6 +26,7 @@ Updated: 2026-09-16
 ## Factual Log
 - 2026-09-16: Recon showed environment.catalog hardcoded local/staging/production; cookie_session_panel and deploy.workspace_to_production were PLAN-only; plugin.catalog was panel tools, not WordPress plugins.
 - 2026-09-16: Added executable cookie/domain/user/clone/tree-upload tools and a wiki-backed knowledge corpus.
+- 2026-09-16: Draft PR #42 opened from `cursor/kinghost-control-full-hosting-7c52`.
 
 ## Previous Missions
 - Resolve PR #33 conflicts with master and merge kotlin-expert.
