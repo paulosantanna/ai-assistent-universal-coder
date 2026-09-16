@@ -1,7 +1,7 @@
 skills:
   - id: wordpress-expert
     path: skills/wordpress-expert/SKILL.md
-    version: 1.1.0
+    version: 1.2.0
     owner_agent: codenavi-agent
     risk_level: high
     capabilities:
@@ -19,7 +19,7 @@ skills:
       - ACCESSIBILITY_REVIEW
       - FRONTEND_PERFORMANCE_REVIEW
       - ROLLBACK_PLANNING
-    mission: Staff-level WordPress engineering from one-shot remote mapping through the complete installed plugin universe, governed production changes and third-party integrations.
+    mission: Staff-level WordPress engineering from one-shot remote mapping through clean-code AI-assisted project creation/modification, the complete installed plugin universe, governed production changes and third-party integrations.
     required_mcps:
       - wordpress-knowledge
       - browser
@@ -31,5 +31,8 @@ skills:
       - Raw cookie/nonces/secrets never persist
       - WordPress core is not edited for feature work
       - Installed plugin inventory is complete (not WooCommerce-only or catalog-sampled)
+      - WordPress code mutation starts from explicit non-secret Development Context and acceptance criteria
+      - AI generated code is reviewed as a repository-aware diff and is never treated as normative evidence
+      - Verification claims correspond to checks actually executed
       - Production mutation has rollback and post-change verification
       - Icon-only third-party links remain accessible
