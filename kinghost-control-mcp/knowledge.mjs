@@ -1,267 +1,223 @@
 const RETRIEVED_AT = "2026-09-16";
 
 const WORDPRESS_PLUGIN_CATALOG = [
-  {
-    slug: "woocommerce",
-    title: "WooCommerce",
-    kind: "ecommerce",
-    path: "wp-content/plugins/woocommerce",
-    tables: ["woocommerce_order_items", "woocommerce_order_itemmeta", "woocommerce_sessions", "woocommerce_tax_rates", "wc_orders"],
-    notes: "Official WordPress e-commerce plugin. Products live in posts/postmeta; orders may use HPOS (wc_orders) or legacy shop_order posts. Change via plugin/theme APIs before direct SQL."
-  },
-  {
-    slug: "woocommerce-payments",
-    title: "WooCommerce Payments",
-    kind: "ecommerce-payments",
-    path: "wp-content/plugins/woocommerce-payments"
-  },
-  {
-    slug: "woocommerce-paypal-payments",
-    title: "WooCommerce PayPal Payments",
-    kind: "ecommerce-payments",
-    path: "wp-content/plugins/woocommerce-paypal-payments"
-  },
-  {
-    slug: "woocommerce-mercadopago",
-    title: "Mercado Pago for WooCommerce",
-    kind: "ecommerce-payments",
-    path: "wp-content/plugins/woocommerce-mercadopago"
-  },
-  {
-    slug: "jetpack",
-    title: "Jetpack",
-    kind: "platform",
-    path: "wp-content/plugins/jetpack"
-  },
-  {
-    slug: "elementor",
-    title: "Elementor",
-    kind: "builder",
-    path: "wp-content/plugins/elementor"
-  },
-  {
-    slug: "wordpress-seo",
-    title: "Yoast SEO",
-    kind: "seo",
-    path: "wp-content/plugins/wordpress-seo"
-  },
-  {
-    slug: "akismet",
-    title: "Akismet Anti-spam",
-    kind: "security",
-    path: "wp-content/plugins/akismet"
-  },
-  {
-    slug: "classic-editor",
-    title: "Classic Editor",
-    kind: "editing",
-    path: "wp-content/plugins/classic-editor"
-  },
-  {
-    slug: "contact-form-7",
-    title: "Contact Form 7",
-    kind: "forms",
-    path: "wp-content/plugins/contact-form-7"
-  }
+  { slug: "woocommerce", title: "WooCommerce", kind: "ecommerce", path: "wp-content/plugins/woocommerce", tables: ["woocommerce_order_items", "woocommerce_order_itemmeta", "woocommerce_sessions", "woocommerce_tax_rates", "wc_orders"], notes: "Prefer WooCommerce/WordPress APIs before direct SQL; HPOS may store orders in wc_orders." },
+  { slug: "woocommerce-payments", title: "WooCommerce Payments", kind: "ecommerce-payments", path: "wp-content/plugins/woocommerce-payments" },
+  { slug: "woocommerce-paypal-payments", title: "WooCommerce PayPal Payments", kind: "ecommerce-payments", path: "wp-content/plugins/woocommerce-paypal-payments" },
+  { slug: "woocommerce-mercadopago", title: "Mercado Pago for WooCommerce", kind: "ecommerce-payments", path: "wp-content/plugins/woocommerce-mercadopago" },
+  { slug: "jetpack", title: "Jetpack", kind: "platform", path: "wp-content/plugins/jetpack" },
+  { slug: "elementor", title: "Elementor", kind: "builder", path: "wp-content/plugins/elementor" },
+  { slug: "wordpress-seo", title: "Yoast SEO", kind: "seo", path: "wp-content/plugins/wordpress-seo" },
+  { slug: "akismet", title: "Akismet Anti-spam", kind: "security", path: "wp-content/plugins/akismet" },
+  { slug: "classic-editor", title: "Classic Editor", kind: "editing", path: "wp-content/plugins/classic-editor" },
+  { slug: "contact-form-7", title: "Contact Form 7", kind: "forms", path: "wp-content/plugins/contact-form-7" }
 ];
 
 const ARTICLES = [
   {
-    id: "panel-login",
-    title: "Painel de Controle KingHost — login com cookie do workspace",
-    topics: ["painel", "login", "cookie", "cookier", "2fa", "hospedagem"],
-    source_url: "https://king.host/wiki/artigo/como-acessar-painel-de-controle/",
+    id: "panel-hosting-surface",
+    title: "Painel de Controle KingHost e superfície de Hospedagem",
+    topics: ["painel", "login", "cookie", "hospedagem", "dominio", "ftp", "mysql", "ssl", "email", "performance"],
+    source_url: "https://king.host/wiki/artigo/manual-de-primeiros-passos/",
     retrieved_at: RETRIEVED_AT,
     body: [
-      "URL oficial do painel: https://painel.kinghost.com.br.",
-      "Login padrão: e-mail da conta + senha + 2FA (e-mail, SMS, app authenticator ou WhatsApp). Login Google dispensa 2FA do painel.",
-      "AEOS não digita senha do painel nem extrai cookies do navegador. O workspace autentica consumindo um cookie-jar externo (Netscape/JSON) em absoluto, fora do Git, via kinghost_control.panel.session.open_cookie_file.",
-      "O modelo só vê panel_session_ref, hosts permitidos e cookie_count. Valores de cookie nunca saem do processo.",
-      "Se o GET autenticado devolver a tela ENTRAR NO PAINEL, a sessão expirou: renovar o jar e reabrir.",
-      "Hosts permitidos para o jar: painel.kinghost.com.br, *.kinghost.com.br, king.host, *.kinghost.net."
+      "O Painel de Controle KingHost é a superfície operacional para selecionar o domínio e administrar DNS, FTP, bancos, WordPress, PHP, SSL, e-mail, backup, cron, antivírus, performance e outros recursos disponibilizados pelo plano.",
+      "AEOS autentica o painel por cookie/cookie-jar externo e só expõe panel_session_ref; valores de cookie, senhas e nonces não entram em Git, notebook ou evidência.",
+      "Vídeos do canal oficial KingHost são fonte educacional. Qualquer operação mutável aprendida em vídeo deve ser corroborada pela Wiki atual ou pelo painel ao vivo antes da execução."
     ].join(" ")
   },
   {
-    id: "domains",
-    title: "Domínios existentes na Hospedagem KingHost",
-    topics: ["dominio", "domínios", "domains", "hospedagem", "selecionar"],
-    source_url: "https://king.host/wiki/",
+    id: "domains-dns-subdomains",
+    title: "Domínios, subdomínios e Zona DNS",
+    topics: ["dominio", "dominios", "subdominio", "dns", "a", "cname", "mx", "txt", "cdn", "restore"],
+    source_url: "https://www.youtube.com/watch?v=6cqy_R7OGu8",
     retrieved_at: RETRIEVED_AT,
     body: [
-      "No painel, a página inicial lista os produtos de Hospedagem. Cada site/domínio é selecionado antes de abrir FTP, MySQL, PHP ou WordPress.",
-      "Várias instalações WordPress no mesmo domínio (raiz vs subdomínio) exigem o seletor de instalação no Gerenciar WordPress.",
-      "AEOS lista domínios por: (1) KINGHOST_DOMAINS ou params.domains, (2) HTML autenticado do painel com cookie, (3) pastas de domínio no FTP.",
-      "kinghost_control.domain.list + domain.select amarram o domínio escolhido ao change_id/FSM. Ambiente local|staging|production continua obrigatório para mutação.",
-      "Não inventar API privada de listagem. Sem cookie válido, env ou FTP, a listagem falha fechado."
+      "O canal oficial demonstra gerenciamento de Zona DNS com registros A, CNAME, MX e TXT, criação de apontamentos para e-mail, subdomínios/CDN e restauração das configurações padrão.",
+      "Subdomínio é associado a conteúdo/pasta ou redirecionamento conforme a configuração de hospedagem.",
+      "Mudança DNS é operação de infraestrutura: capturar estado anterior, TTL quando visível, diff, rollback e verificação autoritativa antes de declarar PASS. Não inventar API privada do painel."
     ].join(" ")
   },
   {
-    id: "ftp",
-    title: "FTP da Hospedagem KingHost — clone e publicação",
-    topics: ["ftp", "sftp", "clone", "publicar", "upload", "public_html", "file manager"],
+    id: "ftp-ssh-webftp",
+    title: "FTP, WebFTP, SSH e publicação de arquivos",
+    topics: ["ftp", "webftp", "ssh", "sftp", "arquivo", "clone", "upload", "publish", "usuario adicional"],
     source_url: "https://king.host/wiki/base-de-conhecimento/gerenciar-ftp/",
     retrieved_at: RETRIEVED_AT,
     body: [
-      "Após selecionar o domínio no painel, abra Gerenciar FTP. Dados: host (principal ou alternativo — preferir o alternativo), usuário e senha já provisionados.",
-      "Usuários FTP adicionais existem e ficam restritos a uma pasta. AEOS lê o username já criado; nunca raspa a senha da UI.",
-      "Raiz web típica: public_html. WordPress: public_html ou subpasta/subdomínio escolhido na instalação.",
-      "Clone: kinghost_control.site.clone / ftp.tree.download copia a árvore remota para o workspace, pulando wp-config.php e dumps com segredo.",
-      "Publicação: ftp.tree.upload ou deploy.workspace_to_production (dry-run default, approved+change_id+rollback_ref). Escopo padrão wp-content; core/wp-config exigem high_risk_approved.",
-      "Políticas de IP no Gerenciar FTP podem bloquear o cliente: o operador libera o IP de saída antes de bind."
+      "Gerenciar FTP informa host, usuário e senha, permite alterar senha, política de IP, habilitar/desabilitar serviço e criar usuário adicional restrito a uma pasta.",
+      "SSH pode ser usado quando o plano expõe o recurso; a documentação KingHost o descreve como acesso criptografado ao ambiente e ao console de banco em cenários suportados.",
+      "AEOS usa credential_ref opaco, ftp.tree.download/site.clone para clone e ftp.tree.upload/deploy.workspace_to_production para publicação. wp-config.php e core WordPress ficam fora do upload padrão.",
+      "Usuários adicionais devem seguir least privilege e escopo de pasta. Nunca descobrir ou extrair senhas existentes."
     ].join(" ")
   },
   {
-    id: "mysql",
-    title: "MySQL KingHost e integração PHP/WordPress",
-    topics: ["mysql", "banco", "phpmyadmin", "wp-config", "database", "integracao"],
-    source_url: "https://king.host/wiki/artigo/como-criar-um-banco-de-dados-mysql/",
+    id: "git-publish",
+    title: "Publicação via GitHub, GitLab e Bitbucket",
+    topics: ["git", "github", "gitlab", "bitbucket", "deploy", "publish", "webhook", "master"],
+    source_url: "https://king.host/wiki/base-de-conhecimento/git/",
     retrieved_at: RETRIEVED_AT,
     body: [
-      "Painel → selecionar domínio → Gerenciar bancos MySQL → criar/listar bases, senha, observação e política de IP.",
-      "Acesso externo: fechado (só o web server), qualquer IP (inseguro) ou allowlist de IPs. Workspace remoto precisa da allowlist do IP de saída.",
-      "Host MySQL costuma ser mysql.<dominio> a partir da rede externa; a partir do PHP no mesmo host frequentemente localhost. Confirmar no painel, nunca adivinhar.",
-      "Usuários MySQL adicionais: no máximo 5 por base; o nome é atribuído pela KingHost, não escolhido. Listar usernames já criados; senhas só via env/secret bind.",
-      "WordPress liga PHP↔MySQL em wp-config.php (DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, table_prefix). AEOS não devolve esses segredos. Prefixo é detectado via SHOW TABLES.",
-      "phpMyAdmin do painel é canal humano; o MCP usa mysql2 com credential_ref opaco. SELECT/SHOW/DESCRIBE/EXPLAIN por padrão; mutação com EXPLAIN, dry-run, approved, rollback."
+      "A ferramenta Publicação via Git integra o projeto ao Painel de Controle e sincroniza conteúdo do branch configurado para o FTP/diretório escolhido.",
+      "A documentação cita GitHub, GitLab e Bitbucket e integração por chaves/autorizações do painel.",
+      "Diretório de publicação precisa atender aos pré-requisitos documentados; aplicações Node.js, Rails e Python usam diretórios específicos.",
+      "Em AEOS, Git publish não substitui backup, dry-run, rollback e smoke de produção."
     ].join(" ")
   },
   {
-    id: "mysql-extra-users",
-    title: "Usuários MySQL adicionais já criados",
-    topics: ["usuarios", "users", "mysql", "credencial"],
-    source_url: "https://king.host/wiki/artigo/como-criar-usuario-adicional-para-mysql/",
+    id: "mysql-database",
+    title: "MySQL KingHost, phpMyAdmin e acesso governado",
+    topics: ["mysql", "banco", "database", "phpmyadmin", "usuario", "query", "wordpress", "backup"],
+    source_url: "https://king.host/wiki/base-de-conhecimento/mysql/",
     retrieved_at: RETRIEVED_AT,
     body: [
-      "Painel → Gerenciar bancos MySQL → Editar → Gerenciar Usuários lista usuários adicionais já criados.",
-      "kinghost_control.users.list une usernames de credenciais ligadas, WordPress wp_users (redigido) e inventário informado pelo operador. Nunca password hash ou cookie.",
-      "Usuários adicionais acessam phpMyAdmin, SSH, MySQL Workbench e o MCP, sujeitos à política de IP da base."
+      "MySQL é disponibilizado nos planos Linux compatíveis e pode ser criado/gerenciado pelo Painel de Controle. Confirmar host, porta, database e política de IP no painel; não deduzir valores.",
+      "phpMyAdmin é canal administrativo humano. O MCP usa mysql2 com credential_ref opaco: SELECT/SHOW/DESCRIBE/EXPLAIN por padrão; mutação exige approval, change_id, rollback_ref e dry-run.",
+      "Usuário adicional de MySQL deve ser provisionado no painel e limitado ao necessário. Senhas nunca retornam do MCP.",
+      "WordPress usa DB_NAME, DB_USER, DB_PASSWORD, DB_HOST e table_prefix em wp-config.php; esses valores são secretos e não devem ser persistidos em evidência."
     ].join(" ")
   },
   {
-    id: "wordpress-panel",
-    title: "Gerenciar WordPress no painel KingHost",
-    topics: ["wordpress", "wp-admin", "plugins", "temas", "php", "instalador"],
+    id: "backup-recovery",
+    title: "Backup e recuperação de site, FTP, bancos e e-mails",
+    topics: ["backup", "restore", "recovery", "ftp", "site", "mysql", "postgres", "mssql", "firebird", "email", "dump"],
+    source_url: "https://king.host/wiki/artigo/como-solicitar-backup/",
+    retrieved_at: RETRIEVED_AT,
+    body: [
+      "A KingHost documenta retenção padrão de até 7 dias para FTP/web, bancos e e-mails no fluxo de backup do painel.",
+      "FTP/web e e-mails usam backup diferencial; bancos são copiados por dump completo. A restauração deve ser tratada como mudança de produção com snapshot do estado atual e verificação pós-restore.",
+      "E-mail recuperável depende de conteúdo preservado no servidor: IMAP ou POP configurado para manter cópia.",
+      "Backup solicitado pelo painel pode ser enviado ao FTP conforme o tipo selecionado. O fluxo AEOS registra somente referências/metadados, nunca conteúdo sensível do dump em prompts.",
+      "Antes de qualquer APPLY destrutivo: confirmar restore path e rollback_ref."
+    ].join(" ")
+  },
+  {
+    id: "antivirus-malware",
+    title: "Antivírus KingHost, malware e quarentena",
+    topics: ["antivirus", "virus", "malware", "scan", "varredura", "quarentena", "security", "ftp"],
+    source_url: "https://king.host/wiki/artigo/escanear-seu-site-antivirus/",
+    retrieved_at: RETRIEVED_AT,
+    body: [
+      "O Painel de Controle permite escanear todos os arquivos presentes no FTP. A documentação informa limite de até 3 varreduras por dia.",
+      "Arquivos detectados podem ser movidos automaticamente para diretório de quarentena acima da pasta web. A KingHost alerta para falsos positivos e possível indisponibilidade do site.",
+      "Para conteúdo acima de 2 GB, a documentação recomenda varredura na fonte/repositório local.",
+      "AEOS deve capturar inventário/hashes antes da varredura, executar smoke após o scan e nunca excluir automaticamente o conteúdo da quarentena sem análise e aprovação."
+    ].join(" ")
+  },
+  {
+    id: "waf-security",
+    title: "Smart WAF e proteção da aplicação",
+    topics: ["waf", "firewall", "security", "monitoramento", "protecao", "ataque", "http"],
+    source_url: "https://king.host/wiki/artigo/como-configurar-e-utilizar-o-smart-waf/",
+    retrieved_at: RETRIEVED_AT,
+    body: [
+      "O Smart WAF filtra requisições da aplicação web e disponibiliza regras prontas, ajuste de abrangência e modo de monitoramento antes da proteção efetiva.",
+      "Mudanças de WAF podem gerar bloqueio indevido. Preferir monitoramento/canary, registrar exceções de forma mínima e verificar login, checkout, APIs e webhooks após mudança.",
+      "Não desabilitar proteção globalmente para contornar um falso positivo sem diagnóstico e rollback."
+    ].join(" ")
+  },
+  {
+    id: "ssl-https",
+    title: "SSL Let's Encrypt, HTTPS e SSL de e-mail",
+    topics: ["ssl", "https", "lets encrypt", "certificate", "email ssl", "tls", "wordpress"],
+    source_url: "https://king.host/wiki/artigo/instalar-certificado-ssl-lets-encrypt/",
+    retrieved_at: RETRIEVED_AT,
+    body: [
+      "Let's Encrypt pode ser ativado pelo painel quando os requisitos de DNS/hospedagem documentados são atendidos; a renovação é automática conforme o produto.",
+      "Após ativar HTTPS, verificar mixed content e referências HTTP na aplicação/banco antes de declarar PASS.",
+      "SSL personalizado para e-mail também depende de pré-requisitos de DNS documentados.",
+      "Mudança de SSL exige smoke externo, cadeia válida e confirmação de hostname."
+    ].join(" ")
+  },
+  {
+    id: "email-professional",
+    title: "E-mail profissional, Webmail, IMAP/POP e backup",
+    topics: ["email", "e-mail", "webmail", "imap", "pop", "smtp", "outlook", "thunderbird", "backup", "mx"],
+    source_url: "https://www.youtube.com/watch?v=OzTvUGCMLtg",
+    retrieved_at: RETRIEVED_AT,
+    body: [
+      "O canal oficial demonstra criação de conta de e-mail após selecionar o domínio no painel e acesso por Webmail ou clientes como Outlook/Thunderbird/celular.",
+      "Registro de domínio e DNS/MX corretos fazem parte do fluxo de e-mail profissional.",
+      "Backup de e-mails é diferencial e recupera conteúdo mantido no servidor; confirmar IMAP ou POP com cópia no servidor.",
+      "Senhas de caixas postais são secrets de runtime e nunca devem ser armazenadas em notebooks, relatórios ou repositório."
+    ].join(" ")
+  },
+  {
+    id: "php-cron-runtime",
+    title: "PHP, Composer e Cronjob",
+    topics: ["php", "composer", "cron", "cronjob", "runtime", "versao", "fpm", "script"],
+    source_url: "https://king.host/wiki/artigo/como-configurar-cronjob/",
+    retrieved_at: RETRIEVED_AT,
+    body: [
+      "Versão PHP é configurada por domínio no painel. Sempre confirmar as versões realmente oferecidas pelo plano atual; páginas antigas da Wiki podem listar versões obsoletas.",
+      "Atualização PHP deve passar por compatibilidade, backup, staging quando possível, testes de aplicação e rollback.",
+      "Cronjob permite executar comandos/processos em horários ou intervalos definidos e pode servir a relatórios, newsletters e backups periódicos.",
+      "Composer é suportado em cenários documentados; dependências devem permanecer reproduzíveis e versionadas por lockfile quando aplicável."
+    ].join(" ")
+  },
+  {
+    id: "performance-varnish",
+    title: "Performance, consumo, Varnish e otimização",
+    topics: ["performance", "varnish", "cache", "pagespeed", "cpu", "memoria", "latencia", "otimizacao", "stats"],
+    source_url: "https://king.host/wiki/artigo/varnish-cache/",
+    retrieved_at: RETRIEVED_AT,
+    body: [
+      "Varnish fica entre usuário e servidor web e pode reduzir requisições ao backend. A configuração permite TTL, exceções por URL/querystring/cookie e limpeza explícita de cache.",
+      "A ativação pode alterar apontamentos DNS do host segundo a documentação; capturar DNS customizado antes de ativar e revalidar depois.",
+      "WordPress/Loja Virtual podem ter cache previamente otimizado pelo produto; não duplicar camada sem verificar o plano.",
+      "A ferramenta Performance mostra consumo e realtime. Otimização deve priorizar medição: PHP suportado, compressão quando aplicável, minificação/build, cache, imagens, consultas SQL/índices e PageSpeed/Core Web Vitals.",
+      "Após publish, limpar somente os caches necessários e validar conteúdo dinâmico, sessão, login e checkout."
+    ].join(" ")
+  },
+  {
+    id: "wordpress-hosting",
+    title: "WordPress na KingHost",
+    topics: ["wordpress", "wp-admin", "plugin", "theme", "woocommerce", "instalador", "update", "publish"],
     source_url: "https://king.host/wiki/artigo/como-gerenciar-o-wordpress-no-painel-de-controle-da-kinghost/",
     retrieved_at: RETRIEVED_AT,
     body: [
-      "Hospedagem → Gerenciar WordPress: seletor de instalação, versão WP, versão PHP, atualizações automáticas, plugins, temas, desinstalação.",
-      "Instalador automático: domínio, pasta FTP ou subdomínio; e-mail/senha do wp-admin. Login automático pelo painel não substitui cookie wp-admin do workspace.",
-      "Desinstalar remove arquivos do WordPress e dados da instalação; irreversível; high-risk e fora do fluxo padrão de publicação.",
-      "Mutação de feature: child theme / plugin de site no workspace, depois FTP em wp-content. Core, wp-admin, wp-includes e wp-config exigem high_risk_approved."
+      "Gerenciar WordPress permite selecionar instalação e administrar recursos documentados como versão, PHP, atualizações, plugins e temas conforme o produto.",
+      "Instalação automática define domínio/pasta/subdomínio, idioma e credenciais wp-admin. Senhas não entram em evidência AEOS.",
+      "wordpress-expert governa alterações de tema/plugin/bloco; core, wp-admin, wp-includes e wp-config.php não são editados para feature work.",
+      "WooCommerce é plugin WordPress. Preservar pedidos, clientes, siteurl/home e segredos de pagamento de produção no publish padrão."
     ].join(" ")
   },
   {
-    id: "wordpress-install",
-    title: "Instalar WordPress na Hospedagem",
-    topics: ["wordpress", "instalar", "criar", "hospedagem"],
-    source_url: "https://king.host/wiki/artigo/instale-o-wordpress-facilmente-com-o-instalador-automatico/",
-    retrieved_at: RETRIEVED_AT,
-    body: [
-      "Painel → Hospedagem do domínio → Gerenciar WordPress → Instalar WordPress.",
-      "Escolher URL (domínio, pasta ou subdomínio), idioma, e-mail e senha forte. Aguardar conclusão e guardar o link wp-admin — a senha não entra em evidência AEOS.",
-      "Alternativa manual: FTP de core oficial para public_html + base MySQL + wp-config localmente gerado sem commit de senha."
-    ].join(" ")
-  },
-  {
-    id: "php-runtime",
-    title: "PHP na Hospedagem KingHost",
-    topics: ["php", "php-fpm", "memory_limit", "configuracao php", "runtime"],
-    source_url: "https://king.host/wiki/artigo/tecnologias-web-duvidas-frequentes/",
-    retrieved_at: RETRIEVED_AT,
-    body: [
-      "Após selecionar o domínio: Configuração PHP altera versão e processos/memória FPM conforme o plano.",
-      "Hospedagem compartilhada não expõe php.ini; phpinfo em webNNN.kinghost.net/phpinfo.php. Cloud Web documenta PHP 7.4–8.3; confirmar no painel o plano real.",
-      "WordPress memory exhausted: ajustar slider FPM e, se high-risk aprovado, WP_MEMORY_LIMIT em wp-config.php alinhado ao painel.",
-      "AEOS planeja a troca via cookie/Playwright no ícone Configuração PHP. Sem API privada."
-    ].join(" ")
-  },
-  {
-    id: "woocommerce",
-    title: "WooCommerce e plugins de e-commerce em KingHost",
-    topics: ["woocommerce", "ecommerce", "e-commerce", "plugin", "loja", "publicar", "publish"],
-    source_url: "https://developer.wordpress.org/plugins/",
-    retrieved_at: RETRIEVED_AT,
-    body: [
-      "WooCommerce é plugin WordPress em wp-content/plugins/woocommerce, não um produto KingHost separado.",
-      "Inventário: FTP da pasta plugins + option active_plugins (PHP serialized) + SHOW TABLES LIKE '%woocommerce%'.",
-      "Produtos: post type product. Pedidos: HPOS wc_orders ou posts shop_order. Checkout/páginas: opções woocommerce_*_page_id; verificar a rota HTTP, não só o option.",
-      "Pagamentos (Mercado Pago, PayPal, Stripe) guardam segredos em options: nunca dump de option_value com chave/token.",
-      "Publicar tema/plugin custom via FTP scoped; ativação preferencialmente wp-admin/REST autenticado com cookie, não SQL em wp_options.",
-      "wordpress-expert usa o universo completo de plugins instalados (wp-content/plugins e mu-plugins), não só WooCommerce nem um catálogo estático.",
-      "Publish one-command: código em wp-content por padrão, incluindo todos os plugins locais. Pedidos, clientes, siteurl/home e segredos de pagamento da produção não são sobrescritos pelo site local. --replace-database é high-risk e fora do comando único."
-    ].join(" ")
-  },
-  {
-    id: "wordpress-users",
-    title: "Usuários WordPress já criados",
-    topics: ["usuarios", "users", "wp_users", "wordpress", "roles"],
-    source_url: "https://developer.wordpress.org/plugins/users/",
-    retrieved_at: RETRIEVED_AT,
-    body: [
-      "kinghost_control.wordpress.users.list lê ID, user_login, display_name, user_registered e papéis em usermeta. E-mail mascarado. user_pass nunca retorna.",
-      "Não persistir PII em beta-map, notebook ou evidência. Roles summary é permitido.",
-      "Criar/alterar usuário: wp-admin/REST com cookie, não INSERT em wp_users."
-    ].join(" ")
-  },
-  {
-    id: "clone-deploy",
-    title: "Clonar o site da Hospedagem e subir alteração local",
-    topics: ["clone", "deploy", "workspace", "producao", "produção", "sync", "publicar", "comando", "one-command", "publish"],
+    id: "production-publish",
+    title: "Clone, alteração local e publicação segura",
+    topics: ["clone", "deploy", "publish", "producao", "rollback", "dry-run", "ftp", "wordpress", "woocommerce"],
     source_url: "https://king.host/wiki/base-de-conhecimento/gerenciar-ftp/",
     retrieved_at: RETRIEVED_AT,
     body: [
-      "Fluxo: cookie do painel → listar/selecionar domínio → bind FTP/MySQL → FSM → inventário → clone para workspace → editar local → diff → dry-run → backup → APPLY → smoke → CLOSE.",
-      "Clone grava arquivos no workspace_root escolhido; manifesto sem segredos. wp-config.php e dumps SQL com senha são skipped.",
-      "Upload devolve só a árvore aprovada. Uploads/mídia grandes exigem include_uploads=true. Dry-run é o default de produção.",
-      "Comando único do site já alterado localmente: npm run aeos:kinghost:publish -- --local-dir <árvore> --domain <domínio-já-hospedado>. Playbook kinghost-wordpress-publish.",
-      "PASS exige HTTP/Playwright do estado resultante, não só código FTP 226."
-    ].join(" ")
-  },
-  {
-    id: "ssl-dns-email",
-    title: "DNS, SSL, e-mail, backup e cron",
-    topics: ["dns", "ssl", "email", "backup", "cron", "logs"],
-    source_url: "https://king.host/wiki/",
-    retrieved_at: RETRIEVED_AT,
-    body: [
-      "Com o domínio selecionado o painel expõe DNS, SSL, e-mail, backups, cron e logs. Mutação DNS/SSL não é default do MCP de controle.",
-      "Backup KingHost ou snapshot FTP+SQL é obrigatório antes de APPLY. rollback_ref aponta para esse snapshot.",
-      "Cron do painel dispara PHP/URL no plano; não usar cron não documentado."
-    ].join(" ")
-  },
-  {
-    id: "credentials-policy",
-    title: "Credenciais já criadas — bind opaco",
-    topics: ["credencial", "password", "secret", "env", "ftp user", "mysql user"],
-    source_url: "https://king.host/wiki/artigo/como-acessar-painel-de-controle/",
-    retrieved_at: RETRIEVED_AT,
-    body: [
-      "Fontes aprovadas: env_reference (KINGHOST_FTP_USER/PASSWORD, KINGHOST_MYSQL_*), secret_reference via runtime-auth, runtime_memory, cookie_session_panel.",
-      "Proibido: scrape, brute-force, stuffing, dump de cookie, persistir senha em Git/notebook/PHP/SQL/evidência.",
-      "Retorno: credential_ref, username, host, port, environment_id, has_secret. Nunca password."
+      "Fluxo AEOS: autenticar painel → listar/selecionar domínio → bind FTP/MySQL → inventário → snapshot → diff → dry-run → backup → APPLY → VERIFY → CLOSE.",
+      "Comando existente: npm run aeos:kinghost:publish -- --local-dir <wordpress-tree> --domain <dominio>. O playbook é kinghost-wordpress-publish.",
+      "Git publish do painel é alternativa quando apropriada, mas não elimina os gates de backup/rollback/smoke.",
+      "PASS exige estado HTTP/WordPress funcional após a mudança, não somente FTP 226 ou webhook concluído."
     ].join(" ")
   }
 ];
 
 const PANEL_TOOLS = [
+  { id: "domains", family: "network", title: "Domínios e subdomínios" },
+  { id: "dns", family: "network", title: "Zona DNS" },
+  { id: "ssl", family: "security", title: "Certificado SSL / HTTPS" },
   { id: "ftp", family: "publish", title: "Gerenciar FTP" },
-  { id: "sftp", family: "publish", title: "SFTP" },
-  { id: "ssh", family: "publish", title: "SSH (quando o plano expõe)" },
-  { id: "file-manager", family: "files", title: "Gerenciador de arquivos" },
+  { id: "webftp", family: "files", title: "WebFTP" },
+  { id: "ssh", family: "publish", title: "SSH quando disponível no plano" },
+  { id: "git-deploy", family: "publish", title: "Publicação via Git" },
   { id: "mysql", family: "database", title: "Gerenciar bancos MySQL" },
   { id: "phpmyadmin", family: "database", title: "phpMyAdmin" },
-  { id: "postgres", family: "database", title: "PostgreSQL (se o plano incluir)" },
-  { id: "php-version", family: "runtime", title: "Configuração PHP" },
   { id: "wordpress", family: "application", title: "Gerenciar WordPress" },
-  { id: "dns", family: "network", title: "DNS" },
-  { id: "ssl", family: "network", title: "SSL" },
-  { id: "email", family: "network", title: "E-mail" },
-  { id: "backup", family: "operations", title: "Backups" },
-  { id: "cron", family: "operations", title: "Cron" },
-  { id: "logs", family: "operations", title: "Logs" },
-  { id: "resources", family: "operations", title: "Performance / recursos" },
-  { id: "git-deploy", family: "publish", title: "Git" },
-  { id: "domains", family: "network", title: "Domínios e subdomínios" }
+  { id: "php-version", family: "runtime", title: "Configuração PHP" },
+  { id: "cron", family: "runtime", title: "Cronjob" },
+  { id: "email", family: "messaging", title: "E-mail / Webmail" },
+  { id: "email-ssl", family: "security", title: "SSL de e-mail" },
+  { id: "backup", family: "operations", title: "Backup e recuperação" },
+  { id: "antivirus", family: "security", title: "Antivírus / quarentena" },
+  { id: "waf", family: "security", title: "Smart WAF" },
+  { id: "varnish", family: "performance", title: "Varnish Cache" },
+  { id: "performance", family: "performance", title: "Performance / consumo / realtime" },
+  { id: "logs", family: "operations", title: "Logs" }
 ];
 
 function tokenize(value) {
@@ -273,43 +229,6 @@ function tokenize(value) {
     .filter((token) => token.length >= 2);
 }
 
-export function pluginCatalog() {
-  return {
-    panel_tools: PANEL_TOOLS,
-    wordpress_plugins: WORDPRESS_PLUGIN_CATALOG,
-    note: "Panel catalog is the documented KingHost Hospedagem surface. WordPress plugin slugs are official-directory identities; live inventory uses FTP/MySQL, not this static list. Undocumented private panel APIs are unsupported."
-  };
-}
-
-export function knowledgeSearch(query, { limit = 8 } = {}) {
-  const tokens = tokenize(query);
-  if (tokens.length === 0) {
-    return {
-      status: "OK",
-      query: "",
-      matches: ARTICLES.slice(0, limit).map(summarize),
-      source_registry: "aeos/knowledge/kinghost-control.sources.yaml",
-      official: ["https://painel.kinghost.com.br", "https://king.host/wiki/", "https://king.host/"]
-    };
-  }
-  const scored = ARTICLES.map((article) => {
-    const hay = tokenize([article.id, article.title, article.topics.join(" "), article.body].join(" "));
-    const score = tokens.reduce((sum, token) => sum + hay.filter((item) => item.includes(token) || token.includes(item)).length, 0);
-    return { article, score };
-  }).filter((row) => row.score > 0)
-    .sort((a, b) => b.score - a.score)
-    .slice(0, limit)
-    .map((row) => summarize(row.article, row.score));
-  return {
-    status: "OK",
-    query: String(query || ""),
-    matches: scored,
-    source_registry: "aeos/knowledge/kinghost-control.sources.yaml",
-    freshness_policy: "aeos/policies/kinghost-commerce-freshness.policy.md",
-    official: ["https://painel.kinghost.com.br", "https://king.host/wiki/", "https://king.host/"]
-  };
-}
-
 function summarize(article, score) {
   return {
     id: article.id,
@@ -319,6 +238,43 @@ function summarize(article, score) {
     retrieved_at: article.retrieved_at,
     score: score ?? undefined,
     body: article.body
+  };
+}
+
+export function pluginCatalog() {
+  return {
+    panel_tools: PANEL_TOOLS,
+    wordpress_plugins: WORDPRESS_PLUGIN_CATALOG,
+    note: "Panel catalog is the documented KingHost Hospedagem surface. Live availability depends on the contracted plan and selected domain. Undocumented private panel APIs are unsupported."
+  };
+}
+
+export function knowledgeSearch(query, { limit = 10 } = {}) {
+  const tokens = tokenize(query);
+  const matches = tokens.length === 0
+    ? ARTICLES.slice(0, limit).map((article) => summarize(article))
+    : ARTICLES.map((article) => {
+        const hay = tokenize([article.id, article.title, article.topics.join(" "), article.body].join(" "));
+        const score = tokens.reduce((sum, token) => sum + hay.filter((item) => item.includes(token) || token.includes(item)).length, 0);
+        return { article, score };
+      }).filter((row) => row.score > 0)
+        .sort((a, b) => b.score - a.score)
+        .slice(0, limit)
+        .map((row) => summarize(row.article, row.score));
+
+  return {
+    status: "OK",
+    query: String(query || ""),
+    matches,
+    source_registry: "aeos/knowledge/kinghost-control.sources.yaml",
+    freshness_policy: "aeos/policies/kinghost-commerce-freshness.policy.md",
+    official: [
+      "https://painel.kinghost.com.br",
+      "https://king.host/wiki/",
+      "https://site.king.host/hospedagem-de-sites",
+      "https://www.youtube.com/@kinghost"
+    ],
+    rule: "Video-derived claims are educational evidence; mutable behavior must be corroborated by current official docs or the live panel."
   };
 }
 
