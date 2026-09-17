@@ -1,8 +1,14 @@
 # MEMORY
 
-Updated: 2026-09-16
+Updated: 2026-09-17
 
 ## Active memory
+
+### TypeSafe Jev function-calling skill
+- Status: active
+- Fact: Upstream `typesafe-ai` is installed for agent use, and project-native `jev-call-expert` governs confidence-aware natural-language dispatch into allowlisted typed functions. Jev supplies bounded Choice/Noul judgments; code retains validation, defaults, authorization, confirmation and invocation.
+- Evidence: `.agents/skills/typesafe-ai/SKILL.md`, `skills/jev-call-expert/SKILL.md`, `aeos/registries/skills.typesafe.additions.yaml`
+- Updated: 2026-09-17
 
 ### Canonical agent identity
 - Status: active

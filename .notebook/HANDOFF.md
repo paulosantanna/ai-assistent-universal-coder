@@ -1,22 +1,22 @@
 # HANDOFF
 
-Updated: 2026-09-16
+Updated: 2026-09-17
 
 ## Objective
-- Same branch/PR as the KingHost one-command publish: `wordpress-expert` must use every installed WordPress plugin, not a WooCommerce/catalog subset.
+- Install the TypeSafe agent skill and add the governed `jev-call-expert` skill for confidence-aware Jev function calling.
 
 ## Last Verified State
-- `npm run aeos:verify` PASS (12 suites / 66 tests) after wordpress-expert complete plugin universe.
-- Draft PR: https://github.com/paulosantanna/ai-assistent-universal-coder/pull/43
+- TypeSafe installed at `.agents/skills/typesafe-ai` through `npx skills add typesafe-ai/skills --skill typesafe-ai`.
+- `jev-call-expert` validator PASS (21 checks); SHA-256 manifest PASS.
+- `npm run aeos:verify` PASS (13 suites / 74 tests).
 
 ## Working Set
-- `skills/wordpress-expert/SKILL.md`
-- `skills/wordpress-expert/PLUGINS.md`
-- `kinghost-control-mcp/wordpress-ops.mjs`
-- `aeos/mcp-servers/wordpress-knowledge-mcp.mjs`
-- `aeos/playbooks/kinghost-wordpress-publish.playbook.md`
+- `.agents/skills/typesafe-ai/SKILL.md`
+- `skills/jev-call-expert/SKILL.md`
+- `skills/jev-call-expert/MANIFEST.json`
+- `aeos/registries/skills.typesafe.additions.yaml`
+- `tests/node/skill-router-overlay.test.cjs`
 
 ## Risks And Next Actions
-- Draft PR: https://github.com/paulosantanna/ai-assistent-universal-coder/pull/43
-- VERIFY Jest/guards, then push onto #43.
-- Live KingHost APPLY remains operator-gated.
+- No implementation currently calls the TypeSafe API; the new skill is workflow and routing governance.
+- Any future integration must supply runtime `TYPESAFE_API_KEY` server-side and calibrate confidence thresholds on representative target-domain data.

@@ -38,4 +38,5 @@ registry_fragments:
   - path: aeos/registries/skills.kinghost-expert.additions.yaml
   - path: aeos/registries/skills.spec-driven.additions.yaml
   - path: aeos/registries/skills.tlc-catalog.additions.yaml
+  - path: aeos/registries/skills.typesafe.additions.yaml
   - path: aeos/registries/workbench-profiles.registry.yaml

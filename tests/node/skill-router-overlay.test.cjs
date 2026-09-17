@@ -59,6 +59,25 @@ describe("AEOS active overlay skill routing", () => {
     assert.equal(byId.has("kinghost-expert"), true);
     assert.equal(byId.get("kinghost-expert").ownerAgent, "codenavi-agent");
     assert.equal(byId.get("kinghost-expert").registryFragment, "skills.kinghost-expert.additions.yaml");
+    assert.equal(byId.has("jev-call-expert"), true);
+    assert.equal(byId.get("jev-call-expert").ownerAgent, "codenavi-agent");
+    assert.equal(byId.get("jev-call-expert").registryFragment, "skills.typesafe.additions.yaml");
+  });
+
+  it("routes TypeSafe Jev function-calling intent to jev-call-expert", async () => {
+    const { routeRequest } = await import(moduleUrl("scripts/aeos-skill-router.mjs"));
+    const sandbox = fs.mkdtempSync(path.join(os.tmpdir(), "aeos-jev-call-route-"));
+    try {
+      const result = routeRequest(
+        "implement confidence-aware TypeSafe Jev function calling for these typed tools",
+        { memoryRoot: path.join(sandbox, "memory"), outputDir: path.join(sandbox, "router"), limit: 8 }
+      );
+      const ids = result.selectedSkills.map((skill) => skill.id);
+      assert.equal(ids.includes("jev-call-expert"), true);
+      assert.equal(result.gates.overlayRegistryResolved, true);
+    } finally {
+      fs.rmSync(sandbox, { recursive: true, force: true });
+    }
   });
 
   it("routes complete WordPress plugin-universe intent to wordpress-expert", async () => {

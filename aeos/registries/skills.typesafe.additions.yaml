@@ -1,0 +1,41 @@
+skills:
+  - id: jev-call-expert
+    path: skills/jev-call-expert/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: high
+    capabilities:
+      - READ_REPOSITORY
+      - READ_FILES
+      - GENERATE_REPORT
+      - TYPESAFE_JEV_FUNCTION_CALLING
+      - TYPED_FUNCTION_DISPATCH
+      - CONFIDENCE_AWARE_ROUTING
+    production_ready: true
+    mission: Design, implement, review and test TypeSafe Jev function calling with allowlisted typed functions, speculative questions, deterministic validation and risk-aware execution gates.
+    allowed_actions:
+      - Read callable signatures and application policy
+      - Read current TypeSafe documentation and installed SDK types
+      - Implement or review local Jev dispatchers
+      - Run local tests and validators
+    forbidden_actions:
+      - Create another agent identity
+      - Invent functions arguments candidate values or permissions
+      - Expose API keys or credentials
+      - Treat model confidence as authorization
+      - Execute consequential actions without required approval
+    required_inputs:
+      - user_objective
+      - callable_contract
+      - target_runtime
+    quality_gates:
+      - Live TypeSafe API or selected SDK contract checked before integration code
+      - Proposed calls are allowlisted and type-valid before invocation
+      - Uncertainty and service failure have non-executing paths
+      - Consequential actions retain application authorization and confirmation
+      - Representative dispatcher behavior tests pass
+    stop_conditions:
+      - Callable contract or candidate set cannot be verified
+      - Required approval or authorization policy is missing
+      - Credentials would enter tracked or client-side code
+      - Deterministic validation cannot bound the proposed call
