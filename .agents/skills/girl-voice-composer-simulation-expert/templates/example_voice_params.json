@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0.0",
+  "language": "pt-BR",
+  "target_age": 7,
+  "style": "storytelling",
+  "engine": {
+    "id": "agnostic",
+    "mapping_mode": "agnostic"
+  },
+  "generic_and_fictional": true,
+  "consent_ref": null,
+  "pitch": {
+    "mean_f0_hz": 290,
+    "min_f0_hz": 225,
+    "max_f0_hz": 420
+  },
+  "formants": {
+    "vtl_shift_semitones": 3.0
+  },
+  "prosody": {
+    "pitch_variability": 0.8,
+    "contour": "lively"
+  },
+  "rhythm": {
+    "speech_rate_wpm": 122,
+    "pause_bias": 0.55
+  },
+  "eq": {
+    "low_shelf_db": -4,
+    "presence_boost_db": 3,
+    "sibilance_control_db": -3
+  },
+  "dynamics": {
+    "breathiness": 0.5,
+    "compression": 0.3
+  },
+  "limitations": "Generic fictional child voice direction. Not a replica of any real person. Quality depends on the downstream engine; naturalness and glitch-free output are not guaranteed and must be verified by listening."
+}
