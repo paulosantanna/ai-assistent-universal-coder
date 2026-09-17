@@ -1,0 +1,31 @@
+{
+  "skill": "girl-voice-composer-simulation-expert",
+  "version": "1.0.0",
+  "algo": "sha256",
+  "files": {
+    "AGENT.md": "6c383a744354b75e552a2204587cf13bbf7c6f64badf436a47991a87cbe728a1",
+    "README.md": "7b36dd3d1da1a13968d763b277a8d730521890ef04e82e0f9c1b2d14f81ea8dd",
+    "SKILL.md": "38d4eeab3e337e52a5e206b6bd137e22a941a322f7153b2da49161e8a18c56fb",
+    "knowledge/CONTINUOUS_LEARNING.md": "8e6a1adc7de2ac079509de2fa14a893a3496f5edee14ebb9eb03e71f4e03b34d",
+    "knowledge/KNOWLEDGE.md": "1f0c0e6de25c0ff7d42801a1e12942f55530a1867a190f78c2f455474908d47e",
+    "knowledge/KNOWLEDGE_PROMOTION.md": "d17b8fb32dc25d7bb879925b10fb012152187f6f4649b2ae988b26106ae099ef",
+    "knowledge/NEGATIVE_KNOWLEDGE.md": "97c4b48fe0c0d6c11c41c70e17d3b63ef5b82d68187da1409c281a1057d8c474",
+    "knowledge/POSITIVE_KNOWLEDGE.md": "887419e32355d5b5707946fd43fde242dde1202101713d78c8e03b8de3ab5aa6",
+    "memory/EXECUTIONS.md": "f26a5722a322d875d8ce82f43b003985cf1426d0e794cb7b9affd4b7ef28a15a",
+    "memory/FAILURES.md": "6bf9a82186b7b2cc3bd1642a56c0bcad24d62e06da592d56b86095ffe778ebd2",
+    "memory/LESSONS.md": "77a6c9d9adf291be99fe9fc0a85063a68b9da98e3f388ea08b0ab6850bd9d1cd",
+    "memory/PATTERNS.md": "b4b61e5f5705af87e30f88c31e107dae5132b333e50f729a716186a373284c6e",
+    "schemas/voice_profile.schema.json": "54f6eb28eeff40a9c2876e3193fdd49d41e39027415c6c60a87978ddf629006c",
+    "scripts/__pycache__/validate_profile.cpython-314.pyc": "5f4ce6b0f4d79dd158f9ea8be4bcf0f963ade0281b0a89afd4cff3b37f7c2c81",
+    "scripts/validate_profile.py": "cce01dc227ba3a887e853668ab602dd67d37b6a1c4e9766eba759bb186db4db6",
+    "templates/consent_gate.md": "572c2f150f022a426f0865cca019c26b571f60afb5a01b9fb38ad44dea557b3d",
+    "templates/engine_coqui_xtts.md": "92d80cca11b8b2418ce78b65ce4b6960ad65e4f9a2fbeb64f5edc7f68567e84a",
+    "templates/engine_piper.md": "a4d83ff24e8e419bb4ea372b988ce01c72aba7deab894add567826a2d62384ae",
+    "templates/example_voice_params.json": "2b2814358ec45c259f4ed299a183fa497a8d64a3ebbbe25939b27893a03da37a",
+    "templates/parameter_defaults.md": "3334921065408166f018ddae943bbf3b22e80ec23bd5498455ac7941d887525d",
+    "templates/post_processing.md": "9ae268633b4538ac3dbf1f1f2c1ea3c27de8821c4c32738f1a600e89e8ddbce9",
+    "templates/prosody_en-US.md": "c638cedd2647c6d7744d52258cab7ebd7a3172c0e1632e0d0dc0994ff508e7bb",
+    "templates/prosody_pt-BR.md": "751016a5999d653d81ca7a700a04da12ca993a49e72de4f24d9829c3efd4ba20",
+    "tests/test_validate_profile.py": "af939684540458f8897364fc76398be1e626bc4f03529b5cc5d6887f945c34ca"
+  }
+}
