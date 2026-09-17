@@ -4,8 +4,8 @@
   "algo": "sha256",
   "files": {
     "AGENT.md": "6c383a744354b75e552a2204587cf13bbf7c6f64badf436a47991a87cbe728a1",
-    "README.md": "2d6f7344401c6de66cae3d0411274f3238c4b804b7c259a3e2f2d4315fd0d837",
-    "SKILL.md": "070101438a4f65e161b0d9db7d6ff88eb400b96d16a16238b4d6ac24c4d793ff",
+    "README.md": "7b36dd3d1da1a13968d763b277a8d730521890ef04e82e0f9c1b2d14f81ea8dd",
+    "SKILL.md": "38d4eeab3e337e52a5e206b6bd137e22a941a322f7153b2da49161e8a18c56fb",
     "knowledge/CONTINUOUS_LEARNING.md": "8e6a1adc7de2ac079509de2fa14a893a3496f5edee14ebb9eb03e71f4e03b34d",
     "knowledge/KNOWLEDGE.md": "1f0c0e6de25c0ff7d42801a1e12942f55530a1867a190f78c2f455474908d47e",
     "knowledge/KNOWLEDGE_PROMOTION.md": "d17b8fb32dc25d7bb879925b10fb012152187f6f4649b2ae988b26106ae099ef",
@@ -19,8 +19,11 @@
     "scripts/__pycache__/validate_profile.cpython-314.pyc": "5f4ce6b0f4d79dd158f9ea8be4bcf0f963ade0281b0a89afd4cff3b37f7c2c81",
     "scripts/validate_profile.py": "cce01dc227ba3a887e853668ab602dd67d37b6a1c4e9766eba759bb186db4db6",
     "templates/consent_gate.md": "572c2f150f022a426f0865cca019c26b571f60afb5a01b9fb38ad44dea557b3d",
-    "templates/example_voice_params.json": "79c8cbeeba2ceed0c09635dea86393ecae68606d0df0217fe2691464ff91644d",
+    "templates/engine_coqui_xtts.md": "92d80cca11b8b2418ce78b65ce4b6960ad65e4f9a2fbeb64f5edc7f68567e84a",
+    "templates/engine_piper.md": "a4d83ff24e8e419bb4ea372b988ce01c72aba7deab894add567826a2d62384ae",
+    "templates/example_voice_params.json": "2b2814358ec45c259f4ed299a183fa497a8d64a3ebbbe25939b27893a03da37a",
     "templates/parameter_defaults.md": "3334921065408166f018ddae943bbf3b22e80ec23bd5498455ac7941d887525d",
+    "templates/post_processing.md": "9ae268633b4538ac3dbf1f1f2c1ea3c27de8821c4c32738f1a600e89e8ddbce9",
     "templates/prosody_en-US.md": "c638cedd2647c6d7744d52258cab7ebd7a3172c0e1632e0d0dc0994ff508e7bb",
     "templates/prosody_pt-BR.md": "751016a5999d653d81ca7a700a04da12ca993a49e72de4f24d9829c3efd4ba20",
     "tests/test_validate_profile.py": "af939684540458f8897364fc76398be1e626bc4f03529b5cc5d6887f945c34ca"

@@ -32,6 +32,9 @@ girl-voice-composer-simulation-expert/
 │   ├── parameter_defaults.md
 │   ├── prosody_pt-BR.md
 │   ├── prosody_en-US.md
+│   ├── engine_coqui_xtts.md
+│   ├── engine_piper.md
+│   ├── post_processing.md
 │   ├── consent_gate.md
 │   └── example_voice_params.json
 ├── tests/
@@ -62,6 +65,18 @@ python scripts/validate_profile.py voice_params.json
 
 5. Map the generic parameters onto your engine's controls and verify by
    listening. Adjust and re-validate.
+
+## Open-source engines
+
+- **Coqui TTS / XTTS v2** — `templates/engine_coqui_xtts.md` (multilingual pt/en,
+  style/speed control, runs local).
+- **Piper** — `templates/engine_piper.md` (offline, lightweight; limited native
+  control).
+- **Post-processing** — `templates/post_processing.md` maps formant/VTL shift,
+  fine pitch, EQ and dynamics onto rubberband/librosa/SoX, since the engines do
+  not expose these natively.
+
+Do not use a real identifiable child's recording as an engine style reference.
 
 ## Consent gate
 

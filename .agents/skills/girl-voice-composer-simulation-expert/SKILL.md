@@ -221,6 +221,14 @@ Language specifics are in `templates/prosody_pt-BR.md` and
 The concrete numeric defaults live in `schemas/voice_profile.schema.json` and
 `templates/parameter_defaults.md`, so validation stays deterministic.
 
+### Reference open-source engine mappings
+
+- `templates/engine_coqui_xtts.md` — Coqui TTS / XTTS v2 (multilingual pt/en).
+- `templates/engine_piper.md` — Piper (offline, lightweight).
+- `templates/post_processing.md` — open-source chain (rubberband/librosa/SoX)
+  for parameters the engines do not expose natively (formant/VTL shift, fine
+  pitch targeting, EQ, dynamics).
+
 ---
 
 ## 10. Workflow
