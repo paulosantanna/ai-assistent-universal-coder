@@ -1,22 +1,24 @@
 # HANDOFF
 
-Updated: 2026-09-17
+Updated: 2026-09-18
 
 ## Objective
-- Install the TypeSafe agent skill and add the governed `jev-call-expert` skill for confidence-aware Jev function calling.
+- Use `aura-voice` (aurea) and `voiceai` (vox) as intake lenses, absorb the TLC RAG-com-Node.js lessons and ship a governed RAG MCP for Node.js/Express.
 
 ## Last Verified State
-- TypeSafe installed at `.agents/skills/typesafe-ai` through `npx skills add typesafe-ai/skills --skill typesafe-ai`.
-- `jev-call-expert` validator PASS (21 checks); SHA-256 manifest PASS.
-- `npm run aeos:verify` PASS (13 suites / 74 tests).
+- `rag-node` MCP defined at `aeos/mcps/rag-node.mcp.yaml` with stdio server `aeos/mcp-servers/rag-node-mcp.mjs`.
+- Active through overlay fragment `aeos/registries/mcps.rag-node.additions.yaml` (governed by `rag-expert`).
+- `npm run aeos:verify` PASS (14 suites / 78 tests), including new `tests/node/rag-node-mcp.test.cjs` (4 tests).
+- Branch: `cursor/rag-node-mcp-27ce` (this session). Verbatim TLC video absorption stays BLOCKED until Paulo supplies authorized lesson media/transcripts via `voiceai`/`aura-voice`.
 
 ## Working Set
-- `.agents/skills/typesafe-ai/SKILL.md`
-- `skills/jev-call-expert/SKILL.md`
-- `skills/jev-call-expert/MANIFEST.json`
-- `aeos/registries/skills.typesafe.additions.yaml`
-- `tests/node/skill-router-overlay.test.cjs`
+- `aeos/mcps/rag-node.mcp.yaml`
+- `aeos/mcp-servers/rag-node-mcp.mjs`
+- `aeos/registries/mcps.rag-node.additions.yaml`
+- `aeos/registries/overlay.registry.index.yaml`
+- `tests/node/rag-node-mcp.test.cjs`
+- `.notebook/rag-node-mcp.md`, `.notebook/INDEX.md`, `.notebook/PROGRESS.md`
 
 ## Risks And Next Actions
-- No implementation currently calls the TypeSafe API; the new skill is workflow and routing governance.
-- Any future integration must supply runtime `TYPESAFE_API_KEY` server-side and calibrate confidence thresholds on representative target-domain data.
+- If Paulo provides authorized TLC lesson audio/video/transcripts, run them through `voiceai` literal transcription plus `aura-voice` term-preservation review, then extend `rag_node.curriculum` evidence beyond the public outline.
+- Next: commit, push `cursor/rag-node-mcp-27ce`, open PR with Why/Porquê, then optionally add an Express reference app consuming `rag_node.express_plan`.

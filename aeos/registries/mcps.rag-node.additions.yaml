@@ -1,0 +1,25 @@
+mcps:
+  - id: rag-node
+    type: rag-nodejs
+    transport: stdio
+    config: aeos/mcps/rag-node.mcp.yaml
+    risk_level: medium
+    governing_skill: rag-expert
+    skill_enforced: true
+    skill_intent: "Expose rag-node only as a governed adapter consumed by AEOS skills."
+    capabilities:
+      - RAG_INGEST
+      - RAG_RETRIEVE
+      - RAG_GROUNDED_CHAT
+      - EXPRESS_API_PLAN
+      - SSE_STREAM_PLAN
+    tools:
+      - rag_node.health
+      - rag_node.curriculum
+      - rag_node.ingest
+      - rag_node.search
+      - rag_node.chat
+      - rag_node.express_plan
+    write_allowed: false
+    approval_required: false
+    enabled: true

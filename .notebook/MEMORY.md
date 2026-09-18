@@ -135,3 +135,9 @@ Updated: 2026-09-17
 - Fact: Every open pull request must describe why the change exists. `github-operations` and `devops-pipeline-engineering` block PR create/update/merge when Why/Porquê is missing, empty or a placeholder. The gate exists so later worktrees keep adequate context. Executable check: `scripts/aeos-devops-pipeline-governance.mjs` `evaluatePrWhy()` / `mergeReadiness()`.
 - Evidence: `skills/github-operations/SKILL.md`, `skills/devops-pipeline-engineering/SKILL.md`, `scripts/aeos-devops-pipeline-governance.mjs`, `.github/PULL_REQUEST_TEMPLATE.md`
 - Updated: 2026-09-13
+
+### RAG Node.js MCP mirrors the TLC public curriculum
+- Status: active
+- Fact: `rag-node` is the governed offline RAG MCP for Node.js/Express, implementing ingest/chunk, hybrid retrieval, grounded chat with refusal and an Express plus SSE plan from the TLC `RAG com Node.js` public outline. `voiceai` and `aura-voice` are its intake lenses for authorized lesson media; verbatim video absorption requires user-supplied authorized transcripts.
+- Evidence: `aeos/mcps/rag-node.mcp.yaml`, `aeos/mcp-servers/rag-node-mcp.mjs`, `aeos/registries/mcps.rag-node.additions.yaml`, `.notebook/rag-node-mcp.md`
+- Updated: 2026-09-18
