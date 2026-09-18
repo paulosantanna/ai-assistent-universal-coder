@@ -1,0 +1,92 @@
+mcp:
+  id: rag-node
+  name: RAG Node.js MCP
+  protocol: model-context-protocol
+  version: "1.1.0"
+
+  transport:
+    type: stdio
+    command: node
+    args: ["aeos/mcp-servers/rag-node-mcp.mjs"]
+    persistent: true
+    framing: jsonl
+
+  capabilities:
+    tools:
+      - name: rag_node.health
+        security: read-only
+        description: Verify RAG Node MCP status, chunk defaults and offline retrieval mode.
+      - name: rag_node.curriculum
+        security: read-only
+        description: Return the absorbed public TLC RAG-com-Node.js curriculum outline and its mapping to MCP tools.
+      - name: rag_node.ingest
+        security: workspace-write
+        description: Chunk authorized in-memory documents with provenance and stable chunk IDs.
+      - name: rag_node.search
+        security: read-only
+        description: Hybrid lexical plus TF-IDF cosine retrieval over ingested chunks with citations.
+      - name: rag_node.chat
+        security: read-only
+        description: Grounded extractive answer packing over retrieved chunks with refusal when support is weak.
+      - name: rag_node.express_plan
+        security: read-only
+        description: Return the governed Express plus SSE API plan mirroring the TLC development lessons.
+      - name: rag_node.architecture
+        security: read-only
+        description: Return the analyzed 2-Step RAG architecture, stack and file responsibility map.
+      - name: rag_node.evolution
+        security: read-only
+        description: Return the source repository's 12-commit causal implementation map.
+      - name: rag_node.why
+        security: read-only
+        description: Explain why a RAG step, file, dependency, commit or production recommendation exists.
+      - name: rag_node.production_gaps
+        security: read-only
+        description: Return evidence-backed gaps between the course sample and a production RAG system.
+      - name: rag_node.sources
+        security: read-only
+        description: Return repository provenance and current official RAG documentation sources.
+
+  dependencies:
+    required:
+      - node>=18
+    environment: []
+
+  security:
+    network_access: false
+    shell_access: false
+    workspace_only: true
+    secrets_logging: forbidden
+    evidence_required: true
+    redaction_required: true
+
+  knowledge:
+    public_curriculum_source: https://www.techleads.club/c/rag-com-node-js
+    source_repository: https://github.com/odanieldcs/rag-api
+    source_repository_head: 27f7aab599cdd0d08e0bb5757db972a0c45b6a3d
+    map: aeos/knowledge/rag-node-course-map.json
+    curriculum_scope: public-outline+source-repository+official-docs
+    video_transcript_policy: not-required-for-source-repository-analysis
+    primary_authority: inspected-source-repository
+    secondary_authority: current-official-documentation
+    stale_after_days: 90
+    conflict_policy: current-official-documentation-wins-api-and-security-semantics
+
+prompt_contract:
+  objective: "Explain and implement the TLC RAG-com-Node.js pipeline as governed offline tools using complete source-repository evidence, causal why mapping and current official documentation."
+  evidence_required: true
+  redact_outputs: true
+  rules:
+    - "Operate only on caller-supplied authorized documents; never scrape gated TLC video content."
+    - "Do not claim transcript evidence: this knowledge revision is derived from the complete course repository history plus current official documentation."
+    - "Preserve TLC technical nomenclature exactly (vetorização, busca vetorial, chunks, Express, Server-Sent Events) alongside Node.js, TypeScript and API terms."
+    - "Refuse grounded answers when the top retrieval score is weak instead of hallucinating."
+    - "Return stable chunk IDs, scores and citation refs for every retrieval and chat result."
+    - "Distinguish the repository's educational baseline from production recommendations and identify the evidence for every gap."
+    - "Route access through AEOS MCP runtime and Tool Router policy checks."
+  stop_conditions:
+    - "requested capability is outside the declared RAG Node tool scope"
+    - "ingest payload is missing, empty or exceeds the bounded document limit"
+    - "retrieval corpus is empty for search or chat"
+    - "grounding support is too weak and refusal is the correct answer"
+    - "output cannot be redacted safely"

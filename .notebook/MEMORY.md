@@ -135,3 +135,9 @@ Updated: 2026-09-17
 - Fact: Every open pull request must describe why the change exists. `github-operations` and `devops-pipeline-engineering` block PR create/update/merge when Why/Porquê is missing, empty or a placeholder. The gate exists so later worktrees keep adequate context. Executable check: `scripts/aeos-devops-pipeline-governance.mjs` `evaluatePrWhy()` / `mergeReadiness()`.
 - Evidence: `skills/github-operations/SKILL.md`, `skills/devops-pipeline-engineering/SKILL.md`, `scripts/aeos-devops-pipeline-governance.mjs`, `.github/PULL_REQUEST_TEMPLATE.md`
 - Updated: 2026-09-13
+
+### RAG Node.js MCP stores the TLC repository's causal model
+- Status: active
+- Fact: `rag-node` is the governed offline Node.js/Express RAG MCP. Its 1.1.0 knowledge map derives from all 22 files and 12 commits of TLC source repo `odanieldcs/rag-api` at `27f7aab`, classifies it as 2-Step RAG, records why each indexing/query/serving step exists, and separates the educational baseline from current production guidance backed by official LangChain, OpenAI, Qdrant, MDN and Express docs.
+- Evidence: `aeos/knowledge/rag-node-course-map.json`, `aeos/mcps/rag-node.mcp.yaml`, `aeos/mcp-servers/rag-node-mcp.mjs`, `tests/node/rag-node-mcp.test.cjs`
+- Updated: 2026-09-18

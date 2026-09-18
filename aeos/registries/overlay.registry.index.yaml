@@ -14,6 +14,7 @@ registry_fragments:
   - path: aeos/registries/mcps.runtime-auth.additions.yaml
   - path: aeos/registries/mcps.wordpress-knowledge.additions.yaml
   - path: aeos/registries/mcps.kinghost.additions.yaml
+  - path: aeos/registries/mcps.rag-node.additions.yaml
   - path: aeos/registries/playbooks.registry.yaml
   - path: aeos/registries/playbooks.v0_6.additions.yaml
   - path: aeos/registries/playbooks.v0_7.additions.yaml

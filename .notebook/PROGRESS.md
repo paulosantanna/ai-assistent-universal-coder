@@ -1,30 +1,39 @@
 # PROGRESS
 
-Updated: 2026-09-17
+Updated: 2026-09-18
 
 ## Active Mission
-- Objective: install the TypeSafe agent skill and create a governed `jev-call-expert` skill for confidence-aware Jev function calling.
-- [x] BRIEFING: scope is one installed upstream skill plus one project-native Jev function-calling expert; no application integration or API dependency is requested.
-- [x] RECON: read TypeSafe live docs, the function-calling cookbook, repository skill architecture, registry routing and validation contracts.
-- [x] PLAN: Level 1 skill with explicit typed-routing workflow, active registry fragment, routing coverage and integrity manifest.
-- [x] EXECUTE: created the bounded skill, integrity manifest, active registry fragment and routing coverage.
-- [x] VERIFY: skill validator PASS (21 checks); manifest hash PASS; `npm run aeos:verify` PASS (13 suites / 74 tests).
-- [x] DEBRIEF: verification evidence and continuation state recorded for commit and push.
+- Objective: analyze the complete TLC `rag-api` repository, map why every implementation step exists, and store the causal model plus current external evidence in `rag-node`.
+- [x] BRIEFING: scope changed from transcript intake to complete repository/history analysis plus current official RAG documentation; no video access is required.
+- [x] RECON: cloned `odanieldcs/rag-api`, inspected all 22 tracked files and 12 commits (`d09e969..27f7aab`), and verified the model against LangChain, OpenAI, Qdrant, MDN and Express docs.
+- [x] PLAN: store evidence separately in `aeos/knowledge/rag-node-course-map.json`; expose architecture, evolution, why, gaps and sources through read-only MCP tools.
+- [x] EXECUTE: upgraded `rag-node` to 1.1.0 with 11 tools, actual 1000/200 course defaults, 2-Step RAG map, 12-commit causal evolution, file/stack decisions, 12 production gaps and 11 official sources.
+- [x] VERIFY: knowledge JSON and focused Jest suite PASS (6/6); `npm run aeos:verify` PASS (14 suites / 80 tests).
+- [x] DEBRIEF: durable state refreshed; implementation commit pushed and PR updated.
 
 ## Current Phase
 - DEBRIEF
 
 ## Verification Gates
-- [x] TypeSafe skill installed by exactly one supported method.
-- [x] `jev-call-expert` has precise activation, exclusions, inputs, outputs, workflow, evidence and stop conditions.
-- [x] Skill is owned by `codenavi-agent` and active through the overlay registry.
-- [x] Routing recognizes Jev/TypeSafe function-calling requests.
-- [x] Deterministic validation passes with no blocking findings.
+- [x] MCP definition is workspace-only with no network access.
+- [x] Server answers initialize, tools/list and all eleven tools/call paths deterministically offline.
+- [x] Knowledge identifies the repository as 2-Step RAG and maps every analyzed commit to its causal role.
+- [x] Repository baseline and production recommendations remain explicitly separated with evidence.
+- [x] Current official sources support chunking, embeddings/dimensions, vector search, SSE and Express semantics.
+- [x] Chat refuses weakly grounded questions instead of hallucinating.
+- [x] Full deterministic workspace validation passes with no blocking findings.
 
 ## Factual Log
-- 2026-09-17: `npx skills add typesafe-ai/skills --skill typesafe-ai` installed `typesafe-ai` into `.agents/skills/typesafe-ai`.
-- 2026-09-17: Live TypeSafe documentation confirms `jev-latest`, Choice/Score/Noul primitives, shared-state parallel questions and confidence-aware routing.
-- 2026-09-17: `jev-call-expert` validation passed 21/21 checks and its SHA-256 manifest matched.
+- 2026-09-18: Fetched `https://www.techleads.club/c/rag-com-node-js` public outline: Introdução (3 aulas), Desenvolvimento (5 aulas), Próximos passos (1 aula).
+- 2026-09-18: `rag-node-mcp` JSONL smoke returned initialize plus 6 tools.
+- 2026-09-18: Fixed refusal test to use zero-overlap query after a stopword-driven false Grounded.
+- 2026-09-18: Paulo afirmou que todo o conteúdo do curso é autorizado para o comprador e que ele é comprador; a declaração foi registrada. A rota posterior de análise do repositório removeu a necessidade de fontes de vídeo/transcrição.
+- 2026-09-18: Paulo changed the evidence route: source repository analysis is sufficient; no video/transcript extraction is required.
+- 2026-09-18: Inspected all 12 `rag-api` commits and the final 22-file tree at `27f7aab`.
+- 2026-09-18: Official docs classify the repository's fixed retrieve-then-generate flow as 2-Step RAG; current sources also validate 1000/200 recursive splitting, 1536d `text-embedding-3-small`, Qdrant Cosine/threshold/filter semantics, SSE framing and Express 5 async error handling.
+- 2026-09-18: Focused `rag-node-mcp.test.cjs` passed 6/6 tests after adding five causal knowledge tools.
+- 2026-09-18: `npm run aeos:verify` passed all guards, runtime TypeScript build and 14 Jest suites / 80 tests at `c7bc0ffb`.
+- 2026-09-18: Installed root and runtime dependencies; `npm run aeos:verify` passed 14 suites / 78 tests.
 - 2026-09-17: `npm run aeos:verify` passed all guards, the runtime TypeScript build and 13 Jest suites / 74 tests.
 - 2026-09-16: PR #43 opened for `kinghost-wordpress-publish`.
 - 2026-09-16: Added complete plugin universe to `wordpress-expert` on the same branch.

@@ -1,22 +1,27 @@
 # HANDOFF
 
-Updated: 2026-09-17
+Updated: 2026-09-18
 
 ## Objective
-- Install the TypeSafe agent skill and add the governed `jev-call-expert` skill for confidence-aware Jev function calling.
+- Analyze the complete TLC `rag-api` repository, explain why each implementation step exists, and store the causal model plus current official evidence in the governed `rag-node` MCP.
 
 ## Last Verified State
-- TypeSafe installed at `.agents/skills/typesafe-ai` through `npx skills add typesafe-ai/skills --skill typesafe-ai`.
-- `jev-call-expert` validator PASS (21 checks); SHA-256 manifest PASS.
-- `npm run aeos:verify` PASS (13 suites / 74 tests).
+- `rag-node` 1.1.0 is defined at `aeos/mcps/rag-node.mcp.yaml` with stdio server `aeos/mcp-servers/rag-node-mcp.mjs`.
+- Active through overlay fragment `aeos/registries/mcps.rag-node.additions.yaml` (governed by `rag-expert`).
+- Source evidence covers all 22 tracked files and 12 commits of `https://github.com/odanieldcs/rag-api` at `27f7aab`.
+- `aeos/knowledge/rag-node-course-map.json` contains the 2-Step architecture, 12 causal commits, stack/file why map, 12 production gaps and 11 current official sources.
+- Focused `tests/node/rag-node-mcp.test.cjs` PASS (6 tests); `npm run aeos:verify` PASS (14 suites / 80 tests) at implementation commit `c7bc0ffb`.
 
 ## Working Set
-- `.agents/skills/typesafe-ai/SKILL.md`
-- `skills/jev-call-expert/SKILL.md`
-- `skills/jev-call-expert/MANIFEST.json`
-- `aeos/registries/skills.typesafe.additions.yaml`
-- `tests/node/skill-router-overlay.test.cjs`
+- `aeos/mcps/rag-node.mcp.yaml`
+- `aeos/mcp-servers/rag-node-mcp.mjs`
+- `aeos/knowledge/rag-node-course-map.json`
+- `aeos/registries/mcps.rag-node.additions.yaml`
+- `aeos/registries/overlay.registry.index.yaml`
+- `tests/node/rag-node-mcp.test.cjs`
+- `.notebook/rag-node-mcp.md`, `.notebook/INDEX.md`, `.notebook/PROGRESS.md`
 
 ## Risks And Next Actions
-- No implementation currently calls the TypeSafe API; the new skill is workflow and routing governance.
-- Any future integration must supply runtime `TYPESAFE_API_KEY` server-side and calibrate confidence thresholds on representative target-domain data.
+- The repository is an educational baseline, not production-ready: highest risks are absent relevance thresholds, auth/ACL filtering and indirect prompt-injection validation. See `rag_node.production_gaps`.
+- Recheck official APIs before implementing upgrades; the knowledge file records source URLs and an evidence date rather than freezing unverified signatures.
+- Optional next mission: build a productionized Express/Qdrant reference app from `rag_node.architecture` and close the high-severity gaps rather than copying the course sample unchanged.
