@@ -25,6 +25,7 @@ Updated: 2026-09-18
 - 2026-09-18: Fetched `https://www.techleads.club/c/rag-com-node-js` public outline: Introdução (3 aulas), Desenvolvimento (5 aulas), Próximos passos (1 aula).
 - 2026-09-18: `rag-node-mcp` JSONL smoke returned initialize plus 6 tools.
 - 2026-09-18: Fixed refusal test to use zero-overlap query after a stopword-driven false Grounded.
+- 2026-09-18: Paulo afirmou que todo o conteúdo do curso é autorizado para o comprador e que ele é comprador. Registrado como declaração de autorização; os arquivos/transcritos das aulas ainda não foram entregues — segue BLOCKED até o handoff das fontes.
 - 2026-09-18: Installed root and runtime dependencies; `npm run aeos:verify` passed 14 suites / 78 tests.
 - 2026-09-17: `npm run aeos:verify` passed all guards, the runtime TypeScript build and 13 Jest suites / 74 tests.
 - 2026-09-16: PR #43 opened for `kinghost-wordpress-publish`.
