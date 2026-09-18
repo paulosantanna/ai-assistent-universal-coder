@@ -7,7 +7,7 @@ Last updated: 2026-09-18
 - [MEMORY](MEMORY.md) — durable evidence-backed project facts and decisions | continuity | memory, decisions, evidence
 - [PROGRESS](PROGRESS.md) — live mission checklist, gates and factual execution log | continuity | progress, verification, execution
 - [LEARNING](LEARNING.md) — verified reusable root-cause lessons | continuity | learning, root-cause, prevention
-- [rag-node-mcp](rag-node-mcp.md) — offline RAG Node.js MCP mirroring the TLC public curriculum | domain | rag, nodejs, mcp
+- [rag-node-mcp](rag-node-mcp.md) — TLC repo causal map + governed offline RAG Node.js MCP | domain | rag, nodejs, mcp
 - [kinghost-wordpress-publish](kinghost-wordpress-publish.md) — one-command local WordPress/WooCommerce → KingHost Hospedagem | domain | kinghost, wordpress, publish
 - [wordpress-plugin-universe](wordpress-plugin-universe.md) — wordpress-expert uses every installed plugin, not a catalog subset | domain | wordpress, plugins, inventory
 - [kotlin-expert](kotlin-expert.md) — current Kotlin 2.4.20 language expert + docs-kotlin-current MCP | domain | kotlin, language-docs, expert

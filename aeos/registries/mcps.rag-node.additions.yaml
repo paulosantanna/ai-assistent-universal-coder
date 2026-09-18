@@ -13,6 +13,10 @@ mcps:
       - RAG_GROUNDED_CHAT
       - EXPRESS_API_PLAN
       - SSE_STREAM_PLAN
+      - RAG_ARCHITECTURE_KNOWLEDGE
+      - RAG_CAUSAL_EVOLUTION
+      - RAG_PRODUCTION_GAP_ANALYSIS
+      - RAG_OFFICIAL_SOURCES
     tools:
       - rag_node.health
       - rag_node.curriculum
@@ -20,6 +24,11 @@ mcps:
       - rag_node.search
       - rag_node.chat
       - rag_node.express_plan
+      - rag_node.architecture
+      - rag_node.evolution
+      - rag_node.why
+      - rag_node.production_gaps
+      - rag_node.sources
     write_allowed: false
     approval_required: false
     enabled: true

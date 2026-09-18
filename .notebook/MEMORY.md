@@ -136,8 +136,8 @@ Updated: 2026-09-17
 - Evidence: `skills/github-operations/SKILL.md`, `skills/devops-pipeline-engineering/SKILL.md`, `scripts/aeos-devops-pipeline-governance.mjs`, `.github/PULL_REQUEST_TEMPLATE.md`
 - Updated: 2026-09-13
 
-### RAG Node.js MCP mirrors the TLC public curriculum
+### RAG Node.js MCP stores the TLC repository's causal model
 - Status: active
-- Fact: `rag-node` is the governed offline RAG MCP for Node.js/Express, implementing ingest/chunk, hybrid retrieval, grounded chat with refusal and an Express plus SSE plan from the TLC `RAG com Node.js` public outline. `voiceai` and `aura-voice` are its intake lenses for authorized lesson media; verbatim video absorption requires user-supplied authorized transcripts.
-- Evidence: `aeos/mcps/rag-node.mcp.yaml`, `aeos/mcp-servers/rag-node-mcp.mjs`, `aeos/registries/mcps.rag-node.additions.yaml`, `.notebook/rag-node-mcp.md`
+- Fact: `rag-node` is the governed offline Node.js/Express RAG MCP. Its 1.1.0 knowledge map derives from all 22 files and 12 commits of TLC source repo `odanieldcs/rag-api` at `27f7aab`, classifies it as 2-Step RAG, records why each indexing/query/serving step exists, and separates the educational baseline from current production guidance backed by official LangChain, OpenAI, Qdrant, MDN and Express docs.
+- Evidence: `aeos/knowledge/rag-node-course-map.json`, `aeos/mcps/rag-node.mcp.yaml`, `aeos/mcp-servers/rag-node-mcp.mjs`, `tests/node/rag-node-mcp.test.cjs`
 - Updated: 2026-09-18

@@ -1,0 +1,478 @@
+{
+  "schema_version": 1,
+  "updated": "2026-09-18",
+  "source_repository": {
+    "url": "https://github.com/odanieldcs/rag-api",
+    "analyzed_head": "27f7aab599cdd0d08e0bb5757db972a0c45b6a3d",
+    "default_branch": "main",
+    "history": {
+      "commits": 12,
+      "first_commit": "d09e9698d82bc46c5cc567389cdac8103291ae9a",
+      "last_commit": "27f7aab599cdd0d08e0bb5757db972a0c45b6a3d",
+      "period": "2025-10-25..2025-11-12"
+    },
+    "evidence_scope": "All 22 tracked files and all 12 commits were inspected. Findings distinguish repository evidence from current official documentation.",
+    "limitations": [
+      "The repository has no README, tests, CI workflow or committed LICENSE file.",
+      "The package metadata declares ISC, but repository reuse terms should not be inferred beyond that package field.",
+      "Course video transcripts were not used for this revision."
+    ]
+  },
+  "architecture": {
+    "classification": "2-Step RAG",
+    "classification_why": "Retrieval always executes before generation; no model decides whether or how to retrieve. This matches LangChain's current definition of predictable 2-Step RAG.",
+    "goal": "Answer questions about uploaded PDFs by retrieving semantically similar chunks and constraining an LLM with those chunks.",
+    "two_pipelines": {
+      "indexing": [
+        {
+          "step": "receive_pdf",
+          "code": "src/routes/document.ts + src/middleware/upload.ts",
+          "does": "Accept one multipart PDF and stage it on disk.",
+          "why": "The model cannot search a binary PDF directly; ingestion first establishes a bounded, typed document boundary."
+        },
+        {
+          "step": "load_pages",
+          "code": "src/services/document.ts:PDFLoader",
+          "does": "Parse the PDF into LangChain Documents carrying page metadata.",
+          "why": "Text and provenance must be extracted before semantic indexing; page metadata later supports traceable citations."
+        },
+        {
+          "step": "split_chunks",
+          "code": "src/services/document.ts:RecursiveCharacterTextSplitter",
+          "does": "Split pages with chunkSize=1000 and chunkOverlap=200.",
+          "why": "Whole pages can dilute relevant passages and exceed useful context granularity. Overlap preserves meaning that crosses chunk boundaries; 1000/200 is a baseline to evaluate, not a universal optimum."
+        },
+        {
+          "step": "attach_metadata",
+          "code": "src/services/document.ts:documentChunks",
+          "does": "Assign UUIDs plus documentId, chunkIndex, fileName, upload time and page.",
+          "why": "Vector similarity alone cannot explain origin. Stable provenance fields enable source display, filtering, deletion and audit, although this sample uses random IDs and does not implement lifecycle operations."
+        },
+        {
+          "step": "embed_documents",
+          "code": "src/services/openai.ts + src/services/document.ts",
+          "does": "Create text-embedding-3-small vectors for every chunk.",
+          "why": "Embeddings place semantically related text near each other so queries can match concepts without exact keyword equality."
+        },
+        {
+          "step": "upsert_qdrant",
+          "code": "src/services/qdrant.ts + src/services/document.ts",
+          "does": "Persist 1536-dimensional vectors and text/provenance payloads in a Cosine collection.",
+          "why": "A vector store makes nearest-neighbor retrieval persistent and scalable. Dimension 1536 matches the model's default; Cosine compares vector direction and Qdrant normalizes Cosine vectors on upload."
+        }
+      ],
+      "query": [
+        {
+          "step": "validate_question",
+          "code": "src/schemas/index.ts + src/middleware/validation.ts",
+          "does": "Require a trimmed 1..500 character question and topK 1..10 (default 3).",
+          "why": "Input bounds prevent meaningless requests and cap retrieval/context cost before external services are called."
+        },
+        {
+          "step": "embed_query",
+          "code": "src/services/query.ts",
+          "does": "Embed the question with the same text-embedding-3-small model.",
+          "why": "Document and query vectors must share the same vector space and dimension for similarity search to be meaningful."
+        },
+        {
+          "step": "retrieve_top_k",
+          "code": "src/services/query.ts:qdrantClient.search",
+          "does": "Return topK nearest vectors with payload text and metadata.",
+          "why": "Only likely relevant passages should consume the LLM context window. with_payload is required because vector IDs alone cannot ground an answer."
+        },
+        {
+          "step": "pack_context",
+          "code": "src/services/rag.ts",
+          "does": "Join numbered result texts into one context block.",
+          "why": "The generator needs a bounded evidence packet rather than the full corpus. Numbering gives the prompt a local reference structure."
+        },
+        {
+          "step": "generate_grounded_answer",
+          "code": "src/services/rag.ts:RAG_PROMPT_TEMPLATE",
+          "does": "Ask gpt-4o-mini at temperature 0 to answer in pt-BR using only context and to refuse if absent.",
+          "why": "Retrieval supplies external knowledge; the system prompt narrows generation to evidence. Temperature 0 reduces variation but does not prove factuality or eliminate prompt injection."
+        },
+        {
+          "step": "return_sources",
+          "code": "src/services/rag.ts",
+          "does": "Return fileName, chunkIndex and similarity score beside the answer.",
+          "why": "Sources let clients inspect retrieval and are the minimum basis for citation validation, although page/documentId should also be returned."
+        }
+      ],
+      "serving": [
+        {
+          "step": "modular_routes",
+          "code": "src/index.ts + src/routes/*.ts",
+          "does": "Expose /health, /documents/upload, /query, /rag and /rag/stream through Express routers.",
+          "why": "Separating ingestion, retrieval and generation makes each stage observable and independently testable."
+        },
+        {
+          "step": "stream_sse",
+          "code": "src/services/rag.ts:streamRAG + src/routes/rag.ts",
+          "does": "Emit sources, token and done JSON messages using text/event-stream.",
+          "why": "LLM generation is latency-heavy; streaming improves perceived latency and lets source metadata arrive before the complete answer."
+        },
+        {
+          "step": "browser_client",
+          "code": "sample/chat.html",
+          "does": "POST a question with fetch and read the response ReadableStream.",
+          "why": "Native EventSource cannot send a POST body, so fetch is appropriate for a question payload; the sample's additional unused EventSource is a defect, not a required pattern."
+        }
+      ]
+    },
+    "dependency_flow": [
+      "OPENAI_API_KEY -> OpenAIEmbeddings + ChatOpenAI",
+      "PDF upload -> PDFLoader -> RecursiveCharacterTextSplitter",
+      "chunks -> embeddings.embedDocuments -> Qdrant upsert",
+      "question -> embeddings.embedQuery -> Qdrant search",
+      "retrieved payload -> ChatPromptTemplate -> ChatOpenAI -> StringOutputParser",
+      "answer -> JSON response or SSE sources/token/done stream"
+    ]
+  },
+  "stack": [
+    {
+      "component": "Node.js 22.14 + TypeScript 5.9",
+      "role": "ESM application runtime and type checking",
+      "why": "Async iteration is used for model streaming and ESM aligns with current package imports."
+    },
+    {
+      "component": "Express 5.1",
+      "role": "HTTP composition and modular routers",
+      "why": "The course needs separate upload, search, answer and stream endpoints. Express 5 can forward rejected async handlers to error middleware when errors are not swallowed locally."
+    },
+    {
+      "component": "LangChain",
+      "role": "PDF loading, recursive splitting, embeddings, prompt composition and streamed parsing",
+      "why": "It supplies replaceable interfaces for the standard RAG stages rather than coupling all providers in route handlers."
+    },
+    {
+      "component": "OpenAI text-embedding-3-small",
+      "role": "1536-dimensional document and query embeddings",
+      "why": "It is a cost-oriented semantic representation model. The vector collection dimension must remain coupled to the configured embedding dimension."
+    },
+    {
+      "component": "OpenAI gpt-4o-mini",
+      "role": "Grounded response generation",
+      "why": "The sample chooses a cost/performance model and temperature 0 for less variable answers; model choice is not a retrieval-quality substitute."
+    },
+    {
+      "component": "Qdrant",
+      "role": "Persistent Cosine vector collection and payload retrieval",
+      "why": "It separates searchable semantic storage from the stateless API and supports future score thresholds, payload filters and indexes."
+    },
+    {
+      "component": "Multer + Zod",
+      "role": "Multipart staging and input validation",
+      "why": "Uploads require a file-aware boundary; query and file metadata require runtime validation because TypeScript types disappear at runtime."
+    },
+    {
+      "component": "SSE over fetch",
+      "role": "One-way incremental answer delivery for POST questions",
+      "why": "The server only needs to push generation chunks after one client request, so WebSockets are unnecessary."
+    }
+  ],
+  "evolution": [
+    {
+      "order": 1,
+      "commit": "d09e969",
+      "title": "setup and configuration",
+      "creates": ["TypeScript/ESM app", "environment config", "OpenAI clients", "Qdrant Docker service", "1536/Cosine collection", "health route"],
+      "why_now": "Provision the external contracts and fail startup if the vector store cannot initialize; later ingestion and queries depend on a consistent model/store schema."
+    },
+    {
+      "order": 2,
+      "commit": "2fe31e5",
+      "title": "file upload middleware and response types",
+      "creates": ["disk-backed Multer upload", "PDF MIME filter", "10 MB limit", "typed upload response"],
+      "why_now": "Establish a bounded input adapter before implementing expensive parsing and embeddings."
+    },
+    {
+      "order": 3,
+      "commit": "b6e6846",
+      "title": "document upload route and processing service",
+      "creates": ["PDFLoader pipeline", "1000/200 chunking", "provenance metadata", "batched embeddings", "Qdrant upsert", "temporary-file cleanup"],
+      "why_now": "Complete the indexing half so a searchable corpus exists before retrieval is exposed."
+    },
+    {
+      "order": 4,
+      "commit": "69a61b5",
+      "title": "uploads configuration and directory bootstrap",
+      "creates": ["UPLOADS_DIRECTORY", "MAX_FILE_SIZE", "startup directory creation"],
+      "why_now": "Make the filesystem assumption explicit and prevent the first upload from failing because its staging directory does not exist."
+    },
+    {
+      "order": 5,
+      "commit": "10a93f4",
+      "title": "dependencies and Nike 10-K fixture",
+      "creates": ["required loader/splitter/upload dependencies", "realistic 2.4 MB financial PDF"],
+      "why_now": "Exercise semantic retrieval against a non-trivial document with pages, tables and repeated financial language."
+    },
+    {
+      "order": 6,
+      "commit": "5048554",
+      "title": "query router and vector search",
+      "creates": ["query embedding", "Qdrant topK search", "payload mapping", "standalone /query endpoint"],
+      "why_now": "Validate retrieval quality independently before adding generation; bad retrieval cannot be repaired reliably by prompting."
+    },
+    {
+      "order": 7,
+      "commit": "7081bc8",
+      "title": "RAG router and context-based answers",
+      "creates": ["numbered context packing", "grounding/refusal prompt", "pt-BR answer", "source list", "/rag endpoint"],
+      "why_now": "Add generation only after retrieval works, producing the canonical retrieve-then-generate 2-Step RAG flow."
+    },
+    {
+      "order": 8,
+      "commit": "6943789",
+      "title": "OpenAI retries and timeouts",
+      "creates": ["2 retries", "10 second embedding timeout", "30 second LLM timeout"],
+      "why_now": "External model calls can fail or stall; bounded retries tolerate transient faults while timeouts prevent indefinite requests."
+    },
+    {
+      "order": 9,
+      "commit": "48062e4",
+      "title": "error handling and validation",
+      "creates": ["AppError", "four-argument error middleware", "Zod query schema", "file schema", "central bounds"],
+      "why_now": "Move boundary checks out of route business logic and distinguish client errors from unexpected server failures."
+    },
+    {
+      "order": 10,
+      "commit": "286fddf",
+      "title": "SSE RAG streaming",
+      "creates": ["/rag/stream", "text/event-stream headers", "sources/token/done event protocol", "stream duration log"],
+      "why_now": "Reduce perceived answer latency and expose provenance before generation completes without introducing bidirectional WebSockets."
+    },
+    {
+      "order": 11,
+      "commit": "6ab31dd",
+      "title": "browser chat sample",
+      "creates": ["single-page question UI", "POST fetch streaming reader", "source rendering", "incremental token rendering"],
+      "why_now": "Demonstrate the wire protocol and prove that SSE-framed POST responses can be consumed in a browser."
+    },
+    {
+      "order": 12,
+      "commit": "27f7aab",
+      "title": "CORS and final dependencies",
+      "creates": ["cors middleware", "browser cross-origin access", "final upload type dependency alignment"],
+      "why_now": "Allow the standalone sample UI to call the API from another origin; wildcard CORS is demonstration configuration, not a production default."
+    }
+  ],
+  "file_map": [
+    {
+      "path": "src/config.ts",
+      "responsibility": "Central environment boundary",
+      "why": "Model, Qdrant, server and upload configuration must stay consistent across stages; startup fails closed when OPENAI_API_KEY is absent."
+    },
+    {
+      "path": "src/services/openai.ts",
+      "responsibility": "Provider clients",
+      "why": "One embedding instance guarantees document/query model consistency; one deterministic chat instance centralizes retry and timeout policy."
+    },
+    {
+      "path": "src/services/qdrant.ts",
+      "responsibility": "Vector schema bootstrap",
+      "why": "The collection must exist with a dimension and metric compatible with generated embeddings before writes or searches."
+    },
+    {
+      "path": "src/services/document.ts",
+      "responsibility": "Indexing pipeline",
+      "why": "Parsing, chunking, metadata, embedding and upsert form one ordered data transformation with explicit failure checks."
+    },
+    {
+      "path": "src/services/query.ts",
+      "responsibility": "Retrieval pipeline",
+      "why": "Separating search from generation makes Recall@k, score distributions and metadata correctness independently testable."
+    },
+    {
+      "path": "src/services/rag.ts",
+      "responsibility": "Context packing and generation",
+      "why": "The prompt and parser are generation policy; they consume retrieval results but should not own vector storage."
+    },
+    {
+      "path": "src/routes/*.ts",
+      "responsibility": "HTTP adapters",
+      "why": "Routes translate transport inputs/outputs while services retain domain sequencing."
+    },
+    {
+      "path": "src/schemas/index.ts",
+      "responsibility": "Runtime request contracts",
+      "why": "Static types do not validate JSON or multipart requests; Zod supplies executable bounds."
+    },
+    {
+      "path": "src/middleware/*.ts",
+      "responsibility": "Cross-cutting upload, validation and error policy",
+      "why": "Shared boundary behavior should not be repeated across endpoints."
+    },
+    {
+      "path": "sample/chat.html",
+      "responsibility": "Streaming protocol example",
+      "why": "A minimal client validates source-first and token-by-token rendering without requiring a frontend framework."
+    }
+  ],
+  "production_gaps": [
+    {
+      "severity": "high",
+      "area": "retrieval-grounding",
+      "finding": "No score_threshold or relevance sufficiency gate; unrelated topK chunks still reach the LLM.",
+      "why_it_matters": "TopK always returns nearest items even when all are weak. Prompt-only refusal is nondeterministic.",
+      "improvement": "Calibrate a threshold on an evaluation set, pass score_threshold to Qdrant, and refuse before generation when evidence is insufficient.",
+      "evidence": ["src/services/query.ts", "Qdrant search docs: score_threshold"]
+    },
+    {
+      "severity": "high",
+      "area": "security",
+      "finding": "No authentication, tenant/ACL metadata filters, rate limits or upload ownership.",
+      "why_it_matters": "A shared collection can leak one user's document chunks into another user's answer.",
+      "improvement": "Authenticate every route; include tenantId/document ACL in payload; create payload indexes before ingestion; enforce filters inside vector search.",
+      "evidence": ["src/index.ts", "src/services/query.ts", "Qdrant filtering/indexing docs"]
+    },
+    {
+      "severity": "high",
+      "area": "prompt-injection",
+      "finding": "Retrieved PDF text is inserted directly into the LLM context without output verification.",
+      "why_it_matters": "Documents can contain indirect instructions that compete with application instructions; delimiters alone do not reliably prevent this.",
+      "improvement": "Treat chunks explicitly as untrusted data, minimize tool authority, validate citations/claims against retrieved chunks and test injection fixtures.",
+      "evidence": ["src/services/rag.ts", "LangChain RAG security considerations"]
+    },
+    {
+      "severity": "high",
+      "area": "runtime-correctness",
+      "finding": "validateFile calls CommonJS require inside an ESM application.",
+      "why_it_matters": "require is not defined in native ESM, so upload validation can fail at runtime.",
+      "improvement": "Statically import fileUploadSchema at module top.",
+      "evidence": ["package.json:type=module", "src/middleware/validation.ts"]
+    },
+    {
+      "severity": "medium",
+      "area": "dependencies",
+      "finding": "The code directly imports @langchain/openai and @langchain/textsplitters, but package.json does not declare them directly.",
+      "why_it_matters": "Transitive dependency hoisting is not a stable application contract and can break after lockfile or package-manager changes.",
+      "improvement": "Declare every directly imported package in dependencies and verify with a clean npm install/build.",
+      "evidence": ["package.json", "src/services/openai.ts", "src/services/document.ts"]
+    },
+    {
+      "severity": "medium",
+      "area": "vector-schema",
+      "finding": "Existing Qdrant collections are accepted without checking vector size, distance or embedding model version.",
+      "why_it_matters": "Changing model or dimensions can cause write errors or semantic incompatibility.",
+      "improvement": "Version collection names or validate schema/model metadata at startup; reindex on incompatible changes.",
+      "evidence": ["src/services/qdrant.ts", "OpenAI embeddings dimensions", "Qdrant collection docs"]
+    },
+    {
+      "severity": "medium",
+      "area": "document-lifecycle",
+      "finding": "Random IDs make every re-upload additive; there is no deduplication, update, delete or tombstone path.",
+      "why_it_matters": "Duplicate chunks distort retrieval and retained documents cannot be governed.",
+      "improvement": "Use content hashes/stable chunk IDs, idempotent upserts and document-scoped delete/reindex operations.",
+      "evidence": ["src/services/document.ts"]
+    },
+    {
+      "severity": "medium",
+      "area": "citations",
+      "finding": "The prompt requests document_id citations but packed context contains numeric labels and the API source list omits documentId/page.",
+      "why_it_matters": "The model lacks a consistent citation identifier and clients cannot verify a claim at page level.",
+      "improvement": "Pack explicit source headers with documentId, fileName, page and chunkIndex; validate every emitted citation.",
+      "evidence": ["src/services/rag.ts", "src/types.ts"]
+    },
+    {
+      "severity": "medium",
+      "area": "sse-client",
+      "finding": "sample/chat.html opens an unused EventSource and then separately sends fetch; it parses each network chunk as complete lines.",
+      "why_it_matters": "The unused connection hits a POST-only route with GET, and SSE frames can split across ReadableStream chunks causing JSON parse failures.",
+      "improvement": "Use fetch only, buffer decoded text until complete blank-line-delimited SSE messages, handle response.ok, AbortController and decoder flush.",
+      "evidence": ["sample/chat.html", "MDN SSE and Fetch streaming docs"]
+    },
+    {
+      "severity": "medium",
+      "area": "sse-server",
+      "finding": "No disconnect cancellation, heartbeat, explicit flush or headers-sent error delegation.",
+      "why_it_matters": "Generation may continue after clients leave; proxies may buffer or time out; streaming failures need different handling after headers.",
+      "improvement": "Cancel on request close, emit heartbeat comments, call flushHeaders when available, disable proxy buffering and follow Express headersSent guidance.",
+      "evidence": ["src/routes/rag.ts", "src/services/rag.ts", "MDN SSE", "Express error handling"]
+    },
+    {
+      "severity": "medium",
+      "area": "api-security",
+      "finding": "CORS allows every origin.",
+      "why_it_matters": "Wildcard access is convenient for a sample but broadens browser access to an API that has no authentication.",
+      "improvement": "Allowlist deployment origins and combine CORS with authentication; CORS is not authorization.",
+      "evidence": ["src/index.ts"]
+    },
+    {
+      "severity": "medium",
+      "area": "quality",
+      "finding": "No automated tests, retrieval evaluation set, observability traces or CI.",
+      "why_it_matters": "Chunking, model, prompt or dependency changes can silently reduce Recall@k, groundedness and citation validity.",
+      "improvement": "Add unit/integration tests plus a labeled query corpus measuring Recall@k, MRR/nDCG, answer correctness, groundedness, citation validity, latency and cost.",
+      "evidence": ["repository tree", "LangChain retrieval evaluation guidance", "rag-expert metrics"]
+    }
+  ],
+  "official_sources": [
+    {
+      "id": "langchain-retrieval",
+      "url": "https://docs.langchain.com/oss/javascript/langchain/retrieval",
+      "authority": "official",
+      "supports": ["2-Step RAG classification", "modular retrieval pipeline", "2-Step versus agentic versus hybrid tradeoffs"]
+    },
+    {
+      "id": "langchain-knowledge-base",
+      "url": "https://docs.langchain.com/oss/javascript/langchain/knowledge-base",
+      "authority": "official",
+      "supports": ["PDF to Documents", "1000/200 recursive splitting baseline", "embedding/query same space", "vector stores and retrievers"]
+    },
+    {
+      "id": "langchain-rag-security",
+      "url": "https://docs.langchain.com/oss/javascript/deepagents/rag",
+      "authority": "official",
+      "supports": ["indirect prompt injection risk", "citation and claim validation", "retrieved chunks as untrusted data"]
+    },
+    {
+      "id": "openai-embeddings",
+      "url": "https://platform.openai.com/docs/guides/embeddings",
+      "authority": "official",
+      "supports": ["text-embedding-3-small default 1536 dimensions", "cosine retrieval", "dimension/cost tradeoff"]
+    },
+    {
+      "id": "openai-model",
+      "url": "https://platform.openai.com/docs/models/text-embedding-3-small",
+      "authority": "official",
+      "supports": ["model purpose and current endpoint status"]
+    },
+    {
+      "id": "qdrant-collections",
+      "url": "https://qdrant.tech/documentation/manage-data/collections/",
+      "authority": "official",
+      "supports": ["same dimension/metric per collection", "Cosine normalization", "payload-based partitioning"]
+    },
+    {
+      "id": "qdrant-search",
+      "url": "https://qdrant.tech/documentation/search/search/",
+      "authority": "official",
+      "supports": ["score_threshold", "with_payload", "vector query and filters"]
+    },
+    {
+      "id": "qdrant-indexing",
+      "url": "https://qdrant.tech/documentation/manage-data/indexing/",
+      "authority": "official",
+      "supports": ["payload indexes for efficient filters", "create filter indexes before ingestion"]
+    },
+    {
+      "id": "mdn-sse",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events",
+      "authority": "standards-documentation",
+      "supports": ["text/event-stream", "UTF-8 framing", "blank-line message boundaries", "disconnect and heartbeat behavior"]
+    },
+    {
+      "id": "mdn-fetch-streaming",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
+      "authority": "standards-documentation",
+      "supports": ["POST body", "ReadableStream response consumption", "incremental UTF-8 decoding"]
+    },
+    {
+      "id": "express-error-handling",
+      "url": "https://expressjs.com/en/guide/error-handling/",
+      "authority": "official",
+      "supports": ["Express 5 async rejection forwarding", "four-argument error middleware", "headersSent handling"]
+    }
+  ]
+}

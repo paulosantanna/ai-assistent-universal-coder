@@ -3,24 +3,25 @@
 Updated: 2026-09-18
 
 ## Objective
-- Use `aura-voice` (aurea) and `voiceai` (vox) as intake lenses, absorb the TLC RAG-com-Node.js lessons and ship a governed RAG MCP for Node.js/Express.
+- Analyze the complete TLC `rag-api` repository, explain why each implementation step exists, and store the causal model plus current official evidence in the governed `rag-node` MCP.
 
 ## Last Verified State
-- `rag-node` MCP defined at `aeos/mcps/rag-node.mcp.yaml` with stdio server `aeos/mcp-servers/rag-node-mcp.mjs`.
+- `rag-node` 1.1.0 is defined at `aeos/mcps/rag-node.mcp.yaml` with stdio server `aeos/mcp-servers/rag-node-mcp.mjs`.
 - Active through overlay fragment `aeos/registries/mcps.rag-node.additions.yaml` (governed by `rag-expert`).
-- `npm run aeos:verify` PASS (14 suites / 78 tests), including new `tests/node/rag-node-mcp.test.cjs` (4 tests).
-- Branch: `cursor/rag-node-mcp-27ce` (this session). Paulo declarou em 2026-09-18 ser comprador do curso e autorizar o uso do conteúdo; os arquivos/transcritos das aulas ainda não foram entregues, então a absorção verbatim segue BLOCKED até o handoff das fontes.
+- Source evidence covers all 22 tracked files and 12 commits of `https://github.com/odanieldcs/rag-api` at `27f7aab`.
+- `aeos/knowledge/rag-node-course-map.json` contains the 2-Step architecture, 12 causal commits, stack/file why map, 12 production gaps and 11 current official sources.
+- Focused `tests/node/rag-node-mcp.test.cjs` PASS (6 tests); full `npm run aeos:verify` is the next gate.
 
 ## Working Set
 - `aeos/mcps/rag-node.mcp.yaml`
 - `aeos/mcp-servers/rag-node-mcp.mjs`
+- `aeos/knowledge/rag-node-course-map.json`
 - `aeos/registries/mcps.rag-node.additions.yaml`
 - `aeos/registries/overlay.registry.index.yaml`
 - `tests/node/rag-node-mcp.test.cjs`
 - `.notebook/rag-node-mcp.md`, `.notebook/INDEX.md`, `.notebook/PROGRESS.md`
 
 ## Risks And Next Actions
-- Paulo entrega as fontes autorizadas (ver formato abaixo); então rodo `voiceai` transcrição literal mais `aura-voice` preservação de termos e separação humor/sério, e estendo `rag_node.curriculum` além do outline público.
-- Formato do handoff: arquivos de mídia/transcrito fornecidos pelo usuário dentro do workspace (ex. `.aeos/sandbox/rag-tlc/<aula>.mp4|.mp3|.srt|.vtt|.txt|.md`) ou path montado fornecido por ele, um por aula, com título da aula. Não usar login/senha nem cookies do TLC; o link da página do curso sozinho não entrega os vídeos porque o acesso é gated por sessão.
-- Não commitar transcritos verbatim do curso no repo público; mantê-los como evidência local não rastreada e commitar só o mapeamento destilado.
-- Next: commit, push `cursor/rag-node-mcp-27ce`, open PR with Why/Porquê, then optionally add an Express reference app consuming `rag_node.express_plan`.
+- Run full verification, then commit/push and update PR #48.
+- The repository is an educational baseline, not production-ready: highest risks are absent relevance thresholds, auth/ACL filtering and indirect prompt-injection validation. See `rag_node.production_gaps`.
+- Recheck official APIs before implementing upgrades; the knowledge file records source URLs and an evidence date rather than freezing unverified signatures.

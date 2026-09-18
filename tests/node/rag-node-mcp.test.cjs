@@ -58,25 +58,60 @@ function payload(response) {
 }
 
 describe("RAG Node MCP", () => {
-  it("lists six governed tools", async () => {
+  it("lists eleven governed implementation and knowledge tools", async () => {
     const responses = await session([
       { jsonrpc: "2.0", id: 1, method: "initialize", params: { protocolVersion: "2024-11-05" } },
       { jsonrpc: "2.0", id: 2, method: "tools/list", params: {} }
     ]);
     const tools = responses.find((r) => r.id === 2)?.result?.tools || [];
-    assert.equal(tools.length, 6);
+    assert.equal(tools.length, 11);
     assert.ok(tools.some((t) => t.name === "rag_node.ingest"));
     assert.ok(tools.some((t) => t.name === "rag_node.express_plan"));
+    assert.ok(tools.some((t) => t.name === "rag_node.why"));
+    assert.ok(tools.some((t) => t.name === "rag_node.production_gaps"));
   });
 
-  it("serves the TLC public curriculum without claiming video transcripts", async () => {
+  it("serves the TLC curriculum with repository evidence without claiming transcripts", async () => {
     const responses = await session([
       { jsonrpc: "2.0", id: 1, method: "tools/call", params: { name: "rag_node.curriculum", arguments: {} } }
     ]);
     const data = payload(responses[0]);
-    assert.equal(data.scope, "public-outline-only");
+    assert.equal(data.scope, "public-outline+source-repository+official-docs");
+    assert.equal(data.source_repository, "https://github.com/odanieldcs/rag-api");
     assert.ok(data.sections.length >= 3);
-    assert.match(data.transcript_policy, /voiceai/);
+    assert.match(data.transcript_policy, /does not claim verbatim/i);
+  });
+
+  it("returns the analyzed 2-Step architecture and complete commit evolution", async () => {
+    const responses = await session([
+      { jsonrpc: "2.0", id: 1, method: "tools/call", params: { name: "rag_node.architecture", arguments: {} } },
+      { jsonrpc: "2.0", id: 2, method: "tools/call", params: { name: "rag_node.evolution", arguments: {} } }
+    ]);
+    const architecture = payload(responses.find((r) => r.id === 1));
+    assert.equal(architecture.architecture.classification, "2-Step RAG");
+    assert.equal(architecture.architecture.two_pipelines.indexing.length, 6);
+    assert.equal(architecture.architecture.two_pipelines.query.length, 6);
+    const evolution = payload(responses.find((r) => r.id === 2));
+    assert.equal(evolution.commits.length, 12);
+    assert.equal(evolution.commits[0].commit, "d09e969");
+    assert.equal(evolution.commits[11].commit, "27f7aab");
+  });
+
+  it("explains implementation why and separates production gaps from the sample", async () => {
+    const responses = await session([
+      { jsonrpc: "2.0", id: 1, method: "tools/call", params: { name: "rag_node.why", arguments: { topic: "chunkOverlap" } } },
+      { jsonrpc: "2.0", id: 2, method: "tools/call", params: { name: "rag_node.production_gaps", arguments: { severity: "high" } } },
+      { jsonrpc: "2.0", id: 3, method: "tools/call", params: { name: "rag_node.sources", arguments: {} } }
+    ]);
+    const why = payload(responses.find((r) => r.id === 1));
+    assert.equal(why.status, "KNOWLEDGE");
+    assert.ok(why.matches.some((match) => match.kind === "indexing-step"));
+    const gaps = payload(responses.find((r) => r.id === 2));
+    assert.ok(gaps.count >= 3);
+    assert.ok(gaps.findings.every((finding) => finding.severity === "high"));
+    const sources = payload(responses.find((r) => r.id === 3));
+    assert.equal(sources.source_repository.history.commits, 12);
+    assert.ok(sources.official_sources.some((source) => source.id === "qdrant-search"));
   });
 
   it("ingests, retrieves and grounds answers with citations", async () => {

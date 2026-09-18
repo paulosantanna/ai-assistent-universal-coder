@@ -2,7 +2,7 @@ mcp:
   id: rag-node
   name: RAG Node.js MCP
   protocol: model-context-protocol
-  version: "1.0.0"
+  version: "1.1.0"
 
   transport:
     type: stdio
@@ -31,6 +31,21 @@ mcp:
       - name: rag_node.express_plan
         security: read-only
         description: Return the governed Express plus SSE API plan mirroring the TLC development lessons.
+      - name: rag_node.architecture
+        security: read-only
+        description: Return the analyzed 2-Step RAG architecture, stack and file responsibility map.
+      - name: rag_node.evolution
+        security: read-only
+        description: Return the source repository's 12-commit causal implementation map.
+      - name: rag_node.why
+        security: read-only
+        description: Explain why a RAG step, file, dependency, commit or production recommendation exists.
+      - name: rag_node.production_gaps
+        security: read-only
+        description: Return evidence-backed gaps between the course sample and a production RAG system.
+      - name: rag_node.sources
+        security: read-only
+        description: Return repository provenance and current official RAG documentation sources.
 
   dependencies:
     required:
@@ -47,23 +62,27 @@ mcp:
 
   knowledge:
     public_curriculum_source: https://www.techleads.club/c/rag-com-node-js
-    curriculum_scope: public-outline-only
-    video_transcript_policy: user-supplied-authorized-media-only
-    primary_authority: tlc-public-curriculum-outline
-    secondary_authority: open-node-rag-standards
+    source_repository: https://github.com/odanieldcs/rag-api
+    source_repository_head: 27f7aab599cdd0d08e0bb5757db972a0c45b6a3d
+    map: aeos/knowledge/rag-node-course-map.json
+    curriculum_scope: public-outline+source-repository+official-docs
+    video_transcript_policy: not-required-for-source-repository-analysis
+    primary_authority: inspected-source-repository
+    secondary_authority: current-official-documentation
     stale_after_days: 90
-    video_mutation_policy: corroborate-with-user-supplied-transcript
+    conflict_policy: current-official-documentation-wins-api-and-security-semantics
 
 prompt_contract:
-  objective: "Implement the TLC RAG-com-Node.js pipeline as governed offline tools: ingest, chunk, retrieve, ground answers and expose an Express plus SSE plan."
+  objective: "Explain and implement the TLC RAG-com-Node.js pipeline as governed offline tools using complete source-repository evidence, causal why mapping and current official documentation."
   evidence_required: true
   redact_outputs: true
   rules:
     - "Operate only on caller-supplied authorized documents; never scrape gated TLC video content."
-    - "Full lesson transcripts require user-supplied authorized media processed through voiceai or aura-voice; without it, answer from the public outline only."
+    - "Do not claim transcript evidence: this knowledge revision is derived from the complete course repository history plus current official documentation."
     - "Preserve TLC technical nomenclature exactly (vetorização, busca vetorial, chunks, Express, Server-Sent Events) alongside Node.js, TypeScript and API terms."
     - "Refuse grounded answers when the top retrieval score is weak instead of hallucinating."
     - "Return stable chunk IDs, scores and citation refs for every retrieval and chat result."
+    - "Distinguish the repository's educational baseline from production recommendations and identify the evidence for every gap."
     - "Route access through AEOS MCP runtime and Tool Router policy checks."
   stop_conditions:
     - "requested capability is outside the declared RAG Node tool scope"

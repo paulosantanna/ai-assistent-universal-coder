@@ -3,19 +3,25 @@
 // Covers: document processing + chunking, vector-style retrieval, grounded generation,
 // Express API shape and SSE streaming plan. No network, no external embedding calls.
 
-const VERSION = "1.0.0";
-const DEFAULT_CHUNK_SIZE = 800;
-const DEFAULT_OVERLAP = 120;
+import { readFileSync } from "node:fs";
+
+const VERSION = "1.1.0";
+const DEFAULT_CHUNK_SIZE = 1000;
+const DEFAULT_OVERLAP = 200;
 const DEFAULT_TOP_K = 5;
 const MAX_DOCUMENTS = 50;
 const MAX_TEXT_CHARS = 200_000;
 const REFUSAL_THRESHOLD = 0.08;
 const EXCERPT_CHARS = 500;
+const KNOWLEDGE = JSON.parse(
+  readFileSync(new URL("../knowledge/rag-node-course-map.json", import.meta.url), "utf8")
+);
 
 const CURRICULUM = {
   source: "https://www.techleads.club/c/rag-com-node-js",
+  source_repository: KNOWLEDGE.source_repository.url,
   course: "RAG com Node.js (Tech Leads Club)",
-  scope: "public-outline-only",
+  scope: "public-outline+source-repository+official-docs",
   sections: [
     {
       title: "Introdução",
@@ -40,7 +46,7 @@ const CURRICULUM = {
       lessons: [{ title: "Ajustes finais e sugestões", maps_to: ["rag_node.chat", "rag_node.express_plan"] }]
     }
   ],
-  transcript_policy: "Full lesson video transcripts require user-supplied authorized media via voiceai or aura-voice. This MCP answers from the public outline until that evidence exists."
+  transcript_policy: "This revision derives causal implementation knowledge from the complete source repository and current official documentation; it does not claim verbatim lesson transcript evidence."
 };
 
 const store = { documents: new Map(), chunks: [] };
@@ -67,7 +73,19 @@ function listTools() {
       question: { type: "string" },
       top_k: { type: "integer" }
     }),
-    tool("rag_node.express_plan", "Return the governed Express plus SSE API plan.")
+    tool("rag_node.express_plan", "Return the governed Express plus SSE API plan."),
+    tool("rag_node.architecture", "Return the analyzed 2-Step RAG architecture, stack and file responsibility map."),
+    tool("rag_node.evolution", "Return the repository's commit-by-commit causal implementation map.", {
+      commit: { type: "string" }
+    }),
+    tool("rag_node.why", "Explain why a RAG step, file, dependency, commit or production recommendation exists.", {
+      topic: { type: "string" }
+    }),
+    tool("rag_node.production_gaps", "Return evidence-backed gaps between the course sample and a production RAG system.", {
+      severity: { type: "string" },
+      area: { type: "string" }
+    }),
+    tool("rag_node.sources", "Return the analyzed source repository and current official documentation catalog.")
   ];
 }
 
@@ -240,8 +258,16 @@ function chat(input = {}) {
 function expressPlan() {
   return {
     status: "PLAN",
-    runtime: "node>=18",
-    routes: [
+    model: KNOWLEDGE.architecture.classification,
+    runtime: "Node.js 22.14 + TypeScript + Express 5",
+    course_baseline_routes: [
+      { method: "GET", path: "/health", purpose: "API and startup smoke" },
+      { method: "POST", path: "/documents/upload", body: "multipart/form-data PDF", purpose: "load, split, embed and upsert" },
+      { method: "POST", path: "/query", body: "{ question, topK? }", purpose: "inspect retrieval independently" },
+      { method: "POST", path: "/rag", body: "{ question, topK? }", purpose: "retrieve then generate" },
+      { method: "POST", path: "/rag/stream", body: "{ question, topK? }", response: "text/event-stream", purpose: "sources/token/done streaming" }
+    ],
+    mcp_adapter_routes: [
       { method: "POST", path: "/api/ingest", body: "{ documents: [{id, text, metadata?}], chunk_size?, overlap? }", via: "rag_node.ingest" },
       { method: "GET", path: "/api/search?q=...&top_k=5&document_id=...", via: "rag_node.search" },
       { method: "POST", path: "/api/chat", body: "{ question, top_k? }", via: "rag_node.chat" },
@@ -251,12 +277,90 @@ function expressPlan() {
       'res.setHeader("Content-Type", "text/event-stream")',
       'res.setHeader("Cache-Control", "no-cache")',
       'res.setHeader("Connection", "keep-alive")',
+      'res.setHeader("X-Accel-Buffering", "no") when behind a compatible proxy',
+      "res.flushHeaders?.() before long-running generation",
       'res.write(`data: ${JSON.stringify({ delta })}\\n\\n`) per token or citation block',
       'res.write("data: [DONE]\\n\\n") then res.end()'
     ],
+    client_rules: [
+      "Use fetch for POST plus response.body; do not open an unused EventSource.",
+      "Decode incrementally and buffer until complete blank-line-delimited SSE messages.",
+      "Check response.ok and response.body, support AbortController and stop generation when the request closes."
+    ],
     chunk_defaults: { chunk_size: DEFAULT_CHUNK_SIZE, overlap: DEFAULT_OVERLAP },
     refusal_policy: { threshold: REFUSAL_THRESHOLD, on_weak_support: "HTTP 409 plus WEAK_GROUNDING guidance, never hallucinated prose" },
-    evidence: { curriculum: CURRICULUM.source, scope: CURRICULUM.scope }
+    evidence: {
+      curriculum: CURRICULUM.source,
+      repository: KNOWLEDGE.source_repository.url,
+      repository_head: KNOWLEDGE.source_repository.analyzed_head,
+      official_sources: KNOWLEDGE.official_sources.map((source) => source.url)
+    }
+  };
+}
+
+function architecture() {
+  return {
+    status: "KNOWLEDGE",
+    source_repository: KNOWLEDGE.source_repository,
+    architecture: KNOWLEDGE.architecture,
+    stack: KNOWLEDGE.stack,
+    file_map: KNOWLEDGE.file_map
+  };
+}
+
+function evolution(input = {}) {
+  const commit = String(input.commit || "").trim().toLowerCase();
+  if (!commit) {
+    return {
+      status: "KNOWLEDGE",
+      analyzed_head: KNOWLEDGE.source_repository.analyzed_head,
+      commits: KNOWLEDGE.evolution
+    };
+  }
+  const matches = KNOWLEDGE.evolution.filter((entry) => entry.commit.toLowerCase().startsWith(commit));
+  if (!matches.length) return { status: "BLOCKED", reason: "COMMIT_NOT_IN_ANALYZED_HISTORY", commit };
+  return { status: "KNOWLEDGE", commits: matches };
+}
+
+function why(input = {}) {
+  const topic = String(input.topic || "").trim().toLowerCase();
+  if (!topic) return { status: "BLOCKED", reason: "TOPIC_REQUIRED" };
+  const candidates = [
+    ...KNOWLEDGE.architecture.two_pipelines.indexing.map((entry) => ({ kind: "indexing-step", ...entry })),
+    ...KNOWLEDGE.architecture.two_pipelines.query.map((entry) => ({ kind: "query-step", ...entry })),
+    ...KNOWLEDGE.architecture.two_pipelines.serving.map((entry) => ({ kind: "serving-step", ...entry })),
+    ...KNOWLEDGE.stack.map((entry) => ({ kind: "stack", ...entry })),
+    ...KNOWLEDGE.evolution.map((entry) => ({ kind: "commit", ...entry })),
+    ...KNOWLEDGE.file_map.map((entry) => ({ kind: "file", ...entry })),
+    ...KNOWLEDGE.production_gaps.map((entry) => ({ kind: "production-gap", ...entry }))
+  ];
+  const matches = candidates.filter((entry) => JSON.stringify(entry).toLowerCase().includes(topic)).slice(0, 20);
+  if (!matches.length) return { status: "NOT_FOUND", topic, available_tools: ["rag_node.architecture", "rag_node.evolution", "rag_node.production_gaps"] };
+  return { status: "KNOWLEDGE", topic, matches };
+}
+
+function productionGaps(input = {}) {
+  const severity = String(input.severity || "").trim().toLowerCase();
+  const area = String(input.area || "").trim().toLowerCase();
+  const findings = KNOWLEDGE.production_gaps.filter((entry) => {
+    if (severity && entry.severity.toLowerCase() !== severity) return false;
+    if (area && !entry.area.toLowerCase().includes(area)) return false;
+    return true;
+  });
+  return {
+    status: "KNOWLEDGE",
+    filters: { severity: severity || null, area: area || null },
+    findings,
+    count: findings.length
+  };
+}
+
+function sources() {
+  return {
+    status: "KNOWLEDGE",
+    source_repository: KNOWLEDGE.source_repository,
+    official_sources: KNOWLEDGE.official_sources,
+    freshness: { checked: KNOWLEDGE.updated, policy: "Recheck official APIs before implementation or dependency upgrades." }
   };
 }
 
@@ -267,6 +371,11 @@ function call(name, input = {}) {
   if (name === "rag_node.search") return search(input);
   if (name === "rag_node.chat") return chat(input);
   if (name === "rag_node.express_plan") return expressPlan();
+  if (name === "rag_node.architecture") return architecture();
+  if (name === "rag_node.evolution") return evolution(input);
+  if (name === "rag_node.why") return why(input);
+  if (name === "rag_node.production_gaps") return productionGaps(input);
+  if (name === "rag_node.sources") return sources();
   return { status: "ERROR", reason: "UNKNOWN_TOOL", tool: name };
 }
 
@@ -289,7 +398,7 @@ function handle(message) {
         protocolVersion: params.protocolVersion || "2024-11-05",
         capabilities: { tools: { listChanged: false } },
         serverInfo: { name: "aeos-rag-node", version: VERSION },
-        instructions: "Offline governed RAG Node.js MCP mirroring the TLC public curriculum."
+        instructions: "Offline governed RAG Node.js MCP with source-repository causal mapping and current official documentation evidence."
       }
     };
   }
