@@ -10,7 +10,7 @@ Updated: 2026-09-18
 - Active through overlay fragment `aeos/registries/mcps.rag-node.additions.yaml` (governed by `rag-expert`).
 - Source evidence covers all 22 tracked files and 12 commits of `https://github.com/odanieldcs/rag-api` at `27f7aab`.
 - `aeos/knowledge/rag-node-course-map.json` contains the 2-Step architecture, 12 causal commits, stack/file why map, 12 production gaps and 11 current official sources.
-- Focused `tests/node/rag-node-mcp.test.cjs` PASS (6 tests); full `npm run aeos:verify` is the next gate.
+- Focused `tests/node/rag-node-mcp.test.cjs` PASS (6 tests); `npm run aeos:verify` PASS (14 suites / 80 tests) at implementation commit `c7bc0ffb`.
 
 ## Working Set
 - `aeos/mcps/rag-node.mcp.yaml`
@@ -22,6 +22,6 @@ Updated: 2026-09-18
 - `.notebook/rag-node-mcp.md`, `.notebook/INDEX.md`, `.notebook/PROGRESS.md`
 
 ## Risks And Next Actions
-- Run full verification, then commit/push and update PR #48.
 - The repository is an educational baseline, not production-ready: highest risks are absent relevance thresholds, auth/ACL filtering and indirect prompt-injection validation. See `rag_node.production_gaps`.
 - Recheck official APIs before implementing upgrades; the knowledge file records source URLs and an evidence date rather than freezing unverified signatures.
+- Optional next mission: build a productionized Express/Qdrant reference app from `rag_node.architecture` and close the high-severity gaps rather than copying the course sample unchanged.

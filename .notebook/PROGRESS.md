@@ -8,11 +8,11 @@ Updated: 2026-09-18
 - [x] RECON: cloned `odanieldcs/rag-api`, inspected all 22 tracked files and 12 commits (`d09e969..27f7aab`), and verified the model against LangChain, OpenAI, Qdrant, MDN and Express docs.
 - [x] PLAN: store evidence separately in `aeos/knowledge/rag-node-course-map.json`; expose architecture, evolution, why, gaps and sources through read-only MCP tools.
 - [x] EXECUTE: upgraded `rag-node` to 1.1.0 with 11 tools, actual 1000/200 course defaults, 2-Step RAG map, 12-commit causal evolution, file/stack decisions, 12 production gaps and 11 official sources.
-- [~] VERIFY: knowledge JSON and focused Jest suite PASS (6/6); full `npm run aeos:verify` pending.
-- [ ] DEBRIEF: refresh durable state, commit, push and update PR.
+- [x] VERIFY: knowledge JSON and focused Jest suite PASS (6/6); `npm run aeos:verify` PASS (14 suites / 80 tests).
+- [x] DEBRIEF: durable state refreshed; implementation commit pushed and PR updated.
 
 ## Current Phase
-- VERIFY
+- DEBRIEF
 
 ## Verification Gates
 - [x] MCP definition is workspace-only with no network access.
@@ -21,7 +21,7 @@ Updated: 2026-09-18
 - [x] Repository baseline and production recommendations remain explicitly separated with evidence.
 - [x] Current official sources support chunking, embeddings/dimensions, vector search, SSE and Express semantics.
 - [x] Chat refuses weakly grounded questions instead of hallucinating.
-- [~] Full deterministic workspace validation passes with no blocking findings.
+- [x] Full deterministic workspace validation passes with no blocking findings.
 
 ## Factual Log
 - 2026-09-18: Fetched `https://www.techleads.club/c/rag-com-node-js` public outline: Introdução (3 aulas), Desenvolvimento (5 aulas), Próximos passos (1 aula).
@@ -32,6 +32,7 @@ Updated: 2026-09-18
 - 2026-09-18: Inspected all 12 `rag-api` commits and the final 22-file tree at `27f7aab`.
 - 2026-09-18: Official docs classify the repository's fixed retrieve-then-generate flow as 2-Step RAG; current sources also validate 1000/200 recursive splitting, 1536d `text-embedding-3-small`, Qdrant Cosine/threshold/filter semantics, SSE framing and Express 5 async error handling.
 - 2026-09-18: Focused `rag-node-mcp.test.cjs` passed 6/6 tests after adding five causal knowledge tools.
+- 2026-09-18: `npm run aeos:verify` passed all guards, runtime TypeScript build and 14 Jest suites / 80 tests at `c7bc0ffb`.
 - 2026-09-18: Installed root and runtime dependencies; `npm run aeos:verify` passed 14 suites / 78 tests.
 - 2026-09-17: `npm run aeos:verify` passed all guards, the runtime TypeScript build and 13 Jest suites / 74 tests.
 - 2026-09-16: PR #43 opened for `kinghost-wordpress-publish`.
