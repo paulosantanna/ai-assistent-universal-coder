@@ -1,0 +1,19 @@
+skill: architecture-decision-log
+owner_agent: codenavi-agent
+version: 1.0.0
+source: aeos
+read:
+  - repository.files
+  - mcp.architecture-knowledge
+mutate_with_policy:
+  - documentation.adr_log.index_write
+  - documentation.adr.status_update
+mutate_with_explicit_approval:
+  - git.commit
+permanently_denied:
+  - agent.identity.create
+  - adr.delete
+  - adr.number.reuse
+  - adr.accepted.rewrite
+constraints:
+  index_writes_inside_log_directory_only: true
