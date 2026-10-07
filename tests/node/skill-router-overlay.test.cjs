@@ -62,6 +62,34 @@ describe("AEOS active overlay skill routing", () => {
     assert.equal(byId.has("jev-call-expert"), true);
     assert.equal(byId.get("jev-call-expert").ownerAgent, "codenavi-agent");
     assert.equal(byId.get("jev-call-expert").registryFragment, "skills.typesafe.additions.yaml");
+    for (const id of [
+      "architecture-decision-record",
+      "architecture-decision-log",
+      "architecturally-significant-requirement",
+      "architecture-knowledge-management"
+    ]) {
+      assert.equal(byId.has(id), true, id);
+      assert.equal(byId.get(id).ownerAgent, "codenavi-agent", id);
+      assert.equal(byId.get(id).registryFragment, "skills.architecture-knowledge.additions.yaml", id);
+      assert.equal(byId.get(id).path, `skills/${id}/SKILL.md`, id);
+    }
+  });
+
+  it("routes ADR, ADL, ASR and AKM intents and ignores 'adr' inside other words", async () => {
+    const { routeRequest } = await import(moduleUrl("scripts/aeos-skill-router.mjs"));
+    const sandbox = fs.mkdtempSync(path.join(os.tmpdir(), "aeos-akm-route-"));
+    const top = (request) => routeRequest(request, { memoryRoot: path.join(sandbox, "memory"), outputDir: path.join(sandbox, "router"), limit: 8 })
+      .selectedSkills.filter((skill) => skill.id !== "chromatic-mega-brain");
+    try {
+      assert.equal(top("escreva um ADR para a escolha do PostgreSQL")[0].id, "architecture-decision-record");
+      assert.equal(top("qual o próximo número de ADR e o log de decisões")[0].id, "architecture-decision-log");
+      assert.equal(top("isto é um requisito arquiteturalmente significativo?")[0].id, "architecturally-significant-requirement");
+      assert.equal(top("faça a gestão do conhecimento arquitetural (AKM) do repositório")[0].id, "architecture-knowledge-management");
+      const unrelated = top("utilizando o padrão de skills publique o wordpress no kinghost").map((skill) => skill.id);
+      assert.equal(unrelated.includes("architecture-decision-record"), false);
+    } finally {
+      fs.rmSync(sandbox, { recursive: true, force: true });
+    }
   });
 
   it("routes TypeSafe Jev function-calling intent to jev-call-expert", async () => {

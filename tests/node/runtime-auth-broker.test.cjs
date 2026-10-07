@@ -116,8 +116,17 @@ describe("AEOS universal runtime authentication", () => {
     assert.equal(mcps.includes("runtime-auth"), true);
     assert.equal(mcps.includes("runtime-http"), true);
     assert.equal(mcps.includes("docs-kotlin-current"), true);
+    for (const id of ["architecture-decision-record", "architecture-decision-log", "architecturally-significant-requirement", "architecture-knowledge-management"]) {
+      assert.equal(skills.includes(id), true, id);
+    }
+    assert.equal(playbooks.includes("architecture-knowledge-lifecycle"), true);
+    assert.equal(mcps.includes("architecture-knowledge"), true);
     const resolved = loader.resolveMCPs(loader.loadMCPs().mcps, ["filesystem-readonly"]).map((item) => item.id);
     assert.equal(resolved.includes("runtime-auth"), true);
     assert.equal(resolved.includes("runtime-http"), true);
+    const lifecycle = loader.resolvePlaybook(loader.loadPlaybooks().playbooks, "architecture-knowledge-lifecycle");
+    const lifecycleMcps = loader.resolveMCPs(loader.loadMCPs().mcps, lifecycle.allowed_mcps).map((item) => item.id);
+    assert.equal(lifecycleMcps.includes("architecture-knowledge"), true);
+    assert.equal(loader.resolveSkills(loader.loadSkills().skills, lifecycle.required_skills).length, 4);
   });
 });
