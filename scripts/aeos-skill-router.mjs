@@ -123,10 +123,16 @@ function scoreSkill(skill, request) {
     ["web-quality-audit", ["web-quality-audit", "audit my site", "review web quality", "check page quality"]],
     ["kotlin-expert", ["kotlin", "kotlin multiplatform", "kmp", "kotlinx", "kotlin gradle"]],
     ["kinghost-expert", ["kinghost", "hospedagem", "woocommerce", "publicar wordpress", "publish wordpress", "ftp kinghost", "painel.kinghost"]],
-    ["wordpress-expert", ["wordpress-expert", "universo de plugins", "todos os plugins", "plugin universe", "wp-content/plugins"]]
+    ["wordpress-expert", ["wordpress-expert", "universo de plugins", "todos os plugins", "plugin universe", "wp-content/plugins"]],
+    // Acronym aliases are space-delimited: a bare "adr" also matches Portuguese words such as "padrão".
+    ["architecture-decision-record", [" adr ", " adr.", " adr,", " adr-", "architecture decision record", "registro de decisão", "decisão arquitetural", "decisao arquitetural", "supersede adr"]],
+    ["architecture-decision-log", ["decision log", "adr index", "log de decisões", "log de decisoes", "índice de adrs", "indice de adrs", "next adr number", "próximo número de adr"]],
+    ["architecturally-significant-requirement", ["architecturally significant", "arquiteturalmente significativo", " asr ", " asr.", " asr,", " asrs", "quality attribute scenario", "architectural drivers"]],
+    ["architecture-knowledge-management", ["architecture knowledge management", " akm ", " akm.", " akm,", "conhecimento arquitetural", "decision backlog", "adr practice"]]
   ];
+  const paddedRequest = ` ${requestLower} `;
   for (const [needle, aliases] of boosts) {
-    if (aliases.some((alias) => requestLower.includes(alias)) && text.includes(needle)) score += 8;
+    if (aliases.some((alias) => paddedRequest.includes(alias)) && text.includes(needle)) score += 8;
   }
 
   const requestedJava = /\bjava\b/.test(requestLower) && !/\bjavascript\b/.test(requestLower);
