@@ -1,0 +1,12 @@
+playbooks:
+  - id: architecture-knowledge-lifecycle
+    path: aeos/playbooks/architecture-knowledge-lifecycle.playbook.md
+    risk_level: medium
+    required_agents: [codenavi-agent]
+    required_skills:
+      - architecture-knowledge-management
+      - architecturally-significant-requirement
+      - architecture-decision-record
+      - architecture-decision-log
+    required_lcps: [global-rules, project-memory, documentation-standards]
+    allowed_mcps: [architecture-knowledge, filesystem-readonly, filesystem-write-sandbox]

@@ -1,0 +1,111 @@
+skills:
+  - id: architecture-decision-record
+    path: skills/architecture-decision-record/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: medium
+    capabilities:
+      - READ_REPOSITORY
+      - GENERATE_REPORT
+      - ADR_AUTHORING
+      - ADR_LINT
+    production_ready: true
+    mission: Write, supersede and review one Architecture Decision Record (ADR, registro de decisão arquitetural) in MADR 4.0.0, Nygard or Y-statement format and lint it before delivery.
+    allowed_actions:
+      - Write ADR files in the target decision log
+      - Change the status line of a superseded record
+      - Run scripts/adr_lint.mjs
+    forbidden_actions:
+      - Create another agent identity
+      - Rewrite or delete an accepted or rejected ADR
+      - Invent context, options, deciders or evidence
+      - Persist secrets in an ADR
+    required_inputs:
+      - user_objective
+      - decision_context
+    quality_gates:
+      - adr_lint.mjs --strict exits 0 for authored ADRs
+      - At least one negative consequence is recorded
+    stop_conditions:
+      - No options or decision drivers exist yet
+      - Request is to rewrite an accepted decision
+  - id: architecture-decision-log
+    path: skills/architecture-decision-log/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: medium
+    capabilities:
+      - READ_REPOSITORY
+      - READ_FILES
+      - ADR_LOG_INDEX
+      - ADR_LOG_INTEGRITY
+    production_ready: true
+    mission: Maintain the Architecture Decision Log (ADL, log de decisões) with a generated index, never-reused numbering, status transitions and integrity checks.
+    allowed_actions:
+      - Run scripts/adl_index.mjs
+      - Write the marked index block inside the log directory
+      - Change ADR status lines
+    forbidden_actions:
+      - Create another agent identity
+      - Delete records or reuse numbers
+      - Introduce a second naming convention into an existing log
+    required_inputs:
+      - user_objective
+      - log_directory
+    quality_gates:
+      - Rescan after every change reports no new error findings
+    stop_conditions:
+      - Several candidate logs exist and none is confirmed authoritative
+  - id: architecturally-significant-requirement
+    path: skills/architecturally-significant-requirement/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: low
+    capabilities:
+      - READ_REPOSITORY
+      - GENERATE_REPORT
+      - ASR_SIGNIFICANCE_TEST
+      - QUALITY_ATTRIBUTE_SCENARIO
+    production_ready: true
+    mission: Triage requirements for architectural significance (ASR, requisito arquiteturalmente significativo) with the seven-criteria ASR Test and make significant ones measurable as quality attribute scenarios.
+    allowed_actions:
+      - Run scripts/asr_test.mjs
+      - Write ASR register entries
+    forbidden_actions:
+      - Create another agent identity
+      - Report the ASR Test as a weighted score
+      - Rewrite the requirement as stated by its source
+    required_inputs:
+      - user_objective
+      - requirement
+    quality_gates:
+      - Every criterion marked as met has an evidence-backed rationale
+    stop_conditions:
+      - Requirement text or its source is missing
+  - id: architecture-knowledge-management
+    path: skills/architecture-knowledge-management/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: medium
+    capabilities:
+      - READ_REPOSITORY
+      - GENERATE_REPORT
+      - AKM_KNOWLEDGE_AUDIT
+      - AKM_ADOPTION_ASSESSMENT
+    production_ready: true
+    mission: Govern Architecture Knowledge Management (AKM, gestão do conhecimento arquitetural) placement, audits, adoption level, retroactive recovery and review across ASRs, ADRs and the decision log.
+    allowed_actions:
+      - Read decision logs, ASR registers and project knowledge
+      - Write AKM audit reports and plans
+      - Delegate records and requirements to the ADR, ADL and ASR skills
+    forbidden_actions:
+      - Create another agent identity
+      - Invent the rationale of a past decision
+      - Accept a retroactive ADR without its owners
+    required_inputs:
+      - user_objective
+      - target_scope
+    quality_gates:
+      - Every finding cites a file, record or tool output
+    stop_conditions:
+      - Scope or system under audit cannot be identified

@@ -15,6 +15,7 @@ registry_fragments:
   - path: aeos/registries/mcps.wordpress-knowledge.additions.yaml
   - path: aeos/registries/mcps.kinghost.additions.yaml
   - path: aeos/registries/mcps.rag-node.additions.yaml
+  - path: aeos/registries/mcps.architecture-knowledge.additions.yaml
   - path: aeos/registries/playbooks.registry.yaml
   - path: aeos/registries/playbooks.v0_6.additions.yaml
   - path: aeos/registries/playbooks.v0_7.additions.yaml
@@ -25,6 +26,7 @@ registry_fragments:
   - path: aeos/registries/playbooks.kinghost-expert.additions.yaml
   - path: aeos/registries/playbooks.spec-driven.additions.yaml
   - path: aeos/registries/playbooks.tlc-catalog.additions.yaml
+  - path: aeos/registries/playbooks.architecture-knowledge.additions.yaml
   - path: aeos/registries/skills.registry.yaml
   - path: aeos/registries/skills.v0_6.additions.yaml
   - path: aeos/registries/skills.v0_7.additions.yaml
@@ -40,4 +42,5 @@ registry_fragments:
   - path: aeos/registries/skills.spec-driven.additions.yaml
   - path: aeos/registries/skills.tlc-catalog.additions.yaml
   - path: aeos/registries/skills.typesafe.additions.yaml
+  - path: aeos/registries/skills.architecture-knowledge.additions.yaml
   - path: aeos/registries/workbench-profiles.registry.yaml

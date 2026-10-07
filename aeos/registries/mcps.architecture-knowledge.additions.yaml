@@ -1,0 +1,30 @@
+mcps:
+  - id: architecture-knowledge
+    type: architecture-knowledge-management
+    transport: stdio
+    config: aeos/mcps/architecture-knowledge.mcp.yaml
+    risk_level: low
+    governing_skill: architecture-knowledge-management
+    skill_enforced: true
+    skill_intent: "Expose architecture-knowledge only as a governed adapter consumed by the ADR, ADL, ASR and AKM skills."
+    capabilities:
+      - SKILL_PROGRESSIVE_DISCLOSURE
+      - ADR_LINT
+      - ADR_LOG_INDEX
+      - ASR_SIGNIFICANCE_TEST
+      - AKM_KNOWLEDGE
+      - AKM_OFFICIAL_SOURCES
+    tools:
+      - architecture_knowledge.health
+      - architecture_knowledge.search_skills
+      - architecture_knowledge.read_skill
+      - architecture_knowledge.fetch_skill_files
+      - architecture_knowledge.list_skills
+      - architecture_knowledge.adr_lint
+      - architecture_knowledge.adl_index
+      - architecture_knowledge.asr_test
+      - architecture_knowledge.concepts
+      - architecture_knowledge.sources
+    write_allowed: false
+    approval_required: false
+    enabled: true
