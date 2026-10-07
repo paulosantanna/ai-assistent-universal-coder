@@ -1,0 +1,92 @@
+mcp:
+  id: architecture-knowledge
+  name: Architecture Knowledge MCP
+  protocol: model-context-protocol
+  version: "1.0.0"
+
+  transport:
+    type: stdio
+    command: node
+    args: ["aeos/mcp-servers/architecture-knowledge-mcp.mjs"]
+    persistent: true
+    framing: jsonl
+    framing_note: "Replies use the framing of each request: newline-delimited JSON for MCP clients, Content-Length frames for the AEOS harness."
+
+  capabilities:
+    tools:
+      - name: architecture_knowledge.health
+        security: read-only
+        description: Report status, served skills, knowledge date and offline mode.
+      - name: architecture_knowledge.search_skills
+        security: read-only
+        description: TLC disclosure step 1; rank the ADR, ADL, ASR and AKM skills for an intent phrase.
+      - name: architecture_knowledge.read_skill
+        security: read-only
+        description: TLC disclosure step 2; return SKILL.md instructions without frontmatter plus the bundled file list.
+      - name: architecture_knowledge.fetch_skill_files
+        security: read-only
+        description: TLC disclosure step 3; return up to five declared skill files within a 50,000-character budget.
+      - name: architecture_knowledge.list_skills
+        security: read-only
+        description: Browse the catalog by category on an explicit user request only.
+      - name: architecture_knowledge.adr_lint
+        security: read-only
+        description: Lint one ADR from inline content or a workspace path with the architecture-decision-record parser.
+      - name: architecture_knowledge.adl_index
+        security: read-only
+        description: Scan a workspace decision log for its index, integrity findings, lifecycle summary and next number.
+      - name: architecture_knowledge.asr_test
+        security: read-only
+        description: Run the qualitative seven-criteria ASR Test and quality attribute scenario check.
+      - name: architecture_knowledge.concepts
+        security: read-only
+        description: Return AKM vocabulary (AD, ASR, ADR, ADL, AKM, MADR, MRM, START, ecADR, QAS) with sources.
+      - name: architecture_knowledge.sources
+        security: read-only
+        description: Return dated sources, template versions, lifecycle rules and the TLC create-adr baseline deltas.
+
+  dependencies:
+    required:
+      - node>=18
+    environment: []
+
+  security:
+    network_access: false
+    shell_access: false
+    workspace_only: true
+    write_access: false
+    secrets_logging: forbidden
+    evidence_required: true
+    redaction_required: true
+
+  knowledge:
+    map: aeos/knowledge/architecture-knowledge-map.json
+    skills:
+      - skills/architecture-decision-record
+      - skills/architecture-decision-log
+      - skills/architecturally-significant-requirement
+      - skills/architecture-knowledge-management
+    tlc_baseline: create-adr@1.0.0
+    tlc_pattern: agent-skills-mcp progressive disclosure
+    primary_authority: adr.github.io and primary-author practice articles
+    secondary_authority: vendor guidance (AWS Prescriptive Guidance, Azure Well-Architected)
+    stale_after_days: 180
+    conflict_policy: existing-log-convention-wins-for-format; current-official-guidance-wins-for-semantics
+
+prompt_contract:
+  objective: "Serve the ADR, ADL, ASR and AKM skills through TLC progressive disclosure and run their deterministic checks offline."
+  evidence_required: true
+  redact_outputs: true
+  rules:
+    - "Call search_skills before read_skill, and fetch only files that read_skill lists."
+    - "Never write to the workspace; index writes belong to the architecture-decision-log script under its policy."
+    - "Resolve every path inside the workspace root and reject traversal or symlink escapes."
+    - "Report the ASR Test as qualitative triage, never as a weighted score."
+    - "Distinguish the TLC create-adr baseline from current MADR 4.0.0 guidance and cite the source for every delta."
+    - "Route access through AEOS MCP runtime and Tool Router policy checks."
+  stop_conditions:
+    - "requested capability is outside the declared architecture knowledge tool scope"
+    - "path resolves outside the workspace or is not of the expected kind"
+    - "requested skill file is not declared by read_skill"
+    - "input exceeds the declared size or count limits"
+    - "output cannot be redacted safely"

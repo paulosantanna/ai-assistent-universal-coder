@@ -1,0 +1,240 @@
+{
+  "schema_version": "1.0.0",
+  "id": "architecture-knowledge-map",
+  "updated": "2026-10-07",
+  "evidence_checked": "2026-10-07",
+  "scope": "Architectural Knowledge Management vocabulary, ADR templates and lifecycle, decision gates and the TLC create-adr baseline that back the ADR, ADL, ASR and AKM skills.",
+  "skills": [
+    "architecture-decision-record",
+    "architecture-decision-log",
+    "architecturally-significant-requirement",
+    "architecture-knowledge-management"
+  ],
+  "definitions": [
+    {
+      "term": "AD",
+      "name": "Architectural Decision",
+      "pt": "Decisão Arquitetural",
+      "definition": "A justified design choice that addresses a functional or non-functional requirement that is architecturally significant.",
+      "sources": ["adr-github-io"],
+      "skill": "architecture-decision-record"
+    },
+    {
+      "term": "ASR",
+      "name": "Architecturally Significant Requirement",
+      "pt": "Requisito Arquiteturalmente Significativo",
+      "definition": "A requirement that has a measurable effect on the architecture and quality of a software and/or hardware system.",
+      "sources": ["adr-github-io", "wikipedia-asr"],
+      "skill": "architecturally-significant-requirement"
+    },
+    {
+      "term": "ADR",
+      "name": "Architectural Decision Record",
+      "pt": "Registro de Decisão Arquitetural",
+      "definition": "Captures a single AD and its rationale, helping readers understand the reasons for a chosen architectural decision along with its trade-offs and consequences.",
+      "sources": ["adr-github-io"],
+      "skill": "architecture-decision-record"
+    },
+    {
+      "term": "ADL",
+      "name": "Architectural Decision Log",
+      "pt": "Log de Decisões Arquiteturais",
+      "definition": "The collection of ADRs created and maintained in a project; an append-only history in which changed decisions are superseded, not edited.",
+      "sources": ["adr-github-io", "aws-adr-process", "azure-waf-adr"],
+      "skill": "architecture-decision-log"
+    },
+    {
+      "term": "AKM",
+      "name": "Architectural Knowledge Management",
+      "pt": "Gestão do Conhecimento Arquitetural",
+      "definition": "The topic that contains ADs, ASRs, ADRs and decision logs; ADR usage can be extended to design and other decisions (any decision record).",
+      "sources": ["adr-github-io", "ost-akm"],
+      "skill": "architecture-knowledge-management"
+    },
+    {
+      "term": "MADR",
+      "name": "Markdown Architectural Decision Records",
+      "definition": "A streamlined Markdown template for recording architecturally significant decisions with considered options and their pros and cons; latest release 4.0.0.",
+      "sources": ["madr"],
+      "skill": "architecture-decision-record"
+    },
+    {
+      "term": "Y-statement",
+      "name": "Y-statement",
+      "definition": "One-sentence ADR: In the context of <use case>, facing <concern>, we decided for <option> (and neglected <others>), to achieve <qualities>, accepting <downside> (because <rationale>).",
+      "sources": ["adr-templates"],
+      "skill": "architecture-decision-record"
+    },
+    {
+      "term": "MRM",
+      "name": "Most Responsible Moment",
+      "definition": "The point at which an AD is both important and urgent and should be made: neither too early, which harms flexibility, nor too late.",
+      "sources": ["zimmermann-dor"],
+      "skill": "architecture-knowledge-management"
+    },
+    {
+      "term": "START",
+      "name": "Definition of Ready for architectural decisions",
+      "definition": "Stakeholders known, Time (MRM) has come, Alternatives (at least two) understood, Requirements and criteria known, Template chosen and record created.",
+      "sources": ["zimmermann-dor"],
+      "skill": "architecture-decision-record"
+    },
+    {
+      "term": "ecADR",
+      "name": "Definition of Done for architectural decisions",
+      "definition": "Evidence the design will work, Criteria compared across at least two options, Agreement reached, Documentation captured and shared, Realization and review plan in place.",
+      "sources": ["zimmermann-dod"],
+      "skill": "architecture-decision-record"
+    },
+    {
+      "term": "ASR Test",
+      "name": "Architectural Significance Test",
+      "definition": "Seven qualitative criteria: business value or risk, key stakeholder concern, new quality-of-service level, unpredictable external dependency, cross-cutting impact, first of a kind, past problems. Not a weight calculator.",
+      "sources": ["zimmermann-asr-test"],
+      "skill": "architecturally-significant-requirement"
+    },
+    {
+      "term": "QAS",
+      "name": "Quality Attribute Scenario",
+      "definition": "A quality-attribute-specific requirement with six parts: source of stimulus, stimulus, environment, artifact, response and response measure.",
+      "sources": ["bass-clements-kazman", "ozkaya-2008"],
+      "skill": "architecturally-significant-requirement"
+    },
+    {
+      "term": "AD Adoption Model",
+      "name": "Adoption Model for Architectural Decision Making and Capturing",
+      "definition": "Seven dimensions (usage scenario, scope and scale, structure and location, process and engagement, tool support and automation, review culture, learning) and five levels: undefined and unconscious; ad-hoc and unstructured; encouraged and supported; systematic, selective and diligent; optimized and rigorous.",
+      "sources": ["zimmermann-anvaari-adoption"],
+      "skill": "architecture-knowledge-management"
+    }
+  ],
+  "templates": [
+    {
+      "id": "madr",
+      "version": "4.0.0",
+      "released": "2024-09-17",
+      "license": "MIT OR CC0-1.0",
+      "variants": ["adr-template.md", "adr-template-minimal.md", "adr-template-bare.md", "adr-template-bare-minimal.md"],
+      "metadata": ["status", "date", "decision-makers", "consulted", "informed"],
+      "sections": ["Context and Problem Statement", "Decision Drivers", "Considered Options", "Decision Outcome", "Consequences", "Confirmation", "Pros and Cons of the Options", "More Information"],
+      "filename": "NNNN-title-with-dashes.md",
+      "directory": "docs/decisions",
+      "assets": ["skills/architecture-decision-record/assets/madr-template.md", "skills/architecture-decision-record/assets/madr-template-minimal.md"],
+      "sources": ["madr", "madr-template-4.0.0"]
+    },
+    {
+      "id": "nygard",
+      "year": 2011,
+      "sections": ["Title", "Status", "Context", "Decision", "Consequences"],
+      "filename": "doc/arch/adr-NNN.md",
+      "assets": ["skills/architecture-decision-record/assets/nygard-template.md"],
+      "sources": ["nygard-2011"]
+    },
+    {
+      "id": "y-statement",
+      "short_form": "In the context of <use case>, facing <concern> we decided for <option> to achieve <quality>, accepting <downside>.",
+      "long_form": "In the context of <use case>, facing <concern>, we decided for <option> and neglected <other options>, to achieve <quality>, accepting <downside>, because <rationale>.",
+      "assets": ["skills/architecture-decision-record/assets/y-statement-template.md"],
+      "sources": ["adr-templates"]
+    },
+    {
+      "id": "aeos-template",
+      "sections": ["Status", "Context", "Problem", "Constraints", "Options considered", "Decision", "Rationale", "Consequences", "Risks", "Validation plan", "Review trigger", "Evidence"],
+      "filename": "ADR-NNNN-UPPER-KEBAB-TITLE.md",
+      "directory": "aeos/docs/adr",
+      "assets": ["templates/ADR_TEMPLATE.md"],
+      "sources": ["workspace"]
+    }
+  ],
+  "lifecycle": {
+    "statuses": ["proposed", "accepted", "rejected", "deprecated", "superseded"],
+    "rules": [
+      {"rule": "Accepted and rejected ADRs are immutable; a changed decision is a new ADR that supersedes the old one.", "sources": ["aws-adr-process"]},
+      {"rule": "The decision log is append-only; link the superseding and the superseded record.", "sources": ["azure-waf-adr"]},
+      {"rule": "Numbers are sequential and monotonic and are never reused.", "sources": ["nygard-2011"]},
+      {"rule": "A rejected ADR keeps the reason for rejection to prevent future discussions on the same topic.", "sources": ["aws-adr-process"]},
+      {"rule": "Brownfield workloads may generate the record retroactively from known past decisions.", "sources": ["azure-waf-adr"]},
+      {"rule": "Code reviews send back changes that violate an accepted ADR with a link to it.", "sources": ["aws-adr-process"]}
+    ],
+    "admm_steps": [
+      "identify the design issue and options",
+      "collect criteria and analyze options",
+      "make the decision and reach agreement",
+      "capture the decision in an ADR",
+      "enforce: implement, confirm and review the decision"
+    ],
+    "admm_sources": ["zimmermann-dor"]
+  },
+  "tlc_baseline": {
+    "skill": "create-adr",
+    "version": "1.0.0",
+    "author": "Tech Leads Club - github.com/tech-leads-club",
+    "license": "CC-BY-4.0",
+    "catalog_path": "packages/skills-catalog/skills/(creation)/create-adr",
+    "path_last_commit": "e5d6c44cf",
+    "registry_content_hash": "47ec663c849e8c1620c6f33a7be0055acdcf838c27ab7c16f44260244b80195a",
+    "skill_md_sha256": "cde8b63afba27bcbbe22e46de64ed63287314233c331420bc33f50abdde06d1a",
+    "preserved_as": "skills/architecture-decision-record/references/ORIGINAL_SKILL.md",
+    "deltas_to_current_guidance": [
+      {"topic": "MADR consequences", "baseline": "Positive Consequences and Negative Consequences subsections", "current": "one Consequences list with Good, because and Bad, because items (MADR 3.0.0 and later)", "sources": ["madr"]},
+      {"topic": "Confirmation", "baseline": "absent", "current": "Confirmation section describing how compliance with the decision is checked (MADR 4.0.0)", "sources": ["madr"]},
+      {"topic": "Metadata", "baseline": "Date, Status and Deciders bullets", "current": "YAML front matter status, date, decision-makers, consulted, informed (MADR 4.0.0)", "sources": ["madr"]},
+      {"topic": "Numbering", "baseline": "NNN-kebab-case-title.md under docs/adr/", "current": "follow the existing log; new logs use NNNN-title-with-dashes.md under docs/decisions/", "sources": ["madr"]},
+      {"topic": "Status values", "baseline": "accepted, proposed, deprecated, superseded", "current": "adds rejected with the recorded reason", "sources": ["madr", "aws-adr-process"]},
+      {"topic": "Undecided decisions", "baseline": "route to create-rfc", "current": "create-rfc is not installed in this workspace; proposed covers decisions being made; the-jury or technical-design-doc-creator makes an open decision", "sources": ["aws-adr-process"]},
+      {"topic": "Verification", "baseline": "manual quality checklist", "current": "manual checklist plus the deterministic adr_lint.mjs --strict gate", "sources": ["workspace"]}
+    ]
+  },
+  "tlc_pattern": {
+    "skill_format": [
+      "SKILL.md frontmatter: name equals the kebab-case folder; single-line description = what it does + Use when trigger phrases + Do NOT use for negative scope, under 1024 characters, no angle brackets; license CC-BY-4.0; metadata.author and metadata.version.",
+      "Body under 500 lines with steps, examples and troubleshooting; references/ for docs to read, scripts/ for deterministic checks to run, assets/ for output templates; no README.md inside the skill folder.",
+      "Validated with skills/skill-architect/scripts/validate_skill.py."
+    ],
+    "mcp_disclosure": [
+      "search_skills: ranked matches by intent (name 0.45, triggers 0.30, description 0.20, category 0.05) with a 0-100 score; weak matches below 20 are dropped.",
+      "read_skill: SKILL.md body with frontmatter stripped plus the list of bundled files.",
+      "fetch_skill_files: up to five declared paths per call, all validated before reading, within a 50,000-character response budget.",
+      "list_skills: only on an explicit browse request."
+    ],
+    "omitted_here": [
+      "prepare_skill_files: skills are already local files in the workspace, so nothing is staged.",
+      "skills://catalog resource and prompts: the AEOS runtime routes MCP tools only."
+    ],
+    "sources": ["tlc-agent-skills-mcp", "tlc-contributing"]
+  },
+  "workspace_conventions": {
+    "adr_log": "aeos/docs/adr",
+    "filename_pattern": "ADR-NNNN-UPPER-KEBAB-TITLE.md",
+    "template": "templates/ADR_TEMPLATE.md",
+    "engine_notes": "knowledge/ADR_ENGINE.md",
+    "lcp_rule": "project-memory: never_contradict_existing_adr_without_explicit_deprecation",
+    "memory_rule": ".notebook/MEMORY.md points to ADR ids and never copies decisions"
+  },
+  "sources": [
+    {"id": "adr-github-io", "title": "Architectural Decision Records (ADRs)", "publisher": "adr GitHub organization", "url": "https://adr.github.io/", "checked": "2026-10-07", "authority": "community-standard"},
+    {"id": "madr", "title": "About MADR", "publisher": "adr GitHub organization", "url": "https://adr.github.io/madr/", "date": "2024-09-17", "checked": "2026-10-07", "authority": "community-standard"},
+    {"id": "madr-template-4.0.0", "title": "MADR 4.0.0 templates", "publisher": "adr/madr", "url": "https://github.com/adr/madr/tree/4.0.0/template", "date": "2024-09-17", "checked": "2026-10-07", "authority": "community-standard"},
+    {"id": "adr-templates", "title": "ADR Templates", "publisher": "adr GitHub organization", "url": "https://adr.github.io/adr-templates/", "date": "2026-07-07", "checked": "2026-10-07", "authority": "community-standard"},
+    {"id": "ad-practices", "title": "AD Practices", "publisher": "adr GitHub organization", "url": "https://adr.github.io/ad-practices/", "date": "2026-05-11", "checked": "2026-10-07", "authority": "community-standard"},
+    {"id": "adr-tooling", "title": "Decision Capturing Tools", "publisher": "adr GitHub organization", "url": "https://adr.github.io/adr-tooling/", "date": "2026-09-23", "checked": "2026-10-07", "authority": "community-standard"},
+    {"id": "nygard-2011", "title": "Documenting Architecture Decisions", "author": "Michael Nygard", "url": "https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions.html", "date": "2011-11-15", "checked": "2026-10-07", "authority": "primary-author"},
+    {"id": "zimmermann-asr-test", "title": "Architectural Significance Criteria and Some Core Decisions Required", "author": "Olaf Zimmermann", "url": "https://www.ozimmer.ch/practices/2020/09/24/ASRTestECSADecisions.html", "date": "2020-12-05", "checked": "2026-10-07", "authority": "primary-author"},
+    {"id": "zimmermann-dor", "title": "A Definition of Ready for Architectural Decisions (ADs)", "author": "Olaf Zimmermann", "url": "https://ozimmer.ch/practices/2023/12/01/ADDefinitionOfReady.html", "date": "2023-12-15", "checked": "2026-10-07", "authority": "primary-author"},
+    {"id": "zimmermann-dod", "title": "A Definition of Done for Architectural Decision Making", "author": "Olaf Zimmermann", "url": "https://www.ozimmer.ch/practices/2020/05/22/ADDefinitionOfDone.html", "date": "2026-08-28", "checked": "2026-10-07", "authority": "primary-author"},
+    {"id": "zimmermann-adr-creation", "title": "How to create Architectural Decision Records (ADRs) — and how not to", "author": "Olaf Zimmermann", "url": "https://www.ozimmer.ch/practices/2023/04/03/ADRCreation.html", "date": "2026-09-03", "checked": "2026-10-07", "authority": "primary-author"},
+    {"id": "zimmermann-adr-review", "title": "How to review Architectural Decision Records (ADRs) — and how not to", "author": "Olaf Zimmermann", "url": "https://www.ozimmer.ch/practices/2023/04/05/ADRReview.html", "date": "2026-08-28", "checked": "2026-10-07", "authority": "primary-author"},
+    {"id": "zimmermann-anvaari-adoption", "title": "An Adoption Model for Architectural Decision Making and Capturing", "author": "Olaf Zimmermann, Mohsen Anvaari", "url": "https://ozimmer.ch/practices/2023/04/21/ADAdoptionModel.html", "date": "2024-10-10", "checked": "2026-10-07", "authority": "primary-author"},
+    {"id": "ost-akm", "title": "Architectural Knowledge Management (AKM)", "publisher": "OST Institute for Software", "url": "https://www.ost.ch/en/research-and-consulting-services/computer-science/ifs-institute-for-software-new/cloud-application-lab/architectural-knowledge-management-akm", "checked": "2026-10-07", "authority": "research-institute"},
+    {"id": "aws-adr-process", "title": "Architectural decision record process", "publisher": "AWS Prescriptive Guidance", "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html", "checked": "2026-10-07", "authority": "vendor-guidance"},
+    {"id": "azure-waf-adr", "title": "Maintain an architecture decision record (ADR)", "publisher": "Microsoft Azure Well-Architected Framework", "url": "https://learn.microsoft.com/en-us/azure/well-architected/architect-role/architecture-decision-record", "checked": "2026-10-07", "authority": "vendor-guidance"},
+    {"id": "wikipedia-asr", "title": "Architecturally significant requirements", "publisher": "Wikipedia", "url": "https://en.wikipedia.org/wiki/Architecturally_significant_requirements", "checked": "2026-10-07", "authority": "encyclopedia"},
+    {"id": "chen-2013", "title": "Characterizing Architecturally Significant Requirements", "author": "Lianping Chen, Muhammad Ali Babar, Bashar Nuseibeh", "url": "https://doi.org/10.1109/MS.2012.174", "date": "2013", "checked": "2026-10-07", "authority": "peer-reviewed"},
+    {"id": "bass-clements-kazman", "title": "Software Architecture in Practice, chapter Understanding Quality Attributes", "author": "Len Bass, Paul Clements, Rick Kazman", "publisher": "Addison-Wesley", "checked": "2026-10-07", "authority": "book"},
+    {"id": "ozkaya-2008", "title": "Making Practical Use of Quality Attribute Information", "author": "Ipek Ozkaya, Len Bass, Robert L. Nord, Raghvinder S. Sangwan", "publisher": "IEEE Software, March/April 2008", "checked": "2026-10-07", "authority": "peer-reviewed"},
+    {"id": "tlc-create-adr", "title": "create-adr 1.0.0", "publisher": "Tech Leads Club", "url": "https://github.com/tech-leads-club/agent-skills", "checked": "2026-10-07", "authority": "tlc-baseline"},
+    {"id": "tlc-agent-skills-mcp", "title": "agent-skills-mcp README", "publisher": "Tech Leads Club", "url": "https://github.com/tech-leads-club/agent-skills/blob/main/packages/mcp/README.md", "checked": "2026-10-07", "authority": "tlc-baseline"},
+    {"id": "tlc-contributing", "title": "Contributing to Agent Skills", "publisher": "Tech Leads Club", "url": "https://github.com/tech-leads-club/agent-skills/blob/main/CONTRIBUTING.md", "checked": "2026-10-07", "authority": "tlc-baseline"},
+    {"id": "workspace", "title": "AEOS workspace conventions", "publisher": "this repository", "checked": "2026-10-07", "authority": "workspace"}
+  ]
+}
