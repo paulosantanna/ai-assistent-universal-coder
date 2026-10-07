@@ -1,27 +1,25 @@
 # HANDOFF
 
-Updated: 2026-09-18
+Updated: 2026-10-07
 
 ## Objective
-- Analyze the complete TLC `rag-api` repository, explain why each implementation step exists, and store the causal model plus current official evidence in the governed `rag-node` MCP.
+- Create ADR, ADL, AKM and ASR skills plus a governed MCP in the TLC (Tech Leads Club) skill + MCP pattern and merge them into `master` (Paulo requested a direct merge; the repository has no `main` branch).
 
 ## Last Verified State
-- `rag-node` 1.1.0 is defined at `aeos/mcps/rag-node.mcp.yaml` with stdio server `aeos/mcp-servers/rag-node-mcp.mjs`.
-- Active through overlay fragment `aeos/registries/mcps.rag-node.additions.yaml` (governed by `rag-expert`).
-- Source evidence covers all 22 tracked files and 12 commits of `https://github.com/odanieldcs/rag-api` at `27f7aab`.
-- `aeos/knowledge/rag-node-course-map.json` contains the 2-Step architecture, 12 causal commits, stack/file why map, 12 production gaps and 11 current official sources.
-- Focused `tests/node/rag-node-mcp.test.cjs` PASS (6 tests); `npm run aeos:verify` PASS (14 suites / 80 tests) at implementation commit `c7bc0ffb`.
+- PR #49 (`cursor/architecture-knowledge-skills-6a97`) adds skills `architecture-decision-record`, `architecture-decision-log`, `architecturally-significant-requirement` and `architecture-knowledge-management`, MCP `architecture-knowledge` and playbook `architecture-knowledge-lifecycle`.
+- `skills/skill-architect/scripts/validate_skill.py` PASS on all four skills; `npm run aeos:verify:full` PASS (Jest 16 suites / 101 tests, Mocha 101, Vitest, Cucumber); the official `@modelcontextprotocol/sdk` client completes the handshake.
+- Closing action at this commit: governed fast-forward of the CI-verified PR head into `master`. Confirm with `git log origin/master -1` (equals the PR head) and the `master` AEOS Enterprise CI run.
 
 ## Working Set
-- `aeos/mcps/rag-node.mcp.yaml`
-- `aeos/mcp-servers/rag-node-mcp.mjs`
-- `aeos/knowledge/rag-node-course-map.json`
-- `aeos/registries/mcps.rag-node.additions.yaml`
-- `aeos/registries/overlay.registry.index.yaml`
-- `tests/node/rag-node-mcp.test.cjs`
-- `.notebook/rag-node-mcp.md`, `.notebook/INDEX.md`, `.notebook/PROGRESS.md`
+- `skills/architecture-decision-record/`, `skills/architecture-decision-log/`, `skills/architecturally-significant-requirement/`, `skills/architecture-knowledge-management/`
+- `aeos/mcps/architecture-knowledge.mcp.yaml`, `aeos/mcp-servers/architecture-knowledge-mcp.mjs`, `aeos/knowledge/architecture-knowledge-map.json`
+- `aeos/registries/skills.architecture-knowledge.additions.yaml`, `mcps.architecture-knowledge.additions.yaml`, `playbooks.architecture-knowledge.additions.yaml`, `overlay.registry.index.yaml`; `aeos/playbooks/architecture-knowledge-lifecycle.playbook.md`
+- `scripts/aeos-skill-router.mjs`
+- `tests/node/architecture-knowledge-skills.test.cjs`, `tests/node/architecture-knowledge-mcp.test.cjs`, `tests/node/skill-router-overlay.test.cjs`, `tests/node/runtime-auth-broker.test.cjs`
+- `.notebook/architecture-knowledge.md`
 
 ## Risks And Next Actions
-- The repository is an educational baseline, not production-ready: highest risks are absent relevance thresholds, auth/ACL filtering and indirect prompt-injection validation. See `rag_node.production_gaps`.
-- Recheck official APIs before implementing upgrades; the knowledge file records source URLs and an evidence date rather than freezing unverified signatures.
-- Optional next mission: build a productionized Express/Qdrant reference app from `rag_node.architecture` and close the high-severity gaps rather than copying the course sample unchanged.
+- `rag-node` and `wordpress-knowledge` fail the official MCP SDK handshake because they reply only with `Content-Length` frames; apply the request-framing pattern of `architecture-knowledge-mcp.mjs:send()` in a separate mission (see LEARNING).
+- `aeos/docs/adr/ADR-0001-WORKSPACE-OS-STRANGLER.md` is `proposed` and undated; decide or date it with `architecture-decision-record`.
+- Durable decisions recorded only in `.notebook/MEMORY.md` (single agent identity, Python workspace policy, repository deletion denial) have no ADRs; triage them as retroactive ADR candidates with `architecture-knowledge-management`.
+- Recheck the latest MADR release (4.0.0 on 2024-09-17) and the TLC `create-adr` version before relying on template details; the knowledge map is stale after 180 days.

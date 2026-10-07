@@ -1,8 +1,14 @@
 # MEMORY
 
-Updated: 2026-09-17
+Updated: 2026-10-07
 
 ## Active memory
+
+### Architecture knowledge skills and MCP
+- Status: active
+- Fact: ADR, ADL, ASR and AKM are governed TLC-format skills owned by `codenavi-agent`: `architecture-decision-record` (derived from TLC `create-adr` 1.0.0, updated to MADR 4.0.0), `architecture-decision-log`, `architecturally-significant-requirement` and the super-skill `architecture-knowledge-management`. MCP `architecture-knowledge` is governed by `architecture-knowledge-management`, allowed by playbook `architecture-knowledge-lifecycle`, serves the skills through TLC progressive disclosure and runs their scripts offline. Accepted ADRs are immutable and numbers are never reused.
+- Evidence: `aeos/registries/skills.architecture-knowledge.additions.yaml`, `aeos/mcps/architecture-knowledge.mcp.yaml`, `aeos/knowledge/architecture-knowledge-map.json`, `tests/node/architecture-knowledge-mcp.test.cjs`
+- Updated: 2026-10-07
 
 ### TypeSafe Jev function-calling skill
 - Status: active

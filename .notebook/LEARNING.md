@@ -1,8 +1,28 @@
 # LEARNING
 
-Updated: 2026-09-16
+Updated: 2026-10-07
 
 ## Validated learnings
+
+### AEOS stdio MCP servers must answer newline-delimited JSON for real MCP clients
+- Context/trigger: validating the `architecture-knowledge` MCP with the official `@modelcontextprotocol/sdk` 1.29.0 stdio client.
+- Problem/failure mode: `rag-node` and `wordpress-knowledge` reply only with `Content-Length` frames; the SDK client's `initialize` times out, so MCP clients such as Cursor cannot use them although the AEOS harness tests pass.
+- Root cause: the MCP stdio transport is newline-delimited JSON, while the AEOS servers and harness use LSP-style `Content-Length` framing, so harness tests never exercise the spec transport.
+- Verified correction/prevention: reply in the framing of each request (`aeos/mcp-servers/architecture-knowledge-mcp.mjs:send()`), test both framings, and connect once with the SDK `Client` + `StdioClientTransport` before claiming client compatibility. The installed `@modelcontextprotocol/inspector-cli` 0.22.0 cannot run standalone (it imports a monorepo `package.json`); use the SDK client.
+- Reuse scope: every AEOS stdio MCP server.
+- Evidence: `tests/node/architecture-knowledge-mcp.test.cjs`; SDK handshake on 2026-10-07: `architecture-knowledge` connected with 10 tools, `rag-node` and `wordpress-knowledge` timed out.
+- Confidence: high
+- Updated: 2026-10-07
+
+### Delimit short acronym aliases in substring routers
+- Context/trigger: adding ADR, ASR and AKM aliases to `scripts/aeos-skill-router.mjs` boosts.
+- Problem/failure mode: `request.includes("adr")` also fires on Portuguese words such as "padrão", boosting the ADR skill for unrelated requests.
+- Root cause: boost aliases are plain substring matches without word boundaries.
+- Verified correction/prevention: use space-delimited acronym aliases (`" adr "`, `" adr."`, `" adr-"`) against a space-padded request; existing aliases are unaffected because none begin or end with a space.
+- Reuse scope: any short alias added to router boosts or keyword triggers.
+- Evidence: `tests/node/skill-router-overlay.test.cjs` ("ignores 'adr' inside other words").
+- Confidence: high
+- Updated: 2026-10-07
 
 ### Quote YAML scalars that contain a colon
 - Context/trigger: AEOS Enterprise CI failed on PR #42 while `runtime-auth-broker.test.cjs` loaded overlay registries.

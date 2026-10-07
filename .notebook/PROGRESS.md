@@ -1,44 +1,41 @@
 # PROGRESS
 
-Updated: 2026-09-18
+Updated: 2026-10-07
 
 ## Active Mission
-- Objective: analyze the complete TLC `rag-api` repository, map why every implementation step exists, and store the causal model plus current external evidence in `rag-node`.
-- [x] BRIEFING: scope changed from transcript intake to complete repository/history analysis plus current official RAG documentation; no video access is required.
-- [x] RECON: cloned `odanieldcs/rag-api`, inspected all 22 tracked files and 12 commits (`d09e969..27f7aab`), and verified the model against LangChain, OpenAI, Qdrant, MDN and Express docs.
-- [x] PLAN: store evidence separately in `aeos/knowledge/rag-node-course-map.json`; expose architecture, evolution, why, gaps and sources through read-only MCP tools.
-- [x] EXECUTE: upgraded `rag-node` to 1.1.0 with 11 tools, actual 1000/200 course defaults, 2-Step RAG map, 12-commit causal evolution, file/stack decisions, 12 production gaps and 11 official sources.
-- [x] VERIFY: knowledge JSON and focused Jest suite PASS (6/6); `npm run aeos:verify` PASS (14 suites / 80 tests).
-- [x] DEBRIEF: durable state refreshed; implementation commit pushed and PR updated.
+- Objective: create ADR, ADL, AKM and ASR skills plus a governed MCP in the TLC (Tech Leads Club) skill + MCP pattern, then merge into the default branch `master` (the repository has no `main`).
+- [x] BRIEFING: notebook read; scope = 4 skills + 1 offline MCP + registries/router/tests/notebook; merge explicitly requested by Paulo.
+- [x] RECON: TLC skill format (`skill-architect`, CONTRIBUTING), TLC `create-adr` 1.0.0, TLC `agent-skills-mcp` disclosure tools, in-workspace `rag-node` MCP pattern, guards, CI and merge gate inspected; domain verified against adr.github.io, MADR 4.0.0, Nygard 2011, Zimmermann practices, AWS/Azure ADR guidance, SEI QAS.
+- [x] PLAN: skills `architecture-decision-record`, `architecture-decision-log`, `architecturally-significant-requirement`, `architecture-knowledge-management`; MCP `architecture-knowledge`; overlay fragments; playbook `architecture-knowledge-lifecycle`.
+- [x] EXECUTE: skill packages, scripts, MCP, knowledge map, registries, router boosts and tests committed on `cursor/architecture-knowledge-skills-6a97`.
+- [x] VERIFY: `validate_skill.py` PASS x4; focused suites PASS in Jest and Mocha; `npm run aeos:verify:full` PASS; official MCP SDK handshake PASS; diff secret scan clean.
+- [~] DEBRIEF: notebook updated; PR #49 open; governed fast-forward merge into `master` after CI PASS on the head SHA.
 
 ## Current Phase
 - DEBRIEF
 
 ## Verification Gates
-- [x] MCP definition is workspace-only with no network access.
-- [x] Server answers initialize, tools/list and all eleven tools/call paths deterministically offline.
-- [x] Knowledge identifies the repository as 2-Step RAG and maps every analyzed commit to its causal role.
-- [x] Repository baseline and production recommendations remain explicitly separated with evidence.
-- [x] Current official sources support chunking, embeddings/dimensions, vector search, SSE and Express semantics.
-- [x] Chat refuses weakly grounded questions instead of hallucinating.
-- [x] Full deterministic workspace validation passes with no blocking findings.
+- [x] Each skill passes `skills/skill-architect/scripts/validate_skill.py` with 0 errors and 0 warnings (23/22/22/22 checks).
+- [x] Skill scripts are zero-dependency Node ESM with pure exported functions and a CLI; behavior covered by tests.
+- [x] MCP is offline/read-only/workspace-only; answers initialize, tools/list and every tools/call deterministically; disclosure tools reject undeclared paths and respect the response budget.
+- [x] Overlay registries resolve the 4 skills, the MCP and the playbook in the runtime loader and the skill router.
+- [x] `npm run aeos:verify:full` passes with no regressions against the baseline (Jest 14 → 16 suites, 80 → 101 tests; Mocha 101; Vitest; Cucumber).
+- [~] PR Why section passes `evaluatePrWhy`; CI green on the exact head SHA before merge.
 
 ## Factual Log
-- 2026-09-18: Fetched `https://www.techleads.club/c/rag-com-node-js` public outline: Introdução (3 aulas), Desenvolvimento (5 aulas), Próximos passos (1 aula).
-- 2026-09-18: `rag-node-mcp` JSONL smoke returned initialize plus 6 tools.
-- 2026-09-18: Fixed refusal test to use zero-overlap query after a stopword-driven false Grounded.
-- 2026-09-18: Paulo afirmou que todo o conteúdo do curso é autorizado para o comprador e que ele é comprador; a declaração foi registrada. A rota posterior de análise do repositório removeu a necessidade de fontes de vídeo/transcrição.
-- 2026-09-18: Paulo changed the evidence route: source repository analysis is sufficient; no video/transcript extraction is required.
-- 2026-09-18: Inspected all 12 `rag-api` commits and the final 22-file tree at `27f7aab`.
-- 2026-09-18: Official docs classify the repository's fixed retrieve-then-generate flow as 2-Step RAG; current sources also validate 1000/200 recursive splitting, 1536d `text-embedding-3-small`, Qdrant Cosine/threshold/filter semantics, SSE framing and Express 5 async error handling.
-- 2026-09-18: Focused `rag-node-mcp.test.cjs` passed 6/6 tests after adding five causal knowledge tools.
-- 2026-09-18: `npm run aeos:verify` passed all guards, runtime TypeScript build and 14 Jest suites / 80 tests at `c7bc0ffb`.
-- 2026-09-18: Installed root and runtime dependencies; `npm run aeos:verify` passed 14 suites / 78 tests.
-- 2026-09-17: `npm run aeos:verify` passed all guards, the runtime TypeScript build and 13 Jest suites / 74 tests.
-- 2026-09-16: PR #43 opened for `kinghost-wordpress-publish`.
-- 2026-09-16: Added complete plugin universe to `wordpress-expert` on the same branch.
+- 2026-10-07: PR #49 opened from `cursor/architecture-knowledge-skills-6a97` (ready for review; merge requested by Paulo).
+- 2026-10-07: Official `@modelcontextprotocol/sdk` 1.29.0 client: `architecture-knowledge` connected with 10 tools; `rag-node` and `wordpress-knowledge` timed out on `initialize` (Content-Length-only replies).
+- 2026-10-07: `npm run aeos:verify:full` PASS: Jest 16 suites / 101 tests, Mocha 101 passing, Vitest 1 file, Cucumber 2 steps.
+- 2026-10-07: Router initially boosted ADR for "padrão"-style requests through a bare `adr` alias; fixed with space-delimited aliases on a padded request.
+- 2026-10-07: `asr_test.mjs` reproduces all four published ASR Test example bands (high, medium-high, low-medium, low).
+- 2026-10-07: Installed `@modelcontextprotocol/inspector-cli` 0.22.0 fails standalone (`Cannot find module .../@modelcontextprotocol/package.json`).
+- 2026-10-07: Baseline on `be2dc781`: `npm run aeos:verify` PASS (14 suites / 80 tests); `npm run aeos:verify:full` PASS.
+- 2026-10-07: `master` is unprotected; latest `master` CI run (AEOS Enterprise CI) succeeded on `be2dc781`.
+- 2026-10-07: TLC `create-adr` 1.0.0 (CC-BY-4.0, Tech Leads Club) fetched from `tech-leads-club/agent-skills` `(creation)/create-adr`; registry contentHash `47ec663c…`.
+- 2026-10-07: MADR latest release is 4.0.0 (2024-09-17): merged Consequences, Confirmation section, YAML metadata, `NNNN-title-with-dashes.md`.
 
 ## Previous Missions
+- Governed `rag-node` MCP with the TLC `rag-api` causal knowledge map (PR #48, `be2dc781`).
 - Complete plugin universe for `wordpress-expert` on PR #43.
 - One-command KingHost WordPress/WooCommerce publish playbook (PR #43).
 - Repair PR #42 CI and merge KingHost Hospedagem control MCP (`3470353a`).
