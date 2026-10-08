@@ -1,25 +1,45 @@
 # HANDOFF
 
-Updated: 2026-10-07
+Updated: 2026-10-08
 
 ## Objective
-- Create ADR, ADL, AKM and ASR skills plus a governed MCP in the TLC (Tech Leads Club) skill + MCP pattern and merge them into `master` (Paulo requested a direct merge; the repository has no `main` branch).
+- Add `tests-expert`: real functional and end-to-end checks after a bug fix or new behavior, with the user request as the only oracle.
 
 ## Last Verified State
-- PR #49 (`cursor/architecture-knowledge-skills-6a97`) adds skills `architecture-decision-record`, `architecture-decision-log`, `architecturally-significant-requirement` and `architecture-knowledge-management`, MCP `architecture-knowledge` and playbook `architecture-knowledge-lifecycle`.
-- `skills/skill-architect/scripts/validate_skill.py` PASS on all four skills; `npm run aeos:verify:full` PASS (Jest 16 suites / 101 tests, Mocha 101, Vitest, Cucumber); the official `@modelcontextprotocol/sdk` client completes the handshake.
-- Closing action at this commit: governed fast-forward of the CI-verified PR head into `master`. Confirm with `git log origin/master -1` (equals the PR head) and the `master` AEOS Enterprise CI run.
+- `skills/tests-expert/SKILL.md` is 48 lines. `skills/skill-architect/scripts/validate_skill.py` PASS (26 checks, 0 warnings).
+- Charter gate: an expectation edit against an unchanged user request exits 2. A recorded application failure writes `.aeos/tests-expert/RESUME.md` and exits 3. PASS requires raw evidence and deletes the resume file.
+- The router selects `tests-expert` inside the default limit of 5 for a bugfix and for new behavior, and does not select it for an ADR request.
+- The runtime loader resolves `tests-expert` from `aeos/registries/skills.tests-expert.additions.yaml`.
 
 ## Working Set
-- `skills/architecture-decision-record/`, `skills/architecture-decision-log/`, `skills/architecturally-significant-requirement/`, `skills/architecture-knowledge-management/`
-- `aeos/mcps/architecture-knowledge.mcp.yaml`, `aeos/mcp-servers/architecture-knowledge-mcp.mjs`, `aeos/knowledge/architecture-knowledge-map.json`
-- `aeos/registries/skills.architecture-knowledge.additions.yaml`, `mcps.architecture-knowledge.additions.yaml`, `playbooks.architecture-knowledge.additions.yaml`, `overlay.registry.index.yaml`; `aeos/playbooks/architecture-knowledge-lifecycle.playbook.md`
+- `skills/tests-expert/`
+- `.agents/skills/tests-expert/SKILL.md` (Cursor activation entry; the contract is `skills/tests-expert/SKILL.md`)
+- `aeos/registries/skills.tests-expert.additions.yaml`
+- `aeos/registries/overlay.registry.index.yaml`
 - `scripts/aeos-skill-router.mjs`
-- `tests/node/architecture-knowledge-skills.test.cjs`, `tests/node/architecture-knowledge-mcp.test.cjs`, `tests/node/skill-router-overlay.test.cjs`, `tests/node/runtime-auth-broker.test.cjs`
-- `.notebook/architecture-knowledge.md`
+- `tests/node/tests-expert-charter.test.cjs`
+- `tests/node/skill-router-overlay.test.cjs`
+- `tests/node/runtime-auth-broker.test.cjs`
 
-## Risks And Next Actions
-- `rag-node` and `wordpress-knowledge` fail the official MCP SDK handshake because they reply only with `Content-Length` frames; apply the request-framing pattern of `architecture-knowledge-mcp.mjs:send()` in a separate mission (see LEARNING).
-- `aeos/docs/adr/ADR-0001-WORKSPACE-OS-STRANGLER.md` is `proposed` and undated; decide or date it with `architecture-decision-record`.
-- Durable decisions recorded only in `.notebook/MEMORY.md` (single agent identity, Python workspace policy, repository deletion denial) have no ADRs; triage them as retroactive ADR candidates with `architecture-knowledge-management`.
-- Recheck the latest MADR release (4.0.0 on 2024-09-17) and the TLC `create-adr` version before relying on template details; the knowledge map is stale after 180 days.
+## Decisions Already Made
+- The oracle is the user request. Code may be read only to find the URL, command, or selector.
+- An open failure lives in `.aeos/tests-expert/RESUME.md` plus a pointer in this file. It is not a `MEMORY.md` fact.
+- Unit and class tests stay outside this skill.
+
+## Blockers And Risks
+- Prior mission, not part of this change: the architecture-knowledge fast-forward into `master` was still unverified at the previous handoff (PR #49).
+- `RESUME.md` is gitignored under `.aeos/`. A later window must use the same workspace checkout to read it.
+- The charter gate does not detect an evidence file composed by hand. The skill requires raw tool output.
+
+## Evidence Pointers
+- `skills/tests-expert/scripts/charter.mjs`
+- `tests/node/tests-expert-charter.test.cjs`
+- `tests/node/skill-router-overlay.test.cjs`
+
+## Exact Next Actions
+- None for this skill. After a bug fix or new behavior, load `tests-expert` and follow `skills/tests-expert/SKILL.md`.
+
+## Validation Still Required
+- None for the charter gate, router selection, or runtime registration. This mission did not run a live application in a browser.
+
+Updated: 2026-10-08

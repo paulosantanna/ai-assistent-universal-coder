@@ -62,6 +62,10 @@ describe("AEOS active overlay skill routing", () => {
     assert.equal(byId.has("jev-call-expert"), true);
     assert.equal(byId.get("jev-call-expert").ownerAgent, "codenavi-agent");
     assert.equal(byId.get("jev-call-expert").registryFragment, "skills.typesafe.additions.yaml");
+    assert.equal(byId.has("tests-expert"), true);
+    assert.equal(byId.get("tests-expert").ownerAgent, "codenavi-agent");
+    assert.equal(byId.get("tests-expert").path, "skills/tests-expert/SKILL.md");
+    assert.equal(byId.get("tests-expert").registryFragment, "skills.tests-expert.additions.yaml");
     for (const id of [
       "architecture-decision-record",
       "architecture-decision-log",
@@ -186,6 +190,24 @@ describe("AEOS active overlay skill routing", () => {
       );
       assert.equal(full.selectedSkills.map((skill) => skill.id).includes("spec-driven"), true);
       assert.equal(lean.selectedSkills.map((skill) => skill.id).includes("spec-driven-lean"), true);
+    } finally {
+      fs.rmSync(sandbox, { recursive: true, force: true });
+    }
+  });
+
+  it("routes bugfix and new-behavior verification to tests-expert within the default limit", async () => {
+    const { routeRequest } = await import(moduleUrl("scripts/aeos-skill-router.mjs"));
+    const sandbox = fs.mkdtempSync(path.join(os.tmpdir(), "aeos-tests-expert-route-"));
+    const ids = (request) => routeRequest(request, {
+      memoryRoot: path.join(sandbox, "memory"),
+      outputDir: path.join(sandbox, "router"),
+      limit: 5
+    }).selectedSkills.map((skill) => skill.id);
+    try {
+      assert.equal(ids("corrija o bug do login e prove com um teste de ponta a ponta que a senha vazia e recusada").includes("tests-expert"), true);
+      assert.equal(ids("implementei o codigo novo da funcionalidade, rode o teste funcional real").includes("tests-expert"), true);
+      assert.equal(ids("escreva um ADR para a escolha do PostgreSQL").includes("tests-expert"), false);
+      assert.equal(ids("utilizando o padrao de skills publique o wordpress no kinghost").includes("tests-expert"), false);
     } finally {
       fs.rmSync(sandbox, { recursive: true, force: true });
     }

@@ -1,0 +1,34 @@
+skills:
+  - id: tests-expert
+    path: skills/tests-expert/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: medium
+    capabilities:
+      - READ_REPOSITORY
+      - FUNCTIONAL_TEST
+      - END_TO_END
+      - RUN_APPLICATION_TESTS
+      - GENERATE_EVIDENCE
+    production_ready: true
+    mission: Run real functional and end-to-end application checks after a bug fix or new behavior (teste funcional, ponta a ponta, end-to-end, correcao, codigo novo), using the user request as the only oracle.
+    allowed_actions:
+      - Freeze a charter derived from the user request
+      - Run the application's existing browser, HTTP, CLI, or job surface
+      - Write .aeos/tests-expert evidence and resume state
+      - Point .notebook/HANDOFF.md at an open failure
+    forbidden_actions:
+      - Create another agent identity
+      - Derive expected results from the implementation
+      - Weaken or replace a frozen check so a failing run passes
+      - Treat a unit or class test as proof
+      - Persist secrets or mutate production
+    required_inputs:
+      - user_request
+    quality_gates:
+      - scripts/charter.mjs record exits 0 against the frozen charter
+      - Evidence is raw application output and not the charter file
+    stop_conditions:
+      - The request names no observable behavior
+      - The only available check is a unit or class test
+      - The run would touch production data
