@@ -1,46 +1,38 @@
 # HANDOFF
 
-Updated: 2026-10-08
+Updated: 2026-10-09
 
 ## Objective
-- Add `tests-expert`: real functional and end-to-end checks after a bug fix or new behavior, with the user request as the only oracle.
+- Add `csharp-expert`: a TLC skill of at most 100 lines that writes and reviews production C# on the current stable .NET release.
 
 ## Last Verified State
-- `skills/tests-expert/SKILL.md` is 48 lines. `skills/skill-architect/scripts/validate_skill.py` PASS (26 checks, 0 warnings).
-- Charter gate: an expectation edit against an unchanged user request exits 2. A recorded application failure writes `.aeos/tests-expert/RESUME.md` and exits 3. PASS requires raw evidence and deletes the resume file.
-- The router keeps `tests-expert` inside the default limit of 5 for a bugfix and for new behavior. On `corrigir bug Java com testes`, `java-docs-bug-solver` stays first and `tests-expert` stays selected. An ADR request does not select it.
-- The runtime loader resolves `tests-expert` from `aeos/registries/skills.tests-expert.additions.yaml`.
-- CI run `37850206011` failed because the correction aliases stacked on the shared bug boost. That stack is removed. Merge waits on a green run of the corrected head.
+- `skills/csharp-expert/SKILL.md` is 56 lines. `skills/skill-architect/scripts/validate_skill.py` PASS (26 checks, 0 warnings).
+- Pin: .NET 10.0.12, SDK 10.0.401, C# 14. End of support 2028-11-14. .NET 11.0.0-rc.1 / C# 15 is not the default.
+- `loadActiveSkills()` resolves `csharp-expert` from `aeos/registries/skills.csharp-expert.additions.yaml`, owner `codenavi-agent`, risk `high`.
+- Cursor activation entry: `.agents/skills/csharp-expert/SKILL.md`.
 
 ## Working Set
-- `skills/tests-expert/`
-- `.agents/skills/tests-expert/SKILL.md` (Cursor activation entry; the contract is `skills/tests-expert/SKILL.md`)
-- `aeos/registries/skills.tests-expert.additions.yaml`
+- `skills/csharp-expert/`
+- `.agents/skills/csharp-expert/SKILL.md`
+- `aeos/registries/skills.csharp-expert.additions.yaml`
 - `aeos/registries/overlay.registry.index.yaml`
-- `scripts/aeos-skill-router.mjs`
-- `tests/node/tests-expert-charter.test.cjs`
-- `tests/node/skill-router-overlay.test.cjs`
-- `tests/node/runtime-auth-broker.test.cjs`
 
 ## Decisions Already Made
-- The oracle is the user request. Code may be read only to find the URL, command, or selector.
-- An open failure lives in `.aeos/tests-expert/RESUME.md` plus a pointer in this file. It is not a `MEMORY.md` fact.
-- Unit and class tests stay outside this skill.
+- Folder id is `csharp-expert`. The description keeps the trigger `c#-expert`.
+- Existing projects keep their declared `TargetFramework` and `LangVersion`.
+- No C# documentation MCP in this change.
 
 ## Blockers And Risks
-- Prior mission, not part of this change: the architecture-knowledge fast-forward into `master` was still unverified at the previous handoff (PR #49).
-- `RESUME.md` is gitignored under `.aeos/`. A later window must use the same workspace checkout to read it.
-- The charter gate does not detect an evidence file composed by hand. The skill requires raw tool output.
+- The AEOS skill router scores tokenized request terms. A request that only says `C#` drops the `#` before matching, so ranking depends on words such as `csharp`, `dotnet`, or `csproj`. Cursor loads the skill from the description, which includes `c#-expert` and `C#`.
+- The version pin is a snapshot of the 2026-09-08 patch. A later patch requires a refresh of `references/current-release.md` from the official download page.
 
 ## Evidence Pointers
-- `skills/tests-expert/scripts/charter.mjs`
-- `tests/node/tests-expert-charter.test.cjs`
-- `tests/node/skill-router-overlay.test.cjs`
+- `skills/csharp-expert/SKILL.md`
+- `skills/csharp-expert/references/current-release.md`
+- `skills/skill-architect/scripts/validate_skill.py`
 
 ## Exact Next Actions
-- None for this skill. After a bug fix or new behavior, load `tests-expert` and follow `skills/tests-expert/SKILL.md`.
+- None for this skill. On C#/.NET source work, load `csharp-expert` and follow `skills/csharp-expert/SKILL.md`.
 
 ## Validation Still Required
-- None for the charter gate, router selection, or runtime registration. This mission did not run a live application in a browser.
-
-Updated: 2026-10-08
+- None for structure, line count, or overlay resolution. This mission did not compile a sample C# project.

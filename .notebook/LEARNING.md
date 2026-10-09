@@ -1,8 +1,18 @@
 # LEARNING
 
-Updated: 2026-10-08
+Updated: 2026-10-09
 
 ## Validated learnings
+
+### TLC skill ids reject characters outside kebab-case
+- Context/trigger: a requested skill name contains `#`, spaces, or capitals.
+- Problem/failure mode: `skills/skill-architect/scripts/validate_skill.py` fails `folder_kebab_case` and `name_kebab_case` for any id outside `^[a-z0-9]+(-[a-z0-9]+)*$`.
+- Root cause: the Tech Lead Club name rule and the validator use the same kebab-case pattern. `#` is not part of that pattern.
+- Verified correction/prevention: use a kebab-case folder and `name`, and keep the original phrase in the description triggers. `csharp-expert` carries the trigger `c#-expert`.
+- Reuse scope: any new skill whose requested name is not kebab-case.
+- Evidence: `skills/skill-architect/scripts/validate_skill.py`; `validate_skill.py skills/csharp-expert` PASS on 2026-10-09.
+- Confidence: high
+- Updated: 2026-10-09
 
 ### Do not stack a generic bug boost onto the verification skill
 - Context/trigger: `tests-expert` aliases included `corrigir` while its mission already contains `bug`.

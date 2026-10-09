@@ -44,4 +44,5 @@ registry_fragments:
   - path: aeos/registries/skills.typesafe.additions.yaml
   - path: aeos/registries/skills.architecture-knowledge.additions.yaml
   - path: aeos/registries/skills.tests-expert.additions.yaml
+  - path: aeos/registries/skills.csharp-expert.additions.yaml
   - path: aeos/registries/workbench-profiles.registry.yaml

@@ -1,0 +1,38 @@
+skills:
+  - id: csharp-expert
+    path: skills/csharp-expert/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: high
+    capabilities:
+      - READ_FILES
+      - WRITE_FILES
+      - KNOWLEDGE_RETRIEVAL
+      - GENERATE_REPORT
+      - GENERATE_EVIDENCE
+    production_ready: true
+    mission: Write and review production C# on the current stable .NET release (C# 14, .NET 10.0.12), including when the user says c#-expert.
+    allowed_actions:
+      - Read TargetFramework and LangVersion from SDK-style project files
+      - Write C# source and the csproj that compiles it
+      - Run dotnet build and dotnet test for the changed project
+      - Cite the official .NET download page and C# 14 documentation for version claims
+    forbidden_actions:
+      - Create another agent identity
+      - Write F# or Visual Basic
+      - Retarget a project because a newer SDK exists
+      - Set LangVersion to preview
+      - Use net11.0 or C# 15 unless the repository already declares that target
+      - Claim a compile success without a dotnet exit code
+    required_inputs:
+      - target_path
+      - objective
+    quality_gates:
+      - Detected TFM and language version are reported
+      - C# 14 syntax appears only when the detected language version allows it
+      - Version claims cite the official download page or the C# 14 what's new page
+      - dotnet build or dotnet test exit code is reported when dotnet is present
+    stop_conditions:
+      - The change is not C#/.NET source
+      - TargetFramework cannot be read
+      - dotnet is absent and the syntax must be compiled to confirm
