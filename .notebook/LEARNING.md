@@ -1,8 +1,28 @@
 # LEARNING
 
-Updated: 2026-10-07
+Updated: 2026-10-08
 
 ## Validated learnings
+
+### Do not stack a generic bug boost onto the verification skill
+- Context/trigger: `tests-expert` aliases included `corrigir` while its mission already contains `bug`.
+- Problem/failure mode: `corrigir bug Java com testes` ranked `tests-expert` above `java-docs-bug-solver`. CI run `37850206011` failed `tests/node/skill-router.test.cjs`.
+- Root cause: the shared bug boost and the skill's own correction alias each add 8, so the ride-along skill outranks the domain skill.
+- Verified correction/prevention: keep the functional, end-to-end, and new-behavior phrases on `tests-expert`. Let the shared bug boost supply the ride-along score. `scripts/aeos-skill-router.mjs`.
+- Reuse scope: any skill that must be selected beside a domain skill, not instead of it.
+- Evidence: `tests/node/skill-router.test.cjs`
+- Confidence: high
+- Updated: 2026-10-08
+
+### Freeze the user request before judging a bug fix
+- Context/trigger: a functional check written after seeing the broken application, or rewritten once that check fails.
+- Problem/failure mode: the expectation is changed until the suite passes, so the run no longer says whether the requested behavior exists.
+- Root cause: the implementation, or the failure itself, was used as the oracle.
+- Verified correction/prevention: freeze the user request and its checks before the run (`skills/tests-expert/scripts/charter.mjs`). A later edit with the same request exits 2. A failure is stored in `.aeos/tests-expert/RESUME.md` and the application is fixed against the same checks.
+- Reuse scope: any acceptance check whose job is to prove a requested fix or new behavior, rather than to lock the current code.
+- Evidence: `tests/node/tests-expert-charter.test.cjs`
+- Confidence: high
+- Updated: 2026-10-08
 
 ### AEOS stdio MCP servers must answer newline-delimited JSON for real MCP clients
 - Context/trigger: validating the `architecture-knowledge` MCP with the official `@modelcontextprotocol/sdk` 1.29.0 stdio client.

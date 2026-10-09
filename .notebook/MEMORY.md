@@ -1,8 +1,14 @@
 # MEMORY
 
-Updated: 2026-10-07
+Updated: 2026-10-08
 
 ## Active memory
+
+### tests-expert oracle
+- Status: active
+- Fact: `tests-expert` runs real functional and end-to-end checks after a bug fix or new behavior. The user request is the only oracle. Frozen expectations cannot be edited to match a failing application. An open failure is `.aeos/tests-expert/RESUME.md` for a later context window, not a `MEMORY.md` entry. Unit and class tests are outside this skill.
+- Evidence: `skills/tests-expert/SKILL.md`, `skills/tests-expert/scripts/charter.mjs`, `aeos/registries/skills.tests-expert.additions.yaml`, `tests/node/tests-expert-charter.test.cjs`
+- Updated: 2026-10-08
 
 ### Architecture knowledge skills and MCP
 - Status: active

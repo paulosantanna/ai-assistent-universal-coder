@@ -123,6 +123,33 @@ function scoreSkill(skill, request) {
     ["web-quality-audit", ["web-quality-audit", "audit my site", "review web quality", "check page quality"]],
     ["kotlin-expert", ["kotlin", "kotlin multiplatform", "kmp", "kotlinx", "kotlin gradle"]],
     ["kinghost-expert", ["kinghost", "hospedagem", "woocommerce", "publicar wordpress", "publish wordpress", "ftp kinghost", "painel.kinghost"]],
+    // The mission already contains "bug", so the shared bug boost applies.
+    // Repeating corrigir/bugfix here adds a second +8 and outranks the domain
+    // skill on requests such as "corrigir bug Java".
+    ["tests-expert", [
+      "tests-expert",
+      "teste funcional",
+      "testes funcionais",
+      "functional test",
+      "functional tests",
+      "end-to-end",
+      "end to end",
+      "e2e",
+      "ponta a ponta",
+      "teste real",
+      "testes reais",
+      "prove que funciona",
+      "provar que funciona",
+      "esta funcionando",
+      "está funcionando",
+      "codigo novo",
+      "código novo",
+      "nova funcionalidade",
+      "new feature",
+      "implement ",
+      "implementei",
+      "implementar"
+    ]],
     ["wordpress-expert", ["wordpress-expert", "universo de plugins", "todos os plugins", "plugin universe", "wp-content/plugins"]],
     // Acronym aliases are space-delimited: a bare "adr" also matches Portuguese words such as "padrão".
     ["architecture-decision-record", [" adr ", " adr.", " adr,", " adr-", "architecture decision record", "registro de decisão", "decisão arquitetural", "decisao arquitetural", "supersede adr"]],
