@@ -8,8 +8,9 @@ Updated: 2026-10-08
 ## Last Verified State
 - `skills/tests-expert/SKILL.md` is 48 lines. `skills/skill-architect/scripts/validate_skill.py` PASS (26 checks, 0 warnings).
 - Charter gate: an expectation edit against an unchanged user request exits 2. A recorded application failure writes `.aeos/tests-expert/RESUME.md` and exits 3. PASS requires raw evidence and deletes the resume file.
-- The router selects `tests-expert` inside the default limit of 5 for a bugfix and for new behavior, and does not select it for an ADR request.
+- The router keeps `tests-expert` inside the default limit of 5 for a bugfix and for new behavior. On `corrigir bug Java com testes`, `java-docs-bug-solver` stays first and `tests-expert` stays selected. An ADR request does not select it.
 - The runtime loader resolves `tests-expert` from `aeos/registries/skills.tests-expert.additions.yaml`.
+- CI run `37850206011` failed because the correction aliases stacked on the shared bug boost. That stack is removed. Merge waits on a green run of the corrected head.
 
 ## Working Set
 - `skills/tests-expert/`

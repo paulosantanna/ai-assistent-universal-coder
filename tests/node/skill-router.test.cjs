@@ -57,6 +57,7 @@ describe("AEOS skill-first routing", () => {
 
       assert.equal(ids[0], "chromatic-mega-brain");
       assert.equal(ids.find((id) => id !== "chromatic-mega-brain"), "java-docs-bug-solver");
+      assert.equal(ids.includes("tests-expert"), true);
       assert.equal(ids.includes("javascript-bug-solver"), false);
       assert.equal(result.gates.chromaticMemoryPersisted, true);
       assert.equal(result.gates.criticalThinkingGoverned, true);

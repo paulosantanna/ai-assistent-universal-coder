@@ -24,6 +24,7 @@ Updated: 2026-10-08
 - 2026-10-08: `validate_skill.py skills/tests-expert` PASS, 26 checks, description 474 characters.
 - 2026-10-08: Jest `tests-expert-charter` and `skill-router-overlay` PASS (14 tests). Mocha the same 14 PASS. `runtime-auth-broker` PASS (5 tests) after `npm --prefix runtime run build`.
 - 2026-10-08: Frontmatter, single-agent, and continuity guards PASS before the notebook debrief edits.
+- 2026-10-08: CI run `37850206011` failed `tests/node/skill-router.test.cjs`: `tests-expert` outranked `java-docs-bug-solver` on `corrigir bug Java com testes`. Correction aliases were removed from the tests-expert boost. Jest 17 suites / 107 tests PASS.
 
 ## Previous Missions
 - ADR, ADL, AKM, and ASR skills plus the architecture-knowledge MCP. Fast-forward into `master` was still unverified at the previous handoff (PR #49).
