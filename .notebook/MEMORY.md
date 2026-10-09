@@ -1,8 +1,14 @@
 # MEMORY
 
-Updated: 2026-10-08
+Updated: 2026-10-09
 
 ## Active memory
+
+### csharp-expert current stable pin
+- Status: active
+- Fact: `csharp-expert` is a TLC-format skill of `codenavi-agent` for production C# source. The folder id is `csharp-expert` because the TLC kebab-case check rejects `#`; the description triggers on `c#-expert`. New code targets C# 14 on .NET 10.0.12 (SDK 10.0.401, LTS, support through 2028-11-14). An existing project keeps its declared TFM. .NET 11.0.0-rc.1 / C# 15 stays unused unless the repository already targets it. There is no C# docs MCP.
+- Evidence: `skills/csharp-expert/SKILL.md`, `skills/csharp-expert/references/current-release.md`, `aeos/registries/skills.csharp-expert.additions.yaml`
+- Updated: 2026-10-09
 
 ### tests-expert oracle
 - Status: active

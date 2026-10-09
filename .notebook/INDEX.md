@@ -1,12 +1,13 @@
 # .notebook
 > Project intelligence — read before every material mission
 
-Last updated: 2026-10-08
+Last updated: 2026-10-09
 
 - [HANDOFF](HANDOFF.md) — last verified transfer state and exact next actions | continuity | handoff, state, execution
 - [MEMORY](MEMORY.md) — durable evidence-backed project facts and decisions | continuity | memory, decisions, evidence
 - [PROGRESS](PROGRESS.md) — live mission checklist, gates and factual execution log | continuity | progress, verification, execution
 - [LEARNING](LEARNING.md) — verified reusable root-cause lessons | continuity | learning, root-cause, prevention
+- [csharp-expert](csharp-expert.md) — C# 14 / .NET 10.0.12 TLC skill; id is csharp-expert | domain | csharp, dotnet, expert
 - [tests-expert](tests-expert.md) — user-request oracle for real functional and e2e checks after a change | domain | tests, e2e, oracle
 - [architecture-knowledge](architecture-knowledge.md) — ADR/ADL/ASR/AKM TLC-format skills + offline architecture-knowledge MCP | domain | adr, architecture, mcp
 - [rag-node-mcp](rag-node-mcp.md) — TLC repo causal map + governed offline RAG Node.js MCP | domain | rag, nodejs, mcp
