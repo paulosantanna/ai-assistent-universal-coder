@@ -49,7 +49,7 @@ describe("Architecture knowledge skills (TLC skill format)", () => {
   it("ship SKILL.md packages that satisfy the TLC skill-architect contract", () => {
     for (const skill of SKILLS) {
       const dir = path.join(repoRoot, "skills", skill);
-      const text = fs.readFileSync(path.join(dir, "SKILL.md"), "utf8");
+      const text = fs.readFileSync(path.join(dir, "SKILL.md"), "utf8").replace(/\r\n/g, "\n");
       const [, frontmatter, body] = /^---\n([\s\S]*?)\n---\n([\s\S]*)$/.exec(text);
       assert.match(frontmatter, new RegExp(`^name: ${skill}$`, "m"), skill);
       const description = /^description: (.*)$/m.exec(frontmatter)[1];

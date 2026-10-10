@@ -3618,3 +3618,102 @@ skills:
       - Required sandboxing or approval is unavailable
       - Evidence cannot be produced
       - Original Mantis contract or honest evaluator returns a blocker
+  - id: rust-expert
+    path: skills/rust-expert/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: high
+    capabilities:
+      - READ_REPOSITORY
+      - READ_FILES
+      - KNOWLEDGE_RETRIEVAL
+      - GENERATE_REPORT
+      - GENERATE_EVIDENCE
+    mission: 'Implement, diagnose, modernize and migrate production Rust projects with version-correct APIs, minimal diffs and evidence-backed verification.'
+    allowed_actions:
+      - Read authorized files through Tool Router
+      - Query docs-rust-current MCP for signatures, release behavior and migration deltas
+      - Generate reports in .aeos/reports
+      - Generate evidence in .aeos/evidence
+    forbidden_actions:
+      - Direct filesystem access
+      - Direct Git mutation
+      - Secret value exposure
+      - Unsupported factual claims about Rust APIs
+    required_inputs:
+      - target_path
+      - objective
+    quality_gates:
+      - Rust edition and MSRV claims cite docs-rust-current or official release evidence
+      - Repository claims cite inspected files
+      - No secrets are exposed
+    stop_conditions:
+      - Docs MCP unavailable
+      - Target Rust edition/MSRV cannot be detected
+      - Evidence cannot be produced
+  - id: dark-videos-pipeline-expert
+    path: skills/dark-videos-pipeline-expert/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: high
+    capabilities:
+      - READ_REPOSITORY
+      - READ_FILES
+      - KNOWLEDGE_RETRIEVAL
+      - GENERATE_REPORT
+      - GENERATE_EVIDENCE
+    mission: 'Operate the dark-videos pipeline: mine the last 24h, rank the top 20 with JEV, frame from the project template, and publish through the existing dispatch.'
+    allowed_actions:
+      - Read authorized files through Tool Router
+      - Query dark-videos-pipeline MCP for pipeline status and mining board
+      - Generate reports in .aeos/reports
+      - Generate evidence in .aeos/evidence
+    forbidden_actions:
+      - Direct filesystem access
+      - Direct Git mutation
+      - Secret value exposure
+      - Posting below the app's red team
+    required_inputs:
+      - target_path
+      - objective
+    quality_gates:
+      - Pipeline claims cite MCP evidence
+      - Repository claims cite inspected files
+      - No secrets are exposed
+    stop_conditions:
+      - MCP unavailable
+      - Target pipeline state cannot be detected
+      - Evidence cannot be produced
+  - id: social-media-operator
+    path: skills/social-media-operator/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: medium
+    capabilities:
+      - READ_REPOSITORY
+      - READ_FILES
+      - KNOWLEDGE_RETRIEVAL
+      - GENERATE_REPORT
+      - GENERATE_EVIDENCE
+    mission: 'Governed TikTok and Instagram operations via browser-based authentication sessions.'
+    allowed_actions:
+      - Read authorized files through Tool Router
+      - Query social-media MCP for session management and platform operations
+      - Generate reports in .aeos/reports
+      - Generate evidence in .aeos/evidence
+    forbidden_actions:
+      - Direct filesystem access
+      - Direct Git mutation
+      - Secret value exposure
+      - OAuth API key management
+    required_inputs:
+      - target_path
+      - objective
+    quality_gates:
+      - Session claims cite MCP evidence
+      - Repository claims cite inspected files
+      - No secrets are exposed
+    stop_conditions:
+      - MCP unavailable
+      - Target session state cannot be detected
+      - Evidence cannot be produced

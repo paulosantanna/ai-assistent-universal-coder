@@ -183,7 +183,7 @@ describe("tests-expert charter", () => {
 describe("tests-expert package", () => {
   it("keeps the canonical SKILL.md at or under 100 lines and points modules from it", () => {
     const skillDir = path.join(repoRoot, "skills/tests-expert");
-    const text = fs.readFileSync(path.join(skillDir, "SKILL.md"), "utf8");
+    const text = fs.readFileSync(path.join(skillDir, "SKILL.md"), "utf8").replace(/\r\n/g, "\n");
     const lines = text.endsWith("\n") ? text.slice(0, -1).split("\n") : text.split("\n");
     assert.ok(lines.length <= 100, `SKILL.md has ${lines.length} lines`);
     assert.equal(fs.existsSync(path.join(skillDir, "README.md")), false);
@@ -193,7 +193,7 @@ describe("tests-expert package", () => {
     }
     assert.match(fs.readFileSync(path.join(skillDir, "PERMISSIONS.yaml"), "utf8"), /^owner_agent: codenavi-agent$/m);
     const description = /^description: "(.*)"$/m.exec(text)[1];
-    const stub = fs.readFileSync(path.join(repoRoot, ".agents/skills/tests-expert/SKILL.md"), "utf8");
+    const stub = fs.readFileSync(path.join(repoRoot, ".agents/skills/tests-expert/SKILL.md"), "utf8").replace(/\r\n/g, "\n");
     assert.equal(/^description: "(.*)"$/m.exec(stub)[1], description);
     assert.match(stub, /skills\/tests-expert\/SKILL\.md/);
     assert.ok(description.length <= 1024);

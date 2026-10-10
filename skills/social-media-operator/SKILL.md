@@ -1,3 +1,12 @@
+---
+name: social-media-operator
+description: "Governed TikTok and Instagram operations via browser-based authentication sessions. Use when user asks for social media session management, TikTok/Instagram profile reading, or cookie-based authentication. Do NOT use for OAuth API keys or developer account management."
+license: CC-BY-4.0
+metadata:
+  author: Tech Lead's Club / CodENavi
+  version: 1.0.0
+---
+
 # Social Media Operator Skill
 
 ## Mission
@@ -36,8 +45,8 @@ Medium - handles authentication cookies but never exposes them. All mutations re
 ```
 CREATE (import cookies) → VALIDATE (test request) → OPERATE (API calls) → CLOSE (cleanup)
      ↓                        ↓                        ↓
-  30 days max           Auto-refresh           Auto-cleanup
-  or cookie expiry      on use                 on expiry
+   30 days max           Auto-refresh           Auto-cleanup
+   or cookie expiry      on use                 on expiry
 ```
 
 ## Security Rules
