@@ -1,8 +1,18 @@
 # LEARNING
 
-Updated: 2026-10-09
+Updated: 2026-10-10
 
 ## Validated learnings
+
+### CRLF line endings break regex parsing in Node test files
+- Context/trigger: `npm run test:node:jest` failed on `architecture-knowledge-skills.test.cjs` and `tests-expert-charter.test.cjs` with `TypeError: object null is not iterable` and `Cannot read properties of null (reading '1')`.
+- Problem/failure mode: Skills edited on Windows had CRLF (`\r\n`) line endings, but test regexes used `^---\n([\s\S]*?)\n---\n([\s\S]*)$` which expects LF (`\n`). The frontmatter regex returned `null` because `\r\n` doesn't match `\n`.
+- Root cause: Files created/modified on Windows without normalization. Test regexes don't handle CRLF.
+- Verified correction/prevention: Add `.replace(/\r\n/g, "\n")` before regex execution in test files. Normalize all skill files to LF on commit. Consider adding a pre-commit hook or CI check for line endings.
+- Reuse scope: any Node test that parses YAML frontmatter or markdown with regexes across the workspace.
+- Evidence: `tests/node/architecture-knowledge-skills.test.cjs:53`, `tests/node/tests-expert-charter.test.cjs:190`; CI run 38094530204 failed, 38095199770 passed after fix.
+- Confidence: high
+- Updated: 2026-10-10
 
 ### TLC skill ids reject characters outside kebab-case
 - Context/trigger: a requested skill name contains `#`, spaces, or capitals.
