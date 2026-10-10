@@ -1,0 +1,30 @@
+{
+  "name": "@aeos/social-media-mcp",
+  "version": "1.0.0",
+  "description": "AEOS Social Media MCP - TikTok & Instagram browser-based authentication",
+  "type": "module",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint *.mjs",
+    "helper": "node export-helper.js"
+  },
+  "keywords": [
+    "aeos",
+    "mcp",
+    "tiktok",
+    "instagram",
+    "social-media",
+    "browser-auth"
+  ],
+  "author": "AEOS Project",
+  "license": "MIT",
+  "devDependencies": {
+    "vitest": "^2.1.9"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

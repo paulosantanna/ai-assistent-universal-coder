@@ -1,0 +1,263 @@
+# =============================================================================
+# MCP: Social Media (TikTok & Instagram)
+# =============================================================================
+# Model Context Protocol connector for TikTok and Instagram via browser-based
+# authentication. Sessions persist for 30 days or until platform cookies expire.
+# =============================================================================
+
+mcp:
+  id: social-media
+  name: Social Media MCP
+  protocol: model-context-protocol
+  version: "2025-10-09"
+
+  transport:
+    type: stdio
+    command: node
+    args:
+      - "social-media-mcp/index.mjs"
+
+  capabilities:
+    tools:
+      # Session Management
+      - name: open_cookie_file
+        description: Import cookies from browser export file to create authenticated session
+        security: controlled
+        input:
+          platform:
+            type: string
+            enum: ["tiktok", "instagram"]
+            description: "Target platform"
+          cookie_file_path:
+            type: string
+            description: "Absolute path to exported cookie file (JSON or Netscape format)"
+        output:
+          type: object
+          properties:
+            session_ref: { type: string }
+            platform: { type: string }
+            cookie_count: { type: integer }
+            expires_at: { type: string }
+        constraints:
+          - approval_required: true
+          - cookie_file_must_be_external_to_workspace: true
+
+      - name: session_info
+        description: Get information about an active session (no cookies exposed)
+        security: read-only
+        input:
+          platform:
+            type: string
+            enum: ["tiktok", "instagram"]
+          session_ref:
+            type: string
+        output:
+          type: object
+
+      - name: session_list
+        description: List all stored sessions for a platform
+        security: read-only
+        input:
+          platform:
+            type: string
+            enum: ["tiktok", "instagram"]
+        output:
+          type: object
+
+      - name: session_close
+        description: Close and remove a session
+        security: controlled
+        input:
+          platform:
+            type: string
+            enum: ["tiktok", "instagram"]
+          session_ref:
+            type: string
+        output:
+          type: object
+        constraints:
+          - approval_required: true
+
+      - name: session_validate
+        description: Validate session by making a test request
+        security: read-only
+        input:
+          platform:
+            type: string
+            enum: ["tiktok", "instagram"]
+          session_ref:
+            type: string
+        output:
+          type: object
+
+      - name: login_instructions
+        description: Get instructions for manual browser-based authentication
+        security: read-only
+        input:
+          platform:
+            type: string
+            enum: ["tiktok", "instagram"]
+        output:
+          type: object
+
+      # API Operations
+      - name: api_fetch
+        description: Make authenticated request to platform API
+        security: controlled
+        input:
+          platform:
+            type: string
+            enum: ["tiktok", "instagram"]
+          session_ref:
+            type: string
+          url:
+            type: string
+            format: uri
+          method:
+            type: string
+            enum: ["GET", "POST", "PUT", "DELETE", "PATCH"]
+            default: "GET"
+          headers:
+            type: object
+          body:
+            type: object
+          content_type:
+            type: string
+        output:
+          type: object
+        constraints:
+          - approval_required: true
+          - https_only: true
+          - domain_scoped_to_platform: true
+
+      # TikTok Specific
+      - name: tiktok_profile
+        description: Get authenticated user's TikTok profile
+        security: controlled
+        input:
+          session_ref:
+            type: string
+        output:
+          type: object
+        constraints:
+          - approval_required: true
+
+      - name: tiktok_videos
+        description: Get user's TikTok videos
+        security: controlled
+        input:
+          session_ref:
+            type: string
+          cursor:
+            type: integer
+            default: 0
+          count:
+            type: integer
+            default: 20
+        output:
+          type: object
+        constraints:
+          - approval_required: true
+
+      # Instagram Specific
+      - name: instagram_profile
+        description: Get Instagram profile (self or by username)
+        security: controlled
+        input:
+          session_ref:
+            type: string
+          username:
+            type: string
+            default: "self"
+        output:
+          type: object
+        constraints:
+          - approval_required: true
+
+      - name: instagram_media
+        description: Get user's Instagram media/posts
+        security: controlled
+        input:
+          session_ref:
+            type: string
+          user_id:
+            type: string
+          count:
+            type: integer
+            default: 20
+        output:
+          type: object
+        constraints:
+          - approval_required: true
+
+      - name: instagram_insights
+        description: Get insights for a media item (requires business/creator account)
+        security: controlled
+        input:
+          session_ref:
+            type: string
+          media_id:
+            type: string
+        output:
+          type: object
+        constraints:
+          - approval_required: true
+
+  security:
+    allowed_domains:
+      - "*.tiktok.com"
+      - "tiktok.com"
+      - "*.instagram.com"
+      - "instagram.com"
+      - "*.facebook.com"
+      - "facebook.com"
+    blocked_domains:
+      - "localhost"
+      - "127.0.0.1"
+      - "10.*"
+      - "172.16.*"
+      - "192.168.*"
+    redaction:
+      enabled: true
+      patterns:
+        - '(?i)(sessionid|csrftoken|ds_user_id|tt_webid|msToken|password|token|secret|cookie|authorization)[=:]\s*\S+'
+    audit:
+      log_all_navigations: true
+      log_all_inputs: true
+      log_cookie_operations: true
+
+  prompt_contract:
+    objective: "Use this MCP only for governed TikTok and Instagram operations via browser-based sessions."
+    evidence_required: true
+    redact_outputs: true
+    tool_boundary: "Route access through AEOS MCP runtime and Tool Router policy checks. Sessions stored encrypted locally for max 30 days."
+    response_rules:
+      - "Return evidence refs for material facts."
+      - "Mark assumptions and missing inputs explicitly."
+      - "Never expose cookies, session tokens, or credentials in outputs."
+      - "Sessions expire at 30 days or when platform cookies expire, whichever comes first."
+    stop_conditions:
+      - "required input is missing"
+      - "permission or policy is denied"
+      - "requested action exceeds MCP capability scope"
+      - "session expired or invalid"
+      - "output cannot be redacted safely"
+
+  session_management:
+    storage:
+      type: encrypted_file
+      location: ".aeos/social-sessions/"
+      encryption: "aes-256-gcm"
+      key_management: "runtime_generated"
+    ttl:
+      max_days: 30
+      active_refresh_minutes: 15
+    cookie_handling:
+      import_formats: ["json_array", "netscape", "chrome_devtools"]
+      required_cookies_per_platform: true
+      domain_validation: true
+      secure_only: true
+    expiration:
+      respect_platform_cookie_expiry: true
+      auto_cleanup_expired: true
+      warn_before_expiry_days: 3

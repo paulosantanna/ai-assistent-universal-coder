@@ -34,6 +34,46 @@ Updated: 2026-10-09
 - Confidence: high
 - Updated: 2026-10-08
 
+### A real Shorts run has to close with the full top, not whatever the first search returned
+- Context/trigger: dark-videos Painel showed 1 mined video and 1 selected after "escolher o top 20".
+- Problem/failure mode: the public YouTube search kept at most 20 hits from a single "shorts" query, then ranking accepted a short list. The synthetic sample does not fill a live run.
+- Root cause: `YtDlpSearchConnector.fetch_recent` used `min(limit, 20)` on one results URL, and `RankStage` did not require `target_count` on a real run.
+- Verified correction/prevention: search several fixed queries, widen the lookback (7, 14, 30, then 90 days) until the pool can fill the top plus the reserve, and fail the rank and the final creative gate when a real run is still short. Dry-run simulation may still use the synthetic sample.
+- Reuse scope: dark-videos mining and any other "top N" selector that silently shrinks.
+- Evidence: pipeline run `6f685c35-c719-43d7-a081-1b980801a2ad` on 2026-10-09 mined 30, selected 20, packaged 20, scheduled 40. An earlier run with one query selected 7 and correctly failed the new floor.
+- Confidence: high
+- Updated: 2026-10-09
+
+### Instagram browser upload uses the local file, ffmpeg, and the create dialog
+- Context/trigger: Agenda showed Instagram `@topvideosbrasil_oficial` as Falhou with the generic "Falha na publicação".
+- Problem/failure mode: `publications.last_error` was `media_provider_unconfigured` even though `source.mp4` was already on disk. Later attempts failed compose, then the file picker, then a feed Share button.
+- Root cause: dispatch looked only in `PUBLISHING_MEDIA_TMP_DIR` (the code default was `/tmp/dark-videos-media`, not the desktop folder) and then asked a data provider that is not configured. ffmpeg was not on the worker PATH. The Instagram file input appears only after "Novo post", and "Compartilhar" on the home feed is a different button from the one inside the dialog.
+- Verified correction/prevention: the media default is `~/.local/share/dark-videos/media`, and dispatch also searches that folder. Frame rendering looks up a WinGet ffmpeg when PATH is stale. The browser flow clicks "Novo post", waits for `input[type=file]`, and clicks Avançar and Compartilhar only inside `div[role=dialog]`. The Agenda maps those error codes into Portuguese.
+- Reuse scope: dark-videos publish, and any browser uploader that must not click a control outside the dialog.
+- Evidence: publication `0b471f64-35db-4905-81b8-5f9c2a16c646` is published. The profile grid shows `https://www.instagram.com/topvideosbrasil_oficial/reel/DeSb60QJH4G/` (2026-10-09).
+- Confidence: high
+- Updated: 2026-10-09
+
+### OpenTelemetry Python does not redact app tokens, and an empty header list is unset
+- Context/trigger: wiring OpenTelemetry SDK 1.45.1 and `opentelemetry-instrumentation-fastapi` 0.66b1 into dark-videos, with an in-app diagnostics page.
+- Problem/failure mode: exported spans can keep `token=` query values, and `OTEL_INSTRUMENTATION_HTTP_CAPTURE_HEADERS_SERVER_REQUEST=.*` copies Cookie headers onto spans. The stock `LoggingHandler` also forwards raw extras and exception messages.
+- Root cause: `redact_query_parameters` only redacts `AWSAccessKeyId`, `Signature`, `X-Goog-Signature` and `sig`. The ASGI middleware treats a false header list as unset (`capture_list or env`). `LoggingHandler._get_attributes` copies `exc_info` and log extras before application redaction.
+- Verified correction/prevention: deny header capture with the regex `(?!)`, wrap the span exporter so attributes, exception events and the status description go through `app.core.redaction`, and bridge logs with a handler that redacts before the spool and before the OTel logger. Do not attach `LoggingHandler` directly.
+- Reuse scope: Python services using FastAPI instrumentation and the OTLP HTTP exporter together with an existing redaction module.
+- Evidence: installed sources in the dark-videos venv (`opentelemetry/util/http.py`, `opentelemetry/instrumentation/asgi/__init__.py`, `opentelemetry/sdk/_logs/__init__.py`); `backend/tests/observability/test_signals.py` passed on 2026-10-09.
+- Confidence: high
+- Updated: 2026-10-09
+
+### A root log bridge fills a diagnostics ring with scheduler chatter
+- Context/trigger: dark-videos attached a redacted log handler to the root logger while Celery beat dispatched `publishing.dispatch_due`.
+- Problem/failure mode: the in-app log list showed only "task received" and "task succeeded" lines, so a real failure was hard to see under "Tudo".
+- Root cause: Celery INFO logs propagate to the root handler, and the shared ring keeps the last 300 lines.
+- Verified correction/prevention: drop `celery.*` below WARNING; keep warnings and errors. Store errors in a separate ring so they are not evicted by chatter.
+- Reuse scope: any process that forwards the root logger into a bounded operator view while Celery beat is running.
+- Evidence: diagnostics page in the browser on 2026-10-09; `backend/tests/observability/test_signals.py::test_celery_info_is_omitted_and_errors_stay_redacted`.
+- Confidence: high
+- Updated: 2026-10-09
+
 ### AEOS stdio MCP servers must answer newline-delimited JSON for real MCP clients
 - Context/trigger: validating the `architecture-knowledge` MCP with the official `@modelcontextprotocol/sdk` 1.29.0 stdio client.
 - Problem/failure mode: `rag-node` and `wordpress-knowledge` reply only with `Content-Length` frames; the SDK client's `initialize` times out, so MCP clients such as Cursor cannot use them although the AEOS harness tests pass.

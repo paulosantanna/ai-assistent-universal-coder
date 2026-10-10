@@ -1,0 +1,36 @@
+skills:
+  - id: dark-videos-pipeline-expert
+    path: skills/dark-videos-pipeline-expert/SKILL.md
+    version: 1.0.0
+    owner_agent: codenavi-agent
+    risk_level: high
+    capabilities:
+      - READ_REPOSITORY
+      - READ_FILES
+      - GENERATE_REPORT
+      - PIPELINE_STATUS
+      - PIPELINE_ENQUEUE
+    production_ready: true
+    mission: Mine, frame, and schedule dark-videos through the existing pipeline. JEV heat is displayed. The top 20 is not cut at 9.5. Publishing stays inside dispatch.
+    allowed_actions:
+      - Read pipeline, mining, creative, and schedule state
+      - Enqueue a run through the local API when connectors and accounts are present
+      - Read the frame, copy, and red-team modules before changing them
+    forbidden_actions:
+      - Create a second publisher
+      - Export or print cookies, CSRF tokens, or API keys
+      - Treat a JEV score as authorization to skip the red team
+      - Fill a real run with the synthetic sample
+      - Enable Instagram hashtag search
+    required_inputs:
+      - user_objective
+      - dark_videos_repository
+    quality_gates:
+      - Real runs without a connector fail with connectors_unconfigured
+      - Heat under 9.5 remains inside the top 20
+      - Dispatch remains the only publisher
+      - Secrets stay out of logs and tracked files
+    stop_conditions:
+      - YouTube key or an active account is missing for a real post
+      - A red-team gate blocks the run
+      - The action would post outside dispatch

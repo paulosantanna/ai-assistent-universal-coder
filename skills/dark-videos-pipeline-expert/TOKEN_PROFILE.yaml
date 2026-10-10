@@ -1,0 +1,7 @@
+version: 1
+mode: progressive-disclosure
+always_load: [SKILL.md, references/INDEX.md]
+default_reference_files_max: 2
+hard_reference_files_max: 4
+hard_reference_chars_max: 24000
+prefer_symbol_lookup: true

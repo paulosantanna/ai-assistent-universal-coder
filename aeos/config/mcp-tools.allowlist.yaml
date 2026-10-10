@@ -152,6 +152,10 @@ allowlist:
   - project.production_checklist
   - project.scaffold_manifest
   - project.scaffold_package
+  dark-videos-pipeline:
+  - pipeline.status
+  - mining.board
+  - pipeline.start_run
 blocked_tools:
 - shell.exec
 - shell.unrestricted

@@ -580,5 +580,23 @@ mcps:
   write_allowed: false
   approval_required: false
   enabled: true
+- id: dark-videos-pipeline
+  type: pipeline-operator
+  transport: stdio
+  config: aeos/mcps/dark-videos-pipeline.mcp.yaml
+  risk_level: high
+  governing_skill: dark-videos-pipeline-expert
+  skill_enforced: true
+  skill_intent: Expose dark-videos-pipeline only as a governed adapter that reads status and enqueues the app pipeline.
+  capabilities:
+  - PIPELINE_STATUS
+  - PIPELINE_ENQUEUE
+  tools:
+  - pipeline.status
+  - mining.board
+  - pipeline.start_run
+  write_allowed: false
+  approval_required: true
+  enabled: true
 
 
