@@ -171,6 +171,6 @@ Entry point: `00_skills/INDEX.md`; durable catalog facts: `tlc-skills.md`.
 Entry point: .notebook/PROGRESS.md:Commit e push direto para master
 - Usuário autorizou commit e push direto usando github-operations. Revisão excluiu11979 artefatos temporários do índice preservando os arquivos no disco e acrescentou regras de ignore.
 - Seleção:5688 arquivos do projeto; catálogo302/827/2871 links PASS; sintaxe75Python/140JavaScript PASS;21 candidatos de segredos são exemplos de documentação, nenhum token/chave privada detectado pelas regras executadas.
-- Correções mínimas: link obsoleto de chromatic-mega-brain e três comentários inválidos em client.mjs. Workflows herdados apontam para package.json/scripts/runtime ausentes; CI verde não comprovado. Próximo passo desta missão: commit e push normal, comparar SHA remoto e registrar resultado.
+- Publicado: ac7bd4f3ce4c3f642369ce5e610f2aa8e4ab5bf6 na origin/master por push normal; SHA remoto/HEAD/origin/master iguais após releitura, checkout limpo. Correções mínimas: link obsoleto de chromatic-mega-brain e três comentários inválidos em client.mjs. Workflows herdados apontam para package.json/scripts/runtime ausentes; statuses=[] no conector não comprova CI verde. Sem pendência do commit/push solicitado; uma eventual atualização do CI requer trabalho próprio.
 - Missões operacionais abaixo permanecem independentes.
 
