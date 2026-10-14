@@ -49,7 +49,7 @@ jobs:
       - name: Validate secret
         run: test -n "$GH_TOKEN"
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           token: ${{ secrets.AEOS_BOT_TOKEN }}
           fetch-depth: 0

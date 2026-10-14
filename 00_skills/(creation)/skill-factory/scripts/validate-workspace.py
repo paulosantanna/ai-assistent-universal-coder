@@ -14,7 +14,14 @@ CATALOG_ROOT = ROOT / '00_skills'
 
 
 def digest(path):
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    data = path.read_bytes()
+    if b'\0' not in data:
+        try:
+            data.decode('utf-8')
+            data = data.replace(b'\r\n', b'\n')
+        except UnicodeDecodeError:
+            pass
+    return hashlib.sha256(data).hexdigest()
 
 
 def markdown_links(text):
@@ -161,7 +168,8 @@ def validate(root):
                 queue.append(resolved)
 
     counts['tlc'] = len(upstream['skills'])
-    require(counts['tlc'] == 92, 'TLC snapshot', 'Expected all 92 packages from the pinned source')
+    require(counts['tlc'] > 0 and len({item['installed_path'] for item in upstream['skills']}) == counts['tlc'],
+            'TLC snapshot', 'Source packages must be nonempty and unique')
     for entry in upstream['skills']:
         package = ROOT / entry['installed_path']
         require(package.name in ids, entry['name'], 'Upstream package missing from active catalog')

@@ -1,0 +1,27 @@
+{
+  "skill": "tlc-prd",
+  "package_hash": "fdc82cfa8923af0db8682e7450a6ddb766b7fdd9ec02fb8920a1ce979a01e200",
+  "positive_triggers": [
+    "write the PRD",
+    "create the PRD",
+    "PRD",
+    "product spec",
+    "product requirements"
+  ],
+  "negative_scope": [
+    "outside source scope",
+    "missing authorization",
+    "missing source prerequisites"
+  ],
+  "source": {
+    "repository": "tech-leads-club/agent-skills",
+    "commit": "7f93bf3b15b3af417929781dbf9a3950ace7c144",
+    "path": "(development)/tlc-prd"
+  },
+  "verification": {
+    "kind": "structural-and-syntax",
+    "runtime_evaluated": false,
+    "routing": "Static wording assessment; no measured trigger accuracy"
+  },
+  "effectiveness": "Not measured; structural acceptance does not establish enterprise performance"
+}

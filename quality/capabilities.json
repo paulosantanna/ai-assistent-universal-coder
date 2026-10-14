@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "mcps": [
+    {
+      "id": "kinghost-control-mcp",
+      "path": "kinghost-control-mcp",
+      "state": "adapter",
+      "protocol": "custom-json-lines",
+      "owner": "codenavi-agent",
+      "reason": "Envelope adapter: health works offline; not MCP JSON-RPC",
+      "baseline_hash": "017cc674205e5a1f0b1d9915beec9673cbd3b45ecbb3452ffc96e3ac3d6a333a",
+      "secret_policy": "runtime-references-only",
+      "smoke": [
+        "node",
+        "index.mjs",
+        "--self-test"
+      ]
+    },
+    {
+      "id": "kinghost-commerce-mcp",
+      "path": "kinghost-commerce-mcp",
+      "state": "quarantined",
+      "protocol": "custom-json-lines",
+      "owner": "codenavi-agent",
+      "reason": "Envelope adapter; ssh2/mysql2/pg dependencies lack a root lockfile",
+      "baseline_hash": "609dcb749602b2a0354e9c17d8cb1797eaf0b08297be8356b4349e9bd2c341fc",
+      "secret_policy": "runtime-references-only",
+      "smoke": null
+    },
+    {
+      "id": "dark-videos-pipeline-mcp",
+      "path": "dark-videos-pipeline-mcp",
+      "state": "quarantined",
+      "protocol": "legacy-content-length",
+      "owner": "codenavi-agent",
+      "reason": "Legacy framing; Chroma startup uses require in ESM and unavailable Python runtime",
+      "baseline_hash": "c0f7897910fe3cac9d1999f80b1aafd8a8706abdbbf1f5eaaf1e8400682d0a8b",
+      "secret_policy": "runtime-references-only",
+      "smoke": null
+    },
+    {
+      "id": "continuous-training-mcp",
+      "path": "continuous-training-mcp",
+      "state": "quarantined",
+      "protocol": "incomplete",
+      "owner": "codenavi-agent",
+      "reason": "Manifest refers to missing Python server and project metadata",
+      "baseline_hash": "603485601ebd02e4203598796088e478bfd1d411b1069960aeb9c7b0e2cf9f4f",
+      "secret_policy": "runtime-references-only",
+      "smoke": null
+    }
+  ],
+  "lsps": [],
+  "lsp_scope": "No local LSP server implementation/configuration installed; editor extensions are not proof of a server"
+}

@@ -1,0 +1,79 @@
+name: TLC daily capability maintenance
+
+on:
+  schedule:
+    - cron: '23 9 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tlc-maintenance-master
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: master
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: '24'
+      - name: Install pinned YAML parser
+        run: python -m pip install --require-hashes -r quality/requirements.txt
+      - name: Test current trusted gates
+        run: python -m unittest discover -s quality/tests -v
+      - name: Inspect latest official TLC and validate isolated candidate
+        run: python quality/upstream.py --apply
+      - name: Recheck candidate capabilities
+        run: python quality/validate.py --runtime
+      - name: Prepare bounded update artifact
+        run: python quality/candidate.py
+      - name: Upload validated candidate
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: tlc-validated-update
+          path: .aeos/tlc-candidate/
+          if-no-files-found: error
+          retention-days: 7
+          include-hidden-files: true
+      - name: Save monitor evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: tlc-upstream-evidence-${{ github.run_id }}
+          path: .aeos/quality/
+          if-no-files-found: error
+          retention-days: 30
+          include-hidden-files: true
+  publish:
+    needs: prepare
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: master
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        with:
+          name: tlc-validated-update
+          path: .aeos/tlc-candidate
+      - name: Publish only validated allowed paths
+        run: |
+          git config user.name "codenavi-tlc-maintenance"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          python quality/publish.py .aeos/tlc-candidate

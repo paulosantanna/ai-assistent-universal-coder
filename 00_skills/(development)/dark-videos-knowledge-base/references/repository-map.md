@@ -4,6 +4,20 @@ Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGEN
 Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
 Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
 
+## Table of contents
+
+- [Overview](#overview)
+- [Repository Structure](#repository-structure)
+- [Module Organization Pattern](#module-organization-pattern)
+- [Key Architectural Patterns](#key-architectural-patterns)
+- [Environment Variables](#environment-variables)
+- [Reference Files Structure](#reference-files-structure)
+- [Performance Optimizations](#performance-optimizations)
+- [Do Not Activate For](#do-not-activate-for)
+- [Token Discipline](#token-discipline)
+- [Example Use Cases](#example-use-cases)
+- [Provenance](#provenance)
+
 ## Overview
 
 This skill provides a complete Alpha mapping of the `D:\Git\dark-videos` repository. It documents the full directory structure, module organization, file inventory, and architectural patterns of the dark-videos video pipeline platform.

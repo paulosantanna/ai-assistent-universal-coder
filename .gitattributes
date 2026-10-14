@@ -1,0 +1,2 @@
+# Reproducible textual digests on Windows and Linux; binaries stay byte-exact.
+* text=auto eol=lf

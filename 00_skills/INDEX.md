@@ -1,11 +1,9 @@
-# Universal-coder skills
+# Skills canônicas
 
-Updated: 2026-10-13
+Updated: 2026-10-14
+Entry point: [contrato](STANDARD.md), [catálogo](catalog.json), [esteira](../quality/README.md).
 
-Canonical packages follow `00_skills/(category)/skill-name/`. Discovery/compatibility entries point here. All capabilities inherit AGENTS.md; registration does not imply an external connector, provider or runtime executor is installed.
-
-[Estrutura nova](PHOTO-STRUCTURE.md) · [Atualização de 2026-10-13](PHOTO-UPDATE.md) · [Padrão e sequência das imagens](STANDARD.md) · [Verificação](VERIFICATION.md) · [Catálogo JSON](catalog.json) · [Proveniência TLC](upstream.manifest.json)
-
+305 pacotes canônicos. Adaptações herdam AGENTS.md; disponibilidade externa deve ser comprovada ao executar.
 
 ## architecture
 
@@ -66,7 +64,7 @@ Canonical packages follow `00_skills/(category)/skill-name/`. Discovery/compatib
 - [playbook-factory-generator]((creation)/playbook-factory-generator/SKILL.md) — Generate a reviewable playbook with explicit step contracts, dependencies, resources and verification gates.
 - [playbook-optimizer]((creation)/playbook-optimizer/SKILL.md) — Optimize playbooks for execution time, safety and evidence quality.
 - [skill-architect]((creation)/skill-architect/SKILL.md) — Design, build, evaluate, score and improve reusable skills through discovery, architecture and minimal evidence-based edits. Use for create a skill, review my skill, rate or score my skill, improve SKILL.md. Do NOT use to identify whether finished work deserves a skill (learning-opportunities), create agent identities, or write a technical design document.
-- [skill-factory]((creation)/skill-factory/SKILL.md) — Create, refactor, package and validate a reusable workspace skill with precise routing, <=100-line entrypoint and local modules.
+- [skill-factory]((creation)/skill-factory/SKILL.md) — Create, refactor, package and validate a reusable workspace skill with precise routing, entrypoint of at most 100 lines and local modules.
 - [skill-factory-generator]((creation)/skill-factory-generator/SKILL.md) — Generate a bounded reusable skill package with concrete routing, local resources and verifiable acceptance gates.
 - [skill-hardener]((creation)/skill-hardener/SKILL.md) — Harden skills with contracts, forbidden actions and quality gates.
 - [subagent-creator]((creation)/subagent-creator/SKILL.md) — Design bounded sequential lenses of codenavi-agent with a single deliverable, explicit evidence packet, minimal tools and verifiable verdict. Use for create verifier, parity auditor, isolated review procedure or specialized work unit. Do NOT use for creating, register or spawn agent identities; use skill-architect for a reusable skill and cursor-subagent-creator for Cursor work-unit guidance.
@@ -79,10 +77,10 @@ Canonical packages follow `00_skills/(category)/skill-name/`. Discovery/compatib
 
 ## design
 
-- [impeccable]((design)/impeccable/SKILL.md) — Use when the user wants to design, redesign, shape, critique, audit, polish, clarify, distill, harden, optimize, adapt, animate, colorize, extract, or otherwise improve a frontend interface. Covers websites, landing pages, dashboards, product UI, app shells, components, forms, settings, onboarding, and empty states. Handles UX review, visual hierarchy, information architecture, cognitive load, accessibility, performance, responsive behavior, theming, anti-patterns, typography, fonts, spacing, layout, alignment, color, motion, micro-interactions, UX copy, error states, edge cases, i18n, and reusable design systems or tokens. Also use for bland designs that need to become bolder or more delightful, loud designs that should become quieter, live browser iteration on UI elements, or ambitious visual effects that should feel technically extraordinary. Not for backend-only or non-UI tasks.
 - [figma]((design)/figma/SKILL.md) — Use the Figma MCP server to fetch design context, screenshots, variables, and assets from Figma, and to translate Figma nodes into production code.
 - [figma-implement-design]((design)/figma-implement-design/SKILL.md) — Translate Figma nodes into production-ready code with 1:1 visual fidelity using the Figma MCP workflow (design context, screenshots, assets, and project-convention translation).
 - [frontend-design]((design)/frontend-design/SKILL.md) — Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications. Generates creative, polished code that avoids generic AI aesthetics. Do NOT use for design review or audit (use web-design-guidelines or web-quality-audit).
+- [impeccable]((design)/impeccable/SKILL.md) — Use when the user wants to design, redesign, shape, critique, audit, polish, clarify, distill, harden, optimize, adapt, animate, colorize, extract, or otherwise improve a frontend interface. Covers websites, landing pages, dashboards, product UI, app shells, components, forms, settings, onboarding, and empty states. Handles UX review, visual hierarchy, information architecture, cognitive load, accessibility, performance, responsive behavior, theming, anti-patterns, typography, fonts, spacing, layout, alignment, color, motion, micro-interactions, UX copy, error states, edge cases, i18n, and reusable design systems or tokens. Also use for bland designs that need to become bolder or more delightful, loud designs that should become quieter, live browser iteration on UI elements, or ambitious visual effects that should feel technically extraordinary. Not for backend-only or non-UI tasks.
 - [report-design]((design)/report-design/SKILL.md) — Apply the pictured offline report layout with semantic theme tokens, complete grids, tooltips, filters/export, drill-down and accessible diagrams.
 - [web-design-guidelines]((design)/web-design-guidelines/SKILL.md) — Review UI code for Web Interface Guidelines compliance.
 
@@ -103,6 +101,7 @@ Canonical packages follow `00_skills/(category)/skill-name/`. Discovery/compatib
 - [confluence-assistant]((development)/confluence-assistant/SKILL.md) — Expert in Confluence operations using Atlassian MCP.
 - [critical-thinking-governor]((development)/critical-thinking-governor/SKILL.md) — Governa toda execução de skills do AEOS com uma seleção limitada e auditável de 20 lentes internas de pensamento crítico. As lentes são especializações da skill e nunca identidades de agent.
 - [csharp-expert]((development)/csharp-expert/SKILL.md) — Writes and reviews production C# on the current stable .NET release (C# 14, .NET 10).
+- [dark-videos-knowledge-base]((development)/dark-videos-knowledge-base/SKILL.md) — Navigate the retained dark-videos repository map and reconcile historical paths with current evidence.
 - [dark-videos-pipeline-expert]((development)/dark-videos-pipeline-expert/SKILL.md) — Operate the dark-videos pipeline: mine the last 24h, rank the top 20 with LAYA, frame from the project template, and publish through the existing dispatch.
 - [dependency-analyzer]((development)/dependency-analyzer/SKILL.md) — Analyze dependencies, upgrade candidates, compatibility, and risks.
 - [dependency-updater]((development)/dependency-updater/SKILL.md) — Update dependencies with minimal blast radius and evidence-backed compatibility.
@@ -163,11 +162,12 @@ Canonical packages follow `00_skills/(category)/skill-name/`. Discovery/compatib
 - [spec-driven]((development)/spec-driven/SKILL.md) — Assimilated Tech Lead's Club spec-driven workflow (tlc-spec-driven 3.3.0). Use for specify/design/tasks/execute feature work, EARS requirements, atomic tasks, validation scripts and independent verification. Triggers: spec-driven, tlc-spec-driven, specify feature, design, tasks, implement, validate, verify work. Do not use for standalone architecture documents unattached to a feature.
 - [spec-driven-eval]((development)/spec-driven-eval/SKILL.md) — Scores how completely an implementation fulfills a PRD/spec, case by case, and produces a single comparable final grade. Invoke only when explicitly named (e.g. run spec-driven-eval); do not auto-trigger.
 - [spec-driven-lean]((development)/spec-driven-lean/SKILL.md) — Assimilated Tech Lead's Club lean spec workflow (tlc-spec-lean 1.0.0). Freeze obligations in plan + proof-backed checks, then build, then independent verify. Triggers: spec-driven-lean, tlc-spec-lean, plan feature, write the checks, build this plan, verify work. Do not use when a formal task list already exists or for standalone design docs.
-- [specs]((development)/specs/SKILL.md) — Prevent ad hoc creation and modification by requiring a specification gate before implementation. The gate must define what will change, why it should change, how success will be verified, which risks are in scope, which risks are excluded, and what evidence must exist before work proceeds.
+- [specs]((development)/specs/SKILL.md) — Prevent ad hoc creation and modification by requiring a specification before implementation: scope, rationale, acceptance checks, risks and required evidence.
 - [staff-tdd-code-builder]((development)/staff-tdd-code-builder/SKILL.md) — Create or change code according to an architecture plan using TDD by default.
 - [tlc-discover]((development)/tlc-discover/SKILL.md) — Interviews an unshaped idea into a verdict and a design document - decisions, flows, schema, contracts - that anyone can plan from without having been in the room.
 - [tlc-implement]((development)/tlc-implement/SKILL.md) — Implement a work already planned: extracts a checklist, builds it, and proves every check with an independent verifier.
 - [tlc-plan]((development)/tlc-plan/SKILL.md) — Assimilated TLC tlc-plan 0.2.0. Turn a decided PRD, design doc, RFC or ticket into grounded tasks with observable criteria. Triggers: tlc-plan, write the task, cut this PRD into tasks, turn this design doc into work. Do not use for discovery or implementation.
+- [tlc-prd]((development)/tlc-prd/SKILL.md) — Interviews an idea into a PRD file covering situation, problem, success, boundary, and journey states, and stops before any technical design.
 - [tlc-spec-driven]((development)/tlc-spec-driven/SKILL.md) — Feature planning and implementation with 4 adaptive phases (Specify, Design, Tasks, Execute). Auto-sizes depth by complexity. Writes testable requirements in EARS notation, atomic tasks, atomic Conventional Commits, and requirement traceability. Ships deterministic Python validation scripts so structural gates are enforced by code, not memory. Features an independent Verifier (author != verifier, evidence-or-zero), a discrimination sensor, a decision log (STATE.md), a test-coverage matrix, and a self-improving lessons layer. Stack-agnostic and tool-agnostic.
 - [tlc-spec-lean]((development)/tlc-spec-lean/SKILL.md) — Spec-driven feature work that freezes obligations instead of the plan: one human-reviewed plan with EARS criteria, path, entities, interface and one-way doors, then proof-backed checks, then build, then an independent Verifier.
 - [typesafe-ai]((development)/typesafe-ai/SKILL.md) — Build AI-powered software with TypeSafe: small units of AI intelligence you can use like programming primitives. Its System One models, including Jev, turn natural language and application state into typed judgments and probabilities that code can combine.
@@ -352,4 +352,5 @@ Canonical packages follow `00_skills/(category)/skill-name/`. Discovery/compatib
 
 ## web-automation
 
+- [demo]((web-automation)/demo/SKILL.md) — Record a demo video of a web app feature or flow on a real desktop (Docker, Xvfb, XFCE, real X cursor), producing an mp4 plus a click/hover/scroll/type telemetry file. Takes a flow description, an existing demo name or path, or init.
 - [playwright-skill]((web-automation)/playwright-skill/SKILL.md) — Complete browser automation with Playwright. Auto-detects dev servers, writes clean test scripts to /tmp. Test pages, fill forms, take screenshots, check responsive design, validate UX, test login flows, check links, automate any browser task.

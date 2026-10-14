@@ -1,10 +1,10 @@
 ---
 name: "dark-videos-knowledge-base"
-description: "Complete knowledge base mapping for the dark-videos repository - full Alpha mapping of directory structure, modules, and pipeline architecture"
+description: "Navigate the retained dark-videos repository map and reconcile historical paths with current evidence. Use when the user asks for 'mapa do dark-videos', 'onde fica o publicador', or 'entender o pipeline dark-videos'. Do NOT use to claim a current inventory, run the pipeline, or publish videos without inspecting the actual repository and authorization."
 license: "CC-BY-4.0"
 metadata:
   author: "AEOS"
-  version: "3.0.0"
+  version: "3.0.1"
   owner_agent: "codenavi-agent"
 ---
 

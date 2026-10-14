@@ -1,0 +1,637 @@
+{
+  "skills": [
+    {
+      "name": "accessibility",
+      "category": "quality",
+      "path": "(quality)/web-accessibility",
+      "contentHash": "706129400c8c91a9264582940b36007116faffcaf27bb0780bdab87337b4f881",
+      "version": "1.0"
+    },
+    {
+      "name": "ai-cold-outreach",
+      "category": "gtm",
+      "path": "(gtm)/ai-cold-outreach",
+      "contentHash": "7a2ca1d3f443357b96f22ffce9fb6d5e19134bb5d723ea55ca939873b3777c12",
+      "version": "1.0.0"
+    },
+    {
+      "name": "ai-pricing",
+      "category": "gtm",
+      "path": "(gtm)/ai-pricing",
+      "contentHash": "642a42cf94b8061aad642d84363bb4f60712af858c093bed6f2ec6135a3e7937",
+      "version": "1.0.0"
+    },
+    {
+      "name": "ai-sdr",
+      "category": "gtm",
+      "path": "(gtm)/ai-sdr",
+      "contentHash": "3f36a4b65cb1fc97722341b9fb1849fcecf320be8a1d8892028fa45663719786",
+      "version": "1.0.0"
+    },
+    {
+      "name": "ai-seo",
+      "category": "gtm",
+      "path": "(gtm)/ai-seo",
+      "contentHash": "8ff9c7d6181c37c92fb225a8559d50ee5413c20e6a7ae240e05bb6a532d64f9b",
+      "version": "1.0.0"
+    },
+    {
+      "name": "ai-ugc-ads",
+      "category": "gtm",
+      "path": "(gtm)/ai-ugc-ads",
+      "contentHash": "92f981122d6add656bd10cae4404fa94a79db93f3cad2cd978ef12a4eea51b83",
+      "version": "1.0.0"
+    },
+    {
+      "name": "aws-advisor",
+      "category": "cloud",
+      "path": "(cloud)/aws-advisor",
+      "contentHash": "959d64baef88617c3cd3273250de4eef5e0954d627a2c01708b23fd0f6e0f050",
+      "version": "1.0.0"
+    },
+    {
+      "name": "best-practices",
+      "category": "quality",
+      "path": "(quality)/web-best-practices",
+      "contentHash": "e22b6d3e9c7d29cc5f92a89a1a393aa2686aa5c0cd70b7159a7fc9a2bc779461",
+      "version": "1.0"
+    },
+    {
+      "name": "chrome-devtools",
+      "category": "tooling",
+      "path": "(tooling)/chrome-devtools",
+      "contentHash": "249d0fb724d83a9dc1b81f5812b894d471b36e6e629407cd43f9b8135fe4630a"
+    },
+    {
+      "name": "cloudflare-deploy",
+      "category": "cloud",
+      "path": "(cloud)/cloudflare-deploy",
+      "contentHash": "f51f33e059b64bfb145de75c5b85da8d4fdd91dd2f846557183a98f51b0f87ea",
+      "version": "1.0.0"
+    },
+    {
+      "name": "codenavi",
+      "category": "development",
+      "path": "(development)/codenavi",
+      "contentHash": "23ac05b7f2d8df8311129d41432eba248bdcf14e9ace3f17c581976f7d888ada",
+      "version": "1.0.0"
+    },
+    {
+      "name": "coding-guidelines",
+      "category": "development",
+      "path": "(development)/coding-guidelines",
+      "contentHash": "28a414c715d3c41aae28a25e2f109813ec3f246f76b5567c1e7d6a128cd289ff",
+      "version": "1.0.0"
+    },
+    {
+      "name": "component-common-domain-detection",
+      "category": "architecture",
+      "path": "(architecture)/component-common-domain-detection",
+      "contentHash": "58c72d63eaf387cf11ae36b223ff80478ba861f53265e42a3c4fbcb3bc739208"
+    },
+    {
+      "name": "component-flattening-analysis",
+      "category": "architecture",
+      "path": "(architecture)/component-flattening-analysis",
+      "contentHash": "085696b944897a2d8c96efb6e0a3faab00f910a62a49a45c3293c32458962411"
+    },
+    {
+      "name": "component-identification-sizing",
+      "category": "architecture",
+      "path": "(architecture)/component-identification-sizing",
+      "contentHash": "8ec5eb90e86cc84a346f15f50c86960d8f4ba6876f6fe27d687a1ba43a2448a0"
+    },
+    {
+      "name": "confluence-assistant",
+      "category": "development",
+      "path": "(development)/confluence-assistant",
+      "contentHash": "b9f019173a7d864db1d0a9eca13ee920d294806ea4c5cabfb626ccaedbaaeae7",
+      "version": "1.0.0"
+    },
+    {
+      "name": "content-to-pipeline",
+      "category": "gtm",
+      "path": "(gtm)/content-to-pipeline",
+      "contentHash": "925f769a4c601ea7fac8cab4d3ee00f799921eb0600427d18f458eb35db2e2ed",
+      "version": "1.0.0"
+    },
+    {
+      "name": "core-web-vitals",
+      "category": "performance",
+      "path": "(performance)/core-web-vitals",
+      "contentHash": "3a67190e1dea1f2573d4fbb17071bbdac5ff4fd087d8cb5271094851c2acd559",
+      "version": "1.0"
+    },
+    {
+      "name": "coupling-analysis",
+      "category": "architecture",
+      "path": "(architecture)/coupling-analysis",
+      "contentHash": "a33a142a73ac2e6b8db300acb3d13dba5077e225cbfad7599b0ac431290ab5c7"
+    },
+    {
+      "name": "create-adr",
+      "category": "creation",
+      "path": "(creation)/create-adr",
+      "contentHash": "47ec663c849e8c1620c6f33a7be0055acdcf838c27ab7c16f44260244b80195a",
+      "version": "1.0.0"
+    },
+    {
+      "name": "create-rfc",
+      "category": "creation",
+      "path": "(creation)/create-rfc",
+      "contentHash": "3f391b6c4397bb1590bbad511eca95c297dd0467e65385fa28b3724851c42ea8",
+      "version": "1.0.0"
+    },
+    {
+      "name": "cursor-subagent-creator",
+      "category": "creation",
+      "path": "(creation)/cursor-subagent-creator",
+      "contentHash": "658a170d783a694e638814bed35a738184795da2d0f0b36489cac94a478cd8d7"
+    },
+    {
+      "name": "decomposition-planning-roadmap",
+      "category": "architecture",
+      "path": "(architecture)/decomposition-planning-roadmap",
+      "contentHash": "8de88d993b2556a6b38c26fd79c863f06bf7746faf87c0c9fd1b9a198a49e1ac"
+    },
+    {
+      "name": "demo",
+      "category": "web-automation",
+      "path": "(web-automation)/demo",
+      "contentHash": "befea3ed2b19ef2eaa20f8a0f8e9390ad859c43335e857fce3cea227260731cd",
+      "version": "1.0.0"
+    },
+    {
+      "name": "docs-writer",
+      "category": "development",
+      "path": "(development)/docs-writer",
+      "contentHash": "c49827c59d2e27d313731dfd36314cfde0e8dbf15be0e8f813d2f8b751546b0c"
+    },
+    {
+      "name": "domain-analysis",
+      "category": "architecture",
+      "path": "(architecture)/domain-analysis",
+      "contentHash": "5914beeaf1aa1fe57cd95cf0afb60ee1cccc58eedaddd123a43cad32d6a70077"
+    },
+    {
+      "name": "domain-identification-grouping",
+      "category": "architecture",
+      "path": "(architecture)/domain-identification-grouping",
+      "contentHash": "ac3c94d9910a75aa6a61f7866507d16a3c646ff17e86b79667d1a19c6fa6c659"
+    },
+    {
+      "name": "evolutionary-modular-architecture",
+      "category": "architecture",
+      "path": "(architecture)/evolutionary-modular-architecture",
+      "contentHash": "67eab096727beddf61ab8df40629d63cbb5fa828bb1e1f12ab494af444ce9015",
+      "version": "1.0.0"
+    },
+    {
+      "name": "excalidraw-studio",
+      "category": "tooling",
+      "path": "(tooling)/excalidraw-studio",
+      "contentHash": "08f4964859a421cccfc52314f2e5b3484b1163ecf558ccdbb6746127229b9399",
+      "version": "1.0.1"
+    },
+    {
+      "name": "expansion-retention",
+      "category": "gtm",
+      "path": "(gtm)/expansion-retention",
+      "contentHash": "e5420a123058969e8e5014d74120daf7a1c598e1fb44e6d152c6b60a71a81e95",
+      "version": "1.0.0"
+    },
+    {
+      "name": "figma",
+      "category": "design",
+      "path": "(design)/figma",
+      "contentHash": "5da2000639e7aee302556408a161168b8955758da0da3305842e14a93a40a7b7",
+      "version": "1.0.0"
+    },
+    {
+      "name": "figma-implement-design",
+      "category": "design",
+      "path": "(design)/figma-implement-design",
+      "contentHash": "6177778eac45026cf58d1f86447fa730e39389e54a99df2c5f35cd6905371b1d",
+      "version": "1.0.0"
+    },
+    {
+      "name": "frontend-blueprint",
+      "category": "architecture",
+      "path": "(architecture)/frontend-blueprint",
+      "contentHash": "c79c5acbf69e88e1b0c848e64afb671f33091e32b6dcb1b2e6f9c78213a10ec3",
+      "version": "1.0.0"
+    },
+    {
+      "name": "frontend-design",
+      "category": "design",
+      "path": "(design)/frontend-design",
+      "contentHash": "b20162c8d6bcdd9137c4afceaeb4f9dce2c1ba3ccb57a96a3228b8cb33104ec4",
+      "version": "1.0.0"
+    },
+    {
+      "name": "gh-address-comments",
+      "category": "development",
+      "path": "(development)/gh-address-comments",
+      "contentHash": "a1808fb136b7118a7bdac65415e9a40a7982953f8b3339c97087fc0807865d88",
+      "version": "1.0.0"
+    },
+    {
+      "name": "gh-fix-ci",
+      "category": "tooling",
+      "path": "(tooling)/gh-fix-ci",
+      "contentHash": "f032610bcbf7f7a7b6b13d20de360608c10328b7a9e507610323e843d613f1f4",
+      "version": "1.0.0"
+    },
+    {
+      "name": "gtm-engineering",
+      "category": "gtm",
+      "path": "(gtm)/gtm-engineering",
+      "contentHash": "b2cfbea2da9f2a52527f6c41f128df2dba76c33df90692357a5533c06b78223f",
+      "version": "1.0.0"
+    },
+    {
+      "name": "gtm-metrics",
+      "category": "gtm",
+      "path": "(gtm)/gtm-metrics",
+      "contentHash": "9f2afa96826b0456cf79f05b43ab4470fd6802990e301bb898c2cbaa6f01cf5c",
+      "version": "1.0.0"
+    },
+    {
+      "name": "harness-eval",
+      "category": "development",
+      "path": "(development)/harness-eval",
+      "contentHash": "675761f3fdb123f26103811ffe52e384adff5ffdf7c603578dfaa4eb2e54b2a2",
+      "version": "1.8.3"
+    },
+    {
+      "name": "jira-assistant",
+      "category": "development",
+      "path": "(development)/jira-assistant",
+      "contentHash": "fa63880889d2206548e33489a0ac1aa849c4e6ab879ea769c2715521a8231c8a"
+    },
+    {
+      "name": "lead-enrichment",
+      "category": "gtm",
+      "path": "(gtm)/lead-enrichment",
+      "contentHash": "c062dadf96d7a1500457c222b95baff7f5aade66486044be360a13268b251940",
+      "version": "1.0.0"
+    },
+    {
+      "name": "learning-opportunities",
+      "category": "learning",
+      "path": "(learning)/learning-opportunities",
+      "contentHash": "47c4d62eebf29a61477c1b611c6ae360b028e1e23e09df1f6a33b5ff32b020f7",
+      "version": "1.1.0"
+    },
+    {
+      "name": "legacy-migration-planner",
+      "category": "architecture",
+      "path": "(architecture)/legacy-migration-planner",
+      "contentHash": "e73e55256768767436943c8948da0d6a0667282c7195a47119841b5e76263d02",
+      "version": "1.0.0"
+    },
+    {
+      "name": "mermaid-studio",
+      "category": "tooling",
+      "path": "(tooling)/mermaid-studio",
+      "contentHash": "8a240b980cee9287a20ec6ea1e4837c5d6e43c756ab17fcebbf6b1087a609815",
+      "version": "1.0.1"
+    },
+    {
+      "name": "modular-decomposition",
+      "category": "architecture",
+      "path": "(architecture)/modular-decomposition",
+      "contentHash": "b536c1851c862516e5fc111502311343b952073a992ea07c9f8f9b42fbbc2a44"
+    },
+    {
+      "name": "modular-design-principles",
+      "category": "architecture",
+      "path": "(architecture)/modular-design-principles",
+      "contentHash": "d53fdca7ae18205376956c39a3a1729edfae843f63e5f2a6c5dd2c64ccd8a576"
+    },
+    {
+      "name": "multi-platform-launch",
+      "category": "gtm",
+      "path": "(gtm)/multi-platform-launch",
+      "contentHash": "22552e0a3fde93c57715295f52b31d0695ad78d10512e5793ea93c7b138c79ee",
+      "version": "1.0.0"
+    },
+    {
+      "name": "nestjs-modular-monolith",
+      "category": "development",
+      "path": "(development)/nestjs-modular-monolith",
+      "contentHash": "a4e6b084d0cb6ed7a06abc6786cea67292440c5b7e63ed33baed9ecb7525bbeb",
+      "version": "1.0.0"
+    },
+    {
+      "name": "netlify-deploy",
+      "category": "cloud",
+      "path": "(cloud)/netlify-deploy",
+      "contentHash": "a85452537b4a35077d259ed06661d16fb026d252e4b952b2fe82f2a006f39a15",
+      "version": "1.0.0"
+    },
+    {
+      "name": "not-your-babysitter",
+      "category": "development",
+      "path": "(development)/not-your-babysitter",
+      "contentHash": "bba71735a9fb5ac0154a38d7a8c817b16f2a61ed1a8e1d04ce46673c775effab",
+      "version": "1.0.0"
+    },
+    {
+      "name": "nx-ci-monitor",
+      "category": "tooling",
+      "path": "(tooling)/nx-ci-monitor",
+      "contentHash": "ddb5bf9bd2a5ca0eac8fa01632a19569baed922201b2cc501975edd77697f75c"
+    },
+    {
+      "name": "nx-generate",
+      "category": "tooling",
+      "path": "(tooling)/nx-generate",
+      "contentHash": "b975e1a0caa6cc9922ba941e0746a2f141c708e41c8bbddb395d40e3efecf2a0"
+    },
+    {
+      "name": "nx-run-tasks",
+      "category": "tooling",
+      "path": "(tooling)/nx-run-tasks",
+      "contentHash": "3c4d49d795b02e6a4a82606891a7da4773c3bc1ef883c1b980ac17596883397f"
+    },
+    {
+      "name": "nx-workspace",
+      "category": "tooling",
+      "path": "(tooling)/nx-workspace",
+      "contentHash": "410aad2cc5a3cdaf3ffc04b0a4ad893f6cf2f5babdd836e6eda68f409d3c7bf6"
+    },
+    {
+      "name": "paid-creative-ai",
+      "category": "gtm",
+      "path": "(gtm)/paid-creative-ai",
+      "contentHash": "89328ab72ff4336917031a217f43bd19b133a7d17202bf70d8d8d7f59d69ce29",
+      "version": "1.0.0"
+    },
+    {
+      "name": "partner-affiliate",
+      "category": "gtm",
+      "path": "(gtm)/partner-affiliate",
+      "contentHash": "3ff5e89d89da30e46eef1d6fa4379aa1b41c30be16e2ca761a5581267c41561e",
+      "version": "1.0.0"
+    },
+    {
+      "name": "perf-astro",
+      "category": "performance",
+      "path": "(performance)/perf-astro",
+      "contentHash": "11b50b27564085d9bff6d558bd4e9f31e5bce3c9a82af4c7203d9a4cd1ff43e4"
+    },
+    {
+      "name": "perf-lighthouse",
+      "category": "performance",
+      "path": "(performance)/perf-lighthouse",
+      "contentHash": "2ef96cebc94fda975a7bba9e37511bff65739c91e61b950be0bd3048b8c9760d"
+    },
+    {
+      "name": "perf-web-optimization",
+      "category": "performance",
+      "path": "(performance)/perf-web-optimization",
+      "contentHash": "864bb35d6ec7e7755181886b57709b76d8b5da5181a6d8480cd412dd772f1ffb"
+    },
+    {
+      "name": "playwright-skill",
+      "category": "web-automation",
+      "path": "(web-automation)/playwright-skill",
+      "contentHash": "9c45020d33af9ac2d44c89721f154c94bd73b9d8590117597b9a26920ff9cecc"
+    },
+    {
+      "name": "positioning-icp",
+      "category": "gtm",
+      "path": "(gtm)/positioning-icp",
+      "contentHash": "3b940bcd8ad2035177bffb04e34d52fe038f669a2d466e8d67e73135044373a5",
+      "version": "1.0.0"
+    },
+    {
+      "name": "rails-dev",
+      "category": "development",
+      "path": "(development)/rails-dev",
+      "contentHash": "472d78e9b2b7a55d696be5c96196ec8ecb8967e12469456b79acbe84c1db8098",
+      "version": "1.0.0"
+    },
+    {
+      "name": "react-best-practices",
+      "category": "quality",
+      "path": "(quality)/react-best-practices",
+      "contentHash": "e96f99e13dc2acc75efc1793aee08fe244802a97a4e190af38bd5a871a5c9636",
+      "version": "1.0.0"
+    },
+    {
+      "name": "react-composition-patterns",
+      "category": "architecture",
+      "path": "(architecture)/react-composition-patterns",
+      "contentHash": "171c6a35a0a74a6b37facf2a6e3883a02f53e3f2d429e6aa5834412c65d38dc7",
+      "version": "1.0.0"
+    },
+    {
+      "name": "react-native-expert",
+      "category": "development",
+      "path": "(development)/react-native-expert",
+      "contentHash": "9da108258c0a93cd04b57d94a5a7788e6c37c704ca4322ca9b6bedce8e3ff683",
+      "version": "1.0.0"
+    },
+    {
+      "name": "render-deploy",
+      "category": "cloud",
+      "path": "(cloud)/render-deploy",
+      "contentHash": "b2d22a5612b4b1871c4d33765f8ee875ffc7eb3604cc9f2faabb1ff3c0c527ea",
+      "version": "1.0.0"
+    },
+    {
+      "name": "sales-motion-design",
+      "category": "gtm",
+      "path": "(gtm)/sales-motion-design",
+      "contentHash": "8f9829a2107c994a3a4d2fcaec73def4bcc1a7fac20c64b452093a4e7018e93f",
+      "version": "1.0.0"
+    },
+    {
+      "name": "security-best-practices",
+      "category": "security",
+      "path": "(security)/security-best-practices",
+      "contentHash": "6fec09f7e43bb297ad6097e13469e85aa5b5d671a839b4f7e7871ef8eaa76c4e",
+      "version": "1.0.0"
+    },
+    {
+      "name": "security-ownership-map",
+      "category": "security",
+      "path": "(security)/security-ownership-map",
+      "contentHash": "d6231f21029bc14fc776dbef909f631a6b39d7d1b46b11b25dbfe51c51dd7141",
+      "version": "1.0.0"
+    },
+    {
+      "name": "security-threat-model",
+      "category": "security",
+      "path": "(security)/security-threat-model",
+      "contentHash": "9f4cf3c7971c6d84a4657c2c0c395a4c7febbac5a2361950922fc150fcef9599",
+      "version": "1.0.0"
+    },
+    {
+      "name": "sentry",
+      "category": "monitoring",
+      "path": "(monitoring)/sentry",
+      "contentHash": "aa0e533aff9a319b0aef86ad3e543f61b812bf159c27fc9ebb1c7ad97d5db937",
+      "version": "1.0.0"
+    },
+    {
+      "name": "seo",
+      "category": "quality",
+      "path": "(quality)/seo",
+      "contentHash": "fc9897a3923b5e23e00545ac67f4c8c2b6903113bd5f046cda259c98a0f3cd40",
+      "version": "1.0"
+    },
+    {
+      "name": "shopify-developer",
+      "category": "development",
+      "path": "(development)/shopify-developer",
+      "contentHash": "10dd4806c0061bb9e89914557f6aec6badcef893e601293711ba3e8993527e9f"
+    },
+    {
+      "name": "skill-architect",
+      "category": "creation",
+      "path": "(creation)/skill-architect",
+      "contentHash": "349b256153447631c3ed356996c3a62fec52493d07ba75e37b12c458f9fbf6bb",
+      "version": "1.0.0"
+    },
+    {
+      "name": "social-selling",
+      "category": "gtm",
+      "path": "(gtm)/social-selling",
+      "contentHash": "7cc6fba77aff372c64d8e2b97b2b645ef641ef78a266b602e5e6fdd74231460e",
+      "version": "1.0.0"
+    },
+    {
+      "name": "solo-founder-gtm",
+      "category": "gtm",
+      "path": "(gtm)/solo-founder-gtm",
+      "contentHash": "95d71f10ea8a48767cb871ad72c09745cb6ecd822ed71be659cbd960b6503445",
+      "version": "1.0.0"
+    },
+    {
+      "name": "spec-driven-eval",
+      "category": "development",
+      "path": "(development)/spec-driven-eval",
+      "contentHash": "168d6860c6e84809a02c2abface032a4a625bdd81fec6131615e00a2cf87e311",
+      "version": "1.0.0"
+    },
+    {
+      "name": "subagent-creator",
+      "category": "creation",
+      "path": "(creation)/subagent-creator",
+      "contentHash": "bef6b5a9f23b3186af259c1041c2561e9af15fa94810009d72d775bb217aa3ca"
+    },
+    {
+      "name": "tactical-ddd",
+      "category": "architecture",
+      "path": "(architecture)/tactical-ddd",
+      "contentHash": "c3dfaf45e8cb784f18d9c460c7f005c4ee9dbb430f21ee8af6913bbfea66a75b"
+    },
+    {
+      "name": "technical-design-doc-creator",
+      "category": "creation",
+      "path": "(creation)/create-technical-design-doc",
+      "contentHash": "d05974df076f695f96b4e4c263ad19f2aaffe8ee6248c1b07a634dd9ed0ea51e"
+    },
+    {
+      "name": "the-fool",
+      "category": "decision-making",
+      "path": "(decision-making)/the-fool",
+      "contentHash": "4468f89ea05bfdea7a9346bebae5358bcf80ff4a51e6f59195b7312186fe0718",
+      "version": "2.0.0"
+    },
+    {
+      "name": "the-judge",
+      "category": "quality",
+      "path": "(quality)/the-judge",
+      "contentHash": "05526209052f6592ad98476e8f59e9ffa2a24e803e10a90ceac659476b509403",
+      "version": "1.4.0"
+    },
+    {
+      "name": "the-jury",
+      "category": "decision-making",
+      "path": "(decision-making)/the-jury",
+      "contentHash": "04b3931496ca41463620a960aee92babac280987d7621a9ab80f7d9ee158d229",
+      "version": "1.0.0"
+    },
+    {
+      "name": "tlc-discover",
+      "category": "development",
+      "path": "(development)/tlc-discover",
+      "contentHash": "518ab626fc8bac4ed1d0c5170b617d1adaec28a83634c1a462c7529d42170d3a",
+      "version": "0.9.0"
+    },
+    {
+      "name": "tlc-generative-engine-optimization",
+      "category": "quality",
+      "path": "(quality)/tlc-generative-engine-optimization",
+      "contentHash": "0ffb82a6d58cbb4f7f265a29601971bd302322ef89c4392f25278376200596df",
+      "version": "1.0.0"
+    },
+    {
+      "name": "tlc-implement",
+      "category": "development",
+      "path": "(development)/tlc-implement",
+      "contentHash": "b3bbd69d067b042072e9538ea5edc90db28b0873fdf4d86157ca4ae5363bfd9e",
+      "version": "0.1.0"
+    },
+    {
+      "name": "tlc-plan",
+      "category": "development",
+      "path": "(development)/tlc-plan",
+      "contentHash": "428b064742db100add4d42612ce61eaed040aad87e6718e494a09ad9ae03552b",
+      "version": "0.2.0"
+    },
+    {
+      "name": "tlc-prd",
+      "category": "development",
+      "path": "(development)/tlc-prd",
+      "contentHash": "ce417e8df0cff1870fbfdd157959e6efbdc6b1b547c57ac3850134e8f70bba80",
+      "version": "1.0.0"
+    },
+    {
+      "name": "tlc-spec-driven",
+      "category": "development",
+      "path": "(development)/tlc-spec-driven",
+      "contentHash": "9f4c793556001f3210a2d9fe3b41bf24e82e581c522d8dd50f65addfee169a29",
+      "version": "3.3.0"
+    },
+    {
+      "name": "tlc-spec-lean",
+      "category": "development",
+      "path": "(development)/tlc-spec-lean",
+      "contentHash": "28368cb86a9d441fce24426eb502a39a5e7f9ffe0ad5d682fead2ce76c5b085b",
+      "version": "1.1.0"
+    },
+    {
+      "name": "vercel-deploy",
+      "category": "cloud",
+      "path": "(cloud)/vercel-deploy",
+      "contentHash": "53985dad8a6cf5571b8eb796668502f2e82f0574ab15d31609486de8317f0ec5",
+      "version": "1.0.0"
+    },
+    {
+      "name": "video-outreach",
+      "category": "gtm",
+      "path": "(gtm)/video-outreach",
+      "contentHash": "b918e2c62adf317b82ac43e4731e300ff4f163383aebe7ae8532f7ea69c24c29",
+      "version": "1.0.0"
+    },
+    {
+      "name": "web-design-guidelines",
+      "category": "design",
+      "path": "(design)/web-design-guidelines",
+      "contentHash": "213a23fff251b12ddfec648bda148bf10704ef6617e162eb9329cc83963dd138",
+      "version": "1.0.0"
+    },
+    {
+      "name": "web-quality-audit",
+      "category": "quality",
+      "path": "(quality)/web-quality-audit",
+      "contentHash": "8af5bd3453984bdcef903709b6ef0606b12ae1badb6dd5b5b382b930d2594d7c",
+      "version": "1.0"
+    }
+  ]
+}

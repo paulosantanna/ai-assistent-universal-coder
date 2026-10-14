@@ -1,0 +1,24 @@
+{
+  "skill": "dark-videos-knowledge-base",
+  "package_hash": "5e2dc241291787611c87472e2a6c3eac001f53401840d7fc114aef6384dbaf40",
+  "positive_triggers": [
+    "mapa do dark-videos",
+    "onde fica o publicador",
+    "entender o pipeline dark-videos"
+  ],
+  "negative_scope": [
+    "current inventory without recon",
+    "pipeline execution",
+    "video publication"
+  ],
+  "source": {
+    "path": "00_skills/(development)/dark-videos-knowledge-base/SKILL.md",
+    "scope": "Retained map only; historical facts require reconciliation"
+  },
+  "verification": {
+    "kind": "structural-and-syntax",
+    "runtime_evaluated": false,
+    "routing": "Static wording assessment; no measured trigger accuracy"
+  },
+  "effectiveness": "Not measured; structural acceptance does not establish enterprise performance"
+}

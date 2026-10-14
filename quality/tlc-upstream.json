@@ -1,0 +1,11 @@
+{
+  "repository": "tech-leads-club/agent-skills",
+  "commit": "7f93bf3b15b3af417929781dbf9a3950ace7c144",
+  "checked_at": "2026-10-14",
+  "controls": {
+    "CONTRIBUTING.md": "7e5b0e64e2982b43b0734545b4eb1f90255cb4815b70a8d8dc3b7873398d708b",
+    "tools/validate-skills.ts": "f3a2a8751e2923aa2017fd72fbda32af2a963d8b4d1a7213837f57f81c3aa5e6",
+    "packages/skills-catalog/skills/(creation)/skill-architect/scripts/validate_skill.py": "56fa253b7de06b6c8d30d4cb5011c8961ddb7b87af49d686dbeaad5e0b454910",
+    "packages/skills-catalog/skills/(creation)/skill-architect/references/quality-checklist.md": "72b32a685fea899f5627bd2d6be89ecc9e54f2a837605c2e4653e902cacd3c5c"
+  }
+}

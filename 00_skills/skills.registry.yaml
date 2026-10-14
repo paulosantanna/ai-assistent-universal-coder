@@ -1829,3 +1829,21 @@ skills:
   risk_level: medium
   mission: Use when the user wants to design, redesign, shape, critique, audit, polish, clarify, distill, harden, optimize, adapt, animate, colorize, extract, or otherwise improve a frontend interface. Covers websites, landing pages, dashboards, product UI, app shells, components, forms, settings, onboarding, and empty states. Handles UX review, visual hierarchy, information architecture, cognitive load, accessibility, performance, responsive behavior, theming, anti-patterns, typography, fonts, spacing, layout, alignment, color, motion, micro-interactions, UX copy, error states, edge cases, i18n, and reusable design systems or tokens. Also use for bland designs that need to become bolder or more delightful, loud designs that should become quieter, live browser iteration on UI elements, or ambitious visual effects that should feel technically extraordinary. Not for backend-only or non-UI tasks.
   capabilities: []
+- id: dark-videos-knowledge-base
+  path: 00_skills/(development)/dark-videos-knowledge-base/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: "Navigate the retained dark-videos repository map and reconcile historical paths with current evidence. Use when the user asks for 'mapa do dark-videos', 'onde fica o publicador', or 'entender o pipeline dark-videos'. Do NOT use to claim a current inventory, run the pipeline, or publish videos without inspecting the actual repository and authorization."
+  capabilities: []
+- id: demo
+  path: 00_skills/(web-automation)/demo/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: "Record a demo video of a web app feature or flow on a real desktop (Docker, Xvfb, XFCE, real X cursor), producing an mp4 plus a click/hover/scroll/type telemetry file. Takes a flow description, an existing demo name or path, or init. Use when the user says \"record a demo of the checkout\", \"gravar um demo dessa feature\", \"make a screencast of this flow\", \"video for the changelog\", \"re-record the checkout demo\", \"refresh the demo video\", or \"demo init\". Do NOT use for general browser testing or automation that needs no video (use playwright-skill), page debugging or network inspection (use chrome-devtools), or static screenshots."
+  capabilities: []
+- id: tlc-prd
+  path: 00_skills/(development)/tlc-prd/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: "Interviews an idea into a PRD file covering situation, problem, success, boundary, and journey states, and stops before any technical design. Use when the user says \"write the PRD\", \"create the PRD\", \"PRD\", \"product spec\", \"product requirements\", \"tlc-prd\", or \"what does the product need to decide\". Do NOT use for designing a solution, choosing technology, publishing the document, or cutting the PRD into tasks."
+  capabilities: []

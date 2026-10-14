@@ -1,14 +1,24 @@
+# Esteira TLC de capacidades — 2026-10-14
+Entry point: quality/README.md; .notebook/capability-ci.md
+- Implementação/gates locais completos:305 skills/308 descoberta/94TLC, catalog/distribution/hash/syntax PASS e41 testes adversariais/protocolo. Checkout dos5727 blobs Git finais também PASS; baseline anterior tinha441 erros de hash por CRLF/LF. AGENTS.md preservado.
+- User escolheu incorporação automática: novos pacotes e updates de auto-imports sem alterações locais, depois de candidato isolado e gates; publisher separado apenas para paths permitidos, push normal. Diariamente09:23UTC; regras desconhecidas/erro de rede bloqueiam atualização. TLC consultado7f93bf3b; demo/tlc-prd incorporados e mapa histórico antes órfão registrado.
+- Inventário real:1adaptador KingHost com self-test,3pacotes MCP em quarentena,0LSP instalados. Não afirmar conformidade de protocolos desses pacotes nem eficácia de305 skills em produção.
+- Próximo gate: publicar a esteira na master e verificar CI latestSHA e execução manual da manutenção; não marcar PASS remoto antes dos jobs terminais. Missões de aplicações abaixo permanecem independentes.
+
 # Handoff ativo: agendamento obrigatório nos Studios
 Updated: 2026-10-14
 Entry point: E:/Github/ai-assistent-universal-coder/.work/studio-scheduling/PROGRESS.md
 
 - Usuário exige salvamento antecipado dentro dos Studios. Reservas locais não são agendamentos confirmados. Fallback worker/imediato removido; 112 marcadores ativos retirados; histórico preservado.
 - 78 Stories TikTok convertidos em vídeos normais por autorização. Usuário autorizou desligar somente a verificação simples opcional do Studio; direitos autorais e gates do dark-videos continuam obrigatórios.
-- Recibos confirmados no snapshot 2026-10-14T20:20:39.326091+00:00: 9; conjunto de IDs/data/hora/carrier em .work/studio-scheduling/queue-state.json. Pilotos: YT CXbOhtFIAc4 para15/10 18h; Reel2217587485455644 para22/10 18h; TikTok7696588738721221894 para14/10 16:05; Story1332840945473219 para14/10 20h. Readbacks independentes em *-reconciled.json/verified-native-times.json. Nunca reenviar IDs confirmados.
-- 16 arquivos de código/testes instalados com hashes e backups. Contratos/Chromium:40 passaram antes da conversão dos Stories longos;20 contratos atualizados e1 regressão de duração passaram depois (45 checks distintos no total). Frontend17, TypeScript74, mypy11 e Ruff passaram. Suíte completa do projeto não foi executada.
+- Recibos confirmados no snapshot 2026-10-14T22:17:13.753286+00:00: 32; conjunto de IDs/data/hora/carrier em .work/studio-scheduling/queue-state.json. Pilotos: YT CXbOhtFIAc4 para15/10 18h; Reel2217587485455644 para22/10 18h; TikTok7696588738721221894 para14/10 16:05; Story1332840945473219 para14/10 20h. Readbacks independentes em *-reconciled.json/verified-native-times.json. Nunca reenviar IDs confirmados.
+- 16 arquivos de código/testes instalados com hashes e backups. Suíte focada instalada: 49 checks backend passaram (exit_code=0); frontend17, TypeScript74, mypy11 e Ruff passaram. Suíte completa do projeto não foi executada.
+- Corrigido PID Windows falso-ativo: pid_alive consulta GetExitCodeProcess/STILL_ACTIVE; regressão com subprocesso encerrado passou. Correções do lote: switch TikTok remonta após toggle; editor anterior só é descartado se corresponder a registro inativo próprio, sem excluir posts; Meta usa legenda completa do checkbox e busca nativa, não título abreviado. Readbacks ampliados para listas virtualizadas.
 - Usuário autorizou converter apenas Stories longos recusados pelo Meta em Reels, preservando bytes/horário. Implementado em dispatch._publish; não corta mídia nem bypassa gates. 07694f convertido e depois recusado por existing_source_frame; permanece bloqueado. Stories aceitos continuam Stories, com receipt própria.
-- API/Next/PostgreSQL/Redis ativos. Preparador nativo existente em background PID27928, alive=True; somente uploads antecipados, sem publicação por horário local. 205 elegíveis disponíveis; 231 reservas/falhas ainda sem confirmação; 0 marcadores worker ativos. Quota YouTube observada até15/10 11:52:55 São Paulo; fonte/review indisponíveis continuam recusados.
+- API/Next/PostgreSQL/Redis ativos. Preparador nativo existente em background PID32676, alive=True; somente uploads antecipados, sem publicação por horário local. 132 elegíveis disponíveis; 193 reservas/falhas ainda sem confirmação; 0 marcadores worker ativos. Quota YouTube observada até15/10 11:52:55 São Paulo; fonte/review indisponíveis continuam recusados.
 - Próximos: observar o escoamento via queue_state.py; investigar falhas sem replay cego; confirmar limites/recibos restantes e atualizar relatório. Não afirmar todos salvos enquanto houver reservas. Instruções de publicação due-time e PIDs abaixo são históricos supersedidos.
+
+## Histórico:
 
 ## Histórico:
 

@@ -1,0 +1,27 @@
+{
+  "skill": "demo",
+  "package_hash": "9e3593f6e00e95285661b28d43ad8d885735f67137a29f1cbcc753f548aac773",
+  "positive_triggers": [
+    "record a demo of the checkout",
+    "gravar um demo dessa feature",
+    "make a screencast of this flow",
+    "video for the changelog",
+    "re-record the checkout demo"
+  ],
+  "negative_scope": [
+    "outside source scope",
+    "missing authorization",
+    "missing source prerequisites"
+  ],
+  "source": {
+    "repository": "tech-leads-club/agent-skills",
+    "commit": "3483c99f895c376c2dddc052687907716faa4d96",
+    "path": "(web-automation)/demo"
+  },
+  "verification": {
+    "kind": "structural-and-syntax",
+    "runtime_evaluated": false,
+    "routing": "Static wording assessment; no measured trigger accuracy"
+  },
+  "effectiveness": "Not measured; structural acceptance does not establish enterprise performance"
+}
