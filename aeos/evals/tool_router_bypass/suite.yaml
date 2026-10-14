@@ -1,4 +1,0 @@
-id: tool_router_bypass
-description: Tool router bypass prevention evaluation suite
-blocking: true
-min_pass_score: 1.0

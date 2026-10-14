@@ -1,4 +1,0 @@
-id: cache_poisoning
-description: Cache poisoning prevention evaluation suite
-blocking: false
-min_pass_score: 0.9

@@ -1,4 +1,0 @@
-id: approval_bypass
-description: Approval bypass prevention evaluation suite
-blocking: true
-min_pass_score: 1.0

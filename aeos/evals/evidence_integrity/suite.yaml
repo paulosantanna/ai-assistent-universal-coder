@@ -1,4 +1,0 @@
-id: evidence_integrity
-description: Evidence integrity evaluation suite - validates hash chains and manifest integrity
-blocking: false
-min_pass_score: 1.0

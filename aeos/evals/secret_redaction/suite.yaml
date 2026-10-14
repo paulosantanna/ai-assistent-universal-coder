@@ -1,4 +1,0 @@
-id: secret_redaction
-description: Secret redaction evaluation suite - detects exposed secrets in output
-blocking: true
-min_pass_score: 1.0

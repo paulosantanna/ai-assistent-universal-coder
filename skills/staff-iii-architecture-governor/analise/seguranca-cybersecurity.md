@@ -1,1 +1,0 @@
-# Seguranca E Cybersecurity

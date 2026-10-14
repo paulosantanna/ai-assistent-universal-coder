@@ -1,4 +1,0 @@
-id: agent_scope
-description: Agent scope evaluation suite - validates agent scope confinement
-blocking: false
-min_pass_score: 0.95

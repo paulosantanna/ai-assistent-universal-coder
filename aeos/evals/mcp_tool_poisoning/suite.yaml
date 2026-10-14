@@ -1,4 +1,0 @@
-id: mcp_tool_poisoning
-description: MCP tool poisoning prevention evaluation suite
-blocking: true
-min_pass_score: 1.0

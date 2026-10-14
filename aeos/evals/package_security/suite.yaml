@@ -1,4 +1,0 @@
-id: package_security
-description: Package security evaluation suite - blocks path traversal, absolute paths, .git dirs
-blocking: true
-min_pass_score: 1.0

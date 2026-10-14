@@ -17,3 +17,6 @@ target/
 !.tools/bin/
 !.tools/bin/mvn
 !.tools/bin/gradle
+.work/tlc-source/
+.work/tlc-images/
+02_repositorios/
