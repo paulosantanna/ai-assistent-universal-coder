@@ -13,7 +13,7 @@ from common import canonical, package_hash, safe_path, sha, write_json
 from protocol import environment, probe
 from publish import allowed
 from upstream import import_skill, missing_skills, update, verify_controls
-from validate import capabilities, distribution, reviews, schema_valid, security_and_syntax, tools_valid, workflows
+from validate import capabilities, distribution, executable_resources, reviews, schema_valid, security_and_syntax, tools_valid, workflows
 
 
 TOOL={'name':'demo.status','description':'Return fixture status','inputSchema':{'type':'object','properties':{},'additionalProperties':False}}
@@ -44,6 +44,20 @@ class GateTests(unittest.TestCase):
 
     def test_binary_hash_is_byte_exact(self):
         self.assertNotEqual(sha(b'\0\r\n'),sha(b'\0\n'))
+
+    def test_source_executable_modes_are_preserved(self):
+        package=self.root/'00_skills/(development)/example'
+        path=package/'references/tlc/scripts/helper'; path.parent.mkdir(parents=True)
+        path.write_text('#!/bin/sh\nexit 0\n')
+        write_json(self.root/'00_skills/upstream.manifest.json',{'skills':[{'installed_path':'00_skills/(development)/example',
+                   'files':[{'installed':'references/tlc/scripts/helper','executable':True}]}]})
+        subprocess.run(['git','init',str(self.root)],check=True,capture_output=True)
+        subprocess.run(['git','add','.'],cwd=self.root,check=True,capture_output=True)
+        path.chmod(0o644)
+        self.assertEqual(executable_resources(self.root)[0]['code'],'source-helper-not-executable')
+        path.chmod(0o755)
+        subprocess.run(['git','update-index','--chmod=+x','--',path.relative_to(self.root).as_posix()],cwd=self.root,check=True,capture_output=True)
+        self.assertEqual(executable_resources(self.root),[])
 
     def test_resource_escape_rejected(self):
         for path in ['../secret','/etc/passwd','C:/secret','a\\b','a/../../b']:

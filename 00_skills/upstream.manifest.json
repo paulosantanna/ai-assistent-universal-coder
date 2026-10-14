@@ -5526,7 +5526,8 @@
         {
           "source": "assets/docker/record.sh",
           "installed": "references/tlc/assets/docker/record.sh",
-          "sha256": "d8b13758a438d4960d6194750c7d1a91d4c3823fa4b1053a4823373ed552f921"
+          "sha256": "d8b13758a438d4960d6194750c7d1a91d4c3823fa4b1053a4823373ed552f921",
+          "executable": true
         },
         {
           "source": "assets/docker/wallpaper.jpg",
@@ -5546,12 +5547,14 @@
         {
           "source": "scripts/config",
           "installed": "references/tlc/scripts/config",
-          "sha256": "4034726969353473132a589f8c5d540b3800170de7290beb7063caded391fe12"
+          "sha256": "4034726969353473132a589f8c5d540b3800170de7290beb7063caded391fe12",
+          "executable": true
         },
         {
           "source": "scripts/record",
           "installed": "references/tlc/scripts/record",
-          "sha256": "66da5829f0483ed933d85474129353e38594a0e1bcea52fad29224053c6ef676"
+          "sha256": "66da5829f0483ed933d85474129353e38594a0e1bcea52fad29224053c6ef676",
+          "executable": true
         }
       ]
     },

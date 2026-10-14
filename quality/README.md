@@ -21,6 +21,7 @@ O parser YAML6.0.3 usa hashes oficiais do PyPI, sem dependências transitivas. O
 - Catálogo, categorias, aliases, `.agents/skills` e `skills.registry.yaml` devem concordar. Uma skill publicada fora do catálogo, descoberta ausente ou categoria incorreta falha.
 - `skills-baseline.json` é o baseline estrutural dos pacotes anteriores. Mudança no conteúdo completo de um pacote ou uma skill nova exige `reviews/<id>.json` com hash,3 gatilhos concretos e3 limites. Avaliação estática de wording não é acurácia de roteamento nem avaliação funcional em produção.
 - Hash de texto usa UTF-8 com LF; binários são exatos. `acquired_sha256` preserva hashes históricos de cópias CRLF. `.gitattributes` torna futuros checkouts consistentes.
+- Scripts executáveis preservam o modo100755 do Git e são conferidos no Linux e no índice Windows; conteúdo/hash corretos sem a permissão exigida não passam.
 - Varredura bloqueia arquivos de credenciais e padrões conhecidos de tokens/chaves. Não é uma auditoria de segurança completa nem substitui avaliação de prompt injection por provedor especializado.
 
 ## MCPs e LSPs

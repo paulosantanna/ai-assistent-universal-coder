@@ -98,7 +98,10 @@ def import_skill(root, entry, fetch, commit):
         target.write_bytes(data)
         if data.startswith(b'#!'):
             target.chmod(0o755)
-        resources.append(dict(source=path,installed=installed,sha256=sha(data)))
+        resource=dict(source=path,installed=installed,sha256=sha(data))
+        if data.startswith(b'#!'):
+            resource['executable']=True
+        resources.append(resource)
     references=[f'- Read [{p}](references/tlc/{p}) only when its matching source procedure requires it.' for p in paths if p!='SKILL.md' and '/' not in p]
     license_id=fm.get('license','CC-BY-4.0')
     wrapper=('---\nname: '+name+'\ndescription: '+json.dumps(desc,ensure_ascii=False)+'\nlicense: '+license_id+

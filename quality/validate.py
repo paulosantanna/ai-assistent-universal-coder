@@ -205,6 +205,25 @@ def security_and_syntax(root):
     return errors, dict(counts)
 
 
+def executable_resources(root):
+    errors=[]
+    for source in read_json(root/'00_skills/upstream.manifest.json')['skills']:
+        package=safe_path(root,source['installed_path'])
+        for resource in source['files']:
+            if not resource.get('executable'):
+                continue
+            path=safe_path(package,resource['installed'])
+            valid=bool(path.stat().st_mode & 0o111)
+            if sys.platform=='win32':
+                if not (root/'.git').exists():
+                    continue  # The exact exported mode is enforced by the Linux CI checkout.
+                indexed=subprocess.run(['git','ls-files','--stage','--',path.relative_to(root).as_posix()],cwd=root,capture_output=True,check=True).stdout
+                valid=indexed.startswith(b'100755 ')
+            if not valid:
+                errors.append({'code':'source-helper-not-executable','path':path.relative_to(root).as_posix()})
+    return errors
+
+
 def validate(root, runtime=False):
     # Bound all catalog/source paths before the reused validator can read a resource.
     catalog = read_json(root/'00_skills/catalog.json')
@@ -227,6 +246,7 @@ def validate(root, runtime=False):
     errors += capability_errors
     syntax_errors, syntax = security_and_syntax(root)
     errors += syntax_errors
+    errors += executable_resources(root)
     errors += workflows(root)
     lock = read_json(root/'quality/tlc-upstream.json')
     if not re.fullmatch('[0-9a-f]{40}', lock.get('commit', '')) or lock.get('repository') != 'tech-leads-club/agent-skills':

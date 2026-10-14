@@ -3,7 +3,7 @@ Entry point: quality/README.md; .notebook/capability-ci.md
 - Implementação/gates locais completos:305 skills/308 descoberta/94TLC, catalog/distribution/hash/syntax PASS e41 testes adversariais/protocolo. Checkout dos5727 blobs Git finais também PASS; baseline anterior tinha441 erros de hash por CRLF/LF. AGENTS.md preservado.
 - User escolheu incorporação automática: novos pacotes e updates de auto-imports sem alterações locais, depois de candidato isolado e gates; publisher separado apenas para paths permitidos, push normal. Diariamente09:23UTC; regras desconhecidas/erro de rede bloqueiam atualização. TLC consultado7f93bf3b; demo/tlc-prd incorporados e mapa histórico antes órfão registrado.
 - Inventário real:1adaptador KingHost com self-test,3pacotes MCP em quarentena,0LSP instalados. Não afirmar conformidade de protocolos desses pacotes nem eficácia de305 skills em produção.
-- Próximo gate: publicar a esteira na master e verificar CI latestSHA e execução manual da manutenção; não marcar PASS remoto antes dos jobs terminais. Missões de aplicações abaixo permanecem independentes.
+- Publicado ad7a0d0a: CI38650490307 e manutenção manual38650523248 com jobs terminais success. Execução da manutenção sem novidades, sem commit automático necessário. Ajuste final em andamento: preservar3 modos executáveis100755 verificados contra TLC e gate adicional; aguardar CI do commit corretivo antes de finalizar. Missões de aplicações abaixo permanecem independentes.
 
 # Handoff ativo: agendamento obrigatório nos Studios
 Updated: 2026-10-14
