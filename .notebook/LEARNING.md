@@ -275,6 +275,6 @@ Updated: 2026-10-14
 Entry point: quality/common.py:canonical; quality/validate.py:executable_resources
 - Trigger: Windows checkout passes, published/clean Git checkout fails hashes or direct helper invocation.
 - Root cause: CRLF acquisition hashes differ from normalized Git blobs; Windows staging can drop executable modes while file bytes match.
-- Verified correction: UTF-8 textual hashes normalize CRLF toLF (binary hashes stay exact); retain acquired_sha256, declare LF attributes and executable metadata; assert100755 in Git/CI. Baseline441 export hash errors and3 missing helper modes reproduced; clean exported blobs and remote Linux CI passed after the hash correction, permission regression has its own behavior test.
+- Verified correction: UTF-8 textual hashes normalize CRLF toLF (binary hashes stay exact); retain acquired_sha256, declare LF attributes and executable metadata; assert100755 in Git/CI. Baseline441 export hash errors and3 missing helper modes reproduced;42 tests, clean exported blobs and remote Linux CI38654364112 prove the corrections.
 - Reuse: cross-platform skill/resource distribution and any source-pinned tool bundle. Evidence: quality/tests/test_gates.py; .specs/tlc-capability-ci/SPEC.md; GitHub CI38650490307 and the final commit's workflow evidence.
 

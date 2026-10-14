@@ -1,24 +1,24 @@
-# Esteira TLC de capacidades — 2026-10-14
-Entry point: quality/README.md; .notebook/capability-ci.md
-- Implementação/gates locais completos:305 skills/308 descoberta/94TLC, catalog/distribution/hash/syntax PASS e41 testes adversariais/protocolo. Checkout dos5727 blobs Git finais também PASS; baseline anterior tinha441 erros de hash por CRLF/LF. AGENTS.md preservado.
-- User escolheu incorporação automática: novos pacotes e updates de auto-imports sem alterações locais, depois de candidato isolado e gates; publisher separado apenas para paths permitidos, push normal. Diariamente09:23UTC; regras desconhecidas/erro de rede bloqueiam atualização. TLC consultado7f93bf3b; demo/tlc-prd incorporados e mapa histórico antes órfão registrado.
-- Inventário real:1adaptador KingHost com self-test,3pacotes MCP em quarentena,0LSP instalados. Não afirmar conformidade de protocolos desses pacotes nem eficácia de305 skills em produção.
-- Publicado ad7a0d0a: CI38650490307 e manutenção manual38650523248 com jobs terminais success. Execução da manutenção sem novidades, sem commit automático necessário. Ajuste final em andamento: preservar3 modos executáveis100755 verificados contra TLC e gate adicional; aguardar CI do commit corretivo antes de finalizar. Missões de aplicações abaixo permanecem independentes.
-
 # Handoff ativo: agendamento obrigatório nos Studios
 Updated: 2026-10-14
 Entry point: E:/Github/ai-assistent-universal-coder/.work/studio-scheduling/PROGRESS.md
 
 - Usuário exige salvamento antecipado dentro dos Studios. Reservas locais não são agendamentos confirmados. Fallback worker/imediato removido; 112 marcadores ativos retirados; histórico preservado.
 - 78 Stories TikTok convertidos em vídeos normais por autorização. Usuário autorizou desligar somente a verificação simples opcional do Studio; direitos autorais e gates do dark-videos continuam obrigatórios.
-- Recibos confirmados no snapshot 2026-10-14T22:17:13.753286+00:00: 32; conjunto de IDs/data/hora/carrier em .work/studio-scheduling/queue-state.json. Pilotos: YT CXbOhtFIAc4 para15/10 18h; Reel2217587485455644 para22/10 18h; TikTok7696588738721221894 para14/10 16:05; Story1332840945473219 para14/10 20h. Readbacks independentes em *-reconciled.json/verified-native-times.json. Nunca reenviar IDs confirmados.
-- 16 arquivos de código/testes instalados com hashes e backups. Suíte focada instalada: 49 checks backend passaram (exit_code=0); frontend17, TypeScript74, mypy11 e Ruff passaram. Suíte completa do projeto não foi executada.
+- Recibos confirmados no snapshot 2026-10-14T23:30:25.634727+00:00: 56; conjunto de IDs/data/hora/carrier em .work/studio-scheduling/queue-state.json. Pilotos: YT CXbOhtFIAc4 para15/10 18h; Reel2217587485455644 para22/10 18h; TikTok7696588738721221894 para14/10 16:05; Story1332840945473219 para14/10 20h. Readbacks independentes em *-reconciled.json/verified-native-times.json. Nunca reenviar IDs confirmados.
+- 16 arquivos de código/testes instalados com hashes e backups. Suíte focada instalada: 51 checks backend passaram (exit_code=0); frontend17, TypeScript74, mypy11 e Ruff passaram. Suíte completa do projeto não foi executada.
 - Corrigido PID Windows falso-ativo: pid_alive consulta GetExitCodeProcess/STILL_ACTIVE; regressão com subprocesso encerrado passou. Correções do lote: switch TikTok remonta após toggle; editor anterior só é descartado se corresponder a registro inativo próprio, sem excluir posts; Meta usa legenda completa do checkbox e busca nativa, não título abreviado. Readbacks ampliados para listas virtualizadas.
 - Usuário autorizou converter apenas Stories longos recusados pelo Meta em Reels, preservando bytes/horário. Implementado em dispatch._publish; não corta mídia nem bypassa gates. 07694f convertido e depois recusado por existing_source_frame; permanece bloqueado. Stories aceitos continuam Stories, com receipt própria.
-- API/Next/PostgreSQL/Redis ativos. Preparador nativo existente em background PID32676, alive=True; somente uploads antecipados, sem publicação por horário local. 132 elegíveis disponíveis; 193 reservas/falhas ainda sem confirmação; 0 marcadores worker ativos. Quota YouTube observada até15/10 11:52:55 São Paulo; fonte/review indisponíveis continuam recusados.
+- API/Next/PostgreSQL/Redis ativos. Preparador nativo existente em background PID46568, alive=True; somente uploads antecipados, sem publicação por horário local. 90 elegíveis disponíveis; 159 reservas/falhas ainda sem confirmação; 0 marcadores worker ativos. Quota YouTube observada até15/10 11:52:55 São Paulo; fonte/review indisponíveis continuam recusados.
 - Próximos: observar o escoamento via queue_state.py; investigar falhas sem replay cego; confirmar limites/recibos restantes e atualizar relatório. Não afirmar todos salvos enquanto houver reservas. Instruções de publicação due-time e PIDs abaixo são históricos supersedidos.
 
 ## Histórico:
+
+# Esteira TLC de capacidades — 2026-10-14
+Entry point: quality/README.md; .notebook/capability-ci.md
+- Implementação/gates completos:305 skills/308 descoberta/94TLC, catalog/distribution/hash/syntax PASS e42 testes adversariais/protocolo. Checkout Git exato e CI Linux PASS; baseline anterior tinha441 erros de hash e3 helpers sem modo executável. AGENTS.md preservado.
+- User escolheu incorporação automática: novos pacotes e updates de auto-imports sem alterações locais, depois de candidato isolado e gates; publisher separado apenas para paths permitidos, push normal. Diariamente09:23UTC; regras desconhecidas/erro de rede bloqueiam atualização. TLC consultado7f93bf3b; demo/tlc-prd incorporados e mapa histórico antes órfão registrado.
+- Inventário real:1adaptador KingHost com self-test,3pacotes MCP em quarentena,0LSP instalados. Não afirmar conformidade de protocolos desses pacotes nem eficácia de305 skills em produção.
+- Publicado/integrado6734c51c: CI38654364112 terminal success. CI inicial38650490307 e manutenção manual38650523248 também success; o bot publicou d81f3de6 atualizando a observação TLC6e7a50e7. Essa mudança remota foi integrada por merge normal antes do push corretivo, mantendo3 modos executáveis100755. Sem pendência da esteira solicitada; monitor diário bloqueia novidades incompatíveis ou falhas de fonte. Missões de aplicações abaixo permanecem independentes.
 
 ## Histórico:
 
@@ -30,19 +30,7 @@ Entry point: .notebook/PROGRESS.md:Merge da branch principal
 - Nenhum add/commit/reset/checkout/push feito por esta missão. Índice mudou por atividade externa durante a inspeção; arquivos preparados devem ser revisados pelo responsável antes de qualquer commit. Verificações amplas de fixtures tiveram restrições de acesso; não inferir checkout limpo.
 - Sem pendência do merge. Missão de agendamento abaixo permanece independente.
 
-# Handoff ativo: agendamento obrigatório nos Studios
-Updated: 2026-10-14
-Entry point: E:/Github/ai-assistent-universal-coder/.work/studio-scheduling/PROGRESS.md
-
-- Usuário exige salvamento antecipado dentro dos Studios. Reservas locais não são agendamentos confirmados. Fallback worker/imediato removido; 112 marcadores ativos retirados; histórico preservado.
-- 78 Stories TikTok convertidos em vídeos normais por autorização. Usuário autorizou desligar somente a verificação simples opcional do Studio; direitos autorais e gates do dark-videos continuam obrigatórios.
-- Recibos reais: YouTube CXbOhtFIAc4, 15/10/2026 18h São Paulo, timestamp1792098000; Meta Reel2217587485455644, 22/10/2026 18h, ID/conta/legenda/calendário conferidos. Não afirmar os demais agendados.
-- 16 arquivos de código/testes instalados com hash guard e backups. Contratos e controles Chromium verificados; teste recente17 passou, mypy11/Ruff passaram. Suíte combinada e pilotos atuais ainda em andamento; frontend17/TypeScript74 passaram anteriormente.
-- TikTok: corrigida seleção de data/hora, legenda e seletor da verificação simples. Novas recusas reais de fonte/review permanecem bloqueadas. Story Meta: aviso de cookies corrigido; recibo próprio ainda pendente, helper falha fechado se não comprovado. Nunca repetir save incerto sem inspeção nativa.
-- API/Next/PostgreSQL/Redis ativos; antigo PID35980 morto. Novo publicador em background ainda não iniciado. Quota YouTube e disponibilidade de revisão de fonte devem ser lidas do banco atual.
-- Próximos: provar TikTok e Story com ID/data/hora; recuperar fila elegível pelo dispatch corrigido; verificar contagens e atualizar relatório. Publicação por horário local e PIDs abaixo são históricos supersedidos.
-
-## Histórico: publish approved YouTube videos now
+ publish approved YouTube videos now
 Updated:2026-10-13
 Entry point: E:/Github/ai-assistent-universal-coder/.work/youtube-publish-now/RESULTADO.md
 

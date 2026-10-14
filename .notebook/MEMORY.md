@@ -1,6 +1,6 @@
 # MEMORY
 
-Updated: 2026-10-13
+Updated: 2026-10-14
 
 ## Active memory
 
@@ -14,7 +14,7 @@ Updated: 2026-10-13
 
 ### Canonical TLC instruction discovery
 - Status: active instruction catalog; external runtime availability is not inferred.
-- Fact: `00_skills/(category)/slug/` holds305 active instruction packages and308 native canonical/alias pointers. The original92 TLC snapshots retain source6df68d52; demo and tlc-prd bring source coverage to94 with per-package commits. Current TLC controls were verified at7f93bf3b15b3af417929781dbf9a3950ace7c144. Impeccable4.1.1 remains5a149f3f. SKILL.md retains the100-line physical cap; source resources retain attribution and canonical LF digests, with historical acquired_sha256 where applicable.
+- Fact: `00_skills/(category)/slug/` holds305 active instruction packages and308 native canonical/alias pointers. The original92 TLC snapshots retain source6df68d52; demo and tlc-prd bring source coverage to94 with per-package commits. Latest recognized TLC control commit is tracked in quality/tlc-upstream.json by the daily monitor, not frozen in memory. Impeccable4.1.1 remains5a149f3f. SKILL.md retains the100-line physical cap; source resources retain attribution, canonical LF digests and executable flags, with historical acquired_sha256 where applicable.
 - Evidence: `00_skills/catalog.json`, `00_skills/upstream.manifest.json`, `quality/tlc-upstream.json`; entrypoints `capability-ci.md`, `tlc-skills.md`. Photo verification is the historical302-package snapshot.
 - Decision: preserve external deletions; never restore removed AEOS runtime/configuration from stale notes. Existing skill instructions remain usable subject to actual prerequisite checks.
 - Updated: 2026-10-13

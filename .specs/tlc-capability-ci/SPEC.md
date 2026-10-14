@@ -22,8 +22,8 @@ Substituir a esteira dependente de runtime removido por gates reais do checkout 
 - [x] MCPs inventariados com estados reais:1adaptador self-test offline,3quarentenas explícitas. Contrato/protocolo ativo testado com servidor controlado; não alegar conformidade dos legados.
 - [x] LSPs:0instalados; contratos ativos e handshakes controlados aprovados, linguagem inválida/configuração sem registro rejeitadas.
 - [x] Monitor consulta fonte oficial atual, importa novas e atualiza auto-imports intactos; observou mudança real de tlc-prd para7f93bf3b e validou10 arquivos antes de aplicar. No-op e falha de candidato não alteram checkout. Regra desconhecida bloqueia lote.
-- [x]41 testes adversariais/protocolo e publicação em remoto Git isolado; catálogo305/832 entradas/2874links/sintaxe83Python/142JS passam no checkout exato Git.
-- [x] CI inicial ad7a0d0a e manutenção manual terminais success (runs38650490307/38650523248), sem contornar proteção ou enfraquecer gates. Correção final de3 modos executáveis exige nova evidência latestSHA.
+- [x]42 testes adversariais/protocolo/modos executáveis e publicação em remoto Git isolado; catálogo305/832 entradas/2874links/sintaxe83Python/142JS passam no checkout exato Git.
+- [x] CI inicial e manutenção manual success (38650490307/38650523248); publicação automática d81f3de6 comprovada, integrada com correção por merge normal. CI final6734c51c/run38654364112 terminal success, sem contornar proteção ou enfraquecer gates.
 
 ## Riscos e compensação
 
