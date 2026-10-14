@@ -1,0 +1,15 @@
+skill: perf-lighthouse
+owner_agent: codenavi-agent
+version: 1.0.0
+source: perf-lighthouse
+read:
+  - repository.files
+mutate_with_policy:
+  - performance.budget.write
+mutate_with_explicit_approval:
+  - git.commit
+  - ci.workflow.mutate
+  - npm.package.add
+permanently_denied:
+  - agent.identity.create
+  - metrics.invent_scores

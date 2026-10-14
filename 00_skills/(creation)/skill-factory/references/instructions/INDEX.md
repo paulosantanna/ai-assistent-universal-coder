@@ -1,0 +1,30 @@
+# Ordered instruction modules
+
+- 1. [Purpose and contract](01-purpose-and-contract.md) — before acting on this contract.
+- 2. [1. Identity](02-1-identity.md) — before acting on this contract.
+- 3. [2. Mission](03-2-mission.md) — before acting on this contract.
+- 4. [3. Mandatory activation rule](04-3-mandatory-activation-rule.md) — before acting on this contract.
+- 5. [Activation](05-activation.md) — when this domain or mode is in scope.
+- 6. [Non-activation](06-non-activation.md) — when this domain or mode is in scope.
+- 7. [Scope](07-scope.md) — before acting on this contract.
+- 8. [Inputs](08-inputs.md) — before acting on this contract.
+- 9. [Outputs](09-outputs.md) — before acting on this contract.
+- 10. [Workflow](10-workflow.md) — at this step of execution.
+- 11. [Evidence](11-evidence.md) — when this domain or mode is in scope.
+- 12. [Prompt Contract](12-prompt-contract.md) — before acting on this contract.
+- 13. [Stop conditions](13-stop-conditions.md) — when an input, tool or check fails.
+- 14. [4. Intent classification](14-4-intent-classification.md) — when this domain or mode is in scope.
+- 15. [5. Architecture decision](15-5-architecture-decision.md) — when this domain or mode is in scope.
+- 16. [6. Mandatory skill design sequence](16-6-mandatory-skill-design-sequence.md) — at this step of execution.
+- 17. [7. Perfect skill structure](17-7-perfect-skill-structure.md) — when this domain or mode is in scope.
+- 18. [8. What to do](18-8-what-to-do.md) — when this domain or mode is in scope.
+- 19. [9. What not to do](19-9-what-not-to-do.md) — when this domain or mode is in scope.
+- 20. [10. Perfect structure example](20-10-perfect-structure-example.md) — when choosing an output or matching a use case.
+- 21. [11. Structure that must not be followed](21-11-structure-that-must-not-be-followed.md) — when this domain or mode is in scope.
+- 22. [12. Generated skill contract](22-12-generated-skill-contract.md) — before acting on this contract.
+- 23. [13. Skill generation workflow](23-13-skill-generation-workflow.md) — at this step of execution.
+- 24. [14. Learning module sequence](24-14-learning-module-sequence.md) — when reading or promoting continuity knowledge.
+- 25. [15. Human approval](25-15-human-approval.md) — when this domain or mode is in scope.
+- 26. [16. Validation](26-16-validation.md) — before claiming completion.
+- 27. [17. Completion statuses](27-17-completion-statuses.md) — before claiming completion.
+- 28. [18. Version](28-18-version.md) — when this domain or mode is in scope.

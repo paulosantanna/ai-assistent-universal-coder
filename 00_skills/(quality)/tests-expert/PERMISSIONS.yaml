@@ -1,0 +1,18 @@
+skill: tests-expert
+owner_agent: codenavi-agent
+version: 1.0.0
+read:
+  - repository.files
+  - user.request
+mutate_with_policy:
+  - application.local_test.run
+  - evidence.tests-expert.write
+  - notebook.handoff.pointer
+mutate_with_explicit_approval:
+  - git.commit
+permanently_denied:
+  - agent.identity.create
+  - test.oracle.from_implementation
+  - test.expectation.weaken
+  - production.mutate
+  - secret.persist

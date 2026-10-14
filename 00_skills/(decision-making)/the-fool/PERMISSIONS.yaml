@@ -1,0 +1,11 @@
+skill: the-fool
+owner_agent: codenavi-agent
+version: 2.0.0
+source: the-fool@2.0.0
+read:
+  - repository.files
+  - notebook.continuity
+mutate_with_policy:
+  - notebook.progress.write
+permanently_denied:
+  - agent.identity.create

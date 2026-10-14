@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Quality-Judge Score Report",
+  "description": "Schema for recursive evaluation score report from Quality-Judge subagent",
+  "type": "object",
+  "required": [
+    "execution_id", "iteration", "score", "max_score",
+    "deterministic_gates", "score_items", "gaps", "verdict"
+  ],
+  "properties": {
+    "execution_id": { "type": "string" },
+    "iteration": { "type": "integer", "minimum": 1 },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "score": { "type": "number", "minimum": 0.0, "maximum": 10.0 },
+    "max_score": { "type": "number", "const": 10.0 },
+    "deterministic_gates": {
+      "type": "object",
+      "required": ["G1", "G2", "G3", "G4", "G5", "G6", "G7"],
+      "properties": {
+        "G1": { "type": "string", "enum": ["pass", "fail"], "description": "pytest all tests pass" },
+        "G2": { "type": "string", "enum": ["pass", "fail"], "description": "pip-audit no critical/high CVEs" },
+        "G3": { "type": "string", "enum": ["pass", "fail"], "description": "bandit no CRITICAL/HIGH" },
+        "G4": { "type": "string", "enum": ["pass", "fail"], "description": "ruff no lint errors" },
+        "G5": { "type": "string", "enum": ["pass", "fail"], "description": "mypy no type errors" },
+        "G6": { "type": "string", "enum": ["pass", "fail"], "description": "SHA-256 rollback snapshot exists" },
+        "G7": { "type": "string", "enum": ["pass", "fail"], "description": "diff within authorized scope" }
+      }
+    },
+    "score_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["criterion", "score", "max", "evidence"],
+        "properties": {
+          "criterion": { "type": "string" },
+          "score": { "type": "number", "minimum": 0 },
+          "max": { "type": "number", "minimum": 0 },
+          "evidence": { "type": "string", "minLength": 10 },
+          "na": { "type": "boolean", "description": "true if criterion not applicable" }
+        }
+      },
+      "minItems": 7,
+      "maxItems": 9
+    },
+    "gaps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["description", "severity"],
+        "properties": {
+          "description": { "type": "string", "minLength": 10 },
+          "severity": { "type": "string", "enum": ["critical", "high", "medium", "low"] },
+          "criterion_ref": { "type": "string" },
+          "recommendation": { "type": "string" },
+          "found_in_iteration": { "type": "integer" }
+        }
+      }
+    },
+    "verdict": {
+      "type": "string",
+      "enum": ["COMPLETED", "REWORK_REQUIRED", "MAX_RECURSION_REACHED", "FAILED_VERIFICATION"]
+    }
+  }
+}

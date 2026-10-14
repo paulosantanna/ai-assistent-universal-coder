@@ -1,0 +1,1831 @@
+skills:
+- id: adr-decision-writer
+  path: 00_skills/(development)/adr-decision-writer/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Generate ADRs based only on inspected evidence. Use when the user requests adr decision writer or invokes adr-decision-writer. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: ai-architecture-expert
+  path: 00_skills/(architecture)/ai-architecture-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Design a production AI architecture from zero or reconstruct an existing one using evidence, evals and explicit trade-offs. Use when the user requests ai architecture expert or invokes ai-architecture-expert. Do NOT use for an unrelated implementation change or deployment execution.
+  capabilities: []
+- id: ai-continuous-training-maintainer
+  path: 00_skills/(development)/ai-continuous-training-maintainer/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: 'Manter o pipeline de treino contínuo de IA em `E:/GitHub/aidiabetic-research/src/` sempre: 1. Atualizado com **melhores práticas** de engenharia de ML (SOLID, OWASP, OWASP AI) 2. **Livre de CVEs conhecidas** (rastreamento de múltiplas fontes: NVD, GitHub Advisories, OSV, PyPA, etc.) 3. **Auditado por SAST/Trivy** com correção de achados críticos e altos 4. Com **dependências atualizadas** sem quebrar compatibilidade 5. **Sem regressões** — alterações graduais, testadas e com rollback 6. Com **co Use when the user requests ai continuous training maintainer or invokes ai-continuous-training-maintainer. Do NOT use for unrelated languages, domains or production deployment.'
+  capabilities: []
+- id: ai-engineering-expert
+  path: 00_skills/(development)/ai-engineering-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Build or refactor production AI systems end-to-end from requirements to monitored deployment. Use when the user requests ai engineering expert or invokes ai-engineering-expert. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: ai-evals-expert
+  path: 00_skills/(quality)/ai-evals-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Turn AI quality claims into reproducible evaluation evidence. Use when the user requests ai evals expert or invokes ai-evals-expert. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+  capabilities: []
+- id: ai-project-bootstrapper
+  path: 00_skills/(creation)/ai-project-bootstrapper/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Implement a real AI project from zero or reconstruct an existing project step-by-step using the specialist skill pack. Use when the user requests ai project bootstrapper or invokes ai-project-bootstrapper. Do NOT use for ordinary one-off coding or human competency lists.
+  capabilities: []
+- id: ai-seo
+  path: 00_skills/(gtm)/ai-seo/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Assimilated TLC AI SEO skill (1.0.0). Programmatic SEO, competitor-alternative pages, AI Overviews/GEO, keyword strategy and content ops. Triggers: SEO, programmatic SEO, AI Overviews, DataForSEO, keyword strategy, organic traffic. Do not use for application code review or software architecture.'
+  capabilities: []
+- id: angular-20-expert
+  path: 00_skills/(development)/angular-20-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Implement, diagnose and modernize Angular 20 applications without silently introducing behavior from a different Angular major. Use when the user requests angular 20 expert or invokes angular-20-expert. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: anti-hallucination-evaluator
+  path: 00_skills/(quality)/anti-hallucination-evaluator/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Evaluate factual claims against inspected sources and identify unsupported assertions, contradictions and missing evidence. Use when the user requests anti hallucination evaluator or invokes anti-hallucination-evaluator. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+  capabilities: []
+- id: approval-governance-auditor
+  path: 00_skills/(security)/approval-governance-auditor/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Validate approval scope, expiration and audit trail. Use when the user requests approval governance auditor or invokes approval-governance-auditor. Do NOT use outside authorized defensive scope or to expose secret values.
+  capabilities: []
+- id: approval-requester
+  path: 00_skills/(security)/approval-requester/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Determine what approvals are needed for a proposed change, create approval requests, and track approval status. Use when the user requests approval requester or invokes approval-requester. Do NOT use outside authorized defensive scope or to expose secret values.
+  capabilities: []
+- id: architecturally-significant-requirement
+  path: 00_skills/(development)/architecturally-significant-requirement/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Decides whether a requirement, change request or design issue is an Architecturally Significant Requirement (ASR), a requirement with a measurable effect on the architecture and quality of a system, using the seven-criteria ASR Test, then makes it specific and measurable as a quality attribute scenario and hands the decisions it drives to an ADR. Use when the user asks "is this architecturally significant", "ASR", "requisito arquiteturalmente significativo", "does this need an ADR", "architectural drivers", "quality attribute scenario" or "priorize os requisitos que impactam a arquitetura". Do NOT use for writing the ADR itself (use architecture-decision-record), for full feature specification (use spec-driven), or for threat modeling (use security-threat-model).
+  capabilities: []
+- id: architecture-decision-log
+  path: 00_skills/(architecture)/architecture-decision-log/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Maintains the Architecture Decision Log (ADL), the collection of all ADRs of a project: finds the log and its naming convention, assigns the next number, regenerates the index, records status transitions and checks integrity such as duplicate numbers, gaps, broken or circular supersession links and stale proposals. Use when the user says "decision log", "ADR index", "list our ADRs", "which ADRs are superseded", "next ADR number", "log de decisões", "índice de ADRs", "próximo número de ADR" or "quais decisões estão vigentes". Do NOT use for writing the content of a single ADR (use architecture-decision-record), for judging architectural significance (use architecturally-significant-requirement), or for designing an organization-wide knowledge practice (use architecture-knowledge-management).'
+  capabilities: []
+- id: architecture-decision-record
+  path: 00_skills/(architecture)/architecture-decision-record/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Writes, supersedes and reviews one Architecture Decision Record (ADR), the record of a single architectural decision with its context, options, outcome and consequences, in MADR 4.0.0, Nygard or Y-statement format, then lints it. Use when the user says "write an ADR", "document this decision", "record why we chose X", "supersede ADR-0007", "review this ADR", "escreva um ADR", "registre a decisão arquitetural" or "crie um registro de decisão de arquitetura". Do NOT use for indexing or auditing the whole decision log (use architecture-decision-log), for judging whether a requirement is architecturally significant (use architecturally-significant-requirement), for an organization-wide decision practice (use architecture-knowledge-management), for making a still-open choice (use the-jury or technical-design-doc-creator), or for general documentation (use docs-writer).
+  capabilities: []
+- id: architecture-knowledge-management
+  path: 00_skills/(architecture)/architecture-knowledge-management/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Governs Architecture Knowledge Management (AKM) across ASRs, ADRs and the decision log: decides where architectural knowledge lives, audits it for missing, stale, contradictory or unrecorded decisions, assesses the team on the five-level decision adoption model, recovers past decisions from brownfield evidence, and plans review and reuse. Use when the user says "architecture knowledge management", "AKM", "gestão do conhecimento arquitetural", "audit our architecture decisions", "nobody knows why we chose X", "set up an ADR practice", "decision backlog" or "recuperar decisões de um sistema legado". Do NOT use for writing one ADR (use architecture-decision-record), for maintaining the log index (use architecture-decision-log), for triaging one requirement (use architecturally-significant-requirement), or for general project memory curation (use memory-curator).'
+  capabilities: []
+- id: architecture-mapper
+  path: 00_skills/(architecture)/architecture-mapper/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Map architecture based on detected files and explicit evidence. Use when the user requests architecture mapper or invokes architecture-mapper. Do NOT use for an unrelated implementation change or deployment execution.
+  capabilities: []
+- id: atualizar-dependencias
+  path: 00_skills/(development)/atualizar-dependencias/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Update project dependencies with manifest/lockfile compatibility and regression evidence. Use when the user requests atualizar dependencias or invokes atualizar-dependencias. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: automation-orchestrator
+  path: 00_skills/(tooling)/automation-orchestrator/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Design deterministic, idempotent multi-step engineering automations using existing AEOS skills/tools. Use when the user requests automation orchestrator or invokes automation-orchestrator. Do NOT use for unrelated tools or unapproved remote writes.
+  capabilities: []
+- id: web-best-practices
+  path: 00_skills/(quality)/web-best-practices/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Assimilated TLC/web-quality best-practices skill. Apply modern web security, compatibility, and code-quality checks. Triggers: apply best practices, security audit, modernize code, code quality review, check for vulnerabilities. Do not use as the primary skill for accessibility, SEO (ai-seo), or a full multi-area audit.'
+  capabilities: []
+- id: best-practices
+  path: 00_skills/(quality)/web-best-practices/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Assimilated TLC/web-quality best-practices skill. Apply modern web security, compatibility, and code-quality checks. Triggers: apply best practices, security audit, modernize code, code quality review, check for vulnerabilities. Do not use as the primary skill for accessibility, SEO (ai-seo), or a full multi-area audit.'
+  capabilities: []
+- id: blueprint-generator
+  path: 00_skills/(architecture)/blueprint-generator/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Generate an evidence-based project blueprint covering boundaries, components, data, deployment constraints and verification gates. Use when the user requests blueprint generator or invokes blueprint-generator. Do NOT use for an unrelated implementation change or deployment execution.
+  capabilities: []
+- id: bm25-expert
+  path: 00_skills/(development)/bm25-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Design, tune and evaluate lexical retrieval and hybrid BM25 pipelines. Use when the user requests bm25 expert or invokes bm25-expert. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: camel-banking-expert
+  path: 00_skills/(development)/camel-banking-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Analyze and implement Apache Camel integration flows in banking-grade systems with strong reliability, security, traceability and idempotency. Use when the user requests camel banking expert or invokes camel-banking-expert. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: change-trace-auditor
+  path: 00_skills/(quality)/change-trace-auditor/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Audit change manifests and rollback plans so generated or modified files can be reviewed, reproduced and reverted safely. Use when the user requests change trace auditor or invokes change-trace-auditor. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+  capabilities: []
+- id: chromatic-mega-brain
+  path: 00_skills/(learning)/chromatic-mega-brain/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Maintain workspace/category/project memory inheritance with canonical continuity files, evidence-backed promotion and exact next actions. Use when the user says organizar memória, cérebro hierárquico, retomar projeto or atualizar handoff. Do NOT use for repository fleet collection (fleet-mapping), deciding which claims deserve promotion (memory-curator/learning-curator), or unconstrained multi-agent reasoning.
+  capabilities: []
+- id: ci-quality-gate-engineer
+  path: 00_skills/(development)/ci-quality-gate-engineer/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Create CI/CD quality gates for AEOS and target projects. Use when the user requests ci quality gate engineer or invokes ci-quality-gate-engineer. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: code-analyzer
+  path: 00_skills/(mapping)/code-analyzer/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Analyze code structure, impact, and risks for proposed changes. Use when the user requests code analyzer or invokes code-analyzer. Do NOT use to mutate production or invent architecture without source evidence.
+  capabilities: []
+- id: codenavi
+  path: 00_skills/(development)/codenavi/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Your pathfinder for navigating unknown codebases. Investigates with precision, implements surgically, and never assumes — if it doesn't know, it says so. Maintains a .notebook/ knowledge base that grows across sessions, turning every discovery into lasting intelligence. Summons available skills, MCPs, and docs when the mission demands. Use when fixing bugs, implementing features, refactoring, investigating flows, or any development task in unfamiliar territory. Triggers on "fix this", "implement this", "how does this work", "investigate this flow", "help me with this code". Do NOT use for greenfield scaffolding, CI/CD, or infrastructure provisioning.
+  capabilities: []
+- id: coding-guidelines
+  path: 00_skills/(development)/coding-guidelines/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Inspect and apply the target repository coding conventions with source evidence before changing code. Use when the user requests coding guidelines or invokes coding-guidelines. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: compatibility-analyzer
+  path: 00_skills/(development)/compatibility-analyzer/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Analyze dependency compatibility — version conflicts, peer dependency issues, platform constraints, breaking change risk. Use when the user requests compatibility analyzer or invokes compatibility-analyzer. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: compliance-audit-exporter
+  path: 00_skills/(quality)/compliance-audit-exporter/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Export a redacted audit package that maps requested controls to verified evidence and unresolved gaps. Use when the user requests compliance audit exporter or invokes compliance-audit-exporter. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+  capabilities: []
+- id: compliance-evidence-exporter
+  path: 00_skills/(quality)/compliance-evidence-exporter/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Export compliance evidence without leaking secrets. Use when the user requests compliance evidence exporter or invokes compliance-evidence-exporter. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+  capabilities: []
+- id: conflict-detector
+  path: 00_skills/(tooling)/conflict-detector/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Detect read/write/tool/approval/resource conflicts before parallel execution. Use when the user requests conflict detector or invokes conflict-detector. Do NOT use for unrelated tools or unapproved remote writes.
+  capabilities: []
+- id: confluence-assistant
+  path: 00_skills/(development)/confluence-assistant/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Expert in Confluence operations using Atlassian MCP. Use when the user says "search Confluence", "create a Confluence page", "update a page", "find documentation in Confluence", "list spaces", or "add a comment to a page". Do NOT use for Jira issues, general web search, or local file creation.
+  capabilities: []
+- id: context-router
+  path: 00_skills/(learning)/context-router/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Resolve minimal context packets for agents based on task, LCPs and memory rules. Use when the user requests context router or invokes context-router. Do NOT use to promote unverified claims or transient task status into durable memory.
+  capabilities: []
+- id: continuity-bootstrapper
+  path: 00_skills/(learning)/continuity-bootstrapper/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Bootstrap and validate the CodENavi continuity quartet for a workspace without inventing project state. Use when the user requests continuity bootstrapper or invokes continuity-bootstrapper. Do NOT use to promote unverified claims or transient task status into durable memory.
+  capabilities: []
+- id: core-web-vitals
+  path: 00_skills/(performance)/core-web-vitals/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Assimilated TLC/web-quality Core Web Vitals skill. Fix LCP, INP and CLS against current Google thresholds. Triggers: improve Core Web Vitals, fix LCP, reduce CLS, optimize INP, page experience, layout shifts. Do not use for generic bundle/caching work (perf-web-optimization), only running Lighthouse (perf-lighthouse), or Astro-only config (perf-astro).'
+  capabilities: []
+- id: cost-token-optimizer
+  path: 00_skills/(learning)/cost-token-optimizer/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Optimize LLM/tool costs using context minimization and cache policy. Use when the user requests cost token optimizer or invokes cost-token-optimizer. Do NOT use to promote unverified claims or transient task status into durable memory.
+  capabilities: []
+- id: critical-thinking-governor
+  path: 00_skills/(development)/critical-thinking-governor/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Governa toda execução de skills do AEOS com uma seleção limitada e auditável de 20 lentes internas de pensamento crítico. As lentes são especializações da skill e nunca identidades de agent. Use when the user requests critical thinking governor or invokes critical-thinking-governor. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: csharp-expert
+  path: 00_skills/(development)/csharp-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Writes and reviews production C# on the current stable .NET release (C# 14, .NET 10). Use when the user says c#-expert, C#, csharp, .NET, csproj, dotnet, or asks to implement, fix, or review .cs code. Do NOT use for F#, Visual Basic, non-.NET languages, or work that is not C#/.NET source.
+  capabilities: []
+- id: cursor-subagent-creator
+  path: 00_skills/(creation)/cursor-subagent-creator/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Assimilated TLC Cursor work-unit designer. Use when the user asks for a Cursor specialist, isolated-context workflow, verifier, debugger, or auditor. Triggers: cursor internal lenses, cursor agent, isolated work unit. Do not spawn or register another AEOS agent identity. Do not use for a simple one-off skill.'
+  capabilities: []
+- id: dark-videos-pipeline-expert
+  path: 00_skills/(development)/dark-videos-pipeline-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Operate the dark-videos pipeline: mine the last 24h, rank the top 20 with LAYA, frame from the project template, and publish through the existing dispatch. Use when mining, framing, scheduling, or posting shorts in dark-videos. Do not use for a second publisher, cookie export, or posting below the app''s red team.'
+  capabilities: []
+- id: database-architecture-planner
+  path: 00_skills/(architecture)/database-architecture-planner/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Plan database architecture, schema governance, migrations, backup, restore and production safety for any requested database. Use when the user requests database architecture planner or invokes database-architecture-planner. Do NOT use for an unrelated implementation change or deployment execution.
+  capabilities: []
+- id: delegation-auditor
+  path: 00_skills/(tooling)/delegation-auditor/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Validate delegation against policy, scope, capabilities and risk. Use when the user requests delegation auditor or invokes delegation-auditor. Do NOT use for unrelated tools or unapproved remote writes.
+  capabilities: []
+- id: dependency-analyzer
+  path: 00_skills/(development)/dependency-analyzer/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Analyze dependencies, upgrade candidates, compatibility, and risks. Use when the user requests dependency analyzer or invokes dependency-analyzer. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: dependency-updater
+  path: 00_skills/(development)/dependency-updater/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Update dependencies with minimal blast radius and evidence-backed compatibility. Use when the user requests dependency updater or invokes dependency-updater. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: deployment-pipeline-expert
+  path: 00_skills/(cloud)/deployment-pipeline-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Map, diagnose and improve CI/CD/deployment pipelines safely. Use when the user requests deployment pipeline expert or invokes deployment-pipeline-expert. Do NOT use for unrelated application features or unapproved production changes.
+  capabilities: []
+- id: devops-pipeline-engineering
+  path: 00_skills/(cloud)/devops-pipeline-engineering/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Governed DevOps, Git and GitHub Actions lifecycle with recursive CI recovery, per-workflow guardians, merge readiness and bundle handoff. Use when the user requests devops pipeline engineering or invokes devops-pipeline-engineering. Do NOT use for unrelated application features or unapproved production changes.
+  capabilities: []
+- id: diff-reviewer
+  path: 00_skills/(quality)/diff-reviewer/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Review generated diffs/patches for correctness, safety, and alignment with evidence. Use when the user requests diff reviewer or invokes diff-reviewer. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+  capabilities: []
+- id: docker-devcontainer-engineer
+  path: 00_skills/(cloud)/docker-devcontainer-engineer/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Generate devcontainer/Docker artifacts in sandbox. Use when the user requests docker devcontainer engineer or invokes docker-devcontainer-engineer. Do NOT use for unrelated application features or unapproved production changes.
+  capabilities: []
+- id: docs-writer
+  path: 00_skills/(development)/docs-writer/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Write, review, and edit documentation files with consistent structure, tone, and technical accuracy. Use when creating docs, reviewing markdown files, writing READMEs, updating `/docs` directories, or when user says "write documentation", "review this doc", "improve this README", "create a guide", or "edit markdown". Do NOT use for code comments, inline JSDoc, or API reference generation.
+  capabilities: []
+- id: documentation
+  path: 00_skills/(development)/documentation/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Generate evidence-based documentation in sandbox. Use when the user requests documentation or invokes documentation. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: documentation-11-layer-mapper
+  path: 00_skills/(mapping)/documentation-11-layer-mapper/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Generate an 11-layer documentation package that explains what the project does, how it works, why decisions were made, how every endpoint and feature integrates end to end, and what is required to operate it safely. Use when the user requests documentation 11 layer mapper or invokes documentation-11-layer-mapper. Do NOT use to mutate production or invent architecture without source evidence.
+  capabilities: []
+- id: documentation-mapper
+  path: 00_skills/(mapping)/documentation-mapper/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Transform a target project repository into complete, verified, enterprise-grade documentation. Use when the user requests documentation mapper or invokes documentation-mapper. Do NOT use to mutate production or invent architecture without source evidence.
+  capabilities: []
+- id: dynatrace-observability-staff
+  path: 00_skills/(monitoring)/dynatrace-observability-staff/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Deep Staff-level Dynatrace observability analysis for metrics, logs, traces, Davis problems, topology, Kubernetes context, SLOs and cost-safe root-cause evidence. Use when the user requests dynatrace observability staff or invokes dynatrace-observability-staff. Do NOT use to restart, scale or mutate live systems without an authorized operations task.
+  capabilities: []
+- id: enterprise-repo-intelligence
+  path: 00_skills/(mapping)/enterprise-repo-intelligence/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Map large enterprise repositories with performance budgets and evidence. Use when the user requests enterprise repo intelligence or invokes enterprise-repo-intelligence. Do NOT use to mutate production or invent architecture without source evidence.
+  capabilities: []
+- id: enterprise-security-auditor
+  path: 00_skills/(security)/enterprise-security-auditor/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Audit repository and integration security using observed trust boundaries, configuration and source evidence. Use when the user requests enterprise security auditor or invokes enterprise-security-auditor. Do NOT use outside authorized defensive scope or to expose secret values.
+  capabilities: []
+- id: evaluation-runner
+  path: 00_skills/(quality)/evaluation-runner/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Run an explicitly supplied evaluation suite and report reproducible results, failed cases and missing prerequisites. Use when the user requests evaluation runner or invokes evaluation-runner. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+  capabilities: []
+- id: evidence-cache-auditor
+  path: 00_skills/(development)/evidence-cache-auditor/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Audit evidence cache keys, invalidation, allowed types and stale cache risks. Use when the user requests evidence cache auditor or invokes evidence-cache-auditor. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: evidence-integrity-engineer
+  path: 00_skills/(development)/evidence-integrity-engineer/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Validate manifests, hash chains and tamper resistance. Use when the user requests evidence integrity engineer or invokes evidence-integrity-engineer. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: fable
+  path: 00_skills/(development)/fable/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Standard problem-solving loop (classify ask, define done, gather evidence, decide, act surgically, verify by observation, report outcome-first). Use for non-trivial multi-step tasks, diagnosis, planning, or auditing work. Use when the user requests fable or invokes fable. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: fine-tuning-expert
+  path: 00_skills/(development)/fine-tuning-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Decide whether fine-tuning is justified and implement a governed training pipeline when supported by the selected model/provider. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: fixture-corpus-validator
+  path: 00_skills/(quality)/fixture-corpus-validator/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Validate fixture corpus structure, provenance, integrity and expected-output contracts before evaluation. Use when the user requests fixture corpus validator or invokes fixture-corpus-validator. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+  capabilities: []
+- id: github-operations
+  path: 00_skills/(tooling)/github-operations/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Governed Git and GitHub operations with runtime-only authentication, immutable safety denials, branch/PR/workflow management and Work Bundle integration. Use when the user requests github operations or invokes github-operations. Do NOT use for unrelated tools or unapproved remote writes.
+  capabilities: []
+- id: grafana-observability-staff
+  path: 00_skills/(monitoring)/grafana-observability-staff/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Deep Staff-level Grafana observability analysis for dashboards, Prometheus metrics, Loki logs, Tempo traces, alerts, exemplars, service maps, SLOs and instrumentation quality. Use when the user requests grafana observability staff or invokes grafana-observability-staff. Do NOT use to restart, scale or mutate live systems without an authorized operations task.
+  capabilities: []
+- id: handoff-manager
+  path: 00_skills/(learning)/handoff-manager/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Maintain a concise, executable `.notebook/HANDOFF.md` representing only the last verified operational state. Use when the user requests handoff manager or invokes handoff-manager. Do NOT use to promote unverified claims or transient task status into durable memory.
+  capabilities: []
+- id: incident-commander
+  path: 00_skills/(monitoring)/incident-commander/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Generate incident triage, rollback and postmortem artifacts. Use when the user requests incident commander or invokes incident-commander. Do NOT use to restart, scale or mutate live systems without an authorized operations task.
+  capabilities: []
+- id: incident-response-assistant
+  path: 00_skills/(monitoring)/incident-response-assistant/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Support human-led incident triage, RCA and recovery without replacing production authority. Use when the user requests incident response assistant or invokes incident-response-assistant. Do NOT use to restart, scale or mutate live systems without an authorized operations task.
+  capabilities: []
+- id: java-11-expert
+  path: 00_skills/(development)/java-11-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Build and modernize production Java 11 systems with explicit Java 8→11 compatibility analysis. Use when the user requests java 11 expert or invokes java-11-expert. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: java-17-expert
+  path: 00_skills/(development)/java-17-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Implement and migrate LTS Java 17 applications safely. Use when the user requests java 17 expert or invokes java-17-expert. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: java-21-expert
+  path: 00_skills/(development)/java-21-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Design and implement Java 21 production systems and migrations with LTS-aware verification. Use when the user requests java 21 expert or invokes java-21-expert. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: java-25-expert
+  path: 00_skills/(development)/java-25-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Build or migrate production Java 25 projects using only features/APIs verified for the repository toolchain and deployment runtime. Use when the user requests java 25 expert or invokes java-25-expert. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: java-26-expert
+  path: 00_skills/(development)/java-26-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Build or migrate production Java 26 projects with explicit handling of current/preview/incubator status and verified deployment compatibility. Use when the user requests java 26 expert or invokes java-26-expert. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: java-8-expert
+  path: 00_skills/(development)/java-8-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Implement, diagnose and modernize Java 8 systems without silently using APIs or language features introduced later. Use when the user requests java 8 expert or invokes java-8-expert. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: java-bug-solver
+  path: 00_skills/(development)/java-bug-solver/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Analyze Java stack traces, identify root causes, generate fixes, validate corrections and preserve verified lessons learned. Use when the user requests java bug solver or invokes java-bug-solver. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: java-bug-solver-skill
+  path: 00_skills/(development)/java-bug-solver-skill/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Create a Java Bug Solver skill that analyzes stack traces, searches for root causes, generates fixes, validates them and stores lessons learned Use when the user requests java bug solver skill or invokes java-bug-solver-skill. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: java-enterprise-modernizer
+  path: 00_skills/(development)/java-enterprise-modernizer/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Analyze Java/Spring enterprise modernization opportunities safely. Use when the user requests java enterprise modernizer or invokes java-enterprise-modernizer. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: java-expert
+  path: 00_skills/(development)/java-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Implement, diagnose, modernize and migrate real Java projects with version-correct APIs, minimal diffs and evidence-backed verification. Use when the user requests java expert or invokes java-expert. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: java-migration
+  path: 00_skills/(development)/java-migration/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Analyze Java projects and perform version migrations, API replacements, and build configuration updates. Use when the user requests java migration or invokes java-migration. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: java-version-expert
+  path: 00_skills/(development)/java-version-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Route Java work to the exact verified JDK profile without loading unrelated version knowledge. Use when the user requests java version expert or invokes java-version-expert. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: javascript-expert
+  path: 00_skills/(development)/javascript-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Implement, diagnose and modernize JavaScript projects with exact runtime/module-system/browser compatibility and repository-native patterns. Use when the user requests javascript expert or invokes javascript-expert. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: jev-call-expert
+  path: 00_skills/(development)/jev-call-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Design, implement, review, and test confidence-aware function calling with TypeSafe Jev, typed tool signatures, Choice and Noul questions, speculative fan-out, and code-owned execution policy. Use when the user asks for Jev tool calling, TypeSafe function routing, natural-language dispatch into typed functions, or repair of a Jev dispatcher. Do NOT use for generic LLM tool calling that does not use TypeSafe, open-ended text generation, or direct execution of untrusted or unapproved actions.
+  capabilities: []
+- id: jira-assistant
+  path: 00_skills/(development)/jira-assistant/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Manage Jira issues via Atlassian MCP — search, create, update, transition status, and handle sprint tasks. Auto-detects workspace configuration. Use when user says "create a Jira ticket", "update my sprint", "check Jira status", "transition this issue", "search Jira", or "move ticket to done". Do NOT use for Confluence pages (use confluence-assistant).
+  capabilities: []
+- id: jira-confluence-assistant
+  path: 00_skills/(development)/jira-confluence-assistant/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Read, analyze and prepare governed Jira/Confluence work while preserving traceability between requirement, code, evidence and documentation. Use when the user requests jira confluence assistant or invokes jira-confluence-assistant. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: jira-time-entry-assistant
+  path: 00_skills/(development)/jira-time-entry-assistant/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Prepare auditable Jira worklog/time-entry proposals from actual task evidence. Use when the user requests jira time entry assistant or invokes jira-time-entry-assistant. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: judge-benchmark-runner
+  path: 00_skills/(quality)/judge-benchmark-runner/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Benchmark a deterministic Judge gate against a supplied corpus and fixed thresholds without creating a Judge agent. Use when the user requests judge benchmark runner or invokes judge-benchmark-runner. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+  capabilities: []
+- id: kinghost-backup-recovery-expert
+  path: 00_skills/(cloud)/kinghost-backup-recovery-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Governed KingHost backup and recovery skill for sites/FTP, databases and email with rollback-safe restore verification. Use when the user requests kinghost backup recovery expert or invokes kinghost-backup-recovery-expert. Do NOT use for unrelated application features or unapproved production changes.
+  capabilities: []
+- id: kinghost-clone-site-expert
+  path: 00_skills/(cloud)/kinghost-clone-site-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Governed KingHost full-site clone skill that acquires an integrity-verified FTP copy without mutating the remote origin and without silently losing files. Use when the user requests kinghost clone site expert or invokes kinghost-clone-site-expert. Do NOT use for unrelated application features or unapproved production changes.
+  capabilities: []
+- id: kinghost-database-expert
+  path: 00_skills/(architecture)/kinghost-database-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Governed KingHost MySQL/database engineering skill for creation, access, backup, query analysis, migration and recovery. Use when the user requests kinghost database expert or invokes kinghost-database-expert. Do NOT use for an unrelated implementation change or deployment execution.
+  capabilities: []
+- id: kinghost-domain-dns-ssl-expert
+  path: 00_skills/(cloud)/kinghost-domain-dns-ssl-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Governed KingHost domain, subdomain, DNS and SSL operations with snapshot, rollback and propagation verification. Use when the user requests kinghost domain dns ssl expert or invokes kinghost-domain-dns-ssl-expert. Do NOT use for unrelated application features or unapproved production changes.
+  capabilities: []
+- id: kinghost-email-expert
+  path: 00_skills/(cloud)/kinghost-email-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Governed KingHost email operations for mailbox creation, DNS/MX alignment, Webmail/client setup and recovery without exposing secrets. Use when the user requests kinghost email expert or invokes kinghost-email-expert. Do NOT use for unrelated application features or unapproved production changes.
+  capabilities: []
+- id: kinghost-expert
+  path: 00_skills/(cloud)/kinghost-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: 'Super-skill for complete KingHost Hospedagem operations: panel auth, domains/DNS/SSL, absolute FTP-visible site clone, governed FTP/SSH/Git publish, WordPress/PHP/MySQL, backups, email, antivirus/WAF, cache/performance and rollback-safe production changes. Use when the user requests kinghost expert or invokes kinghost-expert. Do NOT use for unrelated application features or unapproved production changes.'
+  capabilities: []
+- id: kinghost-performance-expert
+  path: 00_skills/(cloud)/kinghost-performance-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Measurement-driven KingHost performance skill for resource consumption, Varnish/cache, PHP runtime, PageSpeed and application/database optimization. Use when the user requests kinghost performance expert or invokes kinghost-performance-expert. Do NOT use for unrelated application features or unapproved production changes.
+  capabilities: []
+- id: kinghost-security-expert
+  path: 00_skills/(security)/kinghost-security-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: KingHost hosting security skill for antivirus/malware scanning, quarantine review, WAF, SSL and post-incident verification. Use when the user requests kinghost security expert or invokes kinghost-security-expert. Do NOT use outside authorized defensive scope or to expose secret values.
+  capabilities: []
+- id: kinghost-site-publish-ftp-expert
+  path: 00_skills/(cloud)/kinghost-site-publish-ftp-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Governed KingHost PHP/WordPress FTP publishing skill with bounded diffs, backup, approval, rollback and post-deploy verification. Use when the user requests kinghost site publish ftp expert or invokes kinghost-site-publish-ftp-expert. Do NOT use for unrelated application features or unapproved production changes.
+  capabilities: []
+- id: kotlin-expert
+  path: 00_skills/(development)/kotlin-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Design and implement Kotlin production systems and migrations against the current stable Kotlin release, with version-aware verification. Use when the user requests kotlin expert or invokes kotlin-expert. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: kubernetes-code-context-mapper
+  path: 00_skills/(cloud)/kubernetes-code-context-mapper/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Map Kubernetes pods, workloads, services, labels, metrics, logs and deployment metadata back to repository code, owners, tests and remediation boundaries. Use when the user requests kubernetes code context mapper or invokes kubernetes-code-context-mapper. Do NOT use for unrelated application features or unapproved production changes.
+  capabilities: []
+- id: kubernetes-observability-staff
+  path: 00_skills/(monitoring)/kubernetes-observability-staff/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Deep Staff-level Kubernetes observability analysis for cluster health, workloads, events, metrics, logs, probes, scheduling, resources, networking and control-plane signals. Use when the user requests kubernetes observability staff or invokes kubernetes-observability-staff. Do NOT use to restart, scale or mutate live systems without an authorized operations task.
+  capabilities: []
+- id: learning-curator
+  path: 00_skills/(learning)/learning-curator/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Promote verified, reusable engineering lessons into `.notebook/LEARNING.md`. Use when the user requests learning curator or invokes learning-curator. Do NOT use to promote unverified claims or transient task status into durable memory.
+  capabilities: []
+- id: learning-opportunities
+  path: 00_skills/(learning)/learning-opportunities/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Identify reusable lessons, durable facts, promotion candidates, ADRs or new skills from finished work. Use for o que aprendemos aqui, isso vale uma lição, isso merece virar skill, o que promovo or balanço da sessão. Do NOT use for writing or verify the continuity quartet (chromatic-mega-brain), build the identified skill (skill-architect), write the ADR (create-adr), or challenge a future decision (the-fool).
+  capabilities: []
+- id: legacy-risk-mapper
+  path: 00_skills/(architecture)/legacy-risk-mapper/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Map legacy risks, modernization blockers and migration strategy. Use when the user requests legacy risk mapper or invokes legacy-risk-mapper. Do NOT use for an unrelated implementation change or deployment execution.
+  capabilities: []
+- id: llm-calibration-temperature-expert
+  path: 00_skills/(development)/llm-calibration-temperature-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Engineer and evaluate decoding/calibration behavior for LLM applications instead of treating temperature as a magic quality knob. Use when the user requests llm calibration temperature expert or invokes llm-calibration-temperature-expert. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: llm-model-selection-expert
+  path: 00_skills/(development)/llm-model-selection-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Select the best current model/model-family for a concrete workload using live authoritative capability information plus project evals. Use when the user requests llm model selection expert or invokes llm-model-selection-expert. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: local-secret-vault
+  path: 00_skills/(security)/local-secret-vault/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Read authorized local credential vaults safely and expose only masked metadata or ephemeral secret references to governed tools. Use when the user requests local secret vault or invokes local-secret-vault. Do NOT use outside authorized defensive scope or to expose secret values.
+  capabilities: []
+- id: lora-qlora-dora-expert
+  path: 00_skills/(development)/lora-qlora-dora-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Implement parameter-efficient fine-tuning for supported open-weight models with reproducible experiments. Use when the user requests lora qlora dora expert or invokes lora-qlora-dora-expert. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: marketplace-curator
+  path: 00_skills/(tooling)/marketplace-curator/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Curate reusable capability listings by verified provenance, licensing, scope, compatibility and resource completeness. Use when the user requests marketplace curator or invokes marketplace-curator. Do NOT use for unrelated tools or unapproved remote writes.
+  capabilities: []
+- id: mcp-discovery
+  path: 00_skills/(tooling)/mcp-discovery/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Discover and validate MCP tools and capabilities against AEOS policies. Use when the user requests mcp discovery or invokes mcp-discovery. Do NOT use for unrelated tools or unapproved remote writes.
+  capabilities: []
+- id: mcp-health-check
+  path: 00_skills/(tooling)/mcp-health-check/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Validate MCP runtime health, state, tools, capabilities and security posture. Use when the user requests mcp health check or invokes mcp-health-check. Do NOT use for unrelated tools or unapproved remote writes.
+  capabilities: []
+- id: mcp-poisoning-evaluator
+  path: 00_skills/(security)/mcp-poisoning-evaluator/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Evaluate MCP descriptions and responses for instruction injection, tool poisoning and authority escalation within defensive scope. Use when the user requests mcp poisoning evaluator or invokes mcp-poisoning-evaluator. Do NOT use outside authorized defensive scope or to expose secret values.
+  capabilities: []
+- id: mcp-risk-controller
+  path: 00_skills/(tooling)/mcp-risk-controller/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Audit MCPs, tool descriptions, capabilities and poisoning risks. Use when the user requests mcp risk controller or invokes mcp-risk-controller. Do NOT use for unrelated tools or unapproved remote writes.
+  capabilities: []
+- id: memory-curator
+  path: 00_skills/(learning)/memory-curator/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Curate durable, evidence-backed project memory in `.notebook/MEMORY.md`. Use when the user requests memory curator or invokes memory-curator. Do NOT use to promote unverified claims or transient task status into durable memory.
+  capabilities: []
+- id: memory-governance-auditor
+  path: 00_skills/(learning)/memory-governance-auditor/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Audit memory reads/writes for evidence, scope and secret safety. Use when the user requests memory governance auditor or invokes memory-governance-auditor. Do NOT use to promote unverified claims or transient task status into durable memory.
+  capabilities: []
+- id: multirepo-ecosystem-mapper
+  path: 00_skills/(mapping)/multirepo-ecosystem-mapper/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Map multi-repo ecosystems, dependencies and ownership boundaries. Use when the user requests multirepo ecosystem mapper or invokes multirepo-ecosystem-mapper. Do NOT use to mutate production or invent architecture without source evidence.
+  capabilities: []
+- id: not-your-babysitter
+  path: 00_skills/(development)/not-your-babysitter/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Assimilated TLC autonomous operator mode (not-your-babysitter 1.0.0). Drive a task to a verified result with evidence-or-stop, three interrupt reasons only, and short literal output. Triggers: not-your-babysitter, nanny mode, work autonomously, stop babysitting, no hand-holding. Do not use for tutorials, verbose walkthroughs, or open-ended brainstorming.'
+  capabilities: []
+- id: notebook-intelligence
+  path: 00_skills/(learning)/notebook-intelligence/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Maintain compact, fresh project intelligence in `.notebook/` using progressive disclosure. Use when the user requests notebook intelligence or invokes notebook-intelligence. Do NOT use to promote unverified claims or transient task status into durable memory.
+  capabilities: []
+- id: nx-workspace
+  path: 00_skills/(tooling)/nx-workspace/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Assimilated TLC Nx workspace skill. Configure, explore and optimize Nx monorepos: project boundaries, affected analysis, caching and CI with affected commands. Triggers: nx, monorepo, workspace, projects, targets, affected. Do not use as the primary skill only to run a task or only to generate code.'
+  capabilities: []
+- id: observability-architect
+  path: 00_skills/(monitoring)/observability-architect/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Design logs, traces, metrics, dashboards and alerting. Use when the user requests observability architect or invokes observability-architect. Do NOT use to restart, scale or mutate live systems without an authorized operations task.
+  capabilities: []
+- id: observability-reporter
+  path: 00_skills/(monitoring)/observability-reporter/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Generate execution timeline, metrics, trace summaries and failure analysis. Use when the user requests observability reporter or invokes observability-reporter. Do NOT use to restart, scale or mutate live systems without an authorized operations task.
+  capabilities: []
+- id: observability-root-cause-integrator
+  path: 00_skills/(monitoring)/observability-root-cause-integrator/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Staff-level independent root-cause integrator that consolidates evidence from isolated observability tool analyses and repository code context into a simple, low-impact remediation plan. Use when the user requests observability root cause integrator or invokes observability-root-cause-integrator. Do NOT use to restart, scale or mutate live systems without an authorized operations task.
+  capabilities: []
+- id: openshift-observability-staff
+  path: 00_skills/(monitoring)/openshift-observability-staff/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Deep Staff-level OpenShift observability analysis for platform monitoring, user workload monitoring, alerts, logging, operators, routes, builds, cluster health and supported configuration boundaries. Use when the user requests openshift observability staff or invokes openshift-observability-staff. Do NOT use to restart, scale or mutate live systems without an authorized operations task.
+  capabilities: []
+- id: pack-marketplace-auditor
+  path: 00_skills/(tooling)/pack-marketplace-auditor/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Audit local pack marketplace quarantine, staging, active packs and trust policy. Use when the user requests pack marketplace auditor or invokes pack-marketplace-auditor. Do NOT use for unrelated tools or unapproved remote writes.
+  capabilities: []
+- id: package-trust-engineer
+  path: 00_skills/(security)/package-trust-engineer/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Verify packages, manifests, quarantine and promotion. Use when the user requests package trust engineer or invokes package-trust-engineer. Do NOT use outside authorized defensive scope or to expose secret values.
+  capabilities: []
+- id: packaging
+  path: 00_skills/(tooling)/packaging/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Create, inspect, and verify AEOS packages with manifests and checksums. Use when the user requests packaging or invokes packaging. Do NOT use for unrelated tools or unapproved remote writes.
+  capabilities: []
+- id: parallel-scheduler
+  path: 00_skills/(tooling)/parallel-scheduler/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Create deterministic safe schedules for playbook tasks using dependency graph and read/write sets. Use when the user requests parallel scheduler or invokes parallel-scheduler. Do NOT use for unrelated tools or unapproved remote writes.
+  capabilities: []
+- id: patch-planner
+  path: 00_skills/(development)/patch-planner/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Generate patch proposals and rollback plans without applying them. Use when the user requests patch planner or invokes patch-planner. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: perf-astro
+  path: 00_skills/(performance)/perf-astro/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Assimilated TLC Astro performance skill. Optimize Astro sites for Lighthouse: critical CSS, compression, fonts, LCP. Triggers: Astro performance, Astro Lighthouse, astro-critters, optimize Astro. Do not use for non-Astro sites or as the only skill to run a Lighthouse audit.'
+  capabilities: []
+- id: perf-lighthouse
+  path: 00_skills/(performance)/perf-lighthouse/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Assimilated TLC Lighthouse audit skill. Run Lighthouse via CLI or Node, parse reports, set performance budgets. Triggers: lighthouse, run lighthouse, lighthouse score, performance audit, performance budget. Do not use to implement CWV or generic speed fixes (core-web-vitals, perf-web-optimization) or Astro-only config (perf-astro).'
+  capabilities: []
+- id: perf-web-optimization
+  path: 00_skills/(performance)/perf-web-optimization/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Assimilated TLC web performance skill. Measure, then cut bundle size, images, caching, lazy loading and page speed. Triggers: web performance, bundle size, page speed, slow site, lazy loading. Do not use for CWV-only metric work (core-web-vitals), only running Lighthouse (perf-lighthouse), or Astro-only config (perf-astro).'
+  capabilities: []
+- id: performance-optimizer
+  path: 00_skills/(performance)/performance-optimizer/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Measure, classify and improve AEOS hot paths across registry loading, skill execution, evidence writing, repository scanning, LSP indexing and TypeScript runtime execution. Use when the user requests performance optimizer or invokes performance-optimizer. Do NOT use for unrelated functionality or unmeasured speculative optimization.
+  capabilities: []
+- id: performance-profiler
+  path: 00_skills/(performance)/performance-profiler/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Profile AEOS executions, repo scans, hashing, package verification and Judge runtime. Use when the user requests performance profiler or invokes performance-profiler. Do NOT use for unrelated functionality or unmeasured speculative optimization.
+  capabilities: []
+- id: playbook-factory-generator
+  path: 00_skills/(creation)/playbook-factory-generator/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Generate a reviewable playbook with explicit step contracts, dependencies, resources and verification gates. Use when the user requests playbook factory generator or invokes playbook-factory-generator. Do NOT use for ordinary one-off coding or human competency lists.
+  capabilities: []
+- id: playbook-optimizer
+  path: 00_skills/(creation)/playbook-optimizer/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Optimize playbooks for execution time, safety and evidence quality. Use when the user requests playbook optimizer or invokes playbook-optimizer. Do NOT use for ordinary one-off coding or human competency lists.
+  capabilities: []
+- id: policy-bypass-evaluator
+  path: 00_skills/(security)/policy-bypass-evaluator/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Evaluate whether explicit policy boundaries reject bypass scenarios without weakening permissions or acceptance criteria. Use when the user requests policy bypass evaluator or invokes policy-bypass-evaluator. Do NOT use outside authorized defensive scope or to expose secret values.
+  capabilities: []
+- id: policy-hardening-auditor
+  path: 00_skills/(security)/policy-hardening-auditor/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Audit whether policies cover critical unsafe paths and fail closed. Use when the user requests policy hardening auditor or invokes policy-hardening-auditor. Do NOT use outside authorized defensive scope or to expose secret values.
+  capabilities: []
+- id: pr-comment-resolver
+  path: 00_skills/(development)/pr-comment-resolver/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Resolve pull-request review comments systematically without blindly obeying incorrect feedback. Use when the user requests pr comment resolver or invokes pr-comment-resolver. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: pr-reviewer
+  path: 00_skills/(development)/pr-reviewer/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Review pull requests as an independent evidence-based reviewer. Use when the user requests pr reviewer or invokes pr-reviewer. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: pr-reviewer-advanced
+  path: 00_skills/(development)/pr-reviewer-advanced/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Perform severity-ranked, evidence-backed PR review. Use when the user requests pr reviewer advanced or invokes pr-reviewer-advanced. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: production-deployment-planner
+  path: 00_skills/(cloud)/production-deployment-planner/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Plan production packaging, CI/CD, deployment, observability, rollback and operational readiness for any architecture. Use when the user requests production deployment planner or invokes production-deployment-planner. Do NOT use for unrelated application features or unapproved production changes.
+  capabilities: []
+- id: progress-tracker
+  path: 00_skills/(learning)/progress-tracker/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Keep `.notebook/PROGRESS.md` as the live, evidence-backed source of truth for the current mission. Use when the user requests progress tracker or invokes progress-tracker. Do NOT use to promote unverified claims or transient task status into durable memory.
+  capabilities: []
+- id: prompt-optimizer
+  path: 00_skills/(tooling)/prompt-optimizer/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Convert vague prompts into bounded, evidence-based task prompts. Use when the user requests prompt optimizer or invokes prompt-optimizer. Do NOT use for unrelated tools or unapproved remote writes.
+  capabilities: []
+- id: python-ai-productionizer
+  path: 00_skills/(development)/python-ai-productionizer/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Analyze Python AI/RAG systems for production readiness. Use when the user requests python ai productionizer or invokes python-ai-productionizer. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: python-bug-solver-skill
+  path: 00_skills/(development)/python-bug-solver-skill/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Create a Python Bug Solver skill that analyzes stack traces, searches for root causes, generates fixes, validates them and stores lessons learned Use when the user requests python bug solver skill or invokes python-bug-solver-skill. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: python-expert
+  path: 00_skills/(development)/python-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Implement, diagnose, test and modernize production Python projects with version-correct APIs and repository-native packaging, typing, async and framework conventions. Python is allowed in this workspace; AEOS kernel/runtime orchestration stays Node/TypeScript unless a later mission changes that surface. Use when the user requests python expert or invokes python-expert. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: python-rag-audit
+  path: 00_skills/(development)/python-rag-audit/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Audit Python RAG (Retrieval-Augmented Generation) pipelines for security, data leakage, prompt injection risks, and production readiness. Use when the user requests python rag audit or invokes python-rag-audit. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: rag-expert
+  path: 00_skills/(development)/rag-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Implement or repair Retrieval-Augmented Generation systems with measurable grounding quality. Use when the user requests rag expert or invokes rag-expert. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: react-expert
+  path: 00_skills/(development)/react-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Implement and refactor production React applications using the exact repository React/runtime/framework version and existing component/state/data-fetching conventions. Use when the user requests react expert or invokes react-expert. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: redaction-evaluator
+  path: 00_skills/(security)/redaction-evaluator/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Evaluate redaction behavior across authorized outputs and identify sensitive-value leakage or excessive data removal. Use when the user requests redaction evaluator or invokes redaction-evaluator. Do NOT use outside authorized defensive scope or to expose secret values.
+  capabilities: []
+- id: release-readiness-judge
+  path: 00_skills/(quality)/release-readiness-judge/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Validate release readiness using deterministic gates. Use when the user requests release readiness judge or invokes release-readiness-judge. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+  capabilities: []
+- id: repo-scanner
+  path: 00_skills/(mapping)/repo-scanner/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Analyze repositories and produce factual ecosystem maps. Use when the user requests repo scanner or invokes repo-scanner. Do NOT use to mutate production or invent architecture without source evidence.
+  capabilities: []
+- id: resolver-comentarios
+  path: 00_skills/(development)/resolver-comentarios/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Resolve concrete pull-request review comments after inspecting the referenced code and verifying corrections. Use when the user requests resolver comentarios or invokes resolver-comentarios. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: revisar-pr
+  path: 00_skills/(development)/revisar-pr/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Review a concrete pull-request diff against its requirement, behavior, contracts and repository conventions; return evidence-ranked findings and a local verdict. Use for revisar PR, parecer do diff or code review. Do NOT use for deep security review (revisar-seguranca-pr), remediate unless requested, post a review or decide/execute merge.
+  capabilities: []
+- id: risk-classifier
+  path: 00_skills/(security)/risk-classifier/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Classify the risk level of proposed changes — considering scope, impact, reversibility, test coverage, and security implications. Use when the user requests risk classifier or invokes risk-classifier. Do NOT use outside authorized defensive scope or to expose secret values.
+  capabilities: []
+- id: rollback-planner
+  path: 00_skills/(cloud)/rollback-planner/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Generate rollback plans for proposed changes — defining exactly how to undo every operation safely. Use when the user requests rollback planner or invokes rollback-planner. Do NOT use for unrelated application features or unapproved production changes.
+  capabilities: []
+- id: rust-expert
+  path: 00_skills/(development)/rust-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Implement, diagnose, modernize and migrate real Rust projects with version-correct APIs, minimal diffs and evidence-backed verification. Use when the user requests rust expert or invokes rust-expert. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: secret-redaction-specialist
+  path: 00_skills/(security)/secret-redaction-specialist/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Detect and redact sensitive data without exposing raw values. Use when the user requests secret redaction specialist or invokes secret-redaction-specialist. Do NOT use outside authorized defensive scope or to expose secret values.
+  capabilities: []
+- id: security-audit
+  path: 00_skills/(security)/security-audit/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Detect security risks and possible secrets without exposing values. Use when the user requests security audit or invokes security-audit. Do NOT use outside authorized defensive scope or to expose secret values.
+  capabilities: []
+- id: security-best-practices
+  path: 00_skills/(security)/security-best-practices/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: 'Write and review secure-by-default code by inspected language/framework: Java, Spring Boot 2/3, Apache Camel, Angular, Python, JavaScript/TypeScript and Go. Use for boas práticas de segurança, código Spring seguro, segurança do componente Angular or a prioritized secure-coding report. Do NOT use for a specific deep PR diff (revisar-seguranca-pr), CVE/EOL recon, dependency remediation or threat modeling.'
+  capabilities: []
+- id: security-ownership-map
+  path: 00_skills/(security)/security-ownership-map/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: 'Assimilated OpenAI/TLC git ownership topology skill. Build people-to-file maps, bus factor and sensitive-code ownership from git history. Triggers: security ownership, bus factor, orphaned sensitive code, CODEOWNERS reality check. Do not use for general maintainer lists or threat modeling (security-threat-model).'
+  capabilities: []
+- id: security-threat-model
+  path: 00_skills/(security)/security-threat-model/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: 'Assimilated OpenAI/TLC repo-grounded threat model. Enumerate trust boundaries, assets, attacker capabilities, abuse paths and mitigations into Markdown. Triggers: threat model, abuse paths, AppSec threat modeling. Do not use for architecture summaries, security-best-practices reviews, or ownership maps.'
+  capabilities: []
+- id: servicenow-incident-assistant
+  path: 00_skills/(monitoring)/servicenow-incident-assistant/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Convert incident evidence into ServiceNow-ready triage, updates, RCA and closure material. Use when the user requests servicenow incident assistant or invokes servicenow-incident-assistant. Do NOT use to restart, scale or mutate live systems without an authorized operations task.
+  capabilities: []
+- id: simulator-ai
+  path: 00_skills/(development)/simulator-ai/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: 'Create ans entire constructor for an AI real world medical simulation. A skill that searches the entire internet to find AI real world medical simulator, to simulates patients and medical treatments ''till find THE CURE for diabetes. The skill needs to folow AGENT.md premisses: 4 agents and all layers of knowledge and the validator internal lenses, with all knowledge, extreme honest and never hallucinates to validate architecture, code, implemetation and the simulator itself. Skill must validates them a Use when the user requests simulator ai or invokes simulator-ai. Do NOT use for unrelated languages, domains or production deployment.'
+  capabilities: []
+- id: skill-architect
+  path: 00_skills/(creation)/skill-architect/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Design, build, evaluate, score and improve reusable skills through discovery, architecture and minimal evidence-based edits. Use for create a skill, review my skill, rate or score my skill, improve SKILL.md. Do NOT use to identify whether finished work deserves a skill (learning-opportunities), create agent identities, or write a technical design document.
+  capabilities: []
+- id: skill-factory
+  path: 00_skills/(creation)/skill-factory/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Create, refactor, package and validate a reusable workspace skill with precise routing, entrypoint of at most 100 lines and local modules. Use when the user says criar skill, melhorar skills, refatorar SKILL.md or adicionar capacidade reutilizável. Do NOT use for one-off code fixes, human competency lists or new agent identities.
+  capabilities: []
+- id: skill-factory-generator
+  path: 00_skills/(creation)/skill-factory-generator/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Generate a bounded reusable skill package with concrete routing, local resources and verifiable acceptance gates. Use when the user requests skill factory generator or invokes skill-factory-generator. Do NOT use for ordinary one-off coding or human competency lists.
+  capabilities: []
+- id: skill-hardener
+  path: 00_skills/(creation)/skill-hardener/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Harden skills with contracts, forbidden actions and quality gates. Use when the user requests skill hardener or invokes skill-hardener. Do NOT use for ordinary one-off coding or human competency lists.
+  capabilities: []
+- id: slo-risk-analyzer
+  path: 00_skills/(performance)/slo-risk-analyzer/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Map engineering operations to SLO/SLA risks and error budgets. Use when the user requests slo risk analyzer or invokes slo-risk-analyzer. Do NOT use for unrelated functionality or unmeasured speculative optimization.
+  capabilities: []
+- id: social-media-operator
+  path: 00_skills/(tooling)/social-media-operator/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Governed TikTok and Instagram operations via browser-based authentication sessions. Use when user asks for social media session management, TikTok/Instagram profile reading, or cookie-based authentication. Do NOT use for OAuth API keys or developer account management.
+  capabilities: []
+- id: solve-problems
+  path: 00_skills/(development)/solve-problems/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Fix defects across any programming language without changing project architecture. Use when the user requests solve problems or invokes solve-problems. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: spec-driven
+  path: 00_skills/(development)/spec-driven/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Assimilated Tech Lead''s Club spec-driven workflow (tlc-spec-driven 3.3.0). Use for specify/design/tasks/execute feature work, EARS requirements, atomic tasks, validation scripts and independent verification. Triggers: spec-driven, tlc-spec-driven, specify feature, design, tasks, implement, validate, verify work. Do not use for standalone architecture documents unattached to a feature.'
+  capabilities: []
+- id: spec-driven-lean
+  path: 00_skills/(development)/spec-driven-lean/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Assimilated Tech Lead''s Club lean spec workflow (tlc-spec-lean 1.0.0). Freeze obligations in plan + proof-backed checks, then build, then independent verify. Triggers: spec-driven-lean, tlc-spec-lean, plan feature, write the checks, build this plan, verify work. Do not use when a formal task list already exists or for standalone design docs.'
+  capabilities: []
+- id: specs
+  path: 00_skills/(development)/specs/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Prevent ad hoc creation and modification by requiring a specification before implementation: scope, rationale, acceptance checks, risks and required evidence. Use when the user requests specs, a specification or a pre-implementation contract. Do NOT use to override approved requirements or expand the user request.'
+  capabilities: []
+- id: splunk-observability-staff
+  path: 00_skills/(monitoring)/splunk-observability-staff/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Deep Staff-level Splunk observability analysis for Splunk Enterprise, ITSI, Observability Cloud, searches, metrics, logs, traces, notable events, episodes and service-impact evidence. Use when the user requests splunk observability staff or invokes splunk-observability-staff. Do NOT use to restart, scale or mutate live systems without an authorized operations task.
+  capabilities: []
+- id: staff-iii-architecture-governor
+  path: 00_skills/(architecture)/staff-iii-architecture-governor/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Plan and select the best architecture for starting a project or changing an existing one. Use when the user requests staff iii architecture governor or invokes staff-iii-architecture-governor. Do NOT use for an unrelated implementation change or deployment execution.
+  capabilities: []
+- id: staff-tdd-code-builder
+  path: 00_skills/(development)/staff-tdd-code-builder/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Create or change code according to an architecture plan using TDD by default. Use when the user requests staff tdd code builder or invokes staff-tdd-code-builder. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: subagent-creator
+  path: 00_skills/(creation)/subagent-creator/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Design bounded sequential lenses of codenavi-agent with a single deliverable, explicit evidence packet, minimal tools and verifiable verdict. Use for create verifier, parity auditor, isolated review procedure or specialized work unit. Do NOT use for creating, register or spawn agent identities; use skill-architect for a reusable skill and cursor-subagent-creator for Cursor work-unit guidance.
+  capabilities: []
+- id: supply-chain-auditor
+  path: 00_skills/(security)/supply-chain-auditor/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Audit dependencies, provenance, package trust and release integrity. Use when the user requests supply chain auditor or invokes supply-chain-auditor. Do NOT use outside authorized defensive scope or to expose secret values.
+  capabilities: []
+- id: task-graph-builder
+  path: 00_skills/(tooling)/task-graph-builder/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Build a deterministic task graph from a playbook and objective. Use when the user requests task graph builder or invokes task-graph-builder. Do NOT use for unrelated tools or unapproved remote writes.
+  capabilities: []
+- id: create-technical-design-doc
+  path: 00_skills/(creation)/create-technical-design-doc/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Assimilated TLC TDD writer. Create architecture-level Technical Design Documents through discovery. Triggers: write a design doc, create a TDD, technical spec, architecture document, RFC, design proposal, criar um TDD. Do not use for README, API docs, or general docs (docs-writer).'
+  capabilities: []
+- id: technical-design-doc-creator
+  path: 00_skills/(creation)/create-technical-design-doc/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Assimilated TLC TDD writer. Create architecture-level Technical Design Documents through discovery. Triggers: write a design doc, create a TDD, technical spec, architecture document, RFC, design proposal, criar um TDD. Do not use for README, API docs, or general docs (docs-writer).'
+  capabilities: []
+- id: telemetry-bug-root-cause-solver
+  path: 00_skills/(monitoring)/telemetry-bug-root-cause-solver/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Resolve bugs from logs, metrics, traces, events, alerts and stack traces by correlating runtime evidence with code, tests, rollback and learning records. Use when the user requests telemetry bug root cause solver or invokes telemetry-bug-root-cause-solver. Do NOT use to restart, scale or mutate live systems without an authorized operations task.
+  capabilities: []
+- id: test-gap-analyzer
+  path: 00_skills/(quality)/test-gap-analyzer/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Analyze the gap between source code and test coverage — identifying untested modules, functions, and edge cases. Use when the user requests test gap analyzer or invokes test-gap-analyzer. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+  capabilities: []
+- id: test-generation
+  path: 00_skills/(quality)/test-generation/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Detect test gaps and generate proposed tests in sandbox. Use when the user requests test generation or invokes test-generation. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+  capabilities: []
+- id: test-strategy-architect
+  path: 00_skills/(quality)/test-strategy-architect/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Build test strategy across unit/integration/contract/e2e/security/performance. Use when the user requests test strategy architect or invokes test-strategy-architect. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+  capabilities: []
+- id: test-writer
+  path: 00_skills/(quality)/test-writer/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Generate proposed test files in sandbox directory based on evidence from source code analysis. Never writes to real test directories. Use when the user requests test writer or invokes test-writer. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+  capabilities: []
+- id: tests-expert
+  path: 00_skills/(quality)/tests-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Runs the application's real functional and end-to-end checks after a bug fix or new behavior, before that work is called done. Use when the user says corrigir, consertar, implementar, código novo, nova funcionalidade, fix the bug, new feature, prove que funciona, teste funcional, teste de ponta a ponta, end-to-end, e2e, or when a previous window left an open tests-expert failure. Do NOT use for unit tests, class tests, coverage, or tests derived from the implementation.
+  capabilities: []
+- id: the-fool
+  path: 00_skills/(decision-making)/the-fool/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Stress-test a pending decision, plan or claim with its rationale, alternatives and reversibility; expose concrete threats, fragile assumptions and evidenced biases. Use for advogado do diabo, challenge this, pre-mortem, red team or blind spots. Do NOT use to decide for the owner, implement the solution, or harvest lessons from finished work (learning-opportunities).
+  capabilities: []
+- id: the-jury
+  path: 00_skills/(decision-making)/the-jury/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Evaluate a decidable question through 3 or 5 orthogonal sequential lenses of codenavi-agent, then tally a verdict with dissent and evidence. Use for monte um júri, painel de decisão or compare options through multiple perspectives. Do NOT use to spawn agents, claim independent cognition, merely critique (the-fool) or implement the decision.
+  capabilities: []
+- id: threat-modeler
+  path: 00_skills/(security)/threat-modeler/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Produce AEOS threat models for prompt injection, tool poisoning, secret leakage and package tampering. Use when the user requests threat modeler or invokes threat-modeler. Do NOT use outside authorized defensive scope or to expose secret values.
+  capabilities: []
+- id: tlc-plan
+  path: 00_skills/(development)/tlc-plan/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Assimilated TLC tlc-plan 0.2.0. Turn a decided PRD, design doc, RFC or ticket into grounded tasks with observable criteria. Triggers: tlc-plan, write the task, cut this PRD into tasks, turn this design doc into work. Do not use for discovery or implementation.'
+  capabilities: []
+- id: token-budget-governor
+  path: 00_skills/(learning)/token-budget-governor/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Prevent token waste across GPT, Codex, Claude, DeepSeek and local/free models by enforcing scoped prompts, compact context and narrow internal lenses contracts. Use when the user requests token budget governor or invokes token-budget-governor. Do NOT use to promote unverified claims or transient task status into durable memory.
+  capabilities: []
+- id: tool-router-audit
+  path: 00_skills/(tooling)/tool-router-audit/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Audit whether AEOS code and playbooks enforce Tool Router for every external action. Use when the user requests tool router audit or invokes tool-router-audit. Do NOT use for unrelated tools or unapproved remote writes.
+  capabilities: []
+- id: unique-environment-auditor
+  path: 00_skills/(development)/unique-environment-auditor/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Audit a target environment inventory for conflicting tool versions, duplicated configuration and unmet runtime requirements. Use when the user requests unique environment auditor or invokes unique-environment-auditor. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: universal-project-factory
+  path: 00_skills/(creation)/universal-project-factory/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Plan and generate a sandbox-first project from zero to production for any requested architecture, language set and database set. Use when the user requests universal project factory or invokes universal-project-factory. Do NOT use for ordinary one-off coding or human competency lists.
+  capabilities: []
+- id: v1-readiness-auditor
+  path: 00_skills/(quality)/v1-readiness-auditor/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Validate AEOS against v1.0 release gates and generate blocking report. Use when the user requests v1 readiness auditor or invokes v1-readiness-auditor. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+  capabilities: []
+- id: voiceai
+  path: 00_skills/(tooling)/voiceai/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Provide an evidence-backed voice interface for AEOS. Activating this skill is treated as explicit current-session consent for `voiceai` to record user audio or transcribe audio from user-authorized audio/video media within the declared scope. The skill can: Use when the user requests voiceai or invokes voiceai. Do NOT use for unrelated tools or unapproved remote writes.'
+  capabilities: []
+- id: web-quality-audit
+  path: 00_skills/(quality)/web-quality-audit/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Assimilated TLC/web-quality multi-area audit. Review performance, accessibility, SEO and best practices in one pass. Triggers: audit my site, review web quality, check page quality, optimize my website across areas. Do not use for a single-area job (core-web-vitals, ai-seo, best-practices, perf-lighthouse).'
+  capabilities: []
+- id: whatsapp-simulator
+  path: 00_skills/(tooling)/whatsapp-simulator/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Generate synthetic WhatsApp-style conversation fixtures for testing conversational systems, support flows and automation. Use when the user requests whatsapp simulator or invokes whatsapp-simulator. Do NOT use for unrelated tools or unapproved remote writes.
+  capabilities: []
+- id: wordpress-expert
+  path: 00_skills/(development)/wordpress-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Staff-level WordPress engineering super-skill for one-shot site mapping, clean-code AI-assisted project creation/modification, the complete installed plugin universe, governed remote wp-admin operations, themes/blocks/layout, third-party integrations and production-safe changes. Use when the user requests wordpress expert or invokes wordpress-expert. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: workbench-profile-resolver
+  path: 00_skills/(tooling)/workbench-profile-resolver/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Resolve the smallest compatible workbench profile from task scope, available capabilities and explicit constraints. Use when the user requests workbench profile resolver or invokes workbench-profile-resolver. Do NOT use for unrelated tools or unapproved remote writes.
+  capabilities: []
+- id: mantis-architecture
+  path: 00_skills/(security)/mantis-architecture/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Synthesizes raw learnings and codebase analysis into an interlinked Markdown Knowledge Base (KB). Use at the beginning of a loop to build or update architecture.md, entities, and vulnerabilities. Don't use for generating threat models or formulating execution plans. Use when the user requests mantis architecture or invokes mantis-architecture.
+  capabilities: []
+- id: mantis-calibrate
+  path: 00_skills/(security)/mantis-calibrate/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Calculates the final risk score based on empirical evidence and architectural impact. Use when findings have been fully processed by previous stages and you need to append final risk scores to the finding files. Don't use for discovering new vulnerabilities or writing patches.
+  capabilities: []
+- id: mantis-chain
+  path: 00_skills/(security)/mantis-chain/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Analyzes individual security findings to identify and construct complex exploit chains. Use after validation stages to see if multiple low-severity bugs can be combined into a higher impact vulnerability. Don't use for initial codebase auditing or writing patch code. Use when the user requests mantis chain or invokes mantis-chain.
+  capabilities: []
+- id: mantis-critic
+  path: 00_skills/(security)/mantis-critic/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Assesses the production viability of findings, filtering out debug-only features and assertion traps. Use when findings have been validated and you need to confirm they are triggerable in production release builds (with assertions disabled). Don't use for writing reproduction scripts or patches.
+  capabilities: []
+- id: mantis-dedupe
+  path: 00_skills/(security)/mantis-dedupe/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Consolidates raw security findings to eliminate redundant reports. Use when raw findings have been generated by the researcher and need consolidation before review. Don't use for initial code auditing or patch generation.
+  capabilities: []
+- id: mantis-history
+  path: 00_skills/(security)/mantis-history/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Analyzes the repository's version control system (VCS) history to extract past vulnerabilities, security fixes, and vulnerability patterns. Use as an initial pre-processing step to build a historical vulnerabilities database (workspace/historical_learnings.jsonl) that informs subsequent stages about past issues and fixes. Don't use for code reviews, writing test scripts, or patching code. Use when the user requests mantis history or invokes mantis-history.
+  capabilities: []
+- id: mantis-meta-agent
+  path: 00_skills/(security)/mantis-meta-agent/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Acts as the persistent supervisor, launching and monitoring the automated review campaign. Use when running a long-running, continuous security review campaign that needs autonomous coordination. Don't use for executing individual review stages directly.
+  capabilities: []
+- id: mantis-patch
+  path: 00_skills/(security)/mantis-patch/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Generates minimal security fixes using transactional isolation (shadow directories or file backups), applies patches, and verifies them. Use when security findings are successfully reproduced and need patches applied and verified. Don't use for initial vulnerability research or reproduction payload generation.
+  capabilities: []
+- id: mantis-pipeline-adapter
+  path: 00_skills/(security)/mantis-pipeline-adapter/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Interactively guides the design and implementation of custom deterministic orchestrator harnesses. Use when a user wants to build their own pipeline to wrap and run Mantis skills reliably. Don't use for executing the default pipeline directly.
+  capabilities: []
+- id: mantis-plan
+  path: 00_skills/(security)/mantis-plan/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Formulates a targeted defensive security reviewing plan based on the active threat model and historical learnings. Use when starting a security review campaign to map the codebase boundaries and generate a roadmap (workspace/plan.json). Don't use for executing code reviews, writing test scripts, or patching code.
+  capabilities: []
+- id: mantis-reflect
+  path: 00_skills/(security)/mantis-reflect/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Extracts learnings from execution trajectories at the end of a Mantis loop. Use to parse agent conversations, extract successes, failures, and false assumptions, and append them to workspace/learnings.jsonl. Don't use for analyzing source code or writing patches. Use when the user requests mantis reflect or invokes mantis-reflect.
+  capabilities: []
+- id: mantis-report
+  path: 00_skills/(security)/mantis-report/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Generates a human-readable security review packet compiled from confirmed findings and exploit chains. Use at the end of a review cycle to produce stakeholder-facing documentation. Don't use for auditing code or verifying patches directly. Use when the user requests mantis report or invokes mantis-report.
+  capabilities: []
+- id: mantis-reproduce
+  path: 00_skills/(security)/mantis-reproduce/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Generates and runs crash reproducers to verify security flaws. Use when viable findings exist and you need to write and execute a script or payload to verify the crash. Don't use for code auditing or patching.
+  capabilities: []
+- id: mantis-researcher
+  path: 00_skills/(security)/mantis-researcher/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Audits production source code files based on the strategy in workspace/plan.json. Use when a review plan exists and you need to perform static analysis and deep-dive reviews of targeted files. Don't use for planning, deduplicating, or writing patches.
+  capabilities: []
+- id: mantis-review
+  path: 00_skills/(security)/mantis-review/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Independently reviews findings and filters out false positives. Use when consolidated findings need validation against the actual source code. Don't use for reproducing crashes or patching code.
+  capabilities: []
+- id: mantis-structural-index
+  path: 00_skills/(security)/mantis-structural-index/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Builds a content-addressed semantic-unit index from source code for structural context. Use when a pinned or live codebase is available and structural cross-reference data would improve research quality. Don't use for findings analysis, patching, or reporting.
+  capabilities: []
+- id: mantis-summarize
+  path: 00_skills/(security)/mantis-summarize/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Pre-processes the repository by generating security-focused summaries (mantis-summary.md) for each directory to make planning and research more efficient. Use when starting a review campaign to map the codebase before threat modeling and planning. Don't use for executing code reviews, writing test scripts, or patching code.
+  capabilities: []
+- id: mantis-threat-model
+  path: 00_skills/(security)/mantis-threat-model/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Synthesizes trust boundaries, attack surfaces, and attacker profiles into a living threat model. Use as Stage B of the Knowledge Base generation process, reading architecture and entity definitions from the KB. Don't use for analyzing source code or extracting raw learnings from JSONL files. Use when the user requests mantis threat model or invokes mantis-threat-model.
+  capabilities: []
+- id: agent-trace-validator
+  path: 00_skills/(quality)/agent-trace-validator/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Validate agent trace completeness and integrity. Use when the user requests agent trace validator or invokes agent-trace-validator. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+  capabilities: []
+- id: fable-aeos-harness
+  path: 00_skills/(development)/fable-aeos-harness/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Universal execution harness wrapping all AEOS skills with the Fable Method problem-solving loop. Use when the user requests fable aeos harness or invokes fable-aeos-harness. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: fable-domain
+  path: 00_skills/(development)/fable-domain/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Research a domain, create a domain adapter, flowchart, trap fixture, and smoke eval for the Fable Method. Use when creating new sector adapters. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: fable-judge
+  path: 00_skills/(quality)/fable-judge/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Adversarial verification of finished work. Re-runs verifications, diffs changes, detects weakened checks and false completion claims, delivering VERIFIED, VERIFIED WITH CAVEATS, or REFUTED. Use when the user requests fable judge or invokes fable-judge. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+  capabilities: []
+- id: fable-loop
+  path: 00_skills/(development)/fable-loop/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Orchestrated multi-stage workflow running parallel evidence internal lenses, single committed plan, surgical execution, and adversarial verification. Use when the user requests fable loop or invokes fable-loop. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: girl-voice-composer-simulation-expert
+  path: 00_skills/(tooling)/girl-voice-composer-simulation-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Direct a TTS / voice-design engine to synthesize a GENERIC, fictional female child voice profile (age band 6-8) in Portuguese (pt-BR) and English (en-US), by producing bounded acoustic parameters (pitch, formants, prosody, syllable rhythm, EQ). Never clones or replicates any identifiable real child. Use when the user requests girl voice composer simulation expert or invokes girl-voice-composer-simulation-expert. Do NOT use for unrelated tools or unapproved remote writes.
+  capabilities: []
+- id: typesafe-ai
+  path: 00_skills/(development)/typesafe-ai/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: 'Build AI-powered software with TypeSafe: small units of AI intelligence you can use like programming primitives. Its System One models, including Jev, turn natural language and application state into typed judgments and probabilities that code can combine. Use when a feature needs programmable common sense, when brainstorming what AI could make possible in an app, or when an LLM prompt-and-parse step could become a structured decision. Applications include routing, ranking, extraction, verification, and interactive experiences; these are starting points, not the limits. Read live docs and cookbooks to find useful patterns and discover new combinations. Do NOT use for unrelated languages, domains or production deployment.'
+  capabilities: []
+- id: deploy-expert-unique
+  path: 00_skills/(development)/deploy-expert-unique/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Apply the unique governed AWS deployment pipeline contract for AIHealthResearch, including branch promotion, Google OSV CVE, CodeQL SAST, Python security and deploy validators. Use when the user requests deploy expert unique or invokes deploy-expert-unique. Do NOT use for unrelated languages, domains or production deployment.
+  capabilities: []
+- id: web-accessibility
+  path: 00_skills/(quality)/web-accessibility/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Audit and improve web accessibility following WCAG 2.1 guidelines. Use when asked to "improve accessibility", "a11y audit", "WCAG compliance", "screen reader support", "keyboard navigation", or "make accessible". Do NOT use for SEO (use seo), performance (use core-web-vitals), or comprehensive site audits covering multiple areas (use web-quality-audit).
+  capabilities: []
+- id: accessibility
+  path: 00_skills/(quality)/web-accessibility/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Audit and improve web accessibility following WCAG 2.1 guidelines. Use when asked to "improve accessibility", "a11y audit", "WCAG compliance", "screen reader support", "keyboard navigation", or "make accessible". Do NOT use for SEO (use seo), performance (use core-web-vitals), or comprehensive site audits covering multiple areas (use web-quality-audit).
+  capabilities: []
+- id: ai-cold-outreach
+  path: 00_skills/(gtm)/ai-cold-outreach/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: When the user wants to build an AI-powered outreach system, write cold emails, improve deliverability, or scale personalized outreach. Also use when the user mentions 'cold email,' 'cold outreach,' 'outreach automation,' 'Instantly,' 'Smartlead,' 'Clay,' 'email sequences,' 'deliverability,' 'personalization at scale,' 'reply rate,' or 'outreach stack.' This skill covers the complete AI cold outreach system from signal detection through conversion. Do NOT use for technical implementation, code review, or software architecture.
+  capabilities: []
+- id: ai-pricing
+  path: 00_skills/(gtm)/ai-pricing/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: When the user wants to price an AI product, choose a charge metric, design pricing tiers, or optimize margins. Also use when the user mentions 'AI pricing,' 'usage-based pricing,' 'consumption pricing,' 'outcome pricing,' 'BYOK,' 'bring your own key,' 'per-seat pricing,' 'pricing tiers,' 'AI margins,' 'cost per token,' or 'pricing model.' This skill covers pricing strategy, packaging, and margin management for AI-native products. Do NOT use for technical implementation, code review, or software architecture.
+  capabilities: []
+- id: ai-sdr
+  path: 00_skills/(gtm)/ai-sdr/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: When the user wants to deploy AI sales development reps, automate sales qualification, build signal-to-action routing, or design AI agent architecture for sales. Also use when the user mentions 'AI SDR,' 'AI sales agent,' 'automated qualification,' 'signal routing,' 'sales automation,' '11x,' 'Artisan,' 'AiSDR,' 'AI BDR,' or 'autonomous sales.' This skill covers AI SDR deployment, qualification automation, and agent architecture for sales development. Do NOT use for technical implementation, code review, or software architecture.
+  capabilities: []
+- id: ai-ugc-ads
+  path: 00_skills/(gtm)/ai-ugc-ads/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: When the user wants to create UGC ad campaigns, recruit UGC creators, generate AI UGC content, or scale with user-generated content. Also use when the user mentions 'UGC,' 'user-generated content,' 'creator ads,' 'Spark Ads,' 'whitelisting,' 'AI UGC,' 'Arcads,' 'Creatify,' 'creator brief,' or 'UGC testing.' This skill covers the UGC growth framework from creator recruitment through AI-powered scaling. Do NOT use for technical implementation, code review, or software architecture.
+  capabilities: []
+- id: aws-advisor
+  path: 00_skills/(cloud)/aws-advisor/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Expert AWS Cloud Advisor for architecture design, security review, and implementation guidance. Leverages AWS MCP tools for accurate, documentation-backed answers. Use when user asks about AWS architecture, security, service selection, migrations, troubleshooting, or learning AWS. Triggers on AWS, Lambda, S3, EC2, ECS, EKS, DynamoDB, RDS, CloudFormation, CDK, Terraform, Serverless, SAM, IAM, VPC, API Gateway, or any AWS service. Do NOT use for non-AWS cloud providers or general infrastructure without AWS context.
+  capabilities: []
+- id: chrome-devtools
+  path: 00_skills/(tooling)/chrome-devtools/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Browser debugging, performance profiling, and automation via Chrome DevTools MCP. Use when user says "debug this page", "take a screenshot", "check network requests", "profile performance", "inspect console errors", or "analyze page load". Do NOT use for full E2E test suites (use playwright-skill) or non-browser debugging.
+  capabilities: []
+- id: cloudflare-deploy
+  path: 00_skills/(cloud)/cloudflare-deploy/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform services. Use when the user asks to deploy, host, publish, or set up a project on Cloudflare. Do NOT use for deploying to Vercel, Netlify, or Render (use their respective skills).
+  capabilities: []
+- id: component-common-domain-detection
+  path: 00_skills/(architecture)/component-common-domain-detection/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Finds duplicate business logic spread across multiple components and suggests consolidation. Use when asking "where is this logic duplicated?", "find common code between services", "what can be consolidated?", "detect shared domain logic", or analyzing component overlap before refactoring. Do NOT use for code-level duplication detection (use linters) or dependency analysis (use coupling-analysis).
+  capabilities: []
+- id: component-flattening-analysis
+  path: 00_skills/(architecture)/component-flattening-analysis/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Detects misplaced classes and fixes component hierarchy problems — finds code that should belong inside a component but sits at the root level. Use when asking "clean up component structure", "find orphaned classes", "fix module hierarchy", "flatten nested components", or analyzing why namespaces have misplaced code. Do NOT use for dependency analysis (use coupling-analysis) or domain grouping (use domain-identification-grouping).
+  capabilities: []
+- id: component-identification-sizing
+  path: 00_skills/(architecture)/component-identification-sizing/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Maps architectural components in a codebase and measures their size to identify what should be extracted first. Use when asking "how big is each module?", "what components do I have?", "which service is too large?", "analyze codebase structure", "size my monolith", or planning where to start decomposing. Do NOT use for runtime performance sizing or infrastructure capacity planning.
+  capabilities: []
+- id: content-to-pipeline
+  path: 00_skills/(gtm)/content-to-pipeline/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: When the user wants to turn content into revenue, build a content-led GTM motion, reverse engineer distribution, or repurpose content across platforms. Also use when the user mentions 'content marketing,' 'content-led growth,' 'content to pipeline,' 'distribution,' 'content repurposing,' 'content strategy,' 'thought leadership,' 'newsletter,' 'content flywheel,' 'organic growth.' This skill covers content-to-revenue systems from creation through pipeline attribution. Do NOT use for technical implementation, code review, or software architecture.
+  capabilities: []
+- id: coupling-analysis
+  path: 00_skills/(architecture)/coupling-analysis/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Analyzes coupling between modules using the three-dimensional model (strength, distance, volatility) from "Balancing Coupling in Software Design". Use when asking "are these modules too coupled?", "show me dependencies", "analyze integration quality", "which modules should I decouple?", "coupling report", or evaluating architectural health. Do NOT use for domain boundary analysis (use domain-analysis) or component sizing (use component-identification-sizing).
+  capabilities: []
+- id: create-adr
+  path: 00_skills/(creation)/create-adr/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Creates Architecture Decision Records (ADRs) to document significant architectural choices and their rationale for future team members. Use when the user says "write an ADR", "document this decision", "record why we chose X", "add an architecture decision record", "create an ADR for", or wants to capture the reasoning behind a technical choice so the team understands it later. Do NOT use when the decision hasn't been made yet (use create-rfc instead), for implementation planning (use technical-design-doc-creator), or for general documentation.
+  capabilities: []
+- id: create-rfc
+  path: 00_skills/(creation)/create-rfc/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Creates structured Request for Comments (RFC) documents for proposing and deciding on significant changes. Use when the user says "write an RFC", "create a proposal", "I need to propose a change", "draft an RFC", "document a decision", or needs stakeholder alignment before making a major technical or process decision. Do NOT use for TDDs/implementation docs (use technical-design-doc-creator instead), README files, or general documentation.
+  capabilities: []
+- id: decomposition-planning-roadmap
+  path: 00_skills/(architecture)/decomposition-planning-roadmap/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Creates step-by-step decomposition plans and migration roadmaps for breaking apart monolithic applications. Use when asking "what order should I extract services?", "plan my migration", "create a decomposition roadmap", "prioritize what to split", "monolith to microservices strategy", or tracking decomposition progress. Do NOT use for domain analysis (use domain-analysis) or component sizing (use component-identification-sizing).
+  capabilities: []
+- id: domain-analysis
+  path: 00_skills/(architecture)/domain-analysis/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Maps business domains and suggests service boundaries in any codebase using DDD Strategic Design. Use when asking "what are the domains in this codebase?", "where should I draw service boundaries?", "identify bounded contexts", "classify subdomains", "DDD analysis", or analyzing domain cohesion. Do NOT use for grouping existing components into domains (use domain-identification-grouping) or dependency analysis (use coupling-analysis).
+  capabilities: []
+- id: domain-identification-grouping
+  path: 00_skills/(architecture)/domain-identification-grouping/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Groups existing components into logical business domains to plan service-based architecture. Use when asking "which components belong together?", "group these into services", "organize by domain", "component-to-domain mapping", or planning service extraction from an existing codebase. Do NOT use for identifying new domains from scratch (use domain-analysis) or analyzing coupling (use coupling-analysis).
+  capabilities: []
+- id: evolutionary-modular-architecture
+  path: 00_skills/(architecture)/evolutionary-modular-architecture/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Guides design and implementation of evolutionary modular-monolith platforms with DDD (strategic + tactical), flat-by-aggregate organization, an Anti-Corruption Layer for vendor independence, a transactional outbox for events, smart resilience (backoff with jitter, circuit breakers, idempotency), and a polished architecture HTML document with elegant SVG diagrams. Use when designing a platform or backend, defining bounded contexts, organizing modules and folders, choosing monolith vs microservices, decoupling from an external service (ERP, storage, AI), making calls resilient, adding real-time push, picking a 2026 TypeScript stack (Nx, NestJS, React), or producing an architecture document or diagram. Also triggers on 'modular monolith', 'bounded contexts', 'flat-by-aggregate', 'ports and adapters', 'architecture diagram'. Do NOT use for simple CRUD, NestJS-only deep implementation (use nestjs-modular-monolith), or pure domain-model review (use tactical-ddd).
+  capabilities: []
+- id: excalidraw-studio
+  path: 00_skills/(tooling)/excalidraw-studio/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Generate Excalidraw diagrams from natural language descriptions. Outputs .excalidraw JSON files openable in Excalidraw. Use when asked to "create a diagram", "make a flowchart", "visualize a process", "draw a system architecture", "create a mind map", "generate an Excalidraw file", "draw an ER diagram", "create a sequence diagram", or "make a class diagram". Supports flowcharts, relationship diagrams, mind maps, architecture, DFD, swimlane, class, sequence, and ER diagrams. Can use icon libraries (AWS, GCP, etc.) when set up. Do NOT use for code architecture analysis (use the architecture skills), Mermaid diagram rendering (use mermaid-studio), or non-visual documentation (use docs-writer).
+  capabilities: []
+- id: expansion-retention
+  path: 00_skills/(gtm)/expansion-retention/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: When the user wants to reduce churn, build expansion revenue, automate customer success, or optimize net revenue retention. Also use when the user mentions 'churn,' 'retention,' 'expansion revenue,' 'upsell,' 'NRR,' 'net revenue retention,' 'customer success,' 'land and expand,' 'closed-lost,' or 'renewal.' This skill covers expansion and retention systems from usage triggers through automated customer success. Do NOT use for technical implementation, code review, or software architecture.
+  capabilities: []
+- id: figma
+  path: 00_skills/(design)/figma/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Use the Figma MCP server to fetch design context, screenshots, variables, and assets from Figma, and to translate Figma nodes into production code. Use when a task involves Figma URLs, node IDs, design-to-code implementation, or Figma MCP setup and troubleshooting. Covers general Figma data fetching and exploration. Do NOT use when the goal is specifically pixel-perfect code implementation from a Figma design (use figma-implement-design instead).
+  capabilities: []
+- id: figma-implement-design
+  path: 00_skills/(design)/figma-implement-design/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Translate Figma nodes into production-ready code with 1:1 visual fidelity using the Figma MCP workflow (design context, screenshots, assets, and project-convention translation). Use when the user provides Figma URLs or node IDs and asks to implement designs or components that must match Figma specs. Requires a working Figma MCP server connection. Do NOT use for general Figma data fetching, variable exploration, or MCP troubleshooting (use figma instead).
+  capabilities: []
+- id: frontend-blueprint
+  path: 00_skills/(architecture)/frontend-blueprint/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: AI frontend specialist and design consultant that guides users through a structured discovery process before generating any code. Collects visual references, design tokens, typography, icons, layout preferences, and brand guidelines to ensure the final output matches the user's vision with high fidelity. Use when the user asks to build, design, create, or improve any frontend interface — websites, landing pages, dashboards, components, apps, emails, forms, modals, or any UI element. Also triggers on "build me a UI", "design a page", "create a component", "improve this layout", "make this look better", "frontend", "interface", "redesign", or when the user provides mockups, screenshots, or design references. Do NOT use for backend logic, API design, database schemas, or non-visual code tasks.
+  capabilities: []
+- id: frontend-design
+  path: 00_skills/(design)/frontend-design/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications. Generates creative, polished code that avoids generic AI aesthetics. Do NOT use for design review or audit (use web-design-guidelines or web-quality-audit).
+  capabilities: []
+- id: gh-address-comments
+  path: 00_skills/(development)/gh-address-comments/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Address review and issue comments on the open GitHub PR for the current branch using gh CLI. Use when user says "address PR comments", "fix review feedback", "respond to PR review", or "handle PR comments". Verifies gh auth first and prompts to authenticate if not logged in. Do NOT use for creating PRs, CI debugging (use gh-fix-ci), or general Git operations.
+  capabilities: []
+- id: gh-fix-ci
+  path: 00_skills/(tooling)/gh-fix-ci/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub Actions. Uses `gh` to inspect checks and logs, summarize failure context, draft a fix plan, and implement only after explicit approval. Treats external providers (for example Buildkite) as out of scope and reports only the details URL. Do NOT use for addressing PR review comments (use gh-address-comments) or general CI outside GitHub Actions.
+  capabilities: []
+- id: gtm-engineering
+  path: 00_skills/(gtm)/gtm-engineering/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: When the user wants to build GTM automation with code, design workflow architectures, use AI agents for GTM tasks, or implement the 'architecture over tools' principle. Also use when the user mentions 'GTM engineering,' 'GTM automation,' 'n8n,' 'Make,' 'Zapier,' 'workflow automation,' 'Clay API,' 'instruction stacks,' 'AI agents for GTM,' or 'revenue automation.' This skill covers technical GTM infrastructure from workflow design through agent orchestration. Do NOT use for technical implementation, code review, or software architecture.
+  capabilities: []
+- id: gtm-metrics
+  path: 00_skills/(gtm)/gtm-metrics/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: When the user wants to define GTM metrics, build a metrics dashboard, measure pipeline efficiency, or track AI product performance. Also use when the user mentions 'GTM metrics,' 'revenue latency,' 'pipeline metrics,' 'TTFV,' 'time-to-first-value,' 'data health,' 'attribution,' 'conversion rate,' 'CAC,' 'LTV,' 'NRR,' 'GTM dashboard,' 'magic number,' 'pipeline velocity,' or 'funnel metrics.' This skill covers GTM measurement from metric selection through dashboard design, including AI-specific cost metrics, attribution models, and weekly review cadences. Do NOT use for technical implementation, code review, or software architecture.
+  capabilities: []
+- id: harness-eval
+  path: 00_skills/(development)/harness-eval/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Evaluate a repo agent harness (AGENTS.md, rules, skills, skill refs) for broken paths/commands, redundant instructions, and usefulness using a stack-agnostic dual-judge protocol with planted traps. HIGH PRIORITY questionnaires at top: Q1 optional docs, Q2 B/C budget before Track A (certainty/tokens). A always runs after Q2; B/C opt-in. ADRs/RFCs excluded from T2. Mixed apply uses 11-mixed-apply.md (KEEP/CUT). Use when the user says harness eval, harness-eval, harness debug, audit AGENTS.md, audit skills/rules, instruction audit, redundancy of agent instructions, usefulness of skills, Ship/Review/Hold/Slim/Keep-core for harness, or wants Track A/B/C harness evaluation. Do NOT use for harness setup or init, feature spec-driven work (tlc-spec-driven), or applying Ship/Slim trims unless the user explicitly asks after the report.'
+  capabilities: []
+- id: lead-enrichment
+  path: 00_skills/(gtm)/lead-enrichment/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: When the user wants to build data enrichment workflows, score leads against ICP, set up Clay waterfalls, or improve contact data quality. Also use when the user mentions 'enrichment,' 'data enrichment,' 'Clay,' 'waterfall enrichment,' 'ICP scoring,' 'lead scoring,' 'intent data,' 'contact verification,' 'Apollo,' 'ZoomInfo,' or 'data quality.' This skill covers lead enrichment waterfalls, ICP scoring frameworks, and contact verification systems. Do NOT use for technical implementation, code review, or software architecture.
+  capabilities: []
+- id: legacy-migration-planner
+  path: 00_skills/(architecture)/legacy-migration-planner/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Use when planning legacy system migrations, codebase modernization, monolith decomposition, microservices consolidation, cross-language rewrites, or framework upgrades. Invoke for strangler fig pattern, incremental migration strategy, or refactoring roadmaps. Do NOT use for domain analysis (use domain-analysis), component sizing (use component-identification-sizing), or step-by-step decomposition plans (use decomposition-planning-roadmap).
+  capabilities: []
+- id: mermaid-studio
+  path: 00_skills/(tooling)/mermaid-studio/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Expert Mermaid diagram creation, validation, and rendering with dual-engine output (SVG/PNG/ASCII). Supports all 20+ diagram types including C4 architecture, AWS architecture-beta with service icons, flowcharts, sequence, ERD, state, class, mindmap, timeline, git graph, sankey, and more. Features code-to-diagram analysis, batch rendering, 15+ themes, and syntax validation. Use when users ask to create diagrams, visualize architecture, render mermaid files, generate ASCII diagrams, document system flows, model databases, draw AWS infrastructure, analyze code structure, or anything involving "mermaid", "diagram", "flowchart", "architecture diagram", "sequence diagram", "ERD", "C4", "ASCII diagram". Do NOT use for non-Mermaid image generation, data plotting with chart libraries, or general documentation writing.
+  capabilities: []
+- id: modular-decomposition
+  path: 00_skills/(architecture)/modular-decomposition/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Runs a sequenced monolith-to-modular pipeline that sizes and inventories components, finds shared domain duplication, addresses flattening and hierarchy issues, analyzes coupling, then groups components into candidate domain-aligned units, with optional embedded DDD strategic analysis for bounded contexts. Use when asking how to split a monolith, size components before extraction, find duplicated domain logic, clean up module hierarchy, measure coupling between modules, or group components into services. Do NOT use for phased extraction roadmaps or prioritization without the prior analysis steps (use decomposition-planning-roadmap after this pipeline), end-to-end legacy migration strategy writeups (use legacy-migration-planner), pure infrastructure capacity sizing, or when you only need DDD without the structural pipeline (install domain-analysis standalone).
+  capabilities: []
+- id: modular-design-principles
+  path: 00_skills/(architecture)/modular-design-principles/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Technology-agnostic guidance for modular systems: bounded contexts, clear boundaries, composability, state isolation, explicit contracts, failure containment, scaffolding workflows, split/merge criteria, sub-units inside a context, and compliance review signals. Use when designing or reviewing module structure, service boundaries, package layout, cross-cutting dependencies, "how should we split this?", modularity assessments, coupling between domains, greenfield context design, or architecture discussions without assuming a specific framework, language, or repository layout. Do NOT use for executing the full Patterns 1–5 repo decomposition pipeline or per-pattern inventories (use modular-decomposition), phased extraction roadmaps as the main deliverable (use decomposition-planning-roadmap), or end-to-end legacy migration strategy (use legacy-migration-planner).'
+  capabilities: []
+- id: multi-platform-launch
+  path: 00_skills/(gtm)/multi-platform-launch/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: When the user wants to launch a product across multiple platforms, plan a Product Hunt launch, build a waitlist, or execute a multi-channel launch strategy. Also use when the user mentions 'product launch,' 'Product Hunt,' 'launch strategy,' 'waitlist,' 'beta launch,' 'BetaList,' 'Hacker News,' 'launch day,' 'AppSumo,' 'multi-channel launch.' This skill covers multi-platform launch execution from pre-launch through post-launch optimization. Do NOT use for technical implementation, code review, or software architecture.
+  capabilities: []
+- id: nestjs-modular-monolith
+  path: 00_skills/(development)/nestjs-modular-monolith/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Specialist in designing and implementing scalable modular monolith architectures using NestJS with DDD, Clean Architecture, and CQRS patterns. Use when building modular monolith backends, designing bounded contexts, creating domain modules, implementing event-driven module communication, or when user mentions "modular monolith", "bounded contexts", "module boundaries", "DDD", "CQRS", "clean architecture NestJS", or "monolith to microservices". Do NOT use for simple CRUD APIs, frontend work, general NestJS questions without architectural context, or stack-agnostic evolutionary modular monolith design (use evolutionary-modular-architecture).
+  capabilities: []
+- id: netlify-deploy
+  path: 00_skills/(cloud)/netlify-deploy/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks to deploy, host, publish, or link a site/repo on Netlify, including preview and production deploys. Do NOT use for deploying to Vercel, Cloudflare, or Render (use their respective skills).
+  capabilities: []
+- id: nx-ci-monitor
+  path: 00_skills/(tooling)/nx-ci-monitor/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Monitor Nx Cloud CI pipeline status and handle self-healing fixes automatically. Use when user says "watch CI", "monitor pipeline", "check CI status", "fix CI failures", or "self-heal CI". Requires Nx Cloud connection. Do NOT use for local task execution (use nx-run-tasks) or general CI debugging outside Nx Cloud.
+  capabilities: []
+- id: nx-generate
+  path: 00_skills/(tooling)/nx-generate/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Generate code using Nx generators — scaffold projects, libraries, features, or run workspace-specific generators with proper discovery, validation, and verification. Use when user says "create a new library", "scaffold a component", "generate code with Nx", "run a generator", "nx generate", or any code scaffolding task in a monorepo. Prefers local workspace-plugin generators over external plugins. Do NOT use for running build/test/lint tasks (use nx-run-tasks) or workspace configuration (use nx-workspace).
+  capabilities: []
+- id: nx-run-tasks
+  path: 00_skills/(tooling)/nx-run-tasks/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Execute build, test, lint, serve, and other tasks in an Nx workspace using single runs, run-many, and affected commands. Use when user says "run tests", "build my app", "lint affected", "serve the project", "run all tasks", or "nx affected". Do NOT use for code generation (use nx-generate) or workspace configuration (use nx-workspace).
+  capabilities: []
+- id: paid-creative-ai
+  path: 00_skills/(gtm)/paid-creative-ai/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: When the user wants to create AI-generated ad creative, test performance creative, manage creative fatigue, or optimize paid media with AI tools. Also use when the user mentions 'ad creative,' 'performance creative,' 'creative testing,' 'creative fatigue,' 'Meta ads,' 'Google ads,' 'TikTok ads,' 'AI ads,' 'ad budget,' 'ROAS,' 'Advantage+,' or 'Performance Max.' This skill covers AI-powered paid creative from generation through performance optimization. Do NOT use for technical implementation, code review, or software architecture.
+  capabilities: []
+- id: partner-affiliate
+  path: 00_skills/(gtm)/partner-affiliate/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: When the user wants to build a partner program, launch an affiliate program, design integration partnerships, or create distribution partnerships. Also use when the user mentions 'partnerships,' 'affiliate program,' 'referral program,' 'partner ecosystem,' 'integration partner,' 'reseller,' 'co-marketing,' 'PartnerStack,' or 'revenue share.' This skill covers partner and affiliate program design from recruitment through performance optimization. Do NOT use for technical implementation, code review, or software architecture.
+  capabilities: []
+- id: playwright-skill
+  path: 00_skills/(web-automation)/playwright-skill/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Complete browser automation with Playwright. Auto-detects dev servers, writes clean test scripts to /tmp. Test pages, fill forms, take screenshots, check responsive design, validate UX, test login flows, check links, automate any browser task. Use when user wants to test websites, automate browser interactions, validate web functionality, or perform any browser-based testing. Do NOT use for quick page debugging or network inspection (use chrome-devtools instead).
+  capabilities: []
+- id: positioning-icp
+  path: 00_skills/(gtm)/positioning-icp/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: When the user wants to define their ideal customer profile, position an AI product, build messaging architecture, or validate product-market fit. Also use when the user mentions 'ICP,' 'ideal customer profile,' 'positioning,' 'PMF,' 'product-market fit,' 'messaging,' 'buyer persona,' 'enrichment signals,' 'market positioning,' or 'competitive positioning.' This skill covers market positioning, ICP definition, messaging architecture, and PMF validation for AI-native products. Do NOT use for technical implementation, code review, or software architecture.
+  capabilities: []
+- id: rails-dev
+  path: 00_skills/(development)/rails-dev/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Opinionated Rails conventions: rich models, concerns, CRUD-everything, state-as-records, minimal dependencies, Minitest with fixtures. Load this skill BEFORE any code-level thinking, not only before editing a file. It is required the moment a task touches Rails code in ANY way: designing or even just discussing a data model, schema, migration, entity, association, field, validation, class, or method name; writing, planning, reviewing, analyzing, testing, debugging, or refactoring; or proposing any model, table, column, route, or code snippet inline in chat. If you are about to name a model or sketch a column you are already in scope, even in an exploratory back-and-forth where no file is written yet. Do not let a "we''re just discussing" framing defer it. Do NOT use for non-Rails backends, NestJS, or general architecture (use nestjs-modular-monolith or coding-guidelines). Use when the user requests rails dev or invokes rails-dev.'
+  capabilities: []
+- id: react-best-practices
+  path: 00_skills/(quality)/react-best-practices/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: React and Next.js performance optimization guidelines from Vercel Engineering. Use when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements. Do NOT use for component API architecture or composition patterns (use react-composition-patterns instead).
+  capabilities: []
+- id: react-composition-patterns
+  path: 00_skills/(architecture)/react-composition-patterns/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: React composition patterns that scale. Use when refactoring components with boolean prop proliferation, building flexible component libraries, or designing reusable APIs. Triggers on tasks involving compound components, render props, context providers, or component architecture. Includes React 19 API changes. Do NOT use for React/Next.js performance optimization (use react-best-practices instead).
+  capabilities: []
+- id: react-native-expert
+  path: 00_skills/(development)/react-native-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Senior React Native and Expo engineer for building production-ready cross-platform mobile apps. Use when building React Native components, implementing navigation with Expo Router, optimizing list and scroll performance, working with animations via Reanimated, handling platform-specific code (iOS/Android), integrating native modules, or structuring Expo projects. Triggers on React Native, Expo, mobile app, iOS app, Android app, cross-platform, native module, FlatList, FlashList, LegendList, Reanimated, Expo Router, mobile performance, app store. Do NOT use for Flutter, web-only React, or backend Node.js tasks.
+  capabilities: []
+- id: render-deploy
+  path: 00_skills/(cloud)/render-deploy/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy, host, publish, or set up their application on Render's cloud platform. Do NOT use for deploying to Vercel, Netlify, or Cloudflare (use their respective skills).
+  capabilities: []
+- id: sales-motion-design
+  path: 00_skills/(gtm)/sales-motion-design/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: When the user wants to choose between PLG and sales-led, design a sales motion, optimize time-to-first-value, or build a value-before-purchase experience. Also use when the user mentions 'PLG,' 'product-led growth,' 'sales-led,' 'sales motion,' 'free trial,' 'freemium,' 'self-serve,' 'demo-first,' 'time-to-first-value,' 'TTFV,' or 'agent-led sales.' This skill covers sales motion selection, value delivery design, and go-to-market motion architecture. Do NOT use for technical implementation, code review, or software architecture.
+  capabilities: []
+- id: sentry
+  path: 00_skills/(monitoring)/sentry/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Inspect Sentry issues, summarize production errors, and pull health data via the Sentry API (read-only). Use when user says "check Sentry", "what errors in production?", "summarize Sentry issues", "recent crashes", or "production error report". Requires SENTRY_AUTH_TOKEN. Do NOT use for setting up Sentry SDK, configuring alerts, or non-Sentry error monitoring.
+  capabilities: []
+- id: seo
+  path: 00_skills/(quality)/seo/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Optimize for search engine visibility and ranking. Use when asked to "improve SEO", "optimize for search", "fix meta tags", "add structured data", "sitemap optimization", or "search engine optimization". Do NOT use for accessibility (use web-accessibility), performance (use core-web-vitals), or comprehensive site audits covering multiple areas (use web-quality-audit).
+  capabilities: []
+- id: shopify-developer
+  path: 00_skills/(development)/shopify-developer/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Complete Shopify development reference covering Liquid templating, OS 2.0 themes, GraphQL APIs, Hydrogen, Functions, and performance optimization (API v2026-01). Use when working with .liquid files, building Shopify themes or apps, writing GraphQL queries for Shopify, debugging Liquid errors, creating app extensions, migrating from Scripts to Functions, or building headless storefronts. Triggers on "Shopify", "Liquid template", "Hydrogen", "Storefront API", "theme development", "Shopify Functions", "Polaris". Do NOT use for non-Shopify e-commerce platforms.
+  capabilities: []
+- id: social-selling
+  path: 00_skills/(gtm)/social-selling/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: When the user wants to sell through social media, optimize LinkedIn for sales, build DM sequences, or convert content engagement into pipeline. Also use when the user mentions 'social selling,' 'LinkedIn selling,' 'LinkedIn DMs,' 'social prospecting,' 'LinkedIn Sales Navigator,' 'DM sequences,' 'LinkedIn outreach,' 'social pipeline,' or 'LinkedIn optimization.' This skill covers social selling strategy from profile optimization through DM-to-deal conversion. Do NOT use for technical implementation, code review, or software architecture.
+  capabilities: []
+- id: solo-founder-gtm
+  path: 00_skills/(gtm)/solo-founder-gtm/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: When the user is a solo founder building their GTM motion, wants to scale without hiring, or needs to design an AI agent team for go-to-market. Also use when the user mentions 'solo founder,' 'one-person startup,' 'solopreneur,' 'bootstrapped,' 'no team,' 'AI agents as team,' 'scaling without hiring,' 'founder-led sales,' 'lean GTM,' 'one-person company,' or 'no employees.' This skill covers the complete solo founder GTM playbook from stack selection through agent team design, revenue-stage transitions, time allocation, and when to finally hire. Do NOT use for technical implementation, code review, or software architecture.
+  capabilities: []
+- id: spec-driven-eval
+  path: 00_skills/(development)/spec-driven-eval/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Scores how completely an implementation fulfills a PRD/spec, case by case, and produces a single comparable final grade. Invoke only when explicitly named (e.g. run spec-driven-eval); do not auto-trigger. Use when benchmarking spec-driven implementations, grading acceptance criteria, evaluating whether a feature was 100% implemented, comparing multiple implementations of the same PRD, or auditing implementation and test coverage (unit and e2e) against product requirements. Do NOT use for planning or building features (use tlc-spec-driven), writing PRDs, or general code review unrelated to a spec.
+  capabilities: []
+- id: tactical-ddd
+  path: 00_skills/(architecture)/tactical-ddd/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Detects anemic domain models, validates and refactors them into rich domain models, and enforces tactical DDD patterns (Entities, Value Objects, Aggregates, Domain Services, Domain Events). Use when the user asks to validate, review, or check domain models or DDD code; detect anemia; refactor domain objects; improve encapsulation; or mentions terms like "anemic model", "rich domain", "aggregate", "value object", "domain event", "ubiquitous language", "is this good DDD", "does this follow DDD", or "check my domain". Do NOT use for module or service boundary design, architectural decomposition, strategic DDD context mapping, or code outside the domain layer (DTOs, controllers, infrastructure adapters).
+  capabilities: []
+- id: the-judge
+  path: 00_skills/(quality)/the-judge/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Evidence-first pull request judge that reviews a PR and posts one consolidated GitHub review with inline comments via the gh CLI. Runs the repo's own deterministic checks first, researches current official docs before any claim about external libraries or APIs, then reviews correctness, security, structural quality (code judo, spaghetti growth, file-size limits), and AI slop including useless code comments. Every finding must carry evidence, every comment passes a deterministic noise gate before posting, and the verdict (APPROVE, COMMENT, REQUEST_CHANGES) is weighed by findings. Use when asked to review a PR, judge this PR, review this branch or diff before merge, run the-judge, "revise esse PR", "faca o code review", or "julgue esse PR". Do NOT use for reviewing prose or documents, fixing CI failures, resolving merge conflicts, writing the fix itself, or responding to review comments (use gh-address-comments).
+  capabilities: []
+- id: tlc-discover
+  path: 00_skills/(development)/tlc-discover/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Interviews an unshaped idea into a verdict and a design document - decisions, flows, schema, contracts - that anyone can plan from without having been in the room. Use when the user says "research this", "help me understand this problem", "should we build this", "discovery", "explore this problem", or "tlc-discover". Do NOT use to cut a finished design into tasks, or to implement.
+  capabilities: []
+- id: tlc-generative-engine-optimization
+  path: 00_skills/(quality)/tlc-generative-engine-optimization/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Generative Engine Optimization (GEO) specialist — the technical, on-page publishing work that makes a given page or site discoverable, understandable, trustworthy, quotable, and fresh for AI answer engines (Google AI Overviews, ChatGPT Search, Bing Copilot, Perplexity). Use when asked to 'optimize this page/site for GEO', 'optimize for AI search / answer engines', 'get my page cited by ChatGPT/Perplexity', 'improve AI visibility/citability', 'write an llms.txt', 'add citation-ready structure or schema for AI answers', 'otimizar para busca com IA', or to audit/create/improve a codebase for generative search. Do NOT use for AI-driven SEO content strategy or programmatic pages at scale (use ai-seo), classic keyword/SERP ranking (use seo), accessibility (use web-accessibility), or multi-area site audits (use web-quality-audit).
+  capabilities: []
+- id: tlc-implement
+  path: 00_skills/(development)/tlc-implement/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Implement a work already planned: extracts a checklist, builds it, and proves every check with an independent verifier. Use when the user says "extract a checklist", "build this ticket", "implement this spec", or "tlc-implement". Do NOT use when nobody has decided what to build, or to design the work.'
+  capabilities: []
+- id: tlc-spec-driven
+  path: 00_skills/(development)/tlc-spec-driven/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Feature planning and implementation with 4 adaptive phases (Specify, Design, Tasks, Execute). Auto-sizes depth by complexity. Writes testable requirements in EARS notation, atomic tasks, atomic Conventional Commits, and requirement traceability. Ships deterministic Python validation scripts so structural gates are enforced by code, not memory. Features an independent Verifier (author != verifier, evidence-or-zero), a discrimination sensor, a decision log (STATE.md), a test-coverage matrix, and a self-improving lessons layer. Stack-agnostic and tool-agnostic. Use when (1) planning features, (2) implementing with verification and atomic commits, (3) validating an implementation against a spec. Triggers on "specify feature", "discuss feature", "design", "tasks", "implement", "validate", "verify work", "UAT", "record decision", "pause work", "resume work". Do NOT use for pure architecture decomposition analysis or standalone technical design documents.
+  capabilities: []
+- id: tlc-spec-lean
+  path: 00_skills/(development)/tlc-spec-lean/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Spec-driven feature work that freezes obligations instead of the plan: one human-reviewed plan with EARS criteria, path, entities, interface and one-way doors, then proof-backed checks, then build, then an independent Verifier. Use when the user says "tlc-spec-lean", "plan feature", "specify feature", "write the checks", "build this plan", or "verify work". Do NOT use for standalone design documents unattached to a feature, architecture decomposition analysis, or work that already has a task list or checklist to execute.'
+  capabilities: []
+- id: vercel-deploy
+  path: 00_skills/(cloud)/vercel-deploy/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Deploy applications and websites to Vercel. Use when the user requests deployment actions like "deploy my app", "deploy and give me the link", "push this live", or "create a preview deployment". Do NOT use for deploying to Netlify, Cloudflare, or Render (use their respective skills).
+  capabilities: []
+- id: video-outreach
+  path: 00_skills/(gtm)/video-outreach/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: When the user wants to build video-first cold outreach, create personalized video at scale, implement async selling, or use AI demo generation for prospecting. Also use when the user mentions 'video outreach,' 'personalized video,' 'video prospecting,' 'Tavus,' 'Sendspark,' 'HeyGen,' 'video email,' 'async selling,' 'video demo,' or 'made this for you.' This skill covers video-first outreach systems from personalization through conversion optimization. Do NOT use for technical implementation, code review, or software architecture.
+  capabilities: []
+- id: web-design-guidelines
+  path: 00_skills/(design)/web-design-guidelines/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "check accessibility", "audit design", "review UX", or "check my site against best practices". Focuses on visual design and interaction patterns. Do NOT use for performance audits (use core-web-vitals), SEO (use seo), or comprehensive site audits (use web-quality-audit).
+  capabilities: []
+- id: angular-8-to-20-migration
+  path: 00_skills/(architecture)/angular-8-to-20-migration/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Plan and execute Angular 8 to 20 migration one major at a time, preserving rendered UI, custom elements, HTTP interceptors and async behavior. Use when the user says migrar Angular 8 para 20, subir o major do Angular or migração Angular. Do NOT use for single-version coding (angular-20-expert), generic rewrite strategy (legacy-migration-planner), or deployment.
+  capabilities: []
+- id: acta-aurea
+  path: 00_skills/(tooling)/acta-aurea/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Turn an authorized meeting/call video (Teams/OBS .mkv/.mp4) into the complete offline pack: transcript, named speakers, topics, minutes, summary, glossary, subtitles and HTML player. Use for analisar essa call, gerar ata, transcreva a reunião or transcreva esse vídeo de reunião, even when only transcription is named. Do NOT use for a bare audio file with no meeting/speakers/pack (vox-aurum), live dictation or generic report design.'
+  capabilities: []
+- id: vox-aurum
+  path: 00_skills/(tooling)/vox-aurum/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Transcribe authorized local bare audio offline with a verified local Whisper model, preserving spoken language and literal output; optionally use an explicitly requested GPU. Use for transcreva esse áudio, áudios dessa pasta, audio to text or transcrição offline. Do NOT use for meeting/call video even if only transcrever is requested (acta-aurea), diarized minutes, live dictation, editing/translation or voice cloning.
+  capabilities: []
+- id: report-design
+  path: 00_skills/(design)/report-design/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Apply the pictured offline report layout with semantic theme tokens, complete grids, tooltips, filters/export, drill-down and accessible diagrams. Use when the user says melhorar o relatório HTML, tabela sem filtro or relatório regrediu. Do NOT use for data collection (fleet-mapping), schema changes, skill evaluation, or meeting media (acta-aurea).
+  capabilities: []
+- id: fleet-mapping
+  path: 00_skills/(mapping)/fleet-mapping/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Map authorized repository fleets by sigla with corporate, domain and repository knowledge, scoped glossaries, evidenced dependencies and an offline consolidated report. Use for mapear os repositorios da sigla, jornada do sistema, glossário do fleet or visão sistêmica. Do NOT use to fix one bug, provision infrastructure, mutate production or invent business rules.
+  capabilities: []
+- id: cve-advisory-sync
+  path: 00_skills/(security)/cve-advisory-sync/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Refresh a provenance-tracked local vulnerability advisory dataset from authorized OSV/GHSA/NVD sources. Use when the user says atualizar a base de CVEs or sincronizar advisories. Do NOT use for a version-specific vulnerability assessment (vuln-obsol-recon), known-CVE patching (cve-remediation), or EOL dates (eol-advisory-sync).
+  capabilities: []
+- id: cve-remediation
+  path: 00_skills/(security)/cve-remediation/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Fix an already identified dependency CVE/GHSA with the smallest compatible change and behavior evidence. Use when the user says corrigir esta CVE, remediar GHSA or atualizar a dependência vulnerável. Do NOT use for discovering all vulnerabilities (vuln-obsol-recon), advisory ingestion, or publishing/merging the resulting PR.
+  capabilities: []
+- id: eol-advisory-sync
+  path: 00_skills/(security)/eol-advisory-sync/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Refresh local end-of-life/support metadata from endoflife.date API v1 and official maintainers with product aliases and freshness. Use when the user says atualizar a base EOL or sincronizar obsolescência. Do NOT use for CVE synchronization, vulnerability patching, or claiming unsupported internal libraries have public EOL dates.
+  capabilities: []
+- id: revisar-seguranca-pr
+  path: 00_skills/(security)/revisar-seguranca-pr/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Review a concrete pull-request diff for authorization, sensitive-data handling and security failures that scans need contextual evidence to assess. Use when the user says revisar segurança deste PR or avaliar este achado CodeQL/Fortify/Trivy. Do NOT use for general PR review (revisar-pr), fleet vulnerability inventory, or known dependency remediation (cve-remediation).
+  capabilities: []
+- id: vuln-obsol-recon
+  path: 00_skills/(security)/vuln-obsol-recon/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Assess known vulnerabilities and lifecycle risk for the exact versions detected in repository/runtime evidence. Use when the user says esta versão tem CVE, tecnologia está obsoleta or mapear vulnerabilidade e EOL. Do NOT use for base synchronization, patch implementation, deep PR security review or invented versions without manifests/runtime evidence.
+  capabilities: []
+- id: runtime-troubleshooting
+  path: 00_skills/(development)/runtime-troubleshooting/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: Diagnose a running application from read-only logs, metrics, traces, events and repository code without changing the live system. Use when the user says erro em produção, aplicação não sobe or investigar falha em runtime. Do NOT use to restart/scale/deploy, redesign architecture, invent inaccessible broker state, or replace incident ownership.
+  capabilities: []
+- id: impeccable
+  path: 00_skills/(design)/impeccable/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: Use when the user wants to design, redesign, shape, critique, audit, polish, clarify, distill, harden, optimize, adapt, animate, colorize, extract, or otherwise improve a frontend interface. Covers websites, landing pages, dashboards, product UI, app shells, components, forms, settings, onboarding, and empty states. Handles UX review, visual hierarchy, information architecture, cognitive load, accessibility, performance, responsive behavior, theming, anti-patterns, typography, fonts, spacing, layout, alignment, color, motion, micro-interactions, UX copy, error states, edge cases, i18n, and reusable design systems or tokens. Also use for bland designs that need to become bolder or more delightful, loud designs that should become quieter, live browser iteration on UI elements, or ambitious visual effects that should feel technically extraordinary. Not for backend-only or non-UI tasks.
+  capabilities: []

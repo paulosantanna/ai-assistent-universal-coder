@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "${SCRIPT_DIR}/../.." && pwd)"
+export JAVA_HOME="${JAVA_HOME:-${SCRIPT_DIR}/../jdk-17.0.19+10}"
+export PATH="${JAVA_HOME}/bin:${PATH}"
+AEOS_PROXY_OPTS=""
+AEOS_PROXY_URL="${HTTPS_PROXY:-${https_proxy:-${HTTP_PROXY:-${http_proxy:-}}}}"
+AEOS_MAVEN_SETTINGS="${REPO_ROOT}/aeos/config/maven-settings.xml"
+if [[ "${AEOS_PROXY_URL}" =~ ^https?://([^/:]+):([0-9]+) ]]; then
+  AEOS_PROXY_HOST="${BASH_REMATCH[1]}"
+  AEOS_PROXY_PORT="${BASH_REMATCH[2]}"
+  AEOS_PROXY_OPTS="-Dhttp.proxyHost=${AEOS_PROXY_HOST} -Dhttp.proxyPort=${AEOS_PROXY_PORT} -Dhttps.proxyHost=${AEOS_PROXY_HOST} -Dhttps.proxyPort=${AEOS_PROXY_PORT}"
+  AEOS_MAVEN_SETTINGS="/tmp/aeos-maven-settings.xml"
+  cat > "${AEOS_MAVEN_SETTINGS}" <<EOF
+<settings xmlns="http://maven.apache.org/SETTINGS/1.2.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.2.0 https://maven.apache.org/xsd/settings-1.2.0.xsd">
+  <mirrors>
+    <mirror>
+      <id>aeos-repo1-central</id>
+      <mirrorOf>central</mirrorOf>
+      <name>AEOS Maven Central mirror</name>
+      <url>https://repo1.maven.org/maven2</url>
+    </mirror>
+  </mirrors>
+  <proxies>
+    <proxy>
+      <id>aeos-env-proxy</id>
+      <active>true</active>
+      <protocol>http</protocol>
+      <host>${AEOS_PROXY_HOST}</host>
+      <port>${AEOS_PROXY_PORT}</port>
+    </proxy>
+  </proxies>
+</settings>
+EOF
+fi
+AEOS_SSL_OPTS="-Djavax.net.ssl.trustStore=${REPO_ROOT}/.tools/aeos-java-truststore.p12 -Djavax.net.ssl.trustStorePassword=changeit -Djavax.net.ssl.trustStoreType=PKCS12"
+export MAVEN_OPTS="${MAVEN_OPTS:-} -Djava.net.preferIPv4Stack=true ${AEOS_PROXY_OPTS} ${AEOS_SSL_OPTS}"
+
+exec "${SCRIPT_DIR}/../apache-maven-3.9.11/bin/mvn" \
+  "-s" "${AEOS_MAVEN_SETTINGS}" \
+  "-Dmaven.repo.local=${MAVEN_REPO_LOCAL:-/tmp/aeos-m2}" \
+  "$@"

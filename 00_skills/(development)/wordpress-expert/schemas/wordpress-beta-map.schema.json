@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "aeos://wordpress/beta-map.schema.json",
+  "title": "AEOS WordPress Beta Map",
+  "type": "object",
+  "required": ["schema_version", "site_id", "canonical_url", "mapping_state", "mapped_at", "wordpress", "theme", "plugins", "rest", "navigation", "integration_domains", "risk_summary"],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "site_id": { "type": "string", "minLength": 16 },
+    "canonical_url": { "type": "string", "format": "uri" },
+    "mapping_state": { "enum": ["beta", "consolidated", "invalid"] },
+    "mapped_at": { "type": "string", "format": "date-time" },
+    "auth": {
+      "type": "object",
+      "properties": {
+        "mode": { "const": "external_runtime_cookie_file" },
+        "provider_alias": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "wordpress": { "type": "object" },
+    "theme": { "type": "object" },
+    "plugins": { "type": "array", "items": { "type": "object" } },
+    "rest": { "type": "object" },
+    "content_summary": { "type": "object" },
+    "navigation": { "type": "object" },
+    "templates": { "type": "object" },
+    "frontend_assets": { "type": "object" },
+    "integration_domains": { "type": "array", "items": { "type": "string" } },
+    "operations": { "type": "object" },
+    "risk_summary": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": true
+}

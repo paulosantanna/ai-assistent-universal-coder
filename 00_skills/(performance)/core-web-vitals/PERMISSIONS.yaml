@@ -1,0 +1,13 @@
+skill: core-web-vitals
+owner_agent: codenavi-agent
+version: 1.0.0
+source: core-web-vitals@1.0
+read:
+  - repository.files
+mutate_with_policy:
+  - repository.local_implementation
+mutate_with_explicit_approval:
+  - git.commit
+permanently_denied:
+  - agent.identity.create
+  - metrics.invent_scores

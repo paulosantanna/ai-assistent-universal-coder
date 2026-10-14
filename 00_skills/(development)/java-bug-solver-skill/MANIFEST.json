@@ -1,0 +1,90 @@
+{
+  "skill": "java-bug-solver-skill",
+  "files": [
+    {
+      "path": "AGENT.md",
+      "sha256": "5808f806775c31dfab48152153c19b0b44038d4f7649ecd5fdce67d3a2f2167e",
+      "bytes": 134
+    },
+    {
+      "path": "knowledge/CONTINUOUS_LEARNING.md",
+      "sha256": "522088c013dd2e46a87a5b8b0ca93d579ebc47164c7b77b699d6db2fb2964692",
+      "bytes": 85
+    },
+    {
+      "path": "knowledge/KNOWLEDGE.md",
+      "sha256": "f3ee57e9cee77e33529ca2f94d4cbc12fc1f47a476b6ed65eb494aa96398521b",
+      "bytes": 62
+    },
+    {
+      "path": "knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "c12a9a1f5bf72e30094f5187219d16d92a90579b525a0bd73c8ef48ecd679496",
+      "bytes": 98
+    },
+    {
+      "path": "knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "45786cf367dcad462ce23ecbf126751fa213dd3e38129aff8719ab925b9dc32b",
+      "bytes": 68
+    },
+    {
+      "path": "knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "3ca871e4f99c59ab7218c65e9d9abafe87c95373a28b4065ef1af90f38068290",
+      "bytes": 59
+    },
+    {
+      "path": "memory/EXECUTIONS.md",
+      "sha256": "8548e143acbf320fa5d3da60eadc93e7d997ee6c69e44d29e7febf6489648551",
+      "bytes": 19
+    },
+    {
+      "path": "memory/FAILURES.md",
+      "sha256": "dfca2f9b138d036b1c6b20e58199607c0f30bb9f945183a8a5126e9ccb1148ec",
+      "bytes": 17
+    },
+    {
+      "path": "memory/LESSONS.md",
+      "sha256": "d92bc7635bd3d76019e37b027c0c5602075df41c7ec9b26c4fb48d8b7d99ebbb",
+      "bytes": 16
+    },
+    {
+      "path": "memory/PATTERNS.md",
+      "sha256": "d707501f9f2c126206605e60b4aa76e6980f41ba2e7d971bd5b710b0a38e879f",
+      "bytes": 17
+    },
+    {
+      "path": "README.md",
+      "sha256": "579f76739ea828b01c215a94b4029bc7c6e1b45b3ea41388e1a8da7f04d0253f",
+      "bytes": 1211
+    },
+    {
+      "path": "schemas/output.schema.json",
+      "sha256": "9257704e7b712de6740fb860be446c7926dc95b7b1fe1ad6839120039c653815",
+      "bytes": 1667
+    },
+    {
+      "path": "scripts/validate.py",
+      "sha256": "1940271c3c11b59427dd26f1561eae02928a93d4a1f60b1f15343da6d9ae0d54",
+      "bytes": 1646
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "f32d58b4e4cb881986f9ace1313f0d93ee45bb29e115d7b80938a19403279a92",
+      "bytes": 7068
+    },
+    {
+      "path": "templates/OUTPUT.template.md",
+      "sha256": "52fbec1b57cba655ba182efd1a1fcecb4a9725f5c6551ab1ba7f6378bd058083",
+      "bytes": 925
+    },
+    {
+      "path": "tests/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "tests/test_structure.py",
+      "sha256": "16fd2edd64c65865c79cf3f76217aee9f6ff8ef54708cbff7d59ed6e723cac74",
+      "bytes": 1421
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "skill": "voiceai",
+  "files": [
+    {
+      "path": "AGENT.md",
+      "sha256": "e8fffde00e5d247087c946fbd1479ab9f65e6761cbd52be59373578d2512eea9",
+      "bytes": 1469
+    },
+    {
+      "path": "evaluation/HONEST_EVALUATOR.md",
+      "sha256": "43b96cea6b7f5af9b4e1dd649292e273cf9322677b3d3a1a54a20824828bc79b",
+      "bytes": 1002
+    },
+    {
+      "path": "knowledge/ANTI_FORGETTING.md",
+      "sha256": "4c5822c02939fa9a18fdfdf651a50e6531b27f7b5482abaa5418df4167149c53",
+      "bytes": 146
+    },
+    {
+      "path": "knowledge/CONTINUOUS_LEARNING.md",
+      "sha256": "f1b19e4fcfb26dd319ccc39de129b58c6408773fad15aa1834480e0d60bd3c07",
+      "bytes": 146
+    },
+    {
+      "path": "knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "aaf1bffbbbb97affc38dd3d68014eb0cab08112feebe55476bc9ef1ff06b5610",
+      "bytes": 233
+    },
+    {
+      "path": "knowledge/KNOWLEDGE.md",
+      "sha256": "bf542f3bd1dd486e7561f2fb498cc721bbc074effb67681d5d88bc7ec7fabdd1",
+      "bytes": 492
+    },
+    {
+      "path": "knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "74a4ba7dc86545e12b9995143ccfea3a9d493087b00511a201f4f4751e5e9590",
+      "bytes": 789
+    },
+    {
+      "path": "knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "67b849a37254e70962bf758e2088fabbcb953597841d673e2d5474e99a4c2a0d",
+      "bytes": 569
+    },
+    {
+      "path": "knowledge/TOKEN_EFFICIENCY.md",
+      "sha256": "5e8c2f509fc99ece6d47ec20d70f1b389bf898d2e9e463e4767a4a081df7aeb8",
+      "bytes": 145
+    },
+    {
+      "path": "memory/DECISIONS.md",
+      "sha256": "80dcbd553a7387b748ef2324b5423e2ac6562612c130d9e43c930dd8dd6ca8cf",
+      "bytes": 404
+    },
+    {
+      "path": "memory/EXECUTIONS.md",
+      "sha256": "41cc426c7bc504f1119f495086bd0f92a9a9b6a0b5708bb1b7f0af15a2ddfb25",
+      "bytes": 133
+    },
+    {
+      "path": "memory/FAILURES.md",
+      "sha256": "cae29d2b2002243a48d19c3ea608e520904605db8005e3e234add0ce84096300",
+      "bytes": 120
+    },
+    {
+      "path": "memory/LESSONS.md",
+      "sha256": "78939ad5cd2a7ca16ebdb926f1cf9e02a06f93dfb42e209769a08d914091d46f",
+      "bytes": 119
+    },
+    {
+      "path": "memory/OPEN_RISKS.md",
+      "sha256": "d08dd8018e4b1fc665b172be405f0f7a8afe5af7ef65773e80c0ac4fcd6a293e",
+      "bytes": 771
+    },
+    {
+      "path": "memory/PATTERNS.md",
+      "sha256": "6e65c211eff79ccfffdb1aaef9bf109d8c684f10a3ae59b0bd3de2c44eeb0c33",
+      "bytes": 147
+    },
+    {
+      "path": "README.md",
+      "sha256": "94f02aece2a1ec5429f26871ca26fb125f58b77a65c3daff8791f8ee0b2890e5",
+      "bytes": 1512
+    },
+    {
+      "path": "references/VOICEAI_ARCHITECTURE.md",
+      "sha256": "cd85adcff0e162c6627c8605e956c8610ec602594858a43bb5896deed27aff85",
+      "bytes": 805
+    },
+    {
+      "path": "schemas/output.schema.json",
+      "sha256": "2ab6b0215ae77fae005778f59da65a162bd795a0ed3b1226d401af9e268288f5",
+      "bytes": 5651
+    },
+    {
+      "path": "scripts/validate.py",
+      "sha256": "7d67e3e30f2bd55d5f0cabed0c153561d1eca41ff98487b9c22b3cd85d097abb",
+      "bytes": 2112
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "80f44e9ac79e612e208c2ff3b0e7fc43eb3da3ff23a6c045084aac147a618c81",
+      "bytes": 14389
+    },
+    {
+      "path": "templates/OUTPUT.template.md",
+      "sha256": "ab1ed75654bc940d7f96b6214cf1c770d7f432e6f2e1870433fe043bc065dc78",
+      "bytes": 1068
+    },
+    {
+      "path": "tests/test_structure.py",
+      "sha256": "47f2a4d6d9405657c44c466e72403adacd49d3dc1c312a8f604b71a235f7c8e8",
+      "bytes": 2093
+    }
+  ]
+}

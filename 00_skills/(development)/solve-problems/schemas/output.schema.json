@@ -1,0 +1,58 @@
+{
+  "type": "object",
+  "required": [
+    "status",
+    "execution_id",
+    "language",
+    "affected_files",
+    "root_cause",
+    "selected_proposal",
+    "changed_files",
+    "verification",
+    "artifact_paths",
+    "evidence_refs",
+    "blocking_conditions"
+  ],
+  "properties": {
+    "status": {
+      "enum": [
+        "COMPLETED",
+        "COMPLETED_WITH_DISCLOSED_LIMITATIONS",
+        "BLOCKED",
+        "WAITING_APPROVAL",
+        "FAILED_VERIFICATION"
+      ]
+    },
+    "execution_id": {"type": "string"},
+    "language": {"type": "string"},
+    "affected_files": {"type": "array", "items": {"type": "string"}},
+    "root_cause": {"type": "string"},
+    "selected_proposal": {"type": "string"},
+    "changed_files": {"type": "array", "items": {"type": "string"}},
+    "verification": {
+      "type": "object",
+      "properties": {
+        "commands": {"type": "array"},
+        "result": {"type": "string"},
+        "not_run": {"type": "array"}
+      },
+      "additionalProperties": true
+    },
+    "artifact_paths": {
+      "type": "object",
+      "required": ["Memory", "Handoff", "progress", "Learning", "evidencias", "analise"],
+      "properties": {
+        "Memory": {"type": "string"},
+        "Handoff": {"type": "string"},
+        "progress": {"type": "string"},
+        "Learning": {"type": "string"},
+        "evidencias": {"type": "string"},
+        "analise": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "evidence_refs": {"type": "array", "items": {"type": "string"}},
+    "blocking_conditions": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,23 @@
+skill: architecture-knowledge-management
+owner_agent: codenavi-agent
+version: 1.0.0
+source: aeos
+read:
+  - repository.files
+  - repository.history
+  - mcp.architecture-knowledge
+mutate_with_policy:
+  - documentation.akm_report.write
+  - notebook.progress.write
+mutate_with_explicit_approval:
+  - git.commit
+permanently_denied:
+  - agent.identity.create
+  - adr.rationale.invent
+  - adr.delete
+  - secret.persist_in_knowledge
+constraints:
+  composes_skills:
+    - architecturally-significant-requirement
+    - architecture-decision-record
+    - architecture-decision-log

@@ -1,0 +1,12 @@
+skill: skill-architect
+owner_agent: codenavi-agent
+version: 1.0.0
+source: skill-architect@1.0.0
+read:
+  - repository.files
+mutate_with_policy:
+  - skills.packages.write
+mutate_with_explicit_approval:
+  - git.commit
+permanently_denied:
+  - agent.identity.create

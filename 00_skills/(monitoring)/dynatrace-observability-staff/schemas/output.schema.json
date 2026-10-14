@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "required": [
+    "status",
+    "tool",
+    "analysis_window",
+    "child_reports",
+    "facts",
+    "assumptions",
+    "uncertainties",
+    "risks",
+    "findings",
+    "root_cause_candidates",
+    "recommendations",
+    "evidence_refs",
+    "handoff_to_integrator",
+    "blocking_conditions"
+  ],
+  "properties": {
+    "status": {"enum": ["PASS", "BLOCKED", "REVIEW"]},
+    "tool": {"type": "string"},
+    "analysis_window": {"type": "object"},
+    "child_reports": {"type": "array", "items": {"type": "object"}},
+    "facts": {"type": "array", "items": {"type": "object"}},
+    "assumptions": {"type": "array"},
+    "uncertainties": {"type": "array"},
+    "risks": {"type": "array"},
+    "findings": {"type": "array", "items": {"type": "object"}},
+    "root_cause_candidates": {"type": "array", "items": {"type": "object"}},
+    "recommendations": {"type": "array", "items": {"type": "object"}},
+    "evidence_refs": {"type": "array"},
+    "handoff_to_integrator": {"type": "object"},
+    "blocking_conditions": {"type": "array"}
+  },
+  "additionalProperties": true
+}

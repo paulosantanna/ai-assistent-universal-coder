@@ -1,0 +1,106 @@
+{
+  "status": "PASS",
+  "url_mode": "file://",
+  "browser": "Chromium / installed Microsoft Edge headless",
+  "checks": [
+    {
+      "check": "file:// abre os 11 projetos",
+      "passed": true
+    },
+    {
+      "check": "11 mapas individuais com drill-down",
+      "passed": true
+    },
+    {
+      "check": "Busca textual encontra apenas iBunny por Flutter",
+      "passed": true
+    },
+    {
+      "check": "Filtro de coluna inclui app e pacote relacionado",
+      "passed": true
+    },
+    {
+      "check": "Matriz mostra todas as 3.322 combinações sem limite oculto",
+      "passed": true
+    },
+    {
+      "check": "Filtro de aplicabilidade retorna 161 associações diretas",
+      "passed": true
+    },
+    {
+      "check": "Filtros de coluna combinados por AND",
+      "passed": true
+    },
+    {
+      "check": "CSV reflete exatamente a seleção",
+      "passed": true
+    },
+    {
+      "check": "Botão realiza download CSV real",
+      "passed": true
+    },
+    {
+      "check": "Conteúdo exportado confere com matriz filtrada",
+      "passed": true
+    },
+    {
+      "check": "Exportação completa inclui 3.322 decisões e cabeçalho",
+      "passed": true
+    },
+    {
+      "check": "Ordenação crescente e decrescente altera ordem",
+      "passed": true
+    },
+    {
+      "check": "Drill-down abre o projeto correto",
+      "passed": true
+    },
+    {
+      "check": "Tooltip acessível via foco e ancorado no body",
+      "passed": true
+    },
+    {
+      "check": "Escape fecha tooltip",
+      "passed": true
+    },
+    {
+      "check": "Campo de busca acessível por foco",
+      "passed": true
+    },
+    {
+      "check": "Tab pula select desativado e chega ao botão",
+      "passed": true
+    },
+    {
+      "check": "Ajuste de largura modifica coluna real",
+      "passed": true
+    },
+    {
+      "check": "Cabeçalho congelado",
+      "passed": true
+    },
+    {
+      "check": "Primeira coluna congelada",
+      "passed": true
+    },
+    {
+      "check": "Células preservam wrapping completo",
+      "passed": true
+    },
+    {
+      "check": "Mobile sem overflow global; tabela tem rolagem própria",
+      "passed": true
+    },
+    {
+      "check": "Nenhuma requisição de rede no relatório offline",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "network_requests": [],
+  "screenshots": [
+    "desktop.png",
+    "mobile.png"
+  ],
+  "scope": "Interações do relatório gerado; não é teste das aplicações mapeadas."
+}

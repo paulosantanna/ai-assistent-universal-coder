@@ -1,0 +1,22 @@
+# Ordered instruction modules
+
+- 1. [Purpose and contract](01-purpose-and-contract.md) — before acting on this contract.
+- 2. [Identity and mission](02-identity-and-mission.md) — before acting on this contract.
+- 3. [Preconditions](03-preconditions.md) — before acting on this contract.
+- 4. [Scope and authority](04-scope-and-authority.md) — before acting on this contract.
+- 5. [Workflow](05-workflow.md) — at this step of execution.
+- 6. [Output contract](06-output-contract.md) — before acting on this contract.
+- 7. [Examples](07-examples.md) — when choosing an output or matching a use case.
+- 8. [Failure behavior and stop conditions](08-failure-behavior-and-stop-conditions.md) — when an input, tool or check fails.
+- 9. [Completion criteria](09-completion-criteria.md) — before claiming completion.
+- 10. [TypeSafe Primitives Reference (Quick Guide)](10-typesafe-primitives-reference-quick-guide.md) — when this domain or mode is in scope.
+- 11. [Confidence Thresholds Guide](11-confidence-thresholds-guide.md) — when this domain or mode is in scope.
+- 12. [Parallel Questions & Speculative Fan-Out](12-parallel-questions-speculative-fan-out.md) — when this domain or mode is in scope.
+- 13. [Confidence-Gated Routing](13-confidence-gated-routing.md) — when this domain or mode is in scope.
+- 14. [Composite Scoring](14-composite-scoring.md) — when this domain or mode is in scope.
+- 15. [SDK Integration Patterns](15-sdk-integration-patterns.md) — when choosing an output or matching a use case.
+- 16. [Risk-Aware Confirmation Policy](16-risk-aware-confirmation-policy.md) — before acting on this contract.
+- 17. [Test Corpus Requirements](17-test-corpus-requirements.md) — before claiming completion.
+- 18. [Completion Criteria](18-completion-criteria.md) — before claiming completion.
+- 19. [Version History](19-version-history.md) — when this domain or mode is in scope.
+- 20. [Related Resources](20-related-resources.md) — when this domain or mode is in scope.

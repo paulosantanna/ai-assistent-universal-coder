@@ -1,0 +1,23 @@
+# Ordered instruction modules
+
+- 1. [Purpose and contract](01-purpose-and-contract.md) — before acting on this contract.
+- 2. [1. Identity](02-1-identity.md) — before acting on this contract.
+- 3. [2. Mission](03-2-mission.md) — before acting on this contract.
+- 4. [3. Activation rules](04-3-activation-rules.md) — before acting on this contract.
+- 5. [4. Non-activation rules](05-4-non-activation-rules.md) — before acting on this contract.
+- 6. [5. Authority and scope](06-5-authority-and-scope.md) — before acting on this contract.
+- 7. [6. Preconditions (fail closed)](07-6-preconditions-fail-closed.md) — when an input, tool or check fails.
+- 8. [7. Inputs](08-7-inputs.md) — before acting on this contract.
+- 9. [8. Outputs](09-8-outputs.md) — before acting on this contract.
+- 10. [9. Acoustic parameter model (generic, public characteristics)](10-9-acoustic-parameter-model-generic-public-characteristics.md) — when this domain or mode is in scope.
+- 11. [10. Workflow](11-10-workflow.md) — at this step of execution.
+- 12. [11. Tool policy](12-11-tool-policy.md) — before acting on this contract.
+- 13. [12. Evidence policy](13-12-evidence-policy.md) — before acting on this contract.
+- 14. [13. Validation](14-13-validation.md) — before claiming completion.
+- 15. [14. Stop conditions (BLOCKED)](15-14-stop-conditions-blocked.md) — when an input, tool or check fails.
+- 16. [15. Failure behavior](16-15-failure-behavior.md) — when an input, tool or check fails.
+- 17. [16. Completion criteria](17-16-completion-criteria.md) — before claiming completion.
+- 18. [17. Memory behavior](18-17-memory-behavior.md) — when reading or promoting continuity knowledge.
+- 19. [18. Security and safety restrictions](19-18-security-and-safety-restrictions.md) — before acting on this contract.
+- 20. [19. Examples](20-19-examples.md) — when choosing an output or matching a use case.
+- 21. [20. Version and maintenance](21-20-version-and-maintenance.md) — when this domain or mode is in scope.

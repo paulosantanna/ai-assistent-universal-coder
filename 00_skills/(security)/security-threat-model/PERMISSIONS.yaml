@@ -1,0 +1,13 @@
+skill: security-threat-model
+owner_agent: codenavi-agent
+version: 1.0.0
+source: security-threat-model@1.0.0
+read:
+  - repository.files
+mutate_with_policy:
+  - security.threat_model.write
+mutate_with_explicit_approval:
+  - git.commit
+permanently_denied:
+  - agent.identity.create
+  - secret.persist_in_threat_model

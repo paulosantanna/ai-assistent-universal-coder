@@ -1,0 +1,190 @@
+{
+  "skill": "staff-iii-architecture-governor",
+  "files": [
+    {
+      "path": "AGENT.md",
+      "sha256": "8911ea8b94aaa92d132f69f816223bfa9875223c8188fdaed51b33fa5f8e0993",
+      "bytes": 842
+    },
+    {
+      "path": "analise/ci-cd-github-actions.md",
+      "sha256": "7deacb3db353aa519d40a1f24d600c7c8adf3397abfed25941b1acedbc0846c3",
+      "bytes": 26
+    },
+    {
+      "path": "analise/decisao-banco-dados.md",
+      "sha256": "d81db13c98f178ac6a9c6660d6f51b0a8ebdb0226c04407571c23e990356bdf9",
+      "bytes": 29
+    },
+    {
+      "path": "analise/kubernetes-docker.md",
+      "sha256": "936c6b21749db9264198cbfdc55b8b6a3b23caa3a67bd854896784494a396618",
+      "bytes": 23
+    },
+    {
+      "path": "analise/matriz-tecnologias.md",
+      "sha256": "e5bd1d70d0e0fdb0c53b5fe5852aa244769cec75cc9a3c944c2f060ceb79c952",
+      "bytes": 25
+    },
+    {
+      "path": "analise/plano-arquitetura.md",
+      "sha256": "1814d45311d008d4e28690f28525521ac43f1e233fa907eb4d8c4e016d37defb",
+      "bytes": 24
+    },
+    {
+      "path": "analise/seguranca-cybersecurity.md",
+      "sha256": "399eb4ece6d87cc0803f03db453509da45f824b9f1edb8198020df185d2d59e4",
+      "bytes": 29
+    },
+    {
+      "path": "evaluation/honest_architecture_verdict.md",
+      "sha256": "d5d4b2d48181df526e9c22b5c80b144abb68b08f84fa1b52d747ee5077165c24",
+      "bytes": 31
+    },
+    {
+      "path": "evaluation/HONEST_EVALUATOR.md",
+      "sha256": "a9a075123ed1c79d998c4dee4fd1a12db1dd91a45b51a4e16e43b659042173a4",
+      "bytes": 735
+    },
+    {
+      "path": "evidencias/cybersecurity.md",
+      "sha256": "0a786d4352ecde208898cb6ea08b09fff2a06fc9fb11a550df1c9a13424f2aaa",
+      "bytes": 31
+    },
+    {
+      "path": "evidencias/evidence-index.md",
+      "sha256": "fc41cd8c6bb8e241b14cd640aa6317e248c4c7a3a547cd0e4ea0f0ae7288f478",
+      "bytes": 18
+    },
+    {
+      "path": "evidencias/tecnologias.md",
+      "sha256": "8f0c9be381de8747ef58e6cb49884bf04d0106eaf4b5a08b3c6dcee1ce563849",
+      "bytes": 29
+    },
+    {
+      "path": "Handoff/handoff-para-codigo.md",
+      "sha256": "c2afe2a0703b20ffad52bc2b2b03134f2806f55a94879ae0340b175dd32027ae",
+      "bytes": 23
+    },
+    {
+      "path": "knowledge/ANTI_FORGETTING.md",
+      "sha256": "4c5822c02939fa9a18fdfdf651a50e6531b27f7b5482abaa5418df4167149c53",
+      "bytes": 146
+    },
+    {
+      "path": "knowledge/CONTINUOUS_LEARNING.md",
+      "sha256": "f1b19e4fcfb26dd319ccc39de129b58c6408773fad15aa1834480e0d60bd3c07",
+      "bytes": 146
+    },
+    {
+      "path": "knowledge/KNOWLEDGE_PROMOTION.md",
+      "sha256": "aaf1bffbbbb97affc38dd3d68014eb0cab08112feebe55476bc9ef1ff06b5610",
+      "bytes": 233
+    },
+    {
+      "path": "knowledge/KNOWLEDGE.md",
+      "sha256": "41d38e16e046244d60a410b578af80c6e4aa0f0395fc07cd5d995ecc832d02ff",
+      "bytes": 141
+    },
+    {
+      "path": "knowledge/NEGATIVE_KNOWLEDGE.md",
+      "sha256": "4238c312917b6dcd83da2d7ab4dd7a885f1e2ed7badf2f51afc60da595b962c7",
+      "bytes": 145
+    },
+    {
+      "path": "knowledge/POSITIVE_KNOWLEDGE.md",
+      "sha256": "386948d33099f858b87114e2a14785a72d002c26eef281005202574dc2ae9bd0",
+      "bytes": 125
+    },
+    {
+      "path": "knowledge/TOKEN_EFFICIENCY.md",
+      "sha256": "5e8c2f509fc99ece6d47ec20d70f1b389bf898d2e9e463e4767a4a081df7aeb8",
+      "bytes": 145
+    },
+    {
+      "path": "Learning/learning.md",
+      "sha256": "7567f43c73890b568b4e92196102b046215d82de18dccce0f39f292080bc01c5",
+      "bytes": 12
+    },
+    {
+      "path": "memory/DECISIONS.md",
+      "sha256": "1a2a5046f1cc0162de0e30a4638e35b7bc200418f813af7134a2ad07fe4ac7cc",
+      "bytes": 88
+    },
+    {
+      "path": "memory/EXECUTIONS.md",
+      "sha256": "99ee211e4b7a8dba3a433ee1d708702d5e301d6937ebe633b77e6cad0da7ad15",
+      "bytes": 99
+    },
+    {
+      "path": "memory/FAILURES.md",
+      "sha256": "d7ed6b40acd88be4c9a2a9207789bc6178b3358444c30ec584548faaf00dab06",
+      "bytes": 67
+    },
+    {
+      "path": "memory/LESSONS.md",
+      "sha256": "d5edca58e0db839a5d780b9da4dbacd0198172f7f49bb9191db1ce65d084bcf8",
+      "bytes": 65
+    },
+    {
+      "path": "memory/memory.md",
+      "sha256": "8518e28d5366dbccdcc84011cd90f36f1017c8cafa8b7a47e376303b73663f0b",
+      "bytes": 10
+    },
+    {
+      "path": "memory/OPEN_RISKS.md",
+      "sha256": "29ff9cc1c30ff5f43574e0414e0aece47c7de3df5e0f6881e53354e9d1eb93f4",
+      "bytes": 70
+    },
+    {
+      "path": "memory/PATTERNS.md",
+      "sha256": "1b787d5021cf4af6e658bee93eeec886b999901b1c758dcabff061d716bc47fd",
+      "bytes": 62
+    },
+    {
+      "path": "progress/progress.md",
+      "sha256": "b2bcfcaea1a12b67c185586e39c49f3fcb53cd6ae56a4918ff8a142c91ebb556",
+      "bytes": 12
+    },
+    {
+      "path": "README.md",
+      "sha256": "b932fcfd5095e794c63ee1d3ca0961ac3a7969ef43b2666915ba2a46d73d7015",
+      "bytes": 693
+    },
+    {
+      "path": "references/SOURCES.md",
+      "sha256": "f10b47f838bb698de07b88b562085d88f21a49190134228bee0ba7d47cd6223b",
+      "bytes": 1873
+    },
+    {
+      "path": "schemas/output.schema.json",
+      "sha256": "224b4e72879cc06a022c1b3d3b6fb05d69e815a55035b635b50e3a5bc2734b09",
+      "bytes": 666
+    },
+    {
+      "path": "scripts/validate.py",
+      "sha256": "1865ba89da90f9d0bf6b7b94ecb0689caa91e1bda77d16efca81d1472cf055ec",
+      "bytes": 375
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "359e27d8ec1022bb4a721002ced6b6e5f990ca6afdd25397144e64149e2931be",
+      "bytes": 9278
+    },
+    {
+      "path": "templates/architecture-output.md",
+      "sha256": "01ca387a90b6cf183efdc83e52426d69c0056f0adf75009d405855e04d938f00",
+      "bytes": 483
+    },
+    {
+      "path": "templates/OUTPUT.template.md",
+      "sha256": "b085416b19402d5acbdb1016918e6c663c1f09760412fc2abdcfc598b48654c2",
+      "bytes": 192
+    },
+    {
+      "path": "tests/test_structure.py",
+      "sha256": "d8fd492c75a665a961e9a87f0ee1abbb194e42fb98be05a338f0a335b8bea282",
+      "bytes": 347
+    }
+  ]
+}

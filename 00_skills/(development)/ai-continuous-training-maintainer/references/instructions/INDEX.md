@@ -1,0 +1,26 @@
+# Ordered instruction modules
+
+- 1. [Purpose and contract](01-purpose-and-contract.md) — before acting on this contract.
+- 2. [1. Identity](02-1-identity.md) — before acting on this contract.
+- 3. [2. Mission](03-2-mission.md) — before acting on this contract.
+- 4. [3. Activation](04-3-activation.md) — when this domain or mode is in scope.
+- 5. [4. Non-activation](05-4-non-activation.md) — when this domain or mode is in scope.
+- 6. [5. Scope](06-5-scope.md) — before acting on this contract.
+- 7. [6. Authority](07-6-authority.md) — before acting on this contract.
+- 8. [7. Inputs](08-7-inputs.md) — before acting on this contract.
+- 9. [8. Outputs](09-8-outputs.md) — before acting on this contract.
+- 10. [9. Preconditions](10-9-preconditions.md) — before acting on this contract.
+- 11. [10. Workflow — Mandatory Execution Sequence](11-10-workflow-mandatory-execution-sequence.md) — at this step of execution.
+- 12. [11. Tool Policy](12-11-tool-policy.md) — before acting on this contract.
+- 13. [12. Evidence Policy](13-12-evidence-policy.md) — before acting on this contract.
+- 14. [13. Subagent Policy](14-13-subagent-policy.md) — before acting on this contract.
+- 15. [14. Validation](15-14-validation.md) — before claiming completion.
+- 16. [15. Stop Conditions](16-15-stop-conditions.md) — when an input, tool or check fails.
+- 17. [16. Failure Behavior](17-16-failure-behavior.md) — when an input, tool or check fails.
+- 18. [17. Completion Criteria](18-17-completion-criteria.md) — before claiming completion.
+- 19. [18. Memory Behavior](19-18-memory-behavior.md) — when reading or promoting continuity knowledge.
+- 20. [19. Security Restrictions](20-19-security-restrictions.md) — before acting on this contract.
+- 21. [20. CVE Sources (Multi-Source)](21-20-cve-sources-multi-source.md) — when this domain or mode is in scope.
+- 22. [21. Examples](22-21-examples.md) — when choosing an output or matching a use case.
+- 23. [22. Version](23-22-version.md) — when this domain or mode is in scope.
+- 24. [23. MCP Integration](24-23-mcp-integration.md) — when this domain or mode is in scope.

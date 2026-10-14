@@ -1,0 +1,14 @@
+skill: security-best-practices
+owner_agent: codenavi-agent
+version: 1.0.0
+source: security-best-practices@1.0.0
+read:
+  - repository.files
+mutate_with_policy:
+  - security.report.write
+mutate_with_explicit_approval:
+  - git.commit
+  - repository.local_implementation
+permanently_denied:
+  - agent.identity.create
+  - secret.persist_in_report_or_notebook

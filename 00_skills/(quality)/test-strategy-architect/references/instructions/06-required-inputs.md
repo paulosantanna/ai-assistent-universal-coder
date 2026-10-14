@@ -1,0 +1,14 @@
+<!-- Package: 00_skills/(quality)/test-strategy-architect; relative command/resource examples resolve from that package or workspace root. -->
+
+## Required Inputs
+
+```yaml
+input:
+  execution_id:
+  target_path:
+  profile:
+  scope:
+  evidence_refs:
+  performance_budget:
+  risk_tolerance:
+```

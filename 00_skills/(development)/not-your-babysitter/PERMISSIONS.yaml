@@ -1,0 +1,17 @@
+skill: not-your-babysitter
+owner_agent: codenavi-agent
+version: 1.0.0
+source: not-your-babysitter@1.0.0
+read:
+  - repository.files
+  - notebook.continuity
+mutate_with_policy:
+  - repository.local_implementation
+mutate_with_explicit_approval:
+  - git.commit
+  - git.push
+  - production.deploy
+permanently_denied:
+  - agent.identity.create
+  - secret.persist_in_notebook
+  - tests.weaken_or_delete_to_pass

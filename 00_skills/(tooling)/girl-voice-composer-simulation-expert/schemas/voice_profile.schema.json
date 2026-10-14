@@ -1,0 +1,129 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://aeos.local/schemas/girl-voice-profile.schema.json",
+  "title": "Generic Female Child Voice Profile (age 6-8)",
+  "description": "Engine-agnostic acoustic direction parameters for a generic, fictional female child voice. Not a voiceprint of any real person.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "language",
+    "target_age",
+    "engine",
+    "generic_and_fictional",
+    "pitch",
+    "formants",
+    "prosody",
+    "rhythm",
+    "eq",
+    "dynamics",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "language": { "type": "string", "enum": ["pt-BR", "en-US"] },
+    "target_age": { "type": "integer", "minimum": 6, "maximum": 8 },
+    "style": {
+      "type": "string",
+      "enum": ["neutral", "cheerful", "storytelling", "calm"],
+      "default": "neutral"
+    },
+    "engine": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "mapping_mode"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "mapping_mode": { "type": "string", "enum": ["mapped", "agnostic"] },
+        "controls": {
+          "type": "object",
+          "description": "Optional map of generic parameter name -> engine-specific control name.",
+          "additionalProperties": { "type": "string" }
+        }
+      }
+    },
+    "generic_and_fictional": {
+      "type": "boolean",
+      "const": true,
+      "description": "Must be true. Asserts the profile is generic/fictional and NOT an impersonation of a real identifiable child."
+    },
+    "consent_ref": {
+      "type": ["string", "null"],
+      "description": "Pointer/identifier to a consent artifact when real recordings of minors informed tuning. Never the content itself.",
+      "default": null
+    },
+    "pitch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mean_f0_hz", "min_f0_hz", "max_f0_hz"],
+      "properties": {
+        "mean_f0_hz": { "type": "number", "minimum": 200, "maximum": 380 },
+        "min_f0_hz": { "type": "number", "minimum": 150, "maximum": 380 },
+        "max_f0_hz": { "type": "number", "minimum": 200, "maximum": 600 }
+      }
+    },
+    "formants": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["vtl_shift_semitones"],
+      "properties": {
+        "vtl_shift_semitones": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 6,
+          "description": "Upward formant / vocal-tract-length shift vs adult female baseline."
+        }
+      }
+    },
+    "prosody": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pitch_variability", "contour"],
+      "properties": {
+        "pitch_variability": { "type": "number", "minimum": 0, "maximum": 1 },
+        "contour": {
+          "type": "string",
+          "enum": ["flat", "moderate", "lively"]
+        }
+      }
+    },
+    "rhythm": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["speech_rate_wpm", "pause_bias"],
+      "properties": {
+        "speech_rate_wpm": { "type": "number", "minimum": 90, "maximum": 180 },
+        "pause_bias": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Higher = more/longer micro-pauses at clause boundaries."
+        }
+      }
+    },
+    "eq": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["low_shelf_db", "presence_boost_db", "sibilance_control_db"],
+      "properties": {
+        "low_shelf_db": { "type": "number", "minimum": -12, "maximum": 0 },
+        "presence_boost_db": { "type": "number", "minimum": 0, "maximum": 6 },
+        "sibilance_control_db": { "type": "number", "minimum": -8, "maximum": 0 }
+      }
+    },
+    "dynamics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["breathiness", "compression"],
+      "properties": {
+        "breathiness": { "type": "number", "minimum": 0, "maximum": 1 },
+        "compression": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "limitations": {
+      "type": "string",
+      "minLength": 10,
+      "description": "Explicit statement of what the profile does not guarantee."
+    }
+  }
+}

@@ -17,6 +17,10 @@ target/
 !.tools/bin/
 !.tools/bin/mvn
 !.tools/bin/gradle
-.work/tlc-source/
-.work/tlc-images/
+# Local execution artifacts, browser profiles, fixtures and source backups.
+.work/
+/chromatic-runs/
+/.codex/reidoabc-image-fix/
+/.pytest_cache/
+/_read_image.py
 /02_repositorios/

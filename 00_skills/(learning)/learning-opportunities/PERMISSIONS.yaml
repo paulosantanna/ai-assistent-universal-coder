@@ -1,0 +1,13 @@
+skill: learning-opportunities
+owner_agent: codenavi-agent
+version: 1.1.0
+source: learning-opportunities@1.1.0
+read:
+  - repository.files
+mutate_with_policy: []
+mutate_with_explicit_approval:
+  - notebook.learning.promote_via_learning_curator
+permanently_denied:
+  - agent.identity.create
+  - secret.persist_in_notebook
+  - learning.promote_unverified_exercise

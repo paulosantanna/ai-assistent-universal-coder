@@ -1,0 +1,13 @@
+<!-- Package: 00_skills/(tooling)/social-media-operator; relative command/resource examples resolve from that package or workspace root. -->
+
+## Capabilities
+- SOCIAL_MEDIA_SESSION_CREATE
+- SOCIAL_MEDIA_SESSION_VALIDATE
+- SOCIAL_MEDIA_SESSION_LIST
+- SOCIAL_MEDIA_SESSION_CLOSE
+- TIKTOK_PROFILE_READ
+- TIKTOK_VIDEOS_LIST
+- INSTAGRAM_PROFILE_READ
+- INSTAGRAM_MEDIA_LIST
+- INSTAGRAM_INSIGHTS_READ
+- SOCIAL_MEDIA_AUTH_GUIDE

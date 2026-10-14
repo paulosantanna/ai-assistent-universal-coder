@@ -1,0 +1,65 @@
+# Token Profile for rust-expert
+
+# Budget tiers (approximate tokens)
+# Load order: SKILL.md (L1) → INDEX.md (L2) → specific module(s) (L3)
+
+tiers:
+  minimal: 2000     # SKILL.md + INDEX.md only
+  standard: 8000    # + 1-2 domain modules
+  deep: 20000       # + 4-6 domain modules
+  comprehensive: 50000  # all modules (avoid unless necessary)
+
+# Module token estimates (rough)
+module_tokens:
+  editions-toolchain: 2500
+  workspaces: 2000
+  async-tokio: 3000
+  web-axum: 2500
+  database-sqlx: 2500
+  serialization: 1500
+  error-handling: 2000
+  testing: 2500
+  observability: 2500
+  performance: 2000
+  macros: 2000
+  security: 1500
+  ffi: 1500
+  embedded: 2000
+  wasm: 2000
+
+# Load rules
+load_rules:
+  - condition: "edition_migration OR msrv_change OR ci_toolchain"
+    load: ["editions-toolchain"]
+  - condition: "workspace_detected OR multi_crate OR feature_unification"
+    load: ["workspaces"]
+  - condition: "tokio_imported OR async_spawn OR select_macro OR cancellation_safety"
+    load: ["async-tokio"]
+  - condition: "axum_imported OR web_framework_requested"
+    load: ["web-axum"]
+  - condition: "sqlx_imported OR database_requested OR compile_time_queries"
+    load: ["database-sqlx"]
+  - condition: "serde_derive OR custom_serialization OR format_conversion"
+    load: ["serialization"]
+  - condition: "error_handling_question OR thiserror OR anyhow OR eyre"
+    load: ["error-handling"]
+  - condition: "test_writing OR property_testing OR mocking OR testcontainers"
+    load: ["testing"]
+  - condition: "tracing_imported OR opentelemetry OR structured_logging OR metrics"
+    load: ["observability"]
+  - condition: "benchmark_requested OR profiling OR pgo OR binary_size"
+    load: ["performance"]
+  - condition: "macro_writing OR proc_macro OR derive_macro OR syn_quote"
+    load: ["macros"]
+  - condition: "cargo_audit OR cargo_deny OR unsafe_audit OR fuzzing"
+    load: ["security"]
+  - condition: "ffi_requested OR bindgen OR cxx OR c_interop"
+    load: ["ffi"]
+  - condition: "no_std OR embedded OR cortex_m OR embassy OR rtic"
+    load: ["embedded"]
+  - condition: "wasm_requested OR wasm_bindgen OR leptos OR yew OR dioxus"
+    load: ["wasm"]
+
+# Never load more than 3 modules in standard tier without explicit user request
+max_modules_standard: 3
+max_modules_deep: 6

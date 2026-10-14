@@ -1,0 +1,5229 @@
+{
+  "schema_version": 1,
+  "updated": "2026-10-13",
+  "status": "PASS",
+  "repositories": 11,
+  "skills": 302,
+  "matrix_rows": 3322,
+  "source_pointers": 529,
+  "source_files_hashed": 150,
+  "inventory_files": 5736,
+  "excluded_entries": 167,
+  "inventory_errors": 0,
+  "status_counts": {
+    "sem necessidade identificada": 2723,
+    "direta": 161,
+    "condicionada": 187,
+    "transversal": 251
+  },
+  "checks": [
+    {
+      "check": "Inventário delimitado: mesmos arquivos/metadados e exclusões após geração",
+      "passed": true
+    },
+    {
+      "check": "Matriz cobre cada par projeto/skill exatamente uma vez",
+      "passed": true
+    },
+    {
+      "check": "Todos os 11 diretórios têm mapa individual",
+      "passed": true
+    },
+    {
+      "check": "302 skills canônicas; aliases não duplicados",
+      "passed": true
+    },
+    {
+      "check": "10 Git próprios e um pacote",
+      "passed": true
+    },
+    {
+      "check": "Hash do catálogo preservado",
+      "passed": true
+    },
+    {
+      "check": "Todos os arquivos citados preservados por SHA-256",
+      "passed": true
+    },
+    {
+      "check": "Todas as 302 skills preservadas por SHA-256",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: AIHealthResearch/docs/ARCHITECTURE.md:29",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: AIHealthResearch/docs/ARCHITECTURE.md:29",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: AIHealthResearch/README.md:3",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: AIHealthResearch/README.md:3",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: AIHealthResearch/src/aihealthresearch/application/research.py:106",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: AIHealthResearch/src/aihealthresearch/application/research.py:106",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: AIHealthResearch/src/aihealthresearch/infrastructure/database.py:25",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: AIHealthResearch/src/aihealthresearch/infrastructure/database.py:25",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: AIHealthResearch/infra/render_stack.py:37",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: AIHealthResearch/infra/render_stack.py:37",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: AIHealthResearch/src/aihealthresearch/infrastructure/trainer.py:73",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: AIHealthResearch/src/aihealthresearch/infrastructure/trainer.py:73",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: AIHealthResearch/src/aihealthresearch/application/dispatch.py:30",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: AIHealthResearch/src/aihealthresearch/application/dispatch.py:30",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: AIHealthResearch/pyproject.toml:5",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: AIHealthResearch/pyproject.toml:5",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: AIHealthResearch/pyproject.toml:6",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: AIHealthResearch/pyproject.toml:6",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: AIHealthResearch/pyproject.toml:7",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: AIHealthResearch/pyproject.toml:7",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: AIHealthResearch/pyproject.toml:8",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: AIHealthResearch/pyproject.toml:8",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: AIHealthResearch/pyproject.toml:10",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: AIHealthResearch/pyproject.toml:10",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: AIHealthResearch/pyproject.toml:11",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: AIHealthResearch/pyproject.toml:11",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: AIHealthResearch/pyproject.toml:12",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: AIHealthResearch/pyproject.toml:12",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: AIHealthResearch/requirements.txt:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: AIHealthResearch/requirements.txt:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: AIHealthResearch/requirements.txt:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: AIHealthResearch/requirements.txt:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: AIHealthResearch/requirements.txt:3",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: AIHealthResearch/requirements.txt:3",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: AIHealthResearch/requirements.txt:4",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: AIHealthResearch/requirements.txt:4",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: AIHealthResearch/requirements.txt:5",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: AIHealthResearch/requirements.txt:5",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: AIHealthResearch/requirements.txt:6",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: AIHealthResearch/requirements.txt:6",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: AIHealthResearch/requirements.txt:7",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: AIHealthResearch/requirements.txt:7",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: AIHealthResearch/requirements.txt:8",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: AIHealthResearch/requirements.txt:8",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: AIHealthResearch/requirements.txt:9",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: AIHealthResearch/requirements.txt:9",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: AIHealthResearch/.github/workflows/ci.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: AIHealthResearch/.github/workflows/ci.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: AIHealthResearch/.github/workflows/scientific-extraction-governance.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: AIHealthResearch/.github/workflows/scientific-extraction-governance.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/README.md:16",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/README.md:16",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/README.md:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/README.md:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/app/modules/publishing/tasks.py:17",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/app/modules/publishing/tasks.py:17",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/app/db/base.py:11",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/app/db/base.py:11",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/README.md:57",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/README.md:57",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/app/main.py:58",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/app/main.py:58",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/app/modules/learning/laya_jev_client.py:41",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/app/modules/learning/laya_jev_client.py:41",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/pyproject.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/pyproject.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/pyproject.toml:3",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/pyproject.toml:3",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/pyproject.toml:5",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/pyproject.toml:5",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/pyproject.toml:7",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/pyproject.toml:7",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/pyproject.toml:8",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/pyproject.toml:8",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/pyproject.toml:9",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/pyproject.toml:9",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/pyproject.toml:10",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/pyproject.toml:10",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/pyproject.toml:11",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/pyproject.toml:11",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/pyproject.toml:12",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/pyproject.toml:12",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/pyproject.toml:13",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/pyproject.toml:13",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/pyproject.toml:14",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/pyproject.toml:14",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/pyproject.toml:15",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/pyproject.toml:15",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/pyproject.toml:16",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/pyproject.toml:16",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/pyproject.toml:17",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/pyproject.toml:17",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/pyproject.toml:18",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/pyproject.toml:18",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/pyproject.toml:19",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/pyproject.toml:19",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/pyproject.toml:20",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/pyproject.toml:20",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/pyproject.toml:21",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/pyproject.toml:21",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/pyproject.toml:22",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/pyproject.toml:22",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/pyproject.toml:23",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/pyproject.toml:23",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/pyproject.toml:24",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/pyproject.toml:24",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/pyproject.toml:25",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/pyproject.toml:25",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/pyproject.toml:26",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/pyproject.toml:26",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/pyproject.toml:27",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/pyproject.toml:27",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/pyproject.toml:28",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/pyproject.toml:28",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/frontend/package.json:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/frontend/package.json:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/frontend/package.json:3",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/frontend/package.json:3",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/frontend/package.json:37",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/frontend/package.json:37",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/frontend/package.json:15",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/frontend/package.json:15",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/frontend/package.json:16",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/frontend/package.json:16",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/frontend/package.json:20",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/frontend/package.json:20",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/frontend/package.json:21",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/frontend/package.json:21",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/frontend/package.json:22",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/frontend/package.json:22",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/frontend/package.json:23",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/frontend/package.json:23",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/frontend/package.json:24",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/frontend/package.json:24",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/frontend/package.json:25",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/frontend/package.json:25",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/frontend/package.json:26",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/frontend/package.json:26",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/frontend/package.json:28",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/frontend/package.json:28",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/frontend/package.json:29",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/frontend/package.json:29",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/frontend/package.json:31",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/frontend/package.json:31",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/frontend/package.json:33",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/frontend/package.json:33",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/frontend/package.json:34",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/frontend/package.json:34",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/.github/workflows/ci.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/.github/workflows/ci.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/.github/workflows/portable-exe.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/.github/workflows/portable-exe.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/app/modules/learning/jev/client.py:28",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/app/modules/learning/jev/client.py:28",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/package.py:60",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/package.py:60",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/README.md:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/README.md:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/README.md:9",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/README.md:9",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/backend/app/db/base.py:11",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/backend/app/db/base.py:11",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/README.md:3",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/README.md:3",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/run_checks.py:25",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/run_checks.py:25",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/backend/app/modules/mining/metadata_policy.py:53",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/backend/app/modules/mining/metadata_policy.py:53",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/backend/pyproject.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/backend/pyproject.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/backend/pyproject.toml:3",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/backend/pyproject.toml:3",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/backend/pyproject.toml:5",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/backend/pyproject.toml:5",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/backend/pyproject.toml:7",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/backend/pyproject.toml:7",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/backend/pyproject.toml:8",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/backend/pyproject.toml:8",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/backend/pyproject.toml:9",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/backend/pyproject.toml:9",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/backend/pyproject.toml:10",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/backend/pyproject.toml:10",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/backend/pyproject.toml:11",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/backend/pyproject.toml:11",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/backend/pyproject.toml:12",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/backend/pyproject.toml:12",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/backend/pyproject.toml:13",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/backend/pyproject.toml:13",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/backend/pyproject.toml:14",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/backend/pyproject.toml:14",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/backend/pyproject.toml:15",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/backend/pyproject.toml:15",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/backend/pyproject.toml:16",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/backend/pyproject.toml:16",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/backend/pyproject.toml:17",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/backend/pyproject.toml:17",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/backend/pyproject.toml:18",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/backend/pyproject.toml:18",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/backend/pyproject.toml:19",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/backend/pyproject.toml:19",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/backend/pyproject.toml:20",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/backend/pyproject.toml:20",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/backend/pyproject.toml:21",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/backend/pyproject.toml:21",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/backend/pyproject.toml:22",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/backend/pyproject.toml:22",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/backend/pyproject.toml:23",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/backend/pyproject.toml:23",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/backend/pyproject.toml:24",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/backend/pyproject.toml:24",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/backend/pyproject.toml:25",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/backend/pyproject.toml:25",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/backend/pyproject.toml:26",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/backend/pyproject.toml:26",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/backend/pyproject.toml:27",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/backend/pyproject.toml:27",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos-mining-fix/backend/pyproject.toml:28",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos-mining-fix/backend/pyproject.toml:28",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/src/diabeticsresearchjev/interfaces/api.py:12",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/src/diabeticsresearchjev/interfaces/api.py:12",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:8",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:8",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/src/diabeticsresearchjev/application/pipeline/full_cycle.py:31",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/src/diabeticsresearchjev/application/pipeline/full_cycle.py:31",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/docker-compose.yml:8",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/docker-compose.yml:8",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/docker-compose.yml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/docker-compose.yml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/src/diabeticsresearchjev/interfaces/api.py:88",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/src/diabeticsresearchjev/interfaces/api.py:88",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/src/diabeticsresearchjev/application/rag/retriever.py:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/src/diabeticsresearchjev/application/rag/retriever.py:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:6",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:6",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:7",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:7",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:10",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:10",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:21",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:21",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:22",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:22",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:23",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:23",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:24",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:24",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:25",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:25",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:26",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:26",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:27",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:27",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:28",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:28",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:29",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:29",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:30",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:30",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:31",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:31",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:32",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:32",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:33",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:33",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:34",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:34",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:35",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:35",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:36",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:36",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:37",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:37",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:38",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:38",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:39",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:39",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:40",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:40",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:45",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:45",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:46",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:46",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:47",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:47",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:48",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:48",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:51",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:51",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:52",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:52",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:53",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:53",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:54",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:54",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:55",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:55",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:56",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:56",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:57",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:57",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:58",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:58",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:62",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:62",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:65",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:65",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:67",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:67",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:71",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:71",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:72",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:72",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:73",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:73",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:74",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:74",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:75",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:75",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:76",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:76",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/.github/workflows/ci.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/.github/workflows/ci.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/.github/workflows/merge-main.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/.github/workflows/merge-main.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/docs/architecture.mermaid:20",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/docs/architecture.mermaid:20",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:5",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:5",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/src/main.ts:69",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/src/main.ts:69",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/AGENTS.md:5",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/AGENTS.md:5",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/AGENTS.md:9",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/AGENTS.md:9",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/src/cli.ts:65",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/src/cli.ts:65",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/bridge/ghidra/ReaGhidraBridge.java:104",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/bridge/ghidra/ReaGhidraBridge.java:104",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.nvmrc:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.nvmrc:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:4",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:4",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:43",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:43",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:41",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:41",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:273",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:273",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:275",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:275",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:276",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:276",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:277",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:277",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:278",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:278",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:279",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:279",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:281",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:281",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:282",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:282",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:284",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:284",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:285",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:285",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:286",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:286",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:287",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:287",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:288",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:288",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:289",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:289",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:290",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:290",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:291",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:291",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:293",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:293",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:294",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:294",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:295",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:295",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:296",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:296",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:297",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:297",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:298",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:298",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:299",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:299",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:300",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:300",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:301",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:301",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:302",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:302",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:303",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:303",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:304",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:304",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:305",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:305",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:306",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:306",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:307",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:307",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:308",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:308",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:316",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:316",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:317",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:317",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:318",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:318",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:319",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:319",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:320",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:320",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:321",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:321",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:322",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:322",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:323",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:323",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:324",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:324",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:325",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:325",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:326",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:326",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:327",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:327",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:328",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:328",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:329",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:329",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:330",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:330",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:331",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:331",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:332",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:332",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:333",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:333",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/tests/conformance/readiness/electron/package.json:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/tests/conformance/readiness/electron/package.json:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/tests/conformance/readiness/electron/package.json:3",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/tests/conformance/readiness/electron/package.json:3",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/tests/conformance/readiness/javascript-cli/package.json:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/tests/conformance/readiness/javascript-cli/package.json:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/tests/conformance/readiness/javascript-cli/package.json:3",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/tests/conformance/readiness/javascript-cli/package.json:3",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/website/requirements.txt:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/website/requirements.txt:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/website/requirements.txt:4",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/website/requirements.txt:4",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/website/public/examples/notes-electron/package.json:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/website/public/examples/notes-electron/package.json:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/website/public/examples/notes-electron/package.json:3",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/website/public/examples/notes-electron/package.json:3",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/ci.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/ci.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/nativeaot-fixtures.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/nativeaot-fixtures.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/pages.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/pages.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/real-binary-layout.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/real-binary-layout.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/real-browser.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/real-browser.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/real-evm-interface.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/real-evm-interface.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/real-ghidra-windows.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/real-ghidra-windows.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/real-hopper-linux.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/real-hopper-linux.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/real-hopper.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/real-hopper.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/real-javascript-recovery.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/real-javascript-recovery.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/real-recorded-crash.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/real-recorded-crash.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/real-termux.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/real-termux.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/real-web-network-captures.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/real-web-network-captures.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/real-web-runtime.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/real-web-runtime.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/real-web-source-map.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/real-web-source-map.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/release.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/release.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/website-check.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/website-check.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/website-pages.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/website-pages.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:6",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:6",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/README.md:3",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/README.md:3",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/crates/freepdfreader-core/src/document.rs:48",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/crates/freepdfreader-core/src/document.rs:48",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/crates/freepdfreader-core/src/document.rs:138",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/crates/freepdfreader-core/src/document.rs:138",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/PORTABLE.md:45",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/PORTABLE.md:45",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/src/main.rs:267",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/src/main.rs:267",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/crates/freepdfreader-ai/src/engine.rs:84",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/crates/freepdfreader-ai/src/engine.rs:84",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:11",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:11",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:12",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:12",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:21",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:21",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:22",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:22",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:28",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:28",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:29",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:29",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:30",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:30",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:31",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:31",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:32",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:32",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:33",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:33",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:34",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:34",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:37",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:37",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:38",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:38",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:39",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:39",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:42",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:42",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:45",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:45",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:46",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:46",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:47",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:47",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:50",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:50",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:53",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:53",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:54",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:54",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:55",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:55",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:58",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:58",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:60",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:60",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:63",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:63",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:65",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:65",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:66",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:66",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:67",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:67",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:68",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:68",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/Cargo.toml:71",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/Cargo.toml:71",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/crates/freepdfreader-ai/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/crates/freepdfreader-ai/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/crates/freepdfreader-ai/Cargo.toml:27",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/crates/freepdfreader-ai/Cargo.toml:27",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/crates/freepdfreader-ai/Cargo.toml:29",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/crates/freepdfreader-ai/Cargo.toml:29",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/crates/freepdfreader-ai/Cargo.toml:31",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/crates/freepdfreader-ai/Cargo.toml:31",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/crates/freepdfreader-ai/Cargo.toml:32",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/crates/freepdfreader-ai/Cargo.toml:32",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/crates/freepdfreader-ai/Cargo.toml:33",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/crates/freepdfreader-ai/Cargo.toml:33",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/crates/freepdfreader-ai/Cargo.toml:34",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/crates/freepdfreader-ai/Cargo.toml:34",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/crates/freepdfreader-core/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/crates/freepdfreader-core/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/crates/freepdfreader-ui/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/crates/freepdfreader-ui/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/crates/freepdfreader-ui/Cargo.toml:27",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/crates/freepdfreader-ui/Cargo.toml:27",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/crates/xtask/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/crates/xtask/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/crates/xtask/Cargo.toml:22",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/crates/xtask/Cargo.toml:22",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/crates/xtask/Cargo.toml:23",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/crates/xtask/Cargo.toml:23",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/crates/xtask/Cargo.toml:24",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/crates/xtask/Cargo.toml:24",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/crates/xtask/Cargo.toml:26",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/crates/xtask/Cargo.toml:26",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/crates/xtask/Cargo.toml:27",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/crates/xtask/Cargo.toml:27",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/crates/xtask/Cargo.toml:28",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/crates/xtask/Cargo.toml:28",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/crates/xtask/Cargo.toml:29",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/crates/xtask/Cargo.toml:29",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/crates/xtask/Cargo.toml:30",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/crates/xtask/Cargo.toml:30",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/.github/workflows/ci.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/.github/workflows/ci.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: FreePDFReader/.github/workflows/release.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: FreePDFReader/.github/workflows/release.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ibunny/apps/client/pubspec.yaml:8",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ibunny/apps/client/pubspec.yaml:8",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ibunny/README.md:3",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ibunny/README.md:3",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ibunny/services/api/internal/adapters/http/server.go:38",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ibunny/services/api/internal/adapters/http/server.go:38",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ibunny/services/api/internal/adapters/postgres/store.go:3",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ibunny/services/api/internal/adapters/postgres/store.go:3",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ibunny/README.md:73",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ibunny/README.md:73",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ibunny/services/runner/cmd/runner/main.go:22",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ibunny/services/runner/cmd/runner/main.go:22",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ibunny/AGENTS.md:62",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ibunny/AGENTS.md:62",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ibunny/apps/client/pubspec.yaml:4",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ibunny/apps/client/pubspec.yaml:4",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ibunny/apps/client/pubspec.yaml:7",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ibunny/apps/client/pubspec.yaml:7",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ibunny/apps/client/pubspec.yaml:12",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ibunny/apps/client/pubspec.yaml:12",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ibunny/apps/client/pubspec.yaml:13",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ibunny/apps/client/pubspec.yaml:13",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ibunny/apps/client/pubspec.yaml:14",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ibunny/apps/client/pubspec.yaml:14",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ibunny/apps/client/pubspec.yaml:16",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ibunny/apps/client/pubspec.yaml:16",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ibunny/services/api/go.mod:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ibunny/services/api/go.mod:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ibunny/services/api/go.mod:3",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ibunny/services/api/go.mod:3",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ibunny/services/runner/go.mod:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ibunny/services/runner/go.mod:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ibunny/services/runner/go.mod:3",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ibunny/services/runner/go.mod:3",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ibunny/.github/workflows/cd-skeleton.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ibunny/.github/workflows/cd-skeleton.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ibunny/.github/workflows/ci.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ibunny/.github/workflows/ci.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/docs/architecture.md:47",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/docs/architecture.md:47",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/README.md:8",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/README.md:8",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/README.md:45",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/README.md:45",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/laya/db/fts.py:4",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/laya/db/fts.py:4",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/src-tauri/Cargo.toml:28",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/src-tauri/Cargo.toml:28",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/laya/db/sqlite.py:79",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/laya/db/sqlite.py:79",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/laya/main.py:37",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/laya/main.py:37",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:11",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:11",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:12",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:12",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:13",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:13",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:14",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:14",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:17",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:17",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:20",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:20",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:21",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:21",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:24",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:24",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:27",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:27",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:28",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:28",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:29",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:29",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:30",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:30",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:35",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:35",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:40",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:40",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:41",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:41",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:44",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:44",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:47",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:47",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:48",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:48",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:49",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:49",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:50",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:50",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:53",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:53",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:54",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:54",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:60",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:60",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:63",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:63",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:64",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:64",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:65",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:65",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:69",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:69",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:74",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:74",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/package.json:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/package.json:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/package.json:4",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/package.json:4",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/package.json:26",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/package.json:26",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/package.json:37",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/package.json:37",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/package.json:40",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/package.json:40",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/package.json:41",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/package.json:41",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/package.json:42",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/package.json:42",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/package.json:18",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/package.json:18",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/package.json:20",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/package.json:20",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/package.json:21",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/package.json:21",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/package.json:22",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/package.json:22",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/package.json:23",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/package.json:23",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/package.json:24",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/package.json:24",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/package.json:25",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/package.json:25",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/package.json:27",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/package.json:27",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/package.json:28",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/package.json:28",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/package.json:29",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/package.json:29",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/package.json:30",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/package.json:30",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/package.json:31",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/package.json:31",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/package.json:32",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/package.json:32",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/package.json:33",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/package.json:33",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/src-tauri/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/src-tauri/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/src-tauri/Cargo.toml:3",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/src-tauri/Cargo.toml:3",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/src-tauri/Cargo.toml:8",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/src-tauri/Cargo.toml:8",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/src-tauri/Cargo.toml:9",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/src-tauri/Cargo.toml:9",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/src-tauri/Cargo.toml:29",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/src-tauri/Cargo.toml:29",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/src-tauri/Cargo.toml:30",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/src-tauri/Cargo.toml:30",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/src-tauri/Cargo.toml:31",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/src-tauri/Cargo.toml:31",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/src-tauri/Cargo.toml:32",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/src-tauri/Cargo.toml:32",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/src-tauri/Cargo.toml:43",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/src-tauri/Cargo.toml:43",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/src-tauri/Cargo.toml:52",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/src-tauri/Cargo.toml:52",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/src-tauri/Cargo.toml:54",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/src-tauri/Cargo.toml:54",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/src-tauri/Cargo.toml:58",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/src-tauri/Cargo.toml:58",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/ui/src-tauri/Cargo.toml:61",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/ui/src-tauri/Cargo.toml:61",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/.github/workflows/engine-deps.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/.github/workflows/engine-deps.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/.github/workflows/pages.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/.github/workflows/pages.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/.github/workflows/release.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/.github/workflows/release.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/automation/src/lib.rs:6",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/automation/src/lib.rs:6",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/README.md:14",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/README.md:14",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/automation/src/lib.rs:168",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/automation/src/lib.rs:168",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/engine/src/lib.rs:331",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/engine/src/lib.rs:331",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/apps/pdfcraft-cli/src/main.rs:103",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/apps/pdfcraft-cli/src/main.rs:103",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/apps/pdfcraft/src/main.rs:163",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/apps/pdfcraft/src/main.rs:163",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/automation/README.md:3",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/automation/README.md:3",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/Cargo.toml:8",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/Cargo.toml:8",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/Cargo.toml:9",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/Cargo.toml:9",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/Cargo.toml:11",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/Cargo.toml:11",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/Cargo.toml:16",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/Cargo.toml:16",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/Cargo.toml:20",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/Cargo.toml:20",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/Cargo.toml:54",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/Cargo.toml:54",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/Cargo.toml:55",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/Cargo.toml:55",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/Cargo.toml:56",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/Cargo.toml:56",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/Cargo.toml:57",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/Cargo.toml:57",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/Cargo.toml:64",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/Cargo.toml:64",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/Cargo.toml:70",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/Cargo.toml:70",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/Cargo.toml:74",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/Cargo.toml:74",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/apps/pdfcraft/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/apps/pdfcraft/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/apps/pdfcraft/Cargo.toml:14",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/apps/pdfcraft/Cargo.toml:14",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/apps/pdfcraft/Cargo.toml:15",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/apps/pdfcraft/Cargo.toml:15",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/apps/pdfcraft-cli/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/apps/pdfcraft-cli/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/apps/pdfcraft-cli/Cargo.toml:22",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/apps/pdfcraft-cli/Cargo.toml:22",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/apps/pdfcraft-web/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/apps/pdfcraft-web/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/a11y/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/a11y/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/annot/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/annot/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/audit/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/audit/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/automation/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/automation/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/automation/Cargo.toml:18",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/automation/Cargo.toml:18",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/automation/Cargo.toml:19",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/automation/Cargo.toml:19",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/automation/Cargo.toml:20",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/automation/Cargo.toml:20",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/automation/Cargo.toml:21",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/automation/Cargo.toml:21",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/compare/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/compare/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/content/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/content/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/cos/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/cos/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/create/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/create/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/create/Cargo.toml:15",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/create/Cargo.toml:15",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/create/Cargo.toml:16",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/create/Cargo.toml:16",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/create/Cargo.toml:17",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/create/Cargo.toml:17",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/create/Cargo.toml:19",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/create/Cargo.toml:19",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/create/Cargo.toml:22",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/create/Cargo.toml:22",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/crypt/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/crypt/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/crypt/Cargo.toml:14",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/crypt/Cargo.toml:14",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/crypt/Cargo.toml:15",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/crypt/Cargo.toml:15",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/edit/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/edit/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/edit/Cargo.toml:21",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/edit/Cargo.toml:21",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/engine/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/engine/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/engine/Cargo.toml:13",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/engine/Cargo.toml:13",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/engine/Cargo.toml:38",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/engine/Cargo.toml:38",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/engine/Cargo.toml:41",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/engine/Cargo.toml:41",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/engine/Cargo.toml:42",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/engine/Cargo.toml:42",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/engine/Cargo.toml:43",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/engine/Cargo.toml:43",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/export/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/export/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/filters/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/filters/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/filters/fuzz/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/filters/fuzz/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/filters/fuzz/Cargo.toml:3",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/filters/fuzz/Cargo.toml:3",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/filters/fuzz/Cargo.toml:5",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/filters/fuzz/Cargo.toml:5",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/filters/fuzz/Cargo.toml:16",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/filters/fuzz/Cargo.toml:16",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/fonts/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/fonts/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/fonts/Cargo.toml:14",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/fonts/Cargo.toml:14",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/fonts/Cargo.toml:16",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/fonts/Cargo.toml:16",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/fonts/Cargo.toml:17",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/fonts/Cargo.toml:17",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/forms/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/forms/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/geom/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/geom/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/js/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/js/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/js/Cargo.toml:14",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/js/Cargo.toml:14",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/measure/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/measure/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/model/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/model/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/ocr/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/ocr/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/ocr/Cargo.toml:15",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/ocr/Cargo.toml:15",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/ocr/Cargo.toml:16",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/ocr/Cargo.toml:16",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/optimize/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/optimize/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/optimize/Cargo.toml:20",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/optimize/Cargo.toml:20",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/organize/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/organize/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/platform/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/platform/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/preflight/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/preflight/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/print/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/print/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/redact/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/redact/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/render/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/render/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/render/Cargo.toml:23",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/render/Cargo.toml:23",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/sign/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/sign/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/sign/Cargo.toml:18",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/sign/Cargo.toml:18",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/sign/Cargo.toml:19",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/sign/Cargo.toml:19",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/sign/Cargo.toml:21",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/sign/Cargo.toml:21",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/sign/Cargo.toml:27",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/sign/Cargo.toml:27",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/sign/Cargo.toml:29",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/sign/Cargo.toml:29",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/sign/Cargo.toml:30",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/sign/Cargo.toml:30",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/sign/Cargo.toml:31",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/sign/Cargo.toml:31",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/sign/Cargo.toml:33",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/sign/Cargo.toml:33",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/sign/Cargo.toml:37",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/sign/Cargo.toml:37",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/sign/Cargo.toml:38",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/sign/Cargo.toml:38",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/sign/Cargo.toml:39",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/sign/Cargo.toml:39",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/ui-egui/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/ui-egui/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/ui-egui/Cargo.toml:7",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/ui-egui/Cargo.toml:7",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/ui-egui/Cargo.toml:30",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/ui-egui/Cargo.toml:30",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/ui-egui/Cargo.toml:31",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/ui-egui/Cargo.toml:31",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/ui-egui/Cargo.toml:33",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/ui-egui/Cargo.toml:33",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/xfa/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/xfa/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/xfa/Cargo.toml:16",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/xfa/Cargo.toml:16",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/xfa/Cargo.toml:17",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/xfa/Cargo.toml:17",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/xfa/Cargo.toml:18",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/xfa/Cargo.toml:18",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/xfa/Cargo.toml:19",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/xfa/Cargo.toml:19",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/xfa/Cargo.toml:20",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/xfa/Cargo.toml:20",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/xfdf/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/xfdf/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/crates/xfdf/Cargo.toml:16",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/crates/xfdf/Cargo.toml:16",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/xtask/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/xtask/Cargo.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/xtask/Cargo.toml:3",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/xtask/Cargo.toml:3",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/xtask/Cargo.toml:4",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/xtask/Cargo.toml:4",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/xtask/Cargo.toml:10",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/xtask/Cargo.toml:10",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/xtask/Cargo.toml:11",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/xtask/Cargo.toml:11",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/xtask/Cargo.toml:14",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/xtask/Cargo.toml:14",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/.github/workflows/ci.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/.github/workflows/ci.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/.github/workflows/freebsd.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/.github/workflows/freebsd.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/.github/workflows/packaging-lint.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/.github/workflows/packaging-lint.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/.github/workflows/release.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/.github/workflows/release.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: pdfcraft/.github/workflows/windows-arm64.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: pdfcraft/.github/workflows/windows-arm64.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: remove-onedrive/Remove-OneDrive.ps1:129",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: remove-onedrive/Remove-OneDrive.ps1:129",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: remove-onedrive/README.md:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: remove-onedrive/README.md:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: remove-onedrive/Remove-OneDrive.ps1:179",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: remove-onedrive/Remove-OneDrive.ps1:179",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: remove-onedrive/Remove-OneDrive.ps1:159",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: remove-onedrive/Remove-OneDrive.ps1:159",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: remove-onedrive/Remove-OneDrive.ps1:69",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: remove-onedrive/Remove-OneDrive.ps1:69",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: remove-onedrive/Remove-OneDrive.ps1:75",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: remove-onedrive/Remove-OneDrive.ps1:75",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: remove-onedrive/Remove-OneDrive.ps1:7",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: remove-onedrive/Remove-OneDrive.ps1:7",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: RemoveWindowsAI/Documentation.md:23",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: RemoveWindowsAI/Documentation.md:23",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: RemoveWindowsAI/README.md:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: RemoveWindowsAI/README.md:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: RemoveWindowsAI/RemoveWindowsAi.ps1:51",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: RemoveWindowsAI/RemoveWindowsAi.ps1:51",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: RemoveWindowsAI/Documentation.md:51",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: RemoveWindowsAI/Documentation.md:51",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: RemoveWindowsAI/RemoveAI-UpdateCleanup.ps1:147",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: RemoveWindowsAI/RemoveAI-UpdateCleanup.ps1:147",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: RemoveWindowsAI/RemoveAI-UpdateCleanup.ps1:65",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: RemoveWindowsAI/RemoveAI-UpdateCleanup.ps1:65",
+      "passed": true
+    },
+    {
+      "check": "Dez dimensões: AIHealthResearch",
+      "passed": true
+    },
+    {
+      "check": "Mapa individual: AIHealthResearch",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: AIHealthResearch/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: AIHealthResearch/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: AIHealthResearch/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: AIHealthResearch/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: AIHealthResearch/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: AIHealthResearch/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: AIHealthResearch/Dados",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: AIHealthResearch/Dados",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: AIHealthResearch/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: AIHealthResearch/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: AIHealthResearch/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: AIHealthResearch/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: AIHealthResearch/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: AIHealthResearch/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: AIHealthResearch/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: AIHealthResearch/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: AIHealthResearch/Vulnerabilidades",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: AIHealthResearch/Obsolescência",
+      "passed": true
+    },
+    {
+      "check": "Dez dimensões: dark-videos",
+      "passed": true
+    },
+    {
+      "check": "Mapa individual: dark-videos",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: dark-videos/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: dark-videos/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: dark-videos/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: dark-videos/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: dark-videos/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: dark-videos/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: dark-videos/Dados",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: dark-videos/Dados",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: dark-videos/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: dark-videos/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: dark-videos/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: dark-videos/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: dark-videos/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: dark-videos/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: dark-videos/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: dark-videos/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: dark-videos/Vulnerabilidades",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: dark-videos/Obsolescência",
+      "passed": true
+    },
+    {
+      "check": "Dez dimensões: dark-videos-mining-fix",
+      "passed": true
+    },
+    {
+      "check": "Mapa individual: dark-videos-mining-fix",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: dark-videos-mining-fix/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: dark-videos-mining-fix/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: dark-videos-mining-fix/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: dark-videos-mining-fix/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: dark-videos-mining-fix/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: dark-videos-mining-fix/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: dark-videos-mining-fix/Dados",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: dark-videos-mining-fix/Dados",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: dark-videos-mining-fix/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: dark-videos-mining-fix/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: dark-videos-mining-fix/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: dark-videos-mining-fix/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: dark-videos-mining-fix/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: dark-videos-mining-fix/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: dark-videos-mining-fix/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: dark-videos-mining-fix/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: dark-videos-mining-fix/Vulnerabilidades",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: dark-videos-mining-fix/Obsolescência",
+      "passed": true
+    },
+    {
+      "check": "Dez dimensões: DiabeticsresearchJEV",
+      "passed": true
+    },
+    {
+      "check": "Mapa individual: DiabeticsresearchJEV",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: DiabeticsresearchJEV/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: DiabeticsresearchJEV/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: DiabeticsresearchJEV/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: DiabeticsresearchJEV/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: DiabeticsresearchJEV/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: DiabeticsresearchJEV/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: DiabeticsresearchJEV/Dados",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: DiabeticsresearchJEV/Dados",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: DiabeticsresearchJEV/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: DiabeticsresearchJEV/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: DiabeticsresearchJEV/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: DiabeticsresearchJEV/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: DiabeticsresearchJEV/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: DiabeticsresearchJEV/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: DiabeticsresearchJEV/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: DiabeticsresearchJEV/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: DiabeticsresearchJEV/Vulnerabilidades",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: DiabeticsresearchJEV/Obsolescência",
+      "passed": true
+    },
+    {
+      "check": "Dez dimensões: Engenharia-Reversa",
+      "passed": true
+    },
+    {
+      "check": "Mapa individual: Engenharia-Reversa",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: Engenharia-Reversa/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: Engenharia-Reversa/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: Engenharia-Reversa/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: Engenharia-Reversa/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: Engenharia-Reversa/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: Engenharia-Reversa/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: Engenharia-Reversa/Dados",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: Engenharia-Reversa/Dados",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: Engenharia-Reversa/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: Engenharia-Reversa/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: Engenharia-Reversa/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: Engenharia-Reversa/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: Engenharia-Reversa/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: Engenharia-Reversa/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: Engenharia-Reversa/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: Engenharia-Reversa/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: Engenharia-Reversa/Vulnerabilidades",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: Engenharia-Reversa/Obsolescência",
+      "passed": true
+    },
+    {
+      "check": "Dez dimensões: FreePDFReader",
+      "passed": true
+    },
+    {
+      "check": "Mapa individual: FreePDFReader",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: FreePDFReader/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: FreePDFReader/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: FreePDFReader/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: FreePDFReader/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: FreePDFReader/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: FreePDFReader/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: FreePDFReader/Dados",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: FreePDFReader/Dados",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: FreePDFReader/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: FreePDFReader/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: FreePDFReader/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: FreePDFReader/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: FreePDFReader/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: FreePDFReader/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: FreePDFReader/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: FreePDFReader/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: FreePDFReader/Vulnerabilidades",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: FreePDFReader/Obsolescência",
+      "passed": true
+    },
+    {
+      "check": "Dez dimensões: ibunny",
+      "passed": true
+    },
+    {
+      "check": "Mapa individual: ibunny",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: ibunny/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: ibunny/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: ibunny/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: ibunny/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: ibunny/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: ibunny/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: ibunny/Dados",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: ibunny/Dados",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: ibunny/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: ibunny/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: ibunny/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: ibunny/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: ibunny/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: ibunny/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: ibunny/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: ibunny/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: ibunny/Vulnerabilidades",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: ibunny/Obsolescência",
+      "passed": true
+    },
+    {
+      "check": "Dez dimensões: laya",
+      "passed": true
+    },
+    {
+      "check": "Mapa individual: laya",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: laya/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: laya/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: laya/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: laya/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: laya/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: laya/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: laya/Dados",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: laya/Dados",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: laya/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: laya/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: laya/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: laya/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: laya/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: laya/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: laya/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: laya/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: laya/Vulnerabilidades",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: laya/Obsolescência",
+      "passed": true
+    },
+    {
+      "check": "Dez dimensões: pdfcraft",
+      "passed": true
+    },
+    {
+      "check": "Mapa individual: pdfcraft",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: pdfcraft/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: pdfcraft/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: pdfcraft/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: pdfcraft/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: pdfcraft/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: pdfcraft/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: pdfcraft/Dados",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: pdfcraft/Dados",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: pdfcraft/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: pdfcraft/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: pdfcraft/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: pdfcraft/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: pdfcraft/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: pdfcraft/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: pdfcraft/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: pdfcraft/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: pdfcraft/Vulnerabilidades",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: pdfcraft/Obsolescência",
+      "passed": true
+    },
+    {
+      "check": "Dez dimensões: remove-onedrive",
+      "passed": true
+    },
+    {
+      "check": "Mapa individual: remove-onedrive",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: remove-onedrive/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: remove-onedrive/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: remove-onedrive/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: remove-onedrive/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: remove-onedrive/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: remove-onedrive/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: remove-onedrive/Dados",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: remove-onedrive/Dados",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: remove-onedrive/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: remove-onedrive/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: remove-onedrive/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: remove-onedrive/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: remove-onedrive/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: remove-onedrive/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: remove-onedrive/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: remove-onedrive/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: remove-onedrive/Vulnerabilidades",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: remove-onedrive/Obsolescência",
+      "passed": true
+    },
+    {
+      "check": "Dez dimensões: RemoveWindowsAI",
+      "passed": true
+    },
+    {
+      "check": "Mapa individual: RemoveWindowsAI",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: RemoveWindowsAI/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: RemoveWindowsAI/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: RemoveWindowsAI/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: RemoveWindowsAI/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: RemoveWindowsAI/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: RemoveWindowsAI/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: RemoveWindowsAI/Dados",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: RemoveWindowsAI/Dados",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: RemoveWindowsAI/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: RemoveWindowsAI/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: RemoveWindowsAI/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: RemoveWindowsAI/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: RemoveWindowsAI/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: RemoveWindowsAI/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: RemoveWindowsAI/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: RemoveWindowsAI/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: RemoveWindowsAI/Vulnerabilidades",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: RemoveWindowsAI/Obsolescência",
+      "passed": true
+    },
+    {
+      "check": "Associações só usam evidências existentes",
+      "passed": true
+    },
+    {
+      "check": "Associações diretas têm evidências",
+      "passed": true
+    },
+    {
+      "check": "CSV completo tem 3.322 decisões e sete colunas válidas",
+      "passed": true
+    },
+    {
+      "check": "Todos os links Markdown entregues resolvem localmente",
+      "passed": true
+    },
+    {
+      "check": "HTML sem assets remotos",
+      "passed": true
+    },
+    {
+      "check": "HTML tem matriz completa e CSV explícito",
+      "passed": true
+    },
+    {
+      "check": "Regeneração 1 concluída",
+      "passed": true
+    },
+    {
+      "check": "Regeneração 1 byte-idêntica",
+      "passed": true
+    },
+    {
+      "check": "Regeneração 2 concluída",
+      "passed": true
+    },
+    {
+      "check": "Regeneração 2 byte-idêntica",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "artifact_sha256": {
+    "README.md": "b1321543ce789535e41c9611ed004e60daf5d2b3c2003ae762f19abe2dbf2d2f",
+    "mapa.json": "5bb68920a6148f50ec078c3af3a4bdb6dc4573538aba66726ff1cf6ad0b06fcb",
+    "matriz.csv": "154a441159dfa8e675ca72696ea1ffb7874f5d4cffe72d15662481d3449c97cc",
+    "evidencias.json": "feed4b1ca1ab4ecfe278edfc3334844f7a3e34580db3772e366c9dabe512bcdd",
+    "relatorio.html": "82a82f1e6ee3018a064043cf8c8ca6186e06f8653620cb60a8e81e2761afd0a7",
+    "AIHealthResearch.md": "fd2e878b579aaf2e9f23c2637578e91836ab5bf340521a60a70c2d93f001fa69",
+    "dark-videos-mining-fix.md": "b635862e86da37634654a938e7eb2e26c3a25481e19b3ae34c85e19e5f8543f4",
+    "dark-videos.md": "de8c0262b7c6d35ae199ef11ca4afc89e4c6f198b4bc10be2ea1763829fa137c",
+    "DiabeticsresearchJEV.md": "09b8ee0652671b56163fe1e38a4a35270db13255e2def6014804336212a3524c",
+    "Engenharia-Reversa.md": "c4e0edad7696465b6ac5a8d6adf816ae164ce3ef40527341539379f411ff2bfa",
+    "FreePDFReader.md": "e4261e13dafa6cfd476ba1a1a0c7cde1d640b82a3f3c59d189f1d2d801025a1b",
+    "ibunny.md": "b28dfac837cb34d3913ba5be12180b6d761360d7d4b71fb6f2381daad0df18fd",
+    "laya.md": "201d3cd85ea4db91f1e1be7ee853b996ae9f08bd45b60553647c0ae75ea7746e",
+    "pdfcraft.md": "557b8219c0d9b83d8ca72375f306188b3d7b42f714bd40f5ab153aae62495634",
+    "remove-onedrive.md": "4b90806733d97c1ebf468997be39d817f1374291f4bdb6a58b6453dffd2360af",
+    "RemoveWindowsAI.md": "4970fe400e85cd13a9c3a624b6f574b5649a0a6e6d06811550834ec97eee3898"
+  },
+  "limits": [
+    "Preservação refere-se aos arquivos do inventário delimitado e hashes das fontes examinadas; árvores excluídas não auditadas.",
+    "Checks de projetos não executados; cobertura de skills é associação estática, não capacidade runtime.",
+    "CVEs, suporte/EOL e segurança de binários permanecem não verificados."
+  ]
+}

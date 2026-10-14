@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "counts": {
+    "active": 302,
+    "aliases": 3,
+    "tlc": 92,
+    "upstream_files": 777,
+    "images": 770,
+    "distinct_images": 389,
+    "discovery": 305,
+    "skill_entries": 827,
+    "local_links": 2872,
+    "max_lines": 99,
+    "additional_images": 77,
+    "impeccable_resources": 154
+  },
+  "errors": [],
+  "warnings": [],
+  "scope": "Installed instructions, local module links, native discovery, source integrity and image accounting. External provider execution is outside this check."
+}

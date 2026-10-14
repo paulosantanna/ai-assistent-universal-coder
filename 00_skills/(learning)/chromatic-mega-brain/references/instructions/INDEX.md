@@ -1,0 +1,28 @@
+# Ordered instruction modules
+
+- 1. [Purpose and contract](01-purpose-and-contract.md) — before acting on this contract.
+- 2. [1. Identity](02-1-identity.md) — before acting on this contract.
+- 3. [2. Mission](03-2-mission.md) — before acting on this contract.
+- 4. [3. Activation](04-3-activation.md) — when this domain or mode is in scope.
+- 5. [4. Non-activation](05-4-non-activation.md) — when this domain or mode is in scope.
+- 6. [5. Core concept](06-5-core-concept.md) — when this domain or mode is in scope.
+- 7. [6. Cognitive colors](07-6-cognitive-colors.md) — when this domain or mode is in scope.
+- 8. [7. Color selection policy](08-7-color-selection-policy.md) — before acting on this contract.
+- 9. [8. Hierarchy](09-8-hierarchy.md) — when this domain or mode is in scope.
+- 10. [9. Four learning layers](10-9-four-learning-layers.md) — when reading or promoting continuity knowledge.
+- 11. [10. Execution workflow](11-10-execution-workflow.md) — at this step of execution.
+- 12. [11. Complexity gate](12-11-complexity-gate.md) — when this domain or mode is in scope.
+- 13. [12. Independent analysis requirement](13-12-independent-analysis-requirement.md) — when this domain or mode is in scope.
+- 14. [13. Contradiction matrix](14-13-contradiction-matrix.md) — when this domain or mode is in scope.
+- 15. [14. Decision matrix](15-14-decision-matrix.md) — when this domain or mode is in scope.
+- 16. [15. Evidence](16-15-evidence.md) — when this domain or mode is in scope.
+- 17. [16. Handoff contract](17-16-handoff-contract.md) — before acting on this contract.
+- 18. [17. Synthesis rules](18-17-synthesis-rules.md) — before acting on this contract.
+- 19. [18. Judge gates](19-18-judge-gates.md) — before claiming completion.
+- 20. [19. Memory model](20-19-memory-model.md) — when reading or promoting continuity knowledge.
+- 21. [20. Knowledge promotion](21-20-knowledge-promotion.md) — when this domain or mode is in scope.
+- 22. [21. What not to do](22-21-what-not-to-do.md) — when this domain or mode is in scope.
+- 23. [22. Completion](23-22-completion.md) — before claiming completion.
+- 24. [23. Final output](24-23-final-output.md) — before acting on this contract.
+- 26. [Prompt Contract](26-prompt-contract.md) — before acting on this contract.
+- 27. [25. Skill and playbook learning integration](27-25-skill-and-playbook-learning-integration.md) — when reading or promoting continuity knowledge.

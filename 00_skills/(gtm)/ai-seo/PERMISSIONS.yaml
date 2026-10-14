@@ -1,0 +1,14 @@
+skill: ai-seo
+owner_agent: codenavi-agent
+version: 1.0.0
+source: ai-seo@1.0.0
+read:
+  - repository.files
+mutate_with_policy:
+  - documentation.seo_content.write
+mutate_with_explicit_approval:
+  - git.commit
+  - cms.publish
+permanently_denied:
+  - agent.identity.create
+  - secret.persist_in_notebook

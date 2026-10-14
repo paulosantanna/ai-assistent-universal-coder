@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Documentation Mapper Output Schema",
+  "description": "Validates the structure of generated documentation output",
+  "type": "object",
+  "required": ["html", "pdf", "diagrams", "data", "views", "evidence", "improvement", "MANIFEST"],
+  "properties": {
+    "html": {
+      "type": "object",
+      "required": ["documentacao.html"],
+      "properties": {
+        "documentacao.html": { "type": "string", "description": "Interactive HTML documentation file path" }
+      }
+    },
+    "pdf": {
+      "type": "object",
+      "required": ["documentacao_completa.pdf", "plano_de_melhorias.pdf"],
+      "properties": {
+        "documentacao_completa.pdf": { "type": "string" },
+        "plano_de_melhorias.pdf": { "type": "string" }
+      }
+    },
+    "diagrams": {
+      "type": "object",
+      "required": ["src", "svg", "png"],
+      "properties": {
+        "src": { "type": "array", "items": { "type": "string", "pattern": "\\.mmd$" } },
+        "svg": { "type": "array", "items": { "type": "string", "pattern": "\\.svg$" } },
+        "png": { "type": "array", "items": { "type": "string", "pattern": "\\.png$" } }
+      }
+    },
+    "data": {
+      "type": "object",
+      "required": ["dicionario_de_dados.yaml", "analise_camadas.yaml", "metricas.yaml"],
+      "properties": {
+        "dicionario_de_dados.yaml": { "type": "string" },
+        "analise_camadas.yaml": { "type": "string" },
+        "metricas.yaml": { "type": "string" }
+      }
+    },
+    "views": {
+      "type": "object",
+      "required": ["visao_negocio.md", "visao_desenvolvedor.md", "visao_diretoria.md"],
+      "properties": {
+        "visao_negocio.md": { "type": "string" },
+        "visao_desenvolvedor.md": { "type": "string" },
+        "visao_diretoria.md": { "type": "string" }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["file_index.json", "evidence_log.jsonl"],
+      "properties": {
+        "file_index.json": { "type": "string" },
+        "evidence_log.jsonl": { "type": "string" }
+      }
+    },
+    "improvement": {
+      "type": "object",
+      "required": ["plano_de_melhorias.md", "roadmap.mmd"],
+      "properties": {
+        "plano_de_melhorias.md": { "type": "string" },
+        "roadmap.mmd": { "type": "string" }
+      }
+    },
+    "MANIFEST": {
+      "type": "object",
+      "required": ["MANIFEST.json"],
+      "properties": {
+        "MANIFEST.json": { "type": "string" }
+      }
+    }
+  }
+}

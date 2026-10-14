@@ -1,0 +1,15 @@
+skill: perf-web-optimization
+owner_agent: codenavi-agent
+version: 1.0.0
+source: perf-web-optimization
+read:
+  - repository.files
+mutate_with_policy:
+  - repository.local_implementation
+mutate_with_explicit_approval:
+  - git.commit
+  - npm.package.add
+permanently_denied:
+  - agent.identity.create
+  - metrics.invent_scores
+  - tests.weaken_or_delete_to_pass
