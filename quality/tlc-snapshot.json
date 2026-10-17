@@ -602,8 +602,8 @@
       "name": "tlc-spec-lean",
       "category": "development",
       "path": "(development)/tlc-spec-lean",
-      "contentHash": "28368cb86a9d441fce24426eb502a39a5e7f9ffe0ad5d682fead2ce76c5b085b",
-      "version": "1.1.0"
+      "contentHash": "807aad338cc9e306f68fe9335bc5251a5e749e0bc3676998801e48bf2ff79a80",
+      "version": "1.2.0"
     },
     {
       "name": "vercel-deploy",
