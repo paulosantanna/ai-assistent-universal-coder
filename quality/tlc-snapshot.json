@@ -574,15 +574,15 @@
       "name": "tlc-implement",
       "category": "development",
       "path": "(development)/tlc-implement",
-      "contentHash": "b3bbd69d067b042072e9538ea5edc90db28b0873fdf4d86157ca4ae5363bfd9e",
-      "version": "0.1.0"
+      "contentHash": "66c91f40f0f8250c1a52c3242b4f4e33a5b038f5a2fda2578bf2f95df5de0b11",
+      "version": "1.1.0"
     },
     {
       "name": "tlc-plan",
       "category": "development",
       "path": "(development)/tlc-plan",
-      "contentHash": "428b064742db100add4d42612ce61eaed040aad87e6718e494a09ad9ae03552b",
-      "version": "0.2.0"
+      "contentHash": "6e6fa709ed167718184622004855fc151b47fb3878f4030fa5745c85bd292404",
+      "version": "1.1.0"
     },
     {
       "name": "tlc-prd",
@@ -595,15 +595,15 @@
       "name": "tlc-spec-driven",
       "category": "development",
       "path": "(development)/tlc-spec-driven",
-      "contentHash": "7bed1026351bfcc3931cad739705bede60e828ad68598e2f827507b3943ec10f",
-      "version": "3.3.0"
+      "contentHash": "f465b52756b8f2ea082bf0dc24ab517721983106c7bf9f50d9e689c56ae1a1e2",
+      "version": "4.0.0"
     },
     {
       "name": "tlc-spec-lean",
       "category": "development",
       "path": "(development)/tlc-spec-lean",
-      "contentHash": "807aad338cc9e306f68fe9335bc5251a5e749e0bc3676998801e48bf2ff79a80",
-      "version": "1.2.0"
+      "contentHash": "51bcf485f5b981d613d660767d03f194d9117188c7615914108759a21de7b5cf",
+      "version": "2.1.0"
     },
     {
       "name": "vercel-deploy",
