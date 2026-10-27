@@ -7,6 +7,7 @@ Last updated: 2026-10-14
 - [MEMORY](MEMORY.md) — durable evidence-backed project facts and decisions | continuity | memory, decisions, evidence
 - [PROGRESS](PROGRESS.md) — live mission checklist, gates and factual execution log | continuity | progress, verification, execution
 - [LEARNING](LEARNING.md) — verified reusable root-cause lessons | continuity | learning, root-cause, prevention
+- [tlc-spec-versions](tlc-spec-versions.md) — driven 4.0.0 / lean 2.0.0, source pins and Windows helpers | patterns | tlc, skills, verification
 - [capability-ci](capability-ci.md) — gates TLC, auto-update diária e contratos MCP/LSP com estados reais | patterns | tlc, ci, capabilities
 - [repositorios-skills](repositorios-skills.md) — mapa estático dos 11 projetos × skills, fontes e relatório offline | graph | repositorios, skills, mapping
 - [tlc-skills](tlc-skills.md) — 302-package catalog, new photo structure and verified installation boundaries | patterns | skills, tlc, migration

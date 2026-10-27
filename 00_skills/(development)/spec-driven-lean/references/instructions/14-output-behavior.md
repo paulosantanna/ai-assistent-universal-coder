@@ -1,5 +1,3 @@
-<!-- Package: 00_skills/(development)/spec-driven-lean; relative command/resource examples resolve from that package or workspace root. -->
+# Current workflow
 
-## Output behavior
-
-Produce the artifact; do not narrate the phase. Lead with the verdict. Section headings stay in English; identifiers are never translated.
+This previous routing module is superseded by the [current contract](../../SKILL.md). Read it for the requested version, phase resources and gates.

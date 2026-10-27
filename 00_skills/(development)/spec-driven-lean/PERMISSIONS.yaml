@@ -1,7 +1,7 @@
 skill: spec-driven-lean
 owner_agent: codenavi-agent
-version: 1.0.0
-source: tlc-spec-lean@1.0.0
+version: 2.0.0
+source: tlc-spec-lean@2.0.0
 
 read:
   - repository.files
@@ -25,7 +25,7 @@ permanently_denied:
   - secret.persist_in_specs_or_notebook
 
 constraints:
-  default_profile: light
-  builder_must_not_write_verification_md: true
+  default_mutations: 3
+  self_verification_must_be_disclosed: true
   remote_actions_require_explicit_go_ahead: true
   specs_preflight_not_waived: true

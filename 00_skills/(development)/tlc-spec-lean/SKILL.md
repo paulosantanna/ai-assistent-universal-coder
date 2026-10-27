@@ -1,47 +1,52 @@
 ---
 name: tlc-spec-lean
-description: 'Spec-driven feature work that freezes obligations instead of the plan: one human-reviewed plan with EARS criteria, path, entities, interface and one-way doors, then proof-backed checks, then build, then an independent Verifier. Use when the user says "tlc-spec-lean", "plan feature", "specify feature", "write the checks", "build this plan", or "verify work". Do NOT use for standalone design documents unattached to a feature, architecture decomposition analysis, or work that already has a task list or checklist to execute.'
+description: "Tech Lead Club spec-lean 2.0.0: freeze observable obligations in plan and proof-backed checks, then build and verify mutations and screens. Use for \"tlc-spec-lean\", \"plan feature\", \"write the checks\", \"build this plan\", \"verify work\". Do NOT use for standalone design documents, architecture decomposition or work with an existing task list."
 license: CC-BY-4.0
 metadata:
-  author: Tech Leads Club - github.com/tech-leads-club
-  version: 1.1.0
+  author: "Tech Leads Club - github.com/tech-leads-club"
+  version: 2.0.0
   owner_agent: codenavi-agent
 ---
 
-# Tech Lead's Club - Spec, Lean
+# tlc-spec-lean
 
 Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
 Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
 
 ## Mission
 
-Spec-driven feature work that freezes obligations instead of the plan: one human-reviewed plan with EARS criteria, path, entities, interface and one-way doors, then proof-backed checks, then build, then an independent Verifier.
+Plan → Checks → Build → Verify. Freeze obligations and coverage rather than a task catalogue; run proofs at HEAD and verify mutations and screens before completion.
 
-## Workflow and module routing
+## Workflow
 
-Read the contract/input/security modules before tools; then follow the applicable procedure in the original order. Load optional modes only when their scope applies.
+1. Inspect the user request, target code and continuity quartet; define observable success and size the feature.
+2. Read the [official 2.0.0 contract](references/tlc/UPSTREAM.md) before acting. Read each phase reference completely when that phase applies.
+3. Use local `scripts/` for executable gates (including the Windows mutation fix); `references/tlc/` is the immutable source snapshot. Resolve references using the paths below; `.specs/` belongs to the target project. Pass `--root` when cwd differs. Do not use workspace-root `scripts/` by accident.
+4. Preserve product decisions and binding captures. Record real approvals and answers in feature artifacts; never fabricate approval or ask again for authorization already given in the session.
+5. Derive tests from requirements/checks. Run gates and fix failures; never weaken checks to obtain a pass. validate_plan.py → validate_checks.py → check_commit.py → check_proofs.py → validate_verification.py. Run selftest.py after validator/template changes.
+6. Keep author, verifier and screen review as sequential internal lenses of codenavi-agent. No additional agent identities or delegation are permitted. This is self-verification: use the source fallback in a fresh session and label it `self-verified`; never claim independent review.
+7. Commit only within existing session authorization and local policy. Remote publication, deploy and production data changes require explicit authorization for that action.
+8. Report artifacts, executed gates, proof HEAD and unresolved findings; update continuity with durable evidence. A failing gate blocks completion.
 
-- 1. [Purpose and contract](references/instructions/01-purpose-and-contract.md) — before acting on this contract.
-- 2. [Why this shape](references/instructions/02-why-this-shape.md) — when this domain or mode is in scope.
-- 3. [Critical rules](references/instructions/03-critical-rules.md) — before acting on this contract.
-- 4. [Profile](references/instructions/04-profile.md) — when this domain or mode is in scope.
-- 5. [Artifacts](references/instructions/05-artifacts.md) — when this domain or mode is in scope.
-- 6. [Understanding and obligations are separate artifacts](references/instructions/06-understanding-and-obligations-are-separate-artifacts.md) — when this domain or mode is in scope.
-- 7. [Flow](references/instructions/07-flow.md) — when this domain or mode is in scope.
-- 8. [Scripts](references/instructions/08-scripts.md) — when this domain or mode is in scope.
-- 9. [Sub-agents and handoff](references/instructions/09-sub-agents-and-handoff.md) — when this domain or mode is in scope.
-- 10. [Knowledge chain](references/instructions/10-knowledge-chain.md) — when this domain or mode is in scope.
-- 11. [Output behaviour](references/instructions/11-output-behaviour.md) — before acting on this contract.
-- 12. [Examples](references/instructions/12-examples.md) — when choosing an output or matching a use case.
-- 13. [Troubleshooting](references/instructions/13-troubleshooting.md) — when an input, tool or check fails.
+## Phase resources
 
-## Boundaries and result
+- Read [plan.md](references/tlc/references/plan.md) before presenting a plan.
+- Read [checks.md](references/tlc/references/checks.md) before freezing checks.
+- Read [build.md](references/tlc/references/build.md) before implementation.
+- Read [verify.md](references/tlc/references/verify.md) when verifying completion.
+- Read [verify-screens.md](references/tlc/references/verify-screens.md) when a capture has a running picture.
+- Read [memory.md](references/tlc/references/memory.md) when recording decisions or lessons.
 
-Use only tools actually available for the authorized task. Keep secrets in runtime providers. Missing evidence, inputs or permissions blocks the affected action. Return the domain output with source pointers, executed checks and remaining uncertainty; never claim an unexecuted check passed.
+Run `python 00_skills/(development)/tlc-spec-lean/scripts/<name>.py` with the feature arguments required by the phase. Python 3.8+ and Git are required for proofs/mutations; browser and image-reading support are required for capture checks.
 
-## TLC source
+## Examples and failure handling
 
-For the catalog workflow and its local resources, read [TLC contract](references/tlc/UPSTREAM.md). Apply root governance and the local constraints above; upstream does not grant extra authority.
+Example: "plan feature: add a billing guard" → inspect the target, write criteria and proofs, build within approved scope and report the gate result. A standalone architecture document routes elsewhere.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Missing Python/Git, browser, image support, evidence or authorization blocks the affected proof/action; report it. Credentials stay in approved runtime providers; never persist secrets or raw cookies.
+
+Source/license/version: [provenance](references/provenance.md).
+
+## Supporting resources
+
+- Read [retained instructions](references/instructions) only for its matching supporting context; the current entry and pinned phase procedures take precedence.

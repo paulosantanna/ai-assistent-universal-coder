@@ -1,10 +1,10 @@
 ---
 name: tlc-spec-lean
-description: 'Spec-driven feature work that freezes obligations instead of the plan: one human-reviewed plan with EARS criteria, path, entities, interface and one-way doors, then proof-backed checks, then build, then an independent Verifier. Use when the user says "tlc-spec-lean", "plan feature", "specify feature", "write the checks", "build this plan", or "verify work". Do NOT use for standalone design documents unattached to a feature, architecture decomposition analysis, or work that already has a task list or checklist to execute.'
+description: "Tech Lead Club spec-lean 2.0.0: freeze observable obligations in plan and proof-backed checks, then build and verify mutations and screens. Use for \"tlc-spec-lean\", \"plan feature\", \"write the checks\", \"build this plan\", \"verify work\". Do NOT use for standalone design documents, architecture decomposition or work with an existing task list."
 license: CC-BY-4.0
 metadata:
-  author: Tech Leads Club - github.com/tech-leads-club
-  version: 1.1.0
+  author: "Tech Leads Club - github.com/tech-leads-club"
+  version: 2.0.0
   owner_agent: codenavi-agent
 ---
 

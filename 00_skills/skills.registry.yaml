@@ -1011,13 +1011,13 @@ skills:
   path: 00_skills/(development)/spec-driven/SKILL.md
   owner_agent: codenavi-agent
   risk_level: medium
-  mission: 'Assimilated Tech Lead''s Club spec-driven workflow (tlc-spec-driven 3.3.0). Use for specify/design/tasks/execute feature work, EARS requirements, atomic tasks, validation scripts and independent verification. Triggers: spec-driven, tlc-spec-driven, specify feature, design, tasks, implement, validate, verify work. Do not use for standalone architecture documents unattached to a feature.'
+  mission: "Tech Lead Club spec-driven 4.0.0: Specify, Design, Tasks, Execute with EARS criteria, proof commands, mutation checks and capture-based screen verification. Use for \"spec-driven\", \"specify feature\", \"implement\", \"verify work\", design and atomic tasks. Do NOT use for pure architecture decomposition or standalone technical design documents."
   capabilities: []
 - id: spec-driven-lean
   path: 00_skills/(development)/spec-driven-lean/SKILL.md
   owner_agent: codenavi-agent
   risk_level: medium
-  mission: 'Assimilated Tech Lead''s Club lean spec workflow (tlc-spec-lean 1.0.0). Freeze obligations in plan + proof-backed checks, then build, then independent verify. Triggers: spec-driven-lean, tlc-spec-lean, plan feature, write the checks, build this plan, verify work. Do not use when a formal task list already exists or for standalone design docs.'
+  mission: "Tech Lead Club spec-lean 2.0.0: freeze observable obligations in plan and proof-backed checks, then build and verify mutations and screens. Use for \"spec-driven-lean\", \"plan feature\", \"write the checks\", \"build this plan\", \"verify work\". Do NOT use for standalone design documents, architecture decomposition or work with an existing task list."
   capabilities: []
 - id: specs
   path: 00_skills/(development)/specs/SKILL.md
@@ -1731,13 +1731,13 @@ skills:
   path: 00_skills/(development)/tlc-spec-driven/SKILL.md
   owner_agent: codenavi-agent
   risk_level: medium
-  mission: Feature planning and implementation with 4 adaptive phases (Specify, Design, Tasks, Execute). Auto-sizes depth by complexity. Writes testable requirements in EARS notation, atomic tasks, atomic Conventional Commits, and requirement traceability. Ships deterministic Python validation scripts so structural gates are enforced by code, not memory. Features an independent Verifier (author != verifier, evidence-or-zero), a discrimination sensor, a decision log (STATE.md), a test-coverage matrix, and a self-improving lessons layer. Stack-agnostic and tool-agnostic. Use when (1) planning features, (2) implementing with verification and atomic commits, (3) validating an implementation against a spec. Triggers on "specify feature", "discuss feature", "design", "tasks", "implement", "validate", "verify work", "UAT", "record decision", "pause work", "resume work". Do NOT use for pure architecture decomposition analysis or standalone technical design documents.
+  mission: "Tech Lead Club spec-driven 4.0.0: Specify, Design, Tasks, Execute with EARS criteria, proof commands, mutation checks and capture-based screen verification. Use for \"tlc-spec-driven\", \"specify feature\", \"implement\", \"verify work\", design and atomic tasks. Do NOT use for pure architecture decomposition or standalone technical design documents."
   capabilities: []
 - id: tlc-spec-lean
   path: 00_skills/(development)/tlc-spec-lean/SKILL.md
   owner_agent: codenavi-agent
   risk_level: medium
-  mission: 'Spec-driven feature work that freezes obligations instead of the plan: one human-reviewed plan with EARS criteria, path, entities, interface and one-way doors, then proof-backed checks, then build, then an independent Verifier. Use when the user says "tlc-spec-lean", "plan feature", "specify feature", "write the checks", "build this plan", or "verify work". Do NOT use for standalone design documents unattached to a feature, architecture decomposition analysis, or work that already has a task list or checklist to execute.'
+  mission: "Tech Lead Club spec-lean 2.0.0: freeze observable obligations in plan and proof-backed checks, then build and verify mutations and screens. Use for \"tlc-spec-lean\", \"plan feature\", \"write the checks\", \"build this plan\", \"verify work\". Do NOT use for standalone design documents, architecture decomposition or work with an existing task list."
   capabilities: []
 - id: vercel-deploy
   path: 00_skills/(cloud)/vercel-deploy/SKILL.md

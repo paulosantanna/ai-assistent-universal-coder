@@ -1,18 +1,3 @@
-<!-- Package: 00_skills/(development)/spec-driven; relative command/resource examples resolve from that package or workspace root. -->
+# Current workflow
 
-## Artifacts
-
-```
-.specs/
-├── STATE.md
-├── LESSONS.md
-├── lessons.json
-└── features/<feature>/
-    ├── spec.md
-    ├── context.md      # only when discuss runs
-    ├── design.md       # Large/Complex
-    ├── tasks.md        # Large/Complex
-    └── validation.md   # VerifierLens only
-```
-
-Create files lazily. Absence means the phase was skipped.
+This previous routing module is superseded by the [current contract](../../SKILL.md). Read it for the requested version, phase resources and gates.

@@ -1,8 +1,3 @@
-<!-- Package: 00_skills/(development)/spec-driven; relative command/resource examples resolve from that package or workspace root. -->
+# Current workflow
 
-## Non-activation
-
-- Pure architecture decomposition with no feature to implement.
-- Standalone design documents unattached to a feature.
-- User explicitly chose `spec-driven-lean` for the same feature.
-- Read-only inspection that produces no `.specs/` artifact.
+This previous routing module is superseded by the [current contract](../../SKILL.md). Read it for the requested version, phase resources and gates.

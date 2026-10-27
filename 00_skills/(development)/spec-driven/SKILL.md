@@ -1,60 +1,63 @@
 ---
 name: spec-driven
-description: 'Assimilated Tech Lead''s Club spec-driven workflow (tlc-spec-driven 3.3.0). Use for specify/design/tasks/execute feature work, EARS requirements, atomic tasks, validation scripts and independent verification. Triggers: spec-driven, tlc-spec-driven, specify feature, design, tasks, implement, validate, verify work. Do not use for standalone architecture documents unattached to a feature.'
+description: "Tech Lead Club spec-driven 4.0.0: Specify, Design, Tasks, Execute with EARS criteria, proof commands, mutation checks and capture-based screen verification. Use for \"spec-driven\", \"specify feature\", \"implement\", \"verify work\", design and atomic tasks. Do NOT use for pure architecture decomposition or standalone technical design documents."
 license: CC-BY-4.0
 metadata:
-  author: AEOS
-  version: 1.0.0
+  author: "AEOS; adapted from Felipe Rodrigues - github.com/felipfr"
+  version: 4.0.0
   owner_agent: codenavi-agent
 ---
 
-# Spec-Driven
+# spec-driven
 
 Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
 Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
 
 ## Mission
 
-Plan and implement features with auto-sized depth: Specify → (Design) → (Tasks) → Execute. Produce testable EARS requirements, optional design and atomic tasks, then implement against those artifacts with scripted structural gates and an independent verifier pass.
+Specify → (Design) → (Tasks) → Execute, sized to feature complexity. Bind checks to criteria, run proofs at HEAD and verify mutations and screens before completion.
 
-## Workflow and module routing
+## Workflow
 
-Read the contract/input/security modules before tools; then follow the applicable procedure in the original order. Load optional modes only when their scope applies.
+1. Inspect the user request, target code and continuity quartet; define observable success and size the feature.
+2. Read the [official 4.0.0 contract](../tlc-spec-driven/references/tlc/UPSTREAM.md) before acting. Read each phase reference completely when that phase applies.
+3. Resolve references and scripts using the paths below; `.specs/` belongs to the target project. Pass `--root` when cwd differs. Do not use workspace-root `scripts/` by accident.
+4. Preserve product decisions and binding captures. Record real approvals and answers in feature artifacts; never fabricate approval or ask again for authorization already given in the session.
+5. Derive tests from requirements/checks. Run gates and fix failures; never weaken checks to obtain a pass. validate_spec.py → validate_tasks.py → check_commit.py → check_proofs.py → validate_verification.py. Run selftest.py after validator/template changes.
+6. Keep author, verifier and screen review as sequential internal lenses of codenavi-agent. No additional agent identities or delegation are permitted. This is self-verification: use the source fallback in a fresh session and label it `self-verified`; never claim independent review.
+7. Commit only within existing session authorization and local policy. Remote publication, deploy and production data changes require explicit authorization for that action.
+8. Report artifacts, executed gates, proof HEAD and unresolved findings; update continuity with durable evidence. A failing gate blocks completion.
 
-- 1. [Purpose and contract](references/instructions/01-purpose-and-contract.md) — before acting on this contract.
-- 2. [Identity](references/instructions/02-identity.md) — before acting on this contract.
-- 3. [Mission](references/instructions/03-mission.md) — before acting on this contract.
-- 4. [Relationship to AEOS `specs`](references/instructions/04-relationship-to-aeos-specs.md) — when this domain or mode is in scope.
-- 5. [Activation](references/instructions/05-activation.md) — when this domain or mode is in scope.
-- 6. [Non-activation](references/instructions/06-non-activation.md) — when this domain or mode is in scope.
-- 7. [Critical rules](references/instructions/07-critical-rules.md) — before acting on this contract.
-- 8. [Deterministic gates](references/instructions/08-deterministic-gates.md) — before claiming completion.
-- 9. [Auto-sizing](references/instructions/09-auto-sizing.md) — when this domain or mode is in scope.
-- 10. [Artifacts](references/instructions/10-artifacts.md) — when this domain or mode is in scope.
-- 11. [Continuity](references/instructions/11-continuity.md) — when reading or promoting continuity knowledge.
-- 12. [Lenses (never new agents)](references/instructions/12-lenses-never-new-agents.md) — when this domain or mode is in scope.
-- 13. [Knowledge verification chain](references/instructions/13-knowledge-verification-chain.md) — before claiming completion.
-- 14. [Output behavior](references/instructions/14-output-behavior.md) — before acting on this contract.
+## Phase resources
 
-## Boundaries and result
+- Read [specify.md](references/specify.md) before specifying or presenting requirements.
+- Read [discuss.md](references/discuss.md) when product decisions are unresolved.
+- Read [design.md](references/design.md) when architecture is needed.
+- Read [tasks.md](references/tasks.md) before defining atomic tasks.
+- Read [implement.md](references/implement.md) before execution.
+- Read [validate.md](references/validate.md) when verifying completion.
+- Read [verify-screens.md](references/verify-screens.md) when criteria cite captures.
+- Read [memory.md](references/memory.md) when pausing or resuming.
+- Read [lessons.md](references/lessons.md) when distilling verified lessons.
 
-Use only tools actually available for the authorized task. Keep secrets in runtime providers. Missing evidence, inputs or permissions blocks the affected action. Return the domain output with source pointers, executed checks and remaining uncertainty; never claim an unexecuted check passed.
+Run `python 00_skills/(development)/spec-driven/scripts/<name>.py` with the feature arguments required by the phase. Python 3.8+ and Git are required for proofs/mutations; browser and image-reading support are required for capture checks.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+## Examples and failure handling
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
-Read [code-analysis.md](references/code-analysis.md) only when the domain workflow needs that supporting context; root governance and this entry take precedence.
-Read [coding-principles.md](references/coding-principles.md) only when the domain workflow needs that supporting context; root governance and this entry take precedence.
-Read [context-limits.md](references/context-limits.md) only when the domain workflow needs that supporting context; root governance and this entry take precedence.
-Read [design.md](references/design.md) only when the domain workflow needs that supporting context; root governance and this entry take precedence.
-Read [discuss.md](references/discuss.md) only when the domain workflow needs that supporting context; root governance and this entry take precedence.
-Read [implement.md](references/implement.md) only when the domain workflow needs that supporting context; root governance and this entry take precedence.
-Read [lessons.md](references/lessons.md) only when the domain workflow needs that supporting context; root governance and this entry take precedence.
-Read [memory.md](references/memory.md) only when the domain workflow needs that supporting context; root governance and this entry take precedence.
-Read [ORIGINAL_SKILL.md](references/ORIGINAL_SKILL.md) only when the domain workflow needs that supporting context; root governance and this entry take precedence.
-Read [package-notes.md](references/package-notes.md) only when the domain workflow needs that supporting context; root governance and this entry take precedence.
-Read [specify.md](references/specify.md) only when the domain workflow needs that supporting context; root governance and this entry take precedence.
-Read [sub-agents.md](references/sub-agents.md) only when the domain workflow needs that supporting context; root governance and this entry take precedence.
-Read [tasks.md](references/tasks.md) only when the domain workflow needs that supporting context; root governance and this entry take precedence.
-Read [validate.md](references/validate.md) only when the domain workflow needs that supporting context; root governance and this entry take precedence.
+Example: "specify feature: add a billing guard" → inspect the target, write criteria and proofs, build within approved scope and report the gate result. A standalone architecture document routes elsewhere.
+
+Missing Python/Git, browser, image support, evidence or authorization blocks the affected proof/action; report it. Credentials stay in approved runtime providers; never persist secrets or raw cookies.
+
+Source/license/version: [provenance](references/provenance.md).
+
+## Supporting resources
+
+- Read [retained code-analysis.md](references/code-analysis.md) only for its matching supporting context; the current entry and pinned phase procedures take precedence.
+- Read [retained coding-principles.md](references/coding-principles.md) only for its matching supporting context; the current entry and pinned phase procedures take precedence.
+- Read [retained context-limits.md](references/context-limits.md) only for its matching supporting context; the current entry and pinned phase procedures take precedence.
+- Read [retained instructions](references/instructions) only for its matching supporting context; the current entry and pinned phase procedures take precedence.
+- Read [retained lenses](references/lenses) only for its matching supporting context; the current entry and pinned phase procedures take precedence.
+- Read [retained ORIGINAL_SKILL.md](references/ORIGINAL_SKILL.md) only for its matching supporting context; the current entry and pinned phase procedures take precedence.
+- Read [retained package-notes.md](references/package-notes.md) only for its matching supporting context; the current entry and pinned phase procedures take precedence.
+- Read [retained sub-agents.md](references/sub-agents.md) only for its matching supporting context; the current entry and pinned phase procedures take precedence.
+- Read [retained usage-and-verification.md](references/usage-and-verification.md) only for its matching supporting context; the current entry and pinned phase procedures take precedence.

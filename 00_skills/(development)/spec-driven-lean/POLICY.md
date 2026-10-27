@@ -8,13 +8,13 @@
 - high: commits, test mutation, one-way doors.
 - destructive: push, deploy, production data change — explicit per-action approval.
 
-## Profile policy
+## Mutation policy
 
-Default profile is `light` unless the user raises it. `validate_verification.py` must match the approved checks profile.
+Default mutation count is 3, declared in checks.md; coverage remains owed at every count. `check_proofs.py` and `validate_verification.py` settle the executable evidence.
 
 ## Workflow policy
 
-Plan is reviewed before checks. Checks are reviewed before build. The builder does not write `verification.md`. `VerifierLens` is never optional after the last commit of the feature.
+Plan is reviewed before checks. Frozen checks govern build. VerifierLens and screen review are sequential internal lenses; follow the fresh-session fallback and disclose `self-verified`. Never claim independent author/verifier identities.
 
 ## Commit policy
 
