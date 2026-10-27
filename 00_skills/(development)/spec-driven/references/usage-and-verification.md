@@ -1,15 +1,3 @@
 # Usage and verification
 
-Scope: Assimilated Tech Lead's Club spec-driven workflow (tlc-spec-driven 3.3.0).
-
-## Example request
-
-User: "Use spec-driven for the following task: Assimilated Tech Lead's Club spec-driven workflow (tlc-spec-driven 3.3.0)." Supply the actual target and relevant source evidence; this is a routing example, not a completed execution.
-
-## Expected result
-
-Follow the domain procedure and deliverables in SKILL.md and its applicable modules. Ground every material assertion in observed input; record the actual output and its verification evidence. Do not substitute this example for the skill-specific contract.
-
-## Failure handling
-
-If a required input, source, tool, permission or domain check is missing or fails, report the concrete blocker and stop that dependent step. Continue only independently authorized work. Never invent data, claim an unrun check passed, or treat these instructions as installed external infrastructure.
+Read the [current contract](../SKILL.md) for examples, failure handling and the pinned workflow. Historical package instructions are superseded by that entry.

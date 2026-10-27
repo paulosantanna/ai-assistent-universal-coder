@@ -1,5 +1,3 @@
-<!-- Package: 00_skills/(development)/spec-driven; relative command/resource examples resolve from that package or workspace root. -->
+# Current workflow
 
-## Mission
-
-Plan and implement features with auto-sized depth: Specify → (Design) → (Tasks) → Execute. Produce testable EARS requirements, optional design and atomic tasks, then implement against those artifacts with scripted structural gates and an independent verifier pass.
+This previous routing module is superseded by the [current contract](../../SKILL.md). Read it for the requested version, phase resources and gates.

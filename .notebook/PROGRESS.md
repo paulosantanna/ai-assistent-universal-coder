@@ -1,3 +1,13 @@
+# TLC spec versions — publicação e merge
+
+Updated: 2026-10-26. Entry point: `.notebook/tlc-spec-versions.md`.
+- [x] Fontes exatas, quatro pacotes e hashes locais verificados.
+- [x] Checkout isolado da master remota preserva alterações locais de outras tarefas.
+- [~] Gates do candidato, PR, merge autorizado e monitoramento do SHA final.
+- [ ] Concluir somente com workflows/checks do SHA final terminais e verdes.
+
+---
+
 # Missão ativa: agendamento obrigatório nos Studios
 Updated: 2026-10-14
 Entry point: E:/Github/ai-assistent-universal-coder/.work/studio-scheduling/PROGRESS.md

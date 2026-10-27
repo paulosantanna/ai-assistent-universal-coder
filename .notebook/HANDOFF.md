@@ -1,3 +1,11 @@
+## TLC spec versions — PR e merge autorizados
+
+Updated: 2026-10-26. Entry point: `.notebook/tlc-spec-versions.md`.
+Working set: quatro pacotes spec-driven/lean, fontes, descoberta e metadados relacionados.
+Próximo passo: validar o candidato, publicar PR com Why, verificar os checks, integrar na master e verificar o SHA final. Alterações locais de outras tarefas ficam fora do PR.
+
+---
+
 # Handoff ativo: agendamento obrigatório nos Studios
 Updated: 2026-10-14
 Entry point: E:/Github/ai-assistent-universal-coder/.work/studio-scheduling/PROGRESS.md

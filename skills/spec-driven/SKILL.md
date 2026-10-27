@@ -1,17 +1,15 @@
 ---
 name: spec-driven
-description: 'Assimilated Tech Lead''s Club spec-driven workflow (tlc-spec-driven 3.3.0). Use for specify/design/tasks/execute feature work, EARS requirements, atomic tasks, validation scripts and independent verification. Triggers: spec-driven, tlc-spec-driven, specify feature, design, tasks, implement, validate, verify work. Do not use for standalone architecture documents unattached to a feature.'
+description: "Tech Lead Club spec-driven 4.0.0: Specify, Design, Tasks, Execute with EARS criteria, proof commands, mutation checks and capture-based screen verification. Use for \"spec-driven\", \"specify feature\", \"implement\", \"verify work\", design and atomic tasks. Do NOT use for pure architecture decomposition or standalone technical design documents."
 license: CC-BY-4.0
 metadata:
-  author: AEOS
-  version: 1.0.0
+  author: "AEOS; adapted from Felipe Rodrigues - github.com/felipfr"
+  version: 4.0.0
   owner_agent: codenavi-agent
 ---
 
-# Compatibility entry
+# spec-driven
 
-Canonical contract: [spec-driven](../../00_skills/(development)/spec-driven/SKILL.md).
+Read and follow `00_skills/(development)/spec-driven/SKILL.md` and its relevant local modules.
 
-Read that file and only the linked modules needed for this task. All resources and substantive instructions are in its canonical package.
-
-Governance: CodENavi Full Workspace v2. One agent: `codenavi-agent`.
+Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; no additional agent identity.
