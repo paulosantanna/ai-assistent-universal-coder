@@ -574,14 +574,14 @@
       "name": "tlc-implement",
       "category": "development",
       "path": "(development)/tlc-implement",
-      "contentHash": "66c91f40f0f8250c1a52c3242b4f4e33a5b038f5a2fda2578bf2f95df5de0b11",
+      "contentHash": "e693481ec768b47dd4fa12b44f40dcc3aca13b1e1d35887640a699bd7530cf54",
       "version": "1.1.0"
     },
     {
       "name": "tlc-plan",
       "category": "development",
       "path": "(development)/tlc-plan",
-      "contentHash": "6e6fa709ed167718184622004855fc151b47fb3878f4030fa5745c85bd292404",
+      "contentHash": "66d58bf5734ded0a7497451a98787b9466b1172ff4e4832359cdd7efadc931ae",
       "version": "1.1.0"
     },
     {
@@ -595,14 +595,14 @@
       "name": "tlc-spec-driven",
       "category": "development",
       "path": "(development)/tlc-spec-driven",
-      "contentHash": "f465b52756b8f2ea082bf0dc24ab517721983106c7bf9f50d9e689c56ae1a1e2",
+      "contentHash": "d8fee67d68f8bc5f24b3d939b5e922ed37c0074529ed921916bc8af7b669757b",
       "version": "4.0.0"
     },
     {
       "name": "tlc-spec-lean",
       "category": "development",
       "path": "(development)/tlc-spec-lean",
-      "contentHash": "51bcf485f5b981d613d660767d03f194d9117188c7615914108759a21de7b5cf",
+      "contentHash": "22df16c30510c5042ba872378be143e2a0224bf6764709a47fbe015208341ca9",
       "version": "2.1.0"
     },
     {
