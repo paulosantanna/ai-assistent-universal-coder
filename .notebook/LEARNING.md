@@ -1,8 +1,26 @@
 # LEARNING
 
-Updated: 2026-10-13
+Updated: 2026-11-03
 
 ## Validated learnings
+
+### Parametric speech is not a recorded speaker
+- Trigger: a request for crystal-clear human voices in pt-BR and English without a commercial API and without a real donor.
+- Root cause: source-filter formant synthesis can set F0, tract scale, breath and intonation, but eSpeak NG and Klatt-style engines are intelligible rather than indistinguishable from a recording. A neural vocoder that sounds recorded was trained on speech.
+- Fix/prevention: ship the parametric engine, write the ceiling on every manifest, and refuse donor cloning instead of calling a paid voice API to hide the gap.
+- Reuse scope: any offline voice feature that forbids recorded donors and commercial TTS.
+- Evidence: `audio-engineering-mcp/synth.py` ceiling string; `00_skills/(tooling)/voice-engineering-expert/scripts/self_check.py` PASS on 2026-11-03.
+- Updated: 2026-11-03
+
+### Do not test an empty character with string membership
+- Trigger: Portuguese G2P nasalized every final vowel and voiced every initial s.
+- Root cause: `"" in "aeiou"` and `"" in "mn"` are true in Python, so a missing next letter looked like a vowel and like a nasal coda.
+- Fix/prevention: test one-character letters with a helper that rejects empty strings, or compare against a tuple of letters.
+- Reuse scope: any scanner whose lookahead can be empty.
+- Evidence: `audio-engineering-mcp/g2p.py` `_vowel_letter`; demo phones for "olá" and "sintética" in the self-check.
+- Updated: 2026-11-03
+
+
 
 
 ### Modular Markdown must resolve from the module location

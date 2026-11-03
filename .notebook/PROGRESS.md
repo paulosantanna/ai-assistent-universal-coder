@@ -1,3 +1,13 @@
+# Engenharia de áudio TLC e voz paramétrica
+
+Updated: 2026-11-03. Entry point: `.notebook/audio-engineering.md`.
+
+- [x] BRIEFING: MCP de engenharia de áudio no padrão TLC e super-skill de voz original pt-BR/en-US, sem API comercial e sem doador.
+- [x] RECON: contrato de skill de 100 linhas, catálogo, `quality/capabilities.json` e probe JSON-RPC `2025-11-25`.
+- [x] EXECUTE: corpus com fontes públicas incluindo MIT, motor formântico, G2P, recusas de clone/fraude/uso sexual, skill e registro.
+- [x] VERIFY: `scripts/self_check.py` PASS; `quality/validate.py --runtime` PASS (306 skills, probe do MCP).
+- [x] DEBRIEF: teto paramétrico registrado. Naturalidade de vocoder neural fica fora porque exigiria fala de treino.
+
 # TLC spec versions — publicação e merge
 
 Updated: 2026-10-26. Entry point: `.notebook/tlc-spec-versions.md`.

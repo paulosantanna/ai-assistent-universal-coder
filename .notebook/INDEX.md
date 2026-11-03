@@ -1,12 +1,13 @@
 # .notebook
 > Project intelligence — read before every material mission
 
-Last updated: 2026-10-14
+Last updated: 2026-11-03
 
 - [HANDOFF](HANDOFF.md) — last verified transfer state and exact next actions | continuity | handoff, state, execution
 - [MEMORY](MEMORY.md) — durable evidence-backed project facts and decisions | continuity | memory, decisions, evidence
 - [PROGRESS](PROGRESS.md) — live mission checklist, gates and factual execution log | continuity | progress, verification, execution
 - [LEARNING](LEARNING.md) — verified reusable root-cause lessons | continuity | learning, root-cause, prevention
+- [audio-engineering](audio-engineering.md) — active audio MCP plus parametric pt-BR/en voice super-skill | domain | audio, voice, mcp
 - [tlc-spec-versions](tlc-spec-versions.md) — driven 4.0.0 / lean 2.0.0, source pins and Windows helpers | patterns | tlc, skills, verification
 - [capability-ci](capability-ci.md) — gates TLC, auto-update diária e contratos MCP/LSP com estados reais | patterns | tlc, ci, capabilities
 - [repositorios-skills](repositorios-skills.md) — mapa estático dos 11 projetos × skills, fontes e relatório offline | graph | repositorios, skills, mapping

@@ -1,9 +1,9 @@
 # Skills canônicas
 
-Updated: 2026-10-26
+Updated: 2026-11-03
 Entry point: [contrato](STANDARD.md), [catálogo](catalog.json), [esteira](../quality/README.md).
 
-305 pacotes canônicos. Adaptações herdam AGENTS.md; disponibilidade externa deve ser comprovada ao executar.
+306 pacotes canônicos. Adaptações herdam AGENTS.md; disponibilidade externa deve ser comprovada ao executar.
 
 ## architecture
 
@@ -345,6 +345,7 @@ Entry point: [contrato](STANDARD.md), [catálogo](catalog.json), [esteira](../qu
 - [social-media-operator]((tooling)/social-media-operator/SKILL.md) — Governed TikTok and Instagram operations via browser-based authentication sessions.
 - [task-graph-builder]((tooling)/task-graph-builder/SKILL.md) — Build a deterministic task graph from a playbook and objective.
 - [tool-router-audit]((tooling)/tool-router-audit/SKILL.md) — Audit whether AEOS code and playbooks enforce Tool Router for every external action.
+- [voice-engineering-expert]((tooling)/voice-engineering-expert/SKILL.md) — Engineer original synthetic speaking voices offline, as voice data other applications can play, in broadcast-neutral pt-BR and General American en-US, with masculine, feminine, child, adult and elderly timbre, pitch, tuning and intonation, and without a commercial voice API or a recorded donor.
 - [voiceai]((tooling)/voiceai/SKILL.md) — Provide an evidence-backed voice interface for AEOS. Activating this skill is treated as explicit current-session consent for `voiceai` to record user audio or transcribe audio from user-authorized audio/video media within the declared scope. The skill can:
 - [vox-aurum]((tooling)/vox-aurum/SKILL.md) — Transcribe authorized local bare audio offline with a verified local Whisper model, preserving spoken language and literal output; optionally use an explicitly requested GPU. Use for transcreva esse áudio, áudios dessa pasta, audio to text or transcrição offline. Do NOT use for meeting/call video even if only transcrever is requested (acta-aurea), diarized minutes, live dictation, editing/translation or voice cloning.
 - [whatsapp-simulator]((tooling)/whatsapp-simulator/SKILL.md) — Generate synthetic WhatsApp-style conversation fixtures for testing conversational systems, support flows and automation.
