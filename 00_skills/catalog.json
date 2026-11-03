@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updated": "2026-10-26",
+  "updated": "2026-11-03",
   "governance": "CodENavi Full Workspace v2",
   "skills": [
     {
@@ -3839,6 +3839,19 @@
       "source": "tlc",
       "lines": 53,
       "sha256": "f0f3831389e91cbc4c20d2be446e55c88fbf7f1364e269aa3d8e852fa3f088cc"
+    },
+    {
+      "id": "voice-engineering-expert",
+      "aliases": [],
+      "path": "00_skills/(tooling)/voice-engineering-expert/SKILL.md",
+      "category": "tooling",
+      "description": "Engineer original synthetic speaking voices offline, as voice data other applications can play, in broadcast-neutral pt-BR and General American en-US, with masculine, feminine, child, adult and elderly timbre, pitch, tuning and intonation, and without a commercial voice API or a recorded donor. Use when the user asks for engenharia de dados de voz, engenharia de voz, criar voz sintética, voz masculina, voz feminina, voz infantil, voz idosa, timbre cristalino or voice-engineering-expert. Do NOT use for transcribing audio (vox-aurum), meeting minutes (acta-aurea), cloning or impersonating a real person, fraud, or sexual content.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "workspace",
+      "lines": 50,
+      "sha256": "e1e4a775f3ae5288aecfc7e86f4e299177980708519fecae755638e5c07dd778"
     },
     {
       "id": "voiceai",

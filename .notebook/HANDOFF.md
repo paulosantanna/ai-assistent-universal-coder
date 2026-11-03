@@ -1,3 +1,12 @@
+# Handoff: engenharia de áudio e voz paramétrica
+
+Updated: 2026-11-03. Entry point: `.notebook/audio-engineering.md`.
+
+- MCP `audio-engineering` ativo (JSON-RPC stdio 2025-11-25) e super-skill `voice-engineering-expert` registrada. Catálogo 306. `quality/validate.py --runtime` PASS e `scripts/self_check.py` PASS.
+- Entrega: notas originais com fontes públicas (MIT OCW, CCRMA, EBU, ITU, AES e outras) e WAV 22050 Hz 16-bit a partir de preset, sem doador e sem API comercial.
+- Teto verificado: síntese fonte-filtro. Não é teste cego de fala humana. Clone, impersonação, fraude e uso sexual recusam sem arquivo.
+- Próximo passo externo, se alguém quiser mais naturalidade: avaliar um vocoder aberto já instalado localmente, sem baixar modelo nem chamar API paga. Não está feito.
+
 ## TLC spec versions — PR e merge autorizados
 
 Updated: 2026-10-26. Entry point: `.notebook/tlc-spec-versions.md`.

@@ -1,8 +1,17 @@
 # MEMORY
 
-Updated: 2026-10-14
+Updated: 2026-11-03
 
 ## Active memory
+
+### Audio engineering MCP and voice super-skill
+- Status: active instruction plus local stdio MCP.
+- Fact: `audio-engineering-mcp` is an active JSON-RPC 2025-11-25 server governed with `voice-engineering-expert`. It serves original multi-source audio notes and renders original parametric pt-BR/en-US voices to WAV. It does not clone a donor, call a commercial voice API, or claim indistinguishability from a recorded speaker. Child profiles are narration presets and sexual, fraud and impersonation requests are refused.
+- Evidence: `.notebook/audio-engineering.md`, `quality/capabilities.json`, `00_skills/(tooling)/voice-engineering-expert/scripts/self_check.py`.
+- Decision: "sem sotaque" means the named broadcast target (`pt-BR-broadcast` or `en-US-general-american`).
+- Updated: 2026-11-03
+
+
 
 ### Source-backed repository/skill routing
 - Status: static mapping artifact; not external runtime validation.

@@ -1,0 +1,22 @@
+{
+  "skill": "voice-engineering-expert",
+  "package_hash": "7fcff9bf3c5e334f415f56c251bdb11cb8175a1007589e7010c2b908133f18bb",
+  "positive_triggers": [
+    "engenharia de dados de voz",
+    "criar voz sintética",
+    "voice-engineering-expert"
+  ],
+  "negative_scope": [
+    "transcribing audio",
+    "cloning or impersonating a real person",
+    "sexual content"
+  ],
+  "source": "Original parametric voice super-skill and audio-engineering MCP, 2026-11-03",
+  "verification": {
+    "kind": "behavioral",
+    "runtime_evaluated": true,
+    "routing": "Static wording assessment; no measured trigger accuracy",
+    "behavior": "scripts/self_check.py PASS: six presets, pt-BR and en-US sentences, safety refusals, formulas, WAV header and MCP stdio handshake"
+  },
+  "effectiveness": "Not measured; structural acceptance does not establish enterprise performance"
+}

@@ -48,6 +48,190 @@
       "baseline_hash": "603485601ebd02e4203598796088e478bfd1d411b1069960aeb9c7b0e2cf9f4f",
       "secret_policy": "runtime-references-only",
       "smoke": null
+    },
+    {
+      "id": "audio-engineering-mcp",
+      "path": "audio-engineering-mcp",
+      "state": "active",
+      "protocol": "jsonrpc-stdio",
+      "owner": "codenavi-agent",
+      "secret_policy": "runtime-references-only",
+      "entrypoint": "server.py",
+      "command": [
+        "python3",
+        "server.py"
+      ],
+      "tools": [
+        {
+          "name": "audio.health",
+          "description": "Report corpus size, source organizations, engine ceiling and secret policy.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": [],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "audio.search",
+          "description": "Search original audio-engineering notes by words in the title, summary or source id.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "query": {
+                "type": "string",
+                "description": "Search words."
+              },
+              "limit": {
+                "type": "integer",
+                "description": "Maximum hits, from 1 to 20."
+              }
+            },
+            "required": [
+              "query"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "audio.topic",
+          "description": "Return one audio-engineering note with its public source pointers.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Topic id, such as sampling-nyquist or pt-br-phonetics."
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "audio.sources",
+          "description": "List the consulted public sources, optionally filtered by organization.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "org": {
+                "type": "string",
+                "description": "Optional organization or source id fragment."
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "audio.calculate",
+          "description": "Evaluate one named acoustic formula: nyquist, wavelength, sabine, eyring, erb, cents or note.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "operation": {
+                "type": "string",
+                "description": "Formula name."
+              },
+              "arguments": {
+                "type": "object",
+                "description": "Numeric inputs for the chosen formula.",
+                "properties": {},
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "required": [
+              "operation",
+              "arguments"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "audio.voice_profile",
+          "description": "Return the acoustic preset for a presentation and age, without rendering audio.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "presentation": {
+                "type": "string",
+                "description": "masculine or feminine."
+              },
+              "age": {
+                "type": "string",
+                "description": "child, adult or older."
+              },
+              "language": {
+                "type": "string",
+                "description": "pt-BR or en-US."
+              }
+            },
+            "required": [
+              "presentation",
+              "age",
+              "language"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "audio.render_voice",
+          "description": "Render an original parametric voice to a WAV file and a JSON manifest. Refuses cloning, impersonation and sexual use.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string",
+                "description": "Text to speak, or a label when phonemes are supplied."
+              },
+              "language": {
+                "type": "string",
+                "description": "pt-BR or en-US."
+              },
+              "presentation": {
+                "type": "string",
+                "description": "masculine or feminine."
+              },
+              "age": {
+                "type": "string",
+                "description": "child, adult or older."
+              },
+              "out_dir": {
+                "type": "string",
+                "description": "Directory under the working tree or /tmp."
+              },
+              "use_context": {
+                "type": "string",
+                "description": "Why the voice is being rendered."
+              },
+              "intonation": {
+                "type": "string",
+                "description": "auto, declarative, question, narrow or flat."
+              },
+              "tuning_cents": {
+                "type": "number",
+                "description": "Pitch offset in cents."
+              },
+              "phonemes": {
+                "type": "string",
+                "description": "Optional space-separated phone override."
+              }
+            },
+            "required": [
+              "text",
+              "language",
+              "presentation",
+              "age",
+              "out_dir",
+              "use_context"
+            ],
+            "additionalProperties": false
+          }
+        }
+      ]
     }
   ],
   "lsps": [],
