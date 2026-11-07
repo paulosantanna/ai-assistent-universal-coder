@@ -76,10 +76,13 @@ Para custo e escopo: `token-budget-governor` no planeamento de prompts longos.
 - **Determinismo**: temperatura baixa e prompts com “cite apenas corpus”; ainda assim, amostragem pode variar — manifests e hashes de chunk são a âncora reprodutível.
 - **Segredos**: nunca colocar `E:\JEV` nem API keys OpenCode no disco do cérebro em texto claro; usar variáveis de ambiente ou gestor secretos do SO.
 
-## Próximas ações executáveis (missão de implementação)
+## Implementação no repositório
 
-1. Criar árvore em `E:\Github\workspace-brain` conforme layout acima.
-2. Fixar contrato do cliente OpenCode + endpoint DeepSeek 4.1 e gravar em `manifests/model-contract.json` (sem segredos).
-3. Implementar ingestão (repos + fila Jev para URLs) e export do **MCP** para `.opencode`/Cursor conforme registries AEOS (`aeos/registries/`).
-4. Gerar **skill** + **playbook** mínimos que descrevem uso do MCP e do RAG nuvem-only.
-5. Opcional: copiar artefactos governados para `00_skills/` após revisão CodENavi.
+- Código: [`workspace-brain/`](../workspace-brain/README.md) — pacote npm com CLI `wb`, MCP stdio, ingestão, Jev/heurística, RAG DeepSeek, `install-agents` para Cursor/Codex/OpenCode/Claude.
+- Entrada operacional: `npm install` → `wb init` → `wb install-agents` → `wb ingest` / `wb map-seeds`.
+
+## Próximas ações no PC do Paulo
+
+1. Copiar ou clonar `workspace-brain` para `E:\Github\workspace-brain` (ou só `WORKSPACE_BRAIN_ROOT`).
+2. Ajustar `manifests/model-contract.json` para o id **DeepSeek 4.1** do OpenCode.
+3. Opcional: promover `skills/workspace-brain/SKILL.md` para `00_skills/` após revisão.
