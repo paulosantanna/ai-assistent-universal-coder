@@ -1,0 +1,9 @@
+node_modules/
+corpus/
+manifests/
+events/
+logs/
+*.log
+.env
+.env.*
+!.env.example
