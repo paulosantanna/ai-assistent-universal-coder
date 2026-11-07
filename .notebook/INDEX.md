@@ -20,4 +20,4 @@ Last updated: 2026-11-06
 - [kotlin-expert](kotlin-expert.md) — current Kotlin 2.4.20 language expert + docs-kotlin-current MCP | domain | kotlin, language-docs, expert
 - [kinghost-expert](kinghost-expert.md) — KingHost Hospedagem MCP: cookie login, domains, clone, WordPress/PHP/MySQL/FTP | domain | kinghost, wordpress, ftp
 - [workspace-governance](workspace-governance.md) — AEOS inherits CodENavi lifecycle and evidence rules | patterns | governance, codenavi, lifecycle
-- [workspace-local-brain](workspace-local-brain.md) — cérebro RAG local, Jev, paths Windows e repos de referência | patterns | rag, jev, learning
+- [workspace-local-brain](workspace-local-brain.md) — cérebro RAG nuvem (DeepSeek+OpenCode), Jev para mapa web, paths Windows | patterns | rag, jev, learning

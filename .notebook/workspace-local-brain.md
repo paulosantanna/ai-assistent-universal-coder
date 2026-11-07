@@ -1,78 +1,85 @@
-# workspace-local-brain (RAG local + Jev)
+# workspace-local-brain (RAG nuvem + OpenCode + Jev)
 
-Entry point: este documento. Integra com `07_mapeamentos/repositorios-skills/`, `chromatic-mega-brain`, `typesafe-ai`, `jev-call-expert` e (opcional) MCP RAG offline em `aeos/mcp-servers/rag-node-mcp.mjs` (ver `rag-node-mcp.md`).
+Entry point: este documento. Integra com `07_mapeamentos/repositorios-skills/`, `chromatic-mega-brain`, `typesafe-ai`, `jev-call-expert`, `token-budget-governor` e o padrão de pastas de agentes (`.cursor`, `.codex`, `.opencode`, `.claude`, …) em `00_skills/(architecture)/domain-analysis/references/tlc/README.md` (referência a `.opencode/`).
 
 Updated: 2026-11-06
 
 ## Objetivo
 
-Definir um **cérebro de conhecimento local** para o Universal-coder: indexação recursiva de repositórios já mapeados e futuros, **RAG com pesos/embeddings locais** (vetores + metadados no disco), telemetria de **todas** as ferramentas que alteram código (`.cursor`, `.codex`, `.opencode`, `.claude`, etc.) via eventos versionados, e **roteamento/checagens** assistidas por **TypeSafe Jev** (`typesafe-ai` + `jev-call-expert`) — julgamentos tipados + código determinístico para política e execução.
+Definir um **cérebro de conhecimento** para o Universal-coder em que:
 
-## Caminhos no Windows (máquina do Paulo)
+- **RAG (recuperação + geração)** é feito **na nuvem** pelo modelo **DeepSeek 4.1**, orquestrado via **OpenCode** — **sem Ollama nem stack de LLM local** para esse pipeline.
+- **Armazenamento persistente** (corpus chunkado, caches de embedding se existirem, manifestos de ingestão, eventos de ferramentas, artefactos gerados) vive na pasta **`E:\Github\workspace-brain`** na tua máquina Windows.
+- **Jev** (TypeSafe, credenciais em **`E:\JEV`**, só runtime) suporta **mapeamento ampliado da Internet**: priorização de fontes, deduplicação, política de confiança e rotas para **construir um MCP do cérebro**, além de **skills e playbook** escritos nesse caminho.
 
-| Papel | Caminho sugerido |
+## Caminhos no Windows
+
+| Papel | Caminho |
 | --- | --- |
-| Credencial / runtime Jev (API key) | `E:\JEV` — consumir **apenas em runtime**; nunca commitar conteúdo do diretório |
-| Armazenamento do cérebro (vetores, manifestos, logs de ingestão) | `E:\Github\workspace-brain` — fora do git do workspace ou com `.gitignore` agressivo para `store/` |
+| Credencial / runtime Jev (API key) | `E:\JEV` — consumir **apenas em runtime**; nunca commitar conteúdo |
+| Cérebro (dados, manifestos, MCP gerado, skills/playbooks gerados) | `E:\Github\workspace-brain` |
 
-Em ambientes Linux/CI, espelhar com variáveis (`WORKSPACE_BRAIN_ROOT`, `JEV_CONFIG_DIR`) em vez de letras de unidade.
+Espelho em Linux/CI: `WORKSPACE_BRAIN_ROOT`, `JEV_CONFIG_DIR` (sem valores secretos no git).
 
-## Repositórios de referência (RAG / LLM local — curadoria)
+## Separação de responsabilidades
 
-Uso: inspiração de pipeline e operação; validar licença e política antes de fork.
-
-| Repo | URL | Por quê |
+| Camada | Tecnologia | Função |
 | --- | --- | --- |
-| haiku.rag | https://github.com/ggozad/haiku.rag | RAG “agentic”, híbrido, LanceDB embutido, Ollama por defeito, MCP para integração com fluxos tipo Claude/Codex |
-| RagPack | https://github.com/iamAdityafr/ragpack | API/UI leve, Go, LanceDB embutido, BYO embeddings (Ollama) |
-| RAG-Local (índice de exemplos) | https://github.com/codenamejason/RAG-Local | Coleção de exemplos Python/TS com Ollama + LanceDB |
-| ollama-rag (minimal) | https://github.com/fabiothiroki/ollama-rag | Base mínima Ollama + LanceDB + Python para protótipos |
+| Recuperação + síntese (RAG) | **DeepSeek 4.1** via **OpenCode** | Embeddings (se o fluxo OpenCode expuser), rerank, resposta com citações ao corpus registado no manifesto. |
+| Julgamentos / roteamento | **Jev** + `typesafe-ai`, `jev-call-expert` | Choice/Noul/Score: vale indexar esta URL? merge com repo conhecido? risco de baixa evidência? |
+| Armazenamento | Disco em `E:\Github\workspace-brain` | Chunks, hashes, manifestos, `events.ndjson`, saída do gerador de MCP/skills/playbook — **não** substitui o repositório git do universal-coder salvo decisão explícita de copiar para `00_skills/` / `aeos/`. |
+| Continuidade aprovada | `chromatic-mega-brain`, quartet `.notebook/` | Promover só factos verificados para `MEMORY.md` / `LEARNING.md`. |
 
-Stack de referência comum: **Ollama** (LLM + embeddings GGUF local), **LanceDB** ou **pgvector** para vetores, chunking + hash de conteúdo para reprodutibilidade.
+**Nota:** “Pesos” no disco do cérebro referem-se a **artefactos derivados** (índices, caches, manifestos, eventos). O **modelo DeepSeek** permanece no fornecedor em nuvem; não há treino local dos pesos do foundation model neste desenho.
 
-## Arquitetura (camadas)
+## Layout sugerido em `E:\Github\workspace-brain`
 
-1. **Fontes de verdade**
-   - clones sob `02_repositorios` (ou raiz acordada), mais o mapa estático `07_mapeamentos/repositorios-skills/`.
-   - Continuidade já governada: `HANDOFF.md`, `MEMORY.md`, `PROGRESS.md`, `LEARNING.md` (`chromatic-mega-brain`).
+```
+workspace-brain/
+  corpus/              # texto chunkado + metadados (repo, path, commit, fonte web)
+  manifests/           # versão de modelo (DeepSeek), dimensão, dataset_id, counts
+  events/              # NDJSON: alterações por .cursor / .codex / .opencode / .claude / …
+  mcp/                 # servidor MCP gerado (código + package.json se aplicável)
+  skills/              # rascunhos ou espelho de skills geradas para copy-paste ao workspace
+  playbooks/           # playbooks gerados (playbook-factory / convenções AEOS)
+  logs/                # runs de ingestão (sem segredos)
+```
 
-2. **Ingestão recursiva**
-   - Filtros por extensão e `.gitignore`; exclusão de segredos e artefactos (`node_modules`, `dist`, chaves).
-   - Chunking com IDs estáveis: `sha256(repo_id + path + byte_range)`; `repo_id` = URL remota + ref git.
+`.gitignore` local no próprio `workspace-brain` se versionares só parte disto no GitHub.
 
-3. **Armazenamento (`workspace-brain`)**
-   - `store/vectors/` — LanceDB (ou equivalente) **só dados**.
-   - `store/manifests/` — JSON/YAML por run de ingestão: versão de modelo de embedding, dimensão, commit SHA, contagens.
-   - `events/` — NDJSON de alterações por ferramenta (path, ação, timestamp, hash do diff resumido); **sem** chaves ou PII.
+## Papel do Jev no “mapear a Internet”
 
-4. **Jev + TypeSafe** (`typesafe-ai`, `jev-call-expert`)
-   - Jev responde **Choice / Noul / Score** para: relevância de chunk, necessidade de reindex, conflito de política, prioridade de skill.
-   - Código fixo aplica thresholds, validação e chamadas a ingestão/RAG; a API key em `E:\JEV` entra só no cliente SDK em runtime.
+- Entrada: lista de seeds (repositórios já mapeados em `07_mapeamentos/repositorios-skills/`, pesquisas incrementais, feeds).
+- Jev emite **julgametos tipados** (ex.: incluir URL vs. ignorar; binário de documentação vs. código; overlap com recurso existente).
+- Código determinístico: fetch com limites, robots/respeito a ToS, dedupe por URL/hash, escrita em `corpus/` + `manifests/`.
+- Saída alimenta o **MCP do cérebro** (tools: `search_brain`, `ingest_report`, `manifest`, etc.) e documentação para **skills** + **playbook** de operação.
 
-5. **Recuperação e “reaprendizado”**
-   - **Não** é fine-tuning dos pesos do LLM no sentido de treino contínuo; é **atualização incremental do índice** + opcionalmente *soft prompts* ou resumos curados promovidos ao quartet (MEMORY/LEARNING) com evidência.
-   - Reprocessar apenas manifests obsoletos (mudança de modelo ou de ref git).
+## RAG com DeepSeek 4.1 + OpenCode (fluxo lógico)
 
-6. **Hooks para “todas as IAs”**
-   - Ponto único: script ou wrapper que cada ferramenta invoca no fim da sessão (ou file watcher com debounce) escrevendo em `events/` e opcionalmente enfileirando ingestão incremental.
-   - Determinismo: ordenar por `(timestamp, tool_id, content_hash)`; deduplicar por hash.
+1. **Ingestão** (local + web curada por Jev) → chunks em `corpus/` + manifesto.
+2. **OpenCode** chama API **DeepSeek 4.1** para embedding e/ou etapa de geração conforme contrato do cliente OpenCode (alinhar à documentação OpenCode no teu ambiente).
+3. **Consulta**: recuperar top-k do manifesto/corpus, montar contexto, **uma** chamada (ou pipeline fixo) ao modelo com política de citação.
+4. **Registo**: append em `events/` quando Cursor/Codex/OpenCode/Claude alterarem ficheiros relevantes para reindexação incremental.
+
+Para custo e escopo: `token-budget-governor` no planeamento de prompts longos.
 
 ## Integração com skills do workspace
 
-- **typesafe-ai** + **jev-call-expert**: contratos de julgamento e política de execução.
-- **rag-expert**, **python-rag-audit**: revisão de pipeline e lacunas de produção.
-- **chromatic-mega-brain** + **learning-opportunities**: promoção de factos verificados para `.notebook/MEMORY.md` e lições para `LEARNING.md`.
-- **enterprise-repo-intelligence** / mapa existente: `07_mapeamentos/repositorios-skills/README.md` como entrada de “o que já foi mapeado”.
+- **typesafe-ai** + **jev-call-expert**: contratos de julgamento na colheita e no MCP.
+- **playbook-factory-generator** / **skill-architect** (quando existir missão): moldar saídas em `workspace-brain/skills/` e `playbooks/`.
+- **rag-expert**: revisão de lacunas (injeção, ACL, ciclo de vida de documentos) aplicada ao pipeline **em nuvem**.
+- Mapa existente: `07_mapeamentos/repositorios-skills/README.md`.
 
-## Riscos e limitações
+## Riscos
 
-- **Determinismo**: embeddings e amostragem do LLM podem variar entre versões de modelo; fixar modelo + seed onde a API permitir e versionar no manifesto.
-- **Segredos**: nunca indexar ficheiros de credenciais; listas de bloqueio no ingestor.
-- **Custo de tokens**: RAG reduz contexto enviado ao modelo; ganhos reais dependem de política de top-k e resumos curados no quartet.
+- **Variação de modelo**: versionar no manifesto o identificador exato exposto pelo OpenSeek/DeepSeek.
+- **Determinismo**: temperatura baixa e prompts com “cite apenas corpus”; ainda assim, amostragem pode variar — manifests e hashes de chunk são a âncora reprodutível.
+- **Segredos**: nunca colocar `E:\JEV` nem API keys OpenCode no disco do cérebro em texto claro; usar variáveis de ambiente ou gestor secretos do SO.
 
-## Próximas ações executáveis (quando for missão de implementação)
+## Próximas ações executáveis (missão de implementação)
 
-1. Inicializar `E:\Github\workspace-brain` com `store/`, `manifests/`, `events/` e `.gitignore`.
-2. Escolher um motor (p.ex. alinhar a haiku.rag ou pipeline mínimo Ollama+LanceDB).
-3. Ligar cliente Jev com key apenas de `E:\JEV` para julgamentos de rota/consolidada.
-4. Amarrar ingestão ao output de `07_mapeamentos/repositorios-skills` e a novos clones.
+1. Criar árvore em `E:\Github\workspace-brain` conforme layout acima.
+2. Fixar contrato do cliente OpenCode + endpoint DeepSeek 4.1 e gravar em `manifests/model-contract.json` (sem segredos).
+3. Implementar ingestão (repos + fila Jev para URLs) e export do **MCP** para `.opencode`/Cursor conforme registries AEOS (`aeos/registries/`).
+4. Gerar **skill** + **playbook** mínimos que descrevem uso do MCP e do RAG nuvem-only.
+5. Opcional: copiar artefactos governados para `00_skills/` após revisão CodENavi.
