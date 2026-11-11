@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.aeos.telemetry</groupId>
+    <artifactId>otel-telemetry-java-parent</artifactId>
+    <version>1.0.0</version>
+  </parent>
+
+  <artifactId>otel-telemetry-devtools</artifactId>
+  <name>otel-telemetry-devtools</name>
+  <description>Sink OTLP/HTTP offline (loopback) que grava OTLP-JSON rotativo por sinal e serve o dashboard.</description>
+
+  <dependencies>
+    <dependency>
+      <groupId>io.opentelemetry.proto</groupId>
+      <artifactId>opentelemetry-proto</artifactId>
+      <version>${otel.proto.version}</version>
+    </dependency>
+    <!-- JsonFormat do protobuf para gravar OTLP-JSON (mesma versão do protobuf-java do proto). -->
+    <dependency>
+      <groupId>com.google.protobuf</groupId>
+      <artifactId>protobuf-java-util</artifactId>
+      <version>${protobuf.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>

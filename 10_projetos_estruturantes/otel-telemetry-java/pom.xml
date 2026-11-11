@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.aeos.telemetry</groupId>
+  <artifactId>otel-telemetry-java-parent</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+
+  <name>otel-telemetry-java</name>
+  <description>Biblioteca de telemetria OpenTelemetry unificada (traces, metrics e logs) com presets OTLP para Dynatrace, Splunk, Grafana, Collector e fallback offline (sink local + dashboard).</description>
+
+  <modules>
+    <module>otel-telemetry-core</module>
+    <module>otel-telemetry-exporters</module>
+    <module>otel-telemetry-adapters</module>
+    <module>otel-telemetry-spring-boot-starter</module>
+    <module>otel-telemetry-devtools</module>
+    <module>otel-telemetry-examples/otel-telemetry-example-java</module>
+    <module>otel-telemetry-examples/otel-telemetry-example-spring</module>
+  </modules>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- Toolchain roda no JDK 25; bytecode do artefato fica em Java 21 (AD-002). -->
+    <maven.compiler.release>21</maven.compiler.release>
+    <otel.sdk.version>1.68.0</otel.sdk.version>
+    <!-- Artefatos de instrumentação usados (appender Logback, bridge Micrometer) só existem com sufixo -alpha. -->
+    <otel.instr.alpha.version>2.33.1-alpha</otel.instr.alpha.version>
+    <otel.proto.version>1.11.1-alpha</otel.proto.version>
+    <protobuf.version>4.36.2</protobuf.version>
+    <spring-boot.version>4.1.2</spring-boot.version>
+    <junit.version>5.14.4</junit.version>
+    <snakeyaml.version>2.7</snakeyaml.version>
+    <logback.version>1.5.38</logback.version>
+    <!-- compileOnly upstream: o consumidor (adapters) precisa declarar explicitamente (verificado no pom da bridge). -->
+    <micrometer.version>1.17.2</micrometer.version>
+    <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+    <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>io.opentelemetry</groupId>
+        <artifactId>opentelemetry-bom</artifactId>
+        <version>${otel.sdk.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>${junit.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${maven-compiler-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>${maven-surefire-plugin.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>

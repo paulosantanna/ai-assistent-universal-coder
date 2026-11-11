@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>otel-telemetry dashboard</title>
+  <!-- CSS do bundle (uPlot + estilos): emitido como style.css pelo vite -->
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    :root { color-scheme: dark; }
+    body {
+      margin: 0;
+      font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: #0b1020;
+      color: #dbe2f0;
+    }
+    header {
+      display: flex; align-items: center; gap: 16px;
+      padding: 10px 16px; background: #101832; border-bottom: 1px solid #233052;
+    }
+    header h1 { font-size: 15px; margin: 0; letter-spacing: .3px; }
+    header button {
+      background: #1c2a4d; color: #dbe2f0; border: 1px solid #33477a;
+      border-radius: 6px; padding: 5px 12px; cursor: pointer; font: inherit;
+    }
+    header button:hover { background: #253761; }
+    #status { margin-left: auto; color: #8fa1c7; font-size: 12px; }
+    nav { display: flex; gap: 4px; padding: 8px 16px 0; background: #101832; }
+    nav button {
+      background: transparent; color: #8fa1c7; border: 1px solid transparent;
+      border-bottom: none; border-radius: 8px 8px 0 0; padding: 7px 18px;
+      cursor: pointer; font: inherit;
+    }
+    nav button.active { color: #fff; background: #0b1020; border-color: #233052; }
+    main { padding: 16px; }
+    section[hidden] { display: none; }
+    table.records { border-collapse: collapse; width: 100%; }
+    table.records th, table.records td {
+      text-align: left; padding: 6px 10px; border-bottom: 1px solid #1b2647;
+      vertical-align: top;
+    }
+    table.records th { color: #8fa1c7; font-weight: 500; position: sticky; top: 0; background: #0b1020; }
+    table.records td:first-child { white-space: nowrap; color: #8fa1c7; }
+    .sev { color: #eab308; font-weight: 600; margin-right: 6px; }
+    .empty { color: #8fa1c7; }
+    #chart { width: 100%; }
+    .uplot { margin-top: 12px; }
+    .uplot .title { color: #dbe2f0; }
+    #drop-overlay {
+      position: fixed; inset: 0; background: rgba(6, 10, 24, .82);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; color: #9ecbff; z-index: 50;
+    }
+    /* o display:flex acima vence o [hidden] do UA stylesheet — sem esta regra o overlay
+       cobre a tela invisível e bloqueia TODOS os cliques (achado do walk C20) */
+    #drop-overlay[hidden] { display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>otel-telemetry dashboard</h1>
+    <button id="open-file" type="button">Abrir .jsonl</button>
+    <input id="file-input" type="file" accept=".jsonl,.txt" multiple hidden>
+    <span id="status"></span>
+  </header>
+  <nav>
+    <button id="tab-traces" type="button">Traces</button>
+    <button id="tab-logs" type="button">Logs</button>
+    <button id="tab-metrics" type="button">Métricas</button>
+  </nav>
+  <main>
+    <section id="panel-traces"><div id="list-traces" class="empty">sem dados — conecte o sink ou arraste um .jsonl</div></section>
+    <section id="panel-logs" hidden><div id="list-logs" class="empty">sem dados — conecte o sink ou arraste um .jsonl</div></section>
+    <section id="panel-metrics">
+      <div id="chart"><p class="empty">Sem métricas carregadas ainda.</p></div>
+      <div id="list-metrics"></div>
+    </section>
+  </main>
+  <div id="drop-overlay" hidden>Solte o arquivo .jsonl aqui</div>
+  <!-- script clássico (iife): funciona em file:// sem CORS -->
+  <script defer src="./dashboard.js"></script>
+</body>
+</html>

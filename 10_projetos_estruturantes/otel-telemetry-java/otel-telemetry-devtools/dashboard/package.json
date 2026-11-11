@@ -1,0 +1,18 @@
+{
+  "name": "otel-telemetry-dashboard",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Dashboard offline do sink OTLP: live via /api/* e modo arquivo (drag-drop JSONL).",
+  "scripts": {
+    "build": "vite build",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "uplot": "1.6.32"
+  },
+  "devDependencies": {
+    "vite": "6.4.6",
+    "vitest": "4.1.12"
+  }
+}

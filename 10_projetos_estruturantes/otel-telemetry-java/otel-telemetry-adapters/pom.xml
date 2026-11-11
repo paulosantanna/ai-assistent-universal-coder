@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.aeos.telemetry</groupId>
+    <artifactId>otel-telemetry-java-parent</artifactId>
+    <version>1.0.0</version>
+  </parent>
+
+  <artifactId>otel-telemetry-adapters</artifactId>
+  <name>otel-telemetry-adapters</name>
+  <description>Integrações com bibliotecas do app: appender Logback (upstream) e bridge Micrometer (upstream).</description>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.aeos.telemetry</groupId>
+      <artifactId>otel-telemetry-core</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.opentelemetry</groupId>
+      <artifactId>opentelemetry-sdk</artifactId>
+    </dependency>
+    <!-- Ambos só existem com sufixo -alpha (verificado no Maven Central, 2026-11-11). -->
+    <dependency>
+      <groupId>io.opentelemetry.instrumentation</groupId>
+      <artifactId>opentelemetry-logback-appender-1.0</artifactId>
+      <version>${otel.instr.alpha.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.opentelemetry.instrumentation</groupId>
+      <artifactId>opentelemetry-micrometer-1.5</artifactId>
+      <version>${otel.instr.alpha.version}</version>
+    </dependency>
+    <!-- Upstream usa compileOnly para ambos: appender precisa de logback-classic e a bridge de micrometer-core. -->
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>${logback.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.micrometer</groupId>
+      <artifactId>micrometer-core</artifactId>
+      <version>${micrometer.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.opentelemetry</groupId>
+      <artifactId>opentelemetry-sdk-testing</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
