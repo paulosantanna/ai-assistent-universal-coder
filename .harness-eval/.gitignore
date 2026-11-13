@@ -1,0 +1,5 @@
+# Plant answer keys and per-row plant flags. Operator reports stay tracked.
+runs/*/trap-key.json
+runs/*/usefulness-trap-key.json
+runs/*/claims.jsonl
+runs/*/surfaces.json
