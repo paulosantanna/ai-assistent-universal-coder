@@ -1,8 +1,24 @@
 import { mkdirSync, existsSync, writeFileSync, copyFileSync } from "node:fs";
 import { join } from "node:path";
 import { defaultBrainRoot, loadDotEnvFile, packageRoot } from "./config.mjs";
+import { ensureMemoryLayout } from "./memory-layers.mjs";
 
-const LAYOUT = ["corpus", "corpus/chunks", "manifests", "events", "logs", "mcp", "skills", "playbooks", "config"];
+const LAYOUT = [
+  "corpus",
+  "corpus/chunks",
+  "manifests",
+  "events",
+  "logs",
+  "mcp",
+  "skills",
+  "playbooks",
+  "config",
+  "memory/transcripts",
+  "memory/notes",
+  "memory/wiki",
+  "memory/session",
+  "memory/dream",
+];
 
 export function getBrainRoot() {
   const root = defaultBrainRoot();
@@ -46,6 +62,7 @@ export function ensureLayout(root = getBrainRoot()) {
   if (existsSync(pbSrc) && !existsSync(pbDst)) {
     copyFileSync(pbSrc, pbDst);
   }
+  ensureMemoryLayout(root);
   return root;
 }
 

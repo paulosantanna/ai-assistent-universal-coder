@@ -63,6 +63,19 @@ workspace-brain/
 
 Para custo e escopo: `token-budget-governor` no planeamento de prompts longos.
 
+## Workspace-memory (camadas + dream)
+
+Inspirado em memória de agente com consolidação offline (Anthropic “dreaming”; resumo em https://www.youtube.com/watch?v=qSDDSUcegkQ):
+
+| Camada | Local | Papel |
+| --- | --- | --- |
+| L1 | `memory/transcripts/` | Rastro bruto (eventos) |
+| L2 | `memory/notes/` | Previsões: regra + evidência + armadilhas |
+| L3 | `memory/wiki/` | Mapa resumido com links |
+| L4 | `memory/session/BOOTSTRAP.md` | ≤200 linhas em toda sessão |
+
+Implementação: `workspace-brain/docs/workspace-memory.md`, CLI `wb dream`, MCP `brain_memory_bootstrap` / `brain_dream`.
+
 ## Integração com skills do workspace
 
 - **typesafe-ai** + **jev-call-expert**: contratos de julgamento na colheita e no MCP.

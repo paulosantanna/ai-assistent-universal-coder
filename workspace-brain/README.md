@@ -64,10 +64,17 @@ node <caminho-do-repo>/workspace-brain/src/mcp-server.mjs
 
 Variável obrigatória: `WORKSPACE_BRAIN_ROOT=E:\Github\workspace-brain`
 
+### Workspace-memory
+
+Camadas `memory/` (transcripts, notes, wiki, bootstrap ≤200 linhas) e consolidação `wb dream`. Guia: [docs/workspace-memory.md](docs/workspace-memory.md).
+
 ### Tools MCP
 
 | Tool | Função |
 | --- | --- |
+| `brain_memory_bootstrap` | Contexto curto por sessão |
+| `brain_note_upsert` / `brain_dream` | Notas preditivas + consolidação |
+| `brain_wiki_*` / `brain_memory_stats` | Wiki + métricas |
 | `brain_health` | Status |
 | `brain_search` | Busca BM25 no corpus |
 | `brain_ask` | RAG DeepSeek |

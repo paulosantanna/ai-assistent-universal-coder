@@ -10,6 +10,10 @@ import { readLatestManifest, writeIngestManifest } from "./manifest.mjs";
 import { resolveUniversalCoderRoot } from "./config.mjs";
 import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
+import { readSessionBootstrap, rebuildSessionBootstrap } from "./memory-layers.mjs";
+import { upsertNote, readNote } from "./notes.mjs";
+import { upsertWikiPage, wikiStats, readWikiPage } from "./wiki.mjs";
+import { runDream } from "./dream.mjs";
 
 function textResult(obj) {
   return { content: [{ type: "text", text: typeof obj === "string" ? obj : JSON.stringify(obj, null, 2) }] };
@@ -98,6 +102,69 @@ export async function startMcpServer() {
   );
 
   server.tool("brain_manifest", "Último manifesto de ingestão.", async () => textResult(readLatestManifest() ?? { empty: true }));
+
+  server.tool(
+    "brain_memory_bootstrap",
+    "Contexto de sessão (≤200 linhas) para injetar no topo de cada chat.",
+    async () => textResult({ bootstrap: readSessionBootstrap() }),
+  );
+
+  server.tool(
+    "brain_note_upsert",
+    "Nota preditiva: regra + evidência + armadilhas (não guardar estado reobservável).",
+    {
+      title: z.string(),
+      rule: z.string(),
+      evidence: z.array(z.string()).min(1),
+      pitfalls: z.array(z.string()).optional(),
+    },
+    async (args) => {
+      const note = upsertNote(args);
+      rebuildSessionBootstrap();
+      return textResult(note);
+    },
+  );
+
+  server.tool(
+    "brain_note_read",
+    "Lê nota por id (nome do ficheiro sem .md).",
+    { id: z.string() },
+    async ({ id }) => textResult(readNote(id) ?? { error: "not found" }),
+  );
+
+  server.tool(
+    "brain_wiki_upsert",
+    "Página wiki resumida com ligações (evitar duplicar corpus).",
+    {
+      title: z.string(),
+      summary: z.string(),
+      links: z.array(z.string()).optional(),
+      body: z.string().optional(),
+    },
+    async (args) => {
+      const page = upsertWikiPage(args);
+      rebuildSessionBootstrap();
+      return textResult(page);
+    },
+  );
+
+  server.tool(
+    "brain_wiki_read",
+    "Lê página wiki.",
+    { id: z.string() },
+    async ({ id }) => textResult(readWikiPage(id) ?? { error: "not found" }),
+  );
+
+  server.tool(
+    "brain_dream",
+    "Consolidação offline: transcripts/eventos, rebuild bootstrap, opcional LLM.",
+    { use_llm: z.boolean().optional() },
+    async ({ use_llm }) => textResult(await runDream({ useLlm: use_llm ?? false })),
+  );
+
+  server.tool("brain_memory_stats", "Estatísticas das camadas de memória.", async () =>
+    textResult({ wiki: wikiStats(), bootstrap: rebuildSessionBootstrap() }),
+  );
 
   const transport = new StdioServerTransport();
   await server.connect(transport);

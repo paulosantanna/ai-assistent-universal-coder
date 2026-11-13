@@ -9,6 +9,10 @@ import { installAgentSnippets } from "../src/install-agents.mjs";
 import { getDeepSeekApiKey, getTypesafeApiKey, resolveUniversalCoderRoot } from "../src/config.mjs";
 import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
+import { readSessionBootstrap, rebuildSessionBootstrap } from "../src/memory-layers.mjs";
+import { upsertNote, readNote } from "../src/notes.mjs";
+import { upsertWikiPage, wikiStats } from "../src/wiki.mjs";
+import { runDream } from "../src/dream.mjs";
 
 const [, , cmd, ...rest] = process.argv;
 
@@ -26,6 +30,10 @@ Comandos:
   event --tool X ...   Regista evento NDJSON
   manifest             Mostra manifesto
   install-agents       Gera snippets MCP em config/
+  dream [--llm]        Consolida memória (bootstrap + opcional DeepSeek)
+  bootstrap            Reconstrói memory/session/BOOTSTRAP.md
+  memory-stats         Estatísticas wiki/notes
+  note ...             Cria nota (flags --title --rule --evidence --pitfalls)
   mcp                  Inicia servidor MCP (stdio)
 
 Variáveis: WORKSPACE_BRAIN_ROOT, JEV_CONFIG_DIR, DEEPSEEK_API_KEY, UNIVERSAL_CODER_ROOT
@@ -42,6 +50,11 @@ function parseFlags(args) {
     else if (a === "--action") flags.action = args[++i];
     else if (a === "--paths") flags.paths = args[++i].split(",").map((s) => s.trim());
     else if (a === "--summary") flags.summary = args[++i];
+    else if (a === "--title") flags.title = args[++i];
+    else if (a === "--rule") flags.rule = args[++i];
+    else if (a === "--evidence") flags.evidence = args[++i];
+    else if (a === "--pitfalls") flags.pitfalls = args[++i];
+    else if (a === "--links") flags.links = args[++i];
     else positional.push(a);
   }
   return { flags, positional };
@@ -153,6 +166,42 @@ async function main() {
 
   if (cmd === "install-agents") {
     console.log(JSON.stringify(installAgentSnippets(), null, 2));
+    return;
+  }
+
+  if (cmd === "dream") {
+    const useLlm = rest.includes("--llm");
+    console.log(JSON.stringify(await runDream({ useLlm }), null, 2));
+    return;
+  }
+
+  if (cmd === "bootstrap") {
+    console.log(JSON.stringify(rebuildSessionBootstrap(), null, 2));
+    return;
+  }
+
+  if (cmd === "memory-stats") {
+    console.log(JSON.stringify({ wiki: wikiStats(), bootstrap_lines: readSessionBootstrap().split("\n").length }, null, 2));
+    return;
+  }
+
+  if (cmd === "note") {
+    const { flags } = parseFlags(rest);
+    if (!flags.title || !flags.rule) throw new Error("note --title X --rule Y --evidence a,b");
+    const evidence = (flags.evidence ?? "").split(",").map((s) => s.trim()).filter(Boolean);
+    const pitfalls = (flags.pitfalls ?? "").split(",").map((s) => s.trim()).filter(Boolean);
+    console.log(JSON.stringify(upsertNote({ title: flags.title, rule: flags.rule, evidence, pitfalls }), null, 2));
+    rebuildSessionBootstrap();
+    return;
+  }
+
+  if (cmd === "wiki") {
+    const { flags, positional } = parseFlags(rest);
+    const title = flags.title ?? positional[0];
+    const summary = flags.summary ?? positional.slice(1).join(" ");
+    if (!title || !summary) throw new Error("wiki --title X --summary Y");
+    console.log(JSON.stringify(upsertWikiPage({ title, summary, links: (flags.links ?? "").split(",").filter(Boolean) }), null, 2));
+    rebuildSessionBootstrap();
     return;
   }
 

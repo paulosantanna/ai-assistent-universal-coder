@@ -26,9 +26,19 @@ Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`.
 4. Register MCP via `wb install-agents` and merge snippets into `.cursor`, `.opencode`, etc.
 5. After code changes, call `brain_record_event` or `wb event` so the brain can re-ingest incrementally.
 
+## Workspace-memory (camadas)
+
+1. **L1** transcripts (`memory/transcripts`) — rastro bruto; `brain_record_event` alimenta.
+2. **L2** notes — `brain_note_upsert` com regra + evidência + armadilhas (não espelhar estado reobservável do repo).
+3. **L3** wiki — `brain_wiki_upsert` (resumir/ligar, não duplicar corpus).
+4. **L4** `brain_memory_bootstrap` — ≤200 linhas para toda sessão nova.
+5. **`brain_dream`** — consolidação offline (comparar notas vs transcripts); use após sessões longas.
+
+Ver `docs/workspace-memory.md`.
+
 ## MCP tools
 
-Prefer MCP over ad-hoc scripts: `brain_search`, `brain_ask`, `brain_ingest_path`, `brain_ingest_url`, `brain_map_seeds`, `brain_record_event`, `brain_manifest`, `brain_health`.
+Prefer MCP: `brain_memory_bootstrap`, `brain_note_*`, `brain_wiki_*`, `brain_dream`, `brain_memory_stats`, plus `brain_search`, `brain_ask`, ingest/event tools.
 
 ## Boundaries
 

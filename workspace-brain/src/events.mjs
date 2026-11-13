@@ -1,6 +1,7 @@
 import { appendFileSync, mkdirSync, existsSync } from "node:fs";
 import { dirname } from "node:path";
 import { paths } from "./paths.mjs";
+import { appendTranscript } from "./memory-layers.mjs";
 
 const ALLOWED_TOOLS = new Set([
   "cursor",
@@ -37,5 +38,6 @@ export function recordEvent({
   const dir = dirname(file);
   if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
   appendFileSync(file, JSON.stringify(event) + "\n", "utf8");
+  appendTranscript({ kind: "tool_event", ...event });
   return event;
 }

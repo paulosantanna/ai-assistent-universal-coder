@@ -25,7 +25,16 @@ Manter o cérebro útil para todas as IAs/CLIs do PC com custo de tokens control
 2. `brain_ask` para respostas com citações ao corpus.
 3. `brain_record_event` no fim de sessões que alterem código/skills.
 
-## 4. Reindexação
+## 4. Workspace-memory (refinada)
+
+1. Após trabalho significativo: `wb dream` (ou `brain_dream`); com DeepSeek, `wb dream --llm`.
+2. Só criar notas com **regra + evidência + armadilhas** — nunca “salvar tudo”.
+3. Início de sessão nas IAs: carregar `brain_memory_bootstrap` (não colar wiki inteira).
+4. Wiki inchada → resumir ou apagar páginas redundantes com o corpus.
+
+Referência: [workspace-memory.md](../docs/workspace-memory.md) (técnicas do ecossistema Anthropic / vídeo `qSDDSUcegkQ`).
+
+## 5. Reindexação
 
 1. Comparar `events/events.ndjson` com paths alterados.
 2. `brain_ingest_path` nos diretórios afetados.
