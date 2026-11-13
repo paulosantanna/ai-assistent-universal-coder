@@ -1,7 +1,7 @@
 # .notebook
 > Project intelligence — read before every material mission
 
-Last updated: 2026-10-14
+Last updated: 2026-11-06
 
 - [HANDOFF](HANDOFF.md) — last verified transfer state and exact next actions | continuity | handoff, state, execution
 - [MEMORY](MEMORY.md) — durable evidence-backed project facts and decisions | continuity | memory, decisions, evidence
@@ -20,3 +20,4 @@ Last updated: 2026-10-14
 - [kotlin-expert](kotlin-expert.md) — current Kotlin 2.4.20 language expert + docs-kotlin-current MCP | domain | kotlin, language-docs, expert
 - [kinghost-expert](kinghost-expert.md) — KingHost Hospedagem MCP: cookie login, domains, clone, WordPress/PHP/MySQL/FTP | domain | kinghost, wordpress, ftp
 - [workspace-governance](workspace-governance.md) — AEOS inherits CodENavi lifecycle and evidence rules | patterns | governance, codenavi, lifecycle
+- [workspace-local-brain](workspace-local-brain.md) — cérebro RAG nuvem (DeepSeek+OpenCode), Jev para mapa web, paths Windows | patterns | rag, jev, learning
