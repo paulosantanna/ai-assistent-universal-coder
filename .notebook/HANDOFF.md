@@ -1,3 +1,12 @@
+## TLC control drift — PR #56 merged; scheduled run pending
+
+Updated: 2026-11-13. Entry point: `.notebook/capability-ci.md`.
+- Cause: upstream `CONTRIBUTING.md` changed in tech-leads-club/agent-skills#270 (`c9052a1a82`); the fail-closed monitor stopped the daily job from 2026-11-06.
+- Verified: control hash recognized in `quality/tlc-upstream.json` after a documentation-only review; PR #56 fast-forwarded into master at `27ceb253`; AEOS Enterprise CI on that SHA passed. A live dry run against upstream `e74dc8a7` PASSes, and the simulated apply, validate, candidate and publish chain PASSes on a throwaway remote.
+- Next: confirm the next scheduled run (cron 09:23 UTC, 06:23 America/Sao_Paulo) or dispatch the workflow manually and check its conclusion. Upstream `tlc-discover` (snapshot 0.9.2 to 0.10.0) is reported but not applied; it needs curated review.
+
+---
+
 ## TLC spec versions — PR e merge autorizados
 
 Updated: 2026-10-26. Entry point: `.notebook/tlc-spec-versions.md`.
