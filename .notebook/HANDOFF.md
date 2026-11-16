@@ -1,5 +1,27 @@
 ## cloud-architecture — pesquisa AWS/Azure, MCPs somente leitura e modelos AWS (MyDigitalBuddy, AIHealthResearch) — 2026-11-14
 
+## TLC control drift — PR #56 merged; scheduled run pending
+
+Updated: 2026-11-13. Entry point: `.notebook/capability-ci.md`.
+- Cause: upstream `CONTRIBUTING.md` changed in tech-leads-club/agent-skills#270 (`c9052a1a82`); the fail-closed monitor stopped the daily job from 2026-11-06.
+- Verified: control hash recognized in `quality/tlc-upstream.json` after a documentation-only review; PR #56 fast-forwarded into master at `27ceb253`; AEOS Enterprise CI on that SHA passed. A live dry run against upstream `e74dc8a7` PASSes, and the simulated apply, validate, candidate and publish chain PASSes on a throwaway remote.
+- Next: confirm the next scheduled run (cron 09:23 UTC, 06:23 America/Sao_Paulo) or dispatch the workflow manually and check its conclusion. Upstream `tlc-discover` (snapshot 0.9.2 to 0.10.0) is reported but not applied; it needs curated review.
+
+---
+
+## TLC spec versions — PR e merge autorizados
+
+Updated: 2026-10-26. Entry point: `.notebook/tlc-spec-versions.md`.
+Working set: quatro pacotes spec-driven/lean, fontes, descoberta e metadados relacionados.
+Próximo passo: validar o candidato, publicar PR com Why, verificar os checks, integrar na master e verificar o SHA final. Alterações locais de outras tarefas ficam fora do PR.
+
+---
+
+# Handoff ativo: agendamento obrigatório nos Studios
+Updated: 2026-10-14
+Entry point: E:/Github/ai-assistent-universal-coder/.work/studio-scheduling/PROGRESS.md
+
+
 Updated: 2026-11-14. Entry point: `cloud-architecture-mcp/README.md` e `cloud-architecture/README.md`. Evidence: `.work/cloud-research/` (fora do git); checklist em `.notebook/PROGRESS.md` (seção da missão).
 
 - Objetivo: pesquisa profunda de arquitetura cloud, MCP AWS e MCP Azure, mapeamento das APIs locais com testes de regressão de erros, modelos AWS exclusivos para MyDigitalBuddy e AIHealthResearch, memória no workspace-brain.

@@ -262,6 +262,9 @@ Updated: 2026-10-26. Entry point: `00_skills/(development)/spec-driven/scripts/m
 
 Updated: 2026-10-24
 
+Updated: 2026-11-13
+
+
 ## Validated learnings
 
 ### The wording of a judge question defines what the gate approves
@@ -435,6 +438,16 @@ Updated: 2026-10-24
 - Reuse scope: mapping or integrating any research repo published as a checkpoint/inference release.
 - Evidence: `02_repositorios/ncm/.gitignore:219-221`; `config/eval/lm1b-*.yaml:118-124` vs absence in `models/quant.py`; `07_mapeamentos/mapeamento-ncm/beta.md` §9.
 - Updated: 2026-10-21
+
+
+### A fail-closed upstream monitor stays red without a recognition runbook
+- Trigger: the daily TLC monitor failed on every scheduled run from 2026-11-06 with `Unsupported TLC rule change: CONTRIBUTING.md` after a documentation-only upstream change.
+- Root cause: the gate correctly refused unrecognized control text, but recognizing a reviewed hash was an undocumented manual step, so eight consecutive runs (42195114515 to 43401412946) stayed red.
+- Verified recognition: diff the changed upstream file against the locked commit, confirm no local gate consumes the text, update only the control hash, then rerun the apply chain on a throwaway clone (apply, validate, candidate, publish against a bare remote) before merging.
+- Reuse scope: any pinned-upstream control or hash lock whose monitor fails closed.
+- Evidence: PR #56 `27ceb253` recognized the hash; AEOS Enterprise CI on that SHA passed; simulated chain PASS. Failure notification routing was not verified.
+- Confidence: high for the recognition procedure.
+- Updated: 2026-11-13
 
 
 ### Modular Markdown must resolve from the module location

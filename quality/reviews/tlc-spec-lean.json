@@ -1,0 +1,26 @@
+{
+  "skill": "tlc-spec-lean",
+  "package_hash": "13e8be875480165f139b17d618a59c1319e7291835dc84dfe505b26d16c24bdd",
+  "positive_triggers": [
+    "plan feature",
+    "write the checks",
+    "build this plan"
+  ],
+  "negative_scope": [
+    "standalone architecture document",
+    "unapproved remote publication",
+    "creating additional agent identities"
+  ],
+  "source": {
+    "repository": "tech-leads-club/agent-skills",
+    "commit": "2fca1d19753fa8ec2a3449371b97e4830544461a",
+    "version": "2.0.0",
+    "path": "packages/skills-catalog/skills/(development)/tlc-spec-lean"
+  },
+  "verification": {
+    "kind": "structural-and-syntax",
+    "runtime_evaluated": false,
+    "routing": "Static wording assessment; no measured trigger accuracy"
+  },
+  "effectiveness": "Not measured; structural acceptance does not establish enterprise performance"
+}

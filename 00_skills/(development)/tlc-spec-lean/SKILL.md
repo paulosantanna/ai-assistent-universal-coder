@@ -1,6 +1,6 @@
 ---
 name: tlc-spec-lean
-description: "TLC spec-lean 2.0.0: freeze obligations in proof-backed checks, then build. Use for plan feature or write checks. Do NOT use for design docs."
+description: "Tech Lead Club spec-lean 2.0.0: freeze observable obligations in plan and proof-backed checks, then build and verify mutations and screens. Use for \"tlc-spec-lean\", \"plan feature\", \"write the checks\", \"build this plan\", \"verify work\". Do NOT use for standalone design documents, architecture decomposition or work with an existing task list."
 license: CC-BY-4.0
 metadata:
   author: "Tech Leads Club - github.com/tech-leads-club"
@@ -49,7 +49,3 @@ Source/license/version: [provenance](references/provenance.md).
 ## Supporting resources
 
 - Read [retained instructions](references/instructions) only for its matching supporting context; the current entry and pinned phase procedures take precedence.
-
-## Response
-
-Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

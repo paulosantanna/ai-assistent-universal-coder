@@ -1,5 +1,20 @@
 # Arquitetura cloud: pesquisa AWS/Azure, MCPs e modelos AWS (MyDigitalBuddy, AIHealthResearch) — 2026-11-14
 
+# TLC spec versions — publicação e merge
+
+Updated: 2026-10-26. Entry point: `.notebook/tlc-spec-versions.md`.
+- [x] Fontes exatas, quatro pacotes e hashes locais verificados.
+- [x] Checkout isolado da master remota preserva alterações locais de outras tarefas.
+- [~] Gates do candidato, PR, merge autorizado e monitoramento do SHA final.
+- [ ] Concluir somente com workflows/checks do SHA final terminais e verdes.
+
+---
+
+# Missão ativa: agendamento obrigatório nos Studios
+Updated: 2026-10-14
+Entry point: E:/Github/ai-assistent-universal-coder/.work/studio-scheduling/PROGRESS.md
+
+
 Updated: 2026-11-14. Entry point: `cloud-architecture-mcp/README.md`. Evidence: `.work/cloud-research/` (fora do git: claims, triagem JEV run1/run2, snapshots de preço, scripts). Decisões e modelos: `cloud-architecture/README.md`.
 
 ## Checklist

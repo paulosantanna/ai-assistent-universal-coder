@@ -1,0 +1,26 @@
+{
+  "skill": "spec-driven",
+  "package_hash": "7abc9d49f5e45d6dd0712f72e5c9a67526987eb312d1ccbaa6206f31dd7e2ef8",
+  "positive_triggers": [
+    "specify feature",
+    "implement",
+    "verify work"
+  ],
+  "negative_scope": [
+    "standalone architecture document",
+    "unapproved remote publication",
+    "creating additional agent identities"
+  ],
+  "source": {
+    "repository": "tech-leads-club/agent-skills",
+    "commit": "ef2672d67adebb1fc95af83e25fcba4d8cce02a7",
+    "version": "4.0.0",
+    "path": "packages/skills-catalog/skills/(development)/tlc-spec-driven"
+  },
+  "verification": {
+    "kind": "structural-and-syntax",
+    "runtime_evaluated": false,
+    "routing": "Static wording assessment; no measured trigger accuracy"
+  },
+  "effectiveness": "Not measured; structural acceptance does not establish enterprise performance"
+}

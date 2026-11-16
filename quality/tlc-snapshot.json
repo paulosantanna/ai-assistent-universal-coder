@@ -560,8 +560,8 @@
       "name": "tlc-discover",
       "category": "development",
       "path": "(development)/tlc-discover",
-      "contentHash": "518ab626fc8bac4ed1d0c5170b617d1adaec28a83634c1a462c7529d42170d3a",
-      "version": "0.9.0"
+      "contentHash": "e76c2dc3b32297bb54aaf511266f96273fecd94dbdc9f18d2fcc93be5c250748",
+      "version": "0.10.0"
     },
     {
       "name": "tlc-generative-engine-optimization",
@@ -574,15 +574,15 @@
       "name": "tlc-implement",
       "category": "development",
       "path": "(development)/tlc-implement",
-      "contentHash": "b3bbd69d067b042072e9538ea5edc90db28b0873fdf4d86157ca4ae5363bfd9e",
-      "version": "0.1.0"
+      "contentHash": "28efe469462e37cbf1ff3c64a08068e507f16ab07251529fc2dc134a53b7d5f0",
+      "version": "1.2.0"
     },
     {
       "name": "tlc-plan",
       "category": "development",
       "path": "(development)/tlc-plan",
-      "contentHash": "428b064742db100add4d42612ce61eaed040aad87e6718e494a09ad9ae03552b",
-      "version": "0.2.0"
+      "contentHash": "7b3deced549d6cd3b812ed675760c69027166b6ce5e9b293b073f1570b747152",
+      "version": "1.1.1"
     },
     {
       "name": "tlc-prd",
@@ -595,15 +595,15 @@
       "name": "tlc-spec-driven",
       "category": "development",
       "path": "(development)/tlc-spec-driven",
-      "contentHash": "9f4c793556001f3210a2d9fe3b41bf24e82e581c522d8dd50f65addfee169a29",
-      "version": "3.3.0"
+      "contentHash": "e8c2380a57817ef2406da1977668a39ba7721bdcb5c430fb87f2f82d6b34ae18",
+      "version": "4.1.0"
     },
     {
       "name": "tlc-spec-lean",
       "category": "development",
       "path": "(development)/tlc-spec-lean",
-      "contentHash": "28368cb86a9d441fce24426eb502a39a5e7f9ffe0ad5d682fead2ce76c5b085b",
-      "version": "1.1.0"
+      "contentHash": "65cf4acff0a88093eafc9d34a36ca3a03a74c78301b1b4025e517ecc18e66a44",
+      "version": "2.2.0"
     },
     {
       "name": "vercel-deploy",

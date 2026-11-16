@@ -1,6 +1,6 @@
 ---
 name: tlc-spec-driven
-description: "TLC spec-driven 4.0.0: specify, design, tasks, execute with EARS and proof checks. Use for feature specs. Do NOT use for pure architecture."
+description: "Tech Lead Club spec-driven 4.0.0: Specify, Design, Tasks, Execute with EARS criteria, proof commands, mutation checks and capture-based screen verification. Use for \"tlc-spec-driven\", \"specify feature\", \"implement\", \"verify work\", design and atomic tasks. Do NOT use for pure architecture decomposition or standalone technical design documents."
 license: CC-BY-4.0
 metadata:
   author: "Felipe Rodrigues - github.com/felipfr"

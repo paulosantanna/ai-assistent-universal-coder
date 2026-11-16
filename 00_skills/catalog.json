@@ -3618,13 +3618,13 @@
       "aliases": [],
       "path": "00_skills/(development)/spec-driven/SKILL.md",
       "category": "development",
-      "description": "Spec-driven 4.0.0 (TLC): specify, design, tasks, execute with EARS and mutation checks. Use for feature specs. Do NOT use for pure architecture.",
+      "description": "Tech Lead Club spec-driven 4.0.0: Specify, Design, Tasks, Execute with EARS criteria, proof commands, mutation checks and capture-based screen verification. Use for \"spec-driven\", \"specify feature\", \"implement\", \"verify work\", design and atomic tasks. Do NOT use for pure architecture decomposition or standalone technical design documents.",
       "owner_agent": "codenavi-agent",
       "risk_level": "medium",
       "runtime_binding": "instruction_only",
       "source": "workspace",
-      "lines": 66,
-      "sha256": "99ce67d37e1cff95bdfd7e114d774659a1b8068b3949fae5118a6dd24d667e78"
+      "lines": 62,
+      "sha256": "216525c37e5cdd94eebcaa3bc00984736e632c2362e685f5cda42c57c24aa162"
     },
     {
       "id": "spec-driven-eval",
@@ -3644,13 +3644,13 @@
       "aliases": [],
       "path": "00_skills/(development)/spec-driven-lean/SKILL.md",
       "category": "development",
-      "description": "Tech Lead Club spec-lean 2.0.0: freeze obligations in proof-backed checks, then build. Use for spec-driven-lean work. Do NOT use for design docs.",
+      "description": "Tech Lead Club spec-lean 2.0.0: freeze observable obligations in plan and proof-backed checks, then build and verify mutations and screens. Use for \"spec-driven-lean\", \"plan feature\", \"write the checks\", \"build this plan\", \"verify work\". Do NOT use for standalone design documents, architecture decomposition or work with an existing task list.",
       "owner_agent": "codenavi-agent",
       "risk_level": "medium",
       "runtime_binding": "instruction_only",
       "source": "workspace",
-      "lines": 59,
-      "sha256": "42781a335349b48a310938a1cd0df6ed1501fb98fe8db049c6ed17aa7091cdf9"
+      "lines": 55,
+      "sha256": "5ec280cd03a68244b117bcf68f9522b5db47323d80315d4601ffda48de4e96fb"
     },
     {
       "id": "specs",
@@ -3969,26 +3969,26 @@
       "aliases": [],
       "path": "00_skills/(development)/tlc-spec-driven/SKILL.md",
       "category": "development",
-      "description": "TLC spec-driven 4.0.0: specify, design, tasks, execute with EARS and proof checks. Use for feature specs. Do NOT use for pure architecture.",
+      "description": "Tech Lead Club spec-driven 4.0.0: Specify, Design, Tasks, Execute with EARS criteria, proof commands, mutation checks and capture-based screen verification. Use for \"tlc-spec-driven\", \"specify feature\", \"implement\", \"verify work\", design and atomic tasks. Do NOT use for pure architecture decomposition or standalone technical design documents.",
       "owner_agent": "codenavi-agent",
       "risk_level": "medium",
       "runtime_binding": "instruction_only",
       "source": "tlc",
-      "lines": 59,
-      "sha256": "188837c6b6deb13dab05d76b4f9d413a79ae477482308d16f485a0c3dc87c5db"
+      "lines": 55,
+      "sha256": "e56ed5fed7f6e308a5d6b3fdefd68d1bbca9fc29592479a5981b0bec1e013855"
     },
     {
       "id": "tlc-spec-lean",
       "aliases": [],
       "path": "00_skills/(development)/tlc-spec-lean/SKILL.md",
       "category": "development",
-      "description": "TLC spec-lean 2.0.0: freeze obligations in proof-backed checks, then build. Use for plan feature or write checks. Do NOT use for design docs.",
+      "description": "Tech Lead Club spec-lean 2.0.0: freeze observable obligations in plan and proof-backed checks, then build and verify mutations and screens. Use for \"tlc-spec-lean\", \"plan feature\", \"write the checks\", \"build this plan\", \"verify work\". Do NOT use for standalone design documents, architecture decomposition or work with an existing task list.",
       "owner_agent": "codenavi-agent",
       "risk_level": "medium",
       "runtime_binding": "instruction_only",
       "source": "tlc",
-      "lines": 55,
-      "sha256": "ca3abf682b6c4ace0cc9663a9e555433429ebb0e387ed1171689eea9f7916cd5"
+      "lines": 51,
+      "sha256": "69c74451b9f0280a60c718e94b0cd68cde4976127c9a863940b139f9d6211001"
     },
     {
       "id": "token-budget-governor",

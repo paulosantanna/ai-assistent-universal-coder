@@ -1011,13 +1011,13 @@ skills:
   path: 00_skills/(development)/spec-driven/SKILL.md
   owner_agent: codenavi-agent
   risk_level: medium
-  mission: 'Spec-driven 4.0.0 (TLC): specify, design, tasks, execute with EARS and mutation checks. Use for feature specs. Do NOT use for pure architecture.'
+  mission: "Tech Lead Club spec-driven 4.0.0: Specify, Design, Tasks, Execute with EARS criteria, proof commands, mutation checks and capture-based screen verification. Use for \"spec-driven\", \"specify feature\", \"implement\", \"verify work\", design and atomic tasks. Do NOT use for pure architecture decomposition or standalone technical design documents."
   capabilities: []
 - id: spec-driven-lean
   path: 00_skills/(development)/spec-driven-lean/SKILL.md
   owner_agent: codenavi-agent
   risk_level: medium
-  mission: 'Tech Lead Club spec-lean 2.0.0: freeze obligations in proof-backed checks, then build. Use for spec-driven-lean work. Do NOT use for design docs.'
+  mission: "Tech Lead Club spec-lean 2.0.0: freeze observable obligations in plan and proof-backed checks, then build and verify mutations and screens. Use for \"spec-driven-lean\", \"plan feature\", \"write the checks\", \"build this plan\", \"verify work\". Do NOT use for standalone design documents, architecture decomposition or work with an existing task list."
   capabilities: []
 - id: specs
   path: 00_skills/(development)/specs/SKILL.md
@@ -1731,13 +1731,13 @@ skills:
   path: 00_skills/(development)/tlc-spec-driven/SKILL.md
   owner_agent: codenavi-agent
   risk_level: medium
-  mission: 'TLC spec-driven 4.0.0: specify, design, tasks, execute with EARS and proof checks. Use for feature specs. Do NOT use for pure architecture.'
+  mission: "Tech Lead Club spec-driven 4.0.0: Specify, Design, Tasks, Execute with EARS criteria, proof commands, mutation checks and capture-based screen verification. Use for \"tlc-spec-driven\", \"specify feature\", \"implement\", \"verify work\", design and atomic tasks. Do NOT use for pure architecture decomposition or standalone technical design documents."
   capabilities: []
 - id: tlc-spec-lean
   path: 00_skills/(development)/tlc-spec-lean/SKILL.md
   owner_agent: codenavi-agent
   risk_level: medium
-  mission: 'TLC spec-lean 2.0.0: freeze obligations in proof-backed checks, then build. Use for plan feature or write checks. Do NOT use for design docs.'
+  mission: "Tech Lead Club spec-lean 2.0.0: freeze observable obligations in plan and proof-backed checks, then build and verify mutations and screens. Use for \"tlc-spec-lean\", \"plan feature\", \"write the checks\", \"build this plan\", \"verify work\". Do NOT use for standalone design documents, architecture decomposition or work with an existing task list."
   capabilities: []
 - id: vercel-deploy
   path: 00_skills/(cloud)/vercel-deploy/SKILL.md

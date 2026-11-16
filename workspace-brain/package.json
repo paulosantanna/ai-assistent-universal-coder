@@ -1,0 +1,23 @@
+{
+  "name": "@codenavi/workspace-brain",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Cloud RAG brain (DeepSeek + OpenCode) with Jev curation, MCP and CLI for Cursor/Codex/OpenCode/Claude.",
+  "bin": {
+    "workspace-brain": "./bin/workspace-brain.mjs",
+    "wb": "./bin/workspace-brain.mjs"
+  },
+  "scripts": {
+    "mcp": "node ./src/mcp-server.mjs",
+    "doctor": "node ./bin/workspace-brain.mjs doctor",
+    "test": "node ./tests/smoke.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "zod": "^3.24.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

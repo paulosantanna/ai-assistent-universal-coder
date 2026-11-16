@@ -1,6 +1,6 @@
 ---
 name: spec-driven-lean
-description: "Tech Lead Club spec-lean 2.0.0: freeze obligations in proof-backed checks, then build. Use for spec-driven-lean work. Do NOT use for design docs."
+description: "Tech Lead Club spec-lean 2.0.0: freeze observable obligations in plan and proof-backed checks, then build and verify mutations and screens. Use for \"spec-driven-lean\", \"plan feature\", \"write the checks\", \"build this plan\", \"verify work\". Do NOT use for standalone design documents, architecture decomposition or work with an existing task list."
 license: CC-BY-4.0
 metadata:
   author: "AEOS; adapted from Tech Leads Club - github.com/tech-leads-club"
