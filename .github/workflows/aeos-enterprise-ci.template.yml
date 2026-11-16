@@ -25,10 +25,10 @@ jobs:
           persist-credentials: false
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         with:
-          python-version: '3.12'
+          python-version: '3.15'
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
-          node-version: '24'
+          node-version: '26'
       - name: Install pinned YAML parser
         run: python -m pip install --require-hashes -r quality/requirements.txt
       - name: Install locked GraphRAG MCP and test dependencies

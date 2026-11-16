@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "next": "^16.5.0-canary.26"
+  },
+  "engines": {
+    "node": ">=26"
   }
 }

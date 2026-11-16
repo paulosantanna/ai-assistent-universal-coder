@@ -151,10 +151,13 @@ def _lock_versions(root: Path, prefixes: list[str]) -> dict[tuple[str, str], str
                 continue
             for key, meta in (data.get("packages") or {}).items():
                 if key.startswith("node_modules/") and isinstance(meta, dict) and meta.get("version"):
-                    name = key.split("node_modules/", 1)[1]
+                    # Use the FINAL node_modules segment. Nested keys like
+                    # node_modules/express/node_modules/content-type must resolve to
+                    # content-type, not overwrite express with content-type's version.
+                    name = key.rsplit("node_modules/", 1)[-1]
                     if name.startswith("@"):
                         parts = name.split("/")
-                        name = "/".join(parts[:2]) if len(parts) > 2 else name
+                        name = "/".join(parts[:2]) if len(parts) >= 2 else name
                     else:
                         name = name.split("/", 1)[0]
                     found[("npm", name)] = meta["version"]

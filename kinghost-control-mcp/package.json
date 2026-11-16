@@ -9,6 +9,6 @@
     "smoke": "node index.mjs --self-test"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=26"
   }
 }
