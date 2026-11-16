@@ -1,0 +1,371 @@
+# Harness Eval: Correctness (Track A)
+
+> Generated: 2026-11-13T15:49:07.142949+00:00
+> Method: deterministic path/command checks (no README)
+
+## What these words mean
+
+| Word | Meaning | You should |
+|------|---------|------------|
+| **BROKEN** | A cited path or command does not exist (high-precision check) | Fix the cite or restore the file |
+| **OK path-cites** | Concrete path cites that resolved | No action |
+| **T0 / T1 / T2** | Always-on rules / skills / cited harness refs | Fix T0 cites first (always loaded) |
+
+This track answers: *is the harness factually wrong about paths/commands?* Not redundancy (`07`) or usefulness (`10`).
+
+## Executive summary
+
+- T0: 1 · T1: 308 · T2: 0
+- Manifests: (none)
+- Findings: **2 broken** · 0 path-cites ok
+
+## Inventory
+
+### T0
+
+Always-on rules (always loaded).
+
+- `AGENTS.md`
+
+### T1
+
+Skills.
+
+- `.agents/skills/accessibility/SKILL.md`
+- `.agents/skills/acta-aurea/SKILL.md`
+- `.agents/skills/adr-decision-writer/SKILL.md`
+- `.agents/skills/agent-trace-validator/SKILL.md`
+- `.agents/skills/ai-architecture-expert/SKILL.md`
+- `.agents/skills/ai-cold-outreach/SKILL.md`
+- `.agents/skills/ai-continuous-training-maintainer/SKILL.md`
+- `.agents/skills/ai-engineering-expert/SKILL.md`
+- `.agents/skills/ai-evals-expert/SKILL.md`
+- `.agents/skills/ai-pricing/SKILL.md`
+- `.agents/skills/ai-project-bootstrapper/SKILL.md`
+- `.agents/skills/ai-sdr/SKILL.md`
+- `.agents/skills/ai-seo/SKILL.md`
+- `.agents/skills/ai-ugc-ads/SKILL.md`
+- `.agents/skills/angular-20-expert/SKILL.md`
+- `.agents/skills/angular-8-to-20-migration/SKILL.md`
+- `.agents/skills/anti-hallucination-evaluator/SKILL.md`
+- `.agents/skills/approval-governance-auditor/SKILL.md`
+- `.agents/skills/approval-requester/SKILL.md`
+- `.agents/skills/architecturally-significant-requirement/SKILL.md`
+- `.agents/skills/architecture-decision-log/SKILL.md`
+- `.agents/skills/architecture-decision-record/SKILL.md`
+- `.agents/skills/architecture-knowledge-management/SKILL.md`
+- `.agents/skills/architecture-mapper/SKILL.md`
+- `.agents/skills/atualizar-dependencias/SKILL.md`
+- `.agents/skills/automation-orchestrator/SKILL.md`
+- `.agents/skills/aws-advisor/SKILL.md`
+- `.agents/skills/best-practices/SKILL.md`
+- `.agents/skills/blueprint-generator/SKILL.md`
+- `.agents/skills/bm25-expert/SKILL.md`
+- `.agents/skills/camel-banking-expert/SKILL.md`
+- `.agents/skills/change-trace-auditor/SKILL.md`
+- `.agents/skills/chromatic-mega-brain/SKILL.md`
+- `.agents/skills/chrome-devtools/SKILL.md`
+- `.agents/skills/ci-quality-gate-engineer/SKILL.md`
+- `.agents/skills/cloudflare-deploy/SKILL.md`
+- `.agents/skills/code-analyzer/SKILL.md`
+- `.agents/skills/codenavi/SKILL.md`
+- `.agents/skills/coding-guidelines/SKILL.md`
+- `.agents/skills/compatibility-analyzer/SKILL.md`
+- `.agents/skills/compliance-audit-exporter/SKILL.md`
+- `.agents/skills/compliance-evidence-exporter/SKILL.md`
+- `.agents/skills/component-common-domain-detection/SKILL.md`
+- `.agents/skills/component-flattening-analysis/SKILL.md`
+- `.agents/skills/component-identification-sizing/SKILL.md`
+- `.agents/skills/conflict-detector/SKILL.md`
+- `.agents/skills/confluence-assistant/SKILL.md`
+- `.agents/skills/content-to-pipeline/SKILL.md`
+- `.agents/skills/context-router/SKILL.md`
+- `.agents/skills/continuity-bootstrapper/SKILL.md`
+- `.agents/skills/core-web-vitals/SKILL.md`
+- `.agents/skills/cost-token-optimizer/SKILL.md`
+- `.agents/skills/coupling-analysis/SKILL.md`
+- `.agents/skills/create-adr/SKILL.md`
+- `.agents/skills/create-rfc/SKILL.md`
+- `.agents/skills/create-technical-design-doc/SKILL.md`
+- `.agents/skills/critical-thinking-governor/SKILL.md`
+- `.agents/skills/csharp-expert/SKILL.md`
+- `.agents/skills/cursor-subagent-creator/SKILL.md`
+- `.agents/skills/cve-advisory-sync/SKILL.md`
+- `.agents/skills/cve-remediation/SKILL.md`
+- `.agents/skills/dark-videos-knowledge-base/SKILL.md`
+- `.agents/skills/dark-videos-pipeline-expert/SKILL.md`
+- `.agents/skills/database-architecture-planner/SKILL.md`
+- `.agents/skills/decomposition-planning-roadmap/SKILL.md`
+- `.agents/skills/delegation-auditor/SKILL.md`
+- `.agents/skills/demo/SKILL.md`
+- `.agents/skills/dependency-analyzer/SKILL.md`
+- `.agents/skills/dependency-updater/SKILL.md`
+- `.agents/skills/deploy-expert-unique/SKILL.md`
+- `.agents/skills/deployment-pipeline-expert/SKILL.md`
+- `.agents/skills/devops-pipeline-engineering/SKILL.md`
+- `.agents/skills/diff-reviewer/SKILL.md`
+- `.agents/skills/docker-devcontainer-engineer/SKILL.md`
+- `.agents/skills/docs-writer/SKILL.md`
+- `.agents/skills/documentation/SKILL.md`
+- `.agents/skills/documentation-11-layer-mapper/SKILL.md`
+- `.agents/skills/documentation-mapper/SKILL.md`
+- `.agents/skills/domain-analysis/SKILL.md`
+- `.agents/skills/domain-identification-grouping/SKILL.md`
+- `.agents/skills/dynatrace-observability-staff/SKILL.md`
+- `.agents/skills/enterprise-repo-intelligence/SKILL.md`
+- `.agents/skills/enterprise-security-auditor/SKILL.md`
+- `.agents/skills/eol-advisory-sync/SKILL.md`
+- `.agents/skills/evaluation-runner/SKILL.md`
+- `.agents/skills/evidence-cache-auditor/SKILL.md`
+- `.agents/skills/evidence-integrity-engineer/SKILL.md`
+- `.agents/skills/evolutionary-modular-architecture/SKILL.md`
+- `.agents/skills/excalidraw-studio/SKILL.md`
+- `.agents/skills/expansion-retention/SKILL.md`
+- `.agents/skills/fable/SKILL.md`
+- `.agents/skills/fable-aeos-harness/SKILL.md`
+- `.agents/skills/fable-domain/SKILL.md`
+- `.agents/skills/fable-judge/SKILL.md`
+- `.agents/skills/fable-loop/SKILL.md`
+- `.agents/skills/figma/SKILL.md`
+- `.agents/skills/figma-implement-design/SKILL.md`
+- `.agents/skills/fine-tuning-expert/SKILL.md`
+- `.agents/skills/fixture-corpus-validator/SKILL.md`
+- `.agents/skills/fleet-mapping/SKILL.md`
+- `.agents/skills/frontend-blueprint/SKILL.md`
+- `.agents/skills/frontend-design/SKILL.md`
+- `.agents/skills/gh-address-comments/SKILL.md`
+- `.agents/skills/gh-fix-ci/SKILL.md`
+- `.agents/skills/girl-voice-composer-simulation-expert/SKILL.md`
+- `.agents/skills/github-operations/SKILL.md`
+- `.agents/skills/grafana-observability-staff/SKILL.md`
+- `.agents/skills/gtm-engineering/SKILL.md`
+- `.agents/skills/gtm-metrics/SKILL.md`
+- `.agents/skills/handoff-manager/SKILL.md`
+- `.agents/skills/harness-eval/SKILL.md`
+- `.agents/skills/impeccable/SKILL.md`
+- `.agents/skills/incident-commander/SKILL.md`
+- `.agents/skills/incident-response-assistant/SKILL.md`
+- `.agents/skills/java-11-expert/SKILL.md`
+- `.agents/skills/java-17-expert/SKILL.md`
+- `.agents/skills/java-21-expert/SKILL.md`
+- `.agents/skills/java-25-expert/SKILL.md`
+- `.agents/skills/java-26-expert/SKILL.md`
+- `.agents/skills/java-8-expert/SKILL.md`
+- `.agents/skills/java-bug-solver/SKILL.md`
+- `.agents/skills/java-bug-solver-skill/SKILL.md`
+- `.agents/skills/java-enterprise-modernizer/SKILL.md`
+- `.agents/skills/java-expert/SKILL.md`
+- `.agents/skills/java-migration/SKILL.md`
+- `.agents/skills/java-version-expert/SKILL.md`
+- `.agents/skills/javascript-expert/SKILL.md`
+- `.agents/skills/jev-call-expert/SKILL.md`
+- `.agents/skills/jira-assistant/SKILL.md`
+- `.agents/skills/jira-confluence-assistant/SKILL.md`
+- `.agents/skills/jira-time-entry-assistant/SKILL.md`
+- `.agents/skills/judge-benchmark-runner/SKILL.md`
+- `.agents/skills/kinghost-backup-recovery-expert/SKILL.md`
+- `.agents/skills/kinghost-clone-site-expert/SKILL.md`
+- `.agents/skills/kinghost-database-expert/SKILL.md`
+- `.agents/skills/kinghost-domain-dns-ssl-expert/SKILL.md`
+- `.agents/skills/kinghost-email-expert/SKILL.md`
+- `.agents/skills/kinghost-expert/SKILL.md`
+- `.agents/skills/kinghost-performance-expert/SKILL.md`
+- `.agents/skills/kinghost-security-expert/SKILL.md`
+- `.agents/skills/kinghost-site-publish-ftp-expert/SKILL.md`
+- `.agents/skills/kotlin-expert/SKILL.md`
+- `.agents/skills/kubernetes-code-context-mapper/SKILL.md`
+- `.agents/skills/kubernetes-observability-staff/SKILL.md`
+- `.agents/skills/lead-enrichment/SKILL.md`
+- `.agents/skills/learning-curator/SKILL.md`
+- `.agents/skills/learning-opportunities/SKILL.md`
+- `.agents/skills/legacy-migration-planner/SKILL.md`
+- `.agents/skills/legacy-risk-mapper/SKILL.md`
+- `.agents/skills/llm-calibration-temperature-expert/SKILL.md`
+- `.agents/skills/llm-model-selection-expert/SKILL.md`
+- `.agents/skills/local-secret-vault/SKILL.md`
+- `.agents/skills/lora-qlora-dora-expert/SKILL.md`
+- `.agents/skills/mantis-architecture/SKILL.md`
+- `.agents/skills/mantis-calibrate/SKILL.md`
+- `.agents/skills/mantis-chain/SKILL.md`
+- `.agents/skills/mantis-critic/SKILL.md`
+- `.agents/skills/mantis-dedupe/SKILL.md`
+- `.agents/skills/mantis-history/SKILL.md`
+- `.agents/skills/mantis-meta-agent/SKILL.md`
+- `.agents/skills/mantis-patch/SKILL.md`
+- `.agents/skills/mantis-pipeline-adapter/SKILL.md`
+- `.agents/skills/mantis-plan/SKILL.md`
+- `.agents/skills/mantis-reflect/SKILL.md`
+- `.agents/skills/mantis-report/SKILL.md`
+- `.agents/skills/mantis-reproduce/SKILL.md`
+- `.agents/skills/mantis-researcher/SKILL.md`
+- `.agents/skills/mantis-review/SKILL.md`
+- `.agents/skills/mantis-structural-index/SKILL.md`
+- `.agents/skills/mantis-summarize/SKILL.md`
+- `.agents/skills/mantis-threat-model/SKILL.md`
+- `.agents/skills/marketplace-curator/SKILL.md`
+- `.agents/skills/mcp-discovery/SKILL.md`
+- `.agents/skills/mcp-health-check/SKILL.md`
+- `.agents/skills/mcp-poisoning-evaluator/SKILL.md`
+- `.agents/skills/mcp-risk-controller/SKILL.md`
+- `.agents/skills/memory-curator/SKILL.md`
+- `.agents/skills/memory-governance-auditor/SKILL.md`
+- `.agents/skills/mermaid-studio/SKILL.md`
+- `.agents/skills/modular-decomposition/SKILL.md`
+- `.agents/skills/modular-design-principles/SKILL.md`
+- `.agents/skills/multi-platform-launch/SKILL.md`
+- `.agents/skills/multirepo-ecosystem-mapper/SKILL.md`
+- `.agents/skills/nestjs-modular-monolith/SKILL.md`
+- `.agents/skills/netlify-deploy/SKILL.md`
+- `.agents/skills/not-your-babysitter/SKILL.md`
+- `.agents/skills/notebook-intelligence/SKILL.md`
+- `.agents/skills/nx-ci-monitor/SKILL.md`
+- `.agents/skills/nx-generate/SKILL.md`
+- `.agents/skills/nx-run-tasks/SKILL.md`
+- `.agents/skills/nx-workspace/SKILL.md`
+- `.agents/skills/observability-architect/SKILL.md`
+- `.agents/skills/observability-reporter/SKILL.md`
+- `.agents/skills/observability-root-cause-integrator/SKILL.md`
+- `.agents/skills/openshift-observability-staff/SKILL.md`
+- `.agents/skills/pack-marketplace-auditor/SKILL.md`
+- `.agents/skills/package-trust-engineer/SKILL.md`
+- `.agents/skills/packaging/SKILL.md`
+- `.agents/skills/paid-creative-ai/SKILL.md`
+- `.agents/skills/parallel-scheduler/SKILL.md`
+- `.agents/skills/partner-affiliate/SKILL.md`
+- `.agents/skills/patch-planner/SKILL.md`
+- `.agents/skills/perf-astro/SKILL.md`
+- `.agents/skills/perf-lighthouse/SKILL.md`
+- `.agents/skills/perf-web-optimization/SKILL.md`
+- `.agents/skills/performance-optimizer/SKILL.md`
+- `.agents/skills/performance-profiler/SKILL.md`
+- `.agents/skills/playbook-factory-generator/SKILL.md`
+- `.agents/skills/playbook-optimizer/SKILL.md`
+- `.agents/skills/playwright-skill/SKILL.md`
+- `.agents/skills/policy-bypass-evaluator/SKILL.md`
+- `.agents/skills/policy-hardening-auditor/SKILL.md`
+- `.agents/skills/positioning-icp/SKILL.md`
+- `.agents/skills/pr-comment-resolver/SKILL.md`
+- `.agents/skills/pr-reviewer/SKILL.md`
+- `.agents/skills/pr-reviewer-advanced/SKILL.md`
+- `.agents/skills/production-deployment-planner/SKILL.md`
+- `.agents/skills/progress-tracker/SKILL.md`
+- `.agents/skills/prompt-optimizer/SKILL.md`
+- `.agents/skills/python-ai-productionizer/SKILL.md`
+- `.agents/skills/python-bug-solver-skill/SKILL.md`
+- `.agents/skills/python-expert/SKILL.md`
+- `.agents/skills/python-rag-audit/SKILL.md`
+- `.agents/skills/rag-expert/SKILL.md`
+- `.agents/skills/rails-dev/SKILL.md`
+- `.agents/skills/react-best-practices/SKILL.md`
+- `.agents/skills/react-composition-patterns/SKILL.md`
+- `.agents/skills/react-expert/SKILL.md`
+- `.agents/skills/react-native-expert/SKILL.md`
+- `.agents/skills/redaction-evaluator/SKILL.md`
+- `.agents/skills/release-readiness-judge/SKILL.md`
+- `.agents/skills/render-deploy/SKILL.md`
+- `.agents/skills/repo-scanner/SKILL.md`
+- `.agents/skills/report-design/SKILL.md`
+- `.agents/skills/resolver-comentarios/SKILL.md`
+- `.agents/skills/revisar-pr/SKILL.md`
+- `.agents/skills/revisar-seguranca-pr/SKILL.md`
+- `.agents/skills/risk-classifier/SKILL.md`
+- `.agents/skills/rollback-planner/SKILL.md`
+- `.agents/skills/runtime-troubleshooting/SKILL.md`
+- `.agents/skills/rust-expert/SKILL.md`
+- `.agents/skills/sales-motion-design/SKILL.md`
+- `.agents/skills/secret-redaction-specialist/SKILL.md`
+- `.agents/skills/security-audit/SKILL.md`
+- `.agents/skills/security-best-practices/SKILL.md`
+- `.agents/skills/security-ownership-map/SKILL.md`
+- `.agents/skills/security-threat-model/SKILL.md`
+- `.agents/skills/sentry/SKILL.md`
+- `.agents/skills/seo/SKILL.md`
+- `.agents/skills/servicenow-incident-assistant/SKILL.md`
+- `.agents/skills/shopify-developer/SKILL.md`
+- `.agents/skills/simulator-ai/SKILL.md`
+- `.agents/skills/skill-architect/SKILL.md`
+- `.agents/skills/skill-factory/SKILL.md`
+- `.agents/skills/skill-factory-generator/SKILL.md`
+- `.agents/skills/skill-hardener/SKILL.md`
+- `.agents/skills/slo-risk-analyzer/SKILL.md`
+- `.agents/skills/social-media-operator/SKILL.md`
+- `.agents/skills/social-selling/SKILL.md`
+- `.agents/skills/solo-founder-gtm/SKILL.md`
+- `.agents/skills/solve-problems/SKILL.md`
+- `.agents/skills/spec-driven/SKILL.md`
+- `.agents/skills/spec-driven-eval/SKILL.md`
+- `.agents/skills/spec-driven-lean/SKILL.md`
+- `.agents/skills/specs/SKILL.md`
+- `.agents/skills/splunk-observability-staff/SKILL.md`
+- `.agents/skills/staff-iii-architecture-governor/SKILL.md`
+- `.agents/skills/staff-tdd-code-builder/SKILL.md`
+- `.agents/skills/subagent-creator/SKILL.md`
+- `.agents/skills/supply-chain-auditor/SKILL.md`
+- `.agents/skills/tactical-ddd/SKILL.md`
+- `.agents/skills/task-graph-builder/SKILL.md`
+- `.agents/skills/technical-design-doc-creator/SKILL.md`
+- `.agents/skills/telemetry-bug-root-cause-solver/SKILL.md`
+- `.agents/skills/test-gap-analyzer/SKILL.md`
+- `.agents/skills/test-generation/SKILL.md`
+- `.agents/skills/test-strategy-architect/SKILL.md`
+- `.agents/skills/test-writer/SKILL.md`
+- `.agents/skills/tests-expert/SKILL.md`
+- `.agents/skills/the-fool/SKILL.md`
+- `.agents/skills/the-judge/SKILL.md`
+- `.agents/skills/the-jury/SKILL.md`
+- `.agents/skills/threat-modeler/SKILL.md`
+- `.agents/skills/tlc-discover/SKILL.md`
+- `.agents/skills/tlc-generative-engine-optimization/SKILL.md`
+- `.agents/skills/tlc-implement/SKILL.md`
+- `.agents/skills/tlc-plan/SKILL.md`
+- `.agents/skills/tlc-prd/SKILL.md`
+- `.agents/skills/tlc-spec-driven/SKILL.md`
+- `.agents/skills/tlc-spec-lean/SKILL.md`
+- `.agents/skills/token-budget-governor/SKILL.md`
+- `.agents/skills/tool-router-audit/SKILL.md`
+- `.agents/skills/typesafe-ai/SKILL.md`
+- `.agents/skills/unique-environment-auditor/SKILL.md`
+- `.agents/skills/universal-project-factory/SKILL.md`
+- `.agents/skills/v1-readiness-auditor/SKILL.md`
+- `.agents/skills/vercel-deploy/SKILL.md`
+- `.agents/skills/video-outreach/SKILL.md`
+- `.agents/skills/voiceai/SKILL.md`
+- `.agents/skills/vox-aurum/SKILL.md`
+- `.agents/skills/vuln-obsol-recon/SKILL.md`
+- `.agents/skills/web-accessibility/SKILL.md`
+- `.agents/skills/web-best-practices/SKILL.md`
+- `.agents/skills/web-design-guidelines/SKILL.md`
+- `.agents/skills/web-quality-audit/SKILL.md`
+- `.agents/skills/whatsapp-simulator/SKILL.md`
+- `.agents/skills/wordpress-expert/SKILL.md`
+- `.agents/skills/workbench-profile-resolver/SKILL.md`
+
+### T2
+
+Cited harness refs.
+
+_(none)_
+
+## Findings
+
+### [A001] BROKEN — missing file
+
+- **In:** `AGENTS.md`
+- **The instruction cites:** `references/CODENAVI_CONTINUITY_STANDARD.md`
+- **Looked for:** `references/CODENAVI_CONTINUITY_STANDARD.md` at the repo root (case-sensitive)
+- **Fix:** Point the cite at a path that exists, or restore the missing file.
+
+### [A002] BROKEN — missing file
+
+- **In:** `AGENTS.md`
+- **The instruction cites:** `references/CODENAVI_FULL_WORKSPACE_STANDARD.md`
+- **Looked for:** `references/CODENAVI_FULL_WORKSPACE_STANDARD.md` at the repo root (case-sensitive)
+- **Fix:** Point the cite at a path that exists, or restore the missing file.
+
+## Notes
+
+- Path normalization preserves `.agents` (never `str.lstrip('./')`).
+- Placeholders and bare example filenames are skipped.
+- Fenced code blocks are not scanned for path cites.
+- `references/` may resolve under a skill named in the same surface (e.g. load `dev`).
+- Missing `app/`/`lib/`/`test/` cites are BROKEN only when mandate language is nearby.

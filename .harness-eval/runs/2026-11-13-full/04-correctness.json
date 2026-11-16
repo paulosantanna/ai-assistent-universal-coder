@@ -1,0 +1,18 @@
+[
+  {
+    "id": "A001",
+    "severity": "BROKEN",
+    "source": "AGENTS.md",
+    "claim": "Path cite `references/CODENAVI_CONTINUITY_STANDARD.md`",
+    "reality": "File does not exist (case-sensitive check)",
+    "evidence": "/agent/repos/ai-assistent-universal-coder/references/CODENAVI_CONTINUITY_STANDARD.md; /agent/repos/ai-assistent-universal-coder/.agents/skills/governing/references/CODENAVI_CONTINUITY_STANDARD.md; /agent/repos/ai-assistent-universal-coder/.cursor/skills/governing/references/CODENAVI_CONTINUITY_STANDARD.md; /agent/repos/ai-assistent-universal-coder/.claude/skills/governing/references/CODENAVI_CONTINUITY_STANDARD.md"
+  },
+  {
+    "id": "A002",
+    "severity": "BROKEN",
+    "source": "AGENTS.md",
+    "claim": "Path cite `references/CODENAVI_FULL_WORKSPACE_STANDARD.md`",
+    "reality": "File does not exist (case-sensitive check)",
+    "evidence": "/agent/repos/ai-assistent-universal-coder/references/CODENAVI_FULL_WORKSPACE_STANDARD.md; /agent/repos/ai-assistent-universal-coder/.agents/skills/governing/references/CODENAVI_FULL_WORKSPACE_STANDARD.md; /agent/repos/ai-assistent-universal-coder/.cursor/skills/governing/references/CODENAVI_FULL_WORKSPACE_STANDARD.md; /agent/repos/ai-assistent-universal-coder/.claude/skills/governing/references/CODENAVI_FULL_WORKSPACE_STANDARD.md"
+  }
+]
