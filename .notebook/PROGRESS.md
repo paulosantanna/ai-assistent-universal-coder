@@ -8,7 +8,7 @@ Updated: 2026-11-16. Entry point: `quality/capabilities.json`, `quality/skills-b
 - [x] VERIFY: probe MCP igual ao inventário; prepush local PASS (6 backends). Validador `--runtime` PASS com Python 3.15 e PyYAML 6.0.3 (puro e com a extensão C do 3.14).
 - [x] Causa do prepush no runner: sem `setup-node`, o Node da imagem é 24.22.2 e o ciclo atual é 26.13.1 (`language-outdated`).
 - [x] Causa do enterprise no runner: link local de `rag-graph-laya-mcp/docs/mongodb-review/APPLIED.md` para um arquivo só presente em `02_repositorios/` (`skill-contract`).
-- [ ] CI do SHA publicado verde nos dois workflows.
+- [x] CI do SHA `d7abf256` verde nos dois workflows: prepush `43953574277` e enterprise `43953574254`.
 
 ---
 

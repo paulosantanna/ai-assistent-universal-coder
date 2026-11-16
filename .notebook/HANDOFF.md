@@ -5,7 +5,7 @@ Updated: 2026-11-16. Entry point: `.github/workflows/prepush-gate.yml`. Evidence
 - O workflow de prepush instalava só Python. O gate compara o `node` do processo com o ciclo atual, e o `ubuntu-latest` ainda traz Node 24.
 - Correção: `actions/setup-node` no mesmo pin e na mesma major (`26`) já usados pelo enterprise CI. O validador também emite `::error` para a falha aparecer sem abrir o log.
 - O enterprise CI falhou de novo porque `APPLIED.md` aponta, como link local, para `02_repositorios/DiabeticsresearchJEV/FLOW-HARDENING.md`. Esse arquivo existe só no checkout local; o runner não tem a pasta. O caminho ficou em código, não como link obrigatório.
-- Próximo: os dois workflows do SHA publicado precisam ficar verdes.
+- Verificado no SHA `d7abf256`: Pre-push security gate `43953574277` e AEOS Enterprise CI `43953574254`, ambos success.
 
 ---
 
