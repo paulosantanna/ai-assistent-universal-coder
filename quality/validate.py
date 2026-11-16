@@ -294,6 +294,11 @@ def main():
     write_json(args.out/'report.json', report)
     (args.out/'summary.md').write_text('# Capability quality: '+report['status']+'\n\n'+json.dumps(report, indent=2)+'\n', encoding='utf-8')
     print(json.dumps({'status': report['status'], 'counts': report.get('counts'), 'errors': report['errors'], 'lsp_count': report.get('lsp_count')}))
+    # GitHub hides step logs from anonymous viewers; the annotation is the public failure.
+    for error in report.get('errors') or []:
+        place = str(error.get('path') or error.get('detail') or 'quality').replace('\n', ' ')
+        code = str(error.get('code') or 'quality-gate')
+        print(f"::error file={place}::{code}")
     return int(report['status'] != 'PASS')
 
 

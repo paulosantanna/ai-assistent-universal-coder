@@ -1,3 +1,13 @@
+## CI master — Node 26 no prepush — 2026-11-16
+
+Updated: 2026-11-16. Entry point: `.github/workflows/prepush-gate.yml`. Evidence: simulação do backend `language` com o Node 24.22.2 da imagem Ubuntu (endoflife ciclo atual 26, patch 26.13.1) produz `language-outdated`; o mesmo check com 26.13.1 passa. `quality/validate.py --runtime` PASS local com Python 3.15 e PyYAML 6.0.3.
+
+- O workflow de prepush instalava só Python. O gate compara o `node` do processo com o ciclo atual, e o `ubuntu-latest` ainda traz Node 24.
+- Correção: `actions/setup-node` no mesmo pin e na mesma major (`26`) já usados pelo enterprise CI. O validador também emite `::error` para a falha aparecer sem abrir o log.
+- Próximo: os dois workflows do SHA publicado precisam ficar verdes.
+
+---
+
 ## CI master — enterprise gate e prepush — 2026-11-16
 
 Updated: 2026-11-16. Entry point: `quality/validate.py`, `quality/prepush/prepush.py`. Evidence: Actions `43870090127` (AEOS Enterprise CI) e `43870089967` (pre-push), ambos failure no SHA `66737bb9`.

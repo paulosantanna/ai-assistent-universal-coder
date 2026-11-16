@@ -1,3 +1,12 @@
+## Gate de linguagem olha o binário do runner, não só a versão declarada no workflow — 2026-11-16
+
+Updated: 2026-11-16. Entry point: `quality/prepush/backends/language.py`, `.github/workflows/prepush-gate.yml`. Evidence: simulação com runtime `24.22.2` → `language-outdated`; `26.13.1` → sem achados. Imagem `ubuntu-latest` (2026-11) documenta Node 24.22.2 e o ciclo endoflife atual é 26.
+
+- Trigger: workflow que roda `prepush.py` sem instalar o Node do ciclo atual.
+- Root cause: o backend acrescenta `node --version` do processo às declarações e exige o ciclo e o patch atuais. Declarar `node-version: 26` em outro workflow não altera o PATH deste job.
+- Fix/prevention: o job que executa o gate instala o mesmo Node exigido pelo ciclo, com a action pinada por SHA.
+- Reuse scope: qualquer checagem que mistura versão declarada e versão do processo no runner.
+
 ## Pacote novo ou pin direto desatualizado derruba o gate mesmo com o código já na master — 2026-11-16
 
 Updated: 2026-11-16. Entry point: `quality/validate.py`, `quality/prepush/backends/libraries.py`. Evidence: Actions `43870090127` e `43870089967` no SHA `66737bb9`.
