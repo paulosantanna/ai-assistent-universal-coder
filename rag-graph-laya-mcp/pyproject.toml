@@ -15,7 +15,7 @@ dependencies = [
 
 [project.optional-dependencies]
 training = [
-  "laya==0.4.34",
+  "laya==0.4.35",
   "torch==2.15.0",
   "transformers==5.23.0",
   "trl==1.18.0",

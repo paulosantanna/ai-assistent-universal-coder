@@ -348,9 +348,9 @@ jsonschema-specifications==2025.9.1 \
     --hash=sha256:98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe \
     --hash=sha256:b540987f239e745613c7a9176f3edb72b832a4ac465cf02712288397832b5e8d
     # via jsonschema
-laya==0.4.34 \
-    --hash=sha256:5f33077aa17dc228979937273be04c77bac61915c4e2266b07b47f6fab1badc9 \
-    --hash=sha256:c9903900f0ad9590f4e8ab844deb6e44719f35e797f2e63a29c9f9e0cdc8d846
+laya==0.4.35 \
+    --hash=sha256:2bb201032a83aee0aee07fa0dd76904753de1f35fec26c7e78640229dd5eb791 \
+    --hash=sha256:4402c1888158d838822a834fa43c2625346ac8c9faf9f47cbb5b894936675453
     # via rag-graph-laya-mcp
 markdown-it-py==4.2.0 \
     --hash=sha256:04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49 \

@@ -1,6 +1,6 @@
 {
   "skill": "spec-driven",
-  "package_hash": "7abc9d49f5e45d6dd0712f72e5c9a67526987eb312d1ccbaa6206f31dd7e2ef8",
+  "package_hash": "c5a41ed9eb5e34bf2df70e16c0fdb4eef364bcb4ebf8b1419cbf6fd313a16342",
   "positive_triggers": [
     "specify feature",
     "implement",

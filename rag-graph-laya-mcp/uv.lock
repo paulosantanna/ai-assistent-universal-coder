@@ -640,7 +640,7 @@ wheels = [
 
 [[package]]
 name = "laya"
-version = "0.4.34"
+version = "0.4.35"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "cryptography" },
@@ -651,9 +651,9 @@ dependencies = [
     { name = "transformers" },
     { name = "vegaml" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/0e/e5/364b759c8abbe6b56f1be82399b1bbc48a003b1ed03610c03eaccb5e06bf/laya-0.4.34.tar.gz", hash = "sha256:c9903900f0ad9590f4e8ab844deb6e44719f35e797f2e63a29c9f9e0cdc8d846", size = 1483539, upload-time = "2026-11-15T18:06:39.336Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/e4/e3/83e5bc5a35079b002bc55fbede2aacc40611a9eee6ddf4572115b2e60262/laya-0.4.35.tar.gz", hash = "sha256:4402c1888158d838822a834fa43c2625346ac8c9faf9f47cbb5b894936675453", size = 1482949, upload-time = "2026-11-16T12:50:12.416Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/02/9a/a253b3181986caa4edeb2080f3029b9ddc37b2988e83bb789074f46adae0/laya-0.4.34-py3-none-any.whl", hash = "sha256:5f33077aa17dc228979937273be04c77bac61915c4e2266b07b47f6fab1badc9", size = 505536, upload-time = "2026-11-15T18:06:37.502Z" },
+    { url = "https://files.pythonhosted.org/packages/76/b9/909c9be2d6c3866f649c9f8d1b3046f40ef5fbbb5c88c6368e8c73883bd1/laya-0.4.35-py3-none-any.whl", hash = "sha256:2bb201032a83aee0aee07fa0dd76904753de1f35fec26c7e78640229dd5eb791", size = 505341, upload-time = "2026-11-16T12:50:10.301Z" },
 ]
 
 [[package]]
@@ -1371,7 +1371,7 @@ requires-dist = [
     { name = "fastapi", specifier = "==0.163.1" },
     { name = "graphiti-core", specifier = "==0.31.2" },
     { name = "httpx", specifier = "==0.28.1" },
-    { name = "laya", marker = "extra == 'training'", specifier = "==0.4.34" },
+    { name = "laya", marker = "extra == 'training'", specifier = "==0.4.35" },
     { name = "mcp", specifier = "==2.3.0" },
     { name = "peft", marker = "extra == 'training'", specifier = "==0.21.3" },
     { name = "psutil", marker = "extra == 'training'", specifier = "==7.2.2" },

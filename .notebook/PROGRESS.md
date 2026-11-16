@@ -1,3 +1,15 @@
+# CI master 66737bb9 — enterprise gate e prepush — 2026-11-16
+
+Updated: 2026-11-16. Entry point: `quality/capabilities.json`, `quality/skills-baseline.json`, `rag-graph-laya-mcp/pyproject.toml`.
+
+- [x] RECON: run `43870090127` falhou em `python quality/validate.py --runtime`; run `43870089967` falhou no live gate. Último enterprise verde em master: `b9ac466b`.
+- [x] Causa: `cloud-architecture-mcp` fora do inventário; hashes de skill/quarentena atrás dos pacotes; `laya` 0.4.34 contra 0.4.35 no PyPI.
+- [x] EXECUTE: inventário, baselines, revisões spec cujo gatilho ainda vale, e pin/locks do laya.
+- [x] VERIFY: probe MCP igual ao inventário; prepush local PASS (6 backends). Validador completo `--runtime` não executado neste Windows (PyYAML 6.0.3 sem wheel cp315).
+- [ ] CI do SHA publicado verde nos dois workflows.
+
+---
+
 # Arquitetura cloud: pesquisa AWS/Azure, MCPs e modelos AWS (MyDigitalBuddy, AIHealthResearch) — 2026-11-14
 
 # TLC spec versions — publicação e merge

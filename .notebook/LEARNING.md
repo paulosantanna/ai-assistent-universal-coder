@@ -1,3 +1,12 @@
+## Pacote novo ou pin direto desatualizado derruba o gate mesmo com o código já na master — 2026-11-16
+
+Updated: 2026-11-16. Entry point: `quality/validate.py`, `quality/prepush/backends/libraries.py`. Evidence: Actions `43870090127` e `43870089967` no SHA `66737bb9`.
+
+- Trigger: push para master com skills, um diretório `*-mcp` e um pin PyPI alterados sem o metadado que o gate compara.
+- Root cause: `skills-baseline.json` e `baseline_hash` de quarentena são o aceite estrutural; diretório `*-mcp` fora de `capabilities.json` é drift; biblioteca direta com `==` falha assim que o registro publica uma versão maior.
+- Fix/prevention: no mesmo commit do pacote, atualizar o baseline ou a revisão com o hash novo, registrar o diretório MCP com o tools/list real, e republicar o pin e os locks juntos.
+- Reuse scope: qualquer gate que compara inventário ou pin com uma fonte externa ou com um hash de árvore.
+
 ## Inventário de superfícies começa por varredura do repositório, não por lista escolhida à mão — 2026-11-14
 
 Updated: 2026-11-14. Entry point: `cloud-architecture/local-apis.json` e o teste de inventário em `cloud-architecture/tests/local-api-mapping.test.mjs`. Evidence: a lista manual de 6 APIs deixou de fora duas APIs FastAPI (`science-studio/integration/dark_api.py` e `rag-graph-laya-mcp/model_server.py`); a varredura de rotas, feita depois, achou as duas.

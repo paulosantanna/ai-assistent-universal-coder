@@ -1,6 +1,6 @@
 {
   "skill": "tlc-spec-driven",
-  "package_hash": "65f0eb7eb49b24a7f006f61f6f53ce8505912c35ba0400516976550f1b543f38",
+  "package_hash": "f0e78d261b68c7d422fac61978ef7b8c9c4dabc7bdafc516c2e7dde6b15a0638",
   "positive_triggers": [
     "specify feature",
     "implement",

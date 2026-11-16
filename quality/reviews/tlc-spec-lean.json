@@ -1,6 +1,6 @@
 {
   "skill": "tlc-spec-lean",
-  "package_hash": "13e8be875480165f139b17d618a59c1319e7291835dc84dfe505b26d16c24bdd",
+  "package_hash": "9de1bf38d635b6328420d20b1ae0f5860520af45c943f5d62ae614bfe398427e",
   "positive_triggers": [
     "plan feature",
     "write the checks",

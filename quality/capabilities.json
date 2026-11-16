@@ -8,7 +8,7 @@
       "protocol": "custom-json-lines",
       "owner": "codenavi-agent",
       "reason": "Envelope adapter: health works offline; not MCP JSON-RPC",
-      "baseline_hash": "017cc674205e5a1f0b1d9915beec9673cbd3b45ecbb3452ffc96e3ac3d6a333a",
+      "baseline_hash": "26ef59c1c2707c09e0aafb2f4f01cd63dd86c5541a0d997e0a95ffdd8a0f7459",
       "secret_policy": "runtime-references-only",
       "smoke": [
         "node",
@@ -22,8 +22,8 @@
       "state": "quarantined",
       "protocol": "custom-json-lines",
       "owner": "codenavi-agent",
-      "reason": "Envelope adapter; ssh2/mysql2/pg dependencies lack a root lockfile",
-      "baseline_hash": "609dcb749602b2a0354e9c17d8cb1797eaf0b08297be8356b4349e9bd2c341fc",
+      "reason": "Envelope adapter; not MCP JSON-RPC",
+      "baseline_hash": "b158c2a66e5d8f85a4bd930ba20192bc0785953a1e11eeabf6158982f690f242",
       "secret_policy": "runtime-references-only",
       "smoke": null
     },
@@ -45,7 +45,7 @@
       "protocol": "incomplete",
       "owner": "codenavi-agent",
       "reason": "Manifest refers to missing Python server and project metadata",
-      "baseline_hash": "603485601ebd02e4203598796088e478bfd1d411b1069960aeb9c7b0e2cf9f4f",
+      "baseline_hash": "e7f5426631d9a6c253e316c3d0b180ba3919d4b00d7246da2abd0f62ab1511c8",
       "secret_policy": "runtime-references-only",
       "smoke": null
     },
@@ -523,6 +523,153 @@
             ],
             "title": "Job",
             "type": "object"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cloud-architecture-mcp",
+      "path": "cloud-architecture-mcp",
+      "state": "active",
+      "protocol": "jsonrpc-stdio",
+      "owner": "codenavi-agent",
+      "secret_policy": "runtime-references-only",
+      "command": [
+        "node",
+        "providers/aws/server.mjs"
+      ],
+      "entrypoint": "providers/aws/server.mjs",
+      "tools": [
+        {
+          "name": "list_patterns",
+          "description": "Lista padroes de arquitetura AWS verificados (id, titulo, categoria, quando usar).",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "category": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "get_pattern",
+          "description": "Detalha um padrao AWS: componentes, alavancas de custo e claims com URL de origem e rotulo final.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "list_pitfalls",
+          "description": "Lista erros conhecidos de AWS (armadilhas): premissa errada, fato correto, regra que detecta e claims rejeitados.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": false
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "review_architecture",
+          "description": "Revisa um modelo de arquitetura AWS (JSON, provider=aws) com regras deterministicas; devolve achados com severidade e fontes.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "object"
+              }
+            },
+            "required": [
+              "model"
+            ],
+            "additionalProperties": true
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "map_local_api",
+          "description": "Mapeia uma API ou componente local para servicos AWS, com restricoes, proibicoes e fontes. Tipos desconhecidos falham.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "api": {
+                "type": "object"
+              }
+            },
+            "required": [
+              "api"
+            ],
+            "additionalProperties": true
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "estimate_monthly_cost",
+          "description": "Estima custo mensal AWS a partir do snapshot versionado de precos. SKU desconhecido falha: nenhum preco e inventado.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "sku": {
+                      "type": "string"
+                    },
+                    "units_per_month": {
+                      "type": "number"
+                    },
+                    "factor": {
+                      "type": "number"
+                    },
+                    "note": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "sku",
+                    "units_per_month"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "items"
+            ],
+            "additionalProperties": false
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
           }
         }
       ]

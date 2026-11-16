@@ -1,6 +1,6 @@
 {
   "skill": "spec-driven-lean",
-  "package_hash": "c46f222fea503c91fafa9675dd911e602f66e1709912ec49e943fc85959c5907",
+  "package_hash": "abfdcce13996738e1c8f58ec1b98a2b838da5a900fb8c6186da5112fe0cf8473",
   "positive_triggers": [
     "plan feature",
     "write the checks",

@@ -1,3 +1,13 @@
+## CI master — enterprise gate e prepush — 2026-11-16
+
+Updated: 2026-11-16. Entry point: `quality/validate.py`, `quality/prepush/prepush.py`. Evidence: Actions `43870090127` (AEOS Enterprise CI) e `43870089967` (pre-push), ambos failure no SHA `66737bb9`.
+
+- Causa: o push que incorporou skills, `cloud-architecture-mcp` e locks não atualizou `quality/skills-baseline.json` nem o hash de quarentena, e o diretório MCP novo não estava em `quality/capabilities.json`. No mesmo SHA o PyPI já publicava `laya` 0.4.35 e o pin direto era 0.4.34.
+- Correção: baseline das 324 skills e hashes de quarentena/adaptador realinhados aos pacotes commitados; `cloud-architecture-mcp` ativo via `node providers/aws/server.mjs` (handshake igual ao servidor Azure, um comando por diretório); pin `laya==0.4.35` em `pyproject.toml`, `uv.lock` e `requirements-training.lock`.
+- Verificado localmente: probe do MCP igual ao inventário; `python quality/prepush/prepush.py --repo .` PASS nos seis backends. `quality/validate.py --runtime` não rodou aqui porque PyYAML 6.0.3 não tem wheel cp315 no Windows.
+
+---
+
 ## cloud-architecture — pesquisa AWS/Azure, MCPs somente leitura e modelos AWS (MyDigitalBuddy, AIHealthResearch) — 2026-11-14
 
 ## TLC control drift — PR #56 merged; scheduled run pending
