@@ -1,3 +1,12 @@
+## Link relativo no grafo de skills precisa existir no checkout publicado — 2026-11-16
+
+Updated: 2026-11-16. Entry point: `00_skills/(creation)/skill-factory/scripts/validate-workspace.py` (`markdown_links`). Evidence: anotação `skill-contract` em `rag-graph-laya-mcp/docs/mongodb-review/APPLIED.md` no run `43953048760`.
+
+- Trigger: um Markdown alcançado a partir de uma skill aponta para um arquivo que só existe na máquina local.
+- Root cause: o validador segue links locais e exige o destino no disco. `02_repositorios/` não entra no checkout do CI.
+- Fix/prevention: caminho externo fica em código ou texto; link navegável só para arquivo versionado.
+- Reuse scope: qualquer documentação puxada pelo grafo de `SKILL.md`.
+
 ## Gate de linguagem olha o binário do runner, não só a versão declarada no workflow — 2026-11-16
 
 Updated: 2026-11-16. Entry point: `quality/prepush/backends/language.py`, `.github/workflows/prepush-gate.yml`. Evidence: simulação com runtime `24.22.2` → `language-outdated`; `26.13.1` → sem achados. Imagem `ubuntu-latest` (2026-11) documenta Node 24.22.2 e o ciclo endoflife atual é 26.

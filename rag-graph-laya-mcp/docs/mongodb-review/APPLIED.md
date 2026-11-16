@@ -2,7 +2,7 @@
 Updated: 2026-10-15. Owner: codenavi-agent.
 Entry point: [revisão original](README.md). Evidência: [recibo aplicado](applied-verification.json).
 
-As correções foram aplicadas ao checkout `02_repositorios/DiabeticsresearchJEV`. O relatório de auditoria anterior permanece como retrato das falhas nos originais; a implementação atual está descrita em [FLOW-HARDENING.md](../../../02_repositorios/DiabeticsresearchJEV/FLOW-HARDENING.md).
+As correções foram aplicadas ao checkout `02_repositorios/DiabeticsresearchJEV`. O relatório de auditoria anterior permanece como retrato das falhas nos originais; a implementação atual está descrita em `02_repositorios/DiabeticsresearchJEV/FLOW-HARDENING.md`.
 
 | Achado | Comportamento corrigido |
 |---|---|
