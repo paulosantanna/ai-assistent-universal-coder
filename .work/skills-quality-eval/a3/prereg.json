@@ -1,0 +1,31 @@
+{
+  "amendment": "A3",
+  "declared_before_any_a3_run": true,
+  "frozen_sha256": "e3c59f3358bf0e9cea90a2a7cc03f1b7ddf6f103b85e489a6bc85fbb00e0d5b3",
+  "n_skills": 324,
+  "text": "full SKILL.md",
+  "max_chars": 11638,
+  "truncated_in_prior_runs_at_3000": 110,
+  "dev_set_n": 36,
+  "holdout1_n": 60,
+  "tuning_free_subset_n": 228,
+  "gates": {
+    "reliability_kappa_min": 0.7,
+    "reliability_low_prevalence": {
+      "minority_below": 0.1,
+      "ac1_min": 0.85,
+      "raw_agreement_min": 0.92
+    },
+    "unresolved_max": 0.05,
+    "jev_precision_min": 0.85,
+    "jev_approved_min": 20,
+    "negatives_min_for_pass": 10,
+    "triage_p_min": 0.7
+  },
+  "questions": {
+    "gov_codenavi": "This skill text states CodENavi Full Workspace v2 governance and that the skill belongs to codenavi-agent with no separate agent identity.",
+    "provenance_pointer": "This skill text points to provenance, evidence paths, or verifiable code pointers rather than opinion only.",
+    "secrets_runtime_only": "This skill text contains at least one explicit rule that protects secrets or credentials: keeping them in runtime providers, redacting or masking them, or never persisting them. Answer no if secrets are not mentioned or are mentioned without any protective rule.",
+    "fail_closed": "This skill text says that when evidence, inputs or permissions are missing, the affected action must be blocked or stopped rather than guessed."
+  }
+}

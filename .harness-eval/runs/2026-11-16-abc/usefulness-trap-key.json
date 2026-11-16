@@ -1,0 +1,21 @@
+{
+  "pass_threshold_misses": 1,
+  "plants": [
+    {
+      "id": "S901",
+      "expected_family": "SLIM",
+      "title": "Clean coding tips"
+    },
+    {
+      "id": "S902",
+      "expected_family": "SLIM",
+      "title": "Assistant highlights"
+    },
+    {
+      "id": "S903",
+      "expected_family": "KEEP-CORE",
+      "title": "Module boundary rule"
+    }
+  ],
+  "note": "Orchestrator-only. Judges must not read this file."
+}

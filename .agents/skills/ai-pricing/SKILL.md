@@ -1,6 +1,6 @@
 ---
 name: ai-pricing
-description: When the user wants to price an AI product, choose a charge metric, design pricing tiers, or optimize margins. Also use when the user mentions 'AI pricing,' 'usage-based pricing,' 'consumption pricing,' 'outcome pricing,' 'BYOK,' 'bring your own key,' 'per-seat pricing,' 'pricing tiers,' 'AI margins,' 'cost per token,' or 'pricing model.' This skill covers pricing strategy, packaging, and margin management for AI-native products. Do NOT use for technical implementation, code review, or software architecture.
+description: "Price AI products: charge metric, tiers, packaging, margins. Use for AI pricing or BYOK. Do NOT use for code or architecture work."
 license: CC-BY-4.0
 metadata:
   author: Chad Boyda / agent-gtm-skills

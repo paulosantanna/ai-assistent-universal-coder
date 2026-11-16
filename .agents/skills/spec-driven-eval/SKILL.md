@@ -1,6 +1,6 @@
 ---
 name: spec-driven-eval
-description: Scores how completely an implementation fulfills a PRD/spec, case by case, and produces a single comparable final grade. Invoke only when explicitly named (e.g. run spec-driven-eval); do not auto-trigger. Use when benchmarking spec-driven implementations, grading acceptance criteria, evaluating whether a feature was 100% implemented, comparing multiple implementations of the same PRD, or auditing implementation and test coverage (unit and e2e) against product requirements. Do NOT use for planning or building features (use tlc-spec-driven), writing PRDs, or general code review unrelated to a spec.
+description: "Grade how fully an implementation fulfills a PRD, with one comparable score. Use when explicitly named. Do NOT use to build (tlc-spec-driven)."
 license: CC-BY-4.0
 metadata:
   author: Waldemar Neto - github.com/waldemarnt

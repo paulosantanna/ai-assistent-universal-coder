@@ -1,6 +1,6 @@
 ---
 name: tlc-discover
-description: Interviews an unshaped idea into a verdict and a design document - decisions, flows, schema, contracts - that anyone can plan from without having been in the room. Use when the user says "research this", "help me understand this problem", "should we build this", "discovery", "explore this problem", or "tlc-discover". Do NOT use to cut a finished design into tasks, or to implement.
+description: "Interview an unshaped idea into a verdict and design doc. Use for 'should we build this' or discovery. Do NOT use to cut tasks or implement."
 license: CC-BY-4.0
 metadata:
   author: Tech Leads Club - github.com/tech-leads-club

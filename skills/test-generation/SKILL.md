@@ -1,6 +1,6 @@
 ---
 name: test-generation
-description: Detect test gaps and generate proposed tests in sandbox. Use when the user requests test generation or invokes test-generation. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+description: "Detect test gaps and generate proposed tests in a sandbox. Use for test generation. Do NOT use as deployment approval or for unexecuted checks."
 license: CC-BY-4.0
 metadata:
   author: AEOS

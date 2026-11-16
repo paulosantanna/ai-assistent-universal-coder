@@ -1,6 +1,6 @@
 ---
 name: ci-quality-gate-engineer
-description: Create CI/CD quality gates for AEOS and target projects. Use when the user requests ci quality gate engineer or invokes ci-quality-gate-engineer. Do NOT use for unrelated languages, domains or production deployment.
+description: "Create CI/CD quality gates for AEOS and target projects. Use when asked for CI quality gates. Do NOT use for production deployment."
 license: CC-BY-4.0
 metadata:
   author: AEOS

@@ -1,6 +1,6 @@
 ---
 name: atualizar-dependencias
-description: Update project dependencies with manifest/lockfile compatibility and regression evidence. Use when the user requests atualizar dependencias or invokes atualizar-dependencias. Do NOT use for unrelated languages, domains or production deployment.
+description: "Update dependencies with manifest/lockfile compatibility and regression evidence. Use for atualizar dependências. Do NOT use for deployment."
 license: CC-BY-4.0
 metadata:
   author: AEOS

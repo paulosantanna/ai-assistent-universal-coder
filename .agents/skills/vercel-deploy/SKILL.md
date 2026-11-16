@@ -1,6 +1,6 @@
 ---
 name: vercel-deploy
-description: Deploy applications and websites to Vercel. Use when the user requests deployment actions like "deploy my app", "deploy and give me the link", "push this live", or "create a preview deployment". Do NOT use for deploying to Netlify, Cloudflare, or Render (use their respective skills).
+description: "Deploy apps and websites to Vercel, including previews. Use for Vercel deploys or live links. Do NOT use for Netlify, Cloudflare or Render."
 license: CC-BY-4.0
 metadata:
   author: github.com/openai/skills

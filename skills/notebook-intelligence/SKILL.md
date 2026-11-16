@@ -1,6 +1,6 @@
 ---
 name: notebook-intelligence
-description: Maintain compact, fresh project intelligence in `.notebook/` using progressive disclosure. Use when the user requests notebook intelligence or invokes notebook-intelligence. Do NOT use to promote unverified claims or transient task status into durable memory.
+description: "Maintain compact, fresh project intelligence in .notebook/. Use for notebook maintenance. Do NOT use to promote unverified claims."
 license: CC-BY-4.0
 metadata:
   author: AEOS

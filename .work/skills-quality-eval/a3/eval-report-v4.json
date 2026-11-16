@@ -1,0 +1,420 @@
+{
+  "amendment": "A3",
+  "frozen_sha256": "e3c59f3358bf0e9cea90a2a7cc03f1b7ddf6f103b85e489a6bc85fbb00e0d5b3",
+  "n_skills": 324,
+  "per_dimension": {
+    "gov_codenavi": {
+      "reliability": {
+        "n_both_valid": 324,
+        "raw_agreement": 1.0,
+        "kappa": null,
+        "ac1": 1.0,
+        "prevalence_pos": 1.0,
+        "minority_prevalence": 0.0,
+        "u_a1": 0,
+        "u_a2": 0,
+        "rule": "low-prevalence: AC1>=0.85 and raw>=0.92",
+        "reliability_pass": true
+      },
+      "n_null_consensus": 0,
+      "null_share": 0.0,
+      "strata_counts": {
+        "S1_A1eqA2": 324,
+        "ADJ": 0,
+        "null": 0
+      },
+      "jev_headline_S1": {
+        "tp": 324,
+        "fp": 0,
+        "fn": 0,
+        "tn": 0,
+        "approved": 324,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "specificity": null,
+        "n": 324,
+        "positives": 324,
+        "negatives": 0,
+        "review_band_share": 0.0,
+        "wilson_precision_95": [
+          0.9882825714160607,
+          0.9999999999999999
+        ],
+        "verdict": "uninformative"
+      },
+      "jev_all_consensus": {
+        "tp": 324,
+        "fp": 0,
+        "fn": 0,
+        "tn": 0,
+        "approved": 324,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "specificity": null,
+        "n": 324,
+        "positives": 324,
+        "negatives": 0,
+        "review_band_share": 0.0,
+        "wilson_precision_95": [
+          0.9882825714160607,
+          0.9999999999999999
+        ]
+      },
+      "jev_tuning_free_S1": {
+        "tp": 228,
+        "fp": 0,
+        "fn": 0,
+        "tn": 0,
+        "approved": 228,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "specificity": null,
+        "n": 228,
+        "positives": 228,
+        "negatives": 0,
+        "review_band_share": 0.0,
+        "wilson_precision_95": [
+          0.983430664645434,
+          1.0
+        ]
+      },
+      "jev_vs_silver_rules": {
+        "tp": 324,
+        "fp": 0,
+        "fn": 0,
+        "tn": 0,
+        "approved": 324,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "specificity": null,
+        "n": 324,
+        "positives": 324,
+        "negatives": 0,
+        "review_band_share": 0.0,
+        "wilson_precision_95": [
+          0.9882825714160607,
+          0.9999999999999999
+        ]
+      },
+      "silver_vs_consensus": {
+        "n": 324,
+        "raw_agreement": 1.0,
+        "kappa": null
+      }
+    },
+    "provenance_pointer": {
+      "reliability": {
+        "n_both_valid": 324,
+        "raw_agreement": 1.0,
+        "kappa": null,
+        "ac1": 1.0,
+        "prevalence_pos": 1.0,
+        "minority_prevalence": 0.0,
+        "u_a1": 0,
+        "u_a2": 0,
+        "rule": "low-prevalence: AC1>=0.85 and raw>=0.92",
+        "reliability_pass": true
+      },
+      "n_null_consensus": 0,
+      "null_share": 0.0,
+      "strata_counts": {
+        "S1_A1eqA2": 324,
+        "ADJ": 0,
+        "null": 0
+      },
+      "jev_headline_S1": {
+        "tp": 324,
+        "fp": 0,
+        "fn": 0,
+        "tn": 0,
+        "approved": 324,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "specificity": null,
+        "n": 324,
+        "positives": 324,
+        "negatives": 0,
+        "review_band_share": 0.0,
+        "wilson_precision_95": [
+          0.9882825714160607,
+          0.9999999999999999
+        ],
+        "verdict": "uninformative"
+      },
+      "jev_all_consensus": {
+        "tp": 324,
+        "fp": 0,
+        "fn": 0,
+        "tn": 0,
+        "approved": 324,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "specificity": null,
+        "n": 324,
+        "positives": 324,
+        "negatives": 0,
+        "review_band_share": 0.0,
+        "wilson_precision_95": [
+          0.9882825714160607,
+          0.9999999999999999
+        ]
+      },
+      "jev_tuning_free_S1": {
+        "tp": 228,
+        "fp": 0,
+        "fn": 0,
+        "tn": 0,
+        "approved": 228,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "specificity": null,
+        "n": 228,
+        "positives": 228,
+        "negatives": 0,
+        "review_band_share": 0.0,
+        "wilson_precision_95": [
+          0.983430664645434,
+          1.0
+        ]
+      },
+      "jev_vs_silver_rules": {
+        "tp": 303,
+        "fp": 21,
+        "fn": 0,
+        "tn": 0,
+        "approved": 324,
+        "precision": 0.9351851851851852,
+        "recall": 1.0,
+        "f1": 0.9665071770334929,
+        "specificity": 0.0,
+        "n": 324,
+        "positives": 303,
+        "negatives": 21,
+        "review_band_share": 0.0,
+        "wilson_precision_95": [
+          0.9029521748743821,
+          0.9572196928395968
+        ]
+      },
+      "silver_vs_consensus": {
+        "n": 324,
+        "raw_agreement": 0.9352,
+        "kappa": 0.0
+      }
+    },
+    "secrets_runtime_only": {
+      "reliability": {
+        "n_both_valid": 324,
+        "raw_agreement": 0.9907407407407407,
+        "kappa": 0.9754098360655736,
+        "ac1": 0.9851486283108092,
+        "prevalence_pos": 0.7484567901234568,
+        "minority_prevalence": 0.2515432098765432,
+        "u_a1": 0,
+        "u_a2": 0,
+        "rule": "kappa>=0.70",
+        "reliability_pass": true
+      },
+      "n_null_consensus": 0,
+      "null_share": 0.0,
+      "strata_counts": {
+        "S1_A1eqA2": 321,
+        "ADJ": 3,
+        "null": 0
+      },
+      "jev_headline_S1": {
+        "tp": 241,
+        "fp": 0,
+        "fn": 0,
+        "tn": 80,
+        "approved": 241,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "specificity": 1.0,
+        "n": 321,
+        "positives": 241,
+        "negatives": 80,
+        "review_band_share": 0.0125,
+        "wilson_precision_95": [
+          0.9843104231658806,
+          1.0
+        ],
+        "verdict": "pass"
+      },
+      "jev_all_consensus": {
+        "tp": 243,
+        "fp": 0,
+        "fn": 0,
+        "tn": 81,
+        "approved": 243,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "specificity": 1.0,
+        "n": 324,
+        "positives": 243,
+        "negatives": 81,
+        "review_band_share": 0.0154,
+        "wilson_precision_95": [
+          0.9844375458697022,
+          1.0
+        ]
+      },
+      "jev_tuning_free_S1": {
+        "tp": 176,
+        "fp": 0,
+        "fn": 0,
+        "tn": 50,
+        "approved": 176,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "specificity": 1.0,
+        "n": 226,
+        "positives": 176,
+        "negatives": 50,
+        "review_band_share": 0.0133,
+        "wilson_precision_95": [
+          0.9786397480025362,
+          1.0
+        ]
+      },
+      "jev_vs_silver_rules": {
+        "tp": 241,
+        "fp": 0,
+        "fn": 0,
+        "tn": 2,
+        "approved": 241,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "specificity": 1.0,
+        "n": 243,
+        "positives": 241,
+        "negatives": 2,
+        "review_band_share": 0.0,
+        "wilson_precision_95": [
+          0.9843104231658806,
+          1.0
+        ]
+      },
+      "silver_vs_consensus": {
+        "n": 243,
+        "raw_agreement": 1.0,
+        "kappa": 1.0
+      }
+    },
+    "fail_closed": {
+      "reliability": {
+        "n_both_valid": 324,
+        "raw_agreement": 0.9012345679012346,
+        "kappa": 0.7154618804544707,
+        "ac1": 0.8498479362780594,
+        "prevalence_pos": 0.7808641975308642,
+        "minority_prevalence": 0.21913580246913578,
+        "u_a1": 0,
+        "u_a2": 0,
+        "rule": "kappa>=0.70",
+        "reliability_pass": true
+      },
+      "n_null_consensus": 2,
+      "null_share": 0.0062,
+      "strata_counts": {
+        "S1_A1eqA2": 292,
+        "ADJ": 30,
+        "null": 2
+      },
+      "jev_headline_S1": {
+        "tp": 234,
+        "fp": 2,
+        "fn": 3,
+        "tn": 53,
+        "approved": 236,
+        "precision": 0.9915254237288136,
+        "recall": 0.9873417721518988,
+        "f1": 0.9894291754756872,
+        "specificity": 0.9636363636363636,
+        "n": 292,
+        "positives": 237,
+        "negatives": 55,
+        "review_band_share": 0.0993,
+        "wilson_precision_95": [
+          0.969632776452965,
+          0.9976728807179375
+        ],
+        "verdict": "pass"
+      },
+      "jev_all_consensus": {
+        "tp": 236,
+        "fp": 2,
+        "fn": 25,
+        "tn": 59,
+        "approved": 238,
+        "precision": 0.9915966386554622,
+        "recall": 0.9042145593869731,
+        "f1": 0.9458917835671342,
+        "specificity": 0.9672131147540983,
+        "n": 322,
+        "positives": 261,
+        "negatives": 61,
+        "review_band_share": 0.1553,
+        "wilson_precision_95": [
+          0.9698835733661862,
+          0.9976924621176849
+        ]
+      },
+      "jev_tuning_free_S1": {
+        "tp": 173,
+        "fp": 2,
+        "fn": 2,
+        "tn": 31,
+        "approved": 175,
+        "precision": 0.9885714285714285,
+        "recall": 0.9885714285714285,
+        "f1": 0.9885714285714285,
+        "specificity": 0.9393939393939394,
+        "n": 208,
+        "positives": 175,
+        "negatives": 33,
+        "review_band_share": 0.0913,
+        "wilson_precision_95": [
+          0.9592938747417158,
+          0.9968602579166367
+        ]
+      },
+      "jev_vs_silver_rules": {
+        "tp": 211,
+        "fp": 15,
+        "fn": 2,
+        "tn": 56,
+        "approved": 226,
+        "precision": 0.9336283185840708,
+        "recall": 0.9906103286384976,
+        "f1": 0.9612756264236902,
+        "specificity": 0.7887323943661971,
+        "n": 284,
+        "positives": 213,
+        "negatives": 71,
+        "review_band_share": 0.1092,
+        "wilson_precision_95": [
+          0.89339293731334,
+          0.9593687922457568
+        ]
+      },
+      "silver_vs_consensus": {
+        "n": 284,
+        "raw_agreement": 0.9085,
+        "kappa": 0.7219251336898397
+      }
+    }
+  },
+  "overall_verdict": "partial"
+}

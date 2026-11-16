@@ -1,6 +1,6 @@
 ---
 name: llm-calibration-temperature-expert
-description: Engineer and evaluate decoding/calibration behavior for LLM applications instead of treating temperature as a magic quality knob. Use when the user requests llm calibration temperature expert or invokes llm-calibration-temperature-expert. Do NOT use for unrelated languages, domains or production deployment.
+description: "Engineer LLM decoding and calibration behavior instead of tuning temperature blindly. Use for LLM calibration. Do NOT use for unrelated stacks."
 license: CC-BY-4.0
 metadata:
   author: AEOS

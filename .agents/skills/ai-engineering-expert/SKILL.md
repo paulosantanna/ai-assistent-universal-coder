@@ -1,6 +1,6 @@
 ---
 name: ai-engineering-expert
-description: Build or refactor production AI systems end-to-end from requirements to monitored deployment. Use when the user requests ai engineering expert or invokes ai-engineering-expert. Do NOT use for unrelated languages, domains or production deployment.
+description: "Build or refactor production AI systems from requirements to monitored deployment. Use for AI engineering. Do NOT use for unrelated domains."
 license: CC-BY-4.0
 metadata:
   author: AEOS

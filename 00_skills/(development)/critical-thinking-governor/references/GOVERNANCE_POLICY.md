@@ -2,7 +2,7 @@
 
 ## Escopo
 
-Esta política cobre todas as entradas de `aeos/registries/skills.registry.yaml`, inclusive o próprio `critical-thinking-governor`, e herda o agent único definido em `AGENT.md`.
+Esta política cobre todas as entradas de `aeos/registries/skills.registry.yaml`, inclusive o próprio `critical-thinking-governor`, e herda o agent único definido em `AGENTS.md`.
 
 ## Baseline imutável
 

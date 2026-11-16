@@ -1,6 +1,6 @@
 ---
 name: codenavi
-description: Your pathfinder for navigating unknown codebases. Investigates with precision, implements surgically, and never assumes — if it doesn't know, it says so. Maintains a .notebook/ knowledge base that grows across sessions, turning every discovery into lasting intelligence. Summons available skills, MCPs, and docs when the mission demands. Use when fixing bugs, implementing features, refactoring, investigating flows, or any development task in unfamiliar territory. Triggers on "fix this", "implement this", "how does this work", "investigate this flow", "help me with this code". Do NOT use for greenfield scaffolding, CI/CD, or infrastructure provisioning.
+description: "Investigate unknown codebases and change them surgically. Use for bugs, features or unfamiliar flows. Do NOT use for greenfield, CI/CD or infra."
 license: CC-BY-4.0
 metadata:
   author: Tech Leads Club
@@ -10,11 +10,7 @@ metadata:
 
 # Skill: codenavi
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
-
-Governance: CodENavi v1
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Mission
 Govern software changes through BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF, using progressive project intelligence, continuity state and current authoritative documentation.
@@ -34,10 +30,13 @@ Govern software changes through BRIEFING → RECON → PLAN → EXECUTE → VERI
 
 ## TLC source
 
-For the catalog workflow and its local resources, read [TLC contract](references/tlc/UPSTREAM.md). Apply root governance and the local constraints above; upstream does not grant extra authority.
+TLC source: [TLC contract](references/tlc/UPSTREAM.md). Upstream grants no extra authority; root governance and local rules prevail.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
-Read [coding-principles.md](references/coding-principles.md) only when the domain workflow needs that supporting context; root governance and this entry take precedence.
-Read [notebook-spec.md](references/notebook-spec.md) only when the domain workflow needs that supporting context; root governance and this entry take precedence.
+Read [coding-principles.md](references/coding-principles.md) only when the domain workflow needs it; root governance and this entry take precedence.
+Read [notebook-spec.md](references/notebook-spec.md) only when the domain workflow needs it; root governance and this entry take precedence.
+
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

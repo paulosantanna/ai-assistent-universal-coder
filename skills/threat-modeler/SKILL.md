@@ -1,6 +1,6 @@
 ---
 name: threat-modeler
-description: Produce AEOS threat models for prompt injection, tool poisoning, secret leakage and package tampering. Use when the user requests threat modeler or invokes threat-modeler. Do NOT use outside authorized defensive scope or to expose secret values.
+description: "Produce AEOS threat models for prompt injection, tool poisoning and secret leakage. Use for AEOS threat models. Do NOT use outside authorized scope."
 license: CC-BY-4.0
 metadata:
   author: AEOS

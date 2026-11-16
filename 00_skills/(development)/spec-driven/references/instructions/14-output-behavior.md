@@ -1,5 +1,3 @@
-<!-- Package: 00_skills/(development)/spec-driven; relative command/resource examples resolve from that package or workspace root. -->
+# Current workflow
 
-## Output behavior
-
-Produce the artifact; do not narrate the phase. Lead with the verdict. Writing rules: `references/coding-principles.md`.
+This previous routing module is superseded by the [current contract](../../SKILL.md). Read it for the requested version, phase resources and gates.

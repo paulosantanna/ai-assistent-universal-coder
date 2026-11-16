@@ -1,6 +1,6 @@
 ---
 name: perf-lighthouse
-description: 'Assimilated TLC Lighthouse audit skill. Run Lighthouse via CLI or Node, parse reports, set performance budgets. Triggers: lighthouse, run lighthouse, lighthouse score, performance audit, performance budget. Do not use to implement CWV or generic speed fixes (core-web-vitals, perf-web-optimization) or Astro-only config (perf-astro).'
+description: "Run Lighthouse via CLI or Node, parse reports, set budgets. Use for Lighthouse audits. Do NOT use for CWV fixes (core-web-vitals)."
 license: CC-BY-4.0
 metadata:
   author: Tech Leads Club
@@ -10,15 +10,13 @@ metadata:
 
 # Perf Lighthouse
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 Assimilated from installed `perf-lighthouse`. Original contract: `references/ORIGINAL_SKILL.md`.
 
 ## Identity
 
-A skill of the single canonical `codenavi-agent`. It creates no new agent identity.
+Run Lighthouse via CLI or Node, parse reports, set budgets. Use for Lighthouse audits. Do NOT use for CWV fixes (core-web-vitals).
 
 ## Mission
 
@@ -48,9 +46,12 @@ Promote only verified durable budgets (paths, thresholds) into `.notebook/MEMORY
 
 ## TLC source
 
-For the catalog workflow and its local resources, read [TLC contract](references/tlc/UPSTREAM.md). Apply root governance and the local constraints above; upstream does not grant extra authority.
+TLC source: [TLC contract](references/tlc/UPSTREAM.md). Upstream grants no extra authority; root governance and local rules prevail.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
-Read [package-notes.md](references/package-notes.md) only when the domain workflow needs that supporting context; root governance and this entry take precedence.
+Read [package-notes.md](references/package-notes.md) only when the domain workflow needs it; root governance and this entry take precedence.
+
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

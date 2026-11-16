@@ -1,6 +1,6 @@
 ---
 name: "the-jury"
-description: "Evaluate a decidable question through 3 or 5 orthogonal sequential lenses of codenavi-agent, then tally a verdict with dissent and evidence. Use for monte um júri, painel de decisão or compare options through multiple perspectives. Do NOT use to spawn agents, claim independent cognition, merely critique (the-fool) or implement the decision."
+description: "Tally a verdict on a decidable question through 3 or 5 orthogonal lenses. Use for decision panels. Do NOT use to spawn agents or implement."
 license: "CC-BY-4.0"
 metadata:
   author: "AEOS"

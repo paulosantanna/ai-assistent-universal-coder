@@ -1,6 +1,6 @@
 ---
 name: mantis-calibrate
-description: Calculates the final risk score based on empirical evidence and architectural impact. Use when findings have been fully processed by previous stages and you need to append final risk scores to the finding files. Don't use for discovering new vulnerabilities or writing patches.
+description: "Calculate final risk scores from evidence and architectural impact. Use when findings are processed. Do NOT use to find vulnerabilities or patch."
 license: CC-BY-4.0
 metadata:
   author: AEOS

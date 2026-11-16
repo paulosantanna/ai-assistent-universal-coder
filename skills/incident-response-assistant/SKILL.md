@@ -1,6 +1,6 @@
 ---
 name: incident-response-assistant
-description: Support human-led incident triage, RCA and recovery without replacing production authority. Use when the user requests incident response assistant or invokes incident-response-assistant. Do NOT use to restart, scale or mutate live systems without an authorized operations task.
+description: "Support human-led incident triage, RCA and recovery. Use for incident support. Do NOT use to mutate live systems unless authorized."
 license: CC-BY-4.0
 metadata:
   author: AEOS

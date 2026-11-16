@@ -1,6 +1,6 @@
 ---
 name: mantis-plan
-description: Formulates a targeted defensive security reviewing plan based on the active threat model and historical learnings. Use when starting a security review campaign to map the codebase boundaries and generate a roadmap (workspace/plan.json). Don't use for executing code reviews, writing test scripts, or patching code.
+description: "Formulate a targeted defensive review plan from the threat model and learnings. Use when starting a campaign. Do NOT use for reviews or patches."
 license: CC-BY-4.0
 metadata:
   author: AEOS

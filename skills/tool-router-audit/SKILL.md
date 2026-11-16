@@ -1,6 +1,6 @@
 ---
 name: tool-router-audit
-description: Audit whether AEOS code and playbooks enforce Tool Router for every external action. Use when the user requests tool router audit or invokes tool-router-audit. Do NOT use for unrelated tools or unapproved remote writes.
+description: "Audit whether AEOS code and playbooks enforce Tool Router for external actions. Use for Tool Router audits. Do NOT use for unapproved remote writes."
 license: CC-BY-4.0
 metadata:
   author: AEOS

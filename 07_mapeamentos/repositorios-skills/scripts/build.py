@@ -3,14 +3,17 @@ import collections
 import csv
 import hashlib
 import html
+import io
 import json
 import re
+import time
 import tomllib
 from pathlib import Path
 from profiles import PROFILES, GROUPS, TRANSVERSAL, CONDITIONAL
 from inventory import ROOT, OUT
 
-DATE = '2026-10-13'
+DATE = '2026-11-16'
+ATTEMPTS = 8
 DIMENSIONS = [('technology','Tecnologias e versões'),('architecture','Arquitetura'),
  ('purpose','Propósito'),('flow','Fluxo'),('data','Dados'),('deployment','Configuração/deploy'),
  ('operation','Operação/observabilidade'),('interfaces','Interfaces/dependências'),
@@ -27,17 +30,45 @@ STACKS = {
  'pdfcraft':'Rust edição 2024 · egui/eframe · engine PDF · CLI/MCP opt-in',
  'remove-onedrive':'PowerShell · operações Windows/OneDrive',
  'RemoveWindowsAI':'Windows PowerShell 5.1 · registro/Appx/TrustedInstaller',
+ 'Awesome-LLM-Post-training':'Markdown · links · bibliografia pós-treino LLM',
+ 'enterprise-llm-finetuning':'Python · HuggingFace/PEFT · FAISS RAG · pipeline enterprise',
+ 'ncm':'Python · PyTorch · VQ-VAE multiescala · NCM',
+ 'post_training_llms':'Python · SFT/DPO/GRPO · notebooks · YAML config',
+ 'rag-and-fine-tuning-demo':'Python · RAG vs fine-tuning · demo educacional',
+ 'rag-finetuning':'Python · Kubeflow · Feast · embeddings RAG 384-d',
 }
 evidence = {}
 
 
-def save(path, value):
+def save(path, value, encoding='utf-8', newline='\n'):
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(value, encoding='utf-8', newline='\n')
+    # Windows observers (indexer/AV/IDE) intermittently hold a just-written file and make the next
+    # open-for-write fail with EINVAL/EACCES (reproduced: 5 of 30 identical rewrites of mapa.json).
+    # Retry briefly; content is unchanged, so regeneration stays byte-identical. Never swallow the error.
+    for attempt in range(1, ATTEMPTS + 1):
+        try:
+            path.write_text(value, encoding=encoding, newline=newline)
+            return
+        except OSError as error:
+            if attempt == ATTEMPTS:
+                raise OSError(f'{path} still not writable after {ATTEMPTS} attempts: {error}') from error
+            time.sleep(0.25 * attempt)
 
 
 def sha(raw):
     return hashlib.sha256(raw).hexdigest()
+
+
+def catalog_sha(raw):
+    # Same definition as 00_skills/(creation)/skill-factory/scripts/validate-workspace.py:digest
+    # (CRLF->LF for UTF-8 text). A raw-bytes compare reads CRLF checkouts as false catalog drift.
+    if b'\0' not in raw:
+        try:
+            raw.decode('utf-8')
+            raw = raw.replace(b'\r\n', b'\n')
+        except UnicodeDecodeError:
+            pass
+    return sha(raw)
 
 
 def read_text(path):
@@ -127,7 +158,7 @@ def build():
     skill_evidence = []
     for s in skills:
         raw = (ROOT/s['path']).read_bytes()
-        if sha(raw) != s['sha256']:
+        if catalog_sha(raw) != s['sha256']:
             raise ValueError('Catalog skill hash drift: '+s['id'])
         skill_evidence.append({'id':s['id'],'path':s['path'],'sha256':sha(raw),
                                'runtime_binding':s['runtime_binding'],'aliases':s.get('aliases',[])})
@@ -188,11 +219,11 @@ def build():
     relations = [
         {'from':'dark-videos-mining-fix','to':'dark-videos','type':'pacote de correção','state':'documentado; não chamada runtime',
          'evidence':[cite('dark-videos-mining-fix','README.md','Aplicado em D:/Git/dark-videos')]},
-        {'from':'dark-videos','to':'serviço externo LAYA','type':'cliente HTTP','state':'endpoint observado; disponibilidade não verificada',
-         'evidence':[cite('dark-videos','backend/app/modules/learning/laya_jev_client.py','https://api.laya.ai/v1/decisions')]},
+        {'from':'dark-videos','to':'serviço local GraphRAG + Laya','type':'cliente HTTP loopback','state':'contrato loopback observado; disponibilidade não verificada',
+         'evidence':[cite('dark-videos','backend/app/modules/learning/laya_jev_client.py','loopback HTTP origin')]},
     ]
     data = {'schema_version':1,'updated':DATE,'owner':'codenavi-agent',
-        'scope':'11 diretórios; análise estática seletiva de fontes próprias; sem executar projetos',
+        'scope':'17 diretórios (beta 3.0.0); análise estática seletiva de fontes próprias; sem executar projetos',
         'catalog_sha256':sha(cat_bytes),'catalog_skills':len(skills),
         'repositories':repos,'skills':skill_evidence,'matrix':matrix,'evidence':list(evidence.values()),
         'relations':relations,'non_edges':[
@@ -232,16 +263,20 @@ def build():
         lines += ['- '+markdown_ref(r,1) for r in repo['quality']['evidence']]
         lines+=['\n## Lacunas\n']+['- '+g for g in repo['gaps']]
         save(OUT/'repositorios'/f"{repo['name']}.md",'\n'.join(lines)+'\n')
-    with (OUT/'matriz.csv').open('w',encoding='utf-8-sig',newline='') as f:
-        writer=csv.writer(f)
-        writer.writerow(['repositorio','skill','categoria','aplicabilidade','motivo','skill_path','evidencias'])
-        for r in matrix:
-            writer.writerow([r['repository'],r['skill'],r['category'],r['status'],r['reason'],r['skill_path'],'; '.join(r['evidence'])])
+    buffer=io.StringIO(newline='')
+    writer=csv.writer(buffer)
+    writer.writerow(['repositorio','skill','categoria','aplicabilidade','motivo','skill_path','evidencias'])
+    for r in matrix:
+        writer.writerow([r['repository'],r['skill'],r['category'],r['status'],r['reason'],r['skill_path'],'; '.join(r['evidence'])])
+    save(OUT/'matriz.csv',buffer.getvalue(),encoding='utf-8-sig',newline='')
     unused = [s['id'] for s in skills if not any(r['skill']==s['id'] and r['status'] in {'direta','transversal','condicionada'} for r in matrix)]
     counts=dict(collections.Counter(r['status'] for r in matrix))
     summary=[ '# Mapeamento dos repositórios com as skills do workspace',f'\nUpdated: {DATE}',
       '\nEntry point: [relatório HTML offline](relatorio.html). Fontes: [mapa estruturado](mapa.json), [matriz CSV](matriz.csv), [inventário delimitado](inventory.json), [verificação](verificacao.json).',
-      f'\n**{len(repos)} projetos/diretórios · {len(skills)} skills canônicas · {len(matrix)} decisões de aplicabilidade.** Dez têm Git próprio; dark-videos-mining-fix é pacote de trabalho. Aliases e pointers .agents/.codex não foram contados como novas skills.',
+      f'\n**{len(repos)} projetos/diretórios · {len(skills)} skills canônicas · {len(matrix)} decisões de aplicabilidade.** '
+      f'{sum(1 for r in repos if r["kind"].startswith("Git"))} têm Git próprio; '
+      f'{sum(1 for r in repos if not r["kind"].startswith("Git"))} pacote(s) sem Git. '
+      f'Aliases e pointers .agents/.codex não foram contados como novas skills.',
       '\nGovernança: herda [AGENTS.md](../../AGENTS.md) e o ciclo BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF. Scope/inputs/outputs/riscos/gates: [SPEC](../../.specs/repository-skill-map/SPEC.md).',
       '\n## Como usar\n',
       '- Direta: stack, domínio ou interface fornecem motivo concreto para usar a skill em tarefa correspondente.',

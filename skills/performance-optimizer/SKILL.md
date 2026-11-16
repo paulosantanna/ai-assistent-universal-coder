@@ -1,6 +1,6 @@
 ---
 name: performance-optimizer
-description: Measure, classify and improve AEOS hot paths across registry loading, skill execution, evidence writing, repository scanning, LSP indexing and TypeScript runtime execution. Use when the user requests performance optimizer or invokes performance-optimizer. Do NOT use for unrelated functionality or unmeasured speculative optimization.
+description: "Measure and improve AEOS hot paths: registry, skill runs, evidence. Use for measured optimization. Do NOT use for speculative tuning."
 license: CC-BY-4.0
 metadata:
   author: AEOS

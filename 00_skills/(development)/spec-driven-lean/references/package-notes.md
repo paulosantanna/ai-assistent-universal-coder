@@ -1,5 +1,3 @@
-# spec-driven-lean
+# Usage and verification
 
-AEOS assimilation of installed Tech Lead's Club `tlc-spec-lean` 1.0.0.
-
-Owned by `codenavi-agent`. Plan → Checks → Build → Verify with scripted Python gates. No task catalogue. Original contracts stay under `references/`. Default verification profile is `light`. Optional Node `.mjs` wrappers exist only as a fallback when Python cannot run.
+Read the [current contract](../SKILL.md) for examples, failure handling and the pinned workflow. Historical package instructions are superseded by that entry.

@@ -1,6 +1,6 @@
 ---
 name: mantis-threat-model
-description: Synthesizes trust boundaries, attack surfaces, and attacker profiles into a living threat model. Use as Stage B of the Knowledge Base generation process, reading architecture and entity definitions from the KB. Don't use for analyzing source code or extracting raw learnings from JSONL files. Use when the user requests mantis threat model or invokes mantis-threat-model.
+description: "Synthesize trust boundaries, attack surfaces and attackers into a living threat model. Use for KB stage B. Do NOT use for source analysis."
 license: CC-BY-4.0
 metadata:
   author: AEOS

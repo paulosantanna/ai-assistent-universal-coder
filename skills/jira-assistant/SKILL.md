@@ -1,6 +1,6 @@
 ---
 name: jira-assistant
-description: Manage Jira issues via Atlassian MCP — search, create, update, transition status, and handle sprint tasks. Auto-detects workspace configuration. Use when user says "create a Jira ticket", "update my sprint", "check Jira status", "transition this issue", "search Jira", or "move ticket to done". Do NOT use for Confluence pages (use confluence-assistant).
+description: "Manage Jira issues via Atlassian MCP: search, create, update, transition. Use for Jira tickets. Do NOT use for Confluence (confluence-assistant)."
 license: CC-BY-4.0
 metadata:
   author: AEOS

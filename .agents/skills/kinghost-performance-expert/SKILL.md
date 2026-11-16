@@ -1,6 +1,6 @@
 ---
 name: kinghost-performance-expert
-description: Measurement-driven KingHost performance skill for resource consumption, Varnish/cache, PHP runtime, PageSpeed and application/database optimization. Use when the user requests kinghost performance expert or invokes kinghost-performance-expert. Do NOT use for unrelated application features or unapproved production changes.
+description: "Measured KingHost performance: resources, cache, PHP runtime, PageSpeed. Use for KingHost performance. Do NOT use for unapproved prod changes."
 license: CC-BY-4.0
 metadata:
   author: AEOS

@@ -1,6 +1,6 @@
 ---
 name: mcp-discovery
-description: Discover and validate MCP tools and capabilities against AEOS policies. Use when the user requests mcp discovery or invokes mcp-discovery. Do NOT use for unrelated tools or unapproved remote writes.
+description: "Discover and validate MCP tools and capabilities against AEOS policies. Use for MCP discovery. Do NOT use for unapproved remote writes."
 license: CC-BY-4.0
 metadata:
   author: AEOS

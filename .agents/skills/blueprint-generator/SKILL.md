@@ -1,6 +1,6 @@
 ---
 name: blueprint-generator
-description: Generate an evidence-based project blueprint covering boundaries, components, data, deployment constraints and verification gates. Use when the user requests blueprint generator or invokes blueprint-generator. Do NOT use for an unrelated implementation change or deployment execution.
+description: "Generate an evidence-based project blueprint: boundaries, components, data, gates. Use for blueprints. Do NOT use for implementation or deployment."
 license: CC-BY-4.0
 metadata:
   author: AEOS

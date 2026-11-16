@@ -1,6 +1,6 @@
 ---
 name: observability-reporter
-description: Generate execution timeline, metrics, trace summaries and failure analysis. Use when the user requests observability reporter or invokes observability-reporter. Do NOT use to restart, scale or mutate live systems without an authorized operations task.
+description: "Generate timelines, metrics, trace summaries and failure analysis. Use for observability reports. Do NOT use to mutate live systems unless authorized."
 license: CC-BY-4.0
 metadata:
   author: AEOS

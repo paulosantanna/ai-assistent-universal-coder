@@ -1,10 +1,10 @@
 ---
 name: rag-expert
-description: Implement or repair Retrieval-Augmented Generation systems with measurable grounding quality. Use when the user requests rag expert or invokes rag-expert. Do NOT use for unrelated languages, domains or production deployment.
+description: "Implement and evaluate grounded retrieval: hybrid search, reranking, citations. Use for RAG work. Do NOT use for standalone Laya training."
 license: CC-BY-4.0
 metadata:
   author: AEOS
-  version: 1.0.0
+  version: 1.1.0
   owner_agent: codenavi-agent
 ---
 

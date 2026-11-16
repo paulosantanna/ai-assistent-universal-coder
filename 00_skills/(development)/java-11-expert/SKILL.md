@@ -1,6 +1,6 @@
 ---
 name: java-11-expert
-description: Build and modernize production Java 11 systems with explicit Java 8→11 compatibility analysis. Use when the user requests java 11 expert or invokes java-11-expert. Do NOT use for unrelated languages, domains or production deployment.
+description: "Build and modernize Java 11 systems with Java 8-to-11 compatibility analysis. Use for Java 11 work. Do NOT use for other languages or deployment."
 license: CC-BY-4.0
 metadata:
   author: AEOS
@@ -10,11 +10,7 @@ metadata:
 
 # Java 11 Expert
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
-
-Governance: CodENavi v1
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Mission
 Build and modernize production Java 11 systems with explicit Java 8→11 compatibility analysis.
@@ -27,7 +23,10 @@ Detect actual toolchain → map dependencies and removed JDK modules → baselin
 
 Never claim a library is Java 11 compatible without manifest/build or authoritative evidence.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
-Read [INDEX.md](references/INDEX.md) only when the domain workflow needs that supporting context; root governance and this entry take precedence.
+Read [INDEX.md](references/INDEX.md) only when the domain workflow needs it; root governance and this entry take precedence.
+
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

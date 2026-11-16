@@ -1,6 +1,6 @@
 ---
 name: lead-enrichment
-description: When the user wants to build data enrichment workflows, score leads against ICP, set up Clay waterfalls, or improve contact data quality. Also use when the user mentions 'enrichment,' 'data enrichment,' 'Clay,' 'waterfall enrichment,' 'ICP scoring,' 'lead scoring,' 'intent data,' 'contact verification,' 'Apollo,' 'ZoomInfo,' or 'data quality.' This skill covers lead enrichment waterfalls, ICP scoring frameworks, and contact verification systems. Do NOT use for technical implementation, code review, or software architecture.
+description: "Lead enrichment waterfalls, ICP scoring and contact verification (Clay, Apollo). Use for enrichment or lead scoring. Do NOT use for code work."
 license: CC-BY-4.0
 metadata:
   author: Chad Boyda / agent-gtm-skills

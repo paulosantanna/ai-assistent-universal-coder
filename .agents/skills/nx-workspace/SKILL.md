@@ -1,6 +1,6 @@
 ---
 name: nx-workspace
-description: 'Assimilated TLC Nx workspace skill. Configure, explore and optimize Nx monorepos: project boundaries, affected analysis, caching and CI with affected commands. Triggers: nx, monorepo, workspace, projects, targets, affected. Do not use as the primary skill only to run a task or only to generate code.'
+description: "Configure and optimize Nx monorepos: boundaries, affected analysis, caching, CI. Use for Nx workspace setup. Do NOT use to run tasks or generate code."
 license: CC-BY-4.0
 metadata:
   author: Tech Leads Club

@@ -1,6 +1,6 @@
 ---
 name: memory-curator
-description: Curate durable, evidence-backed project memory in `.notebook/MEMORY.md`. Use when the user requests memory curator or invokes memory-curator. Do NOT use to promote unverified claims or transient task status into durable memory.
+description: "Curate durable, evidence-backed memory in .notebook/MEMORY.md. Use for memory curation. Do NOT use to promote unverified claims or transient status."
 license: CC-BY-4.0
 metadata:
   author: AEOS

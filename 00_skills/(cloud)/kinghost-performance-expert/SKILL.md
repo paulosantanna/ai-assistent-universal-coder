@@ -1,6 +1,6 @@
 ---
 name: kinghost-performance-expert
-description: Measurement-driven KingHost performance skill for resource consumption, Varnish/cache, PHP runtime, PageSpeed and application/database optimization. Use when the user requests kinghost performance expert or invokes kinghost-performance-expert. Do NOT use for unrelated application features or unapproved production changes.
+description: "Measured KingHost performance: resources, cache, PHP runtime, PageSpeed. Use for KingHost performance. Do NOT use for unapproved prod changes."
 license: CC-BY-4.0
 metadata:
   author: AEOS
@@ -10,9 +10,7 @@ metadata:
 
 # KingHost Performance Expert
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 Super-skill lens of the canonical `codenavi-agent`; no new agent identity.
 
@@ -51,6 +49,8 @@ KingHost documentation notes that Varnish activation can affect DNS in documente
 
 Report baseline, applied change, post-change measurement, regressions and rollback. `PASS` requires measurable improvement or a documented stability/security benefit without material regression.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

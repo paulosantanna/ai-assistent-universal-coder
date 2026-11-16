@@ -1,6 +1,6 @@
 ---
 name: fable-loop
-description: Orchestrated multi-stage workflow running parallel evidence internal lenses, single committed plan, surgical execution, and adversarial verification. Use when the user requests fable loop or invokes fable-loop. Do NOT use for unrelated languages, domains or production deployment.
+description: "Multi-stage workflow: evidence lenses, one plan, surgical execution, verification. Use for complex multi-stage work. Do NOT use for trivial tasks."
 license: CC-BY-4.0
 metadata:
   author: AEOS

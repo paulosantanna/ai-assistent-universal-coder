@@ -1,6 +1,6 @@
 ---
 name: mantis-review
-description: Independently reviews findings and filters out false positives. Use when consolidated findings need validation against the actual source code. Don't use for reproducing crashes or patching code.
+description: "Independently review findings and filter false positives against source. Use for source validation of findings. Do NOT use for repro or patches."
 license: CC-BY-4.0
 metadata:
   author: AEOS

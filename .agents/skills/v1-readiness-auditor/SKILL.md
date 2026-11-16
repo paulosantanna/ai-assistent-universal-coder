@@ -1,6 +1,6 @@
 ---
 name: v1-readiness-auditor
-description: Validate AEOS against v1.0 release gates and generate blocking report. Use when the user requests v1 readiness auditor or invokes v1-readiness-auditor. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+description: "Validate AEOS against v1.0 release gates and generate a blocking report. Use for v1 readiness checks. Do NOT use as deployment approval."
 license: CC-BY-4.0
 metadata:
   author: AEOS

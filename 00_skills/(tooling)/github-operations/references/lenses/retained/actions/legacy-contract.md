@@ -1,6 +1,6 @@
 # Local AGENT contract — github-operations/actions
 
-This subtree inherits root `AGENT.md` and `00_skills/(tooling)/github-operations/AGENT.md`. It does not define an agent or subagent identity.
+This subtree inherits root `AGENTS.md` and `00_skills/(tooling)/github-operations/AGENT.md`. It does not define an agent or subagent identity.
 
 ## Action-recovery specialization
 

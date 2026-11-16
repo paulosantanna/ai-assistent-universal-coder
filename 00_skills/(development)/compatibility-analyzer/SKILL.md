@@ -1,6 +1,6 @@
 ---
 name: compatibility-analyzer
-description: Analyze dependency compatibility — version conflicts, peer dependency issues, platform constraints, breaking change risk. Use when the user requests compatibility analyzer or invokes compatibility-analyzer. Do NOT use for unrelated languages, domains or production deployment.
+description: "Analyze dependency compatibility: version conflicts, peer deps, platform limits, breaking changes. Use for compat checks. Do NOT use for deployment."
 license: CC-BY-4.0
 metadata:
   author: AEOS
@@ -10,9 +10,7 @@ metadata:
 
 # Compatibility Analyzer Skill
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 **ID:** compatibility-analyzer
 **Version:** 1.0.0
@@ -78,6 +76,8 @@ Analyze dependency compatibility — version conflicts, peer dependency issues, 
 - Compatibility analysis is missing a required dependency
 - Attempt to modify dependency files
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

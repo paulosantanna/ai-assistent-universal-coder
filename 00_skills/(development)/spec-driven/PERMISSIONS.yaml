@@ -1,7 +1,7 @@
 skill: spec-driven
 owner_agent: codenavi-agent
-version: 1.0.0
-source: tlc-spec-driven@3.3.0
+version: 4.0.0
+source: tlc-spec-driven@4.0.0
 
 read:
   - repository.files
@@ -24,6 +24,6 @@ permanently_denied:
   - secret.persist_in_specs_or_notebook
 
 constraints:
-  author_must_not_write_validation_md: true
+  self_verification_must_be_disclosed: true
   remote_actions_require_explicit_go_ahead: true
   specs_preflight_not_waived: true

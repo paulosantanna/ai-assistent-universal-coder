@@ -1,6 +1,6 @@
 ---
 name: architecture-decision-log
-description: 'Maintains the Architecture Decision Log (ADL), the collection of all ADRs of a project: finds the log and its naming convention, assigns the next number, regenerates the index, records status transitions and checks integrity such as duplicate numbers, gaps, broken or circular supersession links and stale proposals. Use when the user says "decision log", "ADR index", "list our ADRs", "which ADRs are superseded", "next ADR number", "log de decisões", "índice de ADRs", "próximo número de ADR" or "quais decisões estão vigentes". Do NOT use for writing the content of a single ADR (use architecture-decision-record), for judging architectural significance (use architecturally-significant-requirement), or for designing an organization-wide knowledge practice (use architecture-knowledge-management).'
+description: "Maintain the ADR log: next number, index, statuses, integrity. Use for ADR index work. Do NOT use to write one ADR (architecture-decision-record)."
 license: CC-BY-4.0
 metadata:
   author: AEOS
@@ -10,11 +10,7 @@ metadata:
 
 # Architecture Decision Log (ADL)
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
-
-Governance: CodENavi v1. A skill of the single canonical `codenavi-agent`; it creates no other agent identity.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 The collection of ADRs created and maintained in a project constitutes its decision log (adr.github.io). The log is append-only: decisions change through superseding records, never through edits. This skill keeps the log navigable and consistent. `scripts/adl_index.mjs` does the deterministic work and imports the ADR parser of the sibling skill `architecture-decision-record`, so both skills always agree on what a record contains.
 
@@ -91,4 +87,8 @@ Result: the index row shows `accepted`; `STALE_PROPOSAL` disappears.
 
 The log is the source of truth for decisions. `.notebook/MEMORY.md` points to the log and to individual ADR ids; it never duplicates their content.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md).
+
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

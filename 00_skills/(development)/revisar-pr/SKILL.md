@@ -1,6 +1,6 @@
 ---
 name: "revisar-pr"
-description: "Review a concrete pull-request diff against its requirement, behavior, contracts and repository conventions; return evidence-ranked findings and a local verdict. Use for revisar PR, parecer do diff or code review. Do NOT use for deep security review (revisar-seguranca-pr), remediate unless requested, post a review or decide/execute merge."
+description: "Review a PR diff against requirements and conventions, ranked findings. Use for revisar PR. Do NOT use for security review (revisar-seguranca-pr)."
 license: "CC-BY-4.0"
 metadata:
   author: "AEOS"
@@ -10,8 +10,7 @@ metadata:
 
 # revisar-pr
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Workflow
 
@@ -31,3 +30,7 @@ Example: “revise this PR against story X” → inspect exact diff/spec and re
 
 - Read [retained provenance](references/provenance.md) only for its matching mode; this entry and root governance take precedence.
 - Read [retained usage-and-verification](references/usage-and-verification.md) only for its matching mode; this entry and root governance take precedence.
+
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

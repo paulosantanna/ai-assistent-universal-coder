@@ -1,6 +1,6 @@
 ---
 name: vuln-obsol-recon
-description: Assess known vulnerabilities and lifecycle risk for the exact versions detected in repository/runtime evidence. Use when the user says esta versão tem CVE, tecnologia está obsoleta or mapear vulnerabilidade e EOL. Do NOT use for base synchronization, patch implementation, deep PR security review or invented versions without manifests/runtime evidence.
+description: "Assess CVE and EOL risk. Use for CVE checks. Do NOT use for base sync, patching or invented versions without manifests/runtime evidence."
 license: CC-BY-4.0
 metadata:
   author: AEOS; photographic reference supplied by user

@@ -1,6 +1,6 @@
 ---
 name: technical-design-doc-creator
-description: 'Assimilated TLC TDD writer. Create architecture-level Technical Design Documents through discovery. Triggers: write a design doc, create a TDD, technical spec, architecture document, RFC, design proposal, criar um TDD. Do not use for README, API docs, or general docs (docs-writer).'
+description: "Create architecture-level technical design docs via discovery. Use for 'write a design doc' or 'criar um TDD'. Do NOT use for README or API docs."
 license: CC-BY-4.0
 metadata:
   author: AEOS

@@ -1,6 +1,6 @@
 ---
 name: documentation-mapper
-description: Transform a target project repository into complete, verified, enterprise-grade documentation. Use when the user requests documentation mapper or invokes documentation-mapper. Do NOT use to mutate production or invent architecture without source evidence.
+description: "Verified enterprise docs from a repo. Use for repo doc mapping. Do NOT use to mutate production or invent architecture without source evidence."
 license: CC-BY-4.0
 metadata:
   author: AEOS

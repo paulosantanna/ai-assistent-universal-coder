@@ -1,6 +1,6 @@
 ---
 name: "skill-architect"
-description: "Design, build, evaluate, score and improve reusable skills through discovery, architecture and minimal evidence-based edits. Use for create a skill, review my skill, rate or score my skill, improve SKILL.md. Do NOT use to identify whether finished work deserves a skill (learning-opportunities), create agent identities, or write a technical design document."
+description: "Build, score and improve reusable skills with minimal evidence-based edits. Use for creating or reviewing skills. Do NOT use for agent identities."
 license: "CC-BY-4.0"
 metadata:
   author: "Tech Leads Club"
@@ -10,8 +10,7 @@ metadata:
 
 # skill-architect
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Workflow
 
@@ -39,3 +38,7 @@ Source: photos IMG_2705–IMG_2715, photographed version 1.1.1; retained TLC sou
 - Read [retained provenance](references/provenance.md) only for its matching mode; this entry and root governance take precedence.
 - Read [retained tlc](references/tlc) only for its matching mode; this entry and root governance take precedence.
 - Read [retained usage-and-verification](references/usage-and-verification.md) only for its matching mode; this entry and root governance take precedence.
+
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

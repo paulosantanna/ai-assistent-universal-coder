@@ -1,6 +1,6 @@
 ---
 name: "legacy-migration-planner"
-description: "Use when planning legacy system migrations, codebase modernization, monolith decomposition, microservices consolidation, cross-language rewrites, or framework upgrades. Invoke for strangler fig pattern, incremental migration strategy, or refactoring roadmaps. Do NOT use for domain analysis (use domain-analysis), component sizing (use component-identification-sizing), or step-by-step decomposition plans (use decomposition-planning-roadmap)."
+description: "Plan legacy migrations, strangler-fig rewrites and framework upgrades. Use for migration strategy. Do NOT use for domain analysis (domain-analysis)."
 license: "CC-BY-4.0"
 metadata:
   author: "Felipe Rodrigues - github.com/felipfr"

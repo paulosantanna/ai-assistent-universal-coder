@@ -1,6 +1,6 @@
 ---
 name: angular-8-to-20-migration
-description: Plan and execute Angular 8 to 20 migration one major at a time, preserving rendered UI, custom elements, HTTP interceptors and async behavior. Use when the user says migrar Angular 8 para 20, subir o major do Angular or migração Angular. Do NOT use for single-version coding (angular-20-expert), generic rewrite strategy (legacy-migration-planner), or deployment.
+description: "Migrate Angular 8 to 20 one major per step, keeping UI and async behavior. Use for upgrades. Do NOT use for single-version code (angular-20-expert)."
 license: CC-BY-4.0
 metadata:
   author: AEOS; photographic reference supplied by user
@@ -10,9 +10,7 @@ metadata:
 
 # Angular 8 To 20 Migration
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 Plan and execute Angular 8 to 20 migration one major at a time, preserving rendered UI, custom elements, HTTP interceptors and async behavior.
 
@@ -40,4 +38,8 @@ A major-by-major plan, minimal diffs, version matrix, executed build/behavior ch
 
 Verify the actual outputs and relevant contract checks. Missing evidence, dependency, source asset, input or permission blocks its dependent stage; report the precise gap.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md).
+
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

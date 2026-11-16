@@ -1,6 +1,6 @@
 ---
 name: approval-governance-auditor
-description: Validate approval scope, expiration and audit trail. Use when the user requests approval governance auditor or invokes approval-governance-auditor. Do NOT use outside authorized defensive scope or to expose secret values.
+description: "Validate approval scope, expiry, audit trail. Use when asked to audit approvals. Do NOT use outside authorized scope or to expose secrets."
 license: CC-BY-4.0
 metadata:
   author: AEOS

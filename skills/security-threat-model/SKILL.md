@@ -1,6 +1,6 @@
 ---
 name: security-threat-model
-description: 'Assimilated OpenAI/TLC repo-grounded threat model. Enumerate trust boundaries, assets, attacker capabilities, abuse paths and mitigations into Markdown. Triggers: threat model, abuse paths, AppSec threat modeling. Do not use for architecture summaries, security-best-practices reviews, or ownership maps.'
+description: "Repo-grounded threat model: trust boundaries, assets, attackers, abuse paths. Use for threat modeling. Do NOT use for architecture summaries."
 license: CC-BY-4.0
 metadata:
   author: AEOS

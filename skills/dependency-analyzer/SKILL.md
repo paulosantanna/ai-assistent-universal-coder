@@ -1,6 +1,6 @@
 ---
 name: dependency-analyzer
-description: Analyze dependencies, upgrade candidates, compatibility, and risks. Use when the user requests dependency analyzer or invokes dependency-analyzer. Do NOT use for unrelated languages, domains or production deployment.
+description: "Analyze dependencies, upgrade candidates, compatibility and risks. Use for dependency analysis or upgrade planning. Do NOT use for deployment."
 license: CC-BY-4.0
 metadata:
   author: AEOS

@@ -1,6 +1,6 @@
 ---
 name: lora-qlora-dora-expert
-description: Implement parameter-efficient fine-tuning for supported open-weight models with reproducible experiments. Use when the user requests lora qlora dora expert or invokes lora-qlora-dora-expert. Do NOT use for unrelated languages, domains or production deployment.
+description: "Implement LoRA, QLoRA or DoRA fine-tuning with reproducible experiments. Use for PEFT work. Do NOT use for unrelated stacks."
 license: CC-BY-4.0
 metadata:
   author: AEOS
@@ -10,11 +10,7 @@ metadata:
 
 # LoRA / QLoRA / DoRA Expert
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
-
-Governance: CodENavi v1
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Mission
 Implement parameter-efficient fine-tuning for supported open-weight models with reproducible experiments.
@@ -24,6 +20,8 @@ Select base model/license → compatibility matrix → dataset/eval baseline →
 
 Track seed, dataset hash, base revision, tokenizer, hyperparameters, hardware, precision, adapter hash and eval results.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

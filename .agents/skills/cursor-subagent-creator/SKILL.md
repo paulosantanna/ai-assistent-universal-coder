@@ -1,6 +1,6 @@
 ---
 name: cursor-subagent-creator
-description: 'Assimilated TLC Cursor work-unit designer. Use when the user asks for a Cursor specialist, isolated-context workflow, verifier, debugger, or auditor. Triggers: cursor internal lenses, cursor agent, isolated work unit. Do not spawn or register another AEOS agent identity. Do not use for a simple one-off skill.'
+description: "Design Cursor work units: isolated workflows, verifiers, auditors. Use for isolated work units. Do NOT use for one-off skills or agent identities."
 license: CC-BY-4.0
 metadata:
   author: Tech Leads Club

@@ -1,0 +1,496 @@
+{
+ "root_phantom": [
+  {
+   "file": "references/CODENAVI_FULL_WORKSPACE_STANDARD.md",
+   "line": 7,
+   "text": "It extends `AGENTS.md` (which also holds the `.notebook/` specification) and `references/CODENAVI_CONTINUITY_STANDARD.md`. Restored 2026-11-"
+  }
+ ],
+ "other": [
+  {
+   "file": ".notebook/HANDOFF.md",
+   "line": 543,
+   "text": "- Próximo: (1) decidir se `references/` entra no git (a remoção em `faac5adf` foi deliberada); (2) trocar `AGENT.md` por `AGENTS.md` em `con"
+  },
+  {
+   "file": ".notebook/MEMORY.md",
+   "line": 314,
+   "text": "- Historical/runtime evidence (check availability before use): `AGENT.md`, `aeos/registries/agents.registry.yaml`"
+  },
+  {
+   "file": ".notebook/MEMORY.md",
+   "line": 320,
+   "text": "- Evidence: `AGENT.md`"
+  },
+  {
+   "file": ".notebook/MEMORY.md",
+   "line": 569,
+   "text": "- Fact: `references/CODENAVI_CONTINUITY_STANDARD.md` e `references/CODENAVI_FULL_WORKSPACE_STANDARD.md` foram restaurados em 2026-11-16 de `"
+  },
+  {
+   "file": ".notebook/PROGRESS.md",
+   "line": 309,
+   "text": "- [ ] Não feito: Track B/C do harness (exigem juízes independentes); 18 skills sem roteamento não alteradas; `AGENT.md` raiz citado em `00_s"
+  },
+  {
+   "file": "00_skills/VERIFICATION.md",
+   "line": 37,
+   "text": "| Governança | Dono canônico `codenavi-agent`; 74 contratos AGENT.md antigos movidos para referências de lentes internas. |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 26,
+   "text": "nearest subtree AGENT.md"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 39,
+   "text": "| Agents | `aeos/agents/AGENT.md` | registry/capability/handoff/runtime |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 40,
+   "text": "| Subagents | `aeos/subagents/AGENT.md` | delegation scope + capability gates |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 41,
+   "text": "| Canonical skills | `skills/AGENT.md` | registry + SkillExecutor/tool router |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 42,
+   "text": "| Legacy/generated AEOS skills | `aeos/skills/AGENT.md` | registry + runtime capability policy |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 43,
+   "text": "| External-agent skill mirrors | `.agents/AGENT.md` | canonical skill contract wins on conflict |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 44,
+   "text": "| Playbooks | `aeos/playbooks/AGENT.md` | PlaybookEngine + Judge/approval/rollback |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 45,
+   "text": "| MCPs | `aeos/mcps/AGENT.md` | tool routers/adapters + allowlists |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 46,
+   "text": "| LCPs | `aeos/lcps/AGENT.md` | registry/context validation |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 47,
+   "text": "| LSP/language server | `packages/aeos-language-server/AGENT.md` | parser/index/server tests |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 48,
+   "text": "| Registries/overlays | `aeos/registries/AGENT.md` | merged registry loader/validation |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 49,
+   "text": "| Capabilities | `aeos/capabilities/AGENT.md` | registered capability model |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 50,
+   "text": "| Network capabilities | `aeos/network-capabilities/AGENT.md` | deny-by-default network boundaries |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 51,
+   "text": "| Policies/config | `aeos/policies/AGENT.md`, `aeos/config/AGENT.md` | runtime policy/permissions |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 52,
+   "text": "| Security | `aeos/security/AGENT.md` | security gates/evals/Judge |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 53,
+   "text": "| Connectors/integrations | `aeos/connectors/AGENT.md`, `aeos/integrations/AGENT.md` | provider/contract validation |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 54,
+   "text": "| Blueprints | `aeos/blueprints/AGENT.md` | current/target state evidence |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 55,
+   "text": "| Schemas | `aeos/schemas/AGENT.md` | schema/runtime compatibility validation |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 56,
+   "text": "| Evals/tests | `aeos/evals/AGENT.md`, `tests/AGENT.md` | repository test/eval matrix |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 57,
+   "text": "| Memory/knowledge | `aeos/memory/AGENT.md`, `aeos/knowledge/AGENT.md`, `knowledge/AGENT.md` | governed promotion + provenance |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 58,
+   "text": "| Knowledge sources | `aeos/knowledge-sources/AGENT.md` | freshness/provenance checks |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 59,
+   "text": "| Impact analysis | `aeos/impact-analysis/AGENT.md` | dependency/blast-radius evidence |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 60,
+   "text": "| Runtime | `runtime/AGENT.md`, `aeos/runtime/AGENT.md` | fail-closed executors/routers |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 61,
+   "text": "| Scripts/guards | `scripts/AGENT.md` | deterministic exit status + CI |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 62,
+   "text": "| CI/CD | `.github/AGENT.md` | AEOS Enterprise CI |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 63,
+   "text": "| Packages | `packages/AGENT.md` | package-local build/test contracts |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 64,
+   "text": "| Templates | `templates/AGENT.md` | representative generated-output validation |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 65,
+   "text": "| Documentation | `docs/AGENT.md` | evidence-backed docs + stale-doc correction |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 66,
+   "text": "| Provider adapters | `kinghost-commerce-mcp/AGENT.md`, `kinghost-control-mcp/AGENT.md`, `aura-voice-tool/AGENT.md` | adapter-specific runti"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 67,
+   "text": "| Editor/workspace config | `.vscode/AGENT.md` | documented project toolchain/security |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 68,
+   "text": "| Legacy runtime | `AEOS_RUNTIME_MVP_v1/AGENT.md` | current root standard overrides legacy rules |"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 72,
+   "text": "A legacy skill/playbook/MCP does not need a copied 100-line CodENavi block to be migrated. Its nearest `AGENT.md` is a binding inherited con"
+  },
+  {
+   "file": "docs/GOVERNANCE_COVERAGE.md",
+   "line": 87,
+   "text": "- stale nested `AGENT.md`/`AGENTS.md` files cannot remain outside CodENavi;"
+  },
+  {
+   "file": "references/CODENAVI_FULL_WORKSPACE_STANDARD.md",
+   "line": 43,
+   "text": "`codenavi-agent` is the only agent identity. Specialization belongs to skills, super-skills, playbooks, MCPs, LSPs, LCPs, tools and critical"
+  },
+  {
+   "file": "00_skills/(tooling)/github-operations/references/lenses/retained/actions/legacy-contract.md",
+   "line": 3,
+   "text": "This subtree inherits root `AGENTS.md` and `00_skills/(tooling)/github-operations/AGENT.md`. It does not define an agent or subagent identit"
+  },
+  {
+   "file": "00_skills/(tooling)/girl-voice-composer-simulation-expert/references/package-notes.md",
+   "line": 26,
+   "text": "├── AGENT.md"
+  },
+  {
+   "file": "00_skills/(tooling)/girl-voice-composer-simulation-expert/references/lenses/retained/legacy-contract.md",
+   "line": 1,
+   "text": "# AGENT.md — girl-voice-composer-simulation-expert"
+  },
+  {
+   "file": "00_skills/(security)/security-audit/references/lenses/retained/legacy-contract.md",
+   "line": 1,
+   "text": "# AGENT.md"
+  },
+  {
+   "file": "00_skills/(security)/mantis-threat-model/references/instructions/12-11-agent-knowledge-layers.md",
+   "line": 7,
+   "text": "- `AGENT.md` defines the operating role, loading order and execution rules."
+  },
+  {
+   "file": "00_skills/(security)/mantis-summarize/references/instructions/12-11-agent-knowledge-layers.md",
+   "line": 7,
+   "text": "- `AGENT.md` defines the operating role, loading order and execution rules."
+  },
+  {
+   "file": "00_skills/(security)/mantis-structural-index/references/instructions/12-11-agent-knowledge-layers.md",
+   "line": 7,
+   "text": "- `AGENT.md` defines the operating role, loading order and execution rules."
+  },
+  {
+   "file": "00_skills/(security)/mantis-review/references/instructions/12-11-agent-knowledge-layers.md",
+   "line": 7,
+   "text": "- `AGENT.md` defines the operating role, loading order and execution rules."
+  },
+  {
+   "file": "00_skills/(security)/mantis-researcher/references/instructions/12-11-agent-knowledge-layers.md",
+   "line": 7,
+   "text": "- `AGENT.md` defines the operating role, loading order and execution rules."
+  },
+  {
+   "file": "00_skills/(security)/mantis-reproduce/references/instructions/12-11-agent-knowledge-layers.md",
+   "line": 7,
+   "text": "- `AGENT.md` defines the operating role, loading order and execution rules."
+  },
+  {
+   "file": "00_skills/(security)/mantis-report/references/instructions/12-11-agent-knowledge-layers.md",
+   "line": 7,
+   "text": "- `AGENT.md` defines the operating role, loading order and execution rules."
+  },
+  {
+   "file": "00_skills/(security)/mantis-reflect/references/instructions/12-11-agent-knowledge-layers.md",
+   "line": 7,
+   "text": "- `AGENT.md` defines the operating role, loading order and execution rules."
+  },
+  {
+   "file": "00_skills/(security)/mantis-plan/references/instructions/12-11-agent-knowledge-layers.md",
+   "line": 7,
+   "text": "- `AGENT.md` defines the operating role, loading order and execution rules."
+  },
+  {
+   "file": "00_skills/(security)/mantis-pipeline-adapter/references/instructions/12-11-agent-knowledge-layers.md",
+   "line": 7,
+   "text": "- `AGENT.md` defines the operating role, loading order and execution rules."
+  },
+  {
+   "file": "00_skills/(security)/mantis-patch/references/instructions/12-11-agent-knowledge-layers.md",
+   "line": 7,
+   "text": "- `AGENT.md` defines the operating role, loading order and execution rules."
+  },
+  {
+   "file": "00_skills/(security)/mantis-meta-agent/references/instructions/12-11-agent-knowledge-layers.md",
+   "line": 7,
+   "text": "- `AGENT.md` defines the operating role, loading order and execution rules."
+  },
+  {
+   "file": "00_skills/(security)/mantis-history/references/instructions/12-11-agent-knowledge-layers.md",
+   "line": 7,
+   "text": "- `AGENT.md` defines the operating role, loading order and execution rules."
+  },
+  {
+   "file": "00_skills/(security)/mantis-dedupe/references/instructions/12-11-agent-knowledge-layers.md",
+   "line": 7,
+   "text": "- `AGENT.md` defines the operating role, loading order and execution rules."
+  },
+  {
+   "file": "00_skills/(security)/mantis-critic/references/instructions/12-11-agent-knowledge-layers.md",
+   "line": 7,
+   "text": "- `AGENT.md` defines the operating role, loading order and execution rules."
+  },
+  {
+   "file": "00_skills/(security)/mantis-chain/references/instructions/12-11-agent-knowledge-layers.md",
+   "line": 7,
+   "text": "- `AGENT.md` defines the operating role, loading order and execution rules."
+  },
+  {
+   "file": "00_skills/(security)/mantis-calibrate/references/instructions/12-11-agent-knowledge-layers.md",
+   "line": 7,
+   "text": "- `AGENT.md` defines the operating role, loading order and execution rules."
+  },
+  {
+   "file": "00_skills/(security)/mantis-architecture/references/instructions/12-11-agent-knowledge-layers.md",
+   "line": 7,
+   "text": "- `AGENT.md` defines the operating role, loading order and execution rules."
+  },
+  {
+   "file": "00_skills/(monitoring)/telemetry-bug-root-cause-solver/references/instructions/12-11-agent-knowledge-layers.md",
+   "line": 7,
+   "text": "- `AGENT.md` defines the operating role, loading order and execution rules."
+  },
+  {
+   "file": "00_skills/(monitoring)/splunk-observability-staff/references/instructions/12-11-agent-knowledge-layers.md",
+   "line": 7,
+   "text": "- `AGENT.md` defines the autonomous role, isolation rules, subagent boundaries and handoff format."
+  },
+  {
+   "file": "00_skills/(monitoring)/openshift-observability-staff/references/instructions/12-11-agent-knowledge-layers.md",
+   "line": 7,
+   "text": "- `AGENT.md` defines the autonomous role, isolation rules, subagent boundaries and handoff format."
+  },
+  {
+   "file": "00_skills/(monitoring)/observability-root-cause-integrator/references/instructions/12-11-agent-knowledge-layers.md",
+   "line": 7,
+   "text": "- `AGENT.md` defines the autonomous role, isolation rules, subagent boundaries and handoff format."
+  },
+  {
+   "file": "00_skills/(monitoring)/kubernetes-observability-staff/references/instructions/12-11-agent-knowledge-layers.md",
+   "line": 7,
+   "text": "- `AGENT.md` defines the autonomous role, isolation rules, subagent boundaries and handoff format."
+  },
+  {
+   "file": "00_skills/(monitoring)/grafana-observability-staff/references/instructions/12-11-agent-knowledge-layers.md",
+   "line": 7,
+   "text": "- `AGENT.md` defines the autonomous role, isolation rules, subagent boundaries and handoff format."
+  },
+  {
+   "file": "00_skills/(monitoring)/dynatrace-observability-staff/references/instructions/12-11-agent-knowledge-layers.md",
+   "line": 7,
+   "text": "- `AGENT.md` defines the autonomous role, isolation rules, subagent boundaries and handoff format."
+  },
+  {
+   "file": "00_skills/(mapping)/documentation-mapper/JUDGE_AGENT.md",
+   "line": 1,
+   "text": "# JUDGE_AGENT.md"
+  },
+  {
+   "file": "00_skills/(mapping)/documentation-mapper/references/lenses/retained/legacy-contract.md",
+   "line": 1,
+   "text": "# AGENT.md"
+  },
+  {
+   "file": "00_skills/(learning)/chromatic-mega-brain/references/lenses/retained/legacy-contract.md",
+   "line": 1,
+   "text": "# AGENT.md"
+  },
+  {
+   "file": "00_skills/(development)/simulator-ai/SKILL.md",
+   "line": 17,
+   "text": "Create ans entire constructor for an AI real world medical simulation. A skill that searches the entire internet to find AI real world medic"
+  },
+  {
+   "file": "00_skills/(development)/specs/references/SPEC_DRIVEN_SOURCES.md",
+   "line": 13,
+   "text": "- `AGENT.md`"
+  },
+  {
+   "file": "00_skills/(development)/specs/references/instructions/19-18-source-basis.md",
+   "line": 11,
+   "text": "- AEOS local contracts: `AGENT.md`, `HANDOFF.md`, `MEMORY_SCHEMA.md`, verification/TESTING_ENGINE.md"
+  },
+  {
+   "file": "00_skills/(development)/solve-problems/references/instructions/12-11-agent-knowledge-layers.md",
+   "line": 7,
+   "text": "- `AGENT.md` for role and execution boundaries."
+  },
+  {
+   "file": "00_skills/(development)/simulator-ai/references/package-notes.md",
+   "line": 7,
+   "text": "Create ans entire constructor for an AI real world medical simulation. A skill that searches the entire internet to find AI real world medic"
+  },
+  {
+   "file": "00_skills/(development)/simulator-ai/references/package-notes.md",
+   "line": 11,
+   "text": "the user requests create ans entire constructor for an AI real world medical simulation. A skill that searches the entire internet to find A"
+  },
+  {
+   "file": "00_skills/(development)/simulator-ai/references/usage-and-verification.md",
+   "line": 3,
+   "text": "Scope: Create ans entire constructor for an AI real world medical simulation. A skill that searches the entire internet to find AI real worl"
+  },
+  {
+   "file": "00_skills/(development)/simulator-ai/references/usage-and-verification.md",
+   "line": 7,
+   "text": "User: \"Use simulator-ai for the following task: Create ans entire constructor for an AI real world medical simulation. A skill that searches"
+  },
+  {
+   "file": "00_skills/(development)/simulator-ai/references/instructions/01-purpose-and-contract.md",
+   "line": 11,
+   "text": "description: Create ans entire constructor for an AI real world medical simulation. A skill that searches the entire internet to find AI rea"
+  },
+  {
+   "file": "00_skills/(development)/simulator-ai/references/instructions/01-purpose-and-contract.md",
+   "line": 16,
+   "text": "- the user requests create ans entire constructor for an AI real world medical simulation. A skill that searches the entire internet to find"
+  },
+  {
+   "file": "00_skills/(development)/simulator-ai/references/instructions/03-2-mission.md",
+   "line": 5,
+   "text": "Create ans entire constructor for an AI real world medical simulation. A skill that searches the entire internet to find AI real world medic"
+  },
+  {
+   "file": "00_skills/(development)/simulator-ai/references/instructions/04-3-activation.md",
+   "line": 7,
+   "text": "- the user requests create ans entire constructor for an AI real world medical simulation. A skill that searches the entire internet to find"
+  },
+  {
+   "file": "00_skills/(development)/simulator-ai/references/lenses/retained/legacy-contract.md",
+   "line": 1,
+   "text": "# AGENT.md"
+  },
+  {
+   "file": "00_skills/(development)/python-bug-solver-skill/references/lenses/retained/legacy-contract.md",
+   "line": 1,
+   "text": "# AGENT.md"
+  },
+  {
+   "file": "00_skills/(development)/java-bug-solver-skill/references/lenses/retained/legacy-contract.md",
+   "line": 1,
+   "text": "# AGENT.md"
+  },
+  {
+   "file": "00_skills/(development)/java-bug-solver/references/lenses/retained/legacy-contract.md",
+   "line": 1,
+   "text": "# AGENT.md"
+  },
+  {
+   "file": "00_skills/(development)/ai-continuous-training-maintainer/references/lenses/retained/legacy-contract.md",
+   "line": 1,
+   "text": "# AGENT.md"
+  },
+  {
+   "file": "00_skills/(creation)/subagent-creator/SKILL.md",
+   "line": 26,
+   "text": "Never create .devin/agents, AGENT.md profiles, agent: bindings or agents registries. Existing AGENTS.md stays authoritative and unchanged. S"
+  },
+  {
+   "file": "00_skills/(creation)/skill-factory/evaluation/HONEST_EVALUATOR.md",
+   "line": 8,
+   "text": "- Does it include `AGENT.md`, knowledge layers, memory layers and this evaluator layer?"
+  },
+  {
+   "file": "00_skills/(creation)/skill-factory/knowledge/NEGATIVE_KNOWLEDGE.md",
+   "line": 3,
+   "text": "- Do not generate skills without `AGENT.md`, knowledge layers, memory layers and honest evaluator rules."
+  },
+  {
+   "file": "00_skills/(creation)/skill-factory/references/package-notes.md",
+   "line": 11,
+   "text": "Generated skills include `SKILL.md`, `references/package-notes.md`, `AGENT.md`, knowledge layers, memory layers, an honest evaluator, schema"
+  },
+  {
+   "file": "00_skills/(creation)/skill-factory/references/instructions/15-5-architecture-decision.md",
+   "line": 39,
+   "text": "├── AGENT.md"
+  },
+  {
+   "file": "00_skills/(cloud)/kubernetes-code-context-mapper/references/instructions/12-11-agent-knowledge-layers.md",
+   "line": 7,
+   "text": "- `AGENT.md` defines the operating role, loading order and execution rules."
+  },
+  {
+   "file": ".agents/skills/girl-voice-composer-simulation-expert/AGENT.md",
+   "line": 1,
+   "text": "# AGENT.md — girl-voice-composer-simulation-expert"
+  },
+  {
+   "file": ".agents/skills/girl-voice-composer-simulation-expert/README.md",
+   "line": 26,
+   "text": "├── AGENT.md"
+  }
+ ]
+}

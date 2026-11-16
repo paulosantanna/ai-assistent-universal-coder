@@ -1,6 +1,6 @@
 ---
 name: task-graph-builder
-description: Build a deterministic task graph from a playbook and objective. Use when the user requests task graph builder or invokes task-graph-builder. Do NOT use for unrelated tools or unapproved remote writes.
+description: "Build a deterministic task graph from a playbook and objective. Use for task graphs. Do NOT use for unapproved remote writes."
 license: CC-BY-4.0
 metadata:
   author: AEOS

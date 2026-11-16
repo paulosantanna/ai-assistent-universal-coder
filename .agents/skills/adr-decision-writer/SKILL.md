@@ -1,6 +1,6 @@
 ---
 name: adr-decision-writer
-description: Generate ADRs based only on inspected evidence. Use when the user requests adr decision writer or invokes adr-decision-writer. Do NOT use for unrelated languages, domains or production deployment.
+description: "Write ADRs from inspected evidence only. Use when asked for an ADR or decision record. Do NOT use for deployment or unrelated domains."
 license: CC-BY-4.0
 metadata:
   author: AEOS

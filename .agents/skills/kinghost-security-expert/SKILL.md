@@ -1,6 +1,6 @@
 ---
 name: kinghost-security-expert
-description: KingHost hosting security skill for antivirus/malware scanning, quarantine review, WAF, SSL and post-incident verification. Use when the user requests kinghost security expert or invokes kinghost-security-expert. Do NOT use outside authorized defensive scope or to expose secret values.
+description: "KingHost security: malware scans, quarantine, WAF, SSL. Use for KingHost security. Do NOT use outside authorized scope or to expose secrets."
 license: CC-BY-4.0
 metadata:
   author: AEOS

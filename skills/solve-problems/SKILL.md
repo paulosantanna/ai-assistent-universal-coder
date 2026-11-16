@@ -1,6 +1,6 @@
 ---
 name: solve-problems
-description: Fix defects across any programming language without changing project architecture. Use when the user requests solve problems or invokes solve-problems. Do NOT use for unrelated languages, domains or production deployment.
+description: "Fix defects across any language without changing project architecture. Use for defect fixes. Do NOT use for unrelated stacks or deployment."
 license: CC-BY-4.0
 metadata:
   author: AEOS

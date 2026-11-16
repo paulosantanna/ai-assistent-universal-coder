@@ -8,13 +8,13 @@ AEOS exists to turn an engineering objective into a governed, evidence-backed li
 
 `understand → decide → change → verify → document → retain validated knowledge`
 
-All work inherits `AGENT.md` and the CodENavi lifecycle.
+All work inherits `AGENTS.md` and the CodENavi lifecycle.
 
 ## 2. Mental model
 
 Think of the workspace as six cooperating planes:
 
-1. **Governance plane** — `AGENT.md`, policies, capabilities, Judge, approvals and security constraints.
+1. **Governance plane** — `AGENTS.md`, policies, capabilities, Judge, approvals and security constraints.
 2. **Intelligence plane** — `.notebook`, repository evidence, memory and promoted knowledge.
 3. **Reasoning plane** — agents, Critical Thinking, planning and architectural decision support.
 4. **Execution plane** — skills, MCPs, LCPs and bounded tools.
@@ -41,7 +41,7 @@ Define:
 
 Read in order:
 
-1. root `AGENT.md`/`AGENTS.md`;
+1. root `AGENTS.md`;
 2. `.notebook/INDEX.md` if present;
 3. repository README and local agent instructions;
 4. build manifests and workspace configuration;

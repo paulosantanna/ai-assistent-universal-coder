@@ -1,6 +1,6 @@
 ---
 name: observability-root-cause-integrator
-description: Staff-level independent root-cause integrator that consolidates evidence from isolated observability tool analyses and repository code context into a simple, low-impact remediation plan. Use when the user requests observability root cause integrator or invokes observability-root-cause-integrator. Do NOT use to restart, scale or mutate live systems without an authorized operations task.
+description: "Merge observability and code evidence into a root-cause plan. Use for root-cause integration. Do NOT use to mutate live systems unless authorized."
 license: CC-BY-4.0
 metadata:
   author: AEOS

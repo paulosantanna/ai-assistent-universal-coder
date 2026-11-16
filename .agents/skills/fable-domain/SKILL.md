@@ -1,6 +1,6 @@
 ---
 name: fable-domain
-description: Research a domain, create a domain adapter, flowchart, trap fixture, and smoke eval for the Fable Method. Use when creating new sector adapters. Do NOT use for unrelated languages, domains or production deployment.
+description: "Research a domain and build a Fable adapter, flowchart, trap fixture and smoke eval. Use for new sector adapters. Do NOT use for unrelated stacks."
 license: CC-BY-4.0
 metadata:
   author: AEOS

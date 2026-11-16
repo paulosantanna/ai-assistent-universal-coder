@@ -1,6 +1,6 @@
 ---
 name: change-trace-auditor
-description: Audit change manifests and rollback plans so generated or modified files can be reviewed, reproduced and reverted safely. Use when the user requests change trace auditor or invokes change-trace-auditor. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+description: "Audit change manifests and rollback plans so changes can be reviewed and reverted. Use for change-trace audits. Do NOT use as deployment approval."
 license: CC-BY-4.0
 metadata:
   author: AEOS

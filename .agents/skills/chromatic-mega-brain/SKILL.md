@@ -1,6 +1,6 @@
 ---
 name: chromatic-mega-brain
-description: Maintain workspace/category/project memory inheritance with canonical continuity files, evidence-backed promotion and exact next actions. Use when the user says organizar memória, cérebro hierárquico, retomar projeto or atualizar handoff. Do NOT use for repository fleet collection (fleet-mapping), deciding which claims deserve promotion (memory-curator/learning-curator), or unconstrained multi-agent reasoning.
+description: "Maintain hierarchical memory and continuity files. Use to resume a project or update handoff. Do NOT use for fleet mapping."
 license: CC-BY-4.0
 metadata:
   author: AEOS

@@ -1,6 +1,6 @@
 ---
 name: react-best-practices
-description: React and Next.js performance optimization guidelines from Vercel Engineering. Use when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements. Do NOT use for component API architecture or composition patterns (use react-composition-patterns instead).
+description: "React/Next.js performance: data fetching, bundles, rendering. Use for React perf work. Do NOT use for component APIs (react-composition-patterns)."
 license: MIT
 metadata:
   author: vercel

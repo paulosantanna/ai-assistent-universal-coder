@@ -1,6 +1,6 @@
 ---
 name: create-rfc
-description: Creates structured Request for Comments (RFC) documents for proposing and deciding on significant changes. Use when the user says "write an RFC", "create a proposal", "I need to propose a change", "draft an RFC", "document a decision", or needs stakeholder alignment before making a major technical or process decision. Do NOT use for TDDs/implementation docs (use technical-design-doc-creator instead), README files, or general documentation.
+description: "Create RFCs to propose and decide significant changes with stakeholders. Use for 'write an RFC'. Do NOT use for TDDs (technical-design-doc-creator)."
 license: CC-BY-4.0
 metadata:
   author: Tech Leads Club - github.com/tech-leads-club

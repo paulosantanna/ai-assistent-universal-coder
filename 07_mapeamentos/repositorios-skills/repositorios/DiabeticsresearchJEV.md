@@ -1,10 +1,10 @@
 # DiabeticsresearchJEV — mapa estático de skills
 
-Updated: 2026-10-13
+Updated: 2026-11-16
 
 Entry point: ../README.md
 
-Tipo: Git próprio. Arquivos no inventário delimitado: 130; entradas excluídas: 12.
+Tipo: Git próprio. Arquivos no inventário delimitado: 138; entradas excluídas: 26.
 
 [Voltar ao índice](../README.md) · [Matriz completa](../matriz.csv)
 
@@ -18,7 +18,7 @@ Tipo: Git próprio. Arquivos no inventário delimitado: 130; entradas excluídas
 | Fluxo | observado | run_full_cycle coleta, extrai grafo, indexa, treina, executa descoberta e avalia. | [02_repositorios/DiabeticsresearchJEV/src/diabeticsresearchjev/application/pipeline/full_cycle.py:31](../../../02_repositorios/DiabeticsresearchJEV/src/diabeticsresearchjev/application/pipeline/full_cycle.py) |
 | Dados | documentado | MongoDB nativo e Chroma embutido são documentados; Compose descreve espelhos de serviços de dados. | [02_repositorios/DiabeticsresearchJEV/docker-compose.yml:8](../../../02_repositorios/DiabeticsresearchJEV/docker-compose.yml) |
 | Configuração/deploy | documentado | Compose declara serviços locais; comentários de equivalência AWS são intenção, não prova de implantação AWS. | [02_repositorios/DiabeticsresearchJEV/docker-compose.yml:2](../../../02_repositorios/DiabeticsresearchJEV/docker-compose.yml) |
-| Operação/observabilidade | observado | API oferece endpoint de saúde e página de métricas; operação real não medida. | [02_repositorios/DiabeticsresearchJEV/src/diabeticsresearchjev/interfaces/api.py:88](../../../02_repositorios/DiabeticsresearchJEV/src/diabeticsresearchjev/interfaces/api.py) |
+| Operação/observabilidade | observado | API oferece endpoint de saúde e página de métricas; operação real não medida. | [02_repositorios/DiabeticsresearchJEV/src/diabeticsresearchjev/interfaces/api.py:108](../../../02_repositorios/DiabeticsresearchJEV/src/diabeticsresearchjev/interfaces/api.py) |
 | Interfaces/dependências | observado | HybridRetriever combina Chroma, BM25 e expansão opcional por grafo; GraphQL fica em /graphql. | [02_repositorios/DiabeticsresearchJEV/src/diabeticsresearchjev/application/rag/retriever.py:1](../../../02_repositorios/DiabeticsresearchJEV/src/diabeticsresearchjev/application/rag/retriever.py) |
 | Vulnerabilidades | não verificado | Nenhuma consulta atual a advisories/scanner foi executada; não equivale a ausência de CVEs. | Sem verificação nesta missão |
 | Obsolescência | não verificado | Datas de suporte/EOL não consultadas. Versões declaradas não comprovam suporte atual. | Sem verificação nesta missão |
@@ -67,12 +67,16 @@ Faixas e extras são preservados; versões instaladas/resolvidas não foram veri
 | extra:pdf-plus | pymupdf>=1.24.0 | [02_repositorios/DiabeticsresearchJEV/pyproject.toml:62](../../../02_repositorios/DiabeticsresearchJEV/pyproject.toml) |
 | extra:viz | matplotlib>=3.8.0 | [02_repositorios/DiabeticsresearchJEV/pyproject.toml:65](../../../02_repositorios/DiabeticsresearchJEV/pyproject.toml) |
 | extra:unsloth | unsloth | [02_repositorios/DiabeticsresearchJEV/pyproject.toml:67](../../../02_repositorios/DiabeticsresearchJEV/pyproject.toml) |
-| extra:dev | pytest>=8.2.0 | [02_repositorios/DiabeticsresearchJEV/pyproject.toml:71](../../../02_repositorios/DiabeticsresearchJEV/pyproject.toml) |
-| extra:dev | pytest-asyncio>=0.23.0 | [02_repositorios/DiabeticsresearchJEV/pyproject.toml:72](../../../02_repositorios/DiabeticsresearchJEV/pyproject.toml) |
-| extra:dev | ruff>=0.4.0 | [02_repositorios/DiabeticsresearchJEV/pyproject.toml:73](../../../02_repositorios/DiabeticsresearchJEV/pyproject.toml) |
-| extra:dev | mypy>=1.10.0 | [02_repositorios/DiabeticsresearchJEV/pyproject.toml:74](../../../02_repositorios/DiabeticsresearchJEV/pyproject.toml) |
-| extra:dev | mongomock>=4.1.0 | [02_repositorios/DiabeticsresearchJEV/pyproject.toml:75](../../../02_repositorios/DiabeticsresearchJEV/pyproject.toml) |
-| extra:dev | respx>=0.21.0 | [02_repositorios/DiabeticsresearchJEV/pyproject.toml:76](../../../02_repositorios/DiabeticsresearchJEV/pyproject.toml) |
+| extra:agent | langgraph>=0.2.0,<0.3.0 | [02_repositorios/DiabeticsresearchJEV/pyproject.toml:71](../../../02_repositorios/DiabeticsresearchJEV/pyproject.toml) |
+| extra:agent | neo4j-graphrag>=0.6.1,<1.0.0 | [02_repositorios/DiabeticsresearchJEV/pyproject.toml:72](../../../02_repositorios/DiabeticsresearchJEV/pyproject.toml) |
+| extra:agent | langchain-core>=0.3.0,<0.4.0 | [02_repositorios/DiabeticsresearchJEV/pyproject.toml:73](../../../02_repositorios/DiabeticsresearchJEV/pyproject.toml) |
+| extra:agent | langgraph-checkpoint-neo4j>=0.0.1,<0.1.0 | [02_repositorios/DiabeticsresearchJEV/pyproject.toml:74](../../../02_repositorios/DiabeticsresearchJEV/pyproject.toml) |
+| extra:dev | pytest>=8.2.0 | [02_repositorios/DiabeticsresearchJEV/pyproject.toml:77](../../../02_repositorios/DiabeticsresearchJEV/pyproject.toml) |
+| extra:dev | pytest-asyncio>=0.23.0 | [02_repositorios/DiabeticsresearchJEV/pyproject.toml:78](../../../02_repositorios/DiabeticsresearchJEV/pyproject.toml) |
+| extra:dev | ruff>=0.4.0 | [02_repositorios/DiabeticsresearchJEV/pyproject.toml:79](../../../02_repositorios/DiabeticsresearchJEV/pyproject.toml) |
+| extra:dev | mypy>=1.10.0 | [02_repositorios/DiabeticsresearchJEV/pyproject.toml:80](../../../02_repositorios/DiabeticsresearchJEV/pyproject.toml) |
+| extra:dev | mongomock>=4.1.0 | [02_repositorios/DiabeticsresearchJEV/pyproject.toml:81](../../../02_repositorios/DiabeticsresearchJEV/pyproject.toml) |
+| extra:dev | respx>=0.21.0 | [02_repositorios/DiabeticsresearchJEV/pyproject.toml:82](../../../02_repositorios/DiabeticsresearchJEV/pyproject.toml) |
 
 ## Skills diretamente relacionadas
 
@@ -88,37 +92,37 @@ Faixas e extras são preservados; versões instaladas/resolvidas não foram veri
 | [deployment-pipeline-expert](../../../00_skills/(cloud)/deployment-pipeline-expert/SKILL.md) | Necessidade observada: ci. Usar na tarefa correspondente, respeitando o contrato da skill. | [02_repositorios/DiabeticsresearchJEV/.github/workflows/ci.yml:1](../../../02_repositorios/DiabeticsresearchJEV/.github/workflows/ci.yml); [02_repositorios/DiabeticsresearchJEV/.github/workflows/merge-main.yml:1](../../../02_repositorios/DiabeticsresearchJEV/.github/workflows/merge-main.yml) |
 | [devops-pipeline-engineering](../../../00_skills/(cloud)/devops-pipeline-engineering/SKILL.md) | Necessidade observada: ci. Usar na tarefa correspondente, respeitando o contrato da skill. | [02_repositorios/DiabeticsresearchJEV/.github/workflows/ci.yml:1](../../../02_repositorios/DiabeticsresearchJEV/.github/workflows/ci.yml); [02_repositorios/DiabeticsresearchJEV/.github/workflows/merge-main.yml:1](../../../02_repositorios/DiabeticsresearchJEV/.github/workflows/merge-main.yml) |
 | [fine-tuning-expert](../../../00_skills/(development)/fine-tuning-expert/SKILL.md) | Necessidade observada: training. Usar na tarefa correspondente, respeitando o contrato da skill. | [02_repositorios/DiabeticsresearchJEV/pyproject.toml:8](../../../02_repositorios/DiabeticsresearchJEV/pyproject.toml) |
+| [gh-fix-ci](../../../00_skills/(tooling)/gh-fix-ci/SKILL.md) | Necessidade observada: ci. Usar na tarefa correspondente, respeitando o contrato da skill. | [02_repositorios/DiabeticsresearchJEV/.github/workflows/ci.yml:1](../../../02_repositorios/DiabeticsresearchJEV/.github/workflows/ci.yml); [02_repositorios/DiabeticsresearchJEV/.github/workflows/merge-main.yml:1](../../../02_repositorios/DiabeticsresearchJEV/.github/workflows/merge-main.yml) |
 | [llm-model-selection-expert](../../../00_skills/(development)/llm-model-selection-expert/SKILL.md) | Necessidade observada: ai. Usar na tarefa correspondente, respeitando o contrato da skill. | [02_repositorios/DiabeticsresearchJEV/pyproject.toml:8](../../../02_repositorios/DiabeticsresearchJEV/pyproject.toml) |
 | [lora-qlora-dora-expert](../../../00_skills/(development)/lora-qlora-dora-expert/SKILL.md) | Necessidade observada: training. Usar na tarefa correspondente, respeitando o contrato da skill. | [02_repositorios/DiabeticsresearchJEV/pyproject.toml:8](../../../02_repositorios/DiabeticsresearchJEV/pyproject.toml) |
 | [python-bug-solver-skill](../../../00_skills/(development)/python-bug-solver-skill/SKILL.md) | Necessidade observada: python. Usar na tarefa correspondente, respeitando o contrato da skill. | [02_repositorios/DiabeticsresearchJEV/src/diabeticsresearchjev/application/pipeline/full_cycle.py:31](../../../02_repositorios/DiabeticsresearchJEV/src/diabeticsresearchjev/application/pipeline/full_cycle.py) |
 | [python-expert](../../../00_skills/(development)/python-expert/SKILL.md) | Necessidade observada: python. Usar na tarefa correspondente, respeitando o contrato da skill. | [02_repositorios/DiabeticsresearchJEV/src/diabeticsresearchjev/application/pipeline/full_cycle.py:31](../../../02_repositorios/DiabeticsresearchJEV/src/diabeticsresearchjev/application/pipeline/full_cycle.py) |
 | [python-rag-audit](../../../00_skills/(development)/python-rag-audit/SKILL.md) | Necessidade observada: rag. Usar na tarefa correspondente, respeitando o contrato da skill. | [02_repositorios/DiabeticsresearchJEV/src/diabeticsresearchjev/application/rag/retriever.py:1](../../../02_repositorios/DiabeticsresearchJEV/src/diabeticsresearchjev/application/rag/retriever.py) |
 | [rag-expert](../../../00_skills/(development)/rag-expert/SKILL.md) | Necessidade observada: rag. Usar na tarefa correspondente, respeitando o contrato da skill. | [02_repositorios/DiabeticsresearchJEV/src/diabeticsresearchjev/application/rag/retriever.py:1](../../../02_repositorios/DiabeticsresearchJEV/src/diabeticsresearchjev/application/rag/retriever.py) |
-| [gh-fix-ci](../../../00_skills/(tooling)/gh-fix-ci/SKILL.md) | Necessidade observada: ci. Usar na tarefa correspondente, respeitando o contrato da skill. | [02_repositorios/DiabeticsresearchJEV/.github/workflows/ci.yml:1](../../../02_repositorios/DiabeticsresearchJEV/.github/workflows/ci.yml); [02_repositorios/DiabeticsresearchJEV/.github/workflows/merge-main.yml:1](../../../02_repositorios/DiabeticsresearchJEV/.github/workflows/merge-main.yml) |
 
 ## Uso condicionado
 
 - **ai-continuous-training-maintainer**: Contrato fixa E:/GitHub/aidiabetic-research/src/, diferente deste alvo. Confirmar escopo e pipeline antes de reutilizar.
 - **atualizar-dependencias**: Somente em missão de atualização com baseline e compatibilidade.
 - **compatibility-analyzer**: Ao verificar troca de linguagem/runtime/dependência.
+- **cve-advisory-sync**: Só ao solicitar consulta atual de advisories oficiais.
+- **cve-remediation**: Requer CVE/GHSA concreto, versão afetada e correção autorizada.
 - **dependency-updater**: Somente em atualização autorizada, preservando lockfiles.
+- **eol-advisory-sync**: Requer consulta atual de suporte oficial para os produtos declarados.
+- **gh-address-comments**: Requer comentários de PR e alvo concreto.
 - **github-operations**: Ao operar GitHub com alvo, credenciais e autorização próprios.
 - **local-secret-vault**: Só se a tarefa depender de credenciais autorizadas; não abrir para mapear.
 - **observability-root-cause-integrator**: Requer incidente/sintomas e telemetria atual.
 - **pr-reviewer**: Requer PR/diff concreto.
 - **pr-reviewer-advanced**: Requer PR/diff concreto e evidências de revisão.
 - **release-readiness-judge**: Requer release concreta e checks determinísticos.
-- **gh-address-comments**: Requer comentários de PR e alvo concreto.
-- **cve-advisory-sync**: Só ao solicitar consulta atual de advisories oficiais.
-- **cve-remediation**: Requer CVE/GHSA concreto, versão afetada e correção autorizada.
-- **eol-advisory-sync**: Requer consulta atual de suporte oficial para os produtos declarados.
 - **revisar-seguranca-pr**: Requer diff de PR e escopo de segurança.
-- **vuln-obsol-recon**: Inventário estático é ponto de partida; auditoria de CVE/EOL não foi executada.
 - **runtime-troubleshooting**: Requer runtime/logs atuais; o mapa é estático.
+- **vuln-obsol-recon**: Inventário estático é ponto de partida; auditoria de CVE/EOL não foi executada.
 
 ## Testes/CI
 
-11 arquivos candidatos por nome/caminho; não corresponde a quantidade de testes executados. 2 workflows encontrados. Suites não executadas.
+14 arquivos candidatos por nome/caminho; não corresponde a quantidade de testes executados. 2 workflows encontrados. Suites não executadas.
 
 - [02_repositorios/DiabeticsresearchJEV/.github/workflows/ci.yml:1](../../../02_repositorios/DiabeticsresearchJEV/.github/workflows/ci.yml)
 - [02_repositorios/DiabeticsresearchJEV/.github/workflows/merge-main.yml:1](../../../02_repositorios/DiabeticsresearchJEV/.github/workflows/merge-main.yml)

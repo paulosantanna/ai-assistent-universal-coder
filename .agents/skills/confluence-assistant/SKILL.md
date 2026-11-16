@@ -1,6 +1,6 @@
 ---
 name: confluence-assistant
-description: Expert in Confluence operations using Atlassian MCP. Use when the user says "search Confluence", "create a Confluence page", "update a page", "find documentation in Confluence", "list spaces", or "add a comment to a page". Do NOT use for Jira issues, general web search, or local file creation.
+description: "Confluence operations via Atlassian MCP: search, create, update pages and comments. Use for Confluence requests. Do NOT use for Jira or local files."
 license: CC-BY-4.0
 metadata:
   author: Tech Leads Club

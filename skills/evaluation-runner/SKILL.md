@@ -1,6 +1,6 @@
 ---
 name: evaluation-runner
-description: Provide enterprise-grade capability for `evaluation-runner` inside AEOS v1.1. Use when the user requests evaluation runner or invokes evaluation-runner. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+description: "Run a supplied evaluation suite; report reproducible results and gaps. Use for running a named eval suite. Do NOT use as deployment approval."
 license: CC-BY-4.0
 metadata:
   author: AEOS

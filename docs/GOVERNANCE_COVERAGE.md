@@ -10,7 +10,7 @@ This document explains how AEOS guarantees that legacy and future artifacts inhe
 
 `coveragePolicy = all-tracked-files-governed-by-default`
 
-The CI guard `scripts/aeos-full-workspace-standard-guard.mjs` enumerates the real repository with `git ls-files`. Every tracked file is governed by the root `AGENT.md` unless it is an explicitly ignored generated/cache/evidence artifact. There is no opt-in list of old files that can silently be forgotten.
+The CI guard `scripts/aeos-full-workspace-standard-guard.mjs` enumerates the real repository with `git ls-files`. Every tracked file is governed by the root `AGENTS.md` unless it is an explicitly ignored generated/cache/evidence artifact. There is no opt-in list of old files that can silently be forgotten.
 
 The mandatory lifecycle is:
 
@@ -19,7 +19,7 @@ The mandatory lifecycle is:
 ## Inheritance model
 
 ```text
-AGENT.md
+AGENTS.md
   ↓
 references/CODENAVI_FULL_WORKSPACE_STANDARD.md
   ↓

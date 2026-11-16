@@ -1,6 +1,6 @@
 ---
 name: mcp-discovery
-description: Discover and validate MCP tools and capabilities against AEOS policies. Use when the user requests mcp discovery or invokes mcp-discovery. Do NOT use for unrelated tools or unapproved remote writes.
+description: "Discover and validate MCP tools and capabilities against AEOS policies. Use for MCP discovery. Do NOT use for unapproved remote writes."
 license: CC-BY-4.0
 metadata:
   author: AEOS
@@ -10,9 +10,7 @@ metadata:
 
 # Skill: mcp-discovery
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Mission
 
@@ -42,6 +40,8 @@ Discover and validate MCP tools and capabilities against AEOS policies.
 - Return facts, assumptions, risks, recommendations, evidence_refs and blocking_conditions when applicable.
 - Stop when required evidence, permissions, policy approval or input context is missing.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

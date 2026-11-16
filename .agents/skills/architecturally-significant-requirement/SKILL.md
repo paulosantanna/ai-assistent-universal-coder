@@ -1,6 +1,6 @@
 ---
 name: architecturally-significant-requirement
-description: Decides whether a requirement, change request or design issue is an Architecturally Significant Requirement (ASR), a requirement with a measurable effect on the architecture and quality of a system, using the seven-criteria ASR Test, then makes it specific and measurable as a quality attribute scenario and hands the decisions it drives to an ADR. Use when the user asks "is this architecturally significant", "ASR", "requisito arquiteturalmente significativo", "does this need an ADR", "architectural drivers", "quality attribute scenario" or "priorize os requisitos que impactam a arquitetura". Do NOT use for writing the ADR itself (use architecture-decision-record), for full feature specification (use spec-driven), or for threat modeling (use security-threat-model).
+description: "Judge if a requirement is architecturally significant (ASR). Use for ASR triage. Do NOT use to write ADRs (architecture-decision-record)."
 license: CC-BY-4.0
 metadata:
   author: AEOS

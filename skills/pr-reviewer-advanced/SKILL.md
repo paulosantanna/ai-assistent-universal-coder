@@ -1,6 +1,6 @@
 ---
 name: pr-reviewer-advanced
-description: Perform severity-ranked, evidence-backed PR review. Use when the user requests pr reviewer advanced or invokes pr-reviewer-advanced. Do NOT use for unrelated languages, domains or production deployment.
+description: "Perform severity-ranked, evidence-backed PR reviews. Use for deep PR reviews. Do NOT use for deployment or unrelated stacks."
 license: CC-BY-4.0
 metadata:
   author: AEOS

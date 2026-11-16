@@ -1,6 +1,6 @@
 ---
 name: local-secret-vault
-description: Read authorized local credential vaults safely and expose only masked metadata or ephemeral secret references to governed tools. Use when the user requests local secret vault or invokes local-secret-vault. Do NOT use outside authorized defensive scope or to expose secret values.
+description: "Read authorized local credential vaults, exposing only masked metadata. Use for local vault access. Do NOT use outside scope or to expose secrets."
 license: CC-BY-4.0
 metadata:
   author: AEOS
@@ -10,11 +10,7 @@ metadata:
 
 # Skill: local-secret-vault
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
-
-Governance: CodENavi v1
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Mission
 Read authorized local credential vaults safely and expose only masked metadata or ephemeral secret references to governed tools.
@@ -33,8 +29,10 @@ Sectioned local files may be normalized deterministically (for example records d
 ## Output
 `{"status":"PASS|BLOCKED","entries":[{"label":"","target":"","secret_ref":"opaque","masked":"***"}],"evidence_refs":[]}`
 
-Provenance and source freshness: [provenance](references/provenance.md).
-
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
 Read [photographed sectioned-vault rules](../../../01_siglas/_comum/ferramentas/cofre-cookier.md) only for an explicitly authorized external sectioned vault. Normalize CRLF/CR, preserve the full label and validate format in runtime; never evaluate a shell command from a vault or print a section body. Paths in photos are examples, not authorized providers.
+
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

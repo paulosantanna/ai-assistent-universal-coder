@@ -1,10 +1,10 @@
 ---
 name: spec-driven-lean
-description: 'Assimilated Tech Lead''s Club lean spec workflow (tlc-spec-lean 1.0.0). Freeze obligations in plan + proof-backed checks, then build, then independent verify. Triggers: spec-driven-lean, tlc-spec-lean, plan feature, write the checks, build this plan, verify work. Do not use when a formal task list already exists or for standalone design docs.'
+description: "Tech Lead Club spec-lean 2.0.0: freeze obligations in proof-backed checks, then build. Use for spec-driven-lean work. Do NOT use for design docs."
 license: CC-BY-4.0
 metadata:
-  author: AEOS
-  version: 1.0.0
+  author: "AEOS; adapted from Tech Leads Club - github.com/tech-leads-club"
+  version: 2.0.0
   owner_agent: codenavi-agent
 ---
 

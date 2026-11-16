@@ -1,6 +1,6 @@
 ---
 name: kinghost-email-expert
-description: Governed KingHost email operations for mailbox creation, DNS/MX alignment, Webmail/client setup and recovery without exposing secrets. Use when the user requests kinghost email expert or invokes kinghost-email-expert. Do NOT use for unrelated application features or unapproved production changes.
+description: "Governed KingHost email: mailboxes, DNS/MX, webmail, recovery, no secret exposure. Use for KingHost email. Do NOT use for unapproved prod changes."
 license: CC-BY-4.0
 metadata:
   author: AEOS

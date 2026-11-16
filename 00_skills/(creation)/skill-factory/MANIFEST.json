@@ -103,8 +103,8 @@
     },
     {
       "path": "templates/SKILL.template.md",
-      "sha256": "1e14d8cddc8026b9434e4f5830d2a283af4cf88ed75b058fba16ab9229140d28",
-      "bytes": 3572
+      "sha256": "6995e64dfdd18aa4fb20c72f02206f867bd1d03d84b654872d13d87af0abb291",
+      "bytes": 1183
     },
     {
       "path": "tests/test_skill_factory.py",

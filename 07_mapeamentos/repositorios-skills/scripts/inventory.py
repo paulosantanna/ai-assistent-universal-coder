@@ -1,4 +1,5 @@
 """Read-only bounded inventory. Never execute repository content or read secrets."""
+import argparse
 import collections
 import hashlib
 import json
@@ -7,6 +8,27 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
 OUT = Path(__file__).resolve().parents[1]
+
+# Alinhado a 07_mapeamentos/mapeamento-beta-3.0.0 (17 diretórios canônicos).
+BETA3_REPOS = frozenset({
+    'AIHealthResearch',
+    'Awesome-LLM-Post-training',
+    'dark-videos',
+    'dark-videos-mining-fix',
+    'DiabeticsresearchJEV',
+    'Engenharia-Reversa',
+    'enterprise-llm-finetuning',
+    'FreePDFReader',
+    'ibunny',
+    'laya',
+    'ncm',
+    'pdfcraft',
+    'post_training_llms',
+    'rag-and-fine-tuning-demo',
+    'rag-finetuning',
+    'remove-onedrive',
+    'RemoveWindowsAI',
+})
 SKIP = {'.git', 'node_modules', '.venv', 'venv', 'target', 'dist', 'build',
         '.cache', '.mypy_cache', '.pytest_cache', '.ruff_cache', '__pycache__',
         '.next', '.turbo', '.dart_tool', '.idea', '.postgres', '.redis',
@@ -22,10 +44,12 @@ TEXT = {'.py', '.ts', '.tsx', '.js', '.mjs', '.cjs', '.rs', '.go', '.dart',
         '.ps1', '.md', '.toml', '.yaml', '.yml', '.sql', '.graphql', '.json'}
 
 
-def inventory():
+def inventory(allowlist: frozenset[str] | None = None):
     result = []
     for repo in sorted((ROOT / '02_repositorios').iterdir(), key=lambda p: p.name.lower()):
         if not repo.is_dir():
+            continue
+        if allowlist is not None and repo.name not in allowlist:
             continue
         files, excluded, errors, candidates = [], [], [], []
         def onerror(error):
@@ -62,8 +86,20 @@ def inventory():
     return result
 
 
+def resolve_allowlist(scope: str | None) -> frozenset[str] | None:
+    if scope in (None, 'all'):
+        return None
+    if scope == 'beta3':
+        return BETA3_REPOS
+    raise ValueError(f'Unknown scope: {scope}')
+
+
 if __name__ == '__main__':
-    repos = inventory()
+    parser = argparse.ArgumentParser(description='Bounded 02_repositorios inventory')
+    parser.add_argument('--scope', choices=('all', 'beta3'), default='beta3',
+                        help='beta3 = 17 repos do mapeamento beta 3.0.0')
+    args = parser.parse_args()
+    repos = inventory(resolve_allowlist(args.scope))
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / 'inventory.json').write_text(json.dumps(repos, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     for r in repos:

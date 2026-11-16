@@ -1,6 +1,6 @@
 ---
 name: mantis-history
-description: Analyzes the repository's version control system (VCS) history to extract past vulnerabilities, security fixes, and vulnerability patterns. Use as an initial pre-processing step to build a historical vulnerabilities database (workspace/historical_learnings.jsonl) that informs subsequent stages about past issues and fixes. Don't use for code reviews, writing test scripts, or patching code. Use when the user requests mantis history or invokes mantis-history.
+description: "Mine VCS history for past vulnerabilities and fixes. Use as first Mantis pre-processing step. Do NOT use for code review or patches."
 license: CC-BY-4.0
 metadata:
   author: AEOS

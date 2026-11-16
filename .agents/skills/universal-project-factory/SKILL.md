@@ -1,6 +1,6 @@
 ---
 name: universal-project-factory
-description: Plan and generate a sandbox-first project from zero to production for any requested architecture, language set and database set. Use when the user requests universal project factory or invokes universal-project-factory. Do NOT use for ordinary one-off coding or human competency lists.
+description: "Plan and generate sandbox-first projects from zero to production for any stack. Use for project generation. Do NOT use for ordinary one-off coding."
 license: CC-BY-4.0
 metadata:
   author: AEOS

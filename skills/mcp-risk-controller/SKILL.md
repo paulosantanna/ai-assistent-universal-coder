@@ -1,6 +1,6 @@
 ---
 name: mcp-risk-controller
-description: Audit MCPs, tool descriptions, capabilities and poisoning risks. Use when the user requests mcp risk controller or invokes mcp-risk-controller. Do NOT use for unrelated tools or unapproved remote writes.
+description: "Audit MCPs, tool descriptions, capabilities and poisoning risks. Use for MCP risk audits. Do NOT use for unapproved remote writes."
 license: CC-BY-4.0
 metadata:
   author: AEOS

@@ -1,6 +1,6 @@
 ---
 name: frontend-design
-description: Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications. Generates creative, polished code that avoids generic AI aesthetics. Do NOT use for design review or audit (use web-design-guidelines or web-quality-audit).
+description: "Create distinctive production UIs, avoiding generic AI looks. Use for pages or components. Do NOT use for design audits (web-design-guidelines)."
 license: CC-BY-4.0
 metadata:
   author: Impeccable (Paul Bakaus), based on Anthropic frontend-design

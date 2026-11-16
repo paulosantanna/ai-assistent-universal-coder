@@ -1,6 +1,6 @@
 ---
 name: security-audit
-description: Detect security risks and possible secrets without exposing values. Use when the user requests security audit or invokes security-audit. Do NOT use outside authorized defensive scope or to expose secret values.
+description: "Detect security risks and possible secrets without exposing values. Use for security audits. Do NOT use outside authorized scope or to expose secrets."
 license: CC-BY-4.0
 metadata:
   author: AEOS

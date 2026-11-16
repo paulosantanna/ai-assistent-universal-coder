@@ -1,6 +1,6 @@
 ---
 name: specs
-description: 'Prevent ad hoc creation and modification by requiring a specification before implementation: scope, rationale, acceptance checks, risks and required evidence. Use when the user requests specs, a specification or a pre-implementation contract. Do NOT use to override approved requirements or expand the user request.'
+description: "Require a spec before implementation: scope, checks, risks. Use for pre-implementation contracts. Do NOT use to override approved requirements."
 license: CC-BY-4.0
 metadata:
   author: AEOS

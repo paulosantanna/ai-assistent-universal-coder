@@ -1,6 +1,6 @@
 ---
 name: approval-requester
-description: Determine what approvals are needed for a proposed change, create approval requests, and track approval status. Use when the user requests approval requester or invokes approval-requester. Do NOT use outside authorized defensive scope or to expose secret values.
+description: "Determine approvals, create requests, track status. Use when asked to request approval. Do NOT use outside authorized scope or to expose secrets."
 license: CC-BY-4.0
 metadata:
   author: AEOS

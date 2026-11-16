@@ -1,6 +1,6 @@
 ---
 name: "local-secret-vault"
-description: "Read authorized local credential vaults safely and expose only masked metadata or ephemeral secret references to governed tools. Use when the user requests local secret vault or invokes local-secret-vault. Do NOT use outside authorized defensive scope or to expose secret values."
+description: "Read authorized local credential vaults, exposing only masked metadata. Use for local vault access. Do NOT use outside scope or to expose secrets."
 license: "CC-BY-4.0"
 metadata:
   author: "AEOS"

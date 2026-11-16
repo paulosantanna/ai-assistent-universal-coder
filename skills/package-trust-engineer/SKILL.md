@@ -1,6 +1,6 @@
 ---
 name: package-trust-engineer
-description: Verify packages, manifests, quarantine and promotion. Use when the user requests package trust engineer or invokes package-trust-engineer. Do NOT use outside authorized defensive scope or to expose secret values.
+description: "Verify packages, manifests, quarantine and promotion. Use for package trust checks. Do NOT use outside authorized scope or to expose secrets."
 license: CC-BY-4.0
 metadata:
   author: AEOS

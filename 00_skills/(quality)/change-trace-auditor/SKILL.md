@@ -1,6 +1,6 @@
 ---
 name: change-trace-auditor
-description: Audit change manifests and rollback plans so generated or modified files can be reviewed, reproduced and reverted safely. Use when the user requests change trace auditor or invokes change-trace-auditor. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+description: "Audit change manifests and rollback plans so changes can be reviewed and reverted. Use for change-trace audits. Do NOT use as deployment approval."
 license: CC-BY-4.0
 metadata:
   author: AEOS
@@ -10,9 +10,7 @@ metadata:
 
 # Skill: change-trace-auditor
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Mission
 
@@ -87,6 +85,8 @@ Audit change manifests and rollback plans so generated or modified files can be 
 - Rollback coverage below 100 percent.
 - Change outside allowed root.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

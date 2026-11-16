@@ -1,6 +1,6 @@
 ---
 name: "subagent-creator"
-description: "Design bounded sequential lenses of codenavi-agent with a single deliverable, explicit evidence packet, minimal tools and verifiable verdict. Use for create verifier, parity auditor, isolated review procedure or specialized work unit. Do NOT use for creating, register or spawn agent identities; use skill-architect for a reusable skill and cursor-subagent-creator for Cursor work-unit guidance."
+description: "Design bounded lenses of codenavi-agent with one deliverable and a verdict. Use for verifier or audit units. Do NOT use to create agent identities."
 license: "CC-BY-4.0"
 metadata:
   author: "Tech Leads Club"
@@ -10,8 +10,7 @@ metadata:
 
 # subagent-creator
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Workflow
 
@@ -39,3 +38,7 @@ Example: “create a parity verifier” → a local lens with antes/depois evide
 - Read [retained provenance](references/provenance.md) only for its matching mode; this entry and root governance take precedence.
 - Read [retained tlc](references/tlc) only for its matching mode; this entry and root governance take precedence.
 - Read [retained usage-and-verification](references/usage-and-verification.md) only for its matching mode; this entry and root governance take precedence.
+
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

@@ -1,6 +1,6 @@
 ---
 name: web-design-guidelines
-description: Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "check accessibility", "audit design", "review UX", or "check my site against best practices". Focuses on visual design and interaction patterns. Do NOT use for performance audits (use core-web-vitals), SEO (use seo), or comprehensive site audits (use web-quality-audit).
+description: "Review UI code against Web Interface Guidelines: visual and interaction patterns. Use for 'review my UI'. Do NOT use for performance or SEO audits."
 license: CC-BY-4.0
 metadata:
   author: vercel

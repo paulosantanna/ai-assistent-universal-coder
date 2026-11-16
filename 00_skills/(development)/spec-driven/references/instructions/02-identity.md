@@ -1,5 +1,3 @@
-<!-- Package: 00_skills/(development)/spec-driven; relative command/resource examples resolve from that package or workspace root. -->
+# Current workflow
 
-## Identity
-
-A skill of the single canonical `codenavi-agent`. It creates no new agent identity. Source "sub-agent" roles are internal lenses / sequential work units.
+This previous routing module is superseded by the [current contract](../../SKILL.md). Read it for the requested version, phase resources and gates.

@@ -1,6 +1,6 @@
 ---
 name: splunk-observability-staff
-description: Deep Staff-level Splunk observability analysis for Splunk Enterprise, ITSI, Observability Cloud, searches, metrics, logs, traces, notable events, episodes and service-impact evidence. Use when the user requests splunk observability staff or invokes splunk-observability-staff. Do NOT use to restart, scale or mutate live systems without an authorized operations task.
+description: "Splunk analysis: searches, metrics, logs, traces, notable events. Use for Splunk work. Do NOT use to mutate live systems unless authorized."
 license: CC-BY-4.0
 metadata:
   author: AEOS

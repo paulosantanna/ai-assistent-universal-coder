@@ -1,6 +1,6 @@
 ---
 name: anti-hallucination-evaluator
-description: Provide enterprise-grade capability for `anti-hallucination-evaluator` inside AEOS v1.1. Use when the user requests anti hallucination evaluator or invokes anti-hallucination-evaluator. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+description: "Anti-hallucination check of claims against inspected sources. Use for hallucination audits. Do NOT use as deployment approval."
 license: CC-BY-4.0
 metadata:
   author: AEOS

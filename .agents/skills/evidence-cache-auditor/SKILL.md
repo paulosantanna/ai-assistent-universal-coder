@@ -1,6 +1,6 @@
 ---
 name: evidence-cache-auditor
-description: Audit evidence cache keys, invalidation, allowed types and stale cache risks. Use when the user requests evidence cache auditor or invokes evidence-cache-auditor. Do NOT use for unrelated languages, domains or production deployment.
+description: "Audit evidence cache keys, invalidation and stale-cache risks. Use for evidence cache audits. Do NOT use for unrelated stacks or deployment."
 license: CC-BY-4.0
 metadata:
   author: AEOS

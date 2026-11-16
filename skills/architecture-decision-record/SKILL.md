@@ -1,6 +1,6 @@
 ---
 name: architecture-decision-record
-description: Writes, supersedes and reviews one Architecture Decision Record (ADR), the record of a single architectural decision with its context, options, outcome and consequences, in MADR 4.0.0, Nygard or Y-statement format, then lints it. Use when the user says "write an ADR", "document this decision", "record why we chose X", "supersede ADR-0007", "review this ADR", "escreva um ADR", "registre a decisão arquitetural" or "crie um registro de decisão de arquitetura". Do NOT use for indexing or auditing the whole decision log (use architecture-decision-log), for judging whether a requirement is architecturally significant (use architecturally-significant-requirement), for an organization-wide decision practice (use architecture-knowledge-management), for making a still-open choice (use the-jury or technical-design-doc-creator), or for general documentation (use docs-writer).
+description: "Write, supersede or review one ADR (MADR, Nygard, Y-statement) and lint it. Use when asked to record a decision. Do NOT use for the ADR index."
 license: CC-BY-4.0
 metadata:
   author: AEOS

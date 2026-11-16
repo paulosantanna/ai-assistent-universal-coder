@@ -1,6 +1,6 @@
 ---
 name: "vox-aurum"
-description: "Transcribe authorized local bare audio offline with a verified local Whisper model, preserving spoken language and literal output; optionally use an explicitly requested GPU. Use for transcreva esse áudio, áudios dessa pasta, audio to text or transcrição offline. Do NOT use for meeting/call video even if only transcrever is requested (acta-aurea), diarized minutes, live dictation, editing/translation or voice cloning."
+description: "Transcribe authorized bare audio offline with local Whisper. Use for offline transcription. Do NOT use for meeting video (acta-aurea)."
 license: "CC-BY-4.0"
 metadata:
   author: "AEOS; photographic reference supplied by user"
@@ -10,8 +10,7 @@ metadata:
 
 # vox-aurum
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Workflow
 
@@ -32,3 +31,7 @@ Source: IMG_2756–IMG_2761; photographed version 1.1.1.
 ## Retained resources
 
 - Read [retained provenance](references/provenance.md) only for its matching mode; this entry and root governance take precedence.
+
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

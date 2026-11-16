@@ -1,6 +1,6 @@
 ---
 name: demo
-description: "Record a demo video of a web app feature or flow on a real desktop (Docker, Xvfb, XFCE, real X cursor), producing an mp4 plus a click/hover/scroll/type telemetry file. Takes a flow description, an existing demo name or path, or init. Use when the user says \"record a demo of the checkout\", \"gravar um demo dessa feature\", \"make a screencast of this flow\", \"video for the changelog\", \"re-record the checkout demo\", \"refresh the demo video\", or \"demo init\". Do NOT use for general browser testing or automation that needs no video (use playwright-skill), page debugging or network inspection (use chrome-devtools), or static screenshots."
+description: "Record a web app demo video (mp4 and telemetry) on a real desktop. Use for 'record a demo' or screencasts. Do NOT use for tests (playwright-skill)."
 license: CC-BY-4.0
 metadata:
   author: "github.com/wcalderipe"
@@ -10,8 +10,7 @@ metadata:
 
 # demo
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Workflow
 
@@ -29,3 +28,6 @@ Example: use one of the request phrases in the description, inspect its target, 
 
 Source: Tech Leads Club, commit `3483c99f895c376c2dddc052687907716faa4d96`; original procedure/resources retain attribution and source hashes in the upstream manifest.
 
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

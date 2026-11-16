@@ -1,6 +1,6 @@
 # FreePDFReader — mapa estático de skills
 
-Updated: 2026-10-13
+Updated: 2026-11-16
 
 Entry point: ../README.md
 
@@ -105,28 +105,28 @@ Faixas e extras são preservados; versões instaladas/resolvidas não foram veri
 | [ci-quality-gate-engineer](../../../00_skills/(development)/ci-quality-gate-engineer/SKILL.md) | Necessidade observada: ci. Usar na tarefa correspondente, respeitando o contrato da skill. | [02_repositorios/FreePDFReader/.github/workflows/ci.yml:1](../../../02_repositorios/FreePDFReader/.github/workflows/ci.yml); [02_repositorios/FreePDFReader/.github/workflows/release.yml:1](../../../02_repositorios/FreePDFReader/.github/workflows/release.yml) |
 | [deployment-pipeline-expert](../../../00_skills/(cloud)/deployment-pipeline-expert/SKILL.md) | Necessidade observada: ci. Usar na tarefa correspondente, respeitando o contrato da skill. | [02_repositorios/FreePDFReader/.github/workflows/ci.yml:1](../../../02_repositorios/FreePDFReader/.github/workflows/ci.yml); [02_repositorios/FreePDFReader/.github/workflows/release.yml:1](../../../02_repositorios/FreePDFReader/.github/workflows/release.yml) |
 | [devops-pipeline-engineering](../../../00_skills/(cloud)/devops-pipeline-engineering/SKILL.md) | Necessidade observada: ci. Usar na tarefa correspondente, respeitando o contrato da skill. | [02_repositorios/FreePDFReader/.github/workflows/ci.yml:1](../../../02_repositorios/FreePDFReader/.github/workflows/ci.yml); [02_repositorios/FreePDFReader/.github/workflows/release.yml:1](../../../02_repositorios/FreePDFReader/.github/workflows/release.yml) |
+| [gh-fix-ci](../../../00_skills/(tooling)/gh-fix-ci/SKILL.md) | Necessidade observada: ci. Usar na tarefa correspondente, respeitando o contrato da skill. | [02_repositorios/FreePDFReader/.github/workflows/ci.yml:1](../../../02_repositorios/FreePDFReader/.github/workflows/ci.yml); [02_repositorios/FreePDFReader/.github/workflows/release.yml:1](../../../02_repositorios/FreePDFReader/.github/workflows/release.yml) |
 | [llm-model-selection-expert](../../../00_skills/(development)/llm-model-selection-expert/SKILL.md) | Necessidade observada: ai. Usar na tarefa correspondente, respeitando o contrato da skill. | [02_repositorios/FreePDFReader/README.md:3](../../../02_repositorios/FreePDFReader/README.md) |
 | [rust-expert](../../../00_skills/(development)/rust-expert/SKILL.md) | Necessidade observada: rust. Usar na tarefa correspondente, respeitando o contrato da skill. | [02_repositorios/FreePDFReader/Cargo.toml:6](../../../02_repositorios/FreePDFReader/Cargo.toml) |
-| [gh-fix-ci](../../../00_skills/(tooling)/gh-fix-ci/SKILL.md) | Necessidade observada: ci. Usar na tarefa correspondente, respeitando o contrato da skill. | [02_repositorios/FreePDFReader/.github/workflows/ci.yml:1](../../../02_repositorios/FreePDFReader/.github/workflows/ci.yml); [02_repositorios/FreePDFReader/.github/workflows/release.yml:1](../../../02_repositorios/FreePDFReader/.github/workflows/release.yml) |
 
 ## Uso condicionado
 
 - **atualizar-dependencias**: Somente em missão de atualização com baseline e compatibilidade.
 - **compatibility-analyzer**: Ao verificar troca de linguagem/runtime/dependência.
+- **cve-advisory-sync**: Só ao solicitar consulta atual de advisories oficiais.
+- **cve-remediation**: Requer CVE/GHSA concreto, versão afetada e correção autorizada.
 - **dependency-updater**: Somente em atualização autorizada, preservando lockfiles.
+- **eol-advisory-sync**: Requer consulta atual de suporte oficial para os produtos declarados.
+- **gh-address-comments**: Requer comentários de PR e alvo concreto.
 - **github-operations**: Ao operar GitHub com alvo, credenciais e autorização próprios.
 - **local-secret-vault**: Só se a tarefa depender de credenciais autorizadas; não abrir para mapear.
 - **observability-root-cause-integrator**: Requer incidente/sintomas e telemetria atual.
 - **pr-reviewer**: Requer PR/diff concreto.
 - **pr-reviewer-advanced**: Requer PR/diff concreto e evidências de revisão.
 - **release-readiness-judge**: Requer release concreta e checks determinísticos.
-- **gh-address-comments**: Requer comentários de PR e alvo concreto.
-- **cve-advisory-sync**: Só ao solicitar consulta atual de advisories oficiais.
-- **cve-remediation**: Requer CVE/GHSA concreto, versão afetada e correção autorizada.
-- **eol-advisory-sync**: Requer consulta atual de suporte oficial para os produtos declarados.
 - **revisar-seguranca-pr**: Requer diff de PR e escopo de segurança.
-- **vuln-obsol-recon**: Inventário estático é ponto de partida; auditoria de CVE/EOL não foi executada.
 - **runtime-troubleshooting**: Requer runtime/logs atuais; o mapa é estático.
+- **vuln-obsol-recon**: Inventário estático é ponto de partida; auditoria de CVE/EOL não foi executada.
 
 ## Testes/CI
 

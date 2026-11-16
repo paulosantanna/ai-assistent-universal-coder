@@ -1,6 +1,6 @@
 ---
 name: openshift-observability-staff
-description: Deep Staff-level OpenShift observability analysis for platform monitoring, user workload monitoring, alerts, logging, operators, routes, builds, cluster health and supported configuration boundaries. Use when the user requests openshift observability staff or invokes openshift-observability-staff. Do NOT use to restart, scale or mutate live systems without an authorized operations task.
+description: "OpenShift observability: monitoring, alerts, logging, operators. Use for OpenShift work. Do NOT use to mutate live systems unless authorized."
 license: CC-BY-4.0
 metadata:
   author: AEOS

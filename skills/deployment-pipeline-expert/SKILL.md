@@ -1,6 +1,6 @@
 ---
 name: deployment-pipeline-expert
-description: Map, diagnose and improve CI/CD/deployment pipelines safely. Use when the user requests deployment pipeline expert or invokes deployment-pipeline-expert. Do NOT use for unrelated application features or unapproved production changes.
+description: "Map, diagnose and improve CI/CD and deployment pipelines safely. Use for pipeline diagnosis. Do NOT use for app features or unapproved prod changes."
 license: CC-BY-4.0
 metadata:
   author: AEOS

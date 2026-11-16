@@ -1,6 +1,6 @@
 ---
 name: "fleet-mapping"
-description: "Map authorized repository fleets by sigla with corporate, domain and repository knowledge, scoped glossaries, evidenced dependencies and an offline consolidated report. Use for mapear os repositorios da sigla, jornada do sistema, glossário do fleet or visão sistêmica. Do NOT use to fix one bug, provision infrastructure, mutate production or invent business rules."
+description: "Map sigla fleet dependencies. Use for mapear a sigla. Do NOT use to fix bugs, provision infra, mutate production or invent business rules."
 license: "CC-BY-4.0"
 metadata:
   author: "AEOS; photographic reference supplied by user"
@@ -10,8 +10,7 @@ metadata:
 
 # fleet-mapping
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Workflow
 
@@ -39,3 +38,7 @@ Example: “mapear a sigla X” → read supplied perfil/glossário, map authori
 
 - Read [retained provenance](references/provenance.md) only for its matching mode; this entry and root governance take precedence.
 - Read [retained usage-and-verification](references/usage-and-verification.md) only for its matching mode; this entry and root governance take precedence.
+
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

@@ -1,6 +1,6 @@
 ---
 name: react-native-expert
-description: Senior React Native and Expo engineer for building production-ready cross-platform mobile apps. Use when building React Native components, implementing navigation with Expo Router, optimizing list and scroll performance, working with animations via Reanimated, handling platform-specific code (iOS/Android), integrating native modules, or structuring Expo projects. Triggers on React Native, Expo, mobile app, iOS app, Android app, cross-platform, native module, FlatList, FlashList, LegendList, Reanimated, Expo Router, mobile performance, app store. Do NOT use for Flutter, web-only React, or backend Node.js tasks.
+description: "Build production React Native and Expo apps: navigation, lists, native modules. Use for mobile app work. Do NOT use for Flutter or web-only React."
 license: CC-BY-4.0
 metadata:
   author: Felipe Rodrigues - github.com/felipfr

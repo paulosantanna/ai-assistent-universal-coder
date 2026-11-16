@@ -1,6 +1,6 @@
 ---
 name: bm25-expert
-description: Design, tune and evaluate lexical retrieval and hybrid BM25 pipelines. Use when the user requests bm25 expert or invokes bm25-expert. Do NOT use for unrelated languages, domains or production deployment.
+description: "Design, tune and evaluate BM25 and hybrid lexical retrieval. Use for BM25 or hybrid search work. Do NOT use for unrelated domains or deployment."
 license: CC-BY-4.0
 metadata:
   author: AEOS

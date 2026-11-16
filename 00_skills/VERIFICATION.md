@@ -3,7 +3,17 @@
 Updated: 2026-10-13
 Entry point: [catálogo](INDEX.md), [resultado reproduzível](validation.report.json).
 
-Resultado atual: PASS, zero erros e zero avisos.
+Resultado atual (2026-11-09): PASS, zero erros e 78 avisos do architect: 76 pré-existentes e 2 heurísticos do `studio-creation-tlc`, recém-registrado (corpo sem exemplos ou tratamento de erro).
+
+## Reestruturação de 2026-11-09 — formato enxuto
+
+Resultado: validador PASS, 0 erros e 78 avisos do architect. Nenhum aviso de skill já existente é novo; nenhum marcador de exemplo ou tratamento de erro foi perdido. 1.207 checagens internas OK; 0 tokens operacionais do original ausentes (spans de código, alvos de link e números).
+Defeitos corrigidos: BOM removido de três SKILL.md; mojibake em `documentary-adversarial-judge`; 13 digests stale do catálogo ressincronizados. Fonte importada `(design)/impeccable` mantida byte a byte por proveniência.
+Medidas (caracteres, antes → depois): descrições completas nos ponteiros 115.787 → 46.856 (−59,5%); ponteiros acima de 150: 327 → 1 (impeccable); catálogo visível (até 150 por ponteiro) 49.050 → 46.111 (−6,0%); corpo ativado médio 2.999 → 2.748 (−8,4%); roteamento duplicado no corpo 12.523 → 838 (deduplicação por frase, com revisão); módulos sob demanda 5,1 MB, inalterados.
+Limites: a redução de tokens de saída depende do uso real do agente e não foi medida em execução; a regra de resposta é a alavanca, mas o ganho efetivo precisa de amostra de uso. `studio-creation-tlc` foi registrado no catálogo e nos ponteiros em 2026-11-09, por decisão do owner (`risk_level` high, por bloquear envio de mídia). Algumas descrições de skills de linguagem perderam a exclusão genérica de deployment; o corpo mantém o escopo.
+Evidência: [resultado](validation.report.json). Backup e medições ficam em `.tools/skill-restructure/` (ignorado pelo git).
+
+Padrão DO NOT INVENT / NUNCA INVENTE: 46 skills declaravam a regra no `SKILL.md` original. Após a compactação, 11 descrições haviam perdido a cláusula registrada (validador em vermelho antes da restauração), e 14 foram restauradas com o texto literal. O validador aceita as formas do padrão como limite negativo e falha se uma cláusula sumir ([registro](do-not-invent.manifest.json)). Prova: `acceptance_test.py` (em `.tools/`): o architect reprova `Never invent facts.` em `description_has_negative_scope`, e o validador do workspace aceita. Resultado: PASS, 0 erros, 78 avisos, `do_not_invent: 46`.
 
 ## Atualização das 77 novas imagens
 

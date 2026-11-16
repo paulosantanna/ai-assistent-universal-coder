@@ -1,6 +1,6 @@
 ---
 name: deployment-pipeline-expert
-description: Map, diagnose and improve CI/CD/deployment pipelines safely. Use when the user requests deployment pipeline expert or invokes deployment-pipeline-expert. Do NOT use for unrelated application features or unapproved production changes.
+description: "Map, diagnose and improve CI/CD and deployment pipelines safely. Use for pipeline diagnosis. Do NOT use for app features or unapproved prod changes."
 license: CC-BY-4.0
 metadata:
   author: AEOS
@@ -10,11 +10,7 @@ metadata:
 
 # Deployment Pipeline Expert
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
-
-Governance: CodENavi v1
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Mission
 Map, diagnose and improve CI/CD/deployment pipelines safely.
@@ -24,6 +20,8 @@ GitHub Actions/Jenkins-style pipelines, artifact provenance, environment promoti
 
 Production mutation is never implicit. Start read-only, map stages and gates, reproduce failures, change minimally, verify artifact and deployment invariants.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

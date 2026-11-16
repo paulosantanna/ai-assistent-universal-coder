@@ -1,6 +1,6 @@
 ---
 name: playbook-factory-generator
-description: Generate a reviewable playbook with explicit step contracts, dependencies, resources and verification gates. Use when the user requests playbook factory generator or invokes playbook-factory-generator. Do NOT use for ordinary one-off coding or human competency lists.
+description: "Generate a reviewable playbook with step contracts, dependencies and verification gates. Use for playbook generation. Do NOT use for one-off coding."
 license: CC-BY-4.0
 metadata:
   author: AEOS
@@ -10,9 +10,7 @@ metadata:
 
 # Skill: playbook-factory-generator
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Mission
 
@@ -65,8 +63,10 @@ Generate a reviewable playbook with explicit step contracts, dependencies, resou
 - No direct tool bypass.
 - Outputs are schema-valid.
 
-Provenance and source freshness: [provenance](references/provenance.md).
-
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
 Read [domain procedure](references/domain-procedure.md) before acting; it defines the inputs, outputs and domain-specific verification sequence.
+
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

@@ -1,6 +1,6 @@
 ---
 name: java-expert
-description: Implement, diagnose, modernize and migrate real Java projects with version-correct APIs, minimal diffs and evidence-backed verification. Use when the user requests java expert or invokes java-expert. Do NOT use for unrelated languages, domains or production deployment.
+description: "Implement, diagnose and migrate Java projects with version-correct APIs and evidence. Use for Java work. Do NOT use for other languages."
 license: CC-BY-4.0
 metadata:
   author: AEOS

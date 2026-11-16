@@ -1,6 +1,6 @@
 ---
 name: tlc-prd
-description: "Interviews an idea into a PRD file covering situation, problem, success, boundary, and journey states, and stops before any technical design. Use when the user says \"write the PRD\", \"create the PRD\", \"PRD\", \"product spec\", \"product requirements\", \"tlc-prd\", or \"what does the product need to decide\". Do NOT use for designing a solution, choosing technology, publishing the document, or cutting the PRD into tasks."
+description: "Interview an idea into a PRD: problem, success, boundaries, journeys. Use for 'write the PRD'. Do NOT use to design solutions or cut tasks."
 license: CC-BY-4.0
 metadata:
   author: "Tech Leads Club - github.com/tech-leads-club"
@@ -10,8 +10,7 @@ metadata:
 
 # tlc-prd
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Workflow
 
@@ -29,3 +28,6 @@ Example: use one of the request phrases in the description, inspect its target, 
 
 Source: Tech Leads Club, commit `7f93bf3b15b3af417929781dbf9a3950ace7c144`; original procedure/resources retain attribution and source hashes in the upstream manifest.
 
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

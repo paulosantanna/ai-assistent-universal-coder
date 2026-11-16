@@ -1,6 +1,6 @@
 ---
 name: girl-voice-composer-simulation-expert
-description: Direct a TTS / voice-design engine to synthesize a GENERIC, fictional female child voice profile (age band 6-8) in Portuguese (pt-BR) and English (en-US), by producing bounded acoustic parameters (pitch, formants, prosody, syllable rhythm, EQ). Never clones or replicates any identifiable real child. Use when the user requests girl voice composer simulation expert or invokes girl-voice-composer-simulation-expert. Do NOT use for unrelated tools or unapproved remote writes.
+description: "Direct TTS to synthesize a generic fictional child voice (6-8), pt-BR and en-US. Use for synthetic voice profiles. Do NOT use to clone a real child."
 license: CC-BY-4.0
 metadata:
   author: AEOS

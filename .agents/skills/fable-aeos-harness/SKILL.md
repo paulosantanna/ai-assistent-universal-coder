@@ -1,6 +1,6 @@
 ---
 name: fable-aeos-harness
-description: Universal execution harness wrapping all AEOS skills with the Fable Method problem-solving loop. Use when the user requests fable aeos harness or invokes fable-aeos-harness. Do NOT use for unrelated languages, domains or production deployment.
+description: "Execution harness wrapping all AEOS skills with the Fable problem-solving loop. Use to run AEOS skills under Fable. Do NOT use for unrelated stacks."
 license: CC-BY-4.0
 metadata:
   author: AEOS

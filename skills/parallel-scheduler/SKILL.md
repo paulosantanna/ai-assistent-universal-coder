@@ -1,6 +1,6 @@
 ---
 name: parallel-scheduler
-description: Create deterministic safe schedules for playbook tasks using dependency graph and read/write sets. Use when the user requests parallel scheduler or invokes parallel-scheduler. Do NOT use for unrelated tools or unapproved remote writes.
+description: "Create deterministic safe schedules for playbook tasks from dependency sets. Use for parallel scheduling. Do NOT use for unapproved remote writes."
 license: CC-BY-4.0
 metadata:
   author: AEOS

@@ -1,6 +1,6 @@
 ---
 name: kubernetes-code-context-mapper
-description: Map Kubernetes pods, workloads, services, labels, metrics, logs and deployment metadata back to repository code, owners, tests and remediation boundaries. Use when the user requests kubernetes code context mapper or invokes kubernetes-code-context-mapper. Do NOT use for unrelated application features or unapproved production changes.
+description: "Map Kubernetes workloads, services and logs back to repo code and owners. Use for K8s-to-code mapping. Do NOT use for unapproved prod changes."
 license: CC-BY-4.0
 metadata:
   author: AEOS

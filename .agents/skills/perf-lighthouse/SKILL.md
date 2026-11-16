@@ -1,6 +1,6 @@
 ---
 name: perf-lighthouse
-description: 'Assimilated TLC Lighthouse audit skill. Run Lighthouse via CLI or Node, parse reports, set performance budgets. Triggers: lighthouse, run lighthouse, lighthouse score, performance audit, performance budget. Do not use to implement CWV or generic speed fixes (core-web-vitals, perf-web-optimization) or Astro-only config (perf-astro).'
+description: "Run Lighthouse via CLI or Node, parse reports, set budgets. Use for Lighthouse audits. Do NOT use for CWV fixes (core-web-vitals)."
 license: CC-BY-4.0
 metadata:
   author: Tech Leads Club

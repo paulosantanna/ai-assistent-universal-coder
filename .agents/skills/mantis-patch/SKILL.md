@@ -1,6 +1,6 @@
 ---
 name: mantis-patch
-description: Generates minimal security fixes using transactional isolation (shadow directories or file backups), applies patches, and verifies them. Use when security findings are successfully reproduced and need patches applied and verified. Don't use for initial vulnerability research or reproduction payload generation.
+description: "Generate minimal security fixes in isolated copies, then apply and verify. Use for reproduced findings. Do NOT use for research or payloads."
 license: CC-BY-4.0
 metadata:
   author: AEOS

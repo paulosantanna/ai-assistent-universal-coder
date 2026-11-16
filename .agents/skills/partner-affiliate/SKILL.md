@@ -1,6 +1,6 @@
 ---
 name: partner-affiliate
-description: When the user wants to build a partner program, launch an affiliate program, design integration partnerships, or create distribution partnerships. Also use when the user mentions 'partnerships,' 'affiliate program,' 'referral program,' 'partner ecosystem,' 'integration partner,' 'reseller,' 'co-marketing,' 'PartnerStack,' or 'revenue share.' This skill covers partner and affiliate program design from recruitment through performance optimization. Do NOT use for technical implementation, code review, or software architecture.
+description: "Design partner and affiliate programs: recruitment, revenue share, co-marketing. Use for partner programs. Do NOT use for code work."
 license: CC-BY-4.0
 metadata:
   author: Chad Boyda / agent-gtm-skills

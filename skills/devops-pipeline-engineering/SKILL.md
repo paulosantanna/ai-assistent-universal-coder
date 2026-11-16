@@ -1,6 +1,6 @@
 ---
 name: devops-pipeline-engineering
-description: Governed DevOps, Git and GitHub Actions lifecycle with recursive CI recovery, per-workflow guardians, merge readiness and bundle handoff. Use when the user requests devops pipeline engineering or invokes devops-pipeline-engineering. Do NOT use for unrelated application features or unapproved production changes.
+description: "Governed DevOps, Git and Actions lifecycle: CI recovery, merge readiness. Use for DevOps or Actions work. Do NOT use for unapproved prod changes."
 license: CC-BY-4.0
 metadata:
   author: AEOS

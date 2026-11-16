@@ -1,6 +1,6 @@
 ---
 name: chromatic-mega-brain
-description: Maintain workspace/category/project memory inheritance with canonical continuity files, evidence-backed promotion and exact next actions. Use when the user says organizar memória, cérebro hierárquico, retomar projeto or atualizar handoff. Do NOT use for repository fleet collection (fleet-mapping), deciding which claims deserve promotion (memory-curator/learning-curator), or unconstrained multi-agent reasoning.
+description: "Maintain hierarchical memory and continuity files. Use to resume a project or update handoff. Do NOT use for fleet mapping."
 license: CC-BY-4.0
 metadata:
   author: AEOS
@@ -10,8 +10,7 @@ metadata:
 
 # Chromatic Mega Brain
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Mission
 
@@ -38,4 +37,8 @@ The previous reasoning/color workflow is retained as [bounded cognitive referenc
 
 Source/freshness: [provenance](references/provenance.md).
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
+Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
+
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

@@ -1,6 +1,6 @@
 ---
 name: workbench-profile-resolver
-description: Resolve the smallest compatible workbench profile from task scope, available capabilities and explicit constraints. Use when the user requests workbench profile resolver or invokes workbench-profile-resolver. Do NOT use for unrelated tools or unapproved remote writes.
+description: "Resolve the smallest compatible workbench profile from scope and constraints. Use for profile selection. Do NOT use for unapproved remote writes."
 license: CC-BY-4.0
 metadata:
   author: AEOS

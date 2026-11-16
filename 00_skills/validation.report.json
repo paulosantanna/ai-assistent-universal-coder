@@ -1,20 +1,334 @@
 {
   "status": "PASS",
   "counts": {
-    "active": 302,
+    "active": 324,
     "aliases": 3,
-    "tlc": 92,
-    "upstream_files": 777,
+    "tlc": 94,
+    "upstream_files": 803,
     "images": 770,
     "distinct_images": 389,
-    "discovery": 305,
-    "skill_entries": 827,
-    "local_links": 2872,
+    "discovery": 327,
+    "skill_entries": 897,
+    "local_links": 2980,
     "max_lines": 99,
+    "do_not_invent": 46,
     "additional_images": 77,
     "impeccable_resources": 154
   },
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    {
+      "scope": "ai-continuous-training-maintainer",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "ai-seo",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "architecturally-significant-requirement",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "architecture-decision-log",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "architecture-decision-record",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "architecture-knowledge-management",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "core-web-vitals",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "create-technical-design-doc",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "dark-videos-knowledge-base",
+      "detail": "body_has_examples: Consider adding usage examples"
+    },
+    {
+      "scope": "dark-videos-knowledge-base",
+      "detail": "body_has_error_handling: Consider adding error handling guidance"
+    },
+    {
+      "scope": "dark-videos-knowledge-base",
+      "detail": "ref_linked_frame.md: references/frame.md exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "dark-videos-knowledge-base",
+      "detail": "ref_linked_heat.md: references/heat.md exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "dark-videos-knowledge-base",
+      "detail": "ref_linked_INDEX.md: references/INDEX.md exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "dark-videos-knowledge-base",
+      "detail": "ref_linked_mining.md: references/mining.md exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "dark-videos-knowledge-base",
+      "detail": "ref_linked_provenance.md: references/provenance.md exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "dark-videos-knowledge-base",
+      "detail": "ref_linked_publish.md: references/publish.md exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "dark-videos-knowledge-base",
+      "detail": "ref_linked_usage-and-verification.md: references/usage-and-verification.md exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "demo",
+      "detail": "body_has_error_handling: Consider adding error handling guidance"
+    },
+    {
+      "scope": "documentary-adversarial-judge",
+      "detail": "body_has_examples: Consider adding usage examples"
+    },
+    {
+      "scope": "documentary-audio-engineer",
+      "detail": "body_has_examples: Consider adding usage examples"
+    },
+    {
+      "scope": "documentary-factory",
+      "detail": "body_has_examples: Consider adding usage examples"
+    },
+    {
+      "scope": "documentary-music-curator",
+      "detail": "body_has_examples: Consider adding usage examples"
+    },
+    {
+      "scope": "documentary-social-video-expert",
+      "detail": "body_has_examples: Consider adding usage examples"
+    },
+    {
+      "scope": "documentary-subject-expert",
+      "detail": "body_has_examples: Consider adding usage examples"
+    },
+    {
+      "scope": "documentary-visual-curator",
+      "detail": "body_has_examples: Consider adding usage examples"
+    },
+    {
+      "scope": "documentation-11-layer-mapper",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "documentation-mapper",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "dynatrace-observability-staff",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "girl-voice-composer-simulation-expert",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "github-operations",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "grafana-observability-staff",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "java-bug-solver",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "java-bug-solver-skill",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "kubernetes-code-context-mapper",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "kubernetes-observability-staff",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "mantis-architecture",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "mantis-calibrate",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "mantis-chain",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "mantis-critic",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "mantis-dedupe",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "mantis-history",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "mantis-meta-agent",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "mantis-patch",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "mantis-pipeline-adapter",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "mantis-plan",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "mantis-reflect",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "mantis-report",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "mantis-reproduce",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "mantis-researcher",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "mantis-review",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "mantis-structural-index",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "mantis-summarize",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "mantis-threat-model",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "not-your-babysitter",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "nx-workspace",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "observability-root-cause-integrator",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "openshift-observability-staff",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "perf-astro",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "perf-lighthouse",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "perf-web-optimization",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "python-bug-solver-skill",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "security-audit",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "security-ownership-map",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "security-threat-model",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "simulator-ai",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "solve-problems",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "specs",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "splunk-observability-staff",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "staff-iii-architecture-governor",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "staff-tdd-code-builder",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "studio-creation-tlc",
+      "detail": "body_has_examples: Consider adding usage examples"
+    },
+    {
+      "scope": "studio-creation-tlc",
+      "detail": "body_has_error_handling: Consider adding error handling guidance"
+    },
+    {
+      "scope": "telemetry-bug-root-cause-solver",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "tests-expert",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "tlc-plan",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "tlc-prd",
+      "detail": "body_has_error_handling: Consider adding error handling guidance"
+    },
+    {
+      "scope": "voiceai",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    },
+    {
+      "scope": "web-best-practices",
+      "detail": "ref_linked_lenses: references/lenses exists but is not referenced in SKILL.md"
+    }
+  ],
   "scope": "Installed instructions, local module links, native discovery, source integrity and image accounting. External provider execution is outside this check."
 }

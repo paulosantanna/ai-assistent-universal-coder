@@ -1,6 +1,6 @@
 ---
 name: test-gap-analyzer
-description: Analyze the gap between source code and test coverage — identifying untested modules, functions, and edge cases. Use when the user requests test gap analyzer or invokes test-gap-analyzer. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+description: "Analyze test coverage gaps: untested modules and edge cases. Use for test gap analysis. Do NOT use as deployment approval or for unexecuted checks."
 license: CC-BY-4.0
 metadata:
   author: AEOS
@@ -10,9 +10,7 @@ metadata:
 
 # Test Gap Analyzer Skill
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 **ID:** test-gap-analyzer
 **Version:** 1.0.0
@@ -74,6 +72,8 @@ Analyze the gap between source code and test coverage — identifying untested m
 - Gap claims without source citations
 - Attempts to modify test files
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

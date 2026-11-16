@@ -1,6 +1,6 @@
 ---
 name: "revisar-pr"
-description: "Review a concrete pull-request diff against its requirement, behavior, contracts and repository conventions; return evidence-ranked findings and a local verdict. Use for revisar PR, parecer do diff or code review. Do NOT use for deep security review (revisar-seguranca-pr), remediate unless requested, post a review or decide/execute merge."
+description: "Review a PR diff against requirements and conventions, ranked findings. Use for revisar PR. Do NOT use for security review (revisar-seguranca-pr)."
 license: "CC-BY-4.0"
 metadata:
   author: "AEOS"

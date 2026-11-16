@@ -1,6 +1,6 @@
 ---
 name: "acta-aurea"
-description: "Turn an authorized meeting/call video (Teams/OBS .mkv/.mp4) into the complete offline pack: transcript, named speakers, topics, minutes, summary, glossary, subtitles and HTML player. Use for analisar essa call, gerar ata, transcreva a reunião or transcreva esse vídeo de reunião, even when only transcription is named. Do NOT use for a bare audio file with no meeting/speakers/pack (vox-aurum), live dictation or generic report design."
+description: "Authorized meeting video to offline pack: transcript, speakers, minutes. Use for an ata or call transcript. Do NOT use for bare audio (vox-aurum)."
 license: "CC-BY-4.0"
 metadata:
   author: "AEOS; photographic reference supplied by user"

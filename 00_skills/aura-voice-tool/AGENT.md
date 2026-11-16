@@ -2,7 +2,7 @@
 
 Governance: CodENavi Full Workspace v2
 
-Inherits root `AGENT.md` and `references/CODENAVI_FULL_WORKSPACE_STANDARD.md`.
+Inherits root `AGENTS.md` and `references/CODENAVI_FULL_WORKSPACE_STANDARD.md`.
 
 Aura Voice operations follow **BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF**.
 

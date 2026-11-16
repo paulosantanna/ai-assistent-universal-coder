@@ -1,6 +1,6 @@
 ---
 name: fable
-description: Standard problem-solving loop (classify ask, define done, gather evidence, decide, act surgically, verify by observation, report outcome-first). Use for non-trivial multi-step tasks, diagnosis, planning, or auditing work. Use when the user requests fable or invokes fable. Do NOT use for unrelated languages, domains or production deployment.
+description: "Standard problem-solving loop: classify, gather evidence, act surgically, verify. Use for non-trivial tasks. Do NOT use for trivial one-step answers."
 license: CC-BY-4.0
 metadata:
   author: AEOS
@@ -10,9 +10,7 @@ metadata:
 
 # Enterprise Skill: fable
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Mission
 
@@ -20,6 +18,8 @@ Provide enterprise-grade Fable Method problem-solving loop capability inside AEO
 
 Refer to `.agents/skills/fable/SKILL.md` and `.agents/skills/fable/references/` for full method specifications.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

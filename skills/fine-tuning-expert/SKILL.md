@@ -1,6 +1,6 @@
 ---
 name: fine-tuning-expert
-description: Decide whether fine-tuning is justified and implement a governed training pipeline when supported by the selected model/provider. Do NOT use for unrelated languages, domains or production deployment.
+description: "Decide if fine-tuning is justified; build a governed training pipeline. Use for fine-tuning decisions. Do NOT use for unrelated stacks."
 license: CC-BY-4.0
 metadata:
   author: AEOS

@@ -1,6 +1,6 @@
 ---
 name: legacy-risk-mapper
-description: Map legacy risks, modernization blockers and migration strategy. Use when the user requests legacy risk mapper or invokes legacy-risk-mapper. Do NOT use for an unrelated implementation change or deployment execution.
+description: "Map legacy risks, modernization blockers and migration strategy. Use for legacy risk mapping. Do NOT use for unrelated implementation or deployment."
 license: CC-BY-4.0
 metadata:
   author: AEOS

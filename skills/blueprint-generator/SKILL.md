@@ -1,6 +1,6 @@
 ---
 name: blueprint-generator
-description: Provide enterprise-grade capability for `blueprint-generator` inside AEOS v1.1. Use when the user requests blueprint generator or invokes blueprint-generator. Do NOT use for an unrelated implementation change or deployment execution.
+description: "Generate an evidence-based project blueprint: boundaries, components, data, gates. Use for blueprints. Do NOT use for implementation or deployment."
 license: CC-BY-4.0
 metadata:
   author: AEOS

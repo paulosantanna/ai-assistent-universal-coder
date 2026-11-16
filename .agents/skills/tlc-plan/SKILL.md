@@ -1,6 +1,6 @@
 ---
 name: tlc-plan
-description: 'Assimilated TLC tlc-plan 0.2.0. Turn a decided PRD, design doc, RFC or ticket into grounded tasks with observable criteria. Triggers: tlc-plan, write the task, cut this PRD into tasks, turn this design doc into work. Do not use for discovery or implementation.'
+description: "Turn a decided PRD or design doc into tasks with observable criteria. Use for task cutting. Do NOT use for discovery or implementation."
 license: CC-BY-4.0
 metadata:
   author: Tech Leads Club

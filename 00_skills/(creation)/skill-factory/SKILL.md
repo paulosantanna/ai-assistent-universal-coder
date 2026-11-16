@@ -1,6 +1,6 @@
 ---
 name: skill-factory
-description: Create, refactor, package and validate a reusable workspace skill with precise routing, entrypoint of at most 100 lines and local modules. Use when the user says criar skill, melhorar skills, refatorar SKILL.md or adicionar capacidade reutilizável. Do NOT use for one-off code fixes, human competency lists or new agent identities.
+description: "Create, refactor and validate workspace skills with precise routing. Use for criar or refatorar skills. Do NOT use for agent identities."
 license: CC-BY-4.0
 metadata:
   author: AEOS
@@ -10,8 +10,7 @@ metadata:
 
 # Skill Factory
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Workflow
 
@@ -36,4 +35,8 @@ Complete only when the structural checks and applicable helper/behavior checks p
 
 Source/freshness: [provenance](references/provenance.md).
 
-Read [package-notes.md](references/package-notes.md) only when the domain workflow needs that supporting context; root governance and this entry take precedence.
+Read [package-notes.md](references/package-notes.md) only when the domain workflow needs it; root governance and this entry take precedence.
+
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

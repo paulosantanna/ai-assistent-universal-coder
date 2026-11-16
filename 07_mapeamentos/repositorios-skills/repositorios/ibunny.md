@@ -1,6 +1,6 @@
 # ibunny — mapa estático de skills
 
-Updated: 2026-10-13
+Updated: 2026-11-16
 
 Entry point: ../README.md
 
@@ -61,7 +61,13 @@ Faixas e extras são preservados; versões instaladas/resolvidas não foram veri
 
 - **atualizar-dependencias**: Somente em missão de atualização com baseline e compatibilidade.
 - **compatibility-analyzer**: Ao verificar troca de linguagem/runtime/dependência.
+- **cve-advisory-sync**: Só ao solicitar consulta atual de advisories oficiais.
+- **cve-remediation**: Requer CVE/GHSA concreto, versão afetada e correção autorizada.
 - **dependency-updater**: Somente em atualização autorizada, preservando lockfiles.
+- **eol-advisory-sync**: Requer consulta atual de suporte oficial para os produtos declarados.
+- **frontend-design**: Princípios visuais reaproveitáveis; não cobre APIs Flutter.
+- **gh-address-comments**: Requer comentários de PR e alvo concreto.
+- **girl-voice-composer-simulation-expert**: Skill local de voz foi encontrada; gravação/TTS requer engine e escopo próprios.
 - **github-operations**: Ao operar GitHub com alvo, credenciais e autorização próprios.
 - **kotlin-expert**: Wrapper Android contém Kotlin; não cobre o cliente Dart.
 - **kubernetes-code-context-mapper**: Manifests/esqueleto Kubernetes presentes; acesso a cluster não verificado.
@@ -70,15 +76,9 @@ Faixas e extras são preservados; versões instaladas/resolvidas não foram veri
 - **pr-reviewer**: Requer PR/diff concreto.
 - **pr-reviewer-advanced**: Requer PR/diff concreto e evidências de revisão.
 - **release-readiness-judge**: Requer release concreta e checks determinísticos.
-- **girl-voice-composer-simulation-expert**: Skill local de voz foi encontrada; gravação/TTS requer engine e escopo próprios.
-- **frontend-design**: Princípios visuais reaproveitáveis; não cobre APIs Flutter.
-- **gh-address-comments**: Requer comentários de PR e alvo concreto.
-- **cve-advisory-sync**: Só ao solicitar consulta atual de advisories oficiais.
-- **cve-remediation**: Requer CVE/GHSA concreto, versão afetada e correção autorizada.
-- **eol-advisory-sync**: Requer consulta atual de suporte oficial para os produtos declarados.
 - **revisar-seguranca-pr**: Requer diff de PR e escopo de segurança.
-- **vuln-obsol-recon**: Inventário estático é ponto de partida; auditoria de CVE/EOL não foi executada.
 - **runtime-troubleshooting**: Requer runtime/logs atuais; o mapa é estático.
+- **vuln-obsol-recon**: Inventário estático é ponto de partida; auditoria de CVE/EOL não foi executada.
 
 ## Testes/CI
 

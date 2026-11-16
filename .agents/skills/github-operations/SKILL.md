@@ -1,6 +1,6 @@
 ---
 name: github-operations
-description: Governed Git and GitHub operations with runtime-only authentication, immutable safety denials, branch/PR/workflow management and Work Bundle integration. Use when the user requests github operations or invokes github-operations. Do NOT use for unrelated tools or unapproved remote writes.
+description: "Governed Git and GitHub operations: branches, PRs, workflows. Use for Git or GitHub actions. Do NOT use for unapproved remote writes."
 license: CC-BY-4.0
 metadata:
   author: AEOS

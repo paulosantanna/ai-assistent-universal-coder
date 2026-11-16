@@ -1,6 +1,6 @@
 ---
 name: pr-comment-resolver
-description: Resolve pull-request review comments systematically without blindly obeying incorrect feedback. Use when the user requests pr comment resolver or invokes pr-comment-resolver. Do NOT use for unrelated languages, domains or production deployment.
+description: "Resolve PR review comments systematically, without blindly obeying incorrect feedback. Use for PR comment resolution. Do NOT use for deployment."
 license: CC-BY-4.0
 metadata:
   author: AEOS

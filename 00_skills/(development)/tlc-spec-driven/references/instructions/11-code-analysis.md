@@ -1,5 +1,3 @@
-<!-- Package: 00_skills/(development)/tlc-spec-driven; relative command/resource examples resolve from that package or workspace root. -->
+# Current workflow
 
-## Code Analysis
-
-Use available tools with graceful degradation. See [code-analysis.md](../tlc/references/code-analysis.md).
+This previous routing module is superseded by the [current contract](../../SKILL.md). Read it for the requested version, phase resources and gates.

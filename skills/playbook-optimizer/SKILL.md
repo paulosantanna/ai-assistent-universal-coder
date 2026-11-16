@@ -1,6 +1,6 @@
 ---
 name: playbook-optimizer
-description: Optimize playbooks for execution time, safety and evidence quality. Use when the user requests playbook optimizer or invokes playbook-optimizer. Do NOT use for ordinary one-off coding or human competency lists.
+description: "Optimize playbooks for execution time, safety and evidence quality. Use for playbook optimization. Do NOT use for one-off coding."
 license: CC-BY-4.0
 metadata:
   author: AEOS

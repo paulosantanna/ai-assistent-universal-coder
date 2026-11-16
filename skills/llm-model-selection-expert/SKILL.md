@@ -1,6 +1,6 @@
 ---
 name: llm-model-selection-expert
-description: Select the best current model/model-family for a concrete workload using live authoritative capability information plus project evals. Use when the user requests llm model selection expert or invokes llm-model-selection-expert. Do NOT use for unrelated languages, domains or production deployment.
+description: "Select the best current model for a workload, using live capability data and evals. Use for model selection. Do NOT use for unrelated stacks."
 license: CC-BY-4.0
 metadata:
   author: AEOS

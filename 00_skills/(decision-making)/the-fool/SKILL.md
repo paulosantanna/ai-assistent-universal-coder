@@ -1,6 +1,6 @@
 ---
 name: "the-fool"
-description: "Stress-test a pending decision, plan or claim with its rationale, alternatives and reversibility; expose concrete threats, fragile assumptions and evidenced biases. Use for advogado do diabo, challenge this, pre-mortem, red team or blind spots. Do NOT use to decide for the owner, implement the solution, or harvest lessons from finished work (learning-opportunities)."
+description: "Stress-test a pending decision: threats, fragile assumptions, blind spots. Use for devil's advocate or pre-mortem. Do NOT use to decide for the owner."
 license: "CC-BY-4.0"
 metadata:
   author: "Tech Leads Club"
@@ -10,8 +10,7 @@ metadata:
 
 # the-fool
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Workflow
 
@@ -41,3 +40,7 @@ Example: “challenge replacing this database” → rationale/alternatives/reve
 - Read [retained socratic-questioning](references/socratic-questioning.md) only for its matching mode; this entry and root governance take precedence.
 - Read [retained tlc](references/tlc) only for its matching mode; this entry and root governance take precedence.
 - Read [retained usage-and-verification](references/usage-and-verification.md) only for its matching mode; this entry and root governance take precedence.
+
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

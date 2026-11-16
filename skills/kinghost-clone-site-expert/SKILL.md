@@ -1,6 +1,6 @@
 ---
 name: kinghost-clone-site-expert
-description: Governed KingHost full-site clone skill that acquires an integrity-verified FTP copy without mutating the remote origin and without silently losing files. Use when the user requests kinghost clone site expert or invokes kinghost-clone-site-expert. Do NOT use for unrelated application features or unapproved production changes.
+description: "Governed KingHost site clone via verified FTP copy, never mutating the origin. Use for KingHost clones. Do NOT use for unapproved production changes."
 license: CC-BY-4.0
 metadata:
   author: AEOS

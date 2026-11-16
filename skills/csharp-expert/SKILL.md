@@ -1,6 +1,6 @@
 ---
 name: csharp-expert
-description: Writes and reviews production C# on the current stable .NET release (C# 14, .NET 10). Use when the user says c#-expert, C#, csharp, .NET, csproj, dotnet, or asks to implement, fix, or review .cs code. Do NOT use for F#, Visual Basic, non-.NET languages, or work that is not C#/.NET source.
+description: "Write and review production C# on current .NET (C# 14, .NET 10). Use for C#, .NET, csproj or .cs work. Do NOT use for F#, VB or non-.NET code."
 license: CC-BY-4.0
 metadata:
   author: AEOS

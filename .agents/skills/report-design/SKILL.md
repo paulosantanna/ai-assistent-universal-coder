@@ -1,6 +1,6 @@
 ---
 name: report-design
-description: Apply the pictured offline report layout with semantic theme tokens, complete grids, tooltips, filters/export, drill-down and accessible diagrams. Use when the user says melhorar o relatório HTML, tabela sem filtro or relatório regrediu. Do NOT use for data collection (fleet-mapping), schema changes, skill evaluation, or meeting media (acta-aurea).
+description: "Apply the offline report layout: tokens, grids, filters, export, drill-down. Use for HTML report fixes. Do NOT use for data collection."
 license: CC-BY-4.0
 metadata:
   author: AEOS; photographic reference supplied by user

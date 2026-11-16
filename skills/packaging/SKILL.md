@@ -1,6 +1,6 @@
 ---
 name: packaging
-description: Create, inspect, and verify AEOS packages with manifests and checksums. Use when the user requests packaging or invokes packaging. Do NOT use for unrelated tools or unapproved remote writes.
+description: "Create, inspect and verify AEOS packages with manifests and checksums. Use for packaging work. Do NOT use for unapproved remote writes."
 license: CC-BY-4.0
 metadata:
   author: AEOS

@@ -1,6 +1,6 @@
 ---
 name: tests-expert
-description: Runs the application's real functional and end-to-end checks after a bug fix or new behavior, before that work is called done. Use when the user says corrigir, consertar, implementar, código novo, nova funcionalidade, fix the bug, new feature, prove que funciona, teste funcional, teste de ponta a ponta, end-to-end, e2e, or when a previous window left an open tests-expert failure. Do NOT use for unit tests, class tests, coverage, or tests derived from the implementation.
+description: "Run real functional and e2e checks after a fix or new behavior. Use for fixes, new features or e2e tests. Do NOT use for unit tests or coverage."
 license: CC-BY-4.0
 metadata:
   author: AEOS
@@ -10,11 +10,7 @@ metadata:
 
 # Tests Expert
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
-
-Governance: CodENavi Full Workspace v2. A skill of `codenavi-agent`. It creates no other agent identity.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 The user request is the only oracle. The running application is what you observe. Module map: `references/INDEX.md`.
 
@@ -52,4 +48,8 @@ Report the charter hash, the surface, the evidence path, and PASS or the open re
 User says: "o login aceita senha vazia; corrija."
 Result: one `browser` or `http` check that an empty password is rejected. A session after submit is FAIL. The expectation stays frozen until rejection is observed.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md).
+
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

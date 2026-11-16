@@ -1,6 +1,6 @@
 ---
 name: kinghost-site-publish-ftp-expert
-description: Governed KingHost PHP/WordPress FTP publishing skill with bounded diffs, backup, approval, rollback and post-deploy verification. Use when the user requests kinghost site publish ftp expert or invokes kinghost-site-publish-ftp-expert. Do NOT use for unrelated application features or unapproved production changes.
+description: "Governed KingHost WordPress/PHP FTP publish with backup and rollback. Use for KingHost publishing. Do NOT use for unapproved production changes."
 license: CC-BY-4.0
 metadata:
   author: AEOS

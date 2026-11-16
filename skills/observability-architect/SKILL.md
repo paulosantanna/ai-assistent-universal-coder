@@ -1,6 +1,6 @@
 ---
 name: observability-architect
-description: Design logs, traces, metrics, dashboards and alerting. Use when the user requests observability architect or invokes observability-architect. Do NOT use to restart, scale or mutate live systems without an authorized operations task.
+description: "Design logs, traces, metrics, dashboards, alerting. Use for observability design. Do NOT use to mutate live systems unless authorized."
 license: CC-BY-4.0
 metadata:
   author: AEOS

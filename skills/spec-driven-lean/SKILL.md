@@ -1,17 +1,15 @@
 ---
 name: spec-driven-lean
-description: 'Assimilated Tech Lead''s Club lean spec workflow (tlc-spec-lean 1.0.0). Freeze obligations in plan + proof-backed checks, then build, then independent verify. Triggers: spec-driven-lean, tlc-spec-lean, plan feature, write the checks, build this plan, verify work. Do not use when a formal task list already exists or for standalone design docs.'
+description: "Tech Lead Club spec-lean 2.0.0: freeze obligations in proof-backed checks, then build. Use for spec-driven-lean work. Do NOT use for design docs."
 license: CC-BY-4.0
 metadata:
-  author: AEOS
-  version: 1.0.0
+  author: "AEOS; adapted from Tech Leads Club - github.com/tech-leads-club"
+  version: 2.0.0
   owner_agent: codenavi-agent
 ---
 
-# Compatibility entry
+# spec-driven-lean
 
-Canonical contract: [spec-driven-lean](../../00_skills/(development)/spec-driven-lean/SKILL.md).
+Read and follow `00_skills/(development)/spec-driven-lean/SKILL.md` and its relevant local modules.
 
-Read that file and only the linked modules needed for this task. All resources and substantive instructions are in its canonical package.
-
-Governance: CodENavi Full Workspace v2. One agent: `codenavi-agent`.
+Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; no additional agent identity.

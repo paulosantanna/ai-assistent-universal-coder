@@ -48,8 +48,489 @@
       "baseline_hash": "603485601ebd02e4203598796088e478bfd1d411b1069960aeb9c7b0e2cf9f4f",
       "secret_policy": "runtime-references-only",
       "smoke": null
+    },
+    {
+      "id": "rag-graph-laya-mcp",
+      "path": "rag-graph-laya-mcp",
+      "state": "active",
+      "protocol": "jsonrpc-stdio",
+      "owner": "codenavi-agent",
+      "secret_policy": "runtime-references-only",
+      "command": [
+        "python",
+        "server.py"
+      ],
+      "entrypoint": "server.py",
+      "tools": [
+        {
+          "name": "health",
+          "description": "Report actual runtime prerequisites; no model weights loaded.",
+          "inputSchema": {
+            "additionalProperties": false,
+            "properties": {},
+            "title": "Empty",
+            "type": "object"
+          }
+        },
+        {
+          "name": "sources_list",
+          "description": "List discovered/acquired/analyzed sources and provenance.",
+          "inputSchema": {
+            "additionalProperties": false,
+            "properties": {},
+            "title": "Empty",
+            "type": "object"
+          }
+        },
+        {
+          "name": "sources_refresh",
+          "description": "Acquire allowlisted official sources; returns a durable job_id.",
+          "inputSchema": {
+            "additionalProperties": false,
+            "properties": {
+              "source_ids": {
+                "items": {
+                  "type": "string"
+                },
+                "maxItems": 100,
+                "minItems": 1,
+                "title": "Source Ids",
+                "type": "array"
+              }
+            },
+            "required": [
+              "source_ids"
+            ],
+            "title": "SourceRefresh",
+            "type": "object"
+          }
+        },
+        {
+          "name": "ingest",
+          "description": "Index or remove source-grounded documents with incremental Graphiti updates.",
+          "inputSchema": {
+            "additionalProperties": false,
+            "properties": {
+              "source_id": {
+                "title": "Source Id",
+                "type": "string"
+              },
+              "text": {
+                "anyOf": [
+                  {
+                    "maxLength": 2000000,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Text"
+              },
+              "action": {
+                "default": "index",
+                "enum": [
+                  "index",
+                  "remove"
+                ],
+                "title": "Action",
+                "type": "string"
+              },
+              "document_id": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Document Id"
+              }
+            },
+            "required": [
+              "source_id"
+            ],
+            "title": "Ingest",
+            "type": "object"
+          }
+        },
+        {
+          "name": "search",
+          "description": "Retrieve evidence with lexical, graph, hybrid or Laya reranking.",
+          "inputSchema": {
+            "additionalProperties": false,
+            "properties": {
+              "query": {
+                "maxLength": 4000,
+                "minLength": 1,
+                "title": "Query",
+                "type": "string"
+              },
+              "limit": {
+                "default": 10,
+                "maximum": 50,
+                "minimum": 1,
+                "title": "Limit",
+                "type": "integer"
+              },
+              "strategy": {
+                "default": "hybrid",
+                "enum": [
+                  "hybrid",
+                  "lexical",
+                  "graph",
+                  "laya"
+                ],
+                "title": "Strategy",
+                "type": "string"
+              }
+            },
+            "required": [
+              "query"
+            ],
+            "title": "Search",
+            "type": "object"
+          }
+        },
+        {
+          "name": "answer",
+          "description": "Generate a cited answer from active evidence or abstain.",
+          "inputSchema": {
+            "additionalProperties": false,
+            "properties": {
+              "query": {
+                "maxLength": 4000,
+                "minLength": 1,
+                "title": "Query",
+                "type": "string"
+              },
+              "limit": {
+                "default": 10,
+                "maximum": 50,
+                "minimum": 1,
+                "title": "Limit",
+                "type": "integer"
+              },
+              "strategy": {
+                "default": "hybrid",
+                "enum": [
+                  "hybrid",
+                  "lexical",
+                  "graph",
+                  "laya"
+                ],
+                "title": "Strategy",
+                "type": "string"
+              }
+            },
+            "required": [
+              "query"
+            ],
+            "title": "Search",
+            "type": "object"
+          }
+        },
+        {
+          "name": "reversa_search",
+          "description": "Search the local Reversa source index with file, line and hash provenance.",
+          "inputSchema": {
+            "additionalProperties": false,
+            "properties": {
+              "query": {
+                "maxLength": 4000,
+                "minLength": 1,
+                "title": "Query",
+                "type": "string"
+              },
+              "limit": {
+                "default": 5,
+                "maximum": 20,
+                "minimum": 1,
+                "title": "Limit",
+                "type": "integer"
+              },
+              "strategy": {
+                "default": "lexical",
+                "enum": [
+                  "lexical",
+                  "hybrid"
+                ],
+                "title": "Strategy",
+                "type": "string"
+              }
+            },
+            "required": [
+              "query"
+            ],
+            "title": "ReversaSearch",
+            "type": "object"
+          }
+        },
+        {
+          "name": "reversa_answer",
+          "description": "Generate a cited answer from current local Reversa source passages.",
+          "inputSchema": {
+            "additionalProperties": false,
+            "properties": {
+              "query": {
+                "maxLength": 4000,
+                "minLength": 1,
+                "title": "Query",
+                "type": "string"
+              },
+              "limit": {
+                "default": 5,
+                "maximum": 20,
+                "minimum": 1,
+                "title": "Limit",
+                "type": "integer"
+              },
+              "strategy": {
+                "default": "lexical",
+                "enum": [
+                  "lexical",
+                  "hybrid"
+                ],
+                "title": "Strategy",
+                "type": "string"
+              }
+            },
+            "required": [
+              "query"
+            ],
+            "title": "ReversaSearch",
+            "type": "object"
+          }
+        },
+        {
+          "name": "graph_snapshot",
+          "description": "Return a bounded graph snapshot and SSE replay cursor.",
+          "inputSchema": {
+            "additionalProperties": false,
+            "properties": {
+              "limit": {
+                "default": 500,
+                "maximum": 2000,
+                "minimum": 1,
+                "title": "Limit",
+                "type": "integer"
+              }
+            },
+            "title": "Snapshot",
+            "type": "object"
+          }
+        },
+        {
+          "name": "graph_neighbors",
+          "description": "Return one-hop neighbors and source provenance.",
+          "inputSchema": {
+            "additionalProperties": false,
+            "properties": {
+              "node_id": {
+                "title": "Node Id",
+                "type": "string"
+              }
+            },
+            "required": [
+              "node_id"
+            ],
+            "title": "Neighbors",
+            "type": "object"
+          }
+        },
+        {
+          "name": "laya_decide",
+          "description": "Answer typed questions using the official Laya SDK; no text generation.",
+          "inputSchema": {
+            "additionalProperties": false,
+            "properties": {
+              "state": {
+                "maxLength": 10000,
+                "minLength": 1,
+                "title": "State",
+                "type": "string"
+              },
+              "questions": {
+                "additionalProperties": true,
+                "maxProperties": 20,
+                "minProperties": 1,
+                "title": "Questions",
+                "type": "object"
+              }
+            },
+            "required": [
+              "state",
+              "questions"
+            ],
+            "title": "Decision",
+            "type": "object"
+          }
+        },
+        {
+          "name": "dataset_prepare",
+          "description": "Generate source-family-disjoint domain datasets and human review exports.",
+          "inputSchema": {
+            "additionalProperties": false,
+            "properties": {
+              "count": {
+                "default": 2000,
+                "maximum": 10000,
+                "minimum": 20,
+                "title": "Count",
+                "type": "integer"
+              },
+              "seed": {
+                "default": 42,
+                "title": "Seed",
+                "type": "integer"
+              },
+              "generation": {
+                "default": "extractive",
+                "enum": [
+                  "extractive",
+                  "teacher"
+                ],
+                "title": "Generation",
+                "type": "string"
+              }
+            },
+            "title": "Dataset",
+            "type": "object"
+          }
+        },
+        {
+          "name": "train",
+          "description": "Run a bounded, sequential Laya RLCD or LLM QLoRA experiment.",
+          "inputSchema": {
+            "additionalProperties": false,
+            "properties": {
+              "flow": {
+                "enum": [
+                  "laya",
+                  "llm"
+                ],
+                "title": "Flow",
+                "type": "string"
+              },
+              "dataset_id": {
+                "title": "Dataset Id",
+                "type": "string"
+              },
+              "epochs": {
+                "default": 2,
+                "maximum": 4,
+                "minimum": 1,
+                "title": "Epochs",
+                "type": "integer"
+              },
+              "seed": {
+                "default": 42,
+                "title": "Seed",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "flow",
+              "dataset_id"
+            ],
+            "title": "Train",
+            "type": "object"
+          }
+        },
+        {
+          "name": "evaluate",
+          "description": "Compare model quality on a held-out dataset; human review is explicit.",
+          "inputSchema": {
+            "additionalProperties": false,
+            "properties": {
+              "flow": {
+                "enum": [
+                  "laya",
+                  "llm"
+                ],
+                "title": "Flow",
+                "type": "string"
+              },
+              "dataset_id": {
+                "title": "Dataset Id",
+                "type": "string"
+              },
+              "checkpoint": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Checkpoint"
+              },
+              "require_human_review": {
+                "default": true,
+                "title": "Require Human Review",
+                "type": "boolean"
+              },
+              "seed": {
+                "default": 42,
+                "title": "Seed",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "flow",
+              "dataset_id"
+            ],
+            "title": "Evaluate",
+            "type": "object"
+          }
+        },
+        {
+          "name": "job_status",
+          "description": "Read persistent progress, result or actionable failure for a job.",
+          "inputSchema": {
+            "additionalProperties": false,
+            "properties": {
+              "job_id": {
+                "title": "Job Id",
+                "type": "string"
+              }
+            },
+            "required": [
+              "job_id"
+            ],
+            "title": "Job",
+            "type": "object"
+          }
+        },
+        {
+          "name": "job_cancel",
+          "description": "Cancel a queued/running job; confirmed graph changes remain committed.",
+          "inputSchema": {
+            "additionalProperties": false,
+            "properties": {
+              "job_id": {
+                "title": "Job Id",
+                "type": "string"
+              }
+            },
+            "required": [
+              "job_id"
+            ],
+            "title": "Job",
+            "type": "object"
+          }
+        }
+      ]
     }
   ],
   "lsps": [],
-  "lsp_scope": "No local LSP server implementation/configuration installed; editor extensions are not proof of a server"
+  "lsp_scope": "No local LSP server implementation/configuration installed; editor extensions are not proof of a server",
+  "configuration_files": [
+    "rag-graph-laya-mcp/client-config.json"
+  ]
 }

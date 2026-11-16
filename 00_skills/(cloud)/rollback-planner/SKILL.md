@@ -1,6 +1,6 @@
 ---
 name: rollback-planner
-description: Generate rollback plans for proposed changes — defining exactly how to undo every operation safely. Use when the user requests rollback planner or invokes rollback-planner. Do NOT use for unrelated application features or unapproved production changes.
+description: "Generate rollback plans that define how to undo every operation safely. Use for rollback planning. Do NOT use for unapproved production changes."
 license: CC-BY-4.0
 metadata:
   author: AEOS
@@ -10,9 +10,7 @@ metadata:
 
 # Rollback Planner Skill
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 **ID:** rollback-planner
 **Version:** 1.0.0
@@ -87,4 +85,8 @@ Generate rollback plans for proposed changes — defining exactly how to undo ev
 - Executing the rollback plan
 - Modifying source files as part of planning
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md).
+
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

@@ -1,6 +1,6 @@
 ---
 name: perf-web-optimization
-description: 'Assimilated TLC web performance skill. Measure, then cut bundle size, images, caching, lazy loading and page speed. Triggers: web performance, bundle size, page speed, slow site, lazy loading. Do not use for CWV-only metric work (core-web-vitals), only running Lighthouse (perf-lighthouse), or Astro-only config (perf-astro).'
+description: "Measure, then cut bundle size, images, caching and page speed. Use for web performance work. Do NOT use for CWV-only work (core-web-vitals)."
 license: CC-BY-4.0
 metadata:
   author: AEOS

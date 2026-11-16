@@ -1,6 +1,6 @@
 ---
 name: continuity-bootstrapper
-description: Bootstrap and validate the CodENavi continuity quartet for a workspace without inventing project state. Use when the user requests continuity bootstrapper or invokes continuity-bootstrapper. Do NOT use to promote unverified claims or transient task status into durable memory.
+description: "Bootstrap and validate the CodENavi quartet without inventing project state. Use for continuity setup. Do NOT use to promote unverified claims."
 license: CC-BY-4.0
 metadata:
   author: AEOS

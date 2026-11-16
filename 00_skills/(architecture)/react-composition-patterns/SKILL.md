@@ -1,6 +1,6 @@
 ---
 name: react-composition-patterns
-description: React composition patterns that scale. Use when refactoring components with boolean prop proliferation, building flexible component libraries, or designing reusable APIs. Triggers on tasks involving compound components, render props, context providers, or component architecture. Includes React 19 API changes. Do NOT use for React/Next.js performance optimization (use react-best-practices instead).
+description: "React composition: compound components, render props, React 19. Use for component API refactors. Do NOT use for performance (react-best-practices)."
 license: MIT
 metadata:
   author: vercel
@@ -10,9 +10,7 @@ metadata:
 
 # React Composition Patterns
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 Composition patterns for building flexible, maintainable React components. Avoid
 boolean prop proliferation by using compound components, lifting state, and
@@ -31,12 +29,12 @@ Reference these guidelines when:
 
 ## Rule Categories by Priority
 
-| Priority | Category                | Impact | Prefix          |
+| Priority | Category | Impact | Prefix |
 | -------- | ----------------------- | ------ | --------------- |
-| 1        | Component Architecture  | HIGH   | `architecture-` |
-| 2        | State Management        | MEDIUM | `state-`        |
-| 3        | Implementation Patterns | MEDIUM | `patterns-`     |
-| 4        | React 19 APIs           | MEDIUM | `react19-`      |
+| 1 | Component Architecture | HIGH | `architecture-` |
+| 2 | State Management | MEDIUM | `state-` |
+| 3 | Implementation Patterns | MEDIUM | `patterns-` |
+| 4 | React 19 APIs | MEDIUM | `react19-` |
 
 ## Quick Reference
 
@@ -90,8 +88,10 @@ For the complete guide with all rules expanded: `AGENTS.md`
 
 ## TLC source
 
-For the catalog workflow and its local resources, read [TLC contract](references/tlc/UPSTREAM.md). Apply root governance and the local constraints above; upstream does not grant extra authority.
+TLC source: [TLC contract](references/tlc/UPSTREAM.md). Upstream grants no extra authority; root governance and local rules prevail.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

@@ -1,6 +1,6 @@
 ---
 name: java-migration
-description: Analyze Java projects and perform version migrations, API replacements, and build configuration updates. Use when the user requests java migration or invokes java-migration. Do NOT use for unrelated languages, domains or production deployment.
+description: "Analyze Java projects and perform version migrations, API replacements and build updates. Use for Java migrations. Do NOT use for other languages."
 license: CC-BY-4.0
 metadata:
   author: AEOS
@@ -10,9 +10,7 @@ metadata:
 
 # Skill: Java Migration
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Mission
 
@@ -69,7 +67,6 @@ Analyze Java projects and perform version migrations, API replacements, and buil
 - Return facts, assumptions, risks, recommendations, evidence_refs and blocking_conditions when applicable.
 - Stop when required evidence, permissions, policy approval or input context is missing.
 
-
 ## Documentation Intelligence
 
 Before recommending a Java version migration, select the source and target documentation MCPs from:
@@ -90,6 +87,8 @@ Use `language_docs.migration_delta` and `language_docs.lookup_symbol` for API, d
 - Must verify build after migration.
 - Must produce rollback plan.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

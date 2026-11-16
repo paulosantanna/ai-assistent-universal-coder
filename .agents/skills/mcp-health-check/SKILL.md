@@ -1,6 +1,6 @@
 ---
 name: mcp-health-check
-description: Validate MCP runtime health, state, tools, capabilities and security posture. Use when the user requests mcp health check or invokes mcp-health-check. Do NOT use for unrelated tools or unapproved remote writes.
+description: "Validate MCP runtime health, tools, capabilities and security posture. Use for MCP health checks. Do NOT use for unapproved remote writes."
 license: CC-BY-4.0
 metadata:
   author: AEOS

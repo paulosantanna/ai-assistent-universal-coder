@@ -1,6 +1,6 @@
 ---
 name: deploy-expert-unique
-description: Apply the unique governed AWS deployment pipeline contract for AIHealthResearch, including branch promotion, Google OSV CVE, CodeQL SAST, Python security and deploy validators. Use when the user requests deploy expert unique or invokes deploy-expert-unique. Do NOT use for unrelated languages, domains or production deployment.
+description: "AIHealthResearch AWS deploy contract: branch promotion, OSV, CodeQL, validators. Use for AIHealthResearch deploys. Do NOT use for other projects."
 license: CC-BY-4.0
 metadata:
   author: AEOS
@@ -10,9 +10,7 @@ metadata:
 
 # Deploy Expert Unique
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 Use this skill only for the AIHealthResearch AWS deployment pipeline. It is intentionally project-specific and must not be generalized to unrelated repositories.
 
@@ -42,6 +40,8 @@ The `pre` and `prod` GitHub Environments must define `AWS_DEPLOY_ENABLED`, `AWS_
 
 Reject a deployment change when any gate is removed, bypassed, downgraded to warning-only, or made branch-ambiguous. Ask the failure-impact question before approval: if this fails here, which environment, stack, data class, scientific evidence path, model artifact, or training workflow is affected?
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

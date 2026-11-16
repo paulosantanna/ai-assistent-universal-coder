@@ -1,6 +1,6 @@
 ---
 name: rust-expert
-description: Implement, diagnose, modernize and migrate real Rust projects with version-correct APIs, minimal diffs and evidence-backed verification. Use when the user requests rust expert or invokes rust-expert. Do NOT use for unrelated languages, domains or production deployment.
+description: "Implement, diagnose, modernize and migrate Rust projects with version-correct APIs. Use for Rust work. Do NOT use for other languages or deployment."
 license: CC-BY-4.0
 metadata:
   author: Tech Lead's Club / CodENavi

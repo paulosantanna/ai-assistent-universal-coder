@@ -1,6 +1,6 @@
 ---
 name: marketplace-curator
-description: Provide enterprise-grade capability for `marketplace-curator` inside AEOS v1.1. Use when the user requests marketplace curator or invokes marketplace-curator. Do NOT use for unrelated tools or unapproved remote writes.
+description: "Curate capability listings by provenance, licensing, scope and compatibility. Use for marketplace curation. Do NOT use for unapproved remote writes."
 license: CC-BY-4.0
 metadata:
   author: AEOS

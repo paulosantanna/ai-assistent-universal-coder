@@ -1,6 +1,6 @@
 ---
 name: dark-videos-pipeline-expert
-description: 'Operate the dark-videos pipeline: mine the last 24h, rank the top 20 with LAYA, frame from the project template, and publish through the existing dispatch. Use when mining, framing, scheduling, or posting shorts in dark-videos. Do not use for a second publisher, cookie export, or posting below the app''s red team.'
+description: "Run the dark-videos pipeline: mine, rank, frame, publish via dispatch. Use for shorts posting. Do NOT use for a second publisher or cookie export."
 license: CC-BY-4.0
 metadata:
   author: AEOS

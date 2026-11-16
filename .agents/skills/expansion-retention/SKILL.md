@@ -1,6 +1,6 @@
 ---
 name: expansion-retention
-description: When the user wants to reduce churn, build expansion revenue, automate customer success, or optimize net revenue retention. Also use when the user mentions 'churn,' 'retention,' 'expansion revenue,' 'upsell,' 'NRR,' 'net revenue retention,' 'customer success,' 'land and expand,' 'closed-lost,' or 'renewal.' This skill covers expansion and retention systems from usage triggers through automated customer success. Do NOT use for technical implementation, code review, or software architecture.
+description: "Reduce churn and grow expansion revenue: NRR, upsell, customer success, renewals. Use for retention systems. Do NOT use for code work."
 license: CC-BY-4.0
 metadata:
   author: Chad Boyda / agent-gtm-skills

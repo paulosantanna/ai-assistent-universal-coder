@@ -1,6 +1,6 @@
 ---
 name: kinghost-email-expert
-description: Governed KingHost email operations for mailbox creation, DNS/MX alignment, Webmail/client setup and recovery without exposing secrets. Use when the user requests kinghost email expert or invokes kinghost-email-expert. Do NOT use for unrelated application features or unapproved production changes.
+description: "Governed KingHost email: mailboxes, DNS/MX, webmail, recovery, no secret exposure. Use for KingHost email. Do NOT use for unapproved prod changes."
 license: CC-BY-4.0
 metadata:
   author: AEOS
@@ -10,9 +10,7 @@ metadata:
 
 # KingHost Email Expert
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 Super-skill lens of the canonical `codenavi-agent`; no new agent identity.
 
@@ -46,6 +44,8 @@ Create and maintain authorized KingHost e-mail services, align DNS/MX, verify We
 
 Completion requires functional login/connectivity or an explicit `BLOCKED` reason, not merely successful account creation in the panel.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

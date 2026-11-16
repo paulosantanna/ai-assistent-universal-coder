@@ -1,6 +1,6 @@
 ---
 name: policy-hardening-auditor
-description: Audit whether policies cover critical unsafe paths and fail closed. Use when the user requests policy hardening auditor or invokes policy-hardening-auditor. Do NOT use outside authorized defensive scope or to expose secret values.
+description: "Audit policies for unsafe paths and fail-closed behavior. Use for policy hardening. Do NOT use outside authorized scope or to expose secrets."
 license: CC-BY-4.0
 metadata:
   author: AEOS

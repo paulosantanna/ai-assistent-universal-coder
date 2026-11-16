@@ -1,6 +1,6 @@
 ---
 name: agent-trace-validator
-description: Validate agent trace completeness and integrity. Use when the user requests agent trace validator or invokes agent-trace-validator. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+description: "Validate agent trace completeness and integrity. Use for trace validation. Do NOT use as deployment approval or proof of unexecuted checks."
 license: CC-BY-4.0
 metadata:
   author: AEOS

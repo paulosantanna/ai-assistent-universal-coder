@@ -1,0 +1,50 @@
+{
+  "gov_codenavi": {
+    "n_both_valid": 324,
+    "raw_agreement": 1.0,
+    "kappa": null,
+    "ac1": 1.0,
+    "prevalence_pos": 1.0,
+    "minority_prevalence": 0.0,
+    "u_a1": 0,
+    "u_a2": 0,
+    "rule": "low-prevalence: AC1>=0.85 and raw>=0.92",
+    "reliability_pass": true
+  },
+  "provenance_pointer": {
+    "n_both_valid": 324,
+    "raw_agreement": 1.0,
+    "kappa": null,
+    "ac1": 1.0,
+    "prevalence_pos": 1.0,
+    "minority_prevalence": 0.0,
+    "u_a1": 0,
+    "u_a2": 0,
+    "rule": "low-prevalence: AC1>=0.85 and raw>=0.92",
+    "reliability_pass": true
+  },
+  "secrets_runtime_only": {
+    "n_both_valid": 324,
+    "raw_agreement": 0.9907407407407407,
+    "kappa": 0.9754098360655736,
+    "ac1": 0.9851486283108092,
+    "prevalence_pos": 0.7484567901234568,
+    "minority_prevalence": 0.2515432098765432,
+    "u_a1": 0,
+    "u_a2": 0,
+    "rule": "kappa>=0.70",
+    "reliability_pass": true
+  },
+  "fail_closed": {
+    "n_both_valid": 324,
+    "raw_agreement": 0.9012345679012346,
+    "kappa": 0.7154618804544707,
+    "ac1": 0.8498479362780594,
+    "prevalence_pos": 0.7808641975308642,
+    "minority_prevalence": 0.21913580246913578,
+    "u_a1": 0,
+    "u_a2": 0,
+    "rule": "kappa>=0.70",
+    "reliability_pass": true
+  }
+}

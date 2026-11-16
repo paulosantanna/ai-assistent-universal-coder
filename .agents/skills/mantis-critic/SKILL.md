@@ -1,6 +1,6 @@
 ---
 name: mantis-critic
-description: Assesses the production viability of findings, filtering out debug-only features and assertion traps. Use when findings have been validated and you need to confirm they are triggerable in production release builds (with assertions disabled). Don't use for writing reproduction scripts or patches.
+description: "Assess production viability of validated findings, filtering debug-only paths. Use for release-build triggerability. Do NOT use for patches."
 license: CC-BY-4.0
 metadata:
   author: AEOS

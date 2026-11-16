@@ -1,6 +1,6 @@
 ---
 name: slo-risk-analyzer
-description: Map engineering operations to SLO/SLA risks and error budgets. Use when the user requests slo risk analyzer or invokes slo-risk-analyzer. Do NOT use for unrelated functionality or unmeasured speculative optimization.
+description: "Map engineering operations to SLO/SLA risks and error budgets. Use for SLO risk analysis. Do NOT use for unmeasured speculative tuning."
 license: CC-BY-4.0
 metadata:
   author: AEOS

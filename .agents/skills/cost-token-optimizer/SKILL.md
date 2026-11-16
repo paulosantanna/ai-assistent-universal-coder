@@ -1,6 +1,6 @@
 ---
 name: cost-token-optimizer
-description: Optimize LLM/tool costs using context minimization and cache policy. Use when the user requests cost token optimizer or invokes cost-token-optimizer. Do NOT use to promote unverified claims or transient task status into durable memory.
+description: "Optimize LLM and tool costs via context minimization and cache policy. Use for token cost reduction. Do NOT use to drop required evidence or checks."
 license: CC-BY-4.0
 metadata:
   author: AEOS

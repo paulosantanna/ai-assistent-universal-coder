@@ -1,6 +1,6 @@
 ---
 name: memory-governance-auditor
-description: Audit memory reads/writes for evidence, scope and secret safety. Use when the user requests memory governance auditor or invokes memory-governance-auditor. Do NOT use to promote unverified claims or transient task status into durable memory.
+description: "Audit memory reads and writes for evidence, scope and secret safety. Use for memory audits. Do NOT use to promote unverified claims into memory."
 license: CC-BY-4.0
 metadata:
   author: AEOS

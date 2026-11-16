@@ -1,6 +1,3 @@
-<!-- Package: 00_skills/(development)/spec-driven; relative command/resource examples resolve from that package or workspace root. -->
+# Current workflow
 
-## Activation
-
-- User asks for `spec-driven`, `tlc-spec-driven`, specify/design/tasks/implement/validate a feature.
-- Feature planning with traceable requirements and verified implementation.
+This previous routing module is superseded by the [current contract](../../SKILL.md). Read it for the requested version, phase resources and gates.

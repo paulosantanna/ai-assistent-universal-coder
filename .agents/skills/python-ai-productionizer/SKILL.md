@@ -1,6 +1,6 @@
 ---
 name: python-ai-productionizer
-description: Analyze Python AI/RAG systems for production readiness. Use when the user requests python ai productionizer or invokes python-ai-productionizer. Do NOT use for unrelated languages, domains or production deployment.
+description: "Analyze Python AI/RAG systems for production readiness. Use for Python AI productionization. Do NOT use for unrelated stacks or deployment."
 license: CC-BY-4.0
 metadata:
   author: AEOS

@@ -1,6 +1,6 @@
 ---
 name: runtime-troubleshooting
-description: Diagnose a running application from read-only logs, metrics, traces, events and repository code without changing the live system. Use when the user says erro em produção, aplicação não sobe or investigar falha em runtime. Do NOT use to restart/scale/deploy, redesign architecture, invent inaccessible broker state, or replace incident ownership.
+description: "Diagnose apps from read-only logs. Use for runtime failures. Do NOT use to restart, scale, deploy, redesign or invent inaccessible broker state."
 license: CC-BY-4.0
 metadata:
   author: AEOS; photographic reference supplied by user
@@ -10,9 +10,7 @@ metadata:
 
 # Runtime Troubleshooting
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 Diagnose a running application from read-only logs, metrics, traces, events and repository code without changing the live system.
 
@@ -40,6 +38,8 @@ An evidenced diagnostic timeline, code/runtime pointers, ranked hypotheses, conf
 
 Verify the actual outputs and relevant contract checks. Missing evidence, dependency, source asset, input or permission blocks its dependent stage; report the precise gap.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

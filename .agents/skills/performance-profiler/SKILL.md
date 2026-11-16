@@ -1,6 +1,6 @@
 ---
 name: performance-profiler
-description: Profile AEOS executions, repo scans, hashing, package verification and Judge runtime. Use when the user requests performance profiler or invokes performance-profiler. Do NOT use for unrelated functionality or unmeasured speculative optimization.
+description: "Profile AEOS runs: repo scans, hashing, package verification, Judge runtime. Use for AEOS profiling. Do NOT use for speculative tuning."
 license: CC-BY-4.0
 metadata:
   author: AEOS

@@ -1,6 +1,6 @@
 ---
 name: conflict-detector
-description: Detect read/write/tool/approval/resource conflicts before parallel execution. Use when the user requests conflict detector or invokes conflict-detector. Do NOT use for unrelated tools or unapproved remote writes.
+description: "Detect read/write, tool, approval and resource conflicts before parallel runs. Use before parallel work. Do NOT use for unapproved remote writes."
 license: CC-BY-4.0
 metadata:
   author: AEOS

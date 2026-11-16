@@ -1,6 +1,6 @@
 ---
 name: docker-devcontainer-engineer
-description: Generate devcontainer/Docker artifacts in sandbox. Use when the user requests docker devcontainer engineer or invokes docker-devcontainer-engineer. Do NOT use for unrelated application features or unapproved production changes.
+description: "Generate devcontainer and Docker artifacts in a sandbox. Use for devcontainer or Dockerfile work. Do NOT use for unapproved prod changes."
 license: CC-BY-4.0
 metadata:
   author: AEOS

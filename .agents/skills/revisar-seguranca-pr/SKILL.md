@@ -1,6 +1,6 @@
 ---
 name: revisar-seguranca-pr
-description: Review a concrete pull-request diff for authorization, sensitive-data handling and security failures that scans need contextual evidence to assess. Use when the user says revisar segurança deste PR or avaliar este achado CodeQL/Fortify/Trivy. Do NOT use for general PR review (revisar-pr), fleet vulnerability inventory, or known dependency remediation (cve-remediation).
+description: "Review a PR diff for authorization, sensitive data and security failures. Use for PR security review. Do NOT use for general review (revisar-pr)."
 license: CC-BY-4.0
 metadata:
   author: AEOS; photographic reference supplied by user

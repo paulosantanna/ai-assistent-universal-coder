@@ -1,6 +1,6 @@
 ---
 name: repo-scanner
-description: Analyze repositories and produce factual ecosystem maps. Use when the user requests repo scanner or invokes repo-scanner. Do NOT use to mutate production or invent architecture without source evidence.
+description: "Map repositories into factual ecosystems. Use for repo scans. Do NOT use to mutate production or invent architecture without source evidence."
 license: CC-BY-4.0
 metadata:
   author: AEOS

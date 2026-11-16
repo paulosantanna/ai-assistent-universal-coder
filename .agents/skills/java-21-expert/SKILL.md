@@ -1,6 +1,6 @@
 ---
 name: java-21-expert
-description: Design and implement Java 21 production systems and migrations with LTS-aware verification. Use when the user requests java 21 expert or invokes java-21-expert. Do NOT use for unrelated languages, domains or production deployment.
+description: "Design and implement Java 21 systems and migrations with LTS-aware verification. Use for Java 21 work. Do NOT use for other languages or deployment."
 license: CC-BY-4.0
 metadata:
   author: AEOS

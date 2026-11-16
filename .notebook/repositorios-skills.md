@@ -1,7 +1,9 @@
 # Repositórios × skills
 
-Updated: 2026-10-13
+Updated: 2026-10-27
 Entry point: `07_mapeamentos/repositorios-skills/README.md`
+
+- Este pacote é o snapshot histórico de 11 projetos × skills de 13/10. O mapa geral atual de 17 diretórios e suas atualizações é `graph/repositorios-beta-3.0.0.md`; beta 3 não recalcula associações projeto/skill.
 
 - O pacote mapeia o conjunto imediato de `02_repositorios` contra `00_skills/catalog.json`, com dez dimensões e decisão de roteamento para cada par projeto/skill.
 - Fonte: `07_mapeamentos/repositorios-skills/{mapa.json,evidencias.json,inventory.json}`. Verificação estática e navegador: `{verificacao.json,browser-verificacao.json}` no mesmo pacote.

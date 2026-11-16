@@ -1,6 +1,6 @@
 ---
 name: playbook-factory-generator
-description: Generate a reviewable playbook with explicit step contracts, dependencies, resources and verification gates. Use when the user requests playbook factory generator or invokes playbook-factory-generator. Do NOT use for ordinary one-off coding or human competency lists.
+description: "Generate a reviewable playbook with step contracts, dependencies and verification gates. Use for playbook generation. Do NOT use for one-off coding."
 license: CC-BY-4.0
 metadata:
   author: AEOS

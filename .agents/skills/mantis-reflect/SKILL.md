@@ -1,6 +1,6 @@
 ---
 name: mantis-reflect
-description: Extracts learnings from execution trajectories at the end of a Mantis loop. Use to parse agent conversations, extract successes, failures, and false assumptions, and append them to workspace/learnings.jsonl. Don't use for analyzing source code or writing patches. Use when the user requests mantis reflect or invokes mantis-reflect.
+description: "Extract learnings from finished review runs: successes, failures, false assumptions. Use for Mantis reflection. Do NOT use for source or patches."
 license: CC-BY-4.0
 metadata:
   author: AEOS

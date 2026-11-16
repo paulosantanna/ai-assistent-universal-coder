@@ -1,6 +1,6 @@
 ---
 name: critical-thinking-governor
-description: Governa toda execução de skills do AEOS com uma seleção limitada e auditável de 20 lentes internas de pensamento crítico. As lentes são especializações da skill e nunca identidades de agent. Use when the user requests critical thinking governor or invokes critical-thinking-governor. Do NOT use for unrelated languages, domains or production deployment.
+description: "Governs AEOS runs with 20 internal critical-thinking lenses, never agent identities. Use for critical review. Do NOT use for unrelated domains."
 license: CC-BY-4.0
 metadata:
   author: AEOS

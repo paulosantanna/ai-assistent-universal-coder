@@ -1,6 +1,6 @@
 ---
 name: demo
-description: "Record a demo video of a web app feature or flow on a real desktop (Docker, Xvfb, XFCE, real X cursor), producing an mp4 plus a click/hover/scroll/type telemetry file. Takes a flow description, an existing demo name or path, or init. Use when the user says \"record a demo of the checkout\", \"gravar um demo dessa feature\", \"make a screencast of this flow\", \"video for the changelog\", \"re-record the checkout demo\", \"refresh the demo video\", or \"demo init\". Do NOT use for general browser testing or automation that needs no video (use playwright-skill), page debugging or network inspection (use chrome-devtools), or static screenshots."
+description: "Record a web app demo video (mp4 and telemetry) on a real desktop. Use for 'record a demo' or screencasts. Do NOT use for tests (playwright-skill)."
 license: CC-BY-4.0
 metadata:
   author: "github.com/wcalderipe"

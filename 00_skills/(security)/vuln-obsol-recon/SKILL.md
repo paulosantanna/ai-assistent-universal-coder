@@ -1,6 +1,6 @@
 ---
 name: vuln-obsol-recon
-description: Assess known vulnerabilities and lifecycle risk for the exact versions detected in repository/runtime evidence. Use when the user says esta versão tem CVE, tecnologia está obsoleta or mapear vulnerabilidade e EOL. Do NOT use for base synchronization, patch implementation, deep PR security review or invented versions without manifests/runtime evidence.
+description: "Assess CVE and EOL risk. Use for CVE checks. Do NOT use for base sync, patching or invented versions without manifests/runtime evidence."
 license: CC-BY-4.0
 metadata:
   author: AEOS; photographic reference supplied by user
@@ -10,9 +10,7 @@ metadata:
 
 # Vuln Obsol Recon
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 Assess known vulnerabilities and lifecycle risk for the exact versions detected in repository/runtime evidence.
 
@@ -40,6 +38,8 @@ Separate CVE and EOL findings with exact version/provenance, current sources, fr
 
 Verify the actual outputs and relevant contract checks. Missing evidence, dependency, source asset, input or permission blocks its dependent stage; report the precise gap.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

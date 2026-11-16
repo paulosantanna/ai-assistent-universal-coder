@@ -1,6 +1,6 @@
 ---
 name: java-migration
-description: Analyze Java projects and perform version migrations, API replacements, and build configuration updates. Use when the user requests java migration or invokes java-migration. Do NOT use for unrelated languages, domains or production deployment.
+description: "Analyze Java projects and perform version migrations, API replacements and build updates. Use for Java migrations. Do NOT use for other languages."
 license: CC-BY-4.0
 metadata:
   author: AEOS

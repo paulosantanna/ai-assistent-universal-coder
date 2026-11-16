@@ -1,6 +1,6 @@
 ---
 name: production-deployment-planner
-description: Plan production packaging, CI/CD, deployment, observability, rollback and operational readiness for any architecture. Use when the user requests production deployment planner or invokes production-deployment-planner. Do NOT use for unrelated application features or unapproved production changes.
+description: "Plan production packaging, CI/CD, deployment, observability and rollback. Use for deployment plans. Do NOT use for unapproved prod changes."
 license: CC-BY-4.0
 metadata:
   author: AEOS

@@ -1,6 +1,6 @@
 ---
 name: mantis-report
-description: Generates a human-readable security review packet compiled from confirmed findings and exploit chains. Use at the end of a review cycle to produce stakeholder-facing documentation. Don't use for auditing code or verifying patches directly. Use when the user requests mantis report or invokes mantis-report.
+description: "Generate a stakeholder security review packet from confirmed findings. Use at the end of a review cycle. Do NOT use for audits or patch checks."
 license: CC-BY-4.0
 metadata:
   author: AEOS

@@ -1,6 +1,6 @@
 ---
 name: perf-astro
-description: 'Assimilated TLC Astro performance skill. Optimize Astro sites for Lighthouse: critical CSS, compression, fonts, LCP. Triggers: Astro performance, Astro Lighthouse, astro-critters, optimize Astro. Do not use for non-Astro sites or as the only skill to run a Lighthouse audit.'
+description: "Optimize Astro sites for Lighthouse: critical CSS, fonts, LCP. Use for Astro performance. Do NOT use for non-Astro sites or Lighthouse-only audits."
 license: CC-BY-4.0
 metadata:
   author: AEOS

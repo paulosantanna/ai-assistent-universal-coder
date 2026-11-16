@@ -1,6 +1,6 @@
 ---
 name: incident-commander
-description: Generate incident triage, rollback and postmortem artifacts. Use when the user requests incident commander or invokes incident-commander. Do NOT use to restart, scale or mutate live systems without an authorized operations task.
+description: "Generate incident triage, rollback and postmortem artifacts. Use for incident artifacts. Do NOT use to mutate live systems unless authorized."
 license: CC-BY-4.0
 metadata:
   author: AEOS

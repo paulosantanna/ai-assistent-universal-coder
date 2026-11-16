@@ -1,6 +1,6 @@
 ---
 name: dynatrace-observability-staff
-description: Deep Staff-level Dynatrace observability analysis for metrics, logs, traces, Davis problems, topology, Kubernetes context, SLOs and cost-safe root-cause evidence. Use when the user requests dynatrace observability staff or invokes dynatrace-observability-staff. Do NOT use to restart, scale or mutate live systems without an authorized operations task.
+description: "Dynatrace analysis: metrics, logs, traces, Davis problems. Use for Dynatrace investigations. Do NOT use to mutate live systems unless authorized."
 license: CC-BY-4.0
 metadata:
   author: AEOS

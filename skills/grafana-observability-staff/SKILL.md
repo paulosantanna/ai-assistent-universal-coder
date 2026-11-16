@@ -1,6 +1,6 @@
 ---
 name: grafana-observability-staff
-description: Deep Staff-level Grafana observability analysis for dashboards, Prometheus metrics, Loki logs, Tempo traces, alerts, exemplars, service maps, SLOs and instrumentation quality. Use when the user requests grafana observability staff or invokes grafana-observability-staff. Do NOT use to restart, scale or mutate live systems without an authorized operations task.
+description: "Grafana analysis: dashboards, Prometheus, Loki, Tempo, alerts. Use for Grafana investigations. Do NOT use to mutate live systems unless authorized."
 license: CC-BY-4.0
 metadata:
   author: AEOS

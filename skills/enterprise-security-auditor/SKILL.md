@@ -1,6 +1,6 @@
 ---
 name: enterprise-security-auditor
-description: Provide enterprise-grade capability for `enterprise-security-auditor` inside AEOS v1.1. Use when the user requests enterprise security auditor or invokes enterprise-security-auditor. Do NOT use outside authorized defensive scope or to expose secret values.
+description: "Audit repo and integration security from trust boundaries. Use for security audits. Do NOT use outside authorized scope or to expose secrets."
 license: CC-BY-4.0
 metadata:
   author: AEOS

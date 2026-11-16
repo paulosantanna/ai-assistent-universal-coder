@@ -1,6 +1,6 @@
 ---
 name: component-identification-sizing
-description: Maps architectural components in a codebase and measures their size to identify what should be extracted first. Use when asking "how big is each module?", "what components do I have?", "which service is too large?", "analyze codebase structure", "size my monolith", or planning where to start decomposing. Do NOT use for runtime performance sizing or infrastructure capacity planning.
+description: "Map components and measure their size to pick what to extract first. Use for module sizing. Do NOT use for runtime performance or capacity planning."
 license: CC-BY-4.0
 metadata:
   author: Tech Leads Club

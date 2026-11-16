@@ -1,6 +1,6 @@
 ---
 name: lora-qlora-dora-expert
-description: Implement parameter-efficient fine-tuning for supported open-weight models with reproducible experiments. Use when the user requests lora qlora dora expert or invokes lora-qlora-dora-expert. Do NOT use for unrelated languages, domains or production deployment.
+description: "Implement LoRA, QLoRA or DoRA fine-tuning with reproducible experiments. Use for PEFT work. Do NOT use for unrelated stacks."
 license: CC-BY-4.0
 metadata:
   author: AEOS

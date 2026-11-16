@@ -7,7 +7,7 @@ import re
 import subprocess
 import sys
 from pathlib import Path
-from inventory import ROOT, OUT, inventory
+from inventory import BETA3_REPOS, ROOT, OUT, inventory
 
 
 def digest(path):
@@ -36,21 +36,25 @@ def verify():
     data=json.loads((OUT/'mapa.json').read_text(encoding='utf-8'))
     catalog=json.loads((ROOT/'00_skills/catalog.json').read_text(encoding='utf-8'))
     initial=json.loads((OUT/'inventory.json').read_text(encoding='utf-8'))
-    current=inventory()
+    current=inventory(BETA3_REPOS)
     check(initial==current,'Inventário delimitado: mesmos arquivos/metadados e exclusões após geração')
     names={r['name'] for r in current}
     skill_ids={s['id'] for s in catalog['skills']}
     expected={(r,s) for r in names for s in skill_ids}
     actual=[(r['repository'],r['skill']) for r in data['matrix']]
     check(set(actual)==expected and len(actual)==len(expected),'Matriz cobre cada par projeto/skill exatamente uma vez')
-    check(len(data['repositories'])==len(names)==11,'Todos os 11 diretórios têm mapa individual')
-    check(data['catalog_skills']==len(skill_ids)==302,'302 skills canônicas; aliases não duplicados')
-    check(sum(r['own_git'] for r in current)==10,'10 Git próprios e um pacote')
+    n_repos = len(names)
+    check(len(data['repositories']) == n_repos == len(BETA3_REPOS),
+          f'Todos os {len(BETA3_REPOS)} diretórios beta3 têm mapa individual')
+    check(data['catalog_skills'] == len(skill_ids), f'{len(skill_ids)} skills canônicas; aliases não duplicados')
+    own_git = sum(r['own_git'] for r in current)
+    check(own_git == n_repos - 1, f'{own_git} Git próprios e um pacote sem Git')
     check(data['catalog_sha256']==digest(ROOT/'00_skills/catalog.json'),'Hash do catálogo preservado')
     evidence={e['id']:e for e in data['evidence']}
     source_files={e['path']:e['sha256'] for e in data['evidence']}
     check(all(digest(ROOT/p)==h for p,h in source_files.items()),'Todos os arquivos citados preservados por SHA-256')
-    check(all(digest(ROOT/s['path'])==s['sha256'] for s in data['skills']),'Todas as 302 skills preservadas por SHA-256')
+    check(all(digest(ROOT / s['path']) == s['sha256'] for s in data['skills']),
+          f'Todas as {len(data["skills"])} skills preservadas por SHA-256')
     for e in evidence.values():
         raw=(ROOT/e['path']).read_bytes()
         lines=raw.decode(e['encoding']).splitlines()
@@ -69,7 +73,8 @@ def verify():
     check(all(r['evidence'] for r in data['matrix'] if r['status']=='direta'),'Associações diretas têm evidências')
     with (OUT/'matriz.csv').open(encoding='utf-8-sig',newline='') as f:
         rows=list(csv.reader(f))
-    check(len(rows)==len(expected)+1 and all(len(row)==7 for row in rows),'CSV completo tem 3.322 decisões e sete colunas válidas')
+    check(len(rows) == len(expected) + 1 and all(len(row) == 7 for row in rows),
+          f'CSV completo tem {len(expected)} decisões e sete colunas válidas')
     local_links=[]
     for md in [OUT/'README.md',*(OUT/'repositorios').glob('*.md')]:
         for target in links(md.read_text(encoding='utf-8')):

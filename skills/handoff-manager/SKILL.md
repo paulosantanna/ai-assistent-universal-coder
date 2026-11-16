@@ -1,6 +1,6 @@
 ---
 name: handoff-manager
-description: Maintain a concise, executable `.notebook/HANDOFF.md` representing only the last verified operational state. Use when the user requests handoff manager or invokes handoff-manager. Do NOT use to promote unverified claims or transient task status into durable memory.
+description: "Maintain a concise .notebook/HANDOFF.md of the last verified state. Use for handoff updates. Do NOT use to promote unverified claims."
 license: CC-BY-4.0
 metadata:
   author: AEOS

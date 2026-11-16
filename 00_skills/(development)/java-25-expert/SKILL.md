@@ -1,6 +1,6 @@
 ---
 name: java-25-expert
-description: Build or migrate production Java 25 projects using only features/APIs verified for the repository toolchain and deployment runtime. Use when the user requests java 25 expert or invokes java-25-expert. Do NOT use for unrelated languages, domains or production deployment.
+description: "Build or migrate Java 25 projects using only APIs verified for toolchain and runtime. Use for Java 25 work. Do NOT use for other languages."
 license: CC-BY-4.0
 metadata:
   author: AEOS
@@ -10,11 +10,7 @@ metadata:
 
 # Java 25 Expert
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
-
-Governance: CodENavi Full Workspace v2
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Mission
 Build or migrate production Java 25 projects using only features/APIs verified for the repository toolchain and deployment runtime.
@@ -30,7 +26,10 @@ DEBRIEF: evidence pointers + changed compatibility assumptions + notebook update
 ## Token discipline
 Read `references/INDEX.md`; open only references required by the detected change. Never bulk-load JDK documentation.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
-Read [migration.md](references/migration.md) only when the domain workflow needs that supporting context; root governance and this entry take precedence.
+Read [migration.md](references/migration.md) only when the domain workflow needs it; root governance and this entry take precedence.
+
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

@@ -1,0 +1,395 @@
+{
+  "standard": "DO NOT INVENT / NUNCA INVENTE",
+  "updated": "2026-11-09",
+  "rule": "Skill cujo SKILL.md original declarava a regra (descrição ou corpo) mantém cada cláusula registrada, literal e normalizada (minúsculas, espaços colapsados). O validador aceita as formas aceitas como limite negativo da descrição e falha se uma cláusula registrada sumir.",
+  "accepted_forms": {
+    "negation": "\\b(?:do\\s+not|don[’']t|never|nunca|n[aã]o|jamais|without|sem|no|nenhum[ao]?)\\b[^.;\\n]{0,80}?\\b(?:invent(?!ory|ories|ario|ário|ion)\\w*|fabric\\w*|hallucinat\\w*)",
+    "qualified": "\\binvent(?!ory|ories|ario|ário|ion)\\w*[^.;\\n]{0,60}?\\b(?:without|sem)\\b",
+    "start_of_item": "^\\s*(?:[-*]\\s+)?(?:invent(?!ory|ories|ario|ário|ion)\\w*|fabric\\w*|hallucinat\\w*)\\b"
+  },
+  "description_acceptance": [
+    "negation",
+    "qualified"
+  ],
+  "skills": {
+    "architecture-knowledge-management": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "invent the rationale of a past decision"
+      ]
+    },
+    "database-architecture-planner": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "Invent credentials"
+      ]
+    },
+    "create-technical-design-doc": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "invent missing facts"
+      ]
+    },
+    "the-fool": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "invent an argument to defeat it",
+        "invented findings",
+        "invented counterargument"
+      ]
+    },
+    "confluence-assistant": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "invented pages"
+      ]
+    },
+    "critical-thinking-governor": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "inventam probabilidades"
+      ]
+    },
+    "fable-domain": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "Fabricating citations"
+      ]
+    },
+    "fine-tuning-expert": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "invent an endpoint"
+      ]
+    },
+    "jira-assistant": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "invent issue IDs/status/assignees"
+      ]
+    },
+    "jira-confluence-assistant": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "invent ticket state"
+      ]
+    },
+    "jira-time-entry-assistant": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "fabricate hours"
+      ]
+    },
+    "runtime-troubleshooting": {
+      "where": [
+        "description"
+      ],
+      "clauses": [
+        "invent inaccessible broker state"
+      ]
+    },
+    "simulator-ai": {
+      "where": [
+        "description",
+        "body"
+      ],
+      "clauses": [
+        "hallucinates"
+      ]
+    },
+    "spec-driven": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "fabricate approval"
+      ]
+    },
+    "spec-driven-lean": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "fabricate approval"
+      ]
+    },
+    "tlc-plan": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "invent a task count",
+        "invent criteria"
+      ]
+    },
+    "tlc-spec-driven": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "fabricate approval"
+      ]
+    },
+    "tlc-spec-lean": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "fabricate approval"
+      ]
+    },
+    "chromatic-mega-brain": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "invent facts"
+      ]
+    },
+    "continuity-bootstrapper": {
+      "where": [
+        "description",
+        "body"
+      ],
+      "clauses": [
+        "inventing project state"
+      ]
+    },
+    "learning-opportunities": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "invent that this workspace has the photo's corporate history"
+      ]
+    },
+    "code-analyzer": {
+      "where": [
+        "description"
+      ],
+      "clauses": [
+        "invent architecture without source evidence"
+      ]
+    },
+    "documentation-11-layer-mapper": {
+      "where": [
+        "description"
+      ],
+      "clauses": [
+        "invent architecture without source evidence"
+      ]
+    },
+    "documentation-mapper": {
+      "where": [
+        "description"
+      ],
+      "clauses": [
+        "invent architecture without source evidence"
+      ]
+    },
+    "enterprise-repo-intelligence": {
+      "where": [
+        "description"
+      ],
+      "clauses": [
+        "invent architecture without source evidence"
+      ]
+    },
+    "fleet-mapping": {
+      "where": [
+        "description",
+        "body"
+      ],
+      "clauses": [
+        "invent business rules",
+        "invented content"
+      ]
+    },
+    "multirepo-ecosystem-mapper": {
+      "where": [
+        "description"
+      ],
+      "clauses": [
+        "invent architecture without source evidence"
+      ]
+    },
+    "repo-scanner": {
+      "where": [
+        "description"
+      ],
+      "clauses": [
+        "invent architecture without source evidence"
+      ]
+    },
+    "servicenow-incident-assistant": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "invent incident numbers"
+      ]
+    },
+    "core-web-vitals": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "invent scores"
+      ]
+    },
+    "perf-lighthouse": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "invent scores"
+      ]
+    },
+    "perf-web-optimization": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "invent timings"
+      ]
+    },
+    "tests-expert": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "invent a passing check"
+      ]
+    },
+    "web-quality-audit": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "invent Lighthouse scores"
+      ]
+    },
+    "eol-advisory-sync": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "fabricated EOL dates"
+      ]
+    },
+    "security-best-practices": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "fabricated clean bill",
+        "invent a rule"
+      ]
+    },
+    "vuln-obsol-recon": {
+      "where": [
+        "description"
+      ],
+      "clauses": [
+        "invented versions without manifests/runtime evidence"
+      ]
+    },
+    "documentary-social-video-expert": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "inventar número"
+      ]
+    },
+    "documentary-subject-expert": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "inventar URL"
+      ]
+    },
+    "motion-comic-animation-expert": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "inventar suporte"
+      ]
+    },
+    "motion-comic-art-expert": {
+      "where": [
+        "description"
+      ],
+      "clauses": [
+        "inventar referência anexada"
+      ]
+    },
+    "ptbr-documentary-voice-expert": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "inventar uma voz aprovada"
+      ]
+    },
+    "science-research-expert": {
+      "where": [
+        "description",
+        "body"
+      ],
+      "clauses": [
+        "inventar referências",
+        "fabricar links",
+        "inventar um preenchimento"
+      ]
+    },
+    "science-video-review-expert": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "inventar aprovação humana nem executar review em nome do usuário sem instrução"
+      ]
+    },
+    "studio-creation-tlc": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "inventar aprovação humana"
+      ]
+    },
+    "vox-aurum": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "invented unintelligible words"
+      ]
+    }
+  }
+}

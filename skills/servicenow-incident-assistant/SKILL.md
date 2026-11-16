@@ -1,6 +1,6 @@
 ---
 name: servicenow-incident-assistant
-description: Convert incident evidence into ServiceNow-ready triage, updates, RCA and closure material. Use when the user requests servicenow incident assistant or invokes servicenow-incident-assistant. Do NOT use to restart, scale or mutate live systems without an authorized operations task.
+description: "Turn incident evidence into ServiceNow triage, updates and RCA. Use for ServiceNow incident work. Do NOT use to mutate live systems unless authorized."
 license: CC-BY-4.0
 metadata:
   author: AEOS

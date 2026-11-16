@@ -1,6 +1,6 @@
 ---
 name: dark-videos-knowledge-base
-description: "Navigate the retained dark-videos repository map and reconcile historical paths with current evidence. Use when the user asks for 'mapa do dark-videos', 'onde fica o publicador', or 'entender o pipeline dark-videos'. Do NOT use to claim a current inventory, run the pipeline, or publish videos without inspecting the actual repository and authorization."
+description: "Navigate the dark-videos repo map; reconcile old paths with evidence. Use for 'mapa do dark-videos'. Do NOT use to claim inventory or publish."
 license: CC-BY-4.0
 metadata:
   author: "AEOS"

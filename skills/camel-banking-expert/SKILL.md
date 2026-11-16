@@ -1,6 +1,6 @@
 ---
 name: camel-banking-expert
-description: Analyze and implement Apache Camel integration flows in banking-grade systems with strong reliability, security, traceability and idempotency. Use when the user requests camel banking expert or invokes camel-banking-expert. Do NOT use for unrelated languages, domains or production deployment.
+description: "Analyze and implement Apache Camel flows with banking-grade reliability and idempotency. Use for Camel banking flows. Do NOT use for other stacks."
 license: CC-BY-4.0
 metadata:
   author: AEOS

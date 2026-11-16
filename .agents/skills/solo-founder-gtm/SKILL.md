@@ -1,6 +1,6 @@
 ---
 name: solo-founder-gtm
-description: When the user is a solo founder building their GTM motion, wants to scale without hiring, or needs to design an AI agent team for go-to-market. Also use when the user mentions 'solo founder,' 'one-person startup,' 'solopreneur,' 'bootstrapped,' 'no team,' 'AI agents as team,' 'scaling without hiring,' 'founder-led sales,' 'lean GTM,' 'one-person company,' or 'no employees.' This skill covers the complete solo founder GTM playbook from stack selection through agent team design, revenue-stage transitions, time allocation, and when to finally hire. Do NOT use for technical implementation, code review, or software architecture.
+description: "GTM playbook for solo founders: stack, AI agent team, revenue stages, hiring. Use for solo-founder GTM. Do NOT use for code work."
 license: CC-BY-4.0
 metadata:
   author: Chad Boyda / agent-gtm-skills

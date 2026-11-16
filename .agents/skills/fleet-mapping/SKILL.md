@@ -1,6 +1,6 @@
 ---
 name: "fleet-mapping"
-description: "Map authorized repository fleets by sigla with corporate, domain and repository knowledge, scoped glossaries, evidenced dependencies and an offline consolidated report. Use for mapear os repositorios da sigla, jornada do sistema, glossário do fleet or visão sistêmica. Do NOT use to fix one bug, provision infrastructure, mutate production or invent business rules."
+description: "Map sigla fleet dependencies. Use for mapear a sigla. Do NOT use to fix bugs, provision infra, mutate production or invent business rules."
 license: "CC-BY-4.0"
 metadata:
   author: "AEOS; photographic reference supplied by user"

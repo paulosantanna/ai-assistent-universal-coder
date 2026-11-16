@@ -1,6 +1,6 @@
 ---
 name: "the-jury"
-description: "Evaluate a decidable question through 3 or 5 orthogonal sequential lenses of codenavi-agent, then tally a verdict with dissent and evidence. Use for monte um júri, painel de decisão or compare options through multiple perspectives. Do NOT use to spawn agents, claim independent cognition, merely critique (the-fool) or implement the decision."
+description: "Tally a verdict on a decidable question through 3 or 5 orthogonal lenses. Use for decision panels. Do NOT use to spawn agents or implement."
 license: "CC-BY-4.0"
 metadata:
   author: "Tech Leads Club"
@@ -10,8 +10,7 @@ metadata:
 
 # the-jury
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Workflow
 
@@ -36,3 +35,7 @@ Example: “compare migrate versus tune through a jury” → record three ortho
 - Read [retained provenance](references/provenance.md) only for its matching mode; this entry and root governance take precedence.
 - Read [retained tlc](references/tlc) only for its matching mode; this entry and root governance take precedence.
 - Read [retained usage-and-verification](references/usage-and-verification.md) only for its matching mode; this entry and root governance take precedence.
+
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

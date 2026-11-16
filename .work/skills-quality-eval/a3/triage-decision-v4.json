@@ -1,0 +1,54 @@
+{
+  "gov_codenavi": {
+    "exit_silver": false,
+    "reliability_pass": true,
+    "null_ok": true,
+    "triage": {
+      "T1_independence": 0.47,
+      "T2_reliability": 0.58,
+      "T3_sufficiency": 0.14
+    },
+    "triage_all_ge_0.7": false,
+    "triage_in_review_band": true,
+    "status": "permanece silver"
+  },
+  "provenance_pointer": {
+    "exit_silver": false,
+    "reliability_pass": true,
+    "null_ok": true,
+    "triage": {
+      "T1_independence": 0.56,
+      "T2_reliability": 0.58,
+      "T3_sufficiency": 0.19
+    },
+    "triage_all_ge_0.7": false,
+    "triage_in_review_band": true,
+    "status": "permanece silver"
+  },
+  "secrets_runtime_only": {
+    "exit_silver": false,
+    "reliability_pass": true,
+    "null_ok": true,
+    "triage": {
+      "T1_independence": 0.54,
+      "T2_reliability": 0.97,
+      "T3_sufficiency": 0.49
+    },
+    "triage_all_ge_0.7": false,
+    "triage_in_review_band": true,
+    "status": "permanece silver"
+  },
+  "fail_closed": {
+    "exit_silver": false,
+    "reliability_pass": true,
+    "null_ok": true,
+    "triage": {
+      "T1_independence": 0.42,
+      "T2_reliability": 0.94,
+      "T3_sufficiency": 0.42
+    },
+    "triage_all_ge_0.7": false,
+    "triage_in_review_band": true,
+    "status": "permanece silver"
+  }
+}

@@ -1,6 +1,6 @@
 ---
 name: fable-judge
-description: Adversarial verification of finished work. Re-runs verifications, diffs changes, detects weakened checks and false completion claims, delivering VERIFIED, VERIFIED WITH CAVEATS, or REFUTED. Use when the user requests fable judge or invokes fable-judge. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+description: "Adversarial verification of finished work: reruns checks, catches false claims. Use for finished-work verification. Do NOT use as deployment approval."
 license: CC-BY-4.0
 metadata:
   author: AEOS

@@ -1,6 +1,6 @@
 ---
 name: documentation
-description: Generate evidence-based documentation in sandbox. Use when the user requests documentation or invokes documentation. Do NOT use for unrelated languages, domains or production deployment.
+description: "Generate evidence-based documentation in a sandbox. Use for documentation requests. Do NOT use for production deployment or unrelated stacks."
 license: CC-BY-4.0
 metadata:
   author: AEOS

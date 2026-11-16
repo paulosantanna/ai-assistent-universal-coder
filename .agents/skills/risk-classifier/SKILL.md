@@ -1,6 +1,6 @@
 ---
 name: risk-classifier
-description: Classify the risk level of proposed changes — considering scope, impact, reversibility, test coverage, and security implications. Use when the user requests risk classifier or invokes risk-classifier. Do NOT use outside authorized defensive scope or to expose secret values.
+description: "Classify change risk: scope, impact, reversibility, coverage. Use for risk classification. Do NOT use outside authorized scope or to expose secrets."
 license: CC-BY-4.0
 metadata:
   author: AEOS

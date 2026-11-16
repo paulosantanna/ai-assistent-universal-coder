@@ -1,6 +1,6 @@
 ---
 name: "acta-aurea"
-description: "Turn an authorized meeting/call video (Teams/OBS .mkv/.mp4) into the complete offline pack: transcript, named speakers, topics, minutes, summary, glossary, subtitles and HTML player. Use for analisar essa call, gerar ata, transcreva a reunião or transcreva esse vídeo de reunião, even when only transcription is named. Do NOT use for a bare audio file with no meeting/speakers/pack (vox-aurum), live dictation or generic report design."
+description: "Authorized meeting video to offline pack: transcript, speakers, minutes. Use for an ata or call transcript. Do NOT use for bare audio (vox-aurum)."
 license: "CC-BY-4.0"
 metadata:
   author: "AEOS; photographic reference supplied by user"
@@ -10,8 +10,7 @@ metadata:
 
 # acta-aurea
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Workflow
 
@@ -38,3 +37,7 @@ Example: “transcreva esta reunião do Teams” → full seven-output pack with
 
 - Read [retained provenance](references/provenance.md) only for its matching mode; this entry and root governance take precedence.
 - Read [retained usage-and-verification](references/usage-and-verification.md) only for its matching mode; this entry and root governance take precedence.
+
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

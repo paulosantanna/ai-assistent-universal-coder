@@ -1,6 +1,6 @@
 ---
 name: not-your-babysitter
-description: 'Assimilated TLC autonomous operator mode (not-your-babysitter 1.0.0). Drive a task to a verified result with evidence-or-stop, three interrupt reasons only, and short literal output. Triggers: not-your-babysitter, nanny mode, work autonomously, stop babysitting, no hand-holding. Do not use for tutorials, verbose walkthroughs, or open-ended brainstorming.'
+description: "Autonomous operator: drive tasks to verified results, evidence-or-stop. Use for autonomous runs. Do NOT use for tutorials or brainstorms."
 license: CC-BY-4.0
 metadata:
   author: Tech Leads Club

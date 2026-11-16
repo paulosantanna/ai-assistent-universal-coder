@@ -1,6 +1,6 @@
 ---
 name: java-17-expert
-description: Implement and migrate LTS Java 17 applications safely. Use when the user requests java 17 expert or invokes java-17-expert. Do NOT use for unrelated languages, domains or production deployment.
+description: "Implement and migrate LTS Java 17 applications safely. Use for Java 17 work. Do NOT use for other languages or deployment."
 license: CC-BY-4.0
 metadata:
   author: AEOS

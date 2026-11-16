@@ -1,6 +1,6 @@
 ---
 name: skill-factory
-description: Create, refactor, package and validate a reusable workspace skill with precise routing, entrypoint of at most 100 lines and local modules. Use when the user says criar skill, melhorar skills, refatorar SKILL.md or adicionar capacidade reutilizável. Do NOT use for one-off code fixes, human competency lists or new agent identities.
+description: "Create, refactor and validate workspace skills with precise routing. Use for criar or refatorar skills. Do NOT use for agent identities."
 license: CC-BY-4.0
 metadata:
   author: AEOS

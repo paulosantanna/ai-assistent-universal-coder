@@ -1,6 +1,6 @@
 ---
 name: dark-videos-pipeline-expert
-description: 'Operate the dark-videos pipeline: mine the last 24h, rank the top 20 with LAYA, frame from the project template, and publish through the existing dispatch. Use when mining, framing, scheduling, or posting shorts in dark-videos. Do not use for a second publisher, cookie export, or posting below the app''s red team.'
+description: "Run the dark-videos pipeline: mine, rank, frame, publish via dispatch. Use for shorts posting. Do NOT use for a second publisher or cookie export."
 license: CC-BY-4.0
 metadata:
   author: AEOS
@@ -10,11 +10,7 @@ metadata:
 
 # Dark Videos Pipeline Expert
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
-
-Governance: CodENavi Full Workspace v2
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Mission
 
@@ -36,6 +32,7 @@ A new poster, a scraper that bypasses the YouTube Data API, Instagram hashtag se
 4. Frame, description, and five tags per network come from the creative stages already in the repo. One frame per video; one description + max 5 tags per network. Do not add a second caption or frame path.
 5. Publish only through `publishing.dispatch`. TikTok stays `SELF_ONLY` until the app audit. The file is deleted after a real post. Dispatch is the only publisher; MCP may only enqueue via `pipeline.start_run`.
 6. Never print API keys, session cookies, or CSRF tokens. Cache time-to-live: status 5s, mining 10s, enqueue 3s.
+7. Spotify is not a mined destination. Read `00_skills/(tooling)/studio-creation-tlc/SKILL.md`. Only a server-sealed Dark Videos or in-app AI artifact may be offered, and `spotify_origin_refused` is final. Do not add a bypass.
 
 ## Stop
 
@@ -65,6 +62,8 @@ Read `references/INDEX.md`. Open only the mining, frame, heat, or publish note t
 - `references/heat.md` - Heat scoring and top 20 (sort: `0.65 * baseline velocity + 0.35 * LAYA signal`, heat >= 9.5 badge does not remove from top 20)
 - `references/publish.md` - Publishing dispatch and accounts (dispatch is the only publisher)
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

@@ -1,6 +1,6 @@
 ---
 name: component-common-domain-detection
-description: Finds duplicate business logic spread across multiple components and suggests consolidation. Use when asking "where is this logic duplicated?", "find common code between services", "what can be consolidated?", "detect shared domain logic", or analyzing component overlap before refactoring. Do NOT use for code-level duplication detection (use linters) or dependency analysis (use coupling-analysis).
+description: "Find duplicated business logic across components. Use for overlap before refactoring. Do NOT use for dependencies (coupling-analysis)."
 license: CC-BY-4.0
 metadata:
   author: Tech Leads Club

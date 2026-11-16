@@ -1,6 +1,6 @@
 ---
 name: jira-confluence-assistant
-description: Read, analyze and prepare governed Jira/Confluence work while preserving traceability between requirement, code, evidence and documentation. Use when the user requests jira confluence assistant or invokes jira-confluence-assistant. Do NOT use for unrelated languages, domains or production deployment.
+description: "Prepare governed Jira/Confluence work with traceability to code and evidence. Use for Jira/Confluence tracing. Do NOT use for unrelated stacks."
 license: CC-BY-4.0
 metadata:
   author: AEOS

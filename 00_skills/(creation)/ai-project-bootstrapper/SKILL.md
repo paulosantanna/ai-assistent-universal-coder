@@ -1,6 +1,6 @@
 ---
 name: ai-project-bootstrapper
-description: Implement a real AI project from zero or reconstruct an existing project step-by-step using the specialist skill pack. Use when the user requests ai project bootstrapper or invokes ai-project-bootstrapper. Do NOT use for ordinary one-off coding or human competency lists.
+description: "Bootstrap a real AI project from zero or rebuild one step by step. Use to bootstrap an AI project. Do NOT use for one-off coding."
 license: CC-BY-4.0
 metadata:
   author: AEOS
@@ -10,11 +10,7 @@ metadata:
 
 # AI Project Bootstrapper
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
-
-Governance: CodENavi v1
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Mission
 Implement a real AI project from zero or reconstruct an existing project step-by-step using the specialist skill pack.
@@ -39,6 +35,8 @@ Map current architecture/data/models/prompts/retrieval/evals → reproduce basel
 
 Composes: ai-architecture-expert, ai-engineering-expert, rag-expert, bm25-expert, fine-tuning-expert, lora-qlora-dora-expert, ai-evals-expert, llm-model-selection-expert, python-expert, security/evaluator skills.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

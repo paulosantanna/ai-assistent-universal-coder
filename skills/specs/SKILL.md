@@ -1,6 +1,6 @@
 ---
 name: specs
-description: Prevent ad hoc creation and modification by requiring a specification gate before implementation. The gate must define what will change, why it should change, how success will be verified, which risks are in scope, which risks are excluded, and what evidence must exist before work proceeds. Use when the user requests specs or invokes specs.
+description: "Require a spec before implementation: scope, checks, risks. Use for pre-implementation contracts. Do NOT use to override approved requirements."
 license: CC-BY-4.0
 metadata:
   author: AEOS

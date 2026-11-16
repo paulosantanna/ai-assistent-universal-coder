@@ -1,6 +1,6 @@
 ---
 name: tlc-prd
-description: "Interviews an idea into a PRD file covering situation, problem, success, boundary, and journey states, and stops before any technical design. Use when the user says \"write the PRD\", \"create the PRD\", \"PRD\", \"product spec\", \"product requirements\", \"tlc-prd\", or \"what does the product need to decide\". Do NOT use for designing a solution, choosing technology, publishing the document, or cutting the PRD into tasks."
+description: "Interview an idea into a PRD: problem, success, boundaries, journeys. Use for 'write the PRD'. Do NOT use to design solutions or cut tasks."
 license: CC-BY-4.0
 metadata:
   author: "Tech Leads Club - github.com/tech-leads-club"

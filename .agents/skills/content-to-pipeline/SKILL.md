@@ -1,6 +1,6 @@
 ---
 name: content-to-pipeline
-description: When the user wants to turn content into revenue, build a content-led GTM motion, reverse engineer distribution, or repurpose content across platforms. Also use when the user mentions 'content marketing,' 'content-led growth,' 'content to pipeline,' 'distribution,' 'content repurposing,' 'content strategy,' 'thought leadership,' 'newsletter,' 'content flywheel,' 'organic growth.' This skill covers content-to-revenue systems from creation through pipeline attribution. Do NOT use for technical implementation, code review, or software architecture.
+description: "Turn content into pipeline: content-led GTM, distribution, repurposing. Use for content marketing or content-led growth. Do NOT use for code work."
 license: CC-BY-4.0
 metadata:
   author: Chad Boyda / agent-gtm-skills

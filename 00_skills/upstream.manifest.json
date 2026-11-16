@@ -2,7 +2,7 @@
   "repository": "https://github.com/tech-leads-club/agent-skills",
   "commit": "6df68d52028b9261058231e0f4998048c0352f45",
   "catalog_url": "https://agent-skills.techleads.club/skills/",
-  "updated": "2026-10-12",
+  "updated": "2026-10-26",
   "skills": [
     {
       "name": "ai-seo",
@@ -5220,216 +5220,257 @@
       "category": "development",
       "source_path": "(development)/tlc-spec-driven",
       "installed_path": "00_skills/(development)/tlc-spec-driven",
-      "upstream_version": "3.3.0",
+      "upstream_version": "4.0.0",
       "files": [
         {
-          "source": "references/code-analysis.md",
-          "installed": "references/tlc/references/code-analysis.md",
-          "sha256": "38b571c81d98e390b9ac8947563ad19a33843db425d4ff94ad73db70a054f828",
-          "acquired_sha256": "2b8639de2276a4107c41d35a134239da97213efb7a8e45ca56005376c1ccdae5"
+          "source": "SKILL.md",
+          "installed": "references/tlc/UPSTREAM.md",
+          "sha256": "f027dbc42c6e9693598fbb55a7bcd16129b2c76e060c0680d8f0ae333c033ba8"
         },
         {
           "source": "references/coding-principles.md",
           "installed": "references/tlc/references/coding-principles.md",
-          "sha256": "8c548affbcdaa4c62bd75bf27b39a81af41ec16bd603e5e634f30771bebd4fbb",
-          "acquired_sha256": "da8dba6815ef83b1524cc3fff845af86e0d212607067a4d10214e062c096b7ec"
-        },
-        {
-          "source": "references/context-limits.md",
-          "installed": "references/tlc/references/context-limits.md",
-          "sha256": "bff0c86980d41897b70216fa18b6a05a0c9d74a0e80940939fc0f314a55da482",
-          "acquired_sha256": "2b6a8e882797abb325cc04c2573997ad3f7cb6f48625fd69f3ecad12be18383f"
+          "sha256": "8c548affbcdaa4c62bd75bf27b39a81af41ec16bd603e5e634f30771bebd4fbb"
         },
         {
           "source": "references/design.md",
           "installed": "references/tlc/references/design.md",
-          "sha256": "1c17dd93d0a5618f002300a362683c8dca74185037aa61d9aeef83b9750b5d40",
-          "acquired_sha256": "e625ff1af22a28564f5c02ca804e866b8618a556af17ee617b9492a64ac9c6ea"
+          "sha256": "6c9321f3175f5ce5b4bc62dd75d523ca86fa2222c3b66395c69c3825f8153bb4"
         },
         {
           "source": "references/discuss.md",
           "installed": "references/tlc/references/discuss.md",
-          "sha256": "c601fedf2266047c0f6da372abafe81b35bc97e04d1b3fb15e1a2c65e4dc75ce",
-          "acquired_sha256": "e8f3831581f666153f30f916cd83859b2145d425612b050792a5cb8abbce0f40"
+          "sha256": "690f5469c4d441e6163b786c053a69ce268c76b7a5c05afbad2ddd418a1d6065"
         },
         {
           "source": "references/implement.md",
           "installed": "references/tlc/references/implement.md",
-          "sha256": "03ec93c9713b2ebb373c6684f6c8d62588192e865dce0c53970c2c913b9c50c4",
-          "acquired_sha256": "cab9a5def62ea42799c39b6cb8388355156c746e074c65c7da9689336ea7db2d"
+          "sha256": "d8cb3348e85adb7fb29c2403c108984cd5d8b11326326114f9f86c59fcc393d0"
         },
         {
           "source": "references/lessons.md",
           "installed": "references/tlc/references/lessons.md",
-          "sha256": "77cdc271f6ade34f8b47274456c72fc16731c7af9992967cfd5f548d328fb022",
-          "acquired_sha256": "57fe246e1adb497ca34bb40cb681010813d61b9a56fd5b0a69f2e0bdb32a434f"
+          "sha256": "0f5ccb922961c0ab72dbe3d975581475e03e68bc1b95004ecfbeaeaa0856045a"
         },
         {
           "source": "references/memory.md",
           "installed": "references/tlc/references/memory.md",
-          "sha256": "ade5d5550146767719c524ba3ef559bc5431c22a08fddce33bc35bc9e762bc38",
-          "acquired_sha256": "b1be35adb3b99e4c559655982151bd111a8d8486daf5edf55a2bf35d5ec06ccc"
+          "sha256": "ade5d5550146767719c524ba3ef559bc5431c22a08fddce33bc35bc9e762bc38"
         },
         {
           "source": "references/specify.md",
           "installed": "references/tlc/references/specify.md",
-          "sha256": "99f1f5693308b8c7ee4ba1152b40f4f00b24abd57767084adaecd409a5aecc17",
-          "acquired_sha256": "f9a8f78344eef380febfad6c7a9bc91f726207a0961ace2864281e2656693b08"
+          "sha256": "7146a94355fad9364c5d94be582039d2cf465fb9defce7b20026621763eac817"
         },
         {
           "source": "references/sub-agents.md",
           "installed": "references/tlc/references/sub-agents.md",
-          "sha256": "08481bbe05cf1f29062cc504d3d4f204c10f12fc4f683c330bea8e4adb01f1b2",
-          "acquired_sha256": "36b86bc259ac30d4e9cd8961fab8bd622b28dbe6efee81a2a6d99fddc83200c4"
+          "sha256": "5059b7bdafb9628196de5c8eb3c7bfde21b66d5917362e68ce6433c5170d5683"
         },
         {
           "source": "references/tasks.md",
           "installed": "references/tlc/references/tasks.md",
-          "sha256": "8ea4731f59271029d90db8fbf1ce800333f859b32529016134fcb19de9a570c6",
-          "acquired_sha256": "cd5c909e2a07a78a09f181ad9072d5816679c628354fca1e97cff85156a66705"
+          "sha256": "5115932a9bbcd34c0f97ba52af06a7f3bae5d52aaee79c908053d8b1097b8c84"
         },
         {
           "source": "references/validate.md",
           "installed": "references/tlc/references/validate.md",
-          "sha256": "149b78e32927ff601fab88366f29d254020c92ca98fa7b3a147bbeaee11ff403",
-          "acquired_sha256": "7954b8595fa9619806c9305b89a41fb25eb16092614f50cb36ad07abb8a66fa2"
+          "sha256": "663e76415a5d521a557ef5dd7bfacacc17e6eee8b0c26ac09b2f23dff14d8753"
+        },
+        {
+          "source": "references/verify-screens.md",
+          "installed": "references/tlc/references/verify-screens.md",
+          "sha256": "87515b0b874de4f0480199c62c9a1ceaa32f5bfd85a490a104e93b992b9daec5"
         },
         {
           "source": "scripts/check_commit.py",
           "installed": "references/tlc/scripts/check_commit.py",
-          "sha256": "20a0fc0f8423b958ea7bae5eec9286d47e8593c157d87fd9d92c2f17a1464567",
-          "acquired_sha256": "4be596cbcf2c81c785d5bed6114f34fe8e510074674576913e872b480ed9c300"
+          "sha256": "b6c3cb118df9ba5127c01614bf25741926ef5dfbb136b9f52f9846d2c956cf4b"
+        },
+        {
+          "source": "scripts/check_proofs.py",
+          "installed": "references/tlc/scripts/check_proofs.py",
+          "sha256": "da845e7dd40a5434c842b7f313605eb1dce91ce1b5c2b5a568fa33929d7155a7"
+        },
+        {
+          "source": "scripts/fixtures/checks.md",
+          "installed": "references/tlc/scripts/fixtures/checks.md",
+          "sha256": "d794e6fe5bb31f2f48bee4aa2392d330d689e9d3c6cce36e5fa9663651a96286"
+        },
+        {
+          "source": "scripts/fixtures/plan.md",
+          "installed": "references/tlc/scripts/fixtures/plan.md",
+          "sha256": "d932d475f22e39b3eb0302690fd159b1ff0a934e5074071dfd606f67fe680b1c"
+        },
+        {
+          "source": "scripts/fixtures/proofs.md",
+          "installed": "references/tlc/scripts/fixtures/proofs.md",
+          "sha256": "39850613662bb613f981a866fc66cf7e9f1f2327eec9c2032397d798d8d8a90f"
+        },
+        {
+          "source": "scripts/fixtures/verification.md",
+          "installed": "references/tlc/scripts/fixtures/verification.md",
+          "sha256": "f7fa0c4a9873859811266a951801a890236f7102cf46d5ffa64a4e363a68d106"
+        },
+        {
+          "source": "scripts/lean_config.py",
+          "installed": "references/tlc/scripts/lean_config.py",
+          "sha256": "2b08ab7ccc1ddb3603fa2158b6a8052689faeaafb1540aa638dfda94e9544a15"
         },
         {
           "source": "scripts/lessons.py",
           "installed": "references/tlc/scripts/lessons.py",
-          "sha256": "258cdb508d9787aee1a840bf811e13637c52ef0dd76273b08fab8c19ebac9b09",
-          "acquired_sha256": "f06477f3fd5511cd38ea67b637cd196235c430b9f313bbf31fe552f0a4776610"
+          "sha256": "70bc84c6e68c4a3b3e2de4b9a621ad0bf9cb953ddc9c8754d6b343b8c5aafa22"
+        },
+        {
+          "source": "scripts/mutate.py",
+          "installed": "references/tlc/scripts/mutate.py",
+          "sha256": "b2c5e39cc787c34fcb76c6413ea3491a70d9dea969e73cf1f50d6223d3d375f5"
+        },
+        {
+          "source": "scripts/runners.py",
+          "installed": "references/tlc/scripts/runners.py",
+          "sha256": "df8574f6fdecef4ed731a1435bf09ccb5eb9fb2fdd036dbbf02a18b228bf9ab9"
+        },
+        {
+          "source": "scripts/selftest.py",
+          "installed": "references/tlc/scripts/selftest.py",
+          "sha256": "adffcc1a87b74deff7063a01d4c4591ca294da9c5d5c9fef6a0b27726ecb4d98"
         },
         {
           "source": "scripts/validate_spec.py",
           "installed": "references/tlc/scripts/validate_spec.py",
-          "sha256": "2a0b7e334d026f9556c665fbd0386cfa5b17c62a5e921fed52a9422bc27bc006",
-          "acquired_sha256": "53d563978e325aae316f4f5d1705e3a42463e3fdc57a409d3dca8a994d8082a7"
-        },
-        {
-          "source": "scripts/validate_state.py",
-          "installed": "references/tlc/scripts/validate_state.py",
-          "sha256": "dc0997e2af32faeeb5e4cd241ce41c3a03a37c6ef25a77850557752988205d3c",
-          "acquired_sha256": "6b19f962d5368fdb8c0de2f1478e5c48a7868c79c3b0998cfa76d90b04fa2ffa"
+          "sha256": "5bc094b031f89a2e776a4f5d74c05bddc836b2e3e757dfdaa4926bd9395d67b6"
         },
         {
           "source": "scripts/validate_tasks.py",
           "installed": "references/tlc/scripts/validate_tasks.py",
-          "sha256": "bfa8533fc3c63e19d999ed25dd79bddeb8ead5d43dc2c0149a0cfc0d9d2bc5d7",
-          "acquired_sha256": "961130deafb4cefb0b6a4b03e3b6e5f6682d582a3fd33b5e3e69c7fc4256d8ae"
+          "sha256": "148f5235186f7a4f292c72f029e6ae0f8fe6570001a3f8fc9b32039ffb9aed93"
         },
         {
-          "source": "SKILL.md",
-          "installed": "references/tlc/UPSTREAM.md",
-          "sha256": "127a54fdc984939c4953d0a14120563e73f37488befcd885bb9a1dae95b18524",
-          "acquired_sha256": "bf13d8b2823d0f9a04e0ac0e22939c9f91e06a90a9b51e0df693fcde6f389b0b"
+          "source": "scripts/validate_verification.py",
+          "installed": "references/tlc/scripts/validate_verification.py",
+          "sha256": "e3a263b759f9e27e2eaa1f18a27658bf33fd7e5139b19e3757be5540c6254a55"
         }
-      ]
+      ],
+      "source_commit": "ef2672d67adebb1fc95af83e25fcba4d8cce02a7",
+      "content_hash": "2607b8b6bb30902138d36990787eeace56e72e125cbb21b1b6b7ffdb3dac139a"
     },
     {
       "name": "tlc-spec-lean",
       "category": "development",
       "source_path": "(development)/tlc-spec-lean",
       "installed_path": "00_skills/(development)/tlc-spec-lean",
-      "upstream_version": "1.1.0",
+      "upstream_version": "2.0.0",
       "files": [
+        {
+          "source": "SKILL.md",
+          "installed": "references/tlc/UPSTREAM.md",
+          "sha256": "eaf3aa2f6255100cea7660d4e297923ad2f7212ccc3dace414bbeeb9243f4b5e"
+        },
         {
           "source": "references/build.md",
           "installed": "references/tlc/references/build.md",
-          "sha256": "60eb384b30f9540ecf781f5ab55d17518a4b3cb1acf223f7ccf13d1f20edf476",
-          "acquired_sha256": "3c1dc14dfef34a468e11e6728ec41ffa41348a431b032eb76eeb3bd1b3b42ded"
+          "sha256": "f0efd670e6a9192e58556a52ce0c88e4e63d891d624a0fa4eff05e3f337e5e7e"
         },
         {
           "source": "references/checks.md",
           "installed": "references/tlc/references/checks.md",
-          "sha256": "3fc7a49ed9d82ecea305d5b068fff5f0d092f7579d25253f271d1371a86999e2",
-          "acquired_sha256": "e17707e5b0162d2ba07945858115329eca76cc0bc806aca3fb485c21e7a0afca"
+          "sha256": "8baf13f468d71e1f92c2c0b6a33b911c5a74f075f81cfcd6c290243df4138094"
         },
         {
           "source": "references/memory.md",
           "installed": "references/tlc/references/memory.md",
-          "sha256": "02a7400f2267b5bdb62c737b7125e21d6e79b880bff523d783a4dd0059c5a602",
-          "acquired_sha256": "6104f36c8fd6576b8013e88afd5fd0b34f1f75a6ae0d167283544cb238ec5945"
+          "sha256": "10838a47c1593ad33712a952befa682da4069eec3beb71c25e9eb59f8f411bfa"
         },
         {
           "source": "references/plan.md",
           "installed": "references/tlc/references/plan.md",
-          "sha256": "5750a5618f049e1c70fc5cffe5d60b604f61f70cf68a67e192842a3ba887c6f1",
-          "acquired_sha256": "a9ef3738c4c3cfa45709680031db6bb73dcbb9f7b951134b2b5a8e0fe7b92232"
+          "sha256": "ab8f63a662d3c5cdc23e3b2e90de801d158cab536df75064edbeed4e3066ba82"
+        },
+        {
+          "source": "references/verify-screens.md",
+          "installed": "references/tlc/references/verify-screens.md",
+          "sha256": "0fbee65c47780be7529091360f26504b887a84df4d649eb6e4cd9554ba261290"
         },
         {
           "source": "references/verify.md",
           "installed": "references/tlc/references/verify.md",
-          "sha256": "0bd3c39dbbca03e68ac679dfd91be8e9f5b26e49a26b782d5d75ecb1408ae777",
-          "acquired_sha256": "db6a65b9822fe5f8e1e612e200fe9590e6ded44051d42869c56393d375e95705"
+          "sha256": "5ed9bb496eae575e70abfbf27505ed843e401f8b13b0a68f214815ca538c40d5"
         },
         {
           "source": "scripts/check_commit.py",
           "installed": "references/tlc/scripts/check_commit.py",
-          "sha256": "b6c3cb118df9ba5127c01614bf25741926ef5dfbb136b9f52f9846d2c956cf4b",
-          "acquired_sha256": "534d649e783f34bb57773b038ae996a491c8e9168447a5ed0aeed30d8d70680a"
+          "sha256": "b6c3cb118df9ba5127c01614bf25741926ef5dfbb136b9f52f9846d2c956cf4b"
+        },
+        {
+          "source": "scripts/check_proofs.py",
+          "installed": "references/tlc/scripts/check_proofs.py",
+          "sha256": "3c2141c4217d71bd0a27f16835fb9b2fd86205af42c17d6cef4bda3a612c2cae"
         },
         {
           "source": "scripts/fixtures/checks.md",
           "installed": "references/tlc/scripts/fixtures/checks.md",
-          "sha256": "9923f912118a65fa7f740962c1f2cd642937cc39561953681df935da7ec17d02",
-          "acquired_sha256": "db5248f618a85fb4e028256980bfff86267ec667e4efcbe80beba51bfa842f6d"
+          "sha256": "d794e6fe5bb31f2f48bee4aa2392d330d689e9d3c6cce36e5fa9663651a96286"
         },
         {
           "source": "scripts/fixtures/plan.md",
           "installed": "references/tlc/scripts/fixtures/plan.md",
-          "sha256": "41029685e33a3c8b5dfc1621423c48a622cec54f9966c0130880b4823fc1c8dd",
-          "acquired_sha256": "05974b423e2d73941885a030eabbf1c23820fb07a853899301d6f9a6555960a4"
+          "sha256": "d932d475f22e39b3eb0302690fd159b1ff0a934e5074071dfd606f67fe680b1c"
+        },
+        {
+          "source": "scripts/fixtures/proofs.md",
+          "installed": "references/tlc/scripts/fixtures/proofs.md",
+          "sha256": "39850613662bb613f981a866fc66cf7e9f1f2327eec9c2032397d798d8d8a90f"
         },
         {
           "source": "scripts/fixtures/verification.md",
           "installed": "references/tlc/scripts/fixtures/verification.md",
-          "sha256": "08def61fc61dba6a81fd32a731aba905c1bf536f09fee3df9d34ef2a64f29167",
-          "acquired_sha256": "fa6729194e8d5539869e695f3ecb2d14c9b61aabf70489e93ca7582be2f54a1a"
+          "sha256": "f7fa0c4a9873859811266a951801a890236f7102cf46d5ffa64a4e363a68d106"
+        },
+        {
+          "source": "scripts/lean_config.py",
+          "installed": "references/tlc/scripts/lean_config.py",
+          "sha256": "17011fb999ec35613fa963e1b182bd943349303cab80500861bd34e8762f948e"
         },
         {
           "source": "scripts/lessons.py",
           "installed": "references/tlc/scripts/lessons.py",
-          "sha256": "2813173d91d971e2dc46d75a3665e9d94bc90d8f1edd86aacd3ed2526421d916",
-          "acquired_sha256": "fe07d90c9f7551f80cf894f79546da8052ffc06092fa29b29f9f1c6475a7dba0"
+          "sha256": "70bc84c6e68c4a3b3e2de4b9a621ad0bf9cb953ddc9c8754d6b343b8c5aafa22"
+        },
+        {
+          "source": "scripts/mutate.py",
+          "installed": "references/tlc/scripts/mutate.py",
+          "sha256": "87ae755a88dd83a9b3a2f58f43f4808dde06cc1debbf6382e7e9ddc1dddf3b61"
+        },
+        {
+          "source": "scripts/runners.py",
+          "installed": "references/tlc/scripts/runners.py",
+          "sha256": "ec95c220fb8b8d30176a7b0c6f16be676159937ceec2e54950d4754fe6a4f497"
         },
         {
           "source": "scripts/selftest.py",
           "installed": "references/tlc/scripts/selftest.py",
-          "sha256": "c33c0ab97895ad503ef9d70fd6d1609eeeaac0f229cc63be65fcc95b12d8a9e0",
-          "acquired_sha256": "df986637f80717587fc059d65c5cfb27ac4ea464e4fa2d4cb5824b214ccfe019"
+          "sha256": "82a2c8035df6e54e1cb3f96403ee0b2346d54d01c744d8e1370cbfbfd5137388"
         },
         {
           "source": "scripts/validate_checks.py",
           "installed": "references/tlc/scripts/validate_checks.py",
-          "sha256": "93e0c98e3f6132770d9cdb50a16c9d335b75ebaf4c79f0758ed314e5d03e3fc6",
-          "acquired_sha256": "7599dbd1d4d6f40499d070acc029c9624253af0bd96d4b44973cf6a6802ef967"
+          "sha256": "3857271fdda86297975498c90373f237d898118e5f1c2c54672f7ac7cf051a29"
         },
         {
           "source": "scripts/validate_plan.py",
           "installed": "references/tlc/scripts/validate_plan.py",
-          "sha256": "4780d00c855097f29122b6b95dc34bcfe3c40dc6562276503603c54ba9678fcd",
-          "acquired_sha256": "7c4bb2bcc6e76c895fc6f717132e91138d62488975c3782d54e24b2dedc3f536"
+          "sha256": "065f04f8612ac2bb29372da5cae80895d2677ea3b4de5491769733521076462e"
         },
         {
           "source": "scripts/validate_verification.py",
           "installed": "references/tlc/scripts/validate_verification.py",
-          "sha256": "8e1a13f35699b81d181cdf92bf7dd4cbab66c02ac2771515cae36071e6acf9ce",
-          "acquired_sha256": "8413c6cdd09ea0755969852e3a25a9bb3033c5fdc574326b1669d22f7bbb97ba"
-        },
-        {
-          "source": "SKILL.md",
-          "installed": "references/tlc/UPSTREAM.md",
-          "sha256": "a2d30360a56dacb5bc58526e4a7e43751033c73c7fb9bfdf22b8bd0a01af23d0",
-          "acquired_sha256": "efd3ab499e3e0bdc48ecf90b016455fbe578c23a614890fce2e45a0293db9061"
+          "sha256": "7caa5b3492b32c2d2f889326e0bf1d27cb5100f5b8a32e4bc3f02363eb81d1b4"
         }
-      ]
+      ],
+      "source_commit": "2fca1d19753fa8ec2a3449371b97e4830544461a",
+      "content_hash": "409d8a43d022e2d15d03927bdc062032cf7331da6aab7b8f3de4b95f7a0d666a"
     },
     {
       "name": "vercel-deploy",

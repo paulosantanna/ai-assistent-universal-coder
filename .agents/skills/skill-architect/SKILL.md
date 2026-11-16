@@ -1,6 +1,6 @@
 ---
 name: "skill-architect"
-description: "Design, build, evaluate, score and improve reusable skills through discovery, architecture and minimal evidence-based edits. Use for create a skill, review my skill, rate or score my skill, improve SKILL.md. Do NOT use to identify whether finished work deserves a skill (learning-opportunities), create agent identities, or write a technical design document."
+description: "Build, score and improve reusable skills with minimal evidence-based edits. Use for creating or reviewing skills. Do NOT use for agent identities."
 license: "CC-BY-4.0"
 metadata:
   author: "Tech Leads Club"

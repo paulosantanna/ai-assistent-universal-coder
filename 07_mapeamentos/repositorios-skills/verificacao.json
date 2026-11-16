@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "updated": "2026-10-13",
+  "updated": "2026-11-16",
   "status": "PASS",
-  "repositories": 11,
-  "skills": 302,
-  "matrix_rows": 3322,
-  "source_pointers": 529,
-  "source_files_hashed": 150,
-  "inventory_files": 5736,
-  "excluded_entries": 167,
+  "repositories": 17,
+  "skills": 324,
+  "matrix_rows": 5508,
+  "source_pointers": 732,
+  "source_files_hashed": 184,
+  "inventory_files": 9838,
+  "excluded_entries": 203,
   "inventory_errors": 0,
   "status_counts": {
-    "sem necessidade identificada": 2723,
-    "direta": 161,
-    "condicionada": 187,
-    "transversal": 251
+    "sem necessidade identificada": 4608,
+    "direta": 222,
+    "condicionada": 289,
+    "transversal": 389
   },
   "checks": [
     {
@@ -26,15 +26,15 @@
       "passed": true
     },
     {
-      "check": "Todos os 11 diretórios têm mapa individual",
+      "check": "Todos os 17 diretórios beta3 têm mapa individual",
       "passed": true
     },
     {
-      "check": "302 skills canônicas; aliases não duplicados",
+      "check": "324 skills canônicas; aliases não duplicados",
       "passed": true
     },
     {
-      "check": "10 Git próprios e um pacote",
+      "check": "16 Git próprios e um pacote sem Git",
       "passed": true
     },
     {
@@ -46,7 +46,7 @@
       "passed": true
     },
     {
-      "check": "Todas as 302 skills preservadas por SHA-256",
+      "check": "Todas as 324 skills preservadas por SHA-256",
       "passed": true
     },
     {
@@ -250,6 +250,30 @@
       "passed": true
     },
     {
+      "check": "Linha válida: Awesome-LLM-Post-training/README.md:11",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Awesome-LLM-Post-training/README.md:11",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Awesome-LLM-Post-training/README.md:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Awesome-LLM-Post-training/README.md:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Awesome-LLM-Post-training/README.md:4",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Awesome-LLM-Post-training/README.md:4",
+      "passed": true
+    },
+    {
       "check": "Linha válida: dark-videos/README.md:16",
       "passed": true
     },
@@ -290,19 +314,19 @@
       "passed": true
     },
     {
-      "check": "Linha válida: dark-videos/backend/app/main.py:58",
+      "check": "Linha válida: dark-videos/backend/app/main.py:61",
       "passed": true
     },
     {
-      "check": "Valor citado confere: dark-videos/backend/app/main.py:58",
+      "check": "Valor citado confere: dark-videos/backend/app/main.py:61",
       "passed": true
     },
     {
-      "check": "Linha válida: dark-videos/backend/app/modules/learning/laya_jev_client.py:41",
+      "check": "Linha válida: dark-videos/backend/app/modules/learning/laya_jev_client.py:31",
       "passed": true
     },
     {
-      "check": "Valor citado confere: dark-videos/backend/app/modules/learning/laya_jev_client.py:41",
+      "check": "Valor citado confere: dark-videos/backend/app/modules/learning/laya_jev_client.py:31",
       "passed": true
     },
     {
@@ -503,6 +527,22 @@
     },
     {
       "check": "Valor citado confere: dark-videos/backend/pyproject.toml:28",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/pyproject.toml:40",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/pyproject.toml:40",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: dark-videos/backend/pyproject.toml:41",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: dark-videos/backend/pyproject.toml:41",
       "passed": true
     },
     {
@@ -962,11 +1002,11 @@
       "passed": true
     },
     {
-      "check": "Linha válida: DiabeticsresearchJEV/src/diabeticsresearchjev/interfaces/api.py:88",
+      "check": "Linha válida: DiabeticsresearchJEV/src/diabeticsresearchjev/interfaces/api.py:108",
       "passed": true
     },
     {
-      "check": "Valor citado confere: DiabeticsresearchJEV/src/diabeticsresearchjev/interfaces/api.py:88",
+      "check": "Valor citado confere: DiabeticsresearchJEV/src/diabeticsresearchjev/interfaces/api.py:108",
       "passed": true
     },
     {
@@ -1314,19 +1354,51 @@
       "passed": true
     },
     {
-      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:75",
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:77",
       "passed": true
     },
     {
-      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:75",
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:77",
       "passed": true
     },
     {
-      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:76",
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:78",
       "passed": true
     },
     {
-      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:76",
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:78",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:79",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:79",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:80",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:80",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:81",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:81",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: DiabeticsresearchJEV/pyproject.toml:82",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: DiabeticsresearchJEV/pyproject.toml:82",
       "passed": true
     },
     {
@@ -1346,11 +1418,11 @@
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/docs/architecture.mermaid:20",
+      "check": "Linha válida: Engenharia-Reversa/docs/architecture.mermaid:22",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/docs/architecture.mermaid:20",
+      "check": "Valor citado confere: Engenharia-Reversa/docs/architecture.mermaid:22",
       "passed": true
     },
     {
@@ -1362,11 +1434,11 @@
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/src/main.ts:69",
+      "check": "Linha válida: Engenharia-Reversa/src/main.ts:157",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/src/main.ts:69",
+      "check": "Valor citado confere: Engenharia-Reversa/src/main.ts:157",
       "passed": true
     },
     {
@@ -1378,27 +1450,27 @@
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/AGENTS.md:9",
+      "check": "Linha válida: Engenharia-Reversa/AGENTS.md:11",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/AGENTS.md:9",
+      "check": "Valor citado confere: Engenharia-Reversa/AGENTS.md:11",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/src/cli.ts:65",
+      "check": "Linha válida: Engenharia-Reversa/src/cli.ts:98",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/src/cli.ts:65",
+      "check": "Valor citado confere: Engenharia-Reversa/src/cli.ts:98",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/bridge/ghidra/ReaGhidraBridge.java:104",
+      "check": "Linha válida: Engenharia-Reversa/bridge/ghidra/ReaGhidraBridge.java:118",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/bridge/ghidra/ReaGhidraBridge.java:104",
+      "check": "Valor citado confere: Engenharia-Reversa/bridge/ghidra/ReaGhidraBridge.java:118",
       "passed": true
     },
     {
@@ -1426,419 +1498,523 @@
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:43",
+      "check": "Linha válida: Engenharia-Reversa/package.json:48",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:43",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:48",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:41",
+      "check": "Linha válida: Engenharia-Reversa/package.json:46",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:41",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:46",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:273",
+      "check": "Linha válida: Engenharia-Reversa/package.json:339",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:273",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:339",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:275",
+      "check": "Linha válida: Engenharia-Reversa/package.json:341",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:275",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:341",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:276",
+      "check": "Linha válida: Engenharia-Reversa/package.json:342",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:276",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:342",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:277",
+      "check": "Linha válida: Engenharia-Reversa/package.json:343",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:277",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:343",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:278",
+      "check": "Linha válida: Engenharia-Reversa/package.json:344",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:278",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:344",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:279",
+      "check": "Linha válida: Engenharia-Reversa/package.json:345",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:279",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:345",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:281",
+      "check": "Linha válida: Engenharia-Reversa/package.json:346",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:281",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:346",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:282",
+      "check": "Linha válida: Engenharia-Reversa/package.json:348",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:282",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:348",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:284",
+      "check": "Linha válida: Engenharia-Reversa/package.json:349",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:284",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:349",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:285",
+      "check": "Linha válida: Engenharia-Reversa/package.json:350",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:285",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:350",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:286",
+      "check": "Linha válida: Engenharia-Reversa/package.json:351",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:286",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:351",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:287",
+      "check": "Linha válida: Engenharia-Reversa/package.json:352",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:287",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:352",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:288",
+      "check": "Linha válida: Engenharia-Reversa/package.json:353",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:288",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:353",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:289",
+      "check": "Linha válida: Engenharia-Reversa/package.json:354",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:289",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:354",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:290",
+      "check": "Linha válida: Engenharia-Reversa/package.json:355",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:290",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:355",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:291",
+      "check": "Linha válida: Engenharia-Reversa/package.json:356",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:291",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:356",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:293",
+      "check": "Linha válida: Engenharia-Reversa/package.json:357",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:293",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:357",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:294",
+      "check": "Linha válida: Engenharia-Reversa/package.json:358",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:294",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:358",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:295",
+      "check": "Linha válida: Engenharia-Reversa/package.json:359",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:295",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:359",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:296",
+      "check": "Linha válida: Engenharia-Reversa/package.json:360",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:296",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:360",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:297",
+      "check": "Linha válida: Engenharia-Reversa/package.json:362",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:297",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:362",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:298",
+      "check": "Linha válida: Engenharia-Reversa/package.json:363",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:298",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:363",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:299",
+      "check": "Linha válida: Engenharia-Reversa/package.json:364",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:299",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:364",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:300",
+      "check": "Linha válida: Engenharia-Reversa/package.json:365",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:300",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:365",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:301",
+      "check": "Linha válida: Engenharia-Reversa/package.json:366",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:301",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:366",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:302",
+      "check": "Linha válida: Engenharia-Reversa/package.json:367",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:302",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:367",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:303",
+      "check": "Linha válida: Engenharia-Reversa/package.json:368",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:303",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:368",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:304",
+      "check": "Linha válida: Engenharia-Reversa/package.json:369",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:304",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:369",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:305",
+      "check": "Linha válida: Engenharia-Reversa/package.json:370",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:305",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:370",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:306",
+      "check": "Linha válida: Engenharia-Reversa/package.json:372",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:306",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:372",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:307",
+      "check": "Linha válida: Engenharia-Reversa/package.json:373",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:307",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:373",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:308",
+      "check": "Linha válida: Engenharia-Reversa/package.json:374",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:308",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:374",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:316",
+      "check": "Linha válida: Engenharia-Reversa/package.json:375",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:316",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:375",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:317",
+      "check": "Linha válida: Engenharia-Reversa/package.json:376",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:317",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:376",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:318",
+      "check": "Linha válida: Engenharia-Reversa/package.json:377",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:318",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:377",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:319",
+      "check": "Linha válida: Engenharia-Reversa/package.json:378",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:319",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:378",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:320",
+      "check": "Linha válida: Engenharia-Reversa/package.json:379",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:320",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:379",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:321",
+      "check": "Linha válida: Engenharia-Reversa/package.json:380",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:321",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:380",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:322",
+      "check": "Linha válida: Engenharia-Reversa/package.json:391",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:322",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:391",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:323",
+      "check": "Linha válida: Engenharia-Reversa/package.json:392",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:323",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:392",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:324",
+      "check": "Linha válida: Engenharia-Reversa/package.json:395",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:324",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:395",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:325",
+      "check": "Linha válida: Engenharia-Reversa/package.json:396",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:325",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:396",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:326",
+      "check": "Linha válida: Engenharia-Reversa/package.json:397",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:326",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:397",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:327",
+      "check": "Linha válida: Engenharia-Reversa/package.json:398",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:327",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:398",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:328",
+      "check": "Linha válida: Engenharia-Reversa/package.json:399",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:328",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:399",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:329",
+      "check": "Linha válida: Engenharia-Reversa/package.json:400",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:329",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:400",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:330",
+      "check": "Linha válida: Engenharia-Reversa/package.json:401",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:330",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:401",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:331",
+      "check": "Linha válida: Engenharia-Reversa/package.json:402",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:331",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:402",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:332",
+      "check": "Linha válida: Engenharia-Reversa/package.json:403",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:332",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:403",
       "passed": true
     },
     {
-      "check": "Linha válida: Engenharia-Reversa/package.json:333",
+      "check": "Linha válida: Engenharia-Reversa/package.json:404",
       "passed": true
     },
     {
-      "check": "Valor citado confere: Engenharia-Reversa/package.json:333",
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:404",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:405",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:405",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:406",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:406",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:407",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:407",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:408",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:408",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:409",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:409",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:410",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:410",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:411",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:411",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:412",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:412",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:414",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:414",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:415",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:415",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/package.json:416",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/package.json:416",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/scripts/verify-tools/skills/package.json:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/scripts/verify-tools/skills/package.json:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/scripts/verify-tools/skills/package.json:6",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/scripts/verify-tools/skills/package.json:6",
       "passed": true
     },
     {
@@ -1906,11 +2082,51 @@
       "passed": true
     },
     {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/cache-retention.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/cache-retention.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/ci-full-pr.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/ci-full-pr.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/ci-timings.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/ci-timings.yml:1",
+      "passed": true
+    },
+    {
       "check": "Linha válida: Engenharia-Reversa/.github/workflows/ci.yml:1",
       "passed": true
     },
     {
       "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/ci.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/ghidra-bridge-sources.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/ghidra-bridge-sources.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/mutation.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/mutation.yml:1",
       "passed": true
     },
     {
@@ -1930,6 +2146,46 @@
       "passed": true
     },
     {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/pr-readiness.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/pr-readiness.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/pr-title.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/pr-title.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/real-agentenv.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/real-agentenv.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/real-android-metadata.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/real-android-metadata.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/real-apk-signature.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/real-apk-signature.yml:1",
+      "passed": true
+    },
+    {
       "check": "Linha válida: Engenharia-Reversa/.github/workflows/real-binary-layout.yml:1",
       "passed": true
     },
@@ -1946,6 +2202,14 @@
       "passed": true
     },
     {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/real-cutter.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/real-cutter.yml:1",
+      "passed": true
+    },
+    {
       "check": "Linha válida: Engenharia-Reversa/.github/workflows/real-evm-interface.yml:1",
       "passed": true
     },
@@ -1959,6 +2223,14 @@
     },
     {
       "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/real-ghidra-windows.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/real-go-binary.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/real-go-binary.yml:1",
       "passed": true
     },
     {
@@ -1986,11 +2258,27 @@
       "passed": true
     },
     {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/real-packet-capture.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/real-packet-capture.yml:1",
+      "passed": true
+    },
+    {
       "check": "Linha válida: Engenharia-Reversa/.github/workflows/real-recorded-crash.yml:1",
       "passed": true
     },
     {
       "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/real-recorded-crash.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/real-signal-recording.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/real-signal-recording.yml:1",
       "passed": true
     },
     {
@@ -2026,11 +2314,27 @@
       "passed": true
     },
     {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/release-recovery.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/release-recovery.yml:1",
+      "passed": true
+    },
+    {
       "check": "Linha válida: Engenharia-Reversa/.github/workflows/release.yml:1",
       "passed": true
     },
     {
       "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/release.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: Engenharia-Reversa/.github/workflows/sqlite-runtime.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/sqlite-runtime.yml:1",
       "passed": true
     },
     {
@@ -2047,6 +2351,182 @@
     },
     {
       "check": "Valor citado confere: Engenharia-Reversa/.github/workflows/website-pages.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: enterprise-llm-finetuning/src/infrastructure/factories/trainer_factory.py:15",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: enterprise-llm-finetuning/src/infrastructure/factories/trainer_factory.py:15",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: enterprise-llm-finetuning/src/application/usecases/train_pipeline.py:31",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: enterprise-llm-finetuning/src/application/usecases/train_pipeline.py:31",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: enterprise-llm-finetuning/src/application/usecases/train_pipeline.py:59",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: enterprise-llm-finetuning/src/application/usecases/train_pipeline.py:59",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: enterprise-llm-finetuning/src/application/usecases/train_pipeline.py:13",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: enterprise-llm-finetuning/src/application/usecases/train_pipeline.py:13",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: enterprise-llm-finetuning/pyproject.toml:30",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: enterprise-llm-finetuning/pyproject.toml:30",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: enterprise-llm-finetuning/src/application/usecases/train_pipeline.py:26",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: enterprise-llm-finetuning/src/application/usecases/train_pipeline.py:26",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: enterprise-llm-finetuning/src/infrastructure/__init__.py:19",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: enterprise-llm-finetuning/src/infrastructure/__init__.py:19",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: enterprise-llm-finetuning/pyproject.toml:20",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: enterprise-llm-finetuning/pyproject.toml:20",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: enterprise-llm-finetuning/pyproject.toml:21",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: enterprise-llm-finetuning/pyproject.toml:21",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: enterprise-llm-finetuning/pyproject.toml:24",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: enterprise-llm-finetuning/pyproject.toml:24",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: enterprise-llm-finetuning/pyproject.toml:26",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: enterprise-llm-finetuning/pyproject.toml:26",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: enterprise-llm-finetuning/pyproject.toml:27",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: enterprise-llm-finetuning/pyproject.toml:27",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: enterprise-llm-finetuning/pyproject.toml:28",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: enterprise-llm-finetuning/pyproject.toml:28",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: enterprise-llm-finetuning/pyproject.toml:29",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: enterprise-llm-finetuning/pyproject.toml:29",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: enterprise-llm-finetuning/pyproject.toml:31",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: enterprise-llm-finetuning/pyproject.toml:31",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: enterprise-llm-finetuning/pyproject.toml:32",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: enterprise-llm-finetuning/pyproject.toml:32",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: enterprise-llm-finetuning/pyproject.toml:33",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: enterprise-llm-finetuning/pyproject.toml:33",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: enterprise-llm-finetuning/pyproject.toml:34",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: enterprise-llm-finetuning/pyproject.toml:34",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: enterprise-llm-finetuning/pyproject.toml:35",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: enterprise-llm-finetuning/pyproject.toml:35",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: enterprise-llm-finetuning/pyproject.toml:36",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: enterprise-llm-finetuning/pyproject.toml:36",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: enterprise-llm-finetuning/pyproject.toml:37",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: enterprise-llm-finetuning/pyproject.toml:37",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: enterprise-llm-finetuning/pyproject.toml:38",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: enterprise-llm-finetuning/pyproject.toml:38",
       "passed": true
     },
     {
@@ -2714,11 +3194,11 @@
       "passed": true
     },
     {
-      "check": "Linha válida: laya/engine/laya/main.py:37",
+      "check": "Linha válida: laya/engine/laya/main.py:38",
       "passed": true
     },
     {
-      "check": "Valor citado confere: laya/engine/laya/main.py:37",
+      "check": "Valor citado confere: laya/engine/laya/main.py:38",
       "passed": true
     },
     {
@@ -2850,11 +3330,11 @@
       "passed": true
     },
     {
-      "check": "Linha válida: laya/engine/requirements.txt:47",
+      "check": "Linha válida: laya/engine/requirements.txt:45",
       "passed": true
     },
     {
-      "check": "Valor citado confere: laya/engine/requirements.txt:47",
+      "check": "Valor citado confere: laya/engine/requirements.txt:45",
       "passed": true
     },
     {
@@ -2866,19 +3346,19 @@
       "passed": true
     },
     {
-      "check": "Linha válida: laya/engine/requirements.txt:49",
+      "check": "Linha válida: laya/engine/requirements.txt:51",
       "passed": true
     },
     {
-      "check": "Valor citado confere: laya/engine/requirements.txt:49",
+      "check": "Valor citado confere: laya/engine/requirements.txt:51",
       "passed": true
     },
     {
-      "check": "Linha válida: laya/engine/requirements.txt:50",
+      "check": "Linha válida: laya/engine/requirements.txt:52",
       "passed": true
     },
     {
-      "check": "Valor citado confere: laya/engine/requirements.txt:50",
+      "check": "Valor citado confere: laya/engine/requirements.txt:52",
       "passed": true
     },
     {
@@ -2898,19 +3378,19 @@
       "passed": true
     },
     {
-      "check": "Linha válida: laya/engine/requirements.txt:60",
+      "check": "Linha válida: laya/engine/requirements.txt:57",
       "passed": true
     },
     {
-      "check": "Valor citado confere: laya/engine/requirements.txt:60",
+      "check": "Valor citado confere: laya/engine/requirements.txt:57",
       "passed": true
     },
     {
-      "check": "Linha válida: laya/engine/requirements.txt:63",
+      "check": "Linha válida: laya/engine/requirements.txt:58",
       "passed": true
     },
     {
-      "check": "Valor citado confere: laya/engine/requirements.txt:63",
+      "check": "Valor citado confere: laya/engine/requirements.txt:58",
       "passed": true
     },
     {
@@ -2922,11 +3402,19 @@
       "passed": true
     },
     {
-      "check": "Linha válida: laya/engine/requirements.txt:65",
+      "check": "Linha válida: laya/engine/requirements.txt:67",
       "passed": true
     },
     {
-      "check": "Valor citado confere: laya/engine/requirements.txt:65",
+      "check": "Valor citado confere: laya/engine/requirements.txt:67",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:68",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:68",
       "passed": true
     },
     {
@@ -2938,11 +3426,19 @@
       "passed": true
     },
     {
-      "check": "Linha válida: laya/engine/requirements.txt:74",
+      "check": "Linha válida: laya/engine/requirements.txt:73",
       "passed": true
     },
     {
-      "check": "Valor citado confere: laya/engine/requirements.txt:74",
+      "check": "Valor citado confere: laya/engine/requirements.txt:73",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: laya/engine/requirements.txt:78",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: laya/engine/requirements.txt:78",
       "passed": true
     },
     {
@@ -3239,6 +3735,134 @@
     },
     {
       "check": "Valor citado confere: laya/.github/workflows/release.yml:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ncm/models/next_concept.py:65",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ncm/models/next_concept.py:65",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ncm/README.md:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ncm/README.md:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ncm/evaluate.py:10",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ncm/evaluate.py:10",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ncm/models/quant.py:228",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ncm/models/quant.py:228",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ncm/evaluate.py:12",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ncm/evaluate.py:12",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ncm/evaluate.py:15",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ncm/evaluate.py:15",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ncm/evaluate.py:11",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ncm/evaluate.py:11",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ncm/requirements.txt:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ncm/requirements.txt:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ncm/requirements.txt:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ncm/requirements.txt:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ncm/requirements.txt:3",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ncm/requirements.txt:3",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ncm/requirements.txt:4",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ncm/requirements.txt:4",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ncm/requirements.txt:5",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ncm/requirements.txt:5",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ncm/requirements.txt:6",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ncm/requirements.txt:6",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ncm/requirements.txt:7",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ncm/requirements.txt:7",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ncm/requirements.txt:8",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ncm/requirements.txt:8",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: ncm/requirements.txt:9",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: ncm/requirements.txt:9",
       "passed": true
     },
     {
@@ -4178,6 +4802,1006 @@
       "passed": true
     },
     {
+      "check": "Linha válida: post_training_llms/README.md:21",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: post_training_llms/README.md:21",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: post_training_llms/README.md:13",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: post_training_llms/README.md:13",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: post_training_llms/README.md:24",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: post_training_llms/README.md:24",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: post_training_llms/README.md:25",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: post_training_llms/README.md:25",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: post_training_llms/README.md:5",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: post_training_llms/README.md:5",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: post_training_llms/README.md:22",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: post_training_llms/README.md:22",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: post_training_llms/requirements.txt:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: post_training_llms/requirements.txt:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: post_training_llms/requirements.txt:3",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: post_training_llms/requirements.txt:3",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: post_training_llms/requirements.txt:4",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: post_training_llms/requirements.txt:4",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: post_training_llms/requirements.txt:5",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: post_training_llms/requirements.txt:5",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: post_training_llms/requirements.txt:6",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: post_training_llms/requirements.txt:6",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: post_training_llms/requirements.txt:9",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: post_training_llms/requirements.txt:9",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: post_training_llms/requirements.txt:10",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: post_training_llms/requirements.txt:10",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: post_training_llms/requirements.txt:13",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: post_training_llms/requirements.txt:13",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: post_training_llms/requirements.txt:14",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: post_training_llms/requirements.txt:14",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: post_training_llms/requirements.txt:15",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: post_training_llms/requirements.txt:15",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: post_training_llms/requirements.txt:16",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: post_training_llms/requirements.txt:16",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: post_training_llms/requirements.txt:19",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: post_training_llms/requirements.txt:19",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: post_training_llms/requirements.txt:20",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: post_training_llms/requirements.txt:20",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: post_training_llms/requirements.txt:23",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: post_training_llms/requirements.txt:23",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: post_training_llms/requirements.txt:24",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: post_training_llms/requirements.txt:24",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: post_training_llms/requirements.txt:27",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: post_training_llms/requirements.txt:27",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: post_training_llms/requirements.txt:28",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: post_training_llms/requirements.txt:28",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: post_training_llms/requirements.txt:31",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: post_training_llms/requirements.txt:31",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: post_training_llms/requirements.txt:34",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: post_training_llms/requirements.txt:34",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: post_training_llms/requirements.txt:35",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: post_training_llms/requirements.txt:35",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: post_training_llms/requirements.txt:36",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: post_training_llms/requirements.txt:36",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-and-fine-tuning-demo/README.md:19",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-and-fine-tuning-demo/README.md:19",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-and-fine-tuning-demo/README.md:5",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-and-fine-tuning-demo/README.md:5",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-and-fine-tuning-demo/README.md:17",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-and-fine-tuning-demo/README.md:17",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-and-fine-tuning-demo/README.md:9",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-and-fine-tuning-demo/README.md:9",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-and-fine-tuning-demo/README.md:13",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-and-fine-tuning-demo/README.md:13",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-and-fine-tuning-demo/README.md:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-and-fine-tuning-demo/README.md:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-and-fine-tuning-demo/requirements.txt:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-and-fine-tuning-demo/requirements.txt:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-and-fine-tuning-demo/requirements.txt:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-and-fine-tuning-demo/requirements.txt:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-and-fine-tuning-demo/requirements.txt:3",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-and-fine-tuning-demo/requirements.txt:3",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-and-fine-tuning-demo/requirements.txt:4",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-and-fine-tuning-demo/requirements.txt:4",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-and-fine-tuning-demo/requirements.txt:5",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-and-fine-tuning-demo/requirements.txt:5",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-and-fine-tuning-demo/requirements.txt:6",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-and-fine-tuning-demo/requirements.txt:6",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-and-fine-tuning-demo/requirements.txt:7",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-and-fine-tuning-demo/requirements.txt:7",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-and-fine-tuning-demo/requirements.txt:8",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-and-fine-tuning-demo/requirements.txt:8",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-and-fine-tuning-demo/requirements.txt:9",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-and-fine-tuning-demo/requirements.txt:9",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-and-fine-tuning-demo/requirements.txt:10",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-and-fine-tuning-demo/requirements.txt:10",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-and-fine-tuning-demo/requirements.txt:11",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-and-fine-tuning-demo/requirements.txt:11",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-and-fine-tuning-demo/requirements.txt:12",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-and-fine-tuning-demo/requirements.txt:12",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-and-fine-tuning-demo/requirements.txt:13",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-and-fine-tuning-demo/requirements.txt:13",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-and-fine-tuning-demo/requirements.txt:14",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-and-fine-tuning-demo/requirements.txt:14",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-and-fine-tuning-demo/requirements.txt:15",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-and-fine-tuning-demo/requirements.txt:15",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-and-fine-tuning-demo/requirements.txt:16",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-and-fine-tuning-demo/requirements.txt:16",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-and-fine-tuning-demo/requirements.txt:17",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-and-fine-tuning-demo/requirements.txt:17",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-and-fine-tuning-demo/requirements.txt:18",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-and-fine-tuning-demo/requirements.txt:18",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/README.md:8",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/README.md:8",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/README.md:1",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/README.md:1",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/README.md:11",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/README.md:11",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/README.md:9",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/README.md:9",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/README.md:14",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/README.md:14",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/README.md:10",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/README.md:10",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/pyproject.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/pyproject.toml:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/pyproject.toml:3",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/pyproject.toml:3",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/pyproject.toml:6",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/pyproject.toml:6",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/pyproject.toml:8",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/pyproject.toml:8",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/pyproject.toml:9",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/pyproject.toml:9",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/pyproject.toml:10",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/pyproject.toml:10",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/pyproject.toml:11",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/pyproject.toml:11",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/pyproject.toml:12",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/pyproject.toml:12",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/pyproject.toml:13",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/pyproject.toml:13",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/pyproject.toml:14",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/pyproject.toml:14",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/pyproject.toml:15",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/pyproject.toml:15",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/pyproject.toml:16",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/pyproject.toml:16",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:2",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:2",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:3",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:3",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:4",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:4",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:7",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:7",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:8",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:8",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:9",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:9",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:10",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:10",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:13",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:13",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:14",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:14",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:15",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:15",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:16",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:16",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:17",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:17",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:20",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:20",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:21",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:21",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:22",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:22",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:25",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:25",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:26",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:26",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:27",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:27",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:30",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:30",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:31",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:31",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:32",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:32",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:33",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:33",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:36",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:36",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:37",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:37",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:38",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:38",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:39",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:39",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:40",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:40",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:47",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:47",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:48",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:48",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:49",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:49",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:50",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:50",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:51",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:51",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:52",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:52",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:53",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:53",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:54",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:54",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:55",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:55",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:58",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:58",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:59",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:59",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:60",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:60",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:61",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:61",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:64",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:64",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:65",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:65",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:68",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:68",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:69",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:69",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:70",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:70",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:71",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:71",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:72",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:72",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:73",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:73",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:76",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:76",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:77",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:77",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:78",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:78",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:79",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:79",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:80",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:80",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:81",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:81",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:82",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:82",
+      "passed": true
+    },
+    {
+      "check": "Linha válida: rag-finetuning/requirements.txt:83",
+      "passed": true
+    },
+    {
+      "check": "Valor citado confere: rag-finetuning/requirements.txt:83",
+      "passed": true
+    },
+    {
       "check": "Linha válida: remove-onedrive/Remove-OneDrive.ps1:129",
       "passed": true
     },
@@ -4359,6 +5983,86 @@
     },
     {
       "check": "Referências válidas: AIHealthResearch/Obsolescência",
+      "passed": true
+    },
+    {
+      "check": "Dez dimensões: Awesome-LLM-Post-training",
+      "passed": true
+    },
+    {
+      "check": "Mapa individual: Awesome-LLM-Post-training",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: Awesome-LLM-Post-training/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: Awesome-LLM-Post-training/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: Awesome-LLM-Post-training/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: Awesome-LLM-Post-training/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: Awesome-LLM-Post-training/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: Awesome-LLM-Post-training/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: Awesome-LLM-Post-training/Dados",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: Awesome-LLM-Post-training/Dados",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: Awesome-LLM-Post-training/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: Awesome-LLM-Post-training/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: Awesome-LLM-Post-training/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: Awesome-LLM-Post-training/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: Awesome-LLM-Post-training/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: Awesome-LLM-Post-training/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: Awesome-LLM-Post-training/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: Awesome-LLM-Post-training/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: Awesome-LLM-Post-training/Vulnerabilidades",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: Awesome-LLM-Post-training/Obsolescência",
       "passed": true
     },
     {
@@ -4682,6 +6386,86 @@
       "passed": true
     },
     {
+      "check": "Dez dimensões: enterprise-llm-finetuning",
+      "passed": true
+    },
+    {
+      "check": "Mapa individual: enterprise-llm-finetuning",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: enterprise-llm-finetuning/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: enterprise-llm-finetuning/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: enterprise-llm-finetuning/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: enterprise-llm-finetuning/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: enterprise-llm-finetuning/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: enterprise-llm-finetuning/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: enterprise-llm-finetuning/Dados",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: enterprise-llm-finetuning/Dados",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: enterprise-llm-finetuning/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: enterprise-llm-finetuning/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: enterprise-llm-finetuning/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: enterprise-llm-finetuning/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: enterprise-llm-finetuning/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: enterprise-llm-finetuning/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: enterprise-llm-finetuning/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: enterprise-llm-finetuning/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: enterprise-llm-finetuning/Vulnerabilidades",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: enterprise-llm-finetuning/Obsolescência",
+      "passed": true
+    },
+    {
       "check": "Dez dimensões: FreePDFReader",
       "passed": true
     },
@@ -4922,6 +6706,86 @@
       "passed": true
     },
     {
+      "check": "Dez dimensões: ncm",
+      "passed": true
+    },
+    {
+      "check": "Mapa individual: ncm",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: ncm/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: ncm/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: ncm/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: ncm/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: ncm/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: ncm/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: ncm/Dados",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: ncm/Dados",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: ncm/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: ncm/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: ncm/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: ncm/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: ncm/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: ncm/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: ncm/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: ncm/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: ncm/Vulnerabilidades",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: ncm/Obsolescência",
+      "passed": true
+    },
+    {
       "check": "Dez dimensões: pdfcraft",
       "passed": true
     },
@@ -4999,6 +6863,246 @@
     },
     {
       "check": "Referências válidas: pdfcraft/Obsolescência",
+      "passed": true
+    },
+    {
+      "check": "Dez dimensões: post_training_llms",
+      "passed": true
+    },
+    {
+      "check": "Mapa individual: post_training_llms",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: post_training_llms/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: post_training_llms/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: post_training_llms/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: post_training_llms/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: post_training_llms/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: post_training_llms/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: post_training_llms/Dados",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: post_training_llms/Dados",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: post_training_llms/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: post_training_llms/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: post_training_llms/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: post_training_llms/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: post_training_llms/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: post_training_llms/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: post_training_llms/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: post_training_llms/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: post_training_llms/Vulnerabilidades",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: post_training_llms/Obsolescência",
+      "passed": true
+    },
+    {
+      "check": "Dez dimensões: rag-and-fine-tuning-demo",
+      "passed": true
+    },
+    {
+      "check": "Mapa individual: rag-and-fine-tuning-demo",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: rag-and-fine-tuning-demo/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: rag-and-fine-tuning-demo/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: rag-and-fine-tuning-demo/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: rag-and-fine-tuning-demo/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: rag-and-fine-tuning-demo/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: rag-and-fine-tuning-demo/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: rag-and-fine-tuning-demo/Dados",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: rag-and-fine-tuning-demo/Dados",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: rag-and-fine-tuning-demo/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: rag-and-fine-tuning-demo/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: rag-and-fine-tuning-demo/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: rag-and-fine-tuning-demo/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: rag-and-fine-tuning-demo/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: rag-and-fine-tuning-demo/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: rag-and-fine-tuning-demo/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: rag-and-fine-tuning-demo/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: rag-and-fine-tuning-demo/Vulnerabilidades",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: rag-and-fine-tuning-demo/Obsolescência",
+      "passed": true
+    },
+    {
+      "check": "Dez dimensões: rag-finetuning",
+      "passed": true
+    },
+    {
+      "check": "Mapa individual: rag-finetuning",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: rag-finetuning/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: rag-finetuning/Arquitetura",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: rag-finetuning/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: rag-finetuning/Propósito",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: rag-finetuning/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: rag-finetuning/Fluxo",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: rag-finetuning/Dados",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: rag-finetuning/Dados",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: rag-finetuning/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: rag-finetuning/Configuração/deploy",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: rag-finetuning/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: rag-finetuning/Operação/observabilidade",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: rag-finetuning/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: rag-finetuning/Interfaces/dependências",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: rag-finetuning/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Claims observados exigem evidência: rag-finetuning/Tecnologias e versões",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: rag-finetuning/Vulnerabilidades",
+      "passed": true
+    },
+    {
+      "check": "Referências válidas: rag-finetuning/Obsolescência",
       "passed": true
     },
     {
@@ -5170,7 +7274,7 @@
       "passed": true
     },
     {
-      "check": "CSV completo tem 3.322 decisões e sete colunas válidas",
+      "check": "CSV completo tem 5508 decisões e sete colunas válidas",
       "passed": true
     },
     {
@@ -5204,22 +7308,28 @@
   ],
   "errors": [],
   "artifact_sha256": {
-    "README.md": "b1321543ce789535e41c9611ed004e60daf5d2b3c2003ae762f19abe2dbf2d2f",
-    "mapa.json": "5bb68920a6148f50ec078c3af3a4bdb6dc4573538aba66726ff1cf6ad0b06fcb",
-    "matriz.csv": "154a441159dfa8e675ca72696ea1ffb7874f5d4cffe72d15662481d3449c97cc",
-    "evidencias.json": "feed4b1ca1ab4ecfe278edfc3334844f7a3e34580db3772e366c9dabe512bcdd",
-    "relatorio.html": "82a82f1e6ee3018a064043cf8c8ca6186e06f8653620cb60a8e81e2761afd0a7",
-    "AIHealthResearch.md": "fd2e878b579aaf2e9f23c2637578e91836ab5bf340521a60a70c2d93f001fa69",
-    "dark-videos-mining-fix.md": "b635862e86da37634654a938e7eb2e26c3a25481e19b3ae34c85e19e5f8543f4",
-    "dark-videos.md": "de8c0262b7c6d35ae199ef11ca4afc89e4c6f198b4bc10be2ea1763829fa137c",
-    "DiabeticsresearchJEV.md": "09b8ee0652671b56163fe1e38a4a35270db13255e2def6014804336212a3524c",
-    "Engenharia-Reversa.md": "c4e0edad7696465b6ac5a8d6adf816ae164ce3ef40527341539379f411ff2bfa",
-    "FreePDFReader.md": "e4261e13dafa6cfd476ba1a1a0c7cde1d640b82a3f3c59d189f1d2d801025a1b",
-    "ibunny.md": "b28dfac837cb34d3913ba5be12180b6d761360d7d4b71fb6f2381daad0df18fd",
-    "laya.md": "201d3cd85ea4db91f1e1be7ee853b996ae9f08bd45b60553647c0ae75ea7746e",
-    "pdfcraft.md": "557b8219c0d9b83d8ca72375f306188b3d7b42f714bd40f5ab153aae62495634",
-    "remove-onedrive.md": "4b90806733d97c1ebf468997be39d817f1374291f4bdb6a58b6453dffd2360af",
-    "RemoveWindowsAI.md": "4970fe400e85cd13a9c3a624b6f574b5649a0a6e6d06811550834ec97eee3898"
+    "README.md": "4515afa1e0f53a151fa5bf5de8a66f2bca90dc020279d7e878e6fa3dd3a7ad00",
+    "mapa.json": "44611f873134a36b2690738b0e8dbef5966786826df33383e159284f10b3ead4",
+    "matriz.csv": "a535eb2feb49e4298fc4eed2fd929beb0be1493f8d47a28539545ee66c7a695a",
+    "evidencias.json": "657459adc9e63ab6c4f5c3fd23f39c5922268f8bd5afcb3752ddcf35581583d8",
+    "relatorio.html": "38aa2e1cc17b9d9450cfc5dca912a564a3ccbb6316c874c1aa3627e7a64578f5",
+    "AIHealthResearch.md": "43f807fbb47fad03321480f746b8031842343e3f79e2d253b939d260cc31aa02",
+    "Awesome-LLM-Post-training.md": "8c17157c41f77a38a42fb27b292c2654849d68af870872f52236bd33fec6d522",
+    "dark-videos-mining-fix.md": "d5eed97040744f11f615faed63b168fdb123890258614a1b9a722c25b53f3cc5",
+    "dark-videos.md": "9fad6413f3d26a7beb4d57d3a14d5b031b84f014da34391f3ba2bf333f013dc8",
+    "DiabeticsresearchJEV.md": "aebfd8790483b5cca8516d1fcc827c86bab391502c9989c47288f2aec719372c",
+    "Engenharia-Reversa.md": "382b567c83565270940a447c0ca6f5f78db75a34dfd4b99846c0adab70f58294",
+    "enterprise-llm-finetuning.md": "de0c93f8396fa2c06f7d5be20c784f7317e3117c204be260a2adbe2c2f7eafa0",
+    "FreePDFReader.md": "535383049e297c19ea4adb1e7f729cf6475e60c9bcd463d12575b48b5803c0a9",
+    "ibunny.md": "92e7d99b10e458692ce25c6b5377e3ef5199a91c8cfd1bfc4f0a863cd9926700",
+    "laya.md": "0e0c6eb815395692b08751c0d3bf0017204f2c39bce3b7724b36ee183a3ad8d0",
+    "ncm.md": "19353feba928842d8fd91e1548c54bc36efd90d2fb277d69db61869af273028a",
+    "pdfcraft.md": "b89fc8d01349164d42fec105b4b452d380285978d28c63879d8cb1ed2fdd918e",
+    "post_training_llms.md": "cff4b16a384cb0e192149829ae37d763ad8de835f7a2864145e7d7983b014498",
+    "rag-and-fine-tuning-demo.md": "1016e4287c45c81ab61f1730b2ca135254952333ce17bdc1cdeec7990bd35e39",
+    "rag-finetuning.md": "46831767183198fa9c6f9c833491ef8681a037244882c0c31e2d566216884623",
+    "remove-onedrive.md": "eabebf1bb80383232bd3729176f4841ab63f5fd0352c158cd7047cdbb2b1d4b5",
+    "RemoveWindowsAI.md": "09da2561a10ef3f34f948d4b2c81f3b08d6e952332a035d845e42740206e9fbc"
   },
   "limits": [
     "Preservação refere-se aos arquivos do inventário delimitado e hashes das fontes examinadas; árvores excluídas não auditadas.",

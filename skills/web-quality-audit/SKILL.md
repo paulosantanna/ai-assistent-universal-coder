@@ -1,6 +1,6 @@
 ---
 name: web-quality-audit
-description: 'Assimilated TLC/web-quality multi-area audit. Review performance, accessibility, SEO and best practices in one pass. Triggers: audit my site, review web quality, check page quality, optimize my website across areas. Do not use for a single-area job (core-web-vitals, ai-seo, best-practices, perf-lighthouse).'
+description: "Multi-area web audit: performance, accessibility, SEO, best practices. Use for 'audit my site'. Do NOT use for single-area work."
 license: MIT
 metadata:
   author: AEOS

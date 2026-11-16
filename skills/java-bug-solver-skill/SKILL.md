@@ -1,6 +1,6 @@
 ---
 name: java-bug-solver-skill
-description: Create a Java Bug Solver skill that analyzes stack traces, searches for root causes, generates fixes, validates them and stores lessons learned Use when the user requests java bug solver skill or invokes java-bug-solver-skill. Do NOT use for unrelated languages, domains or production deployment.
+description: "Create a Java bug-solver skill that analyzes stack traces and validates fixes. Use for creating a Java bug solver. Do NOT use for other languages."
 license: CC-BY-4.0
 metadata:
   author: AEOS

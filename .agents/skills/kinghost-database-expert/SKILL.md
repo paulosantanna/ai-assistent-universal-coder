@@ -1,6 +1,6 @@
 ---
 name: kinghost-database-expert
-description: Governed KingHost MySQL/database engineering skill for creation, access, backup, query analysis, migration and recovery. Use when the user requests kinghost database expert or invokes kinghost-database-expert. Do NOT use for an unrelated implementation change or deployment execution.
+description: "Governed KingHost MySQL work: access, backup, query analysis, migration, recovery. Use for KingHost databases. Do NOT use for unrelated changes."
 license: CC-BY-4.0
 metadata:
   author: AEOS

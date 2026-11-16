@@ -1,6 +1,6 @@
 ---
 name: java-8-expert
-description: Implement, diagnose and modernize Java 8 systems without silently using APIs or language features introduced later. Use when the user requests java 8 expert or invokes java-8-expert. Do NOT use for unrelated languages, domains or production deployment.
+description: "Implement, diagnose and modernize Java 8 systems without later-version APIs. Use for Java 8 work. Do NOT use for other languages or deployment."
 license: CC-BY-4.0
 metadata:
   author: AEOS

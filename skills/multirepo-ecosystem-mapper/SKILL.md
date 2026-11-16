@@ -1,6 +1,6 @@
 ---
 name: multirepo-ecosystem-mapper
-description: Map multi-repo ecosystems, dependencies and ownership boundaries. Use when the user requests multirepo ecosystem mapper or invokes multirepo-ecosystem-mapper. Do NOT use to mutate production or invent architecture without source evidence.
+description: "Map multi-repo ecosystems and owners. Use for multi-repo mapping. Do NOT use to mutate production or invent architecture without source evidence."
 license: CC-BY-4.0
 metadata:
   author: AEOS

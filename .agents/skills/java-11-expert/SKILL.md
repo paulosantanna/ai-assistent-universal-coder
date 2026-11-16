@@ -1,6 +1,6 @@
 ---
 name: java-11-expert
-description: Build and modernize production Java 11 systems with explicit Java 8→11 compatibility analysis. Use when the user requests java 11 expert or invokes java-11-expert. Do NOT use for unrelated languages, domains or production deployment.
+description: "Build and modernize Java 11 systems with Java 8-to-11 compatibility analysis. Use for Java 11 work. Do NOT use for other languages or deployment."
 license: CC-BY-4.0
 metadata:
   author: AEOS

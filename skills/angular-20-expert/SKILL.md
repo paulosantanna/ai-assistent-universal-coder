@@ -1,6 +1,6 @@
 ---
 name: angular-20-expert
-description: Implement, diagnose and modernize Angular 20 applications without silently introducing behavior from a different Angular major. Use when the user requests angular 20 expert or invokes angular-20-expert. Do NOT use for unrelated languages, domains or production deployment.
+description: "Implement, diagnose or modernize Angular 20 apps without other-major behavior. Use for Angular 20 work. Do NOT use for other stacks."
 license: CC-BY-4.0
 metadata:
   author: AEOS

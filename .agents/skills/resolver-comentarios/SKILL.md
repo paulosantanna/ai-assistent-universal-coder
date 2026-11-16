@@ -1,6 +1,6 @@
 ---
 name: resolver-comentarios
-description: Resolve concrete pull-request review comments after inspecting the referenced code and verifying corrections. Use when the user requests resolver comentarios or invokes resolver-comentarios. Do NOT use for unrelated languages, domains or production deployment.
+description: "Resolve concrete PR review comments after inspecting code and verifying fixes. Use for PR comment fixes. Do NOT use for deployment."
 license: CC-BY-4.0
 metadata:
   author: AEOS

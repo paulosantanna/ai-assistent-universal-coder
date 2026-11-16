@@ -10,7 +10,7 @@
 
 ## Workflow policy
 
-Auto-size depth from feature scope. Specify and Execute are required. Design and Tasks are skipped only when the sizing table allows it. Independent `VerifierLens` is never optional after the last task.
+Auto-size depth from feature scope. Specify and Execute are required. Design and Tasks are skipped only when the sizing table allows it. `VerifierLens` is required after the last task as a sequential internal lens; use the fresh-session fallback and disclose `self-verified`, never independent review.
 
 ## Commit policy
 

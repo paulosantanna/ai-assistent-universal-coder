@@ -1,6 +1,6 @@
 ---
 name: pack-marketplace-auditor
-description: Audit local pack marketplace quarantine, staging, active packs and trust policy. Use when the user requests pack marketplace auditor or invokes pack-marketplace-auditor. Do NOT use for unrelated tools or unapproved remote writes.
+description: "Audit pack marketplace quarantine, staging, active packs and trust policy. Use for pack marketplace audits. Do NOT use for unapproved remote writes."
 license: CC-BY-4.0
 metadata:
   author: AEOS

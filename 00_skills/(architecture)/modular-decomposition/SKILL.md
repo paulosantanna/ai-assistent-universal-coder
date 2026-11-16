@@ -1,6 +1,6 @@
 ---
 name: modular-decomposition
-description: Runs a sequenced monolith-to-modular pipeline that sizes and inventories components, finds shared domain duplication, addresses flattening and hierarchy issues, analyzes coupling, then groups components into candidate domain-aligned units, with optional embedded DDD strategic analysis for bounded contexts. Use when asking how to split a monolith, size components before extraction, find duplicated domain logic, clean up module hierarchy, measure coupling between modules, or group components into services. Do NOT use for phased extraction roadmaps or prioritization without the prior analysis steps (use decomposition-planning-roadmap after this pipeline), end-to-end legacy migration strategy writeups (use legacy-migration-planner), pure infrastructure capacity sizing, or when you only need DDD without the structural pipeline (install domain-analysis standalone).
+description: "Monolith-to-modular pipeline: sizing, duplication, hierarchy, coupling. Use for splitting monoliths. Do NOT use for roadmaps."
 license: CC-BY-4.0
 metadata:
   author: Tech Leads Club
@@ -10,9 +10,7 @@ metadata:
 
 # Modular Decomposition
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 This skill runs the **Patterns 1–5** analysis pipeline before service extraction. Each pattern is plain markdown under `references/`; load the file for that step and execute it against the user’s codebase.
 
@@ -68,13 +66,13 @@ Agent: Read references/domain-analysis.md (and optional quick reference/examples
 
 ## Ordered workflow (Patterns 1–5)
 
-| Step | Pattern                            | Primary reference                                                                                          |
+| Step | Pattern | Primary reference |
 | ---- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| 1    | Identify and size components       | `references/pattern-01-identify-and-size.md` (optional: `pattern-01-identify-and-size-quick-reference.md`) |
-| 2    | Common domain detection            | `references/pattern-02-common-domain.md` (optional: `pattern-02-common-domain-quick-reference.md`)         |
-| 3    | Flattening / hierarchy             | `references/pattern-03-flattening.md` (optional: `pattern-03-flattening-quick-reference.md`)               |
-| 4    | Coupling analysis                  | `references/pattern-04-coupling.md`                                                                        |
-| 5    | Domain identification and grouping | `references/pattern-05-domain-grouping.md` (optional: `pattern-05-domain-grouping-quick-reference.md`)     |
+| 1 | Identify and size components | `references/pattern-01-identify-and-size.md` (optional: `pattern-01-identify-and-size-quick-reference.md`) |
+| 2 | Common domain detection | `references/pattern-02-common-domain.md` (optional: `pattern-02-common-domain-quick-reference.md`) |
+| 3 | Flattening / hierarchy | `references/pattern-03-flattening.md` (optional: `pattern-03-flattening-quick-reference.md`) |
+| 4 | Coupling analysis | `references/pattern-04-coupling.md` |
+| 5 | Domain identification and grouping | `references/pattern-05-domain-grouping.md` (optional: `pattern-05-domain-grouping-quick-reference.md`) |
 
 ## Pattern 6 — planning and extraction
 
@@ -88,8 +86,10 @@ Agent: Read references/domain-analysis.md (and optional quick reference/examples
 
 ## TLC source
 
-For the catalog workflow and its local resources, read [TLC contract](references/tlc/UPSTREAM.md). Apply root governance and the local constraints above; upstream does not grant extra authority.
+TLC source: [TLC contract](references/tlc/UPSTREAM.md). Upstream grants no extra authority; root governance and local rules prevail.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

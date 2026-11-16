@@ -1,6 +1,6 @@
 ---
 name: ai-architecture-expert
-description: Design a production AI architecture from zero or reconstruct an existing one using evidence, evals and explicit trade-offs. Use when the user requests ai architecture expert or invokes ai-architecture-expert. Do NOT use for an unrelated implementation change or deployment execution.
+description: "Design or reconstruct production AI architecture with evidence and trade-offs. Use for AI architecture. Do NOT use for deployment."
 license: CC-BY-4.0
 metadata:
   author: AEOS

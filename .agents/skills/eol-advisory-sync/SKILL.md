@@ -1,6 +1,6 @@
 ---
 name: eol-advisory-sync
-description: Refresh local end-of-life/support metadata from endoflife.date API v1 and official maintainers with product aliases and freshness. Use when the user says atualizar a base EOL or sincronizar obsolescência. Do NOT use for CVE synchronization, vulnerability patching, or claiming unsupported internal libraries have public EOL dates.
+description: "Refresh end-of-life metadata from endoflife.date and maintainers. Use for EOL base sync. Do NOT use for CVE sync or patching."
 license: CC-BY-4.0
 metadata:
   author: AEOS; photographic reference supplied by user

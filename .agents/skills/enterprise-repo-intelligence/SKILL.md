@@ -1,6 +1,6 @@
 ---
 name: enterprise-repo-intelligence
-description: Map large enterprise repositories with performance budgets and evidence. Use when the user requests enterprise repo intelligence or invokes enterprise-repo-intelligence. Do NOT use to mutate production or invent architecture without source evidence.
+description: "Map enterprise repos with budgets and evidence. Use for repo mapping. Do NOT use to mutate production or invent architecture without source evidence."
 license: CC-BY-4.0
 metadata:
   author: AEOS

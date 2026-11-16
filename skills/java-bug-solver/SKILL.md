@@ -1,6 +1,6 @@
 ---
 name: java-bug-solver
-description: Analyze Java stack traces, identify root causes, generate fixes, validate corrections and preserve verified lessons learned. Use when the user requests java bug solver or invokes java-bug-solver. Do NOT use for unrelated languages, domains or production deployment.
+description: "Analyze Java stack traces, find root causes, validate fixes, keep lessons. Use for Java stack traces. Do NOT use for other languages or deployment."
 license: CC-BY-4.0
 metadata:
   author: AEOS

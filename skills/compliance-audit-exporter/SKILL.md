@@ -1,6 +1,6 @@
 ---
 name: compliance-audit-exporter
-description: Provide enterprise-grade capability for `compliance-audit-exporter` inside AEOS v1.1. Use when the user requests compliance audit exporter or invokes compliance-audit-exporter. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+description: "Export a redacted audit package mapping controls to verified evidence and gaps. Use for compliance audit exports. Do NOT use as deployment approval."
 license: CC-BY-4.0
 metadata:
   author: AEOS

@@ -1,6 +1,6 @@
 ---
 name: test-writer
-description: Generate proposed test files in sandbox directory based on evidence from source code analysis. Never writes to real test directories. Use when the user requests test writer or invokes test-writer. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+description: "Generate proposed tests in a sandbox from evidence; never real test dirs. Use for test proposals. Do NOT use as approval or for unexecuted checks."
 license: CC-BY-4.0
 metadata:
   author: AEOS

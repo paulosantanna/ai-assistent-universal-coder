@@ -1,6 +1,6 @@
 ---
 name: jev-call-expert
-description: Design, implement, review, and test confidence-aware function calling with TypeSafe Jev, typed tool signatures, Choice and Noul questions, speculative fan-out, and code-owned execution policy. Use when the user asks for Jev tool calling, TypeSafe function routing, natural-language dispatch into typed functions, or repair of a Jev dispatcher. Do NOT use for generic LLM tool calling that does not use TypeSafe, open-ended text generation, or direct execution of untrusted or unapproved actions.
+description: "Design and review TypeSafe Jev function calling with typed signatures. Use for Jev calls. Do NOT use for generic tool calling or unapproved actions."
 license: CC-BY-4.0
 metadata:
   author: AEOS

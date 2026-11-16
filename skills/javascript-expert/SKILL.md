@@ -1,6 +1,6 @@
 ---
 name: javascript-expert
-description: Implement, diagnose and modernize JavaScript projects with exact runtime/module-system/browser compatibility and repository-native patterns. Use when the user requests javascript expert or invokes javascript-expert. Do NOT use for unrelated languages, domains or production deployment.
+description: "Implement, diagnose and modernize JavaScript with exact runtime and module compatibility. Use for JavaScript work. Do NOT use for other languages."
 license: CC-BY-4.0
 metadata:
   author: AEOS

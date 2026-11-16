@@ -1,6 +1,6 @@
 ---
 name: eol-advisory-sync
-description: Refresh local end-of-life/support metadata from endoflife.date API v1 and official maintainers with product aliases and freshness. Use when the user says atualizar a base EOL or sincronizar obsolescência. Do NOT use for CVE synchronization, vulnerability patching, or claiming unsupported internal libraries have public EOL dates.
+description: "Refresh end-of-life metadata from endoflife.date and maintainers. Use for EOL base sync. Do NOT use for CVE sync or patching."
 license: CC-BY-4.0
 metadata:
   author: AEOS; photographic reference supplied by user
@@ -10,9 +10,7 @@ metadata:
 
 # Eol Advisory Sync
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 Refresh local end-of-life/support metadata from endoflife.date API v1 and official maintainers with product aliases and freshness.
 
@@ -40,6 +38,8 @@ A dated, hashed EOL snapshot with explicit aliases, product/distribution provena
 
 Verify the actual outputs and relevant contract checks. Missing evidence, dependency, source asset, input or permission blocks its dependent stage; report the precise gap.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

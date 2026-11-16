@@ -1,6 +1,6 @@
 ---
 name: supply-chain-auditor
-description: Audit dependencies, provenance, package trust and release integrity. Use when the user requests supply chain auditor or invokes supply-chain-auditor. Do NOT use outside authorized defensive scope or to expose secret values.
+description: "Audit dependency provenance and release integrity. Use for supply-chain audits. Do NOT use outside authorized scope or to expose secrets."
 license: CC-BY-4.0
 metadata:
   author: AEOS

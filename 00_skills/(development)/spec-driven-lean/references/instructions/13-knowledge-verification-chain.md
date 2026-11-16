@@ -1,5 +1,3 @@
-<!-- Package: 00_skills/(development)/spec-driven-lean; relative command/resource examples resolve from that package or workspace root. -->
+# Current workflow
 
-## Knowledge verification chain
-
-Existing code → project docs → official library docs → web search → flag as uncertain. Never invent an API, flag, command or behaviour.
+This previous routing module is superseded by the [current contract](../../SKILL.md). Read it for the requested version, phase resources and gates.

@@ -1,6 +1,6 @@
 ---
 name: coding-guidelines
-description: Inspect and apply the target repository coding conventions with source evidence before changing code. Use when the user requests coding guidelines or invokes coding-guidelines. Do NOT use for unrelated languages, domains or production deployment.
+description: "Apply target repo coding conventions, with source evidence, before editing. Use for coding guidelines or style matching. Do NOT use for deployment."
 license: CC-BY-4.0
 metadata:
   author: Tech Leads Club

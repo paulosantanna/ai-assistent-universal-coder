@@ -1,6 +1,6 @@
 ---
 name: java-26-expert
-description: Build or migrate production Java 26 projects with explicit handling of current/preview/incubator status and verified deployment compatibility. Use when the user requests java 26 expert or invokes java-26-expert. Do NOT use for unrelated languages, domains or production deployment.
+description: "Build or migrate Java 26 projects; handle preview status and verify runtime compatibility. Use for Java 26 work. Do NOT use for other languages."
 license: CC-BY-4.0
 metadata:
   author: AEOS

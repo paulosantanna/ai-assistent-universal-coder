@@ -1,6 +1,6 @@
 ---
 name: release-readiness-judge
-description: Validate release readiness using deterministic gates. Use when the user requests release readiness judge or invokes release-readiness-judge. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+description: "Validate release readiness with deterministic gates. Use for release readiness checks. Do NOT use as deployment approval or for unexecuted checks."
 license: CC-BY-4.0
 metadata:
   author: AEOS

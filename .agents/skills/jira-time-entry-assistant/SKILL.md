@@ -1,6 +1,6 @@
 ---
 name: jira-time-entry-assistant
-description: Prepare auditable Jira worklog/time-entry proposals from actual task evidence. Use when the user requests jira time entry assistant or invokes jira-time-entry-assistant. Do NOT use for unrelated languages, domains or production deployment.
+description: "Prepare auditable Jira worklog proposals from actual task evidence. Use for Jira time entries. Do NOT use for unrelated stacks or deployment."
 license: CC-BY-4.0
 metadata:
   author: AEOS

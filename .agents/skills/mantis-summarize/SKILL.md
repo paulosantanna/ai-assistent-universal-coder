@@ -1,6 +1,6 @@
 ---
 name: mantis-summarize
-description: Pre-processes the repository by generating security-focused summaries (mantis-summary.md) for each directory to make planning and research more efficient. Use when starting a review campaign to map the codebase before threat modeling and planning. Don't use for executing code reviews, writing test scripts, or patching code.
+description: "Generate security summaries per directory before planning. Use at the start of a review campaign. Do NOT use for reviews or patches."
 license: CC-BY-4.0
 metadata:
   author: AEOS

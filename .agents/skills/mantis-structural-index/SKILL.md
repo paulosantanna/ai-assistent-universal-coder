@@ -1,6 +1,6 @@
 ---
 name: mantis-structural-index
-description: Builds a content-addressed semantic-unit index from source code for structural context. Use when a pinned or live codebase is available and structural cross-reference data would improve research quality. Don't use for findings analysis, patching, or reporting.
+description: "Build a content-addressed semantic index of source units. Use when a pinned codebase is available. Do NOT use for findings or patches."
 license: CC-BY-4.0
 metadata:
   author: AEOS

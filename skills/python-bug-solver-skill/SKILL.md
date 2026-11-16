@@ -1,6 +1,6 @@
 ---
 name: python-bug-solver-skill
-description: Create a Python Bug Solver skill that analyzes stack traces, searches for root causes, generates fixes, validates them and stores lessons learned Use when the user requests python bug solver skill or invokes python-bug-solver-skill. Do NOT use for unrelated languages, domains or production deployment.
+description: "Create a Python bug-solver skill for stack traces and root-cause fixes. Use for creating a Python bug solver. Do NOT use for other languages."
 license: CC-BY-4.0
 metadata:
   author: AEOS

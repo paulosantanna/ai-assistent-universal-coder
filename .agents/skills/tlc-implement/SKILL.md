@@ -1,6 +1,6 @@
 ---
 name: tlc-implement
-description: 'Implement a work already planned: extracts a checklist, builds it, and proves every check with an independent verifier. Use when the user says "extract a checklist", "build this ticket", "implement this spec", or "tlc-implement". Do NOT use when nobody has decided what to build, or to design the work.'
+description: "Implement planned work: extract a checklist, build it, prove each check. Use for 'build this ticket'. Do NOT use to design the work."
 license: CC-BY-4.0
 metadata:
   author: Tech Leads Club - github.com/tech-leads-club

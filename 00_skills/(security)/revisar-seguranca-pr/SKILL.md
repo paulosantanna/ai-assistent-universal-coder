@@ -1,6 +1,6 @@
 ---
 name: revisar-seguranca-pr
-description: Review a concrete pull-request diff for authorization, sensitive-data handling and security failures that scans need contextual evidence to assess. Use when the user says revisar segurança deste PR or avaliar este achado CodeQL/Fortify/Trivy. Do NOT use for general PR review (revisar-pr), fleet vulnerability inventory, or known dependency remediation (cve-remediation).
+description: "Review a PR diff for authorization, sensitive data and security failures. Use for PR security review. Do NOT use for general review (revisar-pr)."
 license: CC-BY-4.0
 metadata:
   author: AEOS; photographic reference supplied by user
@@ -10,9 +10,7 @@ metadata:
 
 # Revisar Seguranca Pr
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 Review a concrete pull-request diff for authorization, sensitive-data handling and security failures that scans need contextual evidence to assess.
 
@@ -40,6 +38,8 @@ APROVAR, APROVAR COM RESSALVAS or PEDIR MUDANÇAS, supported by findings and exp
 
 Verify the actual outputs and relevant contract checks. Missing evidence, dependency, source asset, input or permission blocks its dependent stage; report the precise gap.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

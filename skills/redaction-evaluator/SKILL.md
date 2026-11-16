@@ -1,6 +1,6 @@
 ---
 name: redaction-evaluator
-description: Provide enterprise-grade capability for `redaction-evaluator` inside AEOS v1.1. Use when the user requests redaction evaluator or invokes redaction-evaluator. Do NOT use outside authorized defensive scope or to expose secret values.
+description: "Evaluate redaction in authorized outputs for leakage and over-redaction. Use for redaction reviews. Do NOT use outside scope or to expose secrets."
 license: CC-BY-4.0
 metadata:
   author: AEOS

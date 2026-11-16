@@ -1,6 +1,6 @@
 ---
 name: evidence-integrity-engineer
-description: Validate manifests, hash chains and tamper resistance. Use when the user requests evidence integrity engineer or invokes evidence-integrity-engineer. Do NOT use for unrelated languages, domains or production deployment.
+description: "Validate manifests, hash chains and tamper resistance. Use for evidence integrity checks. Do NOT use for unrelated stacks or deployment."
 license: CC-BY-4.0
 metadata:
   author: AEOS

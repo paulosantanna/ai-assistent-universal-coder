@@ -1,6 +1,6 @@
 ---
 name: policy-bypass-evaluator
-description: Evaluate whether explicit policy boundaries reject bypass scenarios without weakening permissions or acceptance criteria. Use when the user requests policy bypass evaluator or invokes policy-bypass-evaluator. Do NOT use outside authorized defensive scope or to expose secret values.
+description: "Check policy boundaries reject bypass attempts. Use for bypass evaluations. Do NOT use outside authorized scope or to expose secrets."
 license: CC-BY-4.0
 metadata:
   author: AEOS

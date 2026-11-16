@@ -1,6 +1,6 @@
 ---
 name: ai-project-bootstrapper
-description: Implement a real AI project from zero or reconstruct an existing project step-by-step using the specialist skill pack. Use when the user requests ai project bootstrapper or invokes ai-project-bootstrapper. Do NOT use for ordinary one-off coding or human competency lists.
+description: "Bootstrap a real AI project from zero or rebuild one step by step. Use to bootstrap an AI project. Do NOT use for one-off coding."
 license: CC-BY-4.0
 metadata:
   author: AEOS

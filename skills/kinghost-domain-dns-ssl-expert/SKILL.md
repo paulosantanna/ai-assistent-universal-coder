@@ -1,6 +1,6 @@
 ---
 name: kinghost-domain-dns-ssl-expert
-description: Governed KingHost domain, subdomain, DNS and SSL operations with snapshot, rollback and propagation verification. Use when the user requests kinghost domain dns ssl expert or invokes kinghost-domain-dns-ssl-expert. Do NOT use for unrelated application features or unapproved production changes.
+description: "Governed KingHost domain, DNS and SSL changes with snapshot and rollback. Use for KingHost DNS or SSL. Do NOT use for unapproved production changes."
 license: CC-BY-4.0
 metadata:
   author: AEOS

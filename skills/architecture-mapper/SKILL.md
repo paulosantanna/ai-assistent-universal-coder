@@ -1,6 +1,6 @@
 ---
 name: architecture-mapper
-description: Map architecture based on detected files and explicit evidence. Use when the user requests architecture mapper or invokes architecture-mapper. Do NOT use for an unrelated implementation change or deployment execution.
+description: "Map architecture from detected files and explicit evidence. Use when asked to map architecture. Do NOT use for implementation or deployment."
 license: CC-BY-4.0
 metadata:
   author: AEOS

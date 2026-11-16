@@ -1,6 +1,6 @@
 ---
 name: progress-tracker
-description: Keep `.notebook/PROGRESS.md` as the live, evidence-backed source of truth for the current mission. Use when the user requests progress tracker or invokes progress-tracker. Do NOT use to promote unverified claims or transient task status into durable memory.
+description: "Keep .notebook/PROGRESS.md as the live, evidence-backed mission checklist. Use for progress tracking. Do NOT use to promote unverified claims."
 license: CC-BY-4.0
 metadata:
   author: AEOS

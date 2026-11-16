@@ -1,6 +1,6 @@
 ---
 name: delegation-auditor
-description: Validate delegation against policy, scope, capabilities and risk. Use when the user requests delegation auditor or invokes delegation-auditor. Do NOT use for unrelated tools or unapproved remote writes.
+description: "Validate delegation against policy, scope, capabilities and risk. Use for delegation audits. Do NOT use for unapproved remote writes."
 license: CC-BY-4.0
 metadata:
   author: AEOS

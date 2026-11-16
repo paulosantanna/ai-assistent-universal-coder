@@ -64,6 +64,17 @@ def markdown_links(text):
             yield re.sub(r'\\([() ])', r'\1', value)
 
 
+def normalize_text(text):
+    """Compara cláusulas sem marcação markdown, com espaços colapsados e em minúsculas."""
+    text = re.sub(r'[*`_]', '', text).replace('\u2019', "'")
+    return re.sub(r'\s+', ' ', text).strip().lower()
+
+
+def accepts_anti_invention(text, forms, keys):
+    """Padrão DO NOT INVENT / NUNCA INVENTE: conta como limite negativo da descrição (não como item de roteamento)."""
+    return any(re.search(forms[key], text, re.I) for key in keys)
+
+
 def validate(root):
     global ROOT, CATALOG_ROOT
     ROOT, CATALOG_ROOT = root.resolve(), root.resolve() / '00_skills'
@@ -94,6 +105,7 @@ def validate(root):
     catalog = read_json(CATALOG_ROOT / 'catalog.json')
     upstream = read_json(CATALOG_ROOT / 'upstream.manifest.json')
     images = read_json(CATALOG_ROOT / 'images.manifest.json')
+    dni = read_json(CATALOG_ROOT / 'do-not-invent.manifest.json')
     entries = catalog['skills']
     ids = [entry['id'] for entry in entries]
     require(len(ids) == len(set(ids)), 'catalog', 'Duplicate canonical IDs')
@@ -127,6 +139,11 @@ def validate(root):
         require(entry['description'] == fm.get('description'), entry['id'], 'Stale routing description')
         result = architect.validate_skill(str(path.parent))
         for check in result['checks']:
+            # Padrão DO NOT INVENT / NUNCA INVENTE: a forma de não inventar é aceita como limite negativo.
+            if check['name'] == 'description_has_negative_scope' and not check['passed'] \
+                    and accepts_anti_invention(fm.get('description', ''), dni['accepted_forms'],
+                                               dni['description_acceptance']):
+                check['passed'] = True
             if not check['passed']:
                 item = {'scope': entry['id'], 'detail': check['name'] + ': ' + check['message']}
                 (warnings if check['severity'] == 'warning' else errors).append(item)
@@ -141,6 +158,17 @@ def validate(root):
                 require(afm.get('description') == fm.get('description'),
                         name, 'Native routing description is stale')
                 counts['discovery'] += 1
+
+    # Padrão DO NOT INVENT: cada cláusula registrada (skill que a declarava no original) precisa estar no SKILL.md.
+    by_id = {entry['id']: entry for entry in entries}
+    for sid, spec in dni['skills'].items():
+        if sid not in by_id:
+            require(False, sid, 'DO NOT INVENT registry references an unknown skill')
+            continue
+        normalized = normalize_text((ROOT / by_id[sid]['path']).read_text(encoding='utf-8-sig'))
+        for clause in spec['clauses']:
+            require(normalize_text(clause) in normalized, sid, 'DO NOT INVENT clause missing: ' + clause)
+    counts['do_not_invent'] = len(dni['skills'])
 
     # Check every entrypoint, including compatibility and retained examples.
     for folder in ('00_skills', 'skills', '.agents/skills', '.codex/skills'):

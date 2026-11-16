@@ -1,6 +1,6 @@
 ---
 name: skill-factory-generator
-description: Provide enterprise-grade capability for `skill-factory-generator` inside AEOS v1.1. Use when the user requests skill factory generator or invokes skill-factory-generator. Do NOT use for ordinary one-off coding or human competency lists.
+description: "Generate a bounded reusable skill package with routing and verifiable gates. Use for skill generation. Do NOT use for unrelated coding."
 license: CC-BY-4.0
 metadata:
   author: AEOS

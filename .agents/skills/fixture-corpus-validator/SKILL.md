@@ -1,6 +1,6 @@
 ---
 name: fixture-corpus-validator
-description: Validate fixture corpus structure, provenance, integrity and expected-output contracts before evaluation. Use when the user requests fixture corpus validator or invokes fixture-corpus-validator. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+description: "Validate fixture corpus structure, provenance and expected-output contracts. Use for fixture checks. Do NOT use as deployment approval."
 license: CC-BY-4.0
 metadata:
   author: AEOS

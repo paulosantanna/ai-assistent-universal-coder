@@ -1,6 +1,6 @@
 ---
 name: react-expert
-description: Implement and refactor production React applications using the exact repository React/runtime/framework version and existing component/state/data-fetching conventions. Use when the user requests react expert or invokes react-expert. Do NOT use for unrelated languages, domains or production deployment.
+description: "Implement and refactor React apps on the repo's exact React version and conventions. Use for React work. Do NOT use for other stacks or deployment."
 license: CC-BY-4.0
 metadata:
   author: AEOS

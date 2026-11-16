@@ -1,6 +1,6 @@
 ---
 name: fable
-description: Standard problem-solving loop (classify ask, define done, gather evidence, decide, act surgically, verify by observation, report outcome-first). Use for non-trivial multi-step tasks, diagnosis, planning, or auditing work. Use when the user requests fable or invokes fable. Do NOT use for unrelated languages, domains or production deployment.
+description: "Standard problem-solving loop: classify, gather evidence, act surgically, verify. Use for non-trivial tasks. Do NOT use for trivial one-step answers."
 license: CC-BY-4.0
 metadata:
   author: AEOS

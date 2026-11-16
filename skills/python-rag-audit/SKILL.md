@@ -1,6 +1,6 @@
 ---
 name: python-rag-audit
-description: Audit Python RAG (Retrieval-Augmented Generation) pipelines for security, data leakage, prompt injection risks, and production readiness. Use when the user requests python rag audit or invokes python-rag-audit. Do NOT use for unrelated languages, domains or production deployment.
+description: "Audit Python RAG pipelines for security, data leakage and prompt injection. Use for Python RAG audits. Do NOT use for unrelated stacks."
 license: CC-BY-4.0
 metadata:
   author: AEOS

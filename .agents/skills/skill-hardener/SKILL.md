@@ -1,6 +1,6 @@
 ---
 name: skill-hardener
-description: Harden skills with contracts, forbidden actions and quality gates. Use when the user requests skill hardener or invokes skill-hardener. Do NOT use for ordinary one-off coding or human competency lists.
+description: "Harden skills with contracts, forbidden actions and quality gates. Use for skill hardening. Do NOT use for unrelated coding."
 license: CC-BY-4.0
 metadata:
   author: AEOS

@@ -51,3 +51,18 @@ Verifica instalação, frontmatter, limite físico, links operativos, descoberta
 ## Atualização de 2026-10-13
 
 As 77 imagens adicionais usam a mesma hierarquia canônica e acrescentam Impeccable, avaliação de skills existentes, seleção de aprendizado, camadas de frota e segurança Java/Spring/Camel/Angular. Veja [atualização](PHOTO-UPDATE.md), [estrutura](PHOTO-STRUCTURE.md) e [manifesto](images.2026-10-13.manifest.json). O limite local continua 100 linhas físicas mesmo quando uma captura sugere 500. Novos nomes sem corpo são pastas reservadas, não capacidades inventadas.
+
+## Formato enxuto — 2026-11-09
+
+- Descrição: resultado concreto, `Use when`/`Use for` e `Do NOT use for`, até 150 caracteres (exceto fontes importadas com hash pinado, que mantêm o texto original). O catálogo exibe cerca de 150 caracteres; o restante fica invisível ao roteador. O mesmo texto vale para o canônico, `catalog.json`, `.agents/skills`, `skills/`, `.codex/skills`, `skills.registry.yaml` e `INDEX.md`. O validador exige igualdade entre canônico, catálogo e ponteiro nativo.
+- Corpo: uma linha de governança e uma de proveniência com os links originais. Procedimento operativo fica no SKILL.md; exemplos, troubleshooting e material extenso ficam em módulos com condição de leitura. Limite de 100 linhas físicas.
+- Resposta: seção `## Response` com resultado primeiro, evidência (caminhos, comandos, resultados), bloqueios e próximo passo. Sem narrar o processo nem repetir instruções. Schema de saída definido prevalece.
+- Fonte importada com `source.manifest.json` (ex.: `(design)/impeccable`) mantém os bytes originais, por proveniência verificada por hash.
+- Criação: `templates/SKILL.template.md` segue este formato.
+
+## Padrão DO NOT INVENT / NUNCA INVENTE — 2026-11-09
+
+- Skill que declarava a regra no `SKILL.md` original mantém a cláusula literal registrada em `do-not-invent.manifest.json`, na descrição ou no corpo. O validador reprova a skill se a cláusula sumir.
+- Na descrição, a regra conta como limite negativo quando usa as formas `negation` ou `qualified` do manifesto. Exemplos: "Do NOT use to mutate production or invent architecture without source evidence.", "Never invent facts.", "Não inventar dados.". O validador do workspace aceita essas formas; o architect upstream permanece inalterado.
+- Módulos em `references/` não entram no registro e não foram alterados pela reestruturação. Eles mantêm suas próprias regras de não inventar.
+- Para incluir uma skill no padrão, registrar a cláusula literal no manifesto e rodar o validador.

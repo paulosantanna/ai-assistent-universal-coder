@@ -1,6 +1,6 @@
 ---
 name: mantis-meta-agent
-description: Acts as the persistent supervisor, launching and monitoring the automated review campaign. Use when running a long-running, continuous security review campaign that needs autonomous coordination. Don't use for executing individual review stages directly.
+description: "Supervise a long-running automated security review campaign. Use for autonomous campaigns. Do NOT use to run single review stages."
 license: CC-BY-4.0
 metadata:
   author: AEOS

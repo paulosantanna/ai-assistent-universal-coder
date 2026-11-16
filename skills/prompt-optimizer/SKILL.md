@@ -1,6 +1,6 @@
 ---
 name: prompt-optimizer
-description: Convert vague prompts into bounded, evidence-based task prompts. Use when the user requests prompt optimizer or invokes prompt-optimizer. Do NOT use for unrelated tools or unapproved remote writes.
+description: "Convert vague prompts into bounded, evidence-based task prompts. Use for prompt optimization. Do NOT use for unapproved remote writes."
 license: CC-BY-4.0
 metadata:
   author: AEOS

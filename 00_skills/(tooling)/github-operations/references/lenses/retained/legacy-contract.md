@@ -1,6 +1,6 @@
 # Local AGENT contract — github-operations
 
-This local contract specializes the root `AGENT.md`. It does not create a second agent identity; all Git/GitHub work is owned by the canonical `codenavi-agent`.
+This local contract specializes the root `AGENTS.md`. It does not create a second agent identity; all Git/GitHub work is owned by the canonical `codenavi-agent`.
 
 ## Mission lifecycle
 

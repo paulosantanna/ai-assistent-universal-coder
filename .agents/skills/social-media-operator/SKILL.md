@@ -1,6 +1,6 @@
 ---
 name: social-media-operator
-description: Governed TikTok and Instagram operations via browser-based authentication sessions. Use when user asks for social media session management, TikTok/Instagram profile reading, or cookie-based authentication. Do NOT use for OAuth API keys or developer account management.
+description: "Governed TikTok/Instagram operations via cookie or browser sessions. Use for social profile reads. Do NOT use for OAuth keys or developer accounts."
 license: CC-BY-4.0
 metadata:
   author: Tech Lead's Club / CodENavi

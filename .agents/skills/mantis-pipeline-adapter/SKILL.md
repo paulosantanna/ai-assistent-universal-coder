@@ -1,6 +1,6 @@
 ---
 name: mantis-pipeline-adapter
-description: Interactively guides the design and implementation of custom deterministic orchestrator harnesses. Use when a user wants to build their own pipeline to wrap and run Mantis skills reliably. Don't use for executing the default pipeline directly.
+description: "Design custom deterministic harnesses that wrap Mantis skills. Use for building your own pipeline. Do NOT use to run the default pipeline."
 license: CC-BY-4.0
 metadata:
   author: AEOS

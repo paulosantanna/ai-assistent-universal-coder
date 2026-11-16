@@ -1,6 +1,6 @@
 ---
 name: java-26-expert
-description: Build or migrate production Java 26 projects with explicit handling of current/preview/incubator status and verified deployment compatibility. Use when the user requests java 26 expert or invokes java-26-expert. Do NOT use for unrelated languages, domains or production deployment.
+description: "Build or migrate Java 26 projects; handle preview status and verify runtime compatibility. Use for Java 26 work. Do NOT use for other languages."
 license: CC-BY-4.0
 metadata:
   author: AEOS
@@ -10,11 +10,7 @@ metadata:
 
 # Java 26 Expert
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
-
-Governance: CodENavi Full Workspace v2
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Mission
 Build or migrate production Java 26 projects with explicit handling of current/preview/incubator status and verified deployment compatibility.
@@ -29,7 +25,10 @@ Verify compile/package, tests/contracts, startup, JVM flags, reflection/serializ
 ## Token discipline
 Read `references/INDEX.md`; query symbols/topics narrowly rather than loading release/API documentation wholesale.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
-Read [preview-policy.md](references/preview-policy.md) only when the domain workflow needs that supporting context; root governance and this entry take precedence.
+Read [preview-policy.md](references/preview-policy.md) only when the domain workflow needs it; root governance and this entry take precedence.
+
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

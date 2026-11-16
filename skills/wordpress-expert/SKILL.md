@@ -1,6 +1,6 @@
 ---
 name: wordpress-expert
-description: Staff-level WordPress engineering super-skill for one-shot site mapping, clean-code AI-assisted project creation/modification, the complete installed plugin universe, governed remote wp-admin operations, themes/blocks/layout, third-party integrations and production-safe changes. Use when the user requests wordpress expert or invokes wordpress-expert. Do NOT use for unrelated languages, domains or production deployment.
+description: "Staff-level WordPress super-skill: site mapping, clean-code changes, plugins, themes. Use for WordPress work. Do NOT use for unrelated stacks."
 license: CC-BY-4.0
 metadata:
   author: AEOS

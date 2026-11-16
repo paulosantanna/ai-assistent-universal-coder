@@ -1,6 +1,6 @@
 ---
 name: "the-fool"
-description: "Stress-test a pending decision, plan or claim with its rationale, alternatives and reversibility; expose concrete threats, fragile assumptions and evidenced biases. Use for advogado do diabo, challenge this, pre-mortem, red team or blind spots. Do NOT use to decide for the owner, implement the solution, or harvest lessons from finished work (learning-opportunities)."
+description: "Stress-test a pending decision: threats, fragile assumptions, blind spots. Use for devil's advocate or pre-mortem. Do NOT use to decide for the owner."
 license: "CC-BY-4.0"
 metadata:
   author: "Tech Leads Club"

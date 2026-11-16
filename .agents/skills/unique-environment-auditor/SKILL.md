@@ -1,6 +1,6 @@
 ---
 name: unique-environment-auditor
-description: Audit a target environment inventory for conflicting tool versions, duplicated configuration and unmet runtime requirements. Use when the user requests unique environment auditor or invokes unique-environment-auditor. Do NOT use for unrelated languages, domains or production deployment.
+description: "Audit an environment inventory for conflicting versions and unmet runtime needs. Use for environment audits. Do NOT use for unrelated stacks."
 license: CC-BY-4.0
 metadata:
   author: AEOS

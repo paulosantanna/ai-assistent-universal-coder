@@ -1,6 +1,6 @@
 ---
 name: mantis-chain
-description: Analyzes individual security findings to identify and construct complex exploit chains. Use after validation stages to see if multiple low-severity bugs can be combined into a higher impact vulnerability. Don't use for initial codebase auditing or writing patch code. Use when the user requests mantis chain or invokes mantis-chain.
+description: "Combine validated findings into exploit chains that raise impact. Use after validation. Do NOT use for initial audits or patch code."
 license: CC-BY-4.0
 metadata:
   author: AEOS

@@ -1,6 +1,6 @@
 ---
 name: context-router
-description: Resolve minimal context packets for agents based on task, LCPs and memory rules. Use when the user requests context router or invokes context-router. Do NOT use to promote unverified claims or transient task status into durable memory.
+description: "Resolve minimal context packets from task, LCPs and memory rules. Use for context packets. Do NOT use to promote unverified claims into memory."
 license: CC-BY-4.0
 metadata:
   author: AEOS

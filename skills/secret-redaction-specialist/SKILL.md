@@ -1,6 +1,6 @@
 ---
 name: secret-redaction-specialist
-description: Detect and redact sensitive data without exposing raw values. Use when the user requests secret redaction specialist or invokes secret-redaction-specialist. Do NOT use outside authorized defensive scope or to expose secret values.
+description: "Detect and redact sensitive data without exposing raw values. Use for secret redaction. Do NOT use outside authorized scope or to expose secrets."
 license: CC-BY-4.0
 metadata:
   author: AEOS

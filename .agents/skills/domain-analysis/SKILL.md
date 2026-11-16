@@ -1,6 +1,6 @@
 ---
 name: domain-analysis
-description: Maps business domains and suggests service boundaries in any codebase using DDD Strategic Design. Use when asking "what are the domains in this codebase?", "where should I draw service boundaries?", "identify bounded contexts", "classify subdomains", "DDD analysis", or analyzing domain cohesion. Do NOT use for grouping existing components into domains (use domain-identification-grouping) or dependency analysis (use coupling-analysis).
+description: "Map business domains and service boundaries with DDD strategy. Use for bounded contexts. Do NOT use to group existing components."
 license: CC-BY-4.0
 metadata:
   author: Tech Leads Club

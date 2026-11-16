@@ -1,0 +1,30 @@
+{
+  "run_id": "2026-11-16-fix1",
+  "pass_threshold_misses": 1,
+  "plants": [
+    {
+      "id": "P003",
+      "template": "generic_fluff",
+      "expected_family": "REDUNDANT",
+      "expected_class_hint": "REDUNDANT-GENERAL"
+    },
+    {
+      "id": "P004",
+      "template": "generic_fluff",
+      "expected_family": "REDUNDANT",
+      "expected_class_hint": "REDUNDANT-GENERAL"
+    },
+    {
+      "id": "P005",
+      "template": "policy_echo",
+      "expected_family": "KEEP",
+      "expected_class_hint": "KEEP-POLICY"
+    },
+    {
+      "id": "P006",
+      "template": "caveat_echo",
+      "expected_family": "KEEP",
+      "expected_class_hint": "KEEP-CAVEAT"
+    }
+  ]
+}

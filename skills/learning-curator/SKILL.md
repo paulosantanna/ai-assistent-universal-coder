@@ -1,6 +1,6 @@
 ---
 name: learning-curator
-description: Promote verified, reusable engineering lessons into `.notebook/LEARNING.md`. Use when the user requests learning curator or invokes learning-curator. Do NOT use to promote unverified claims or transient task status into durable memory.
+description: "Promote verified, reusable engineering lessons into .notebook/LEARNING.md. Use for learning promotion. Do NOT use to promote unverified claims."
 license: CC-BY-4.0
 metadata:
   author: AEOS

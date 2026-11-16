@@ -1,6 +1,6 @@
 ---
 name: java-25-expert
-description: Build or migrate production Java 25 projects using only features/APIs verified for the repository toolchain and deployment runtime. Use when the user requests java 25 expert or invokes java-25-expert. Do NOT use for unrelated languages, domains or production deployment.
+description: "Build or migrate Java 25 projects using only APIs verified for toolchain and runtime. Use for Java 25 work. Do NOT use for other languages."
 license: CC-BY-4.0
 metadata:
   author: AEOS

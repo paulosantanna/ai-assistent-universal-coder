@@ -1,6 +1,6 @@
 ---
 name: judge-benchmark-runner
-description: Provide enterprise-grade capability for `judge-benchmark-runner` inside AEOS v1.1. Use when the user requests judge benchmark runner or invokes judge-benchmark-runner. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+description: "Benchmark a deterministic Judge gate against a supplied corpus and thresholds. Use for Judge benchmarks. Do NOT use as deployment approval."
 license: CC-BY-4.0
 metadata:
   author: AEOS

@@ -1,6 +1,6 @@
 ---
 name: compatibility-analyzer
-description: Analyze dependency compatibility — version conflicts, peer dependency issues, platform constraints, breaking change risk. Use when the user requests compatibility analyzer or invokes compatibility-analyzer. Do NOT use for unrelated languages, domains or production deployment.
+description: "Analyze dependency compatibility: version conflicts, peer deps, platform limits, breaking changes. Use for compat checks. Do NOT use for deployment."
 license: CC-BY-4.0
 metadata:
   author: AEOS

@@ -1,6 +1,6 @@
 ---
 name: ai-seo
-description: 'Assimilated TLC AI SEO skill (1.0.0). Programmatic SEO, competitor-alternative pages, AI Overviews/GEO, keyword strategy and content ops. Triggers: SEO, programmatic SEO, AI Overviews, DataForSEO, keyword strategy, organic traffic. Do not use for application code review or software architecture.'
+description: "Programmatic SEO, competitor pages, AI Overviews/GEO, keyword strategy. Use for SEO or organic traffic. Do NOT use for code review or architecture."
 license: CC-BY-4.0
 metadata:
   author: Tech Leads Club

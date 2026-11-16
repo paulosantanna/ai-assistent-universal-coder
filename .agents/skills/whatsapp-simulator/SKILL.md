@@ -1,6 +1,6 @@
 ---
 name: whatsapp-simulator
-description: Generate synthetic WhatsApp-style conversation fixtures for testing conversational systems, support flows and automation. Use when the user requests whatsapp simulator or invokes whatsapp-simulator. Do NOT use for unrelated tools or unapproved remote writes.
+description: "Generate synthetic WhatsApp-style conversation fixtures for testing. Use for chat fixtures. Do NOT use for unapproved remote writes."
 license: CC-BY-4.0
 metadata:
   author: AEOS

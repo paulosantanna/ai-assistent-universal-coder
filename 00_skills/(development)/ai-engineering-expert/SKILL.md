@@ -1,6 +1,6 @@
 ---
 name: ai-engineering-expert
-description: Build or refactor production AI systems end-to-end from requirements to monitored deployment. Use when the user requests ai engineering expert or invokes ai-engineering-expert. Do NOT use for unrelated languages, domains or production deployment.
+description: "Build or refactor production AI systems from requirements to monitored deployment. Use for AI engineering. Do NOT use for unrelated domains."
 license: CC-BY-4.0
 metadata:
   author: AEOS
@@ -10,11 +10,7 @@ metadata:
 
 # AI Engineering Expert
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
-
-Governance: CodENavi v1
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Mission
 Build or refactor production AI systems end-to-end from requirements to monitored deployment.
@@ -36,6 +32,8 @@ Problem framing, dataset contracts, model/provider selection, prompting, structu
 
 Current model/API availability must be verified from authoritative sources at execution time; never hardcode a 'latest' model as timeless truth.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

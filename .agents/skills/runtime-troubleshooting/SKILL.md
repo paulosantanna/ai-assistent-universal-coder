@@ -1,6 +1,6 @@
 ---
 name: runtime-troubleshooting
-description: Diagnose a running application from read-only logs, metrics, traces, events and repository code without changing the live system. Use when the user says erro em produção, aplicação não sobe or investigar falha em runtime. Do NOT use to restart/scale/deploy, redesign architecture, invent inaccessible broker state, or replace incident ownership.
+description: "Diagnose apps from read-only logs. Use for runtime failures. Do NOT use to restart, scale, deploy, redesign or invent inaccessible broker state."
 license: CC-BY-4.0
 metadata:
   author: AEOS; photographic reference supplied by user

@@ -1,6 +1,6 @@
 ---
 name: csharp-expert
-description: Writes and reviews production C# on the current stable .NET release (C# 14, .NET 10). Use when the user says c#-expert, C#, csharp, .NET, csproj, dotnet, or asks to implement, fix, or review .cs code. Do NOT use for F#, Visual Basic, non-.NET languages, or work that is not C#/.NET source.
+description: "Write and review production C# on current .NET (C# 14, .NET 10). Use for C#, .NET, csproj or .cs work. Do NOT use for F#, VB or non-.NET code."
 license: CC-BY-4.0
 metadata:
   author: AEOS
@@ -10,11 +10,7 @@ metadata:
 
 # C# Expert
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
-
-Governance: CodENavi Full Workspace v2. A skill of `codenavi-agent`. It creates no other agent identity.
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 Write and review C# source on the current stable .NET release. Module map: `references/INDEX.md`.
 
@@ -60,4 +56,8 @@ Stop when the change is not C#/.NET source, the `.csproj` TFM cannot be read, or
 
 Report the detected TFM, the language version used, the files changed, and the `dotnet build` or `dotnet test` result from `references/verify.md`.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md).
+
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

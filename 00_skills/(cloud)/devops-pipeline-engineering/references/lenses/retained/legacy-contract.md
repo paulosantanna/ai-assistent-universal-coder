@@ -1,6 +1,6 @@
 # Local AGENT contract — devops-pipeline-engineering
 
-This file does **not** define a new agent identity. It specializes the root `AGENT.md` for this skill and inherits the single canonical `codenavi-agent` model.
+This file does **not** define a new agent identity. It specializes the root `AGENTS.md` for this skill and inherits the single canonical `codenavi-agent` model.
 
 ## Local execution contract
 

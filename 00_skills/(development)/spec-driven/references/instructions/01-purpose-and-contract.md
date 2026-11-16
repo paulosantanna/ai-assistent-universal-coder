@@ -1,5 +1,3 @@
-<!-- Package: 00_skills/(development)/spec-driven; relative command/resource examples resolve from that package or workspace root. -->
+# Current workflow
 
-# Spec-Driven
-
-Assimilated from installed `tlc-spec-driven` 3.3.0 (Felipe Rodrigues / Tech Lead's Club). Original contract: `references/ORIGINAL_SKILL.md`.
+This previous routing module is superseded by the [current contract](../../SKILL.md). Read it for the requested version, phase resources and gates.

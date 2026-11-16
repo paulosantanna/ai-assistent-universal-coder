@@ -1,6 +1,6 @@
 ---
 name: java-enterprise-modernizer
-description: Analyze Java/Spring enterprise modernization opportunities safely. Use when the user requests java enterprise modernizer or invokes java-enterprise-modernizer. Do NOT use for unrelated languages, domains or production deployment.
+description: "Analyze Java/Spring enterprise modernization opportunities safely. Use for Java/Spring modernization. Do NOT use for other languages or deployment."
 license: CC-BY-4.0
 metadata:
   author: AEOS

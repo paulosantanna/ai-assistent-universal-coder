@@ -1,6 +1,6 @@
 ---
 name: web-best-practices
-description: 'Assimilated TLC/web-quality best-practices skill. Apply modern web security, compatibility, and code-quality checks. Triggers: apply best practices, security audit, modernize code, code quality review, check for vulnerabilities. Do not use as the primary skill for accessibility, SEO (ai-seo), or a full multi-area audit.'
+description: "Apply modern web security, compatibility and code-quality checks. Use for web best-practice reviews. Do NOT use for accessibility, SEO or full audits."
 license: MIT
 metadata:
   author: Tech Leads Club

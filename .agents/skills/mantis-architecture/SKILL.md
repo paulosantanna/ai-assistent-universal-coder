@@ -1,6 +1,6 @@
 ---
 name: mantis-architecture
-description: Synthesizes raw learnings and codebase analysis into an interlinked Markdown Knowledge Base (KB). Use at the beginning of a loop to build or update architecture.md, entities, and vulnerabilities. Don't use for generating threat models or formulating execution plans. Use when the user requests mantis architecture or invokes mantis-architecture.
+description: "Build the Mantis knowledge base (architecture, entities, vulnerabilities). Use at the start of a review loop. Do NOT use for threat models or plans."
 license: CC-BY-4.0
 metadata:
   author: AEOS

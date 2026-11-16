@@ -1,6 +1,6 @@
 ---
 name: staff-iii-architecture-governor
-description: Plan and select the best architecture for starting a project or changing an existing one. Use when the user requests staff iii architecture governor or invokes staff-iii-architecture-governor. Do NOT use for an unrelated implementation change or deployment execution.
+description: "Plan and select architecture for new projects or changes. Use for architecture selection. Do NOT use for implementation or deployment."
 license: CC-BY-4.0
 metadata:
   author: AEOS

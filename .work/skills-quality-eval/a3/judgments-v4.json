@@ -1,0 +1,1946 @@
+{
+ "acta-aurea": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.55,
+  "fail_closed": 0.97
+ },
+ "adr-decision-writer": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "agent-trace-validator": {
+  "gov_codenavi": 0.97,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.96,
+  "fail_closed": 0.96
+ },
+ "ai-architecture-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.17,
+  "fail_closed": 0.25
+ },
+ "ai-cold-outreach": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "ai-continuous-training-maintainer": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "ai-engineering-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.2,
+  "fail_closed": 0.29
+ },
+ "ai-evals-expert": {
+  "gov_codenavi": 0.97,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.2,
+  "fail_closed": 0.37
+ },
+ "ai-pricing": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "ai-project-bootstrapper": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.18,
+  "fail_closed": 0.3
+ },
+ "ai-sdr": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "ai-seo": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.29
+ },
+ "ai-ugc-ads": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "angular-20-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.13,
+  "fail_closed": 0.29
+ },
+ "angular-8-to-20-migration": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.11,
+  "fail_closed": 0.97
+ },
+ "anti-hallucination-evaluator": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.95,
+  "fail_closed": 0.96
+ },
+ "approval-governance-auditor": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "approval-requester": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.94,
+  "fail_closed": 0.97
+ },
+ "architecturally-significant-requirement": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "architecture-decision-log": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.16,
+  "fail_closed": 0.42
+ },
+ "architecture-decision-record": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "architecture-knowledge-management": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.9,
+  "fail_closed": 0.26
+ },
+ "architecture-mapper": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.96,
+  "fail_closed": 0.96
+ },
+ "atualizar-dependencias": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.27,
+  "fail_closed": 0.35
+ },
+ "automation-orchestrator": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.19,
+  "fail_closed": 0.6
+ },
+ "aws-advisor": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "blueprint-generator": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.96,
+  "fail_closed": 0.97
+ },
+ "bm25-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.19,
+  "fail_closed": 0.37
+ },
+ "camel-banking-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.2,
+  "fail_closed": 0.34
+ },
+ "change-trace-auditor": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.16,
+  "fail_closed": 0.87
+ },
+ "chromatic-mega-brain": {
+  "gov_codenavi": 0.97,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.85
+ },
+ "chrome-devtools": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "ci-quality-gate-engineer": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "cloudflare-deploy": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "code-analyzer": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.97,
+  "fail_closed": 0.96
+ },
+ "codenavi": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.22,
+  "fail_closed": 0.3
+ },
+ "coding-guidelines": {
+  "gov_codenavi": 0.97,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.17,
+  "fail_closed": 0.35
+ },
+ "compatibility-analyzer": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.95,
+  "fail_closed": 0.97
+ },
+ "compliance-audit-exporter": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.96,
+  "fail_closed": 0.97
+ },
+ "compliance-evidence-exporter": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "component-common-domain-detection": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "component-flattening-analysis": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "component-identification-sizing": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.97,
+  "fail_closed": 0.97
+ },
+ "conflict-detector": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.95,
+  "fail_closed": 0.97
+ },
+ "confluence-assistant": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.86,
+  "fail_closed": 0.67
+ },
+ "content-to-pipeline": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "context-router": {
+  "gov_codenavi": 0.97,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.96,
+  "fail_closed": 0.96
+ },
+ "continuity-bootstrapper": {
+  "gov_codenavi": 0.97,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.46,
+  "fail_closed": 0.85
+ },
+ "core-web-vitals": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.97,
+  "fail_closed": 0.64
+ },
+ "cost-token-optimizer": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "coupling-analysis": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "create-adr": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "create-rfc": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "create-technical-design-doc": {
+  "gov_codenavi": 0.97,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.19,
+  "fail_closed": 0.38
+ },
+ "critical-thinking-governor": {
+  "gov_codenavi": 0.97,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.21,
+  "fail_closed": 0.86
+ },
+ "csharp-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.09,
+  "fail_closed": 0.92
+ },
+ "cursor-subagent-creator": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.2,
+  "fail_closed": 0.27
+ },
+ "cve-advisory-sync": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.34,
+  "fail_closed": 0.96
+ },
+ "cve-remediation": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.16,
+  "fail_closed": 0.97
+ },
+ "dark-videos-knowledge-base": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.2,
+  "fail_closed": 0.52
+ },
+ "dark-videos-pipeline-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.95
+ },
+ "database-architecture-planner": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.89,
+  "fail_closed": 0.86
+ },
+ "decomposition-planning-roadmap": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "delegation-auditor": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.97,
+  "fail_closed": 0.96
+ },
+ "demo": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.93,
+  "fail_closed": 0.97
+ },
+ "dependency-analyzer": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.97,
+  "fail_closed": 0.96
+ },
+ "dependency-updater": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.14,
+  "fail_closed": 0.38
+ },
+ "deploy-expert-unique": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.98,
+  "secrets_runtime_only": 0.94,
+  "fail_closed": 0.67
+ },
+ "deployment-pipeline-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.23,
+  "fail_closed": 0.42
+ },
+ "devops-pipeline-engineering": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "diff-reviewer": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.94,
+  "fail_closed": 0.97
+ },
+ "docker-devcontainer-engineer": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "docs-writer": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.93,
+  "fail_closed": 0.27
+ },
+ "documentary-adversarial-judge": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.99,
+  "fail_closed": 0.96
+ },
+ "documentary-audio-engineer": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.93
+ },
+ "documentary-factory": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.99,
+  "fail_closed": 0.97
+ },
+ "documentary-music-curator": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "documentary-social-video-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.93,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.91
+ },
+ "documentary-subject-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.96
+ },
+ "documentary-visual-curator": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.95
+ },
+ "documentation": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "documentation-11-layer-mapper": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "documentation-mapper": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "domain-analysis": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "domain-identification-grouping": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "dynatrace-observability-staff": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "enterprise-repo-intelligence": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "enterprise-security-auditor": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.97,
+  "fail_closed": 0.97
+ },
+ "eol-advisory-sync": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.16,
+  "fail_closed": 0.97
+ },
+ "evaluation-runner": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.96,
+  "fail_closed": 0.97
+ },
+ "evidence-cache-auditor": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.96,
+  "fail_closed": 0.97
+ },
+ "evidence-integrity-engineer": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "evolutionary-modular-architecture": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "excalidraw-studio": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "expansion-retention": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "fable": {
+  "gov_codenavi": 0.97,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.25,
+  "fail_closed": 0.26
+ },
+ "fable-aeos-harness": {
+  "gov_codenavi": 0.97,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.22,
+  "fail_closed": 0.31
+ },
+ "fable-domain": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.14,
+  "fail_closed": 0.58
+ },
+ "fable-judge": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.19,
+  "fail_closed": 0.57
+ },
+ "fable-loop": {
+  "gov_codenavi": 0.97,
+  "provenance_pointer": 0.93,
+  "secrets_runtime_only": 0.26,
+  "fail_closed": 0.28
+ },
+ "figma": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.14,
+  "fail_closed": 0.24
+ },
+ "figma-implement-design": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "fine-tuning-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.16,
+  "fail_closed": 0.59
+ },
+ "fixture-corpus-validator": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.96,
+  "fail_closed": 0.96
+ },
+ "fleet-mapping": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.56,
+  "fail_closed": 0.72
+ },
+ "frontend-blueprint": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "frontend-design": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "gh-address-comments": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.26,
+  "fail_closed": 0.22
+ },
+ "gh-fix-ci": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.27,
+  "fail_closed": 0.45
+ },
+ "girl-voice-composer-simulation-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "github-operations": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "grafana-observability-staff": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "gtm-engineering": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "gtm-metrics": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "handoff-manager": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.31
+ },
+ "harness-eval": {
+  "gov_codenavi": 0.97,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "impeccable": {
+  "gov_codenavi": 0.97,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.04,
+  "fail_closed": 0.56
+ },
+ "incident-commander": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "incident-response-assistant": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.22,
+  "fail_closed": 0.35
+ },
+ "java-11-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.19,
+  "fail_closed": 0.57
+ },
+ "java-17-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.16,
+  "fail_closed": 0.29
+ },
+ "java-21-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.1,
+  "fail_closed": 0.28
+ },
+ "java-25-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.14,
+  "fail_closed": 0.28
+ },
+ "java-26-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.11,
+  "fail_closed": 0.3
+ },
+ "java-8-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.07,
+  "fail_closed": 0.49
+ },
+ "java-bug-solver": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "java-bug-solver-skill": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "java-enterprise-modernizer": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "java-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.17,
+  "fail_closed": 0.27
+ },
+ "java-migration": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.94,
+  "fail_closed": 0.97
+ },
+ "java-version-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.13,
+  "fail_closed": 0.91
+ },
+ "javascript-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.19,
+  "fail_closed": 0.26
+ },
+ "jev-call-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "jira-assistant": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.2,
+  "fail_closed": 0.66
+ },
+ "jira-confluence-assistant": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.15,
+  "fail_closed": 0.6
+ },
+ "jira-time-entry-assistant": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.16,
+  "fail_closed": 0.67
+ },
+ "judge-benchmark-runner": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.96,
+  "fail_closed": 0.97
+ },
+ "kinghost-backup-recovery-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.95,
+  "fail_closed": 0.54
+ },
+ "kinghost-clone-site-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "kinghost-database-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.99,
+  "fail_closed": 0.56
+ },
+ "kinghost-domain-dns-ssl-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.18,
+  "fail_closed": 0.78
+ },
+ "kinghost-email-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.99,
+  "fail_closed": 0.73
+ },
+ "kinghost-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.99,
+  "fail_closed": 0.98
+ },
+ "kinghost-performance-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.22,
+  "fail_closed": 0.51
+ },
+ "kinghost-security-expert": {
+  "gov_codenavi": 0.99,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.7,
+  "fail_closed": 0.46
+ },
+ "kinghost-site-publish-ftp-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "kotlin-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.1,
+  "fail_closed": 0.3
+ },
+ "kubernetes-code-context-mapper": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "kubernetes-observability-staff": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "laya-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.94
+ },
+ "lead-enrichment": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "learning-curator": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.97,
+  "fail_closed": 0.57
+ },
+ "learning-opportunities": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.16,
+  "fail_closed": 0.25
+ },
+ "legacy-migration-planner": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "legacy-risk-mapper": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "llm-calibration-temperature-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.11,
+  "fail_closed": 0.24
+ },
+ "llm-model-selection-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.23,
+  "fail_closed": 0.39
+ },
+ "local-secret-vault": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.99,
+  "fail_closed": 0.52
+ },
+ "lora-qlora-dora-expert": {
+  "gov_codenavi": 0.97,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.18,
+  "fail_closed": 0.37
+ },
+ "mantis-architecture": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "mantis-calibrate": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "mantis-chain": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "mantis-critic": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "mantis-dedupe": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "mantis-history": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.97,
+  "fail_closed": 0.97
+ },
+ "mantis-meta-agent": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "mantis-patch": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.96
+ },
+ "mantis-pipeline-adapter": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.99,
+  "fail_closed": 0.97
+ },
+ "mantis-plan": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "mantis-reflect": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "mantis-report": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "mantis-reproduce": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "mantis-researcher": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "mantis-review": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "mantis-structural-index": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "mantis-summarize": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.96
+ },
+ "mantis-threat-model": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "marketplace-curator": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.96,
+  "fail_closed": 0.97
+ },
+ "mcp-discovery": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.94,
+  "fail_closed": 0.97
+ },
+ "mcp-health-check": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.96,
+  "fail_closed": 0.97
+ },
+ "mcp-poisoning-evaluator": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.96,
+  "fail_closed": 0.97
+ },
+ "mcp-risk-controller": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "memory-curator": {
+  "gov_codenavi": 0.97,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.39
+ },
+ "memory-governance-auditor": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.97,
+  "fail_closed": 0.96
+ },
+ "mermaid-studio": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "modular-decomposition": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.19,
+  "fail_closed": 0.21
+ },
+ "modular-design-principles": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "motion-comic-animation-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.99,
+  "fail_closed": 0.95
+ },
+ "motion-comic-art-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.99,
+  "fail_closed": 0.96
+ },
+ "multi-platform-launch": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "multirepo-ecosystem-mapper": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "nestjs-modular-monolith": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "netlify-deploy": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "not-your-babysitter": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.96,
+  "fail_closed": 0.92
+ },
+ "notebook-intelligence": {
+  "gov_codenavi": 0.97,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.15,
+  "fail_closed": 0.43
+ },
+ "nx-ci-monitor": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "nx-generate": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "nx-run-tasks": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.93,
+  "secrets_runtime_only": 0.21,
+  "fail_closed": 0.22
+ },
+ "nx-workspace": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.18,
+  "fail_closed": 0.43
+ },
+ "observability-architect": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "observability-reporter": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.97,
+  "fail_closed": 0.96
+ },
+ "observability-root-cause-integrator": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "openshift-observability-staff": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "pack-marketplace-auditor": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.96,
+  "fail_closed": 0.97
+ },
+ "package-trust-engineer": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "packaging": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.97,
+  "fail_closed": 0.96
+ },
+ "paid-creative-ai": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "parallel-scheduler": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.96,
+  "fail_closed": 0.97
+ },
+ "partner-affiliate": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "patch-planner": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.96,
+  "fail_closed": 0.96
+ },
+ "perf-astro": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.46
+ },
+ "perf-lighthouse": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.97,
+  "fail_closed": 0.55
+ },
+ "perf-web-optimization": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.97,
+  "fail_closed": 0.64
+ },
+ "performance-optimizer": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.22,
+  "fail_closed": 0.92
+ },
+ "performance-profiler": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "playbook-factory-generator": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.96,
+  "fail_closed": 0.96
+ },
+ "playbook-optimizer": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "playwright-skill": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "policy-bypass-evaluator": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.96,
+  "fail_closed": 0.97
+ },
+ "policy-hardening-auditor": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.97,
+  "fail_closed": 0.96
+ },
+ "positioning-icp": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.93,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "pr-comment-resolver": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.2,
+  "fail_closed": 0.35
+ },
+ "pr-reviewer": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.12,
+  "fail_closed": 0.27
+ },
+ "pr-reviewer-advanced": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.22,
+  "fail_closed": 0.29
+ },
+ "production-deployment-planner": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.71,
+  "fail_closed": 0.82
+ },
+ "progress-tracker": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.42
+ },
+ "prompt-optimizer": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "ptbr-documentary-voice-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.99,
+  "fail_closed": 0.96
+ },
+ "python-ai-productionizer": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "python-bug-solver-skill": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "python-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.2,
+  "fail_closed": 0.25
+ },
+ "python-rag-audit": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.96,
+  "fail_closed": 0.97
+ },
+ "rag-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.94
+ },
+ "rag-laya-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.94
+ },
+ "ragraph-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.93
+ },
+ "rails-dev": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.91,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "react-best-practices": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.97,
+  "fail_closed": 0.97
+ },
+ "react-composition-patterns": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.07,
+  "fail_closed": 0.24
+ },
+ "react-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.19,
+  "fail_closed": 0.29
+ },
+ "react-native-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "redaction-evaluator": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.95,
+  "fail_closed": 0.97
+ },
+ "release-readiness-judge": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "render-deploy": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "repo-scanner": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.96,
+  "fail_closed": 0.97
+ },
+ "report-design": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.16,
+  "fail_closed": 0.97
+ },
+ "resolver-comentarios": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.28,
+  "fail_closed": 0.42
+ },
+ "revisar-pr": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.23,
+  "fail_closed": 0.63
+ },
+ "revisar-seguranca-pr": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.19,
+  "fail_closed": 0.97
+ },
+ "risk-classifier": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.96,
+  "fail_closed": 0.96
+ },
+ "rollback-planner": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.93,
+  "fail_closed": 0.97
+ },
+ "runtime-troubleshooting": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.8,
+  "fail_closed": 0.98
+ },
+ "rust-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "sales-motion-design": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "science-research-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.99,
+  "fail_closed": 0.97
+ },
+ "science-script-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.99,
+  "fail_closed": 0.97
+ },
+ "science-studio-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.99,
+  "fail_closed": 0.96
+ },
+ "science-vfx-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.99,
+  "fail_closed": 0.96
+ },
+ "science-video-review-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.99,
+  "fail_closed": 0.96
+ },
+ "secret-redaction-specialist": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.99,
+  "fail_closed": 0.97
+ },
+ "security-audit": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.95,
+  "fail_closed": 0.96
+ },
+ "security-best-practices": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.97,
+  "fail_closed": 0.72
+ },
+ "security-ownership-map": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.94,
+  "fail_closed": 0.34
+ },
+ "security-threat-model": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.49
+ },
+ "sentry": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "seo": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "servicenow-incident-assistant": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.94,
+  "fail_closed": 0.65
+ },
+ "shopify-developer": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "simulator-ai": {
+  "gov_codenavi": 0.97,
+  "provenance_pointer": 0.93,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "skill-architect": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.25,
+  "fail_closed": 0.96
+ },
+ "skill-factory": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.92,
+  "fail_closed": 0.97
+ },
+ "skill-factory-generator": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.96,
+  "fail_closed": 0.96
+ },
+ "skill-hardener": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "slo-risk-analyzer": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "social-media-operator": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "social-selling": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "solo-founder-gtm": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.92,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "solve-problems": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "spec-driven": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.99,
+  "fail_closed": 0.97
+ },
+ "spec-driven-eval": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "spec-driven-lean": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.99,
+  "fail_closed": 0.97
+ },
+ "specs": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "splunk-observability-staff": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "staff-iii-architecture-governor": {
+  "gov_codenavi": 0.97,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "staff-tdd-code-builder": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "studio-creation-tlc": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.98,
+  "secrets_runtime_only": 0.26,
+  "fail_closed": 0.88
+ },
+ "subagent-creator": {
+  "gov_codenavi": 0.97,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.51,
+  "fail_closed": 0.62
+ },
+ "supply-chain-auditor": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "tactical-ddd": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "task-graph-builder": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.96,
+  "fail_closed": 0.96
+ },
+ "telemetry-bug-root-cause-solver": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "test-gap-analyzer": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.93,
+  "fail_closed": 0.97
+ },
+ "test-generation": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.97,
+  "fail_closed": 0.96
+ },
+ "test-strategy-architect": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "test-writer": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.94,
+  "fail_closed": 0.97
+ },
+ "tests-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.95,
+  "fail_closed": 0.69
+ },
+ "the-fool": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.9,
+  "secrets_runtime_only": 0.22,
+  "fail_closed": 0.84
+ },
+ "the-judge": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "the-jury": {
+  "gov_codenavi": 0.97,
+  "provenance_pointer": 0.92,
+  "secrets_runtime_only": 0.27,
+  "fail_closed": 0.2
+ },
+ "threat-modeler": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.97,
+  "fail_closed": 0.97
+ },
+ "tlc-discover": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "tlc-generative-engine-optimization": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "tlc-implement": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "tlc-plan": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.96,
+  "fail_closed": 0.72
+ },
+ "tlc-prd": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.92,
+  "fail_closed": 0.97
+ },
+ "tlc-spec-driven": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.99,
+  "fail_closed": 0.97
+ },
+ "tlc-spec-lean": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.99,
+  "fail_closed": 0.97
+ },
+ "token-budget-governor": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.17,
+  "fail_closed": 0.52
+ },
+ "tool-router-audit": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.96,
+  "fail_closed": 0.96
+ },
+ "typesafe-ai": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.98
+ },
+ "unique-environment-auditor": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.96,
+  "fail_closed": 0.97
+ },
+ "universal-project-factory": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "v1-readiness-auditor": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.97,
+  "fail_closed": 0.96
+ },
+ "vercel-deploy": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.21,
+  "fail_closed": 0.17
+ },
+ "video-outreach": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "voiceai": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.99,
+  "fail_closed": 0.97
+ },
+ "vox-aurum": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.24,
+  "fail_closed": 0.82
+ },
+ "vuln-obsol-recon": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.92,
+  "fail_closed": 0.97
+ },
+ "web-accessibility": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "web-best-practices": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.29
+ },
+ "web-design-guidelines": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.16,
+  "fail_closed": 0.22
+ },
+ "web-quality-audit": {
+  "gov_codenavi": 0.99,
+  "provenance_pointer": 0.96,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.57
+ },
+ "whatsapp-simulator": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.94,
+  "secrets_runtime_only": 0.73,
+  "fail_closed": 0.3
+ },
+ "wordpress-expert": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.97,
+  "secrets_runtime_only": 0.98,
+  "fail_closed": 0.97
+ },
+ "workbench-profile-resolver": {
+  "gov_codenavi": 0.98,
+  "provenance_pointer": 0.95,
+  "secrets_runtime_only": 0.96,
+  "fail_closed": 0.97
+ }
+}

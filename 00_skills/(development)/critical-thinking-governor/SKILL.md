@@ -1,6 +1,6 @@
 ---
 name: critical-thinking-governor
-description: Governa toda execução de skills do AEOS com uma seleção limitada e auditável de 20 lentes internas de pensamento crítico. As lentes são especializações da skill e nunca identidades de agent. Use when the user requests critical thinking governor or invokes critical-thinking-governor. Do NOT use for unrelated languages, domains or production deployment.
+description: "Governs AEOS runs with 20 internal critical-thinking lenses, never agent identities. Use for critical review. Do NOT use for unrelated domains."
 license: CC-BY-4.0
 metadata:
   author: AEOS
@@ -10,9 +10,7 @@ metadata:
 
 # Critical Thinking Governor
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
+Governança: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill de `codenavi-agent`; herda `AGENTS.md`. Lentes são internas; sem novas identidades de agente; sem burlar gates de segredo ou permissão.
 
 Governance: CodENavi image standard
 
@@ -28,7 +26,7 @@ Aplicar pensamento crítico proporcional ao risco antes, durante e depois de cad
 4. Skills de risco alto ou crítico recebem a lente pré-mortem; risco crítico também recebe a lente de bússola ética.
 5. Ausência, corrupção ou inconsistência do plano bloqueia a execução.
 6. O Judge permanece um gate determinístico independente; ele não é uma persona de agent.
-7. A execução inteira herda `AGENT.md` e o ciclo BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
+7. A execução inteira herda `AGENTS.md` e o ciclo BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
 
 ## Limites
 
@@ -58,7 +56,7 @@ Pedido
 
 ## Fontes canônicas
 
-- Agent único: `AGENT.md`.
+- Agent único: `AGENTS.md`.
 - Política executável: `aeos/config/critical-thinking-governance.config.json`.
 - Regras e matriz de seleção: `references/GOVERNANCE_POLICY.md`.
 
@@ -89,6 +87,8 @@ npm run aeos:verify
 
 A skill só está válida quando as 20 lentes estão íntegras, nenhuma delas existe como agent, todas as skills estão cobertas e o runtime falha fechado sem plano válido.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

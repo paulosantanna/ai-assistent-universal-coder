@@ -1,6 +1,6 @@
 ---
 name: javascript-expert
-description: Implement, diagnose and modernize JavaScript projects with exact runtime/module-system/browser compatibility and repository-native patterns. Use when the user requests javascript expert or invokes javascript-expert. Do NOT use for unrelated languages, domains or production deployment.
+description: "Implement, diagnose and modernize JavaScript with exact runtime and module compatibility. Use for JavaScript work. Do NOT use for other languages."
 license: CC-BY-4.0
 metadata:
   author: AEOS
@@ -10,11 +10,7 @@ metadata:
 
 # JavaScript Expert
 
-Governance: CodENavi Full Workspace v2. Skill of `codenavi-agent`; inherit `AGENTS.md`.
-Lifecycle: BRIEFING → RECON → PLAN → EXECUTE → VERIFY → DEBRIEF.
-Source roles/workers are internal lenses. Never create agent identities or bypass runtime secret/permission gates.
-
-Governance: CodENavi Full Workspace v2
+Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-agent`; inherits `AGENTS.md`. Lenses are internal; no new agent identities; no bypass of secret or permission gates.
 
 ## Mission
 Implement, diagnose and modernize JavaScript projects with exact runtime/module-system/browser compatibility and repository-native patterns.
@@ -31,7 +27,10 @@ Lint/type checks if configured, unit/integration/e2e, runtime/module resolution,
 ## Token discipline
 Read `references/INDEX.md`; select runtime/module/verification reference only as required.
 
-Provenance and source freshness: [provenance](references/provenance.md).
+Provenance: [provenance](references/provenance.md). Examples and failures: [usage and verification](references/usage-and-verification.md), read when selecting the skill or a step fails.
 
-Example usage and failure handling: read [usage and verification](references/usage-and-verification.md) when selecting this skill or a required step fails.
-Read [runtime-modules.md](references/runtime-modules.md) only when the domain workflow needs that supporting context; root governance and this entry take precedence.
+Read [runtime-modules.md](references/runtime-modules.md) only when the domain workflow needs it; root governance and this entry take precedence.
+
+## Response
+
+Output: result first, then evidence (paths, commands, results), blockers and next step. No narration or restated instructions. Follow a defined output schema exactly. Reply in the user's language.

@@ -1,6 +1,6 @@
 ---
 name: playwright-skill
-description: Complete browser automation with Playwright. Auto-detects dev servers, writes clean test scripts to /tmp. Test pages, fill forms, take screenshots, check responsive design, validate UX, test login flows, check links, automate any browser task. Use when user wants to test websites, automate browser interactions, validate web functionality, or perform any browser-based testing. Do NOT use for quick page debugging or network inspection (use chrome-devtools instead).
+description: "Browser automation and E2E tests with Playwright: forms, flows, responsive checks. Use for web tests. Do NOT use for debugging (chrome-devtools)."
 license: CC-BY-4.0
 metadata:
   author: Tech Leads Club

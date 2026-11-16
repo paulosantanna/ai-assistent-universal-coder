@@ -1,6 +1,6 @@
 ---
 name: telemetry-bug-root-cause-solver
-description: Resolve bugs from logs, metrics, traces, events, alerts and stack traces by correlating runtime evidence with code, tests, rollback and learning records. Use when the user requests telemetry bug root cause solver or invokes telemetry-bug-root-cause-solver. Do NOT use to restart, scale or mutate live systems without an authorized operations task.
+description: "Resolve bugs from logs, metrics and traces via runtime evidence and code. Use for telemetry RCA. Do NOT use to mutate live systems unless authorized."
 license: CC-BY-4.0
 metadata:
   author: AEOS

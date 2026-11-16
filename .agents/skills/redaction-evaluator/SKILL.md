@@ -1,6 +1,6 @@
 ---
 name: redaction-evaluator
-description: Evaluate redaction behavior across authorized outputs and identify sensitive-value leakage or excessive data removal. Use when the user requests redaction evaluator or invokes redaction-evaluator. Do NOT use outside authorized defensive scope or to expose secret values.
+description: "Evaluate redaction in authorized outputs for leakage and over-redaction. Use for redaction reviews. Do NOT use outside scope or to expose secrets."
 license: CC-BY-4.0
 metadata:
   author: AEOS

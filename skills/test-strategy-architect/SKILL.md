@@ -1,6 +1,6 @@
 ---
 name: test-strategy-architect
-description: Build test strategy across unit/integration/contract/e2e/security/performance. Use when the user requests test strategy architect or invokes test-strategy-architect. Do NOT use as deployment authorization or as evidence for checks that were not executed.
+description: "Build test strategy: unit, contract, e2e, security, performance. Use for test planning. Do NOT use as deployment approval or for unexecuted checks."
 license: CC-BY-4.0
 metadata:
   author: AEOS
