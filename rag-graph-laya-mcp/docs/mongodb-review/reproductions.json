@@ -1,0 +1,68 @@
+{
+  "scope": "Exact reviewed method bodies with controlled fixtures; not runtime model or database validation",
+  "source_root": "02_repositorios/DiabeticsresearchJEV/src/diabeticsresearchjev",
+  "sources": {
+    "application/rag/retriever.py": {
+      "sha256": "ba658f614c3f852d9cb925fefa434b8a9729281f151d4f2984cac71c2fec3ebf",
+      "definitions": {
+        "RetrievalHit": 14,
+        "HybridRetriever": 23
+      }
+    },
+    "application/knowledge/graph_service.py": {
+      "sha256": "76fdb204e1493a1c4e97441915eeb8bd5d9ea4c10b03c52e3beec9a2b310a00b",
+      "definitions": {
+        "GraphService": 16
+      }
+    },
+    "application/training/continual.py": {
+      "sha256": "87043286132853d5bd573cce7d355cd46b5e8f817b622a13d81465217962ae71",
+      "definitions": {
+        "_probe_accuracy": 15
+      }
+    },
+    "application/training/trainer.py": {
+      "sha256": "a4c04caf2cd2040c4cee6729d4419173f1bf971545184e83fb64f65f4090f280",
+      "definitions": {
+        "train_sft": 106
+      }
+    }
+  },
+  "checks": [
+    {
+      "check": "BM25 does not inherit vector where or parent acceptance gate",
+      "status": "REPRODUCED",
+      "fixture_only": true,
+      "query_seen": {},
+      "outside_requested_filter": true
+    },
+    {
+      "check": "Graph pending query lacks document acceptance gate",
+      "status": "REPRODUCED",
+      "fixture_only": true,
+      "query_seen": {
+        "graph_extracted": {
+          "$ne": true
+        }
+      },
+      "quarantined_fixture_processed": true
+    },
+    {
+      "check": "Absent probes return perfect accuracy without model execution",
+      "status": "REPRODUCED",
+      "fixture_only": true,
+      "probe_count": 0,
+      "reported_accuracy": 1.0
+    },
+    {
+      "check": "Real-trainer failure falls back to smoke; SFT selects train plus eval",
+      "status": "REPRODUCED",
+      "fixture_only": true,
+      "returned_engine": "smoke",
+      "selected_splits": [
+        "train",
+        "eval"
+      ]
+    }
+  ]
+}

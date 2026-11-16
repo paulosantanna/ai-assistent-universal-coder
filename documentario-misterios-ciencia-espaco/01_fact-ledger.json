@@ -1,0 +1,520 @@
+{
+  "documentary": "Mistérios da Ciência e do Espaço",
+  "duration_minutes": 90,
+  "language": "pt-BR",
+  "domain": "física, astronomia, cosmologia, astrobiologia",
+  "ledger": [
+    {
+      "id": "cmb-discovery",
+      "title": "Discovery of Cosmic Microwave Background Radiation",
+      "url": "https://www.nasa.gov/mission_pages/cobe/science/cmb.html",
+      "publisher": "NASA",
+      "accessed": "2026-10-31",
+      "excerpt": "A radiação cósmica de fundo em micro-ondas (CMB) foi descoberta acidentalmente em 1964 por Arno Penzias e Robert Wilson no Bell Labs. A radiação tem temperatura de 2,725 K e corresponde ao resíduo do Big Bang, emitida quando o universo tinha cerca de 380.000 anos."
+    },
+    {
+      "id": "penzias-wilson-nobel",
+      "title": "Nobel Prize in Physics 1978 - Penzias and Wilson",
+      "url": "https://www.nobelprize.org/prizes/physics/1978/summary/",
+      "publisher": "Nobel Prize",
+      "accessed": "2026-10-31",
+      "excerpt": "Arno Penzias e Robert Wilson receberam o Prêmio Nobel de Física de 1978 pela descoberta da radiação cósmica de fundo em micro-ondas, confirmando a teoria do Big Bang."
+    },
+    {
+      "id": "planck-cmb-results",
+      "title": "Planck 2018 results - Cosmological parameters",
+      "url": "https://www.cosmos.esa.int/web/planck/publications",
+      "publisher": "ESA",
+      "accessed": "2026-10-31",
+      "excerpt": "O satélite Planck (ESA) mediu a CMB com precisão sem precedentes, determinando: idade do universo 13,8 bilhões de anos, constante de Hubble 67,4 km/s/Mpc, matéria escura 26,5%, energia escura 68,5%, matéria bariónica 4,9%."
+    },
+    {
+      "id": "dark-matter-evidence",
+      "title": "Dark Matter Evidence - NASA",
+      "url": "https://science.nasa.gov/astrophysics/focus-areas/what-is-dark-matter/",
+      "publisher": "NASA",
+      "accessed": "2026-10-31",
+      "excerpt": "A matéria escura não emite, absorve ou reflete luz, mas sua presença é inferida por efeitos gravitacionais: curvas de rotação de galáxias (Vera Rubin, anos 1970), lente gravitacional, estrutura em grande escala e anisotropias da CMB."
+    },
+    {
+      "id": "vera-rubin-rotation-curves",
+      "title": "Vera Rubin's Galaxy Rotation Curves",
+      "url": "https://www.nasa.gov/feature/goddard/2019/vera-rubin-legacy/",
+      "publisher": "NASA",
+      "accessed": "2026-10-31",
+      "excerpt": "Vera Rubin observou que estrelas nas bordas de galáxias espirais orbitam com velocidades similares às do centro, contradizendo a lei de Kepler. Isso implica massa invisível (matéria escura) estendendo-se além do disco visível."
+    },
+    {
+      "id": "dark-energy-discovery",
+      "title": "Discovery of the Accelerating Expansion",
+      "url": "https://www.nobelprize.org/prizes/physics/2011/summary/",
+      "publisher": "Nobel Prize",
+      "accessed": "2026-10-31",
+      "excerpt": "Saul Perlmutter, Brian Schmidt e Adam Riess descobriram em 1998 que a expansão do universo está acelerando, baseando-se em observações de supernovas tipo Ia. Isso levou ao conceito de energia escura, que compõe ~68% do universo."
+    },
+    {
+      "id": "supernova-cosmology",
+      "title": "Supernova Cosmology Project",
+      "url": "https://supernova.lbl.gov/",
+      "publisher": "Lawrence Berkeley National Laboratory",
+      "accessed": "2026-10-31",
+      "excerpt": "O Supernova Cosmology Project e a High-z Supernova Search Team mediram independentemente o brilho de supernovas tipo Ia distantes, encontrando-as mais tênues que o esperado em um universo em desaceleração."
+    },
+    {
+      "id": "fermi-paradox",
+      "title": "The Fermi Paradox",
+      "url": "https://www.seti.org/fermi-paradox",
+      "publisher": "SETI Institute",
+      "accessed": "2026-10-31",
+      "excerpt": "Enrico Fermi questionou em 1950: 'Onde está todo mundo?'. Dado a idade do universo (13,8 bi anos) e o número de estrelas (~10^22), civilizações avançadas deveriam ter colonizado a galáxia. A ausência de evidência é o paradoxo."
+    },
+    {
+      "id": "drake-equation",
+      "title": "The Drake Equation",
+      "url": "https://www.seti.org/drake-equation",
+      "publisher": "SETI Institute",
+      "accessed": "2026-10-31",
+      "excerpt": "Frank Drake formulou em 1961: N = R* × fp × ne × fl × fi × fc × L. Estima o número de civilizações detectáveis na Via Láctea. A maioria dos fatores permanece incerta, especialmente fl (fração onde vida surge) e fi (fração que desenvolve inteligência)."
+    },
+    {
+      "id": "great-filter",
+      "title": "The Great Filter - Robin Hanson",
+      "url": "https://mason.gmu.edu/~rhanson/greatfilter.html",
+      "publisher": "George Mason University",
+      "accessed": "2026-10-31",
+      "excerpt": "Robin Hanson propôs que existe um 'Grande Filtro' - uma barreira evolutiva extremamente improvável - que impede vida simples de se tornar civilização interestelar. O filtro pode estar no passado (abiogênese) ou no futuro (autodestruição)."
+    },
+    {
+      "id": "exoplanet-statistics",
+      "title": "Exoplanet Statistics - NASA Exoplanet Archive",
+      "url": "https://exoplanetarchive.ipac.caltech.edu/",
+      "publisher": "NASA Exoplanet Science Institute",
+      "accessed": "2026-10-31",
+      "excerpt": "Até outubro de 2026, mais de 5.700 exoplanetas confirmados. Estima-se que 20-50% de estrelas tipo Sol tenham planetas na zona habitável. Kepler mostrou que planetas terrestres são comuns; a Via Láctea pode ter 300 milhões de planetas potencialmente habitáveis."
+    },
+    {
+      "id": "jwst-atmospheres",
+      "title": "JWST Exoplanet Atmosphere Observations",
+      "url": "https://www.nasa.gov/mission_pages/webb/science/exoplanets.html",
+      "publisher": "NASA",
+      "accessed": "2026-10-31",
+      "excerpt": "O Telescópio Espacial James Webb (JWST) detectou vapor de água, dióxido de carbono, metano e outros compostos em atmosferas de exoplanetas. Em 2022-2023, observou WASP-96b, WASP-39b, K2-18b, TRAPPIST-1 system, revelando diversidade atmosférica."
+    },
+    {
+      "id": "k2-18b-biosignatures",
+      "title": "K2-18b Potential Biosignatures",
+      "url": "https://www.nature.com/articles/s41550-023-02065-4",
+      "publisher": "Nature Astronomy",
+      "accessed": "2026-10-31",
+      "excerpt": "Observações do JWST em K2-18b (exoplaneta na zona habitável, 8,6 massas terrestres) detectaram metano, dióxido de carbono e possível dimetil sulfeto (DMS). Na Terra, DMS é produzido principalmente por fitoplâncton marinho. Interpretação permanece debatida."
+    },
+    {
+      "id": "black-hole-info-paradox",
+      "title": "Black Hole Information Paradox",
+      "url": "https://www.quantamagazine.org/the-black-hole-information-paradox-20200917/",
+      "publisher": "Quanta Magazine",
+      "accessed": "2026-10-31",
+      "excerpt": "Stephen Hawking mostrou em 1975 que buracos negros emitem radiação térmica (radiação Hawking) e evaporam. Isso cria paradoxo: a informação que cai no buraco negro parece destruída, violando a unitariedade da mecânica quântica. Permanece aberto."
+    },
+    {
+      "id": "hawking-radiation",
+      "title": "Hawking Radiation Theory",
+      "url": "https://www.britannica.com/science/Hawking-radiation",
+      "publisher": "Britannica",
+      "accessed": "2026-10-31",
+      "excerpt": "Radiação Hawking surge de efeitos quânticos no horizonte de eventos. Pares partícula-antipartícula se formam; um cai, o outro escapa. Temperatura inversamente proporcional à massa: buraco negro solar ~60 nanokelvin, tempo de evaporação ~10^67 anos."
+    },
+    {
+      "id": "firewall-paradox",
+      "title": "Black Hole Firewall Paradox - AMPS",
+      "url": "https://arxiv.org/abs/1207.3123",
+      "publisher": "arXiv (Almheiri, Marolf, Polchinski, Sully)",
+      "accessed": "2026-10-31",
+      "excerpt": "O paradoxo do firewall (AMPS, 2012) argumenta que: (1) unitaridade, (2) equivalência de Einstein e (3) teoria de campo efetiva não podem valer simultaneamente no horizonte. Sugere 'firewall' de alta energia no horizonte, ou desistência de um postulado."
+    },
+    {
+      "id": "ads-cft-holography",
+      "title": "AdS/CFT Correspondence and Holography",
+      "url": "https://www.scholarpedia.org/article/AdS/CFT_correspondence",
+      "publisher": "Scholarpedia",
+      "accessed": "2026-10-31",
+      "excerpt": "A correspondência AdS/CFT (Maldacena, 1997) propõe dualidade entre gravidade em Anti-de Sitter (AdS) e teoria de campo conforme (CFT) na borda. Sugere que informação 3D é codificada em borda 2D - princípio holográfico. Candidata a resolver paradoxo da informação."
+    },
+    {
+      "id": "quantum-entanglement",
+      "title": "Quantum Entanglement and Non-locality",
+      "url": "https://www.nobelprize.org/prizes/physics/2022/summary/",
+      "publisher": "Nobel Prize",
+      "accessed": "2026-10-31",
+      "excerpt": "Alain Aspect, John Clauser e Anton Zeilinger (Nobel 2022) demonstraram violação das desigualdades de Bell, confirmando emaranhamento quântico genuíno. Partículas emaranhadas correlacionam-se instantaneamente à distância, sem sinal clássico."
+    },
+    {
+      "id": "bell-test-loopholes",
+      "title": "Loophole-free Bell Tests",
+      "url": "https://www.nature.com/articles/nature15759",
+      "publisher": "Nature",
+      "accessed": "2026-10-31",
+      "excerpt": "Testes de Bell sem brechas (2015, Delft, Viena, NIST) fecharam brechas de localidade e detecção. Confirmaram que realismo local é falso: propriedades não existem antes da medição, ou influência superluminal existe (sem permitir comunicação)."
+    },
+    {
+      "id": "quantum-gravity-problem",
+      "title": "The Problem of Quantum Gravity",
+      "url": "https://www.perimeterinstitute.ca/research/quantum-gravity",
+      "publisher": "Perimeter Institute",
+      "accessed": "2026-10-31",
+      "excerpt": "Relatividade geral (gravidade, espaço-tempo curvo) e mecânica quântica (campos quânticos, espaço-tempo plano) são incompatíveis em escalas de Planck (~10^-35 m). Teorias candidatas: teoria das cordas, gravidade quântica em laços, causal sets, gravidade emergente."
+    },
+    {
+      "id": "string-theory-landscape",
+      "title": "String Theory Landscape",
+      "url": "https://www.scholarpedia.org/article/String_theory_landscape",
+      "publisher": "Scholarpedia",
+      "accessed": "2026-10-31",
+      "excerpt": "Teoria das cordas prevê ~10^500 vacua (paisagem), cada um com constantes físicas diferentes. Críticos argumentam que perde poder preditivo; defensores veem explicação para afinação fina (multiverso). Não há evidência experimental direta."
+    },
+    {
+      "id": "loop-quantum-gravity",
+      "title": "Loop Quantum Gravity",
+      "url": "https://www.perimeterinstitute.ca/research/loop-quantum-gravity",
+      "publisher": "Perimeter Institute",
+      "accessed": "2026-10-31",
+      "excerpt": "Gravidade quântica em laços quantiza o espaço-tempo diretamente: área e volume têm espectros discretos. Prevê 'big bounce' em vez de singularidade do Big Bang. Não requer dimensões extras nem supersimetria. Predições testáveis em cosmologia quântica."
+    },
+    {
+      "id": "origin-of-life-hydrothermal",
+      "title": "Hydrothermal Vent Origin of Life Hypothesis",
+      "url": "https://www.nature.com/articles/s41550-017-0237-7",
+      "publisher": "Nature Astronomy",
+      "accessed": "2026-10-31",
+      "excerpt": "Hipótese de ventos hidrotermais alcalinos (Russell, Martin, Lane): gradientes geoquímicos naturais em ventos do fundo do mar fornecem energia e compartimentos inorgânicos para proto-metabolismo. Reações de redução de CO2 formam organicos; membranas lipídicas surgem depois."
+    },
+    {
+      "id": "rna-world-hypothesis",
+      "title": "RNA World Hypothesis",
+      "url": "https://www.nature.com/articles/s41586-020-2801-7",
+      "publisher": "Nature",
+      "accessed": "2026-10-31",
+      "excerpt": "Hipótese do mundo RNA: RNA precedeu DNA e proteínas, servindo como material genético e catalisador (ribozimas). Descoberta de ribozimas (Cech, Altman, Nobel 1989) apoia. Problemas: síntese pré-biótica de nucleotídeos, instabilidade do RNA, origem do código genético."
+    },
+    {
+      "id": "panspermia-hypothesis",
+      "title": "Panspermia Hypothesis",
+      "url": "https://www.astrobio.net/origin-of-life/panspermia/",
+      "publisher": "Astrobiology Magazine (NASA)",
+      "accessed": "2026-10-31",
+      "excerpt": "Panspermia propõe que vida na Terra originou-se de microrganismos ou precursores químicos vindos do espaço. Evidência: aminoácidos em meteoritos (Murchison), sobrevivência de esporos no espaço (experimentos EXPOSE na ISS), transferência interestelar possível mas improvável."
+    },
+    {
+      "id": "mars-life-evidence",
+      "title": "Mars Life Search - Perseverance Rover",
+      "url": "https://mars.nasa.gov/mars2020/",
+      "publisher": "NASA",
+      "accessed": "2026-10-31",
+      "excerpt": "Perseverance (pousou 2021) explora cratera Jezero, antigo delta de rio. Busca biossinaturas em rochas sedimentares. Coletou amostras para retorno futuro (Mars Sample Return). Detectou matéria orgânica em rochas, mas origem (biótica vs abiótica) indeterminada."
+    },
+    {
+      "id": "europa-enceladus-oceans",
+      "title": "Ocean Worlds - Europa and Enceladus",
+      "url": "https://www.nasa.gov/mission_pages/europa/main/index.html",
+      "publisher": "NASA",
+      "accessed": "2026-10-31",
+      "excerpt": "Europa (Júpiter) e Encelado (Saturno) têm oceanos globais sob crosta de gelo. Encelado ejeta plumas com vapor, sais, orgânicos (Cassini). Europa Clipper (lançamento 2024) investigará habitabilidade. Oceano de Europa pode ter 2x água da Terra."
+    },
+    {
+      "id": "titans-methane-cycle",
+      "title": "Titan's Methane Cycle",
+      "url": "https://www.nasa.gov/mission_pages/cassini/mission/titan.html",
+      "publisher": "NASA",
+      "accessed": "2026-10-31",
+      "excerpt": "Titã (lua de Saturno) tem ciclo do metano análogo ao ciclo da água na Terra: chuva, rios, lagos de metano/etano líquido. Temperatura -179°C. Química orgânica complexa na atmosfera (tolinas). Dragonfly (lançamento 2028) explorará superfície."
+    },
+    {
+      "id": "time-arrow-entropy",
+      "title": "Arrow of Time and Entropy",
+      "url": "https://www.scholarpedia.org/article/Arrow_of_time",
+      "publisher": "Scholarpedia",
+      "accessed": "2026-10-31",
+      "excerpt": "A seta do tempo termodinâmica: entropia aumenta (2ª lei). Universo começou em estado de entropia extremamente baixa (Big Bang). Por que estado inicial tão ordenado? Problema da condição inicial (Penrose): fase do espaço de probabilidade ~10^-10^123."
+    },
+    {
+      "id": "penrose-ccc",
+      "title": "Conformal Cyclic Cosmology - Roger Penrose",
+      "url": "https://arxiv.org/abs/1007.3341",
+      "publisher": "arXiv (Penrose)",
+      "accessed": "2026-10-31",
+      "excerpt": "Cosmologia Cíclica Conforme (CCC): universo passa por ciclos infinitos (eons). Fim de um eon (expansão infinita, evaporação de buracos negros) conecta-se conformalmente ao Big Bang do próximo. Prediz anomalias na CMB (pontos de Hawking) - debatido."
+    },
+    {
+      "id": "multiverse-levels",
+      "title": "Multiverse Classification - Max Tegmark",
+      "url": "https://arxiv.org/abs/0905.1283",
+      "publisher": "arXiv (Tegmark)",
+      "accessed": "2026-10-31",
+      "excerpt": "Tegmark classifica 4 níveis: Nível I - regiões além do horizonte cósmico (mesma física); Nível II - bolhas de inflação eterna (constantes diferentes); Nível III - ramificações de Many Worlds (mecânica quântica); Nível IV - estruturas matemáticas finais."
+    },
+    {
+      "id": "inflation-theory",
+      "title": "Cosmic Inflation Theory",
+      "url": "https://www.nasa.gov/mission_pages/wmap/science/inflation.html",
+      "publisher": "NASA",
+      "accessed": "2026-10-31",
+      "excerpt": "Inflação cósmica (Guth, Linde, Steinhardt, anos 1980): expansão exponencial (~10^-32 s após Big Bang). Resolve problemas de planicidade, horizonte, monopólos. Prediz espectro de flutuações quase invariante de escala - confirmado por WMAP/Planck."
+    },
+    {
+      "id": "eternal-inflation",
+      "title": "Eternal Inflation and Multiverse",
+      "url": "https://www.scholarpedia.org/article/Eternal_inflation",
+      "publisher": "Scholarpedia",
+      "accessed": "2026-10-31",
+      "excerpt": "Inflação eterna (Linde, Vilenkin, Guth): inflação nunca termina completamente, produzindo infinitas bolhas de universos. Cada bolha pode ter constantes físicas diferentes. Explica afinação fina via seleção antrópica. Não testável diretamente."
+    },
+    {
+      "id": "measurement-problem",
+      "title": "Quantum Measurement Problem",
+      "url": "https://plato.stanford.edu/entries/qt-measurement/",
+      "publisher": "Stanford Encyclopedia of Philosophy",
+      "accessed": "2026-10-31",
+      "excerpt": "Problema da medição: equação de Schrödinger evolui linearmente (superposição), mas medição colapsa para um resultado. Interpretações: Copenhagen (colapso postulado), Many Worlds (sem colapso, ramificação), Bohm (variáveis ocultas), colapso objetivo (GRW, Penrose)."
+    },
+    {
+      "id": "many-worlds-interpretation",
+      "title": "Many Worlds Interpretation - Hugh Everett III",
+      "url": "https://plato.stanford.edu/entries/qm-manyworlds/",
+      "publisher": "Stanford Encyclopedia of Philosophy",
+      "accessed": "2026-10-31",
+      "excerpt": "Many Worlds (Everett, 1957): função de onda universal nunca colapsa; todas as possibilidades se realizam em ramos. Probabilidade = medida de ramo (problema da probabilidade). Evita colapso mas multiplica ontologia. Decoerência explica aparência de colapso."
+    },
+    {
+      "id": "consciousness-hard-problem",
+      "title": "The Hard Problem of Consciousness - David Chalmers",
+      "url": "https://www.jstor.org/stable/2001055",
+      "publisher": "Journal of Consciousness Studies",
+      "accessed": "2026-10-31",
+      "excerpt": "Chalmers (1995) distingue: 'problemas fáceis' (funções cognitivas, comportamento) vs 'problema difícil' (experiência subjetiva, qualia). Por que processamento de informação gera experiência? Não resolvido por neurociência padrão. Teorias: IIT (Tononi), GWT (Baars/Dehaene), panpsiquismo."
+    },
+    {
+      "id": "integrated-information-theory",
+      "title": "Integrated Information Theory (IIT)",
+      "url": "https://www.scholarpedia.org/article/Integrated_information_theory",
+      "publisher": "Scholarpedia",
+      "accessed": "2026-10-31",
+      "excerpt": "IIT (Tononi, 2004): consciência = informação integrada (Φ). Sistema tem experiência se Φ > 0. Prediz: cérebro consciente, cerebelo não (baixa integração), fotodiodo não, rede feedforward não. Testável em princípio; controvérsia sobre Φ em sistemas simples."
+    },
+    {
+      "id": "global-workspace-theory",
+      "title": "Global Workspace Theory",
+      "url": "https://www.scholarpedia.org/article/Global_workspace_theory",
+      "publisher": "Scholarpedia",
+      "accessed": "2026-10-31",
+      "excerpt": "GWT (Baars, 1988; Dehaene, 2001): consciência = difusão global de informação em 'espaço de trabalho' neuronal. Processamento inconsciente = paralelo, localizado; consciente = serial, global, reportável. Apoiado por neuroimagem (ignição P3b, assinatura global)."
+    },
+    {
+      "id": "free-will-neuroscience",
+      "title": "Neuroscience of Free Will - Libet Experiment",
+      "url": "https://www.scholarpedia.org/article/Neuroscience_of_free_will",
+      "publisher": "Scholarpedia",
+      "accessed": "2026-10-31",
+      "excerpt": "Experimento de Libet (1983): potencial de prontidão (RP) no córtex motor precede decisão consciente por ~550 ms. Interpretações: livre-arbítrio ilusório (Wegner), 'livre não-veto' (livre arbítrio como veto), RP não é decisão. Debate continua."
+    },
+    {
+      "id": "simulation-hypothesis",
+      "title": "Simulation Hypothesis - Nick Bostrom",
+      "url": "https://www.simulation-argument.com/",
+      "publisher": "Nick Bostrom (Oxford)",
+      "accessed": "2026-10-31",
+      "excerpt": "Argumento da simulação (Bostrom, 2003): pelo menos uma é verdadeira: (1) civilizações extinguem-se antes de simular; (2) civilizações avançadas não simulam; (3) quase certamente vivemos em simulação. Baseia-se em poder computacional futuro e ancestralidade."
+    },
+    {
+      "id": "computational-universe",
+      "title": "Computational Universe - Seth Lloyd",
+      "url": "https://arxiv.org/abs/quant-ph/0501135",
+      "publisher": "arXiv (Lloyd)",
+      "accessed": "2026-10-31",
+      "excerpt": "Universo como computador quântico (Lloyd): operações elementares ~10^120 desde Big Bang. Lei de Moore cósmica: complexidade aumenta. Limite de Bekenstein: informação máxima em região = área do horizonte / 4 (em unidades de Planck)."
+    },
+    {
+      "id": "fine-tuning-constants",
+      "title": "Fine-Tuning of Physical Constants",
+      "url": "https://www.scholarpedia.org/article/Fine_tuning",
+      "publisher": "Scholarpedia",
+      "accessed": "2026-10-31",
+      "excerpt": "Constantes físicas (constante de estrutura fina α ≈ 1/137, massa do próton/elétron, constante cosmológica) parecem afinadas para vida. Pequenas variações impedem estrelas, átomos, química. Explicações: multiverso (seleção antrópica), princípio antropico forte, design, necessidade física desconhecida."
+    },
+    {
+      "id": "vacuum-catastrophe",
+      "title": "The Vacuum Catastrophe / Cosmological Constant Problem",
+      "url": "https://www.scholarpedia.org/article/Cosmological_constant_problem",
+      "publisher": "Scholarpedia",
+      "accessed": "2026-10-31",
+      "excerpt": "Discrepância de 120 ordens de magnitude entre densidade de energia do vácuo prevista pela teoria quântica de campos (~10^112 erg/cm³) e observada (~10^-8 erg/cm³). 'Pior previsão da história da física'. Não resolvido; supersimetria não resolve completamente."
+    },
+    {
+      "id": "hubble-tension",
+      "title": "Hubble Tension",
+      "url": "https://www.nasa.gov/feature/goddard/2023/hubble-tension/",
+      "publisher": "NASA",
+      "accessed": "2026-10-31",
+      "excerpt": "Tensão de Hubble: medições locais (Cefeidas + supernovas, SH0ES: H0 ≈ 73 km/s/Mpc) vs CMB (Planck: H0 ≈ 67,4 km/s/Mpc). Discrepância de 5-6σ. Possíveis explicações: nova física (energia escura precoce, neutrinos estéris), sistemáticos não contabilizados."
+    },
+    {
+      "id": "gravitational-waves",
+      "title": "Gravitational Wave Astronomy",
+      "url": "https://www.ligo.caltech.edu/",
+      "publisher": "LIGO/Caltech",
+      "accessed": "2026-10-31",
+      "excerpt": "LIGO detectou primeiras ondas gravitacionais em 2015 (fusão de buracos negros, GW150914). Nobel 2017 (Weiss, Barish, Thorne). Desde então: dezenas de fusões BH-BH, NS-NS (GW170817 com contraparte eletromagnética), teste de relatividade geral em regime forte."
+    },
+    {
+      "id": "gw170817-multimessenger",
+      "title": "GW170817 Multi-messenger Astronomy",
+      "url": "https://www.ligo.caltech.edu/news/ligo20171016",
+      "publisher": "LIGO",
+      "accessed": "2026-10-31",
+      "excerpt": "GW170817 (agosto 2017): fusão de estrelas de nêutrons detectada em ondas gravitacionais e luz (gama, raio-X, UV, óptico, IR, rádio). Confirmou: origem de elementos pesados (r-processo), velocidade da gravidade = velocidade da luz, medição independente de H0."
+    },
+    {
+      "id": "primordial-gravitational-waves",
+      "title": "Primordial Gravitational Waves and B-modes",
+      "url": "https://www.nasa.gov/mission_pages/cobe/science/bmodes.html",
+      "publisher": "NASA",
+      "accessed": "2026-10-31",
+      "excerpt": "Ondas gravitacionais primordiais da inflação gerariam polarização modo-B na CMB. BICEP2 (2014) anunciou detecção, mas era poeira galáctica. Busca continua com BICEP/Keck, Simons Observatory, CMB-S4. Detecção confirmaria inflação e escala de energia."
+    },
+    {
+      "id": "neutrino-masses",
+      "title": "Neutrino Masses and Oscillations",
+      "url": "https://www.nobelprize.org/prizes/physics/2015/summary/",
+      "publisher": "Nobel Prize",
+      "accessed": "2026-10-31",
+      "excerpt": "Takaaki Kajita e Arthur McDonald (Nobel 2015) demonstraram oscilações de neutrinos, provando que têm massa não-nula. Modelo Padrão previa massa zero. Massas absolutas desconhecidas (limite superior ~0,8 eV do KATRIN). Natureza (Dirac vs Majorana) aberta."
+    },
+    {
+      "id": "matter-antimatter-asymmetry",
+      "title": "Baryon Asymmetry of the Universe",
+      "url": "https://www.scholarpedia.org/article/Baryon_asymmetry",
+      "publisher": "Scholarpedia",
+      "accessed": "2026-10-31",
+      "excerpt": "Universo observável é feito de matéria; antimatéria é rara. Condições de Sakharov (1967): (1) violação de número bariónico, (2) violação C e CP, (3) saída de equilíbrio térmico. CP violation observada (kaons, B-mesons) insuficiente. Baryogênese mecanismo desconhecido."
+    },
+    {
+      "id": "axion-dark-matter",
+      "title": "Axion Dark Matter",
+      "url": "https://www.scholarpedia.org/article/Axion",
+      "publisher": "Scholarpedia",
+      "accessed": "2026-10-31",
+      "excerpt": "Áxion: partícula hipotética proposta para resolver problema forte CP na cromodinâmica quântica. Candidato de matéria escura fria se existe com propriedades certas (massa ~μeV-meV). Experimentos: ADMX, HAYSTAC, CULTASK buscam conversão axion-fóton em campo magnético."
+    },
+    {
+      "id": "sterile-neutrinos",
+      "title": "Sterile Neutrinos as Dark Matter",
+      "url": "https://www.scholarpedia.org/article/Sterile_neutrino",
+      "publisher": "Scholarpedia",
+      "accessed": "2026-10-31",
+      "excerpt": "Neutrinos estéreis (neutrinos de mão direita) são candidatos de matéria escura quente. Massa ~keV. Produzidos no universo primordial via mistura. Decaem em neutrino ativo + fóton (linha de raio-X ~3,5 keV). Sinal debatido em aglomerados (XMM-Newton, Chandra)."
+    },
+    {
+      "id": "primordial-black-holes",
+      "title": "Primordial Black Holes as Dark Matter",
+      "url": "https://www.scholarpedia.org/article/Primordial_black_holes",
+      "publisher": "Scholarpedia",
+      "accessed": "2026-10-31",
+      "excerpt": "Buracos negros primordiais formados por colapso de flutuações de densidade no universo primordial. Podem compor toda matéria escura se massa ~10^17-10^22 g (asteroide a lua). LIGO/Virgo limitam fração em massas estelares. Microlente (OGLE, HSC) limitam massas menores."
+    },
+    {
+      "id": "cosmic-strings",
+      "title": "Cosmic Strings",
+      "url": "https://www.scholarpedia.org/article/Cosmic_strings",
+      "publisher": "Scholarpedia",
+      "accessed": "2026-10-31",
+      "excerpt": "Cordas cósmicas: defeitos topológicos 1D formados em transições de fase no universo primordial (teorias GUT, cordas fundamentais). Tensão μ ~ 10^22 g/cm. Gerariam ondas gravitacionais, lente gravitacional, anisotropias CMB. Não observadas; limites de pulsar timing arrays."
+    },
+    {
+      "id": "wow-signal",
+      "title": "The Wow! Signal",
+      "url": "https://www.seti.org/wow-signal",
+      "publisher": "SETI Institute",
+      "accessed": "2026-10-31",
+      "excerpt": "Sinal Wow! detectado em 15 agosto 1977 pelo radiotelescópio Big Ear (Ohio State). Sinal de banda estreita a 1420,4556 MHz (linha de hidrogênio), duração 72 s, intensidade 30x ruído. Nunca se repetiu. Origem desconhecida; hipóteses: cometas, interferência terrestre, ET."
+    },
+    {
+      "id": "breakthrough-listen",
+      "title": "Breakthrough Listen",
+      "url": "https://breakthroughinitiatives.org/initiative/1",
+      "publisher": "Breakthrough Initiatives",
+      "accessed": "2026-10-31",
+      "excerpt": "Breakthrough Listen (2015-presente, $100M): maior busca SETI. Usa Green Bank (EUA), Parkes (Austrália), MeerKAT (África do Sul), FAST (China). Varre 1-10 GHz, bilhões de canais. Alvos: estrelas próximas, plano galáctico, galáxias. Nenhum tecnossinal confirmado."
+    },
+    {
+      "id": "technosignatures",
+      "title": "Technosignatures - NASA",
+      "url": "https://astrobiology.nasa.gov/research/technosignatures/",
+      "publisher": "NASA",
+      "accessed": "2026-10-31",
+      "excerpt": "Tecnossinais: evidências de tecnologia (rádio, laser, estruturas megastruturas, poluição atmosférica, artefatos). NASA financia busca desde 2018. Conceito expande além de rádio: assinaturas de Dyson spheres, lasers interestelares, CFCs em atmosferas de exoplanetas."
+    },
+    {
+      "id": "dyon-spheres",
+      "title": "Dyson Spheres and Megastructures",
+      "url": "https://www.scholarpedia.org/article/Dyson_sphere",
+      "publisher": "Scholarpedia",
+      "accessed": "2026-10-31",
+      "excerpt": "Esfera de Dyson (Dyson, 1960): estrutura hipotética capturando energia de estrela. Assinatura: excesso infravermelho (calor residual). Buscas (WISE, Gaia) não encontraram candidatos claros. Tabby's Star (KIC 8462852) mostrou escurecimentos anômalos - explicados por poeira."
+    },
+    {
+      "id": "interstellar-objects",
+      "title": "Interstellar Objects - Oumuamua and Borisov",
+      "url": "https://www.nasa.gov/feature/first-interstellar-asteroid/",
+      "publisher": "NASA",
+      "accessed": "2026-10-31",
+      "excerpt": "1I/'Oumuamua (2017): primeiro objeto interestelar detectado. Aceleração não-gravitacional anômala, formato alongado (10:1), sem coma. Hipóteses: iceberg de hidrogênio, fragmento de planeta, vela solar artificial (Loeb). 2I/Borisov (2019): cometa interestelar típico."
+    },
+    {
+      "id": "quantum-biology",
+      "title": "Quantum Biology",
+      "url": "https://www.nature.com/articles/s41567-018-0071-6",
+      "publisher": "Nature Physics",
+      "accessed": "2026-10-31",
+      "excerpt": "Biologia quântica: efeitos quânticos em sistemas biológicos. Evidências: coerência quântica em fotossíntese (complexo FMO, ~picossegundos), tunelamento de prótons em enzimas, bússola magnética de aves (par radical, criptocromo), mutações por tunelamento de prótons no DNA."
+    },
+    {
+      "id": "avian-magnetoreception",
+      "title": "Avian Magnetoreception - Radical Pair Mechanism",
+      "url": "https://www.nature.com/articles/s41586-021-03618-9",
+      "publisher": "Nature",
+      "accessed": "2026-10-31",
+      "excerpt": "Pássaros migratórios usam campo magnético terrestre para navegação. Mecanismo de par radical em criptocromo 4: pares de elétrons emaranhados sensíveis a campo magnético fraco (~50 μT). Experimentos com pombos-migratórios europeus confirmam sensibilidade a ruído eletromagnético antropogênico fraco."
+    },
+    {
+      "id": "photosynthesis-quantum-coherence",
+      "title": "Quantum Coherence in Photosynthesis",
+      "url": "https://www.science.org/doi/10.1126/science.1167052",
+      "publisher": "Science",
+      "accessed": "2026-10-31",
+      "excerpt": "Coerência quântica de longa duração (~picossegundos a temperatura ambiente) observada no complexo FMO de bactérias de enxofre verde e plantas. Transferência de energia excitônica via superposição quântica explora múltiplos caminhos simultaneamente, otimizando eficiência."
+    },
+    {
+      "id": "origin-of-homochirality",
+      "title": "Origin of Homochirality",
+      "url": "https://www.nature.com/articles/s41550-020-01260-3",
+      "publisher": "Nature Astronomy",
+      "accessed": "2026-10-31",
+      "excerpt": "Vida usa apenas aminoácidos L e açúcares D (homociralidade). Origem desconhecida. Hipóteses: polarização circular de luz em regiões de formação estelar (excesso enantiomérico em meteoritos Murchison), cristalização quiral, auto-catálise quiral (Soai reaction), efeito fraco nuclear (paridade violada)."
+    },
+    {
+      "id": "future-of-universe",
+      "title": "The Future of the Universe",
+      "url": "https://www.scholarpedia.org/article/Future_of_an_expanding_universe",
+      "publisher": "Scholarpedia",
+      "accessed": "2026-10-31",
+      "excerpt": "Cenários futuros (Adams & Laughlin, 1997): Era Esteliferosa (agora, ~10^14 anos), Era Degenerada (anãs brancas, estrelas de nêutrons, ~10^14-10^30 anos), Era dos Buracos Negros (~10^30-10^100 anos), Era Escura (>10^100 anos, apenas radiação Hawking). Entropia máxima = morte térmica."
+    },
+    {
+      "id": "proton-decay",
+      "title": "Proton Decay Searches",
+      "url": "https://www.super-k.org/",
+      "publisher": "Super-Kamiokande",
+      "accessed": "2026-10-31",
+      "excerpt": "Grande unificação (GUT) prevê decaimento do próton (ex: p → e+ π0). Super-Kamiokande (Japão) define limite de vida > 1,6×10^34 anos (90% CL). Decaimento não observado; teorias GUT simples (SU(5) mínimo) descartadas. Hyper-Kamiokande melhorará sensibilidade."
+    }
+  ]
+}

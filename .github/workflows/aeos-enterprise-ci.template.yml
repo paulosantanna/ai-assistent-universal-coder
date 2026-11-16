@@ -31,6 +31,10 @@ jobs:
           node-version: '24'
       - name: Install pinned YAML parser
         run: python -m pip install --require-hashes -r quality/requirements.txt
+      - name: Install locked GraphRAG MCP and test dependencies
+        run: python -m pip install --require-hashes -r rag-graph-laya-mcp/requirements-test.lock
+      - name: GraphRAG MCP functional contracts
+        run: python -m pytest rag-graph-laya-mcp/tests -q
       - name: Validator adversarial contract tests
         run: python -m unittest discover -s quality/tests -v
       - name: Validate all capabilities and distribution

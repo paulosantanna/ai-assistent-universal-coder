@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "directories": 18,
+  "files": 9672,
+  "errors": [],
+  "checked_at": "2026-11-01T19:00:34.151973+00:00",
+  "scope": "cobertura, fingerprints, Git, erros e links; sem validação semântica ou execução dos projetos"
+}

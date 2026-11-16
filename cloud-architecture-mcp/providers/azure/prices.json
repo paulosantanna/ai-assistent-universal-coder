@@ -1,0 +1,137 @@
+{
+  "provider": "azure",
+  "retrieved_at_utc": "2026-11-14T20:20:11+00:00",
+  "method": "Azure Retail Prices API, Consumption meters, USD",
+  "skus": {
+    "azure.brazilsouth.container_apps_consumption_vcpu_second": {
+      "usd": 2.4e-05,
+      "unit": "1 Second",
+      "meter": "Standard vCPU Active Usage",
+      "product": "Azure Container Apps",
+      "sku": "Standard",
+      "armSkuName": "",
+      "source": "Azure Retail Prices API (unauthenticated), brazilsouth",
+      "source_url": "https://prices.azure.com/api/retail/prices"
+    },
+    "azure.brazilsouth.container_apps_consumption_memory_gib_second": {
+      "usd": 3e-06,
+      "unit": "1 GiB Second",
+      "meter": "Standard Memory Active Usage",
+      "product": "Azure Container Apps",
+      "sku": "Standard",
+      "armSkuName": "",
+      "source": "Azure Retail Prices API (unauthenticated), brazilsouth",
+      "source_url": "https://prices.azure.com/api/retail/prices"
+    },
+    "azure.brazilsouth.container_apps_consumption_requests_million": {
+      "usd": 0.4,
+      "unit": "1M",
+      "meter": "Standard Requests",
+      "product": "Azure Container Apps",
+      "sku": "Standard",
+      "armSkuName": "",
+      "source": "Azure Retail Prices API (unauthenticated), brazilsouth",
+      "source_url": "https://prices.azure.com/api/retail/prices"
+    },
+    "azure.brazilsouth.container_apps_dedicated_vcpu_hour": {
+      "usd": 0.057077,
+      "unit": "1 Hour",
+      "meter": "Dedicated vCPU Usage",
+      "product": "Azure Container Apps",
+      "sku": "Dedicated",
+      "armSkuName": "",
+      "source": "Azure Retail Prices API (unauthenticated), brazilsouth",
+      "source_url": "https://prices.azure.com/api/retail/prices"
+    },
+    "azure.brazilsouth.container_apps_dedicated_memory_gib_hour": {
+      "usd": 0.004978,
+      "unit": "1 Hour",
+      "meter": "Dedicated Memory Usage",
+      "product": "Azure Container Apps",
+      "sku": "Dedicated",
+      "armSkuName": "",
+      "source": "Azure Retail Prices API (unauthenticated), brazilsouth",
+      "source_url": "https://prices.azure.com/api/retail/prices"
+    },
+    "azure.brazilsouth.postgres_gp_ddsv5_2vcore_hour": {
+      "usd": 0.24,
+      "unit": "1 Hour",
+      "meter": "vCore",
+      "product": "Azure Database for PostgreSQL Flexible Server General Purpose Ddsv5 Series Compute",
+      "sku": "2 vCore",
+      "armSkuName": "Standard_D2ds_v5",
+      "source": "Azure Retail Prices API (unauthenticated), brazilsouth",
+      "source_url": "https://prices.azure.com/api/retail/prices"
+    },
+    "azure.brazilsouth.postgres_mo_eadsv5_2vcore_hour": {
+      "usd": 0.525,
+      "unit": "1 Hour",
+      "meter": "vCore",
+      "product": "Azure Database for PostgreSQL Flexible Server Memory Optimized Eadsv5 Series Compute",
+      "sku": "2 vCore",
+      "armSkuName": "Azure_Database_for_PostgreSQL_Flexible_Server_Memory_Purpose_Eadsv5_Series_Compute_2_vCore",
+      "source": "Azure Retail Prices API (unauthenticated), brazilsouth",
+      "source_url": "https://prices.azure.com/api/retail/prices"
+    },
+    "azure.brazilsouth.postgres_backup_lrs_gb_month": {
+      "usd": 0.095,
+      "unit": "1 GB/Month",
+      "meter": "Backup Storage LRS Data Stored",
+      "product": "Azure Database for PostgreSQL Flexible Server Backup Storage",
+      "sku": "Backup Storage LRS",
+      "armSkuName": "Backup Storage",
+      "source": "Azure Retail Prices API (unauthenticated), brazilsouth",
+      "source_url": "https://prices.azure.com/api/retail/prices"
+    },
+    "azure.brazilsouth.log_analytics_analytics_ingest_gb": {
+      "usd": 4.6,
+      "unit": "1 GB",
+      "meter": "Analytics Logs Data Ingestion",
+      "product": "Log Analytics",
+      "sku": "Analytics Logs",
+      "armSkuName": "",
+      "source": "Azure Retail Prices API (unauthenticated), brazilsouth",
+      "source_url": "https://prices.azure.com/api/retail/prices"
+    },
+    "azure.brazilsouth.blob_hot_lrs_gb_month_max_tier": {
+      "usd": 0.0326,
+      "unit": "1 GB/Month",
+      "meter": "Hot LRS Data Stored",
+      "product": "Blob Storage",
+      "sku": "Hot LRS",
+      "armSkuName": "",
+      "source": "Azure Retail Prices API (unauthenticated), brazilsouth",
+      "source_url": "https://prices.azure.com/api/retail/prices"
+    },
+    "azure.brazilsouth.gpu_nv36ads_a10_v5_hour": {
+      "usd": 6.4,
+      "unit": "1 Hour",
+      "meter": "NV36ads A10 v5",
+      "product": "Virtual Machines NVadsA10v5 Series",
+      "sku": "Standard_NV36ads_A10_v5",
+      "armSkuName": "Standard_NV36ads_A10_v5",
+      "source": "Azure Retail Prices API (unauthenticated), brazilsouth",
+      "source_url": "https://prices.azure.com/api/retail/prices"
+    },
+    "azure.eastus.gpu_nv36ads_a10_v5_hour": {
+      "usd": 3.2,
+      "unit": "1 Hour",
+      "meter": "NV36ads A10 v5",
+      "product": "Virtual Machines NVadsA10v5 Series",
+      "sku": "Standard_NV36ads_A10_v5",
+      "armSkuName": "Standard_NV36ads_A10_v5",
+      "source": "Azure Retail Prices API (unauthenticated), eastus",
+      "source_url": "https://prices.azure.com/api/retail/prices"
+    },
+    "azure.brazilsouth.artifact_signing_basic_month": {
+      "usd": 9.99,
+      "unit": "month (Basic plan, up to 5,000 signatures)",
+      "meter": "Artifact Signing Basic plan",
+      "product": "Artifact Signing",
+      "sku": "Basic",
+      "armSkuName": null,
+      "source": "Azure Artifact Signing product page (WebSearch extract, not Retail API)",
+      "source_url": "https://azure.microsoft.com/en-us/products/artifact-signing"
+    }
+  }
+}

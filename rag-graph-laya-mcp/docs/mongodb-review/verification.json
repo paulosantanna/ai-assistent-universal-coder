@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "updated_at": "2026-10-15T17:28:41.386Z",
+  "read_only_live_inspection": true,
+  "count_and_corpus_fingerprint_stable": true,
+  "document_chunk_hash_valid": true,
+  "normalized_span_valid": true,
+  "source_method_hashes_match": true,
+  "isolated_reproductions": 4,
+  "new_dependencies": 0,
+  "model_inference": false,
+  "database_writes": false,
+  "script_sha256": "0cad9944c64caef29cc251a5020d3c2c5908ec703c01c5afa6740a2d5edffdf1",
+  "limits": "No runtime retrieval/model evaluation; no CVE scan or production corrections in this review",
+  "workspace_gate": {
+    "status": "PASS",
+    "errors": 0,
+    "counts": {
+      "active": 308,
+      "aliases": 3,
+      "tlc": 94,
+      "upstream_files": 789,
+      "images": 770,
+      "distinct_images": 389,
+      "discovery": 311,
+      "skill_entries": 841,
+      "local_links": 2932,
+      "max_lines": 99,
+      "additional_images": 77,
+      "impeccable_resources": 154,
+      "python": 106,
+      "javascript": 145,
+      "changed_skills_assessed": 7
+    },
+    "scope": "Structural, integrity, distribution, syntax and declared protocol gates; not a certification of enterprise effectiveness"
+  }
+}

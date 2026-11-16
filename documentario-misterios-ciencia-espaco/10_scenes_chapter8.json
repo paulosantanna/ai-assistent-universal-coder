@@ -1,0 +1,117 @@
+{
+  "chapter": 8,
+  "title": "Consciência, Livre-Arbítrio e a Natureza da Realidade",
+  "duration_seconds": 600,
+  "scenes": [
+    {
+      "scene": 1,
+      "chapter": 8,
+      "title": "O Problema Difícil: Por Que Sentimos?",
+      "narration": "David Chalmers (1995) distinguiu: 'problemas fáceis' da consciência (atenção, memória, relato verbal, integração sensorial) — explicáveis por mecanismos neurais. E o 'problema difícil': por que o processamento de informação é acompanhado de experiência subjetiva? Por que vermelho *parece* vermelho? Por que dor *dói*? Qualia: a textura bruta da experiência. Neurociência mapeia correlatos neurais (NCC) — mas correlação não é explicação. Por que *este* padrão neural gera *esta* experiência? O problema difícil resiste a redução: mesmo sabendo tudo sobre neurônios, a experiência permanece inexplicada. 'O problema difícil pode ser insolúvel dentro do materialismo padrão' (Chalmers). A consciência pode ser fundamental — como massa, carga, espaço-tempo.",
+      "visual": "Chalmers 1995: distinção problemas fáceis vs difícil. Problemas fáceis: atenção, memória, relato, integração. Problema difícil: QUALIA — textura da experiência. Neurociência: correlatos neurais (NCC) — correlação ≠ explicação. 'Mesmo com mapa neural completo, experiência inexplicada.' Consciência como fundamental (como massa, carga).",
+      "duration_seconds": 60,
+      "claims": ["consciousness-hard-problem", "integrated-information-theory", "global-workspace-theory"],
+      "transition": "fade",
+      "sd_prompt": "Chalmers 1995: easy vs hard problems. Easy: attention, memory, report, integration. Hard: QUALIA — raw feel of experience. Neuroscience: neural correlates (NCC) — correlation ≠ explanation. 'Even with complete neural map, experience unexplained.' Consciousness as fundamental (like mass, charge). 8K"
+    },
+    {
+      "scene": 2,
+      "chapter": 8,
+      "title": "IIT: Consciência como Informação Integrada (Φ)",
+      "narration": "Teoria da Informação Integrada (Tononi, 2004): consciência = informação integrada, medida por Φ (phi). Sistema tem experiência se Φ > 0. Φ quantifica: quanto o todo sabe mais que a soma das partes? Cérebro: Φ alto (integração massiva). Cerebelo: Φ baixo (arquitetura feedforward, pouca integração) — não consciente apesar de muitos neurônios. Fotodiodo: Φ = 1 bit (dois estados) — mínima consciência? Rede feedforward profunda: Φ = 0 — sem consciência. IIT faz previsões testáveis: anestesia reduz Φ; sono profundo reduz Φ; epilepsia (hiper-sincronia) pode reduzir Φ. Críticas: Φ em sistemas simples (grade de portas XOR) pode ser alto — panpsiquismo implícito? Medir Φ em cérebro real é computacionalmente intratável (NP-hard). IIT é audaciosa, quantitativa, falsificável — e controversa.",
+      "visual": "Tononi 2004: IIT. Φ (phi) = informação integrada. Cérebro: Φ alto. Cerebelo: Φ baixo (feedforward) — não consciente. Fotodiodo: Φ = 1 bit. Rede feedforward: Φ = 0. Previsões: anestesia ↓Φ, sono profundo ↓Φ, epilepsia ↓Φ. Críticas: sistemas simples com Φ alto (panpsiquismo?), medição NP-hard. 'Consciência = Φ > 0.'",
+      "duration_seconds": 60,
+      "claims": ["integrated-information-theory", "consciousness-hard-problem"],
+      "transition": "cut",
+      "sd_prompt": "Tononi 2004: IIT. Phi = integrated information. Brain: high Phi. Cerebellum: low Phi (feedforward) — not conscious. Photodiode: Phi = 1 bit. Feedforward net: Phi = 0. Predictions: anesthesia ↓Phi, deep sleep ↓Phi, epilepsy ↓Phi. Critiques: simple systems with high Phi (panpsychism?), measurement NP-hard. 'Consciousness = Phi > 0.' 8K"
+    },
+    {
+      "scene": 3,
+      "chapter": 8,
+      "title": "GWT: O Espaço de Trabalho Global",
+      "narration": "Teoria do Espaço de Trabalho Global (Baars 1988, Dehaene 2001): consciência = difusão global de informação em 'espaço de trabalho' neuronal. Processamento inconsciente = paralelo, localizado, rápido, de alta capacidade. Processamento consciente = serial, global, reportável, capacidade limitada (gargalo). 'Ignição' (Dehaene): ativação súbita de rede fronto-parietal bilateral (P3b, ~300ms) — assinatura neural da consciência. Evidências: masking (estímulo subliminar vs supraliminar), atenção cega, negligência espacial. GWT não explica *por que* a ignição gera experiência — explica *quando* e *como* a informação torna-se globalmente disponível. É teoria funcional, não ontológica. Complementar a IIT: GWT = acesso, IIT = experiência.",
+      "visual": "Baars 1988 / Dehaene 2001: GWT. Inconsciente: paralelo, localizado. Consciente: serial, global, reportável, gargalo. Ignição: rede fronto-parietal, P3b ~300ms. Evidências: masking, atenção cega, negligência. GWT = teoria funcional (acesso), não ontológica (experiência). Complementar a IIT: GWT = acesso, IIT = experiência.",
+      "duration_seconds": 60,
+      "claims": ["global-workspace-theory", "consciousness-hard-problem", "integrated-information-theory"],
+      "transition": "cut",
+      "sd_prompt": "Baars 1988 / Dehaene 2001: GWT. Unconscious: parallel, localized. Conscious: serial, global, reportable, bottleneck. Ignition: fronto-parietal network, P3b ~300ms. Evidence: masking, inattentional blindness, neglect. GWT = functional theory (access), not ontological (experience). Complementary to IIT: GWT = access, IIT = experience. 8K"
+    },
+    {
+      "scene": 4,
+      "chapter": 8,
+      "title": "Livre-Arbítrio: O Experimento de Libet",
+      "narration": "Benjamin Libet (1983): pediu para participantes moverem o punho 'livremente' quando quisessem, e marcarem o momento da decisão consciente (relógio de pontos). EEG mostrou: potencial de prontidão (readiness potential, RP) no córtex motor começa ~550 ms ANTES da decisão consciente relatada. O cérebro 'decide' antes de 'você' decidir. Interpretações: (1) Livre-arbítrio é ilusão (Wegner 2002: 'a vontade é causada, não causa'). (2) 'Livre não-veto' (Libet): decisão inconsciente inicia, consciência pode vetar nos últimos ~150 ms. (3) RP não é decisão específica — é preparação geral, ruído neural que cruza limiar (Schurger 2012). Debate continua. Neurociência não 'matou' o livre-arbítrio — mas moveu a questão para: o que conta como 'livre'?",
+      "visual": "Libet 1983: relógio de pontos, movimento de punho, EEG. RP (potencial de prontidão) começa -550ms. Decisão consciente relatada: -200ms. Ação: 0ms. Interpretações: (1) Ilusão (Wegner). (2) Livre não-veto (Libet: veto em -150ms). (3) RP = preparação/ruído (Schurger 2012). 'Neurociência moveu a questão: o que conta como livre?'",
+      "duration_seconds": 60,
+      "claims": ["free-will-neuroscience", "consciousness-hard-problem"],
+      "transition": "cut",
+      "sd_prompt": "Libet 1983: dot clock, wrist movement, EEG. Readiness Potential (RP) starts -550ms. Conscious decision reported: -200ms. Action: 0ms. Interpretations: (1) Illusion (Wegner). (2) Free won't (Libet: veto at -150ms). (3) RP = preparation/noise (Schurger 2012). 'Neuroscience moved the question: what counts as free?' 8K"
+    },
+    {
+      "scene": 5,
+      "chapter": 8,
+      "title": "O Universo como Computador Quântico",
+      "narration": "Seth Lloyd (2000s): o universo É um computador quântico. Cada partícula elementar processa informação: estado quântico = registro, evolução unitária = computação. Operações elementares desde Big Bang: ~10^120 (margem de Bekenstein: informação máxima em região = área/4 em unidades de Planck). Lei de Moore cósmica: complexidade computacional do universo aumenta. Limite de Lloyd: universo de 13,8 bi anos, energia ~10^70 J, operações ~10^120. A física é computação. Leis da natureza = algoritmo. Estado do universo = dados. 'It from bit' (Wheeler 1989): a realidade emerge de bits quânticos. Se o universo computa, o que ele *está* computando? A si mesmo. A história do universo é a execução de seu próprio programa.",
+      "visual": "Lloyd: universo = computador quântico. Partícula = qubit, evolução = porta quântica. Operações totais: ~10^120. Limite de Bekenstein: I_max = A/4 (Planck). Lei de Moore cósmica: complexidade aumenta. Wheeler 1989: 'It from bit'. Realidade emerge de qubits. 'O universo computa a si mesmo.'",
+      "duration_seconds": 60,
+      "claims": ["computational-universe", "simulation-hypothesis", "quantum-entanglement"],
+      "transition": "cut",
+      "sd_prompt": "Lloyd: universe = quantum computer. Particle = qubit, evolution = quantum gate. Total ops: ~10^120. Bekenstein bound: I_max = A/4 (Planck). Cosmic Moore's law: complexity increases. Wheeler 1989: 'It from bit'. Reality emerges from qubits. 'Universe computes itself.' 8K"
+    },
+    {
+      "scene": 6,
+      "chapter": 8,
+      "title": "A Hipótese da Simulação: O Argumento de Bostrom",
+      "narration": "Se o universo é computacional, pode ser simulação. Bostrom (2003): trilema — (1) extinção antes de simular, (2) desinteresse, (3) somos simulados. Premissa: civilização pós-humana com computadores de escala planetária/estelar pode simular mentes ancestrais com alta fidelidade. Número de mentes simuladas >> biológicas. Probabilidade: se (1) e (2) falsas, P(simulação) ≈ 1. Busca por assinaturas: discretização do espaço-tempo (grade de Planck?), limites computacionais (velocidade da luz como clock speed?), otimização (renderização preguiçosa — colapso da função de onda?). Beane et al. (2012): raios cósmicos de ultra-alta energia poderiam revelar grade de simulação (anisotropia). Resultado: consistente com contínuo. Se somos simulação, quem simula os simuladores? Regresso infinito — ou nível base inexplicável. A hipótese move metafísica para ciência da computação — mas não elimina o mistério.",
+      "visual": "Bostrom 2003: trilema. Premissa: computação massiva futura. Mentes simuladas >> biológicas. P(simulação) ≈ 1 se (1)(2) falsas. Assinaturas: discretização (grade Planck?), limites (c = clock?), otimização (renderização preguiçosa = colapso?). Beane 2012: raios cósmicos UHE anisotropia → grade? Resultado: consistente com contínuo. Regresso infinito: quem simula simuladores?",
+      "duration_seconds": 60,
+      "claims": ["simulation-hypothesis", "computational-universe", "fine-tuning-constants"],
+      "transition": "cut",
+      "sd_prompt": "Bostrom 2003: simulation trilemma. Premise: massive future compute. Simulated minds >> biological. P(simulation) ≈ 1 if (1)(2) false. Signatures: discretization (Planck grid?), limits (c = clock?), optimization (lazy rendering = collapse?). Beane 2012: UHE cosmic ray anisotropy → grid? Result: consistent with continuum. Infinite regress: who simulates simulators? 8K"
+    },
+    {
+      "scene": 7,
+      "chapter": 8,
+      "title": "Panpsiquismo: Consciência em Toda Parte?",
+      "narration": "Se a consciência não emerge magicamente de matéria inconsciente (problema da emergência), talvez a consciência seja fundamental e ubíqua. Panpsiquismo (James, Whitehead, Russell, Goff 2019): propriedades experienciais básicas (proto-consciência) são intrínsecas à matéria. Elétrons têm 'experiência' rudimentar. Combinação: como micro-experiências formam macro-experiência? 'Problema da combinação' (James 1890, Goff 2017) — análogo ao problema difícil. Cosmopsiquismo (Goff, Shani): o universo COMO UM TODO é consciente; mentes individuais são fragmentos. IIT implica panpsiquismo: até fotodiodo tem Φ > 0. Panpsiquismo evita emergência 'forte' (algo do nada) — mas enfrenta combinação. É a única alternativa materialista que leva a experiência a sério como fundamental. 'A consciência não aparece — está lá desde o início.'",
+      "visual": "Panpsiquismo: James, Whitehead, Russell, Goff 2019. Proto-consciência intrínseca à matéria. Elétrons têm experiência rudimentar. Problema da combinação: micro → macro? Cosmopsiquismo: universo TODO consciente, mentes = fragmentos. IIT → panpsiquismo (fotodiodo Φ>0). 'Consciência não emerge — está lá desde o início.'",
+      "duration_seconds": 60,
+      "claims": ["consciousness-hard-problem", "integrated-information-theory", "panpsychism"],
+      "transition": "cut",
+      "sd_prompt": "Panpsychism: James, Whitehead, Russell, Goff 2019. Proto-consciousness intrinsic to matter. Electrons have rudimentary experience. Combination problem: micro → macro? Cosmopsychism: universe AS WHOLE conscious, minds = fragments. IIT → panpsychism (photodiode Phi>0). 'Consciousness doesn't emerge — it's there from the start.' 8K"
+    },
+    {
+      "scene": 8,
+      "chapter": 8,
+      "title": "Realidade, Informação e a Medição",
+      "narration": "A mecânica quântica entrelaça observador e observado. A função de onda colapsa (ou ramifica) na medição. O observador consciente causa colapso? (Wigner, von Neumann — visão minoritária hoje). Decoerência explica aparência de colapso sem observador consciente — ambiente 'mede' continuamente. Mas a medição quântica permanece primitiva: a natureza 'escolhe' resultado probabilístico. Wheeler (1989): 'It from bit' — cada ato de medição (bit) contribui para construir a realidade (it). Universo participatório: observadores são necessários para dar realidade ao passado (experimento de escolha atrasada). A informação é ontologicamente primária? 'Toda coisa física — it — deriva sua existência de bits.' A distinção entre 'simulação' e 'realidade base' dissolve-se: ambas são processamento de informação. A questão não é 'somos simulação?' — é 'o que é computação?'",
+      "visual": "Wigner/von Neumann: consciência causa colapso? (minoria). Decoerência: ambiente mede continuamente. Wheeler 1989: 'It from bit'. Medição (bit) constrói realidade (it). Universo participatório: observadores dão realidade ao passado (escolha atrasada). Informação = primária ontologicamente. Simulação vs realidade base: ambas = processamento de informação. 'Questão não é "somos simulação?" — é "o que é computação?"'",
+      "duration_seconds": 60,
+      "claims": ["measurement-problem", "computational-universe", "simulation-hypothesis", "many-worlds-interpretation"],
+      "transition": "cut",
+      "sd_prompt": "Wigner/von Neumann: consciousness causes collapse? (minority). Decoherence: environment measures continuously. Wheeler 1989: 'It from bit'. Measurement (bit) builds reality (it). Participatory universe: observers give reality to past (delayed choice). Information = ontologically primary. Simulation vs base reality: both = information processing. 'Question is not "are we simulation?" but "what is computation?"' 8K"
+    },
+    {
+      "scene": 9,
+      "chapter": 8,
+      "title": "O Observador no Centro do Universo",
+      "narration": "Da cosmologia à consciência, o observador reaparece. Inflação: flutuações quânticas → sementes de estrutura → observadores bilhões de anos depois. CMB: nós a observamos, colapsando/ramificando sua função de onda. Mecânica quântica: medição requer observador (ou decoerência). Consciência: o universo se torna consciente de si mesmo através de nós. 'Somos o universo se experienciando' (Sagan). Antropicamente: só universos com observadores são observados. A ciência removeu o humano do centro (Copérnico, Darwin) — mas a física quântica e a cosmologia o recolocam, não como privilegiado, mas como *necessário*. A equação do universo inclui o observador. A última grande unificação pode ser: física + observador = realidade. Não há 'visão de Deus' — só visões de dentro.",
+      "visual": "Sagan: 'Somos o universo se experienciando'. Inflação: flutuações quânticas → estrutura → observadores. CMB: nós observamos → colapso/ramificação. QM: medição requer observador. Antropico: só universos com observadores observados. Copérnico/Darwin: removeram humano do centro. QM/Cosmologia: recolocam como necessário. 'Não há visão de Deus — só visões de dentro.'",
+      "duration_seconds": 60,
+      "claims": ["consciousness-hard-problem", "measurement-problem", "many-worlds-interpretation", "inflation-theory", "anthropic-principle"],
+      "transition": "cut",
+      "sd_prompt": "Sagan: 'We are the universe experiencing itself.' Inflation: quantum fluctuations → structure → observers. CMB: we observe → collapse/branching. QM: measurement requires observer. Anthropic: only universes with observers observed. Copernicus/Darwin: removed human from center. QM/Cosmology: replace as necessary. 'No God\'s-eye view — only views from inside.' 8K"
+    },
+    {
+      "scene": 10,
+      "chapter": 8,
+      "title": "O Mistério que Nos Contém",
+      "narration": "Chegamos ao fim do documentário — mas não ao fim das perguntas. A consciência, o livre-arbítrio, a natureza da realidade: são os mistérios mais íntimos e mais universais. A ciência mapeou o cosmos de quarks a galáxias, do Big Bang à morte térmica. Mas o mapa não inclui o cartógrafo. A equação não inclui quem a escreve. Talvez a ciência nunca 'resolva' a consciência — talvez a consciência seja o que *faz* a ciência, o chão inquestionável de toda explicação. Ou talvez uma teoria futura (gravidade quântica, teoria da informação, nova ontologia) integre mente e matéria em estrutura única. Por agora, o mistério permanece. E é apropriado: um universo totalmente compreendido seria um universo sem nós. O mistério não é falha — é convite. Continuamos olhando para cima, para dentro, para frente. A busca É o significado.",
+      "visual": "Montagem final: cosmos (galáxias, CMB, buracos negros), microcosmo (quarks, DNA, neurônios), observador (olho, cérebro, equação). 'O mapa não inclui o cartógrafo. A equação não inclui quem a escreve.' Sagan, Feynman, Einstein, Curie — silhuetas olhando para as estrelas. 'A busca É o significado.' Fade to black. Créditos.",
+      "duration_seconds": 60,
+      "claims": ["consciousness-hard-problem", "free-will-neuroscience", "measurement-problem", "simulation-hypothesis", "computational-universe", "many-worlds-interpretation"],
+      "transition": "fade",
+      "sd_prompt": "Final montage: cosmos (galaxies, CMB, black holes), microcosm (quarks, DNA, neurons), observer (eye, brain, equation). 'Map doesn't include cartographer. Equation doesn't include writer.' Sagan, Feynman, Einstein, Curie silhouettes looking at stars. 'The search IS the meaning.' Fade to black. Credits. 8K"
+    }
+  ]
+}

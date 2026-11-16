@@ -1,0 +1,117 @@
+{
+  "chapter": 5,
+  "title": "A Realidade Quântica - Emaranhamento, Medição e Muitos Mundos",
+  "duration_seconds": 600,
+  "scenes": [
+    {
+      "scene": 1,
+      "chapter": 5,
+      "title": "Einstein Chamava de 'Ação Fantasmagórica'",
+      "narration": "Em 1935, Einstein, Podolsky e Rosen publicaram o artigo EPR argumentando que a mecânica quântica era incompleta. Dois partículas que interagiram e se separaram mantêm correlações perfeitas — medir uma determina instantaneamente o estado da outra, não importa a distância. Einstein chamava isso de 'ação fantasmagórica à distância' e recusava-se a aceitar: ou a mecânica quântica é incompleta (variáveis ocultas), ou a realidade é não-local. Em 1964, John Bell transformou filosofia em física testável: as desigualdades de Bell. Se variáveis ocultas locais existem, certas correlações têm limite. A mecânica quântica prevê violação. A natureza decide.",
+      "visual": "EPR 1935: Einstein, Podolsky, Rosen. Par emaranhado: medição de spin A determina spin B instantaneamente. 'Ação fantasmagórica à distância'. Bell 1964: desigualdades de Bell — limite para variáveis ocultas locais. QM prevê violação. Experimento: fonte de pares, detectores distantes, escolha de base aleatória.",
+      "duration_seconds": 60,
+      "claims": ["quantum-entanglement", "bell-test-loopholes"],
+      "transition": "fade",
+      "sd_prompt": "EPR 1935: Einstein, Podolsky, Rosen at blackboard. Entangled pair: measurement of spin A instantly determines spin B at distance. 'Spooky action at a distance'. Bell 1964: Bell inequalities derivation. Local hidden variables limit vs QM prediction violation. Experimental setup: entangled pair source, distant detectors, random basis choice. 8K"
+    },
+    {
+      "scene": 2,
+      "chapter": 5,
+      "title": "A Natureza Viola as Desigualdades de Bell",
+      "narration": "Primeiros testes (Aspect, 1982): fótons emaranhados, polarizadores variados. Violação clara. Mas brechas existiam: detecção ineficiente (brecha de detecção), escolha de base não independente do espaço-tempo (brecha de localidade). Em 2015, três grupos fecharam ambas simultaneamente: Delft (elétrons em diamante, 1,3 km), Viena (fótons, 60 m), NIST (íons, 30 m). Violação de Bell sem brechas. Conclusão inescapável: realismo local é falso. Ou propriedades não existem antes da medição (realismo falha), ou influência superluminal existe (localidade falha) — mas sem permitir sinalização (não viola relatividade). A natureza é fundamentalmente não-local ou não-realista. Einstein estava errado nos dois sentidos.",
+      "visual": "Aspect 1982: primeiros testes com fótons. Brechas: detecção, localidade. 2015: três experimentos sem brechas (Delft, Viena, NIST). Gráfico: valor S (CHSH) > 2 (limite clássico), chegando a 2√2 (Tsirelson). 'Realismo local é falso'. Duas opções: não-realismo (propriedades não pré-existem) ou não-localidade (influência superluminal sem sinalização).",
+      "duration_seconds": 60,
+      "claims": ["bell-test-loopholes", "quantum-entanglement"],
+      "transition": "cut",
+      "sd_prompt": "Aspect 1982: early photon tests. Loopholes: detection, locality. 2015 loophole-free: Delft (electrons in diamond, 1.3km), Vienna (photons, 60m), NIST (ions, 30m). CHSH S-value graph: classical limit 2, quantum max 2√2, experimental violations. 'Local realism is false'. Two options: non-realism (properties don't pre-exist) or non-locality (superluminal influence without signaling). 8K"
+    },
+    {
+      "scene": 3,
+      "chapter": 5,
+      "title": "Nobel 2022: A Confirmação Final",
+      "narration": "Em 2022, o Nobel de Física foi para Alain Aspect, John Clauser e Anton Zeilinger — pelos experimentos com fótons emaranhados que estabeleceram a violação das desigualdades de Bell e abriram caminho para a ciência da informação quântica. Clauser (1972): primeiro teste de Bell com fótons. Aspect (1982): teste com escolha de base variável no tempo. Zeilinger: teletransporte quântico, emaranhamento multi-partícula, criptografia quântica. O prêmio reconheceu: o emaranhamento não é curiosidade — é recurso. Computação quântica, criptografia quântica, sensoriamento quântico, internet quântica — todos baseados no que Einstein chamou de 'fantasmagórico'. A 'ação fantasmagórica' tornou-se tecnologia.",
+      "visual": "Nobel 2022: Aspect, Clauser, Zeilinger. Clauser 1972: primeiro teste Bell com fótons. Aspect 1982: bases variáveis. Zeilinger: teletransporte, emaranhamento multi-partícula, QKD. Aplicações: computação quântica, criptografia (QKD), sensores, internet quântica. 'Ação fantasmagórica' = recurso tecnológico.",
+      "duration_seconds": 60,
+      "claims": ["quantum-entanglement", "bell-test-loopholes"],
+      "transition": "cut",
+      "sd_prompt": "Nobel 2022: Aspect, Clauser, Zeilinger portraits. Clauser 1972: first Bell test with photons. Aspect 1982: time-varying bases. Zeilinger: quantum teleportation, multi-particle entanglement, QKD. Applications: quantum computing, quantum cryptography (QKD), quantum sensing, quantum internet. 'Spooky action' = technological resource. 8K"
+    },
+    {
+      "scene": 4,
+      "chapter": 5,
+      "title": "O Problema da Medição: O Gato de Schrödinger",
+      "narration": "A equação de Schrödinger é linear e determinística: superposições evoluem suavemente. Mas a medição colapsa a função de onda para um único resultado — probabilístico, não-determinístico. O gato de Schrödinger (1935): átomo radioativo + detector + veneno + gato na caixa. Estado quântico: (átomo decaído ⊗ gato morto) + (átomo intacto ⊗ gato vivo). Superposição macroscópica. Abrimos a caixa: vemos gato vivo OU morto. Nunca meio-vivo. Onde está a fronteira entre quântico e clássico? Quantos átomos fazem 'medição'? A equação de Schrödinger não tem colapso — o colapso é postulado ad hoc. O problema da medição: como a linearidade quântica nasce a não-linearidade da medição?",
+      "visual": "Equação de Schrödinger: linear, determinística. Gato de Schrödinger: caixa, átomo, detector, veneno, gato. Estado: |decaído⟩|morto⟩ + |intacto⟩|vivo⟩. Abertura da caixa: colapso para um termo. Fronteira quântico-clássico: quantos átomos? Pósulado de colapso: ad hoc, não na equação. Problema da medição: linearidade → não-linearidade?",
+      "duration_seconds": 60,
+      "claims": ["measurement-problem", "quantum-entanglement"],
+      "transition": "cut",
+      "sd_prompt": "Schrödinger equation: linear, deterministic. Schrödinger's cat: box, atom, detector, poison, cat. State: |decayed⟩|dead⟩ + |intact⟩|alive⟩. Box opening: collapse to one term. Quantum-classical boundary: how many atoms? Collapse postulate: ad hoc, not in equation. Measurement problem: linearity → non-linearity? 8K"
+    },
+    {
+      "scene": 5,
+      "chapter": 5,
+      "title": "Interpretação de Copenhague: Cale a Boca e Calcule",
+      "narration": "A interpretação padrão (Bohr, Heisenberg, 1927): a função de onda é ferramenta para calcular probabilidades. Não descreve realidade objetiva. Medição: aparato clássico força colapso. Não pergunte 'o que acontece antes da medição' — pergunta sem sentido. 'Cale a boca e calcule' (Mermin, atribuído a Feynman/Dirac). Funciona pragmaticalmente: previsões precisas, tecnologia (transistores, lasers, MRI). Mas deixa insatisfeitos: onde está a fronteira? A consciência causa colapso (Wigner, von Neumann)? O universo inteiro está em superposição até ser observado? Copenhague evita a ontologia — mas a ontologia insiste em voltar.",
+      "visual": "Bohr e Heisenberg 1927 (Conferência Solvay). Interpretação: função de onda = ferramenta probabilística. Medição: aparato clássico → colapso. 'Não pergunte o que acontece antes'. 'Cale a boca e calcule' (Mermin). Funciona: transistores, lasers, MRI. Problemas: fronteira?, consciência?, universo em superposição?",
+      "duration_seconds": 60,
+      "claims": ["measurement-problem", "quantum-entanglement"],
+      "transition": "cut",
+      "sd_prompt": "Bohr and Heisenberg 1927 (Solvay Conference). Copenhagen interpretation: wavefunction = probabilistic tool. Measurement: classical apparatus → collapse. 'Don't ask what happens before measurement.' 'Shut up and calculate' (Mermin). Works: transistors, lasers, MRI. Problems: boundary? consciousness? universe in superposition? 8K"
+    },
+    {
+      "scene": 6,
+      "chapter": 5,
+      "title": "Muitos Mundos: Todos os Resultados Acontecem",
+      "narration": "Em 1957, Hugh Everett III (doutorado sob Wheeler) propôs: remova o postulado de colapso. A função de onda universal nunca colapsa — evolue sempre pela equação de Schrödinger. Medição: o observador emaranha-se com o sistema. Resultado: ramificação. Todos os resultados possíveis ocorrem, em ramos diferentes. Gato vivo em um ramo, morto em outro. Você se ramifica também. Probabilidade = medida de ramo (problema: por que nascer quadrado da amplitude?). Vantagem: sem colapso, sem fronteira, equação única. Custo: ontologia explosiva — 10^100... ramos. Decoerência (Zurek, 1980s): explica aparência de colapso — fases quânticas se perdem no ambiente, ramos tornam-se efetivamente independentes. Many Worlds é a única interpretação que leva a equação de Schrödinger a sério literalmente.",
+      "visual": "Everett 1957: tese de doutorado. Função de onda universal: sem colapso. Ramificação: medição = emaranhamento observador-sistema. Gato: ramo vivo + ramo morto. Você também ramifica. Probabilidade = medida de ramo (problema da probabilidade). Decoerência: fases perdidas no ambiente, ramos independentes. 'Leva Schrödinger a sério literalmente.'",
+      "duration_seconds": 60,
+      "claims": ["many-worlds-interpretation", "measurement-problem", "quantum-entanglement"],
+      "transition": "cut",
+      "sd_prompt": "Everett 1957: PhD thesis. Universal wavefunction: no collapse. Branching: measurement = observer-system entanglement. Cat: alive branch + dead branch. You also branch. Probability = branch measure (probability problem). Decoherence: phases lost to environment, branches effectively independent. 'Takes Schrödinger literally.' 8K"
+    },
+    {
+      "scene": 7,
+      "chapter": 5,
+      "title": "Outras Interpretações: Bohm, Colapso Objetivo, QBism",
+      "narration": "Copenhague e Many Worlds não estão sozinhas. Bohm (1952): partículas têm posições reais guiadas por 'onda piloto' (função de onda). Não-local explicitamente, determinística. Colapso objetivo (GRW, 1986; Penrose, 1996): a equação de Schrödinger é modificada — colapso espontâneo em sistemas massivos. Testável: aquecimento espontâneo, difusão de matéria. QBism (Fuchs, Schack, 2000s): função de onda = crença subjetiva do agente (bayesiano). Medição = atualização bayesiana. Nenhuma realidade quântica objetiva. Cada interpretação resolve o problema da medição de forma diferente — mas todas reproduzem as mesmas previsões experimentais. A natureza não nos diz qual é 'verdadeira'.",
+      "visual": "Bohm 1952: partículas reais + onda piloto (não-local, determinística). GRW 1986 / Penrose 1996: colapso objetivo — modificação da equação (testável: aquecimento espontâneo). QBism: função de onda = crença bayesiana subjetiva. Medição = atualização bayesiana. Todas reproduzem previsões QM. 'A natureza não nos diz qual é verdadeira.'",
+      "duration_seconds": 60,
+      "claims": ["measurement-problem", "quantum-entanglement"],
+      "transition": "cut",
+      "sd_prompt": "Bohm 1952: real particles + pilot wave (non-local, deterministic). GRW 1986 / Penrose 1996: objective collapse — modified Schrödinger equation (testable: spontaneous heating). QBism: wavefunction = subjective Bayesian belief. Measurement = Bayesian update. All reproduce QM predictions. 'Nature doesn't tell us which is true.' 8K"
+    },
+    {
+      "scene": 8,
+      "chapter": 5,
+      "title": "ER = EPR: Emaranhamento é Geometria",
+      "narration": "Em 2013, Maldacena e Susskind propuseram uma conexão surpreendente: ER = EPR. Ponte de Einstein-Rosen (wormhole, solução da GR) = par de Einstein-Podolsky-Rosen (par emaranhado, QM). Dois buracos negros emaranhados são conectados por wormhole traversável. Emaranhamento cria geometria. O espaço-tempo emerge do emaranhamento quântico. Isso unifica o paradoxo da informação (informação escapa via wormhole), o firewall (wormhole suaviza horizonte), e a holografia (borda emaranhada = volume geométrico). A equação de Einstein (G = 8πT) pode ser derivada da termodinâmica de emaranhamento (Jacobson 1995, Van Raamsdonk 2010). Gravidade = termodinâmica de emaranhamento. O espaço não é palco — é construído pelo emaranhamento.",
+      "visual": "Maldacena-Susskind 2013: ER = EPR. Dois buracos negros emaranhados ↔ wormhole. Emaranhamento cria geometria. Jacobson 1995: equações de Einstein da termodinâmica de horizonte. Van Raamsdonk 2010: remova emaranhamento na borda → espaço-tempo se desconecta no volume. 'Espaço-tempo emerge do emaranhamento.' Gravidade = termodinâmica de emaranhamento.",
+      "duration_seconds": 60,
+      "claims": ["quantum-entanglement", "ads-cft-holography", "black-hole-info-paradox", "firewall-paradox"],
+      "transition": "cut",
+      "sd_prompt": "Maldacena-Susskind 2013: ER = EPR. Two entangled black holes ↔ wormhole. Entanglement creates geometry. Jacobson 1995: Einstein equations from horizon thermodynamics. Van Raamsdonk 2010: remove boundary entanglement → bulk spacetime disconnects. 'Spacetime emerges from entanglement.' Gravity = entanglement thermodynamics. 8K"
+    },
+    {
+      "scene": 9,
+      "chapter": 5,
+      "title": "Emaranhamento em Escala Macroscópica",
+      "narration": "O emaranhamento não é só para fótons e elétrons. Experimentos recentes emaranharam objetos macroscópicos: membranas mecânicas (10^13 átomos, 2021), nuvens atômicas (milhões de átomos), osciladores mecânicos massivos. Decoerência é o inimigo — mas pode ser combatida com resfriamento, isolamento, medição quântica não-demolidora. Emaranhamento macroscópico testa: a mecânica quântica vale em todas as escalas? Onde está a fronteira (se existe)? Propostas: emaranhar micróbios (tardígrados), espelhos de LIGO (40 kg). Se a QM falhar em escala macro, colapso objetivo (GRW, Penrose) ganha força. Se valer até o nível humano... Many Worlds ganha força. A fronteira quântico-clássico está sendo empurrada — e pode não existir.",
+      "visual": "Emaranhamento macroscópico: membranas mecânicas (10^13 átomos, 2021), nuvens atômicas, osciladores massivos. Decoerência combatida: resfriamento milikelvin, isolamento, medição QND. Testes futuros: tardígrados, espelhos LIGO (40 kg). Se QM falha em macro → colapso objetivo. Se vale até humano → Many Worlds. Fronteira quântico-clássico: pode não existir.",
+      "duration_seconds": 60,
+      "claims": ["quantum-entanglement", "measurement-problem", "many-worlds-interpretation"],
+      "transition": "cut",
+      "sd_prompt": "Macroscopic entanglement: mechanical membranes (10^13 atoms, 2021), atomic clouds, massive oscillators. Decoherence fought: millikelvin cooling, isolation, QND measurement. Future tests: tardigrades, LIGO mirrors (40 kg). If QM fails at macro → objective collapse. If holds to human scale → Many Worlds. Quantum-classical boundary: may not exist. 8K"
+    },
+    {
+      "scene": 10,
+      "chapter": 5,
+      "title": "A Realidade que Não Intuímos",
+      "narration": "A mecânica quântica, cem anos após sua formulação, continua a desafiar a intuição. Não-localidade confirmada (Bell, Nobel 2022). Superposição macroscópica demonstrada. Emaranhamento como recurso tecnológico (computação, criptografia, sensoriamento). Espaço-tempo possivelmente emergente do emaranhamento (ER=EPR, holografia). O problema da medição persiste — interpretações multiplicam-se, mas nenhuma é experimentalmente distinguível (exceto colapso objetivo, testável). A realidade quântica é: contextual (resultado depende do que se mede), não-local (correlações à distância), probabilística (fundamentalmente), e possivelmente ramificada (Many Worlds). Einstein queria uma realidade local, realista, determinística. A natureza deu-lhe o oposto. Mas como Feynman disse: 'Ninguém entende a mecânica quântica'. Talvez o entendimento não seja visualizável — seja apenas matemática que funciona.",
+      "visual": "Resumo: Não-localidade (Bell confirmado). Superposição macro. Emaranhamento = tecnologia. ER=EPR: espaço-tempo do emaranhamento. Problema da medição: interpretações indistinguíveis (exceto colapso objetivo). Realidade quântica: contextual, não-local, probabilística, ramificada. Einstein queria: local, realista, determinístico. Natureza: oposto. Feynman: 'Ninguém entende QM'. Entendimento = matemática que funciona.",
+      "duration_seconds": 60,
+      "claims": ["quantum-entanglement", "bell-test-loopholes", "measurement-problem", "many-worlds-interpretation", "ads-cft-holography"],
+      "transition": "fade",
+      "sd_prompt": "Quantum reality summary: Non-locality (Bell confirmed). Macroscopic superposition. Entanglement = technology. ER=EPR: spacetime from entanglement. Measurement problem: interpretations indistinguishable (except objective collapse). Quantum reality: contextual, non-local, probabilistic, branching. Einstein wanted: local, realistic, deterministic. Nature: opposite. Feynman: 'Nobody understands QM.' Understanding = math that works. 8K"
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "chapter": 6,
+  "title": "A Origem da Vida - Do Químico ao Vivo",
+  "duration_seconds": 600,
+  "scenes": [
+    {
+      "scene": 1,
+      "chapter": 6,
+      "title": "A Pergunta que a Biologia Evita",
+      "narration": "A evolução explica como a vida se diversifica — mas não como começa. Darwin, em carta a Hooker (1871), especulou: 'um pequeno lago quente, com amônia e sais fosfóricos, luz, calor, eletricidade... composto proteico formado'. Mas a origem da vida (abiogênese) permanece o maior vazio na biologia. Não há fósseis do primeiro replicador. A transição do químico para o biológico não deixa registro direto. A vida usa 20 aminoácidos (quase todos L), 4 nucleotídeos, código genético universal, membranas lipídicas, metabolismo enzimático. Como essa complexidade integrada surgiu espontaneamente? A química sozinha não 'quer' fazer vida. A termodinâmica favorece a desordem. Algo teve que vencer a entropia localmente — e se sustentar.",
+      "visual": "Darwin 1871: carta a Hooker, 'pequeno lago quente'. Complexidade da vida mínima: 20 aminoácidos (L), 4 nucleotídeos, código genético, membranas, metabolismo. Termodinâmica: entropia aumenta. Vida: ilha de ordem mantida por fluxo de energia. 'A evolução explica diversificação — não origem.'",
+      "duration_seconds": 60,
+      "claims": ["origin-of-life-hydrothermal", "rna-world-hypothesis"],
+      "transition": "fade",
+      "sd_prompt": "Darwin 1871 letter to Hooker: 'warm little pond' quote. Minimal life complexity: 20 L-amino acids, 4 nucleotides, universal genetic code, lipid membranes, enzymatic metabolism. Thermodynamics: entropy increases. Life: island of order maintained by energy flow. 'Evolution explains diversification — not origin.' 8K"
+    },
+    {
+      "scene": 2,
+      "chapter": 6,
+      "title": "Ventos Hidrotermais: Reatores Naturais",
+      "narration": "A hipótese dos ventos hidrotermais alcalinos (Russell, Martin, Lane, 1990s-2010s) propõe: a vida não começou em lagoa na superfície, mas no fundo do mar. Ventos alcalinos (Lost City, Atlântico) expulsam fluidos ricos em H2, CH4, a pH 9-11, a 70-90°C. Encontram água oceânica ácida (pH 5-6), rica em CO2, Fe2+. A interface cria gradiente natural de prótons (ΔpH ~ 4) através de poros inorgânicos de sulfeto de ferro (pirita, mackinawita). Esses poros são compartimentos naturais — 'células' rochosas. O gradiente de prótons impulsiona redução de CO2 a orgânicos (formato, acetato, piruvato) — proto-metabolismo espontâneo, sem enzimas. A vida pode ser consequência inevitável da geoquímica em planetas úmidos e rochosos.",
+      "visual": "Vento alcalino Lost City: chaminés de carbonato, fluidos claros. Interface: fluido alcalino (H2, CH4) encontra oceano ácido (CO2, Fe2+). Poros de sulfeto de ferro: compartimentos inorgânicos. Gradiente ΔpH ~ 4 através de paredes finas. Redução de CO2: setas mostrando formato → acetato → piruvato. 'Proto-metabolismo sem enzimas.'",
+      "duration_seconds": 60,
+      "claims": ["origin-of-life-hydrothermal"],
+      "transition": "cut",
+      "sd_prompt": "Lost City alkaline vent: carbonate chimneys, clear fluids. Interface: alkaline fluid (H2, CH4) meets acidic ocean (CO2, Fe2+). Iron sulfide pores: inorganic compartments. Proton gradient ΔpH ~4 across thin walls. CO2 reduction pathway: formate → acetate → pyruvate. 'Proto-metabolism without enzymes.' 8K"
+    },
+    {
+      "scene": 3,
+      "chapter": 6,
+      "title": "O Mundo RNA: Informação e Catálise Juntas",
+      "narration": "O enigma do ovo e a galinha: proteínas fazem catálise, DNA guarda informação. Quem veio primeiro? A hipótese do mundo RNA (Gilbert, 1986; baseada em descobertas de Cech e Altman, Nobel 1989): o RNA faz as duas coisas. Ribozimas: RNA com atividade catalítica (spliceossomo, ribossomo, RNase P). O ribossomo — fábrica de proteínas — é uma ribozima; o sítio peptidil-transferase é RNA. O RNA pode replicar-se (polimerase de RNA baseada em RNA, evoluída em laboratório). Mas problemas persistem: síntese pré-biótica de nucleotídeos (açúcar + base + fosfato) é difícil; RNA é instável (hidrólise alcalina); como surgiu o código genético (tripletos → aminoácidos)? O mundo RNA é etapa plausível — mas não a origem absoluta.",
+      "visual": "Cech/Altman 1989: descoberta de ribozimas (Nobel). Ribossomo: sítio peptidil-transferase = RNA (estrutura 3D). RNA polimerase de RNA: evoluída em laboratório (Joyce, 2016). Problemas: síntese pré-biótica de nucleotídeos (dificuldade), instabilidade do RNA (hidrólise), origem do código genético (tripletos → aminoácidos).",
+      "duration_seconds": 60,
+      "claims": ["rna-world-hypothesis"],
+      "transition": "cut",
+      "sd_prompt": "Cech/Altman 1989: ribozyme discovery (Nobel). Ribosome: peptidyl-transferase site = RNA (3D structure). RNA-dependent RNA polymerase: lab-evolved (Joyce 2016). Problems: prebiotic nucleotide synthesis (difficult), RNA instability (alkaline hydrolysis), genetic code origin (triplets → amino acids). 8K"
+    },
+    {
+      "scene": 4,
+      "chapter": 6,
+      "title": "Homociralidade: A Assinatura da Vida",
+      "narration": "A vida é homociral: aminoácidos L, açúcares D (DNA/RNA). Química abiótica produz misturas racêmicas (50/50 L/D). Por que a vida escolheu um lado? Meteorito Murchison (1969): aminoácidos com excesso enantiomérico pequeno (L ~ 1-2%) — polarização circular de luz em região de formação estelar? Cristalização quiral em superfícies minerais? Auto-catálise quiral (reação de Soai, 1995): pequena assimetria inicial amplificada exponencialmente. Efeito fraco nuclear: violação de paridade (beta decay) cria leve diferença de energia entre enantiômeros (~10^-17 kT) — minúscula, mas talvez amplificada ao longo de tempo geológico. A homociralidade pode ser impressão digital da origem — ou acidente congelado.",
+      "visual": "Aminoácidos L vs D (espelhos). Murchison 1969: excesso enantiomérico L (1-2%). Polarização circular de luz em nebulosa. Cristalização quiral em minerais. Reação de Soai: auto-catálise quiral amplificando assimetria. Violação de paridade (força fraca): diferença de energia 10^-17 kT. 'Homociralidade = impressão digital ou acidente congelado?'",
+      "duration_seconds": 60,
+      "claims": ["origin-of-homochirality"],
+      "transition": "cut",
+      "sd_prompt": "L vs D amino acids (mirror images). Murchison 1969: L-enantiomeric excess (1-2%). Circularly polarized light in star-forming nebula. Chiral crystallization on minerals. Soai reaction: chiral autocatalysis amplifying asymmetry. Weak force parity violation: energy difference 10^-17 kT. 'Homochirality = fingerprint or frozen accident?' 8K"
+    },
+    {
+      "scene": 5,
+      "chapter": 6,
+      "title": "Panspermia: A Vida Veio do Espaço?",
+      "narration": "Panspermia (Arrhenius 1908, Hoyle/Wickramasinghe 1970s): vida na Terra veio de sementes interestelares. Evidências: aminoácidos em meteoritos (Murchison: 70+ aminoácidos, muitos não-proteinogênicos). Sobrevivência no espaço: experimentos EXPOSE na ISS — esporos de Bacillus, líquenes, tardígrados sobrevivem vácuo, radiação UV, anos no espaço. Transferência interestelar: possível mas improvável (tempos de trânsito milhões de anos, radiação cósmica). Panspermia não resolve origem — apenas move o problema para outro lugar. Mas se vida existe em Marte/Europa/Encelado com bioquímica diferente (aminoácidos D? bases diferentes?), panspermia interestelar ganha força. Se bioquímica idêntica, pode ser contaminação terrestre (meteoritos). A busca por segunda gênese é o teste decisivo.",
+      "visual": "Arrhenius 1908: panspermia. Murchison: 70+ aminoácidos. EXPOSE/ISS: esporos, líquenes, tardígrados sobrevivendo no espaço. Transferência interestelar: tempos longos, radiação. Segunda gênese: bioquímica diferente = panspermia interestelar forte. Bioquímica idêntica = contaminação terrestre provável. 'Panspermia move o problema — não resolve.'",
+      "duration_seconds": 60,
+      "claims": ["panspermia-hypothesis"],
+      "transition": "cut",
+      "sd_prompt": "Arrhenius 1908 panspermia concept. Murchison meteorite: 70+ amino acids. EXPOSE/ISS: Bacillus spores, lichens, tardigrades surviving space vacuum/UV. Interstellar transfer: long transit times, cosmic radiation. Second genesis: different biochemistry = strong panspermia. Identical biochemistry = terrestrial contamination likely. 'Panspermia moves the problem — doesn't solve it.' 8K"
+    },
+    {
+      "scene": 6,
+      "chapter": 6,
+      "title": "Marte: O Cemitério de Sonhos — ou Berço?",
+      "narration": "Marte teve água líquida há 3-4 bilhões de anos: rios, lagos, talvez oceano no norte. Perseverance (pousou 2021) explora cratera Jezero, delta fossilizado. Detectou matéria orgânica em rochas sedimentares (SHERLOC, Raman) — mas origem indeterminada: biótica ou abiótica? Metano na atmosfera: picos sazonais, origem desconhecida (geológica vs biológica). Amostras coletadas para Mars Sample Return (2030s). Viking (1976): experimentos de metabolismo (LR) deram positivos — mas GCMS não viu orgânicos. Debate continua. Se Marte teve vida independente, fl ≈ 1. Se só vida trazida da Terra (meteoritos), panspermia local. Se nunca teve vida, condições não bastam. Marte guarda a resposta em suas rochas.",
+      "visual": "Marte 3-4 bi anos: rios, lagos, oceano boreal (mapa topográfico). Perseverance em Jezero: delta, rochas sedimentares, SHERLOC detectando orgânicos. Metano sazonal: picos misteriosos. Viking 1976: LR positivo, GCMS negativo. Mars Sample Return: tubos de amostra. 'Segunda gênese em Marte = vida é regra.'",
+      "duration_seconds": 60,
+      "claims": ["mars-life-evidence"],
+      "transition": "cut",
+      "sd_prompt": "Mars 3-4 Gya: rivers, lakes, northern ocean (topographic map). Perseverance at Jezero: fossil delta, sedimentary rocks, SHERLOC detecting organics. Seasonal methane: mysterious spikes. Viking 1976: LR positive, GCMS negative. Mars Sample Return: sample tubes. 'Second genesis on Mars = life is common.' 8K"
+    },
+    {
+      "scene": 7,
+      "chapter": 6,
+      "title": "Europa e Encelado: Oceanos Escondidos",
+      "narration": "Europa (lua de Júpiter) e Encelado (lua de Saturno) têm oceanos globais sob cascas de gelo. Europa: oceano ~100 km profundo, 2x água da Terra, em contato com manto rochoso (quimiossíntese possível). Radiação de Júpiter cria oxidantes na superfície — transporte para oceano via convecção? Encelado: plumas jorrando do polo sul (tiger stripes), amostradas por Cassini (2005-2017). Vapor, sais (NaCl, NaHCO3), sílica (atividade hidrotermal), orgânicos complexos (até 200 Da). H2 molecular detectado — energia para metanogênese. Europa Clipper (lançamento 2024, chegada 2030) fará 50 flybys, radar penetrante, espectrômetros. Se vida existe lá, é verdadeiramente alienígena — origem independente, bioquímica possivelmente diferente.",
+      "visual": "Europa: casco de gelo 10-30 km, oceano 100 km, manto rochoso. Radiação joviana → oxidantes na superfície → transporte. Encelado: tiger stripes, plumas, Cassini voando através. Cassini dados: vapor, sais, sílica (hidrotermais), orgânicos até 200 Da, H2. Metanogênese: CO2 + 4H2 → CH4 + 2H2O. Europa Clipper: 50 flybys, radar, espectrômetros. 'Vida verdadeiramente alienígena.'",
+      "duration_seconds": 60,
+      "claims": ["europa-enceladus-oceans"],
+      "transition": "cut",
+      "sd_prompt": "Europa: ice shell 10-30km, ocean 100km, rocky mantle. Jovian radiation → surface oxidants → transport. Enceladus: tiger stripes, plumes, Cassini flying through. Cassini data: vapor, salts, silica (hydrothermal), organics up to 200 Da, H2. Methanogenesis: CO2 + 4H2 → CH4 + 2H2O. Europa Clipper: 50 flybys, radar, spectrometers. 'Truly alien life.' 8K"
+    },
+    {
+      "scene": 8,
+      "chapter": 6,
+      "title": "Titã: Vida em Metano Líquido?",
+      "narration": "Titã (maior lua de Saturno) é o único corpo além da Terra com líquidos estáveis na superfície: lagos e mares de metano/etano a -179°C. Ciclo do metano análogo ao ciclo da água: evaporação, nuvens, chuva, rios, lagos. Atmosfera: 95% N2, 5% CH4, fotólise cria tolinas (orgânicos complexos, névoa laranja). Superfície: dunas de orgânicos, rios, mares (Kraken Mare, Ligeia Mare). Química criogênica: lipídimos em metano? 'Azotossomos' (membranas de nitrogênio) propostos como análogos de lipossomos. Metabolismo sem água? Dragonfly (lançamento 2028, chegada 2034): rotorcraft voará 175 km, analisará composição. Se vida existe em Titã, redefine 'habitável' — água não é requisito absoluto.",
+      "visual": "Titã: lagos de metano/etano (Cassini RADAR), -179°C. Ciclo do metano: evaporação, chuva, rios. Atmosfera: N2/CH4, tolinas (névoa laranja). Azotossomos: membranas de acrilonitrila em metano líquido. Dragonfly 2028: rotorcraft, 175 km range. 'Água não é requisito absoluto.'",
+      "duration_seconds": 60,
+      "claims": ["titans-methane-cycle"],
+      "transition": "cut",
+      "sd_prompt": "Titan: methane/ethane lakes (Cassini RADAR), -179°C. Methane cycle: evaporation, rain, rivers. Atmosphere: N2/CH4, tholins (orange haze). Azotosomes: acrylonitrile membranes in liquid methane. Dragonfly 2028: rotorcraft, 175 km range. 'Water is not an absolute requirement.' 8K"
+    },
+    {
+      "scene": 9,
+      "chapter": 6,
+      "title": "Biologia Quântica: A Vida Usa Quântica?",
+      "narration": "A biologia quântica investiga: efeitos quânticos (coerência, tunelamento, emaranhamento) têm papel funcional em sistemas vivos? Evidências crescentes: (1) Fotossíntese: coerência quântica no complexo FMO (bactérias de enxofre verde) e plantas — transferência de energia excitônica via superposição, explorando múltiplos caminhos, eficiência ~99%. (2) Enzimas: tunelamento de prótons acelera reações (ex: desidrogenase de álcool). (3) Bússola dos pássaros: mecanismo de par radical em criptocromo 4 — pares de elétrons emaranhados sensíveis a campo magnético terrestre (50 μT). Experimentos: pombos perdem orientação com ruído eletromagnético antropogênico fraco (AM radio, equipamento elétrico) — blindagem de Faraday restaura. A vida pode ter evoluído para explorar quântica — não apenas tolerá-la.",
+      "visual": "Fotossíntese: complexo FMO, coerência quântica (picossegundos, temperatura ambiente), transferência excitônica multi-caminho. Enzimas: tunelamento de prótons (curva de Arrhenius anômala). Magnetorrecepção aviária: criptocromo 4, par radical emaranhado, sensível a 50 μT. Pombos: ruído AM antrópico desorienta, gaiola de Faraday restaura. 'Vida explora quântica — não apenas tolera.'",
+      "duration_seconds": 60,
+      "claims": ["quantum-biology", "avian-magnetoreception", "photosynthesis-quantum-coherence"],
+      "transition": "cut",
+      "sd_prompt": "Photosynthesis: FMO complex, quantum coherence (picoseconds, room temp), excitonic multi-path transfer. Enzymes: proton tunneling (anomalous Arrhenius). Avian magnetoreception: cryptochrome 4, entangled radical pair, sensitive to 50 μT. Pigeons: anthropogenic AM noise disorients, Faraday cage restores. 'Life exploits quantum — not just tolerates.' 8K"
+    },
+    {
+      "scene": 10,
+      "chapter": 6,
+      "title": "A Origem: Inevitável ou Acidente?",
+      "narration": "Duas visões opostas. Monod (1970): 'O universo não estava grávido de vida. A vida é acidente cósmico, evento de probabilidade infinitesimal.' De Duve (1995): 'A vida é imperativo cósmico. Dadas as condições, a vida surge inevitavelmente — a matéria se auto-organiza.' Ventos hidrotermais apoiam De Duve: geoquímica → proto-metabolismo → replicadores → células é caminho termodinamicamente favorável. Mundo RNA: etapa plausível mas não inevitável. Homociralidade: acidente congelado ou impressão digital? Segunda gênese (Marte, Europa, Encelado, Titã) é o teste empírico. Se encontrarmos vida com bioquímica diferente (aminoácidos D? bases XNA? membranas não-lipídicas?), Monod perde. Se só vida terra-forma, De Duve perde. A resposta está nos oceanos gelados e nas rochas vermelhas — esperando para ser lida.",
+      "visual": "Monod 1970: 'acidente cósmico, probabilidade infinitesimal'. De Duve 1995: 'imperativo cósmico, surge inevitavelmente'. Ventos hidrotermais: caminho termodinâmico favorável. Segunda gênese: bioquímica diferente = De Duve vence. Bioquímica idêntica = Monod vence (ou panspermia). Marte, Europa, Encelado, Titã: laboratórios naturais. 'A resposta está esperando para ser lida.'",
+      "duration_seconds": 60,
+      "claims": ["origin-of-life-hydrothermal", "rna-world-hypothesis", "mars-life-evidence", "europa-enceladus-oceans", "titans-methane-cycle", "origin-of-homochirality"],
+      "transition": "fade",
+      "sd_prompt": "Monod 1970: 'cosmic accident, infinitesimal probability'. De Duve 1995: 'cosmic imperative, arises inevitably'. Hydrothermal vents: thermodynamically favored path. Second genesis: different biochemistry = De Duve wins. Identical biochemistry = Monod wins (or panspermia). Mars, Europa, Enceladus, Titan: natural laboratories. 'The answer waits to be read.' 8K"
+    }
+  ]
+}

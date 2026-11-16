@@ -1,0 +1,57 @@
+{
+  "version": "2026.11.09",
+  "reviewed_at": "2026-11-09T19:40:00Z",
+  "aligned_upstream": "16b9e6d45f10649f6a531ec4838ed9924372c3bc",
+  "upstream": "https://api.github.com/repos/semgrep/semgrep-rules/commits/develop",
+  "rules": [
+    {
+      "id": "py-eval",
+      "extensions": [".py"],
+      "pattern": "(?<![\\w.])eval\\s*\\(",
+      "message": "eval() executa texto como código"
+    },
+    {
+      "id": "py-exec",
+      "extensions": [".py"],
+      "pattern": "(?<![\\w.])exec\\s*\\(",
+      "message": "exec() executa texto como código"
+    },
+    {
+      "id": "py-shell-true",
+      "extensions": [".py"],
+      "pattern": "shell\\s*=\\s*True",
+      "message": "subprocess com shell=True"
+    },
+    {
+      "id": "py-pickle-load",
+      "extensions": [".py"],
+      "pattern": "pickle\\.loads?\\s*\\(",
+      "message": "pickle desserializa objetos arbitrários"
+    },
+    {
+      "id": "py-yaml-unsafe",
+      "extensions": [".py"],
+      "pattern": "yaml\\.load\\s*\\(",
+      "unless": ["SafeLoader", "BaseLoader", "CSafeLoader", "Loader="],
+      "message": "yaml.load sem Loader explícito"
+    },
+    {
+      "id": "py-verify-false",
+      "extensions": [".py"],
+      "pattern": "verify\\s*=\\s*False",
+      "message": "verificação TLS desligada"
+    },
+    {
+      "id": "js-eval",
+      "extensions": [".js", ".mjs", ".cjs"],
+      "pattern": "(?<![\\w.$])eval\\s*\\(",
+      "message": "eval() executa texto como código"
+    },
+    {
+      "id": "js-function-ctor",
+      "extensions": [".js", ".mjs", ".cjs"],
+      "pattern": "new\\s+Function\\s*\\(",
+      "message": "new Function() executa texto como código"
+    }
+  ]
+}

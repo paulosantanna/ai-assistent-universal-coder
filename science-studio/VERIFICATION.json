@@ -1,0 +1,162 @@
+{
+  "date": "2026-10-27",
+  "scope": "Original TLC-format skills, local compositor and staged/installed Dark-videos integration",
+  "skills": {
+    "science-studio-expert": {
+      "failed": 0,
+      "warnings": 0,
+      "entry_lines": 40
+    },
+    "science-research-expert": {
+      "failed": 0,
+      "warnings": 0,
+      "entry_lines": 40
+    },
+    "science-script-expert": {
+      "failed": 0,
+      "warnings": 0,
+      "entry_lines": 40
+    },
+    "motion-comic-art-expert": {
+      "failed": 0,
+      "warnings": 0,
+      "entry_lines": 40
+    },
+    "motion-comic-animation-expert": {
+      "failed": 0,
+      "warnings": 0,
+      "entry_lines": 40
+    },
+    "science-vfx-expert": {
+      "failed": 0,
+      "warnings": 0,
+      "entry_lines": 40
+    },
+    "ptbr-documentary-voice-expert": {
+      "failed": 0,
+      "warnings": 0,
+      "entry_lines": 40
+    },
+    "science-video-review-expert": {
+      "failed": 0,
+      "warnings": 0,
+      "entry_lines": 40
+    }
+  },
+  "checks": {
+    "runtime_tests": {
+      "passed": 8,
+      "command": "python -X utf8 science-studio/test_studio.py"
+    },
+    "api_tests": {
+      "passed": 6,
+      "command": "D:/Git/dark-videos/backend/.venv/Scripts/python.exe -B -X utf8 science-studio/integration/test_api.py"
+    },
+    "frontend_types": {
+      "passed": true,
+      "scope": "full installed Dark-videos frontend tsc --noEmit --incremental false"
+    },
+    "ruff": {
+      "passed": true,
+      "scope": "installed API + router under actual backend configuration"
+    },
+    "workspace_validation": {
+      "passed": true,
+      "report": ".work/science-studio/workspace-validation.json"
+    },
+    "fixture": ".work/science-studio/smoke/preview.mp4",
+    "python_parse": {
+      "passed": true
+    },
+    "installed_hashes": {
+      "passed": true,
+      "files": 5
+    }
+  },
+  "installed": {
+    "target": "D:\\Git\\dark-videos",
+    "files": [
+      {
+        "path": "backend/app/api/router.py",
+        "before": "683f0dbc48da52972bc8c495f85ccbf7444f936d7332a7b8130b141b9ac5b720",
+        "after": "ee2288accb58d2797a6401bf47fd6c4b74f577041a987b3b81125e2f894356bb",
+        "changed": true
+      },
+      {
+        "path": "frontend/src/components/shell/nav.ts",
+        "before": "76fa412ef9ed39c61e4ac8c9c065a149baec42df29111e78740fa4e72de1f425",
+        "after": "579ebdb48f06699735632a46dc6191371dd1a2784b9534354d29413c8c0e4a04",
+        "changed": true
+      },
+      {
+        "path": "backend/app/api/science_studio.py",
+        "before": "4480686ce644920c8f092a419a6a23ec6ede796181339636bb27b69fa8cc08e9",
+        "after": "ec788dd5f9d317d8501c6e2dec597ced95dd26341cc5b950052c90ab02e90957",
+        "changed": true
+      },
+      {
+        "path": "frontend/src/app/(app)/science-studio/page.tsx",
+        "before": "c0932a11d9c9c0082e30656f7a9bfb5c27de0d57e3630a38e6e85654873812eb",
+        "after": "c0932a11d9c9c0082e30656f7a9bfb5c27de0d57e3630a38e6e85654873812eb",
+        "changed": false
+      },
+      {
+        "path": "backend/app/api/science_studio.json",
+        "before": "489b3309ec9ff6f6f5d4943972e674e864e50d13514187ad6d275b97c1fce6f3",
+        "after": "489b3309ec9ff6f6f5d4943972e674e864e50d13514187ad6d275b97c1fce6f3",
+        "changed": false
+      }
+    ]
+  },
+  "preflight": {
+    "executables": {
+      "ffmpeg": "C:\\Users\\paulo\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.2-full_build\\bin\\ffmpeg.EXE",
+      "ffprobe": "C:\\Users\\paulo\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.2-full_build\\bin\\ffprobe.EXE",
+      "ollama": null,
+      "piper": null
+    },
+    "python_modules": {
+      "piper": false,
+      "torch": false,
+      "PIL": true
+    },
+    "services": {
+      "ollama": {
+        "status": "unavailable",
+        "error_type": "URLError"
+      },
+      "comfyui": {
+        "status": "unavailable",
+        "error_type": "URLError"
+      }
+    }
+  },
+  "activation": {
+    "status": "deferred",
+    "reason": "publication_in_flight",
+    "count": 1
+  },
+  "limitations": [
+    "No Ollama/Piper found in inspected Python/PATH and no local Ollama/ComfyUI service reachable.",
+    "No models installed; no evaluated masculine documentary voice or final science-film artwork.",
+    "Scientific effects require authored/generated layers/clips; compositor is not a physical solver.",
+    "SRT timings estimated by words; sidecar only. No measured forced alignment or automatic fact verification.",
+    "Long profiles initialized and contract-checked; no 60/90-minute film rendered.",
+    "API activation deferred because one publication was in flight; no publisher restarted."
+  ],
+  "source_sha256": {
+    "science-studio/CONTRACT.md": "8eb58dbde8756d65e5e43cf84906bd94a82ee9c52b8588839bcac8d803656e63",
+    "science-studio/PLAYBOOK.md": "77adb5df5d71d24275f6721605ea8bb6dce6fa16bda5b1f4dbf45d93f88daf68",
+    "science-studio/providers.py": "13a882aa58bcf01dcdd9cac2e2e0deecaa4afc66190783b1a930d428220b3dc9",
+    "science-studio/README.md": "c4702a6723afd6876d3713d5fd973ac8ad2b847d51f72c63a0e9ceb129d74a31",
+    "science-studio/SESSION.md": "138dde5a6b6d2a942a4d009235058de5efda3a98535aa6c87163ad21840ab89f",
+    "science-studio/studio.py": "ca5b7cd9fb179fbaabd03e579c78202292e8c14e68648d5b0d7aa003cca72996",
+    "science-studio/test_studio.py": "4d4de2ce99fb799f90ab32aedb7867da43976ce09fb84c43ef6eada2ca74d17e",
+    "science-studio/integration/dark_api.py": "ec788dd5f9d317d8501c6e2dec597ced95dd26341cc5b950052c90ab02e90957",
+    "science-studio/integration/INSTALL.md": "36474b8859e712fbe52a6595aba97dc34c6fe1bc52e29be1e8d52dd12f45814c",
+    "science-studio/integration/install.py": "6fed0efd7e04980909443d492aa580858f80593cd6d220c38539eb126692d020",
+    "science-studio/integration/page.tsx": "c0932a11d9c9c0082e30656f7a9bfb5c27de0d57e3630a38e6e85654873812eb",
+    "science-studio/integration/test_api.py": "25ae481fa5085b4ab46f65a02f475780689515929d08abd9eedcf9d1dc6af5e2",
+    "science-studio/integration/worker.py": "483b71206e06f79d0108e7d52a87bee939d7f137091f8036d94ed8867961aa5c"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "schema": "cloud-architecture-model/v1",
+  "provider": "aws",
+  "project": {
+    "name": "MyDigitalBuddy",
+    "kind": "desktop-app",
+    "source": "02_repositorios/MyDigitalBuddy (README, PRIVACIDADE.md, Cargo.toml, .github/workflows/ci.yml)"
+  },
+  "environment": "prod",
+  "regions": { "primary": "us-east-1", "note": "origem S3 em us-east-1 (armazenamento mais barato); a borda do CloudFront atende o Brasil com PriceClass_All" },
+  "audience_regions": ["BR", "SA"],
+  "accounts": {
+    "name": "mydigitalbuddy-release",
+    "ou": "Projects",
+    "guardrails": ["SCP limitando regioes a us-east-1 e sa-east-1", "nenhum usuario IAM de longo prazo", "AWS Budgets com alerta de custo"]
+  },
+  "network": { "private_only": false, "interface_endpoints": 0, "availability_zones": 0, "nat_gateways": 0 },
+  "compute": [],
+  "data": [
+    {
+      "name": "release-artifacts",
+      "kind": "object",
+      "service": "s3",
+      "public_access": false,
+      "encryption": "sse-s3",
+      "versioning": true,
+      "block_public_access": true,
+      "origin_access": "cloudfront-oac"
+    }
+  ],
+  "ml": [],
+  "llm": { "external_endpoint": false },
+  "constraints": { "external_llm_allowed": false },
+  "identity": {
+    "ci_auth": "oidc",
+    "ci_provider": "github-actions",
+    "allowed_subject": "repo:paulosantanna/MyDigitalBuddy:ref:refs/tags/v*"
+  },
+  "observability": {
+    "telemetry": "none",
+    "log_retention_days": 0,
+    "note": "PRIVACIDADE.md e README: o runtime nao contem cliente HTTP nem telemetria; 0 dias = sem logs de nuvem"
+  },
+  "cdn": { "service": "cloudfront", "price_class": "PriceClass_All", "origin_public": false },
+  "data_classification": "internal",
+  "signing": {
+    "windows_authenticode": "external-ov-cert",
+    "publisher_country": "BR",
+    "note": "Artifact Signing nao cobre publicador individual no Brasil (verificado); certificado OV externo (US$ 150 a 300 por ano, tabela da Microsoft) fica fora da nuvem"
+  },
+  "cost_items": [
+    {
+      "sku": "aws.us-east-1.s3_standard_gb_month",
+      "units_per_month": 2,
+      "note": "premissa: 2 GB de binarios e checksums armazenados por mes"
+    }
+  ],
+  "free_tier_notes": [
+    "CloudFront: 1 TB de transferencia de saida e 10 milhoes de requisicoes por mes sao sempre gratuitos (pagina oficial de precos)"
+  ],
+  "unverified_costs": [
+    "Route 53 (hosted zone, se houver dominio proprio): nao verificado no snapshot",
+    "AWS Budgets: nao verificado no snapshot",
+    "transferencia acima do free tier do CloudFront: depende do trafego real"
+  ]
+}

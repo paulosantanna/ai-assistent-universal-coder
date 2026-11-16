@@ -1,0 +1,7 @@
+{
+  "model": "intfloat/multilingual-e5-base",
+  "count": 1403,
+  "dimensions": 768,
+  "caveat": "E5 truncates passages at its model token limit; compare with full cited source.",
+  "revision": "d128750597153bb5987e10b1c3493a34e5a4502a"
+}

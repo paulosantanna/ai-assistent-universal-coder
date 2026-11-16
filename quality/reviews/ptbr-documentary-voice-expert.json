@@ -1,0 +1,50 @@
+{
+  "skill": "ptbr-documentary-voice-expert",
+  "package_hash": "db389127b6c4ff72624cb3de6217ddc70c87f6d6b38736cd283cc5690c0f4ece",
+  "positive_triggers": [
+    "Narração grave sobre cosmologia em PT-BR",
+    "A voz não cabe em dez segundos",
+    "Quero a voz exata de um apresentador"
+  ],
+  "negative_scope": [
+    "corrigir bug Java",
+    "publicar sem revisão",
+    "transcrever reunião"
+  ],
+  "source": "Original workspace package; TLC local format; user requirements 2026-10-27",
+  "verification": {
+    "kind": "structural-and-syntax",
+    "runtime_evaluated": false,
+    "routing": "Static wording assessment; no measured trigger accuracy"
+  },
+  "effectiveness": "Not measured; structural acceptance does not establish enterprise performance",
+  "rubric": {
+    "source": "00_skills/(creation)/skill-architect/references/quality-checklist.md",
+    "weights": {
+      "routing": 20,
+      "procedure": 25,
+      "examples": 15,
+      "errors": 15,
+      "disclosure": 15,
+      "verification": 10
+    },
+    "ratings": {
+      "routing": 4,
+      "procedure": 4,
+      "examples": 4,
+      "errors": 4,
+      "disclosure": 5,
+      "verification": 4
+    },
+    "score": 83.0,
+    "evidence": {
+      "routing": "SKILL.md concrete description + three positive/negative phrases in this report",
+      "procedure": "SKILL.md six domain decisions; references/contract.md, shared PLAYBOOK and CONTRACT",
+      "examples": "references/examples.md three request/action/output cases and exclusions",
+      "errors": "Error handling in entry and failure/recovery section in contract",
+      "disclosure": "Skill validator plus workspace-wide link/source/discovery gate",
+      "verification": "references/sources.md official technical docs + shared real compositor/API checks; no full generated-film evaluation"
+    },
+    "limit": "Manual instruction-quality assessment; no measured trigger accuracy, Staff certification or audiovisual quality score"
+  }
+}

@@ -1,0 +1,421 @@
+{
+  "provider": "aws",
+  "retrieved_at_utc": "2026-11-14T20:30:21+00:00",
+  "method": "AWS Price List bulk API, public OnDemand terms, no credentials",
+  "skus": {
+    "aws.sa-east-1.vpc_endpoint_interface_hour": {
+      "usd": 0.021,
+      "unit": "Hrs",
+      "usagetype": "SAE1-VpcEndpoint-Hours",
+      "description": "$0.021 per VPC Endpoint Hour",
+      "source": "AWS Price List (public OnDemand), AmazonVPC sa-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonVPC/current/sa-east-1/index.json",
+      "file_sha256": "5df09637137d1cf0f3f663af52e66b8583b8bbb1225e47e05240dd71efccc8b5"
+    },
+    "aws.us-east-1.vpc_endpoint_interface_hour": {
+      "usd": 0.01,
+      "unit": "Hrs",
+      "usagetype": "USE1-VpcEndpoint-Hours",
+      "description": "$0.01 per VPC Endpoint Hour",
+      "source": "AWS Price List (public OnDemand), AmazonVPC us-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonVPC/current/us-east-1/index.json",
+      "file_sha256": "48ff731d5a278c5ba4e0ec1cd3c22336daa8853437c3b6ac458a4163455ac8fa"
+    },
+    "aws.sa-east-1.vpc_endpoint_data_gb": {
+      "usd": 0.01,
+      "unit": "GB",
+      "usagetype": "SAE1-VpcEndpoint-Bytes",
+      "description": "$0.01 per GB for upto 1 PB monthly data processed by VPC Endpoints",
+      "source": "AWS Price List (public OnDemand), AmazonVPC sa-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonVPC/current/sa-east-1/index.json",
+      "file_sha256": "5df09637137d1cf0f3f663af52e66b8583b8bbb1225e47e05240dd71efccc8b5"
+    },
+    "aws.us-east-1.vpc_endpoint_data_gb": {
+      "usd": 0.01,
+      "unit": "GB",
+      "usagetype": "USE1-VpcEndpoint-Bytes",
+      "description": "$0.01 per GB for upto 1 PB monthly data processed by VPC Endpoints",
+      "source": "AWS Price List (public OnDemand), AmazonVPC us-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonVPC/current/us-east-1/index.json",
+      "file_sha256": "48ff731d5a278c5ba4e0ec1cd3c22336daa8853437c3b6ac458a4163455ac8fa"
+    },
+    "aws.sa-east-1.alb_hour": {
+      "usd": 0.034,
+      "unit": "Hrs",
+      "usagetype": "SAE1-LoadBalancerUsage",
+      "description": "$0.034 per Application LoadBalancer-hour (or partial hour)",
+      "source": "AWS Price List (public OnDemand), AWSELB sa-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AWSELB/current/sa-east-1/index.json",
+      "file_sha256": "cbe51bd1b5c046c1fac7b05d41b9220beb0b220baa8afe7b7c43735fede971d0"
+    },
+    "aws.us-east-1.alb_hour": {
+      "usd": 0.0225,
+      "unit": "Hrs",
+      "usagetype": "LoadBalancerUsage",
+      "description": "$0.0225 per Application LoadBalancer-hour (or partial hour)",
+      "source": "AWS Price List (public OnDemand), AWSELB us-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AWSELB/current/us-east-1/index.json",
+      "file_sha256": "a7125b7a3c62b1fe5c33d24401e71c122dadf3fcea996d8a9168746c65c71c98"
+    },
+    "aws.sa-east-1.alb_lcu_hour": {
+      "usd": 0.011,
+      "unit": "LCU-Hrs",
+      "usagetype": "SAE1-LCUUsage",
+      "description": "$0.011 per used Application load balancer capacity unit-hour (or partial hour)",
+      "source": "AWS Price List (public OnDemand), AWSELB sa-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AWSELB/current/sa-east-1/index.json",
+      "file_sha256": "cbe51bd1b5c046c1fac7b05d41b9220beb0b220baa8afe7b7c43735fede971d0"
+    },
+    "aws.us-east-1.alb_lcu_hour": {
+      "usd": 0.008,
+      "unit": "LCU-Hrs",
+      "usagetype": "LCUUsage",
+      "description": "$0.008 per used Application load balancer capacity unit-hour (or partial hour)",
+      "source": "AWS Price List (public OnDemand), AWSELB us-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AWSELB/current/us-east-1/index.json",
+      "file_sha256": "a7125b7a3c62b1fe5c33d24401e71c122dadf3fcea996d8a9168746c65c71c98"
+    },
+    "aws.sa-east-1.secrets_manager_secret_month": {
+      "usd": 0.4,
+      "unit": "Secrets",
+      "usagetype": "SAE1-AWSSecretsManager-Secrets",
+      "description": "$0.40 per Secret",
+      "source": "AWS Price List (public OnDemand), AWSSecretsManager sa-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AWSSecretsManager/current/sa-east-1/index.json",
+      "file_sha256": "a2a349ebc02b7829f77c9024ffe722799f9d69b991527149c349b66f95e01e70"
+    },
+    "aws.us-east-1.secrets_manager_secret_month": {
+      "usd": 0.4,
+      "unit": "Secrets",
+      "usagetype": "USE1-AWSSecretsManager-Secrets",
+      "description": "$0.40 per Secret",
+      "source": "AWS Price List (public OnDemand), AWSSecretsManager us-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AWSSecretsManager/current/us-east-1/index.json",
+      "file_sha256": "0b9e1676176b4174218f3335c12ff43fcbca09706fd80b1eea6f710b118d7663"
+    },
+    "aws.sa-east-1.fargate_x86_vcpu_hour": {
+      "usd": 0.0696,
+      "unit": "hours",
+      "usagetype": "SAE1-Fargate-vCPU-Hours:perCPU",
+      "description": "AWS Fargate - vCPU  - South America (Sao Paulo)",
+      "source": "AWS Price List (public OnDemand), AmazonECS sa-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonECS/current/sa-east-1/index.json",
+      "file_sha256": "bbd3143ce132addd80603c8a9d89bafc0e98b546483eaff62094f03ee573bb9e"
+    },
+    "aws.us-east-1.fargate_x86_vcpu_hour": {
+      "usd": 0.04048,
+      "unit": "hours",
+      "usagetype": "USE1-Fargate-vCPU-Hours:perCPU",
+      "description": "AWS Fargate - vCPU - US East (N.Virginia)",
+      "source": "AWS Price List (public OnDemand), AmazonECS us-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonECS/current/us-east-1/index.json",
+      "file_sha256": "2efaa91ac37cce6eac226e765eac86ac3b22918acf5424783e408c8c99f84fb8"
+    },
+    "aws.sa-east-1.fargate_x86_gb_hour": {
+      "usd": 0.0076,
+      "unit": "hours",
+      "usagetype": "SAE1-Fargate-GB-Hours",
+      "description": "AWS Fargate - Memory  - South America (Sao Paulo)",
+      "source": "AWS Price List (public OnDemand), AmazonECS sa-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonECS/current/sa-east-1/index.json",
+      "file_sha256": "bbd3143ce132addd80603c8a9d89bafc0e98b546483eaff62094f03ee573bb9e"
+    },
+    "aws.us-east-1.fargate_x86_gb_hour": {
+      "usd": 0.004445,
+      "unit": "hours",
+      "usagetype": "USE1-Fargate-GB-Hours",
+      "description": "AWS Fargate - Memory  - US East (N.Virginia)",
+      "source": "AWS Price List (public OnDemand), AmazonECS us-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonECS/current/us-east-1/index.json",
+      "file_sha256": "2efaa91ac37cce6eac226e765eac86ac3b22918acf5424783e408c8c99f84fb8"
+    },
+    "aws.sa-east-1.fargate_arm_vcpu_hour": {
+      "usd": 0.0557,
+      "unit": "hours",
+      "usagetype": "SAE1-Fargate-ARM-vCPU-Hours:perCPU",
+      "description": "AWS Fargate - ARM - vCPU - South America (Sao Paulo)",
+      "source": "AWS Price List (public OnDemand), AmazonECS sa-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonECS/current/sa-east-1/index.json",
+      "file_sha256": "bbd3143ce132addd80603c8a9d89bafc0e98b546483eaff62094f03ee573bb9e"
+    },
+    "aws.us-east-1.fargate_arm_vcpu_hour": {
+      "usd": 0.03238,
+      "unit": "hours",
+      "usagetype": "USE1-Fargate-ARM-vCPU-Hours:perCPU",
+      "description": "AWS Fargate - ARM - vCPU - US East (N. Virginia)",
+      "source": "AWS Price List (public OnDemand), AmazonECS us-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonECS/current/us-east-1/index.json",
+      "file_sha256": "2efaa91ac37cce6eac226e765eac86ac3b22918acf5424783e408c8c99f84fb8"
+    },
+    "aws.sa-east-1.fargate_arm_gb_hour": {
+      "usd": 0.00612,
+      "unit": "hours",
+      "usagetype": "SAE1-Fargate-ARM-GB-Hours",
+      "description": "AWS Fargate - ARM - Memory - South America (Sao Paulo)",
+      "source": "AWS Price List (public OnDemand), AmazonECS sa-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonECS/current/sa-east-1/index.json",
+      "file_sha256": "bbd3143ce132addd80603c8a9d89bafc0e98b546483eaff62094f03ee573bb9e"
+    },
+    "aws.us-east-1.fargate_arm_gb_hour": {
+      "usd": 0.00356,
+      "unit": "hours",
+      "usagetype": "USE1-Fargate-ARM-GB-Hours",
+      "description": "AWS Fargate - ARM - Memory - US East (N. Virginia)",
+      "source": "AWS Price List (public OnDemand), AmazonECS us-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonECS/current/us-east-1/index.json",
+      "file_sha256": "2efaa91ac37cce6eac226e765eac86ac3b22918acf5424783e408c8c99f84fb8"
+    },
+    "aws.sa-east-1.cloudwatch_logs_ingest_gb": {
+      "usd": 0.9,
+      "unit": "GB",
+      "usagetype": "SAE1-DataProcessing-Bytes",
+      "description": "$0.90 per GB custom log data ingested in Standard log class - South America (Sao Paulo)",
+      "source": "AWS Price List (public OnDemand), AmazonCloudWatch sa-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudWatch/current/sa-east-1/index.json",
+      "file_sha256": "0568bbe8befff0b4af90ddff4f1f9824981a6a622aadda8537b3eeeb5892a1a7"
+    },
+    "aws.us-east-1.cloudwatch_logs_ingest_gb": {
+      "usd": 0.5,
+      "unit": "GB",
+      "usagetype": "USE1-DataProcessing-Bytes",
+      "description": "$0.50 per GB custom log data ingested in Standard log class - US East (Northern Virginia)",
+      "source": "AWS Price List (public OnDemand), AmazonCloudWatch us-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudWatch/current/us-east-1/index.json",
+      "file_sha256": "3f3c5a5a67db070271990d5389aa67c036fe4faea5a1c5263cbe7d31db266ea6"
+    },
+    "aws.sa-east-1.cloudwatch_alarm_month": {
+      "usd": 0.135,
+      "unit": "Alarms",
+      "usagetype": "SAE1-CW:AlarmMonitorUsage",
+      "description": "$0.135 per alarm metric month (standard resolution) - South America (Sao Paulo)",
+      "source": "AWS Price List (public OnDemand), AmazonCloudWatch sa-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudWatch/current/sa-east-1/index.json",
+      "file_sha256": "0568bbe8befff0b4af90ddff4f1f9824981a6a622aadda8537b3eeeb5892a1a7"
+    },
+    "aws.us-east-1.cloudwatch_alarm_month": {
+      "usd": 0.1,
+      "unit": "Alarms",
+      "usagetype": "CW:AlarmMonitorUsage",
+      "description": "$0.10 per alarm metric month (standard resolution) - US East (Northern Virginia)",
+      "source": "AWS Price List (public OnDemand), AmazonCloudWatch us-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudWatch/current/us-east-1/index.json",
+      "file_sha256": "3f3c5a5a67db070271990d5389aa67c036fe4faea5a1c5263cbe7d31db266ea6"
+    },
+    "aws.sa-east-1.cloudwatch_metric_month": {
+      "usd": 0.07,
+      "unit": "Metrics",
+      "usagetype": "SAE1-CW:MetricsUsage",
+      "description": "$0.07 per metric month - South America (Sao Paulo)",
+      "source": "AWS Price List (public OnDemand), AmazonCloudWatch sa-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudWatch/current/sa-east-1/index.json",
+      "file_sha256": "0568bbe8befff0b4af90ddff4f1f9824981a6a622aadda8537b3eeeb5892a1a7"
+    },
+    "aws.us-east-1.cloudwatch_metric_month": {
+      "usd": 0.07,
+      "unit": "Metrics",
+      "usagetype": "USE1-CW:MetricsUsage",
+      "description": "$0.07 per metric month - US East (N. Virginia)",
+      "source": "AWS Price List (public OnDemand), AmazonCloudWatch us-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudWatch/current/us-east-1/index.json",
+      "file_sha256": "3f3c5a5a67db070271990d5389aa67c036fe4faea5a1c5263cbe7d31db266ea6"
+    },
+    "aws.sa-east-1.s3_standard_gb_month": {
+      "usd": 0.0405,
+      "unit": "GB-Mo",
+      "usagetype": "SAE1-TimedStorage-ByteHrs",
+      "description": "$0.0405 per GB - first 50 TB / month of storage used",
+      "source": "AWS Price List (public OnDemand), AmazonS3 sa-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonS3/current/sa-east-1/index.json",
+      "file_sha256": "87fe993c84a394ab35d0bd1462f473c1bef4151a6e80dc9de699a15b0e9ccdff"
+    },
+    "aws.us-east-1.s3_standard_gb_month": {
+      "usd": 0.023,
+      "unit": "GB-Mo",
+      "usagetype": "TimedStorage-ByteHrs",
+      "description": "$0.023 per GB - first 50 TB / month of storage used",
+      "source": "AWS Price List (public OnDemand), AmazonS3 us-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonS3/current/us-east-1/index.json",
+      "file_sha256": "b436ef5d6a6d1cd801edcf8c2c26caabad8ad4820a28a51bbb1ca260f7d84c05"
+    },
+    "aws.sa-east-1.opensearch_r6g_large_hour": {
+      "usd": 0.267,
+      "unit": "Hrs",
+      "usagetype": "SAE1-ESInstance:r6g.large",
+      "description": "$0.267 per r6g.large.search instance hour (or partial hour) - SAE1",
+      "source": "AWS Price List (public OnDemand), AmazonES sa-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonES/current/sa-east-1/index.json",
+      "file_sha256": "2b6b264d9580fb39156d91dc59e0f8caae8a0ea97048bd7de584325a16d30727"
+    },
+    "aws.us-east-1.opensearch_r6g_large_hour": {
+      "usd": 0.167,
+      "unit": "Hrs",
+      "usagetype": "ESInstance:r6g.large",
+      "description": "$0.167 per r6g.large.search instance hour (or partial hour)",
+      "source": "AWS Price List (public OnDemand), AmazonES us-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonES/current/us-east-1/index.json",
+      "file_sha256": "8b7a072eecb2f99d6c2a7847a1c301486f15923929ab96df4a415717994632b0"
+    },
+    "aws.sa-east-1.opensearch_m6g_large_hour": {
+      "usd": 0.203,
+      "unit": "Hrs",
+      "usagetype": "SAE1-ESInstance:m6g.large",
+      "description": "$0.203 per m6g.large.search instance hour (or partial hour) - SAE1",
+      "source": "AWS Price List (public OnDemand), AmazonES sa-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonES/current/sa-east-1/index.json",
+      "file_sha256": "2b6b264d9580fb39156d91dc59e0f8caae8a0ea97048bd7de584325a16d30727"
+    },
+    "aws.us-east-1.opensearch_m6g_large_hour": {
+      "usd": 0.128,
+      "unit": "Hrs",
+      "usagetype": "ESInstance:m6g.large",
+      "description": "$0.128 per m6g.large.search instance hour (or partial hour)",
+      "source": "AWS Price List (public OnDemand), AmazonES us-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonES/current/us-east-1/index.json",
+      "file_sha256": "8b7a072eecb2f99d6c2a7847a1c301486f15923929ab96df4a415717994632b0"
+    },
+    "aws.sa-east-1.opensearch_gp3_gb_month": {
+      "usd": 0.2318,
+      "unit": "GB-Mo",
+      "usagetype": "SAE1-ES:GP3-Storage",
+      "description": "USD 0.2318/GB-month provisioned gp3 storage - SAE1",
+      "source": "AWS Price List (public OnDemand), AmazonES sa-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonES/current/sa-east-1/index.json",
+      "file_sha256": "2b6b264d9580fb39156d91dc59e0f8caae8a0ea97048bd7de584325a16d30727"
+    },
+    "aws.us-east-1.opensearch_gp3_gb_month": {
+      "usd": 0.122,
+      "unit": "GB-Mo",
+      "usagetype": "ES:GP3-Storage",
+      "description": "USD 0.122/GB-month provisioned gp3 storage",
+      "source": "AWS Price List (public OnDemand), AmazonES us-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonES/current/us-east-1/index.json",
+      "file_sha256": "8b7a072eecb2f99d6c2a7847a1c301486f15923929ab96df4a415717994632b0"
+    },
+    "aws.sa-east-1.opensearch_serverless_indexing_ocu_hour": {
+      "usd": 0.381,
+      "unit": "OCU-hours",
+      "usagetype": "SAE1-IndexingOCU",
+      "description": "USD0.381 per OCU-hours for IndexingOCU:IndexingOCU in South America (Sao Paulo)",
+      "source": "AWS Price List (public OnDemand), AmazonES sa-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonES/current/sa-east-1/index.json",
+      "file_sha256": "2b6b264d9580fb39156d91dc59e0f8caae8a0ea97048bd7de584325a16d30727"
+    },
+    "aws.us-east-1.opensearch_serverless_indexing_ocu_hour": {
+      "usd": 0.24,
+      "unit": "OCU-hours",
+      "usagetype": "USE1-IndexingOCU",
+      "description": "$0.24 per OCU-hours for IndexingOCU in US East (N. Virginia)",
+      "source": "AWS Price List (public OnDemand), AmazonES us-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonES/current/us-east-1/index.json",
+      "file_sha256": "8b7a072eecb2f99d6c2a7847a1c301486f15923929ab96df4a415717994632b0"
+    },
+    "aws.sa-east-1.opensearch_serverless_search_ocu_hour": {
+      "usd": 0.381,
+      "unit": "OCU-hours",
+      "usagetype": "SAE1-SearchOCU",
+      "description": "USD0.381 per OCU-hours for SearchOCU:SearchOCU in South America (Sao Paulo)",
+      "source": "AWS Price List (public OnDemand), AmazonES sa-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonES/current/sa-east-1/index.json",
+      "file_sha256": "2b6b264d9580fb39156d91dc59e0f8caae8a0ea97048bd7de584325a16d30727"
+    },
+    "aws.us-east-1.opensearch_serverless_search_ocu_hour": {
+      "usd": 0.24,
+      "unit": "OCU-hours",
+      "usagetype": "USE1-SearchOCU",
+      "description": "$0.24 per OCU-hours for SearchOCU in US East (N. Virginia)",
+      "source": "AWS Price List (public OnDemand), AmazonES us-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonES/current/us-east-1/index.json",
+      "file_sha256": "8b7a072eecb2f99d6c2a7847a1c301486f15923929ab96df4a415717994632b0"
+    },
+    "aws.sa-east-1.aurora_pg_r6g_large_hour": {
+      "usd": 0.537,
+      "unit": "Hrs",
+      "usagetype": "SAE1-InstanceUsage:db.r6g.large",
+      "description": "$ 0.537 per RDS db.r6g.large Single-AZ instance hour (or partial hour) running Aurora PostgreSQL",
+      "source": "AWS Price List (public OnDemand), AmazonRDS sa-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonRDS/current/sa-east-1/index.json",
+      "file_sha256": "9b94da6971ee901aa1b47c2843c91c571fe9cef608615d32a038d7b168f059cf"
+    },
+    "aws.us-east-1.aurora_pg_r6g_large_hour": {
+      "usd": 0.26,
+      "unit": "Hrs",
+      "usagetype": "InstanceUsage:db.r6g.large",
+      "description": "$ 0.26 per RDS db.r6g.large Single-AZ instance hour (or partial hour) running Aurora PostgreSQL",
+      "source": "AWS Price List (public OnDemand), AmazonRDS us-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonRDS/current/us-east-1/index.json",
+      "file_sha256": "1698d5379891c313db7dbb1092922d99a61dbb037ad99c9606ee2c8b146711ab"
+    },
+    "aws.sa-east-1.aurora_pg_storage_gb_month": {
+      "usd": 0.19,
+      "unit": "GB-Mo",
+      "usagetype": "SAE1-Aurora:StorageUsage",
+      "description": "USD 0.19 per GB-month of consumed storage for Aurora PostgreSQL",
+      "source": "AWS Price List (public OnDemand), AmazonRDS sa-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonRDS/current/sa-east-1/index.json",
+      "file_sha256": "9b94da6971ee901aa1b47c2843c91c571fe9cef608615d32a038d7b168f059cf"
+    },
+    "aws.us-east-1.aurora_pg_storage_gb_month": {
+      "usd": 0.1,
+      "unit": "GB-Mo",
+      "usagetype": "Aurora:StorageUsage",
+      "description": "$0.10 per GB-month of consumed storage (Aurora PostgreSQL)",
+      "source": "AWS Price List (public OnDemand), AmazonRDS us-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonRDS/current/us-east-1/index.json",
+      "file_sha256": "1698d5379891c313db7dbb1092922d99a61dbb037ad99c9606ee2c8b146711ab"
+    },
+    "aws.sa-east-1.aurora_pg_serverless_v2_acu_hour": {
+      "usd": 0.25,
+      "unit": "ACU-Hr",
+      "usagetype": "SAE1-Aurora:ServerlessV2Usage",
+      "description": "USD 0.25 per Aurora Capacity Unit hour running Aurora PostgreSQL Serverless v2",
+      "source": "AWS Price List (public OnDemand), AmazonRDS sa-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonRDS/current/sa-east-1/index.json",
+      "file_sha256": "9b94da6971ee901aa1b47c2843c91c571fe9cef608615d32a038d7b168f059cf"
+    },
+    "aws.us-east-1.aurora_pg_serverless_v2_acu_hour": {
+      "usd": 0.12,
+      "unit": "ACU-Hr",
+      "usagetype": "Aurora:ServerlessV2Usage",
+      "description": "USD 0.12 per Aurora Capacity Unit hour running Aurora PostgreSQL Serverless v2",
+      "source": "AWS Price List (public OnDemand), AmazonRDS us-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonRDS/current/us-east-1/index.json",
+      "file_sha256": "1698d5379891c313db7dbb1092922d99a61dbb037ad99c9606ee2c8b146711ab"
+    },
+    "aws.sa-east-1.sagemaker_hosting_ml_g5_xlarge_hour": {
+      "usd": 2.394,
+      "unit": "Hrs",
+      "usagetype": "SAE1-Host:ml.g5.xlarge",
+      "description": "$2.394 per Hosting ml.g5.xlarge hour in South America (Sao Paulo)",
+      "source": "AWS Price List (public OnDemand), AmazonSageMaker sa-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonSageMaker/current/sa-east-1/index.json",
+      "file_sha256": "dc8bbbe9639aaaaca4f5236e2d422fd6cbe685661faa5d9aca21bdb61221accb"
+    },
+    "aws.us-east-1.sagemaker_hosting_ml_g5_xlarge_hour": {
+      "usd": 1.408,
+      "unit": "Hrs",
+      "usagetype": "USE1-Host:ml.g5.xlarge",
+      "description": "$1.408 per Hosting ml.g5.xlarge hour in US East (N. Virginia)",
+      "source": "AWS Price List (public OnDemand), AmazonSageMaker us-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonSageMaker/current/us-east-1/index.json",
+      "file_sha256": "46a490bebedaf575e57d594ef170016f1674a8b94196f30b684d2f66b6efe4a5"
+    },
+    "aws.sa-east-1.sagemaker_training_ml_g5_xlarge_hour": {
+      "usd": 2.1375,
+      "unit": "Hrs",
+      "usagetype": "SAE1-Train:ml.g5.xlarge",
+      "description": "$2.1375 per Training ml.g5.xlarge hour in South America (Sao Paulo)",
+      "source": "AWS Price List (public OnDemand), AmazonSageMaker sa-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonSageMaker/current/sa-east-1/index.json",
+      "file_sha256": "dc8bbbe9639aaaaca4f5236e2d422fd6cbe685661faa5d9aca21bdb61221accb"
+    },
+    "aws.us-east-1.sagemaker_training_ml_g5_xlarge_hour": {
+      "usd": 1.408,
+      "unit": "Hrs",
+      "usagetype": "USE1-Train:ml.g5.xlarge",
+      "description": "$1.408 per Training ml.g5.xlarge hour in US East (N. Virginia)",
+      "source": "AWS Price List (public OnDemand), AmazonSageMaker us-east-1",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonSageMaker/current/us-east-1/index.json",
+      "file_sha256": "46a490bebedaf575e57d594ef170016f1674a8b94196f30b684d2f66b6efe4a5"
+    }
+  }
+}

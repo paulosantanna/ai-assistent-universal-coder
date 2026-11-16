@@ -1,0 +1,64 @@
+// Owner: codenavi-agent; inherits root AGENTS.md.
+// Read-only bounded consistency review. Only aggregate facts leave this process.
+const crypto = require('crypto');
+const databaseName = process.env.RGL_MONGO_REVIEW_DATABASE || 'DiabeticJev';
+const target = db.getSiblingDB(databaseName);
+const names = ['documents','chunks','search_terms','scrape_runs','scrape_progress','kg_entities',
+  'kg_triples','kg_communities','training_samples','training_runs','eval_results','model_registry',
+  'knowledge_probes','replay_buffer','lsh_bands','hypotheses','molecules','trial_reports','learning_events'];
+const count = name => target.getCollection(name).countDocuments({}, {maxTimeMS:5000});
+const before = Object.fromEntries(names.map(n=>[n,count(n)]));
+if (before.documents>1000 || before.chunks>10000) throw new Error('Bounded audit capacity exceeded; choose an explicit sample');
+const docs = target.documents.find({}, {authors:0}).maxTimeMS(5000).toArray();
+const chunks = target.chunks.find({}).maxTimeMS(5000).toArray();
+const hash = value=>crypto.createHash('sha256').update(value).digest('hex');
+const nonempty = value=>typeof value==='string' && value.trim().length>0;
+const shape = object=>Object.entries(object||{}).map(([field,value])=>({field,type:Array.isArray(value)?'array':value===null?'null':typeof value}));
+const allowedStatuses=new Set(['pending','running','completed','succeeded','failed','cancelled','error','partial','success','idle','done','interrupted','stopped','aborted','paused']);
+const safeStatus=value=>allowedStatuses.has(value)?value:'other';
+const report={updated_at:new Date().toISOString(),scope:'read-only current-state review; no document values exported',
+  database:databaseName,counts:before,document_checks:{},chunk_checks:{},nested_schema:{},scraping:{},indexes:{}};
+const dc=report.document_checks;
+dc.with_full_text=docs.filter(d=>nonempty(d.full_text)).length;
+dc.with_abstract=docs.filter(d=>nonempty(d.abstract)).length;
+dc.with_title=docs.filter(d=>nonempty(d.title)).length;
+dc.explicit_license=docs.filter(d=>nonempty(d.license)).length;
+dc.open_access_true=docs.filter(d=>d.is_open_access===true).length;
+dc.retracted_true=docs.filter(d=>d.is_retracted===true).length;
+dc.indexed_true=docs.filter(d=>d.indexed===true).length;
+dc.graph_extracted_true=docs.filter(d=>d.graph_extracted===true).length;
+dc.with_provenance=docs.filter(d=>Array.isArray(d.provenance)&&d.provenance.length>0).length;
+dc.with_valid_http_url=docs.filter(d=>{try{return ['http:','https:'].includes(new URL(d.url).protocol)}catch{return false}}).length;
+dc.possible_fixture_marker=docs.filter(d=>/\b(smoke|synthetic|fixture|dummy|teste)\b/i.test([d.title,d.abstract].join(' '))).length;
+dc.abstract_characters=docs.reduce((n,d)=>n+(d.abstract||'').length,0);
+dc.full_text_characters=docs.reduce((n,d)=>n+(d.full_text||'').length,0);
+dc.duplicate_hits=docs.reduce((n,d)=>n+(Number.isFinite(d.duplicate_hits)?d.duplicate_hits:0),0);
+dc.indexed_without_chunks=docs.filter(d=>d.indexed===true&&!chunks.some(c=>c.document_id===d._id)).length;
+dc.gate_status_counts=Object.fromEntries(['accepted','quarantined','rejected'].map(status=>[status,docs.filter(d=>d.jev_gate?.status===status).length]));
+dc.fingerprints_sha256_format=docs.filter(d=>typeof d.fingerprint==='string'&&/^[a-f0-9]{64}$/i.test(d.fingerprint)).length;
+const cc=report.chunk_checks;
+cc.embedded_true=chunks.filter(c=>c.embedded===true).length;
+cc.orphan_document=chunks.filter(c=>!docs.some(d=>d._id===c.document_id)).length;
+cc.empty_text=chunks.filter(c=>!nonempty(c.text)).length;
+cc.invalid_bounds=chunks.filter(c=>!Number.isInteger(c.char_start)||!Number.isInteger(c.char_end)||c.char_start<0||c.char_end<c.char_start).length;
+cc.sha256_text_match=chunks.filter(c=>c.chunk_hash===hash(c.text||'')).length;
+cc.sha256_document_text_match=chunks.filter(c=>c.chunk_hash===hash(`${c.document_id}:${c.text||''}`)).length;
+cc.sha256_format=chunks.filter(c=>typeof c.chunk_hash==='string'&&/^[a-f0-9]{64}$/i.test(c.chunk_hash)).length;
+cc.exact_abstract_slice=chunks.filter(c=>{const d=docs.find(d=>d._id===c.document_id);return d&&typeof d.abstract==='string'&&d.abstract.slice(c.char_start,c.char_end)===c.text}).length;
+cc.exact_ingestion_body_slice=chunks.filter(c=>{const d=docs.find(d=>d._id===c.document_id);if(!d)return false;const body=[d.title,d.abstract,d.full_text].filter(Boolean).join('\n\n');return body.slice(c.char_start,c.char_end)===c.text}).length;
+cc.whitespace_normalized_body_slice=chunks.filter(c=>{const d=docs.find(d=>d._id===c.document_id);if(!d)return false;const body=[d.title,d.abstract,d.full_text].filter(Boolean).join('\n\n');return body.slice(c.char_start,c.char_end).replace(/\s+/g,' ').trim()===c.text}).length;
+cc.characters=chunks.reduce((n,c)=>n+(c.text||'').length,0);
+report.nested_schema.jev_gate=docs.length?shape(docs[0].jev_gate):[];
+report.nested_schema.provenance=docs.length&&docs[0].provenance?.length?shape(docs[0].provenance[0]):[];
+report.nested_schema.structured=docs.length?shape(docs[0].structured):[];
+const gates=docs.map(d=>d.jev_gate).filter(Boolean);
+report.document_checks.jev_gate_bools=Object.fromEntries([...new Set(gates.flatMap(g=>Object.keys(g)))].filter(k=>gates.every(g=>typeof g[k]==='boolean')).map(k=>[k,gates.filter(g=>g[k]).length]));
+report.scraping.runs=target.scrape_runs.find({},{status:1,stats:1,params:1,_id:0}).maxTimeMS(5000).toArray().map(r=>({status:safeStatus(r.status),stats_shape:shape(r.stats),stats_numeric:Object.fromEntries(Object.entries(r.stats||{}).filter(([k,v])=>Number.isFinite(v))),params_shape:shape(r.params)}));
+report.scraping.progress=target.scrape_progress.find({},{status:1,exhausted:1,last_error:1,totals:1,_id:0}).maxTimeMS(5000).toArray().map(r=>({status:safeStatus(r.status),exhausted:r.exhausted===true,has_error:nonempty(r.last_error),error_class:!r.last_error?'none':/429|rate.limit/i.test(r.last_error)?'rate-limit':/timed?.?out|timeout/i.test(r.last_error)?'timeout':/403|forbidden/i.test(r.last_error)?'access-denied':'other',totals_numeric:Object.fromEntries(Object.entries(r.totals||{}).filter(([k,v])=>Number.isFinite(v)))}));
+report.search_term_languages=target.search_terms.aggregate([{$group:{_id:'$lang',count:{$sum:1}}},{$sort:{count:-1}}],{maxTimeMS:5000}).toArray().map(x=>({language:/^[a-z]{2,3}(-[A-Za-z]+)?$/.test(x._id)?x._id:'other',count:x.count}));
+report.duplicate_normalized_term_groups=target.search_terms.aggregate([{$group:{_id:{term:'$term_norm',lang:'$lang'},n:{$sum:1}}},{$match:{n:{$gt:1}}},{$count:'groups'}],{maxTimeMS:5000}).toArray()[0]?.groups||0;
+for(const name of ['documents','chunks','search_terms']) report.indexes[name]=target.getCollection(name).getIndexes().map(i=>({fields:Object.keys(i.key),unique:i.unique===true,type:Object.values(i.key).some(v=>v==='text')?'text':'other'}));
+report.counts_after=Object.fromEntries(names.map(n=>[n,count(n)]));
+report.counts_stable=JSON.stringify(report.counts)===JSON.stringify(report.counts_after);
+report.corpus_fingerprint=hash(docs.map(d=>hash(JSON.stringify(d))).sort().join(':')+chunks.map(c=>hash(JSON.stringify(c))).sort().join(':'));
+print(JSON.stringify(report));

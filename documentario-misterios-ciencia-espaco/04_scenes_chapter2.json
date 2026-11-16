@@ -1,0 +1,117 @@
+{
+  "chapter": 2,
+  "title": "O Invisível que Governa - Matéria Escura e Energia Escura",
+  "duration_seconds": 600,
+  "scenes": [
+    {
+      "scene": 1,
+      "chapter": 2,
+      "title": "A Mulher que Viu o Invisível",
+      "narration": "Vera Rubin não set out para descobrir matéria escura. Nos anos setenta, ela e Kent Ford mediam curvas de rotação de galáxias espirais usando um espectrógrafo sensível que eles mesmos construíram. A expectativa era simples: estrelas mais próximas do centro orbitam rápido; as da borda, mais devagar — como planetas no sistema solar, obedecendo a lei de Kepler. Mas os dados teimavam em não cooperar. Galáxia após galáxia, a curva de rotação permanecia plana. As estrelas na borda moviam-se rápido demais para serem mantidas pela gravidade das estrelas visíveis. Ou a gravidade falha em escalas galácticas, ou existe massa que não vemos. Vera Rubin disse certa vez: 'O que você vê é o que você não tem'. A matéria luminosa é apenas a ponta do iceberg.",
+      "visual": "Vera Rubin no observatório Kitt Peak, anos 1970. Espectrógrafo caseiro. Dados brutos: linhas espectrais deslocadas. Gráfico curva de rotação: velocidade (eixo y) vs raio (eixo x) — linha plana desafiando a curva kepleriana decrescente. Retrato de Vera Rubin recebendo Medalha Nacional de Ciência (1993).",
+      "duration_seconds": 60,
+      "claims": ["vera-rubin-rotation-curves", "dark-matter-evidence"],
+      "transition": "fade",
+      "sd_prompt": "Vera Rubin at Kitt Peak Observatory 1970s, operating custom-built spectrograph. Raw spectral data showing Doppler-shifted emission lines. Rotation curve graph: flat velocity vs radius (solid line) vs Keplerian decline (dashed expectation). Vera Rubin receiving National Medal of Science 1993. Historical documentary style, 8K"
+    },
+    {
+      "scene": 2,
+      "chapter": 2,
+      "title": "A Teia Invisível do Cosmos",
+      "narration": "A matéria escura não está apenas nas galáxias. Ela forma o esqueleto do universo. Simulações cosmológicas mostram: sem matéria escura, a gravidade da matéria comum não teria tempo para construir as estruturas que vemos — a teia cósmica de filamentos, paredes e vazios. A matéria escura, sendo 'fria' (movendo-se devagar comparado à luz), colapsa primeiro em halos. A matéria comum cai nesses poços gravitacionais depois, formando galáxias nos nós da teia. O satélite Planck mede as flutuações na CMB e exige: a matéria escura deve ser cinco vezes mais abundante que a matéria comum. Lente gravitacional forte e fraca mapeia diretamente a distribuição de massa invisível. A teia cósmica é feita de sombra.",
+      "visual": "Simulação lado a lado: COM matéria escura (teia filamentar rica) vs SEM (distribuição suave, sem estrutura). Mapa de lente gravitacional fraca (KiDS, DES): distorção estatística de formas de galáxias revela massa invisível. Halos de matéria escura (esferas azuis translúcidas) com galáxias nos centros. Teia cósmica em grande escala.",
+      "duration_seconds": 60,
+      "claims": ["dark-matter-evidence", "planck-cmb-results"],
+      "transition": "cut",
+      "sd_prompt": "Side-by-side cosmological simulation: WITH dark matter (rich filamentary cosmic web with nodes, filaments, voids) vs WITHOUT (smooth featureless distribution). Weak gravitational lensing map (KiDS/DES survey): statistical distortion of background galaxy shapes revealing invisible mass contours. Dark matter halos as translucent blue spheres with galaxies at centers. Large-scale cosmic web visualization. Scientific simulation render, 8K"
+    },
+    {
+      "scene": 3,
+      "chapter": 2,
+      "title": "O Que a Matéria Escura Não É",
+      "narration": "Antes de saber o que é, a ciência eliminou o que não é. Não é matéria comum (bárions): a nucleossíntese primordial e a CMB limitam bárions a 4,9%. Não é neutrinos comuns: são 'quentes' (rápidos), apagariam estruturas pequenas — mas vemos galáxias anãs. Não é buracos negros de massa estelar em quantidade suficiente: microlente (MACHO, EROS, OGLE) limita fração a menos de 10% na faixa de massa solar. Não é planetas errantes ou anãs marrons: buscas infravermelhas (WISE) não encontram população suficiente. O candidato precisa ser: frio (não-relativístico no desacoplamento), estável (ou vida longa), sem carga elétrica, sem interação forte, interagindo apenas via gravidade e talvez força fraca. Uma partícula além do Modelo Padrão.",
+      "visual": "Lista de exclusão visual: Bárions (X), Neutrinos quentes (X), MACHOs/buracos negros (X), Planetas/anãs marrons (X). Requisitos do candidato: Frio, Estável, Neutro, Sem carga de cor, Interação fraca/gravidade apenas. Partículas candidatas: WIMP, Áxion, Neutrino estéril, Buraco negro primordial.",
+      "duration_seconds": 60,
+      "claims": ["dark-matter-evidence", "axion-dark-matter", "sterile-neutrinos", "primordial-black-holes"],
+      "transition": "cut",
+      "sd_prompt": "Visual elimination checklist: Baryons (red X), Hot neutrinos (red X), MACHOs/stellar black holes (red X), Rogue planets/brown dwarfs (red X). Candidate requirements list: Cold, Stable, Neutral, No color charge, Weak/gravity only. Candidate particles display: WIMP, Axion, Sterile neutrino, Primordial black hole with icons. Clean infographic style, 8K"
+    },
+    {
+      "scene": 4,
+      "chapter": 2,
+      "title": "WIMPs: A Aposta Perda?",
+      "narration": "Por décadas, o candidato favorito foi o WIMP — Weakly Interacting Massive Particle. Partícula massiva (GeV a TeV) interagindo via força fraca. A 'milagre do WIMP': se existe com massa e acoplamento típicos da força fraca, sua densidade residual térmica no universo primordial coincide exatamente com a densidade de matéria escura observada. Experimentos de detecção direta (XENON, LUX, CDMS, PandaX) buscam recoil nuclear de WIMPs passando pela Terra. Experimentos de produção no LHC buscam criar WIMPs em colisões. Detecção indireta (Fermi-LAT, AMS-02, IceCube) busca produtos de aniquilação. Até agora: nada. Limites de seção de choque empurraram WIMPs para cantos cada vez menores do espaço de parâmetros. O milagre pode ser coincidência.",
+      "visual": "Diagrama do 'milagre do WIMP': densidade térmica vs massa/acoplamento. Detectores de xenônio líquido (XENON1T, LUX-ZEPLIN) em laboratórios subterrâneos. LHC: colisões próton-próton com MET (missing transverse energy). Busca indireta: excesso de raios-gama no centro galáctico (debated). Gráfico de exclusão: seção de choque vs massa — região WIMP clássico quase toda excluída.",
+      "duration_seconds": 60,
+      "claims": ["dark-matter-evidence", "supply-chain-auditor"],
+      "transition": "cut",
+      "sd_prompt": "WIMP miracle diagram: thermal relic density curve matching observed dark matter density for weak-scale mass/coupling. Liquid xenon detectors (XENON1T, LZ) in underground labs with shielding. LHC proton collisions showing missing transverse energy signature. Indirect detection: gamma-ray excess from galactic center (Fermi-LAT). Exclusion plot: cross-section vs mass, classic WIMP region mostly excluded (shaded). 8K scientific visualization"
+    },
+    {
+      "scene": 5,
+      "chapter": 2,
+      "title": "Áxions: A Partícula que Resolve Dois Problemas",
+      "narration": "O áxion nasceu para resolver o problema forte CP da cromodinâmica quântica: por que a interação forte não viola paridade e carga (CP) quando a teoria permite? Se existe com as propriedades certas — massa extremamente baixa (micro-elétron-volt a mili-elétron-volt), acoplamento muito fraco —, é também um candidato perfeito de matéria escura fria. Não é partícula térmica: forma-se por mecanismo de desalinhamento do vácuo no universo primordial. Experimentos buscam conversão áxion-fóton em campos magnéticos fortes: ADMX (EUA), HAYSTAC, CULTASK (Coreia), ORGAN (Austrália). Varrem frequências de micro-ondas, esperando um sinal monocromático. Até agora, limites cada vez mais fortes, mas o espaço de parâmetros 'natural' (modelos KSVZ, DFSZ) ainda está aberto. O áxion pode ser a matéria escura — e resolver o problema forte CP de brinde.",
+      "visual": "Equação do problema forte CP. Potencial do áxion: mecanismo de desalinhamento do vácuo. Experimento ADMX: cavidade de micro-ondas em campo magnético de 8 Tesla, resfriada a milikelvin. Gráfico de exclusão ADMX/HAYSTAC: frequência vs acoplamento. Modelos KSVZ e DFSZ marcados como 'alvos naturais' ainda não cobertos totalmente.",
+      "duration_seconds": 60,
+      "claims": ["axion-dark-matter"],
+      "transition": "cut",
+      "sd_prompt": "Strong CP problem equation. Axion potential: vacuum misalignment mechanism visualization. ADMX experiment: microwave cavity in 8 Tesla magnetic field, dilution refrigerator at millikelvin. Exclusion plot: frequency (GHz) vs axion-photon coupling, with KSVZ and DFSZ model bands marked as 'natural targets' not yet fully covered. 8K lab + theory visualization"
+    },
+    {
+      "scene": 6,
+      "chapter": 2,
+      "title": "Neutrinos Estéreis e Buracos Negros Primordiais",
+      "narration": "Dois candidatos que não são partículas do Modelo Padrão estendido de forma convencional. Neutrinos estéreis: neutrinos de mão direita, previstos por muitos modelos de massa de neutrino (mecânica de seesaw). Massa na escala de keV — matéria escura 'quente'. Produzidos por mistura com neutrinos ativos no universo primordial. Decaem em neutrino ativo + fóton, gerando linha de raio-X em ~3,5 keV. Sinal debatido em aglomerados (XMM-Newton, Chandra) — alguns veem, outros não. Buracos negros primordiais: formados por colapso de flutuações de densidade no universo primordial, não por morte estelar. Podem ter qualquer massa. Se massa ~10^17 a 10^22 gramas (asteroide a lua), escapam de todos os limites e podem ser TODA a matéria escura. LIGO/Virgo limitam massas estelares. Microlente (OGLE, Subaru HSC) limitam massas menores. Janela de massa de asteroide ainda aberta.",
+      "visual": "Neutrino estéril: diagrama de mistura, decaimento N → ν + γ (linha 3,5 keV). Espectro de raios-X de aglomerados (Perseus, etc.) com linha debatida. Buracos negros primordiais: formação por colapso de superdensidades primordiais. Janela de massa permitida (10^17-10^22 g) destacada. Limites: LIGO (massas estelares), microlente OGLE/HSC (massas planetárias/sub-lunares).",
+      "duration_seconds": 60,
+      "claims": ["sterile-neutrinos", "primordial-black-holes"],
+      "transition": "cut",
+      "sd_prompt": "Sterile neutrino: mixing diagram, decay N → ν + γ producing 3.5 keV X-ray line. Galaxy cluster X-ray spectra (Perseus) with debated line marked. Primordial black holes: formation from primordial overdensity collapse. Allowed mass window 10^17-10^22 g highlighted. Constraints: LIGO/Virgo (stellar masses), OGLE/HSC microlensing (planetary/sub-lunar). 8K scientific visualization"
+    },
+    {
+      "scene": 7,
+      "chapter": 2,
+      "title": "A Descoberta que Acelerou o Universo",
+      "narration": "Até 1998, a pergunta era: a expansão desacelera? A gravidade atrai, então o universo deveria frear. Duas equipes competiam para medir a desaceleração usando supernovas tipo Ia como velas padrão — explosões de anãs brancas que atingem luminosidade pico quase idêntica. O Supernova Cosmology Project (Perlmutter) e a High-z Supernova Search Team (Schmidt, Riess) observaram dezenas de supernovas distantes. Ambas encontraram o mesmo resultado impossível: as supernovas eram mais tênues que o esperado para suas distâncias. O universo não está freando — está acelerando. A descoberta rendeu o Nobel de 2011. Mas o que causa a aceleração? A energia escura. Sua natureza é o maior mistério da cosmologia moderna.",
+      "visual": "Duas equipes rivais: Perlmutter (LBL) e Schmidt/Riess (Harvard/Australia). Supernova tipo Ia: anã branca acrecentando matéria, explosão termonuclear, curva de luz padronizada. Diagrama de Hubble: magnitude aparente vs redshift — dados acima da curva de desaceleração. Medalhas Nobel 2011. Universo acelerando: setas de expansão crescendo com o tempo.",
+      "duration_seconds": 60,
+      "claims": ["dark-energy-discovery", "supernova-cosmology"],
+      "transition": "cut",
+      "sd_prompt": "Two rival teams: Perlmutter (Supernova Cosmology Project) and Schmidt/Riess (High-z Team). Type Ia supernova mechanism: white dwarf accreting, thermonuclear runaway, standardized light curve. Hubble diagram: apparent magnitude vs redshift, data points lying above decelerating curve (accelerating universe). Nobel 2011 medals. Accelerating expansion: galaxies with increasing velocity vectors over cosmic time. 8K"
+    },
+    {
+      "scene": 8,
+      "chapter": 2,
+      "title": "A Constante que Não Deveria Existir",
+      "narration": "A explicação mais simples para a energia escura é a constante cosmológica Λ — energia do vácuo com equação de estado w = -1 (pressão negativa igual à densidade de energia). Einstein a introduziu em 1917 para permitir universo estático, depois a abandonou chamando de 'maior erro'. Mas a teoria quântica de campos prevê que o vácuo tem energia: soma de energias de ponto zero de todos os campos. O resultado: densidade ~10^112 erg/cm³. A observada: ~10^-8 erg/cm³. Discrepância de cento e vinte ordens de magnitude. A 'pior previsão da história da física'. Supersimetria cancela bósons com férmions, mas supersimetria quebrada deixa resíduo ainda enorme. O princípio antrópico (Weinberg, 1987): se Λ fosse muito maior, galáxias não se formariam. Mas isso explica ou apenas contorna?",
+      "visual": "Einstein 1917: equação de campo com Λ. Energia do vácuo quântico: flutuações virtuais, soma de 1/2 ħω. Discrepância: 10^112 vs 10^-8 erg/cm³ — rótulo '120 ordens'. Supersimetria: pares bóson-férmion cancelando, mas quebra de SUSY deixa resíduo. Princípio antrópico: Weinberg 1987, janela de Λ permitindo estrutura.",
+      "duration_seconds": 60,
+      "claims": ["vacuum-catastrophe", "dark-energy-discovery"],
+      "transition": "cut",
+      "sd_prompt": "Einstein 1917 field equations with cosmological constant. Quantum vacuum energy: virtual particle pairs, sum of 1/2 ħω. Discrepancy visualization: 10^112 vs 10^-8 erg/cm³ with '120 orders of magnitude' label. Supersymmetry: boson-fermion pairs cancelling, but broken SUSY leaving large residue. Anthropic principle: Weinberg 1987, allowed Λ window for structure formation. 8K theory visualization"
+    },
+    {
+      "scene": 9,
+      "chapter": 2,
+      "title": "Quintessência e Modificações da Gravidade",
+      "narration": "Se a constante cosmológica é problemática, talvez a energia escura seja dinâmica: quintessência — um campo escalar rolando lentamente em seu potencial, como o inflaton, mas com energia muito menor hoje. w pode variar com o tempo, diferindo de -1. Experimentos futuros (DESI, Euclid, Roman, LSST) medirão a história da expansão e crescimento de estrutura para testar w(z). Outra possibilidade: a gravidade em si é modificada em escalas cósmicas. Teorias f(R), gravidade massiva, MOND relativístico (TeVeS), galileons. O teste decisivo: ondas gravitacionais e luz viajam na mesma velocidade? GW170817 confirmou: velocidade da gravidade = velocidade da luz com precisão de 10^-15. Muitas teorias de gravidade modificada prevêem velocidades diferentes — e foram severamente restringidas. A constante cosmológica, por mais feia que seja, sobrevive.",
+      "visual": "Campo de quintessência: potencial V(φ) com rolagem lenta. w(z) variando no tempo vs Λ constante (w=-1). Experimentos futuros: DESI (espectroscópio), Euclid (lente fraca), Roman (supernovas), LSST (Vera Rubin Observatory). GW170817: ondas gravitacionais e gama chegando juntas — velocidade da gravidade = c. Teorias modificadas excluídas por velocidade errada.",
+      "duration_seconds": 60,
+      "claims": ["dark-energy-discovery", "gw170817-multimessenger"],
+      "transition": "cut",
+      "sd_prompt": "Quintessence field: scalar potential V(phi) with slow roll. Equation of state w(z) varying vs constant Lambda (w=-1). Future surveys: DESI spectroscopic, Euclid weak lensing, Roman supernovae, LSST (Vera Rubin Observatory). GW170817: gravitational wave and gamma-ray arrival together, speed of gravity = c to 10^-15. Modified gravity theories excluded by wrong speed. 8K"
+    },
+    {
+      "scene": 10,
+      "chapter": 2,
+      "title": "A Tensão que Pode Quebrar o Modelo",
+      "narration": "A tensão de Hubble pode ser a primeira rachadura real no Lambda-CDM. Medições locais (Cefeidas + supernovas, equipe SH0ES de Riess) dão H₀ ≈ 73 km/s/Mpc. A CMB (Planck) dá H₀ ≈ 67,4 km/s/Mpc. A discrepância é de 5 a 6 sigma — chance estatística de flutuação: menos de 1 em 3,5 milhões. Sistemáticos? Equipes independentes, métodos diferentes, mesmo resultado. Nova física? Energia escura precoce (EDE) injetando energia antes da recombinação. Neutrinos estéreis. Interações de matéria escura. Ou a CMB está nos enganando sobre a física do universo primordial. A tensão persiste há anos, mesmo com dados melhores. Se for real, o modelo padrão está incompleto. O universo pode ser mais estranho que nosso melhor modelo.",
+      "visual": "Gráfico tensão Hubble: duas distribuições gaussianas (SH0ES 73±1, Planck 67,4±0,5) mal se sobrepondo. 5-6 sigma label. Métodos independentes confirmando: Cefeidas, TRGB, Mira, masers, lente gravitacional tempo-delay. Propostas de nova física: EDE (energia escura precoce), neutrinos estéreis, matéria escura interagente. Pergunta: 'O modelo padrão está quebrado?'",
+      "duration_seconds": 60,
+      "claims": ["hubble-tension", "planck-cmb-results", "dark-energy-discovery", "sterile-neutrinos"],
+      "transition": "fade",
+      "sd_prompt": "Hubble tension graph: two Gaussian distributions (SH0ES 73±1, Planck 67.4±0.5) barely overlapping. '5-6 sigma' label. Independent methods confirming: Cepheids, TRGB, Mira variables, masers, gravitational lensing time-delay. New physics proposals: Early Dark Energy (EDE), sterile neutrinos, interacting dark matter. Final question: 'Is the standard model broken?' 8K"
+    }
+  ]
+}

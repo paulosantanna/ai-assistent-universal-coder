@@ -1,0 +1,3467 @@
+{
+  "sources": [
+    {
+      "id": "AIHealthResearch/README.md:3",
+      "path": "02_repositorios/AIHealthResearch/README.md",
+      "line": 3,
+      "sha256": "5c5b8611072850fb9d2b8a416f6e862c614e1203433c6c857f6008de35573881"
+    },
+    {
+      "id": "AIHealthResearch/docs/ARCHITECTURE.md:29",
+      "path": "02_repositorios/AIHealthResearch/docs/ARCHITECTURE.md",
+      "line": 29,
+      "sha256": "75c857cd4ac74913124f572e8df15601f9c2cf22fe1d1150cc10c3947f74bbe4"
+    },
+    {
+      "id": "AIHealthResearch/infra/render_stack.py:37",
+      "path": "02_repositorios/AIHealthResearch/infra/render_stack.py",
+      "line": 37,
+      "sha256": "a4d029acdd304877078aba8f35868443247c90c146598822a0a85c224e597e69"
+    },
+    {
+      "id": "AIHealthResearch/pyproject.toml:10",
+      "path": "02_repositorios/AIHealthResearch/pyproject.toml",
+      "line": 10,
+      "sha256": "73c12d7a211ee53f8a54c7f4eb3473e6d515f9f3b97282d3e9c6763885557289"
+    },
+    {
+      "id": "AIHealthResearch/pyproject.toml:11",
+      "path": "02_repositorios/AIHealthResearch/pyproject.toml",
+      "line": 11,
+      "sha256": "73c12d7a211ee53f8a54c7f4eb3473e6d515f9f3b97282d3e9c6763885557289"
+    },
+    {
+      "id": "AIHealthResearch/pyproject.toml:12",
+      "path": "02_repositorios/AIHealthResearch/pyproject.toml",
+      "line": 12,
+      "sha256": "73c12d7a211ee53f8a54c7f4eb3473e6d515f9f3b97282d3e9c6763885557289"
+    },
+    {
+      "id": "AIHealthResearch/pyproject.toml:5",
+      "path": "02_repositorios/AIHealthResearch/pyproject.toml",
+      "line": 5,
+      "sha256": "73c12d7a211ee53f8a54c7f4eb3473e6d515f9f3b97282d3e9c6763885557289"
+    },
+    {
+      "id": "AIHealthResearch/pyproject.toml:6",
+      "path": "02_repositorios/AIHealthResearch/pyproject.toml",
+      "line": 6,
+      "sha256": "73c12d7a211ee53f8a54c7f4eb3473e6d515f9f3b97282d3e9c6763885557289"
+    },
+    {
+      "id": "AIHealthResearch/pyproject.toml:7",
+      "path": "02_repositorios/AIHealthResearch/pyproject.toml",
+      "line": 7,
+      "sha256": "73c12d7a211ee53f8a54c7f4eb3473e6d515f9f3b97282d3e9c6763885557289"
+    },
+    {
+      "id": "AIHealthResearch/pyproject.toml:8",
+      "path": "02_repositorios/AIHealthResearch/pyproject.toml",
+      "line": 8,
+      "sha256": "73c12d7a211ee53f8a54c7f4eb3473e6d515f9f3b97282d3e9c6763885557289"
+    },
+    {
+      "id": "AIHealthResearch/requirements.txt:1",
+      "path": "02_repositorios/AIHealthResearch/requirements.txt",
+      "line": 1,
+      "sha256": "723e2afe58077e10415d35cde9775adbe380bfc7ec34a45f831f15da720a3cd6"
+    },
+    {
+      "id": "AIHealthResearch/requirements.txt:2",
+      "path": "02_repositorios/AIHealthResearch/requirements.txt",
+      "line": 2,
+      "sha256": "723e2afe58077e10415d35cde9775adbe380bfc7ec34a45f831f15da720a3cd6"
+    },
+    {
+      "id": "AIHealthResearch/requirements.txt:3",
+      "path": "02_repositorios/AIHealthResearch/requirements.txt",
+      "line": 3,
+      "sha256": "723e2afe58077e10415d35cde9775adbe380bfc7ec34a45f831f15da720a3cd6"
+    },
+    {
+      "id": "AIHealthResearch/requirements.txt:4",
+      "path": "02_repositorios/AIHealthResearch/requirements.txt",
+      "line": 4,
+      "sha256": "723e2afe58077e10415d35cde9775adbe380bfc7ec34a45f831f15da720a3cd6"
+    },
+    {
+      "id": "AIHealthResearch/requirements.txt:5",
+      "path": "02_repositorios/AIHealthResearch/requirements.txt",
+      "line": 5,
+      "sha256": "723e2afe58077e10415d35cde9775adbe380bfc7ec34a45f831f15da720a3cd6"
+    },
+    {
+      "id": "AIHealthResearch/requirements.txt:6",
+      "path": "02_repositorios/AIHealthResearch/requirements.txt",
+      "line": 6,
+      "sha256": "723e2afe58077e10415d35cde9775adbe380bfc7ec34a45f831f15da720a3cd6"
+    },
+    {
+      "id": "AIHealthResearch/requirements.txt:7",
+      "path": "02_repositorios/AIHealthResearch/requirements.txt",
+      "line": 7,
+      "sha256": "723e2afe58077e10415d35cde9775adbe380bfc7ec34a45f831f15da720a3cd6"
+    },
+    {
+      "id": "AIHealthResearch/requirements.txt:8",
+      "path": "02_repositorios/AIHealthResearch/requirements.txt",
+      "line": 8,
+      "sha256": "723e2afe58077e10415d35cde9775adbe380bfc7ec34a45f831f15da720a3cd6"
+    },
+    {
+      "id": "AIHealthResearch/requirements.txt:9",
+      "path": "02_repositorios/AIHealthResearch/requirements.txt",
+      "line": 9,
+      "sha256": "723e2afe58077e10415d35cde9775adbe380bfc7ec34a45f831f15da720a3cd6"
+    },
+    {
+      "id": "AIHealthResearch/src/aihealthresearch/application/dispatch.py:30",
+      "path": "02_repositorios/AIHealthResearch/src/aihealthresearch/application/dispatch.py",
+      "line": 30,
+      "sha256": "7b4118c85c9ef9c3b5c148e3fcff564906038ab3f3b8d9462563597f081e6d27"
+    },
+    {
+      "id": "AIHealthResearch/src/aihealthresearch/infrastructure/database.py:25",
+      "path": "02_repositorios/AIHealthResearch/src/aihealthresearch/infrastructure/database.py",
+      "line": 25,
+      "sha256": "cc99f61d6a3d0841ed8a71dbcec4af59e77a8014b645bfde4411b108ede878e2"
+    },
+    {
+      "id": "AIHealthResearch/src/aihealthresearch/infrastructure/search.py:9",
+      "path": "02_repositorios/AIHealthResearch/src/aihealthresearch/infrastructure/search.py",
+      "line": 9,
+      "sha256": "abfb2d741aa7538aa92558cce6828712c82a5da7f09f64cbd8be9f3315bc9f58"
+    },
+    {
+      "id": "AIHealthResearch/src/aihealthresearch/infrastructure/trainer.py:132",
+      "path": "02_repositorios/AIHealthResearch/src/aihealthresearch/infrastructure/trainer.py",
+      "line": 132,
+      "sha256": "4168e0dc29a591487a68c2aecab2c0934e8cd960b0f8ef6862f7982876792c51"
+    },
+    {
+      "id": "AIHealthResearch/src/aihealthresearch/infrastructure/trainer.py:21",
+      "path": "02_repositorios/AIHealthResearch/src/aihealthresearch/infrastructure/trainer.py",
+      "line": 21,
+      "sha256": "4168e0dc29a591487a68c2aecab2c0934e8cd960b0f8ef6862f7982876792c51"
+    },
+    {
+      "id": "AIHealthResearch/src/aihealthresearch/infrastructure/trainer.py:73",
+      "path": "02_repositorios/AIHealthResearch/src/aihealthresearch/infrastructure/trainer.py",
+      "line": 73,
+      "sha256": "4168e0dc29a591487a68c2aecab2c0934e8cd960b0f8ef6862f7982876792c51"
+    },
+    {
+      "id": "Awesome-LLM-Post-training/README.md:11",
+      "path": "02_repositorios/Awesome-LLM-Post-training/README.md",
+      "line": 11,
+      "sha256": "96060e9fb386920880b6c6ba740c5e9f71301e03923db33fe08fd6b9a9af0bbd"
+    },
+    {
+      "id": "Awesome-LLM-Post-training/README.md:223",
+      "path": "02_repositorios/Awesome-LLM-Post-training/README.md",
+      "line": 223,
+      "sha256": "96060e9fb386920880b6c6ba740c5e9f71301e03923db33fe08fd6b9a9af0bbd"
+    },
+    {
+      "id": "Awesome-LLM-Post-training/README.md:35",
+      "path": "02_repositorios/Awesome-LLM-Post-training/README.md",
+      "line": 35,
+      "sha256": "96060e9fb386920880b6c6ba740c5e9f71301e03923db33fe08fd6b9a9af0bbd"
+    },
+    {
+      "id": "DiabeticsresearchJEV/FLOW-HARDENING.md:19",
+      "path": "02_repositorios/DiabeticsresearchJEV/FLOW-HARDENING.md",
+      "line": 19,
+      "sha256": "55cc330f829ee5b7da2e736997ad9ca01cde09dcd1a7cf8fc04daa0d8d6f82b1"
+    },
+    {
+      "id": "DiabeticsresearchJEV/docker-compose.yml:2",
+      "path": "02_repositorios/DiabeticsresearchJEV/docker-compose.yml",
+      "line": 2,
+      "sha256": "73aa4e03a108c5102ef739040d76aff71f22d5063d93d73269728a49ba0da608"
+    },
+    {
+      "id": "DiabeticsresearchJEV/docker-compose.yml:8",
+      "path": "02_repositorios/DiabeticsresearchJEV/docker-compose.yml",
+      "line": 8,
+      "sha256": "73aa4e03a108c5102ef739040d76aff71f22d5063d93d73269728a49ba0da608"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:10",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 10,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:21",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 21,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:22",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 22,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:23",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 23,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:24",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 24,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:25",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 25,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:26",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 26,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:27",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 27,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:28",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 28,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:29",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 29,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:30",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 30,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:31",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 31,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:32",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 32,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:33",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 33,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:34",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 34,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:35",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 35,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:36",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 36,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:37",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 37,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:38",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 38,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:39",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 39,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:40",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 40,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:45",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 45,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:46",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 46,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:47",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 47,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:48",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 48,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:51",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 51,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:52",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 52,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:53",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 53,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:54",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 54,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:55",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 55,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:56",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 56,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:57",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 57,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:58",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 58,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:6",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 6,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:62",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 62,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:65",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 65,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:67",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 67,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:7",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 7,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:71",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 71,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:72",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 72,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:73",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 73,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:74",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 74,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:77",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 77,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:78",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 78,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:79",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 79,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:8",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 8,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:80",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 80,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:81",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 81,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/pyproject.toml:82",
+      "path": "02_repositorios/DiabeticsresearchJEV/pyproject.toml",
+      "line": 82,
+      "sha256": "fd9a392c7afc43f87671461f89fe80f0b92f6dfc2e35d96629f42f4077cc8402"
+    },
+    {
+      "id": "DiabeticsresearchJEV/src/diabeticsresearchjev/application/knowledge/graphrag.py:31",
+      "path": "02_repositorios/DiabeticsresearchJEV/src/diabeticsresearchjev/application/knowledge/graphrag.py",
+      "line": 31,
+      "sha256": "37817c17c36eeaed9ab7042e2f1fb6f2504cb12a20bd884b8e0d275f174126e2"
+    },
+    {
+      "id": "DiabeticsresearchJEV/src/diabeticsresearchjev/application/pipeline/full_cycle.py:35",
+      "path": "02_repositorios/DiabeticsresearchJEV/src/diabeticsresearchjev/application/pipeline/full_cycle.py",
+      "line": 35,
+      "sha256": "46162aef71cab166a91c020c325aa516d98e31da8c99066353faa5ad2c25af1c"
+    },
+    {
+      "id": "DiabeticsresearchJEV/src/diabeticsresearchjev/application/rag/retriever.py:1",
+      "path": "02_repositorios/DiabeticsresearchJEV/src/diabeticsresearchjev/application/rag/retriever.py",
+      "line": 1,
+      "sha256": "d02ba3b8c7843fef92fddee0d585dfe37caccba4f633a8c4e613606333bc82b9"
+    },
+    {
+      "id": "DiabeticsresearchJEV/src/diabeticsresearchjev/application/training/trainer.py:125",
+      "path": "02_repositorios/DiabeticsresearchJEV/src/diabeticsresearchjev/application/training/trainer.py",
+      "line": 125,
+      "sha256": "b1eaab6e22ecb4e411c6023e63b59e8336567e0a9b653f1a5f7a6efb0d66d365"
+    },
+    {
+      "id": "DiabeticsresearchJEV/src/diabeticsresearchjev/application/training/trainer.py:31",
+      "path": "02_repositorios/DiabeticsresearchJEV/src/diabeticsresearchjev/application/training/trainer.py",
+      "line": 31,
+      "sha256": "b1eaab6e22ecb4e411c6023e63b59e8336567e0a9b653f1a5f7a6efb0d66d365"
+    },
+    {
+      "id": "DiabeticsresearchJEV/src/diabeticsresearchjev/interfaces/api.py:12",
+      "path": "02_repositorios/DiabeticsresearchJEV/src/diabeticsresearchjev/interfaces/api.py",
+      "line": 12,
+      "sha256": "be62f364a79194cbcef9fa6b2c3e0e4c19c0cfab06184e2e200872bde182ea59"
+    },
+    {
+      "id": "Engenharia-Reversa/AGENTS.md:11",
+      "path": "02_repositorios/Engenharia-Reversa/AGENTS.md",
+      "line": 11,
+      "sha256": "fd67a060e2686e17ca4c3e8f4c32626fc86a6350b412205972739c49a1c0a41a"
+    },
+    {
+      "id": "Engenharia-Reversa/AGENTS.md:17",
+      "path": "02_repositorios/Engenharia-Reversa/AGENTS.md",
+      "line": 17,
+      "sha256": "fd67a060e2686e17ca4c3e8f4c32626fc86a6350b412205972739c49a1c0a41a"
+    },
+    {
+      "id": "Engenharia-Reversa/AGENTS.md:5",
+      "path": "02_repositorios/Engenharia-Reversa/AGENTS.md",
+      "line": 5,
+      "sha256": "fd67a060e2686e17ca4c3e8f4c32626fc86a6350b412205972739c49a1c0a41a"
+    },
+    {
+      "id": "Engenharia-Reversa/bridge/ghidra/ReaGhidraBridge.java:118",
+      "path": "02_repositorios/Engenharia-Reversa/bridge/ghidra/ReaGhidraBridge.java",
+      "line": 118,
+      "sha256": "73a9d7a44ad203c2daaeea11a815d919f836d2d68a800d388f20786d9de4df83"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:2",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 2,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:339",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 339,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:341",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 341,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:342",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 342,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:343",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 343,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:344",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 344,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:345",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 345,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:346",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 346,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:348",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 348,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:349",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 349,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:350",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 350,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:351",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 351,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:352",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 352,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:353",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 353,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:354",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 354,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:355",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 355,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:356",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 356,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:357",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 357,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:358",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 358,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:359",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 359,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:360",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 360,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:362",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 362,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:363",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 363,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:364",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 364,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:365",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 365,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:366",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 366,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:367",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 367,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:368",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 368,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:369",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 369,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:370",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 370,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:372",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 372,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:373",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 373,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:374",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 374,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:375",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 375,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:376",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 376,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:377",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 377,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:378",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 378,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:379",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 379,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:380",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 380,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:391",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 391,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:392",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 392,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:395",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 395,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:396",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 396,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:397",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 397,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:398",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 398,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:399",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 399,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:4",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 4,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:400",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 400,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:401",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 401,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:402",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 402,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:403",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 403,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:404",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 404,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:405",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 405,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:406",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 406,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:407",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 407,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:408",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 408,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:409",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 409,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:410",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 410,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:411",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 411,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:412",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 412,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:414",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 414,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:415",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 415,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:416",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 416,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:46",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 46,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:48",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 48,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/package.json:5",
+      "path": "02_repositorios/Engenharia-Reversa/package.json",
+      "line": 5,
+      "sha256": "ca04e784dbc2bd579f41ee98c01feb273a202a7f1d9c98f1f241b9d7f42883dd"
+    },
+    {
+      "id": "Engenharia-Reversa/scripts/verify-tools/skills/package.json:2",
+      "path": "02_repositorios/Engenharia-Reversa/scripts/verify-tools/skills/package.json",
+      "line": 2,
+      "sha256": "f4278500a08eadb4fef8a5bf74ece0d177d4702b970644ba712e5ec29e7ddcf9"
+    },
+    {
+      "id": "Engenharia-Reversa/scripts/verify-tools/skills/package.json:6",
+      "path": "02_repositorios/Engenharia-Reversa/scripts/verify-tools/skills/package.json",
+      "line": 6,
+      "sha256": "f4278500a08eadb4fef8a5bf74ece0d177d4702b970644ba712e5ec29e7ddcf9"
+    },
+    {
+      "id": "Engenharia-Reversa/src/cli.ts:98",
+      "path": "02_repositorios/Engenharia-Reversa/src/cli.ts",
+      "line": 98,
+      "sha256": "1f9b93eea93b021ad21ad7e0ef020b2fd56323a1560e3f23b13209ca80f60d01"
+    },
+    {
+      "id": "Engenharia-Reversa/src/main/eagerRuntime.ts:12",
+      "path": "02_repositorios/Engenharia-Reversa/src/main/eagerRuntime.ts",
+      "line": 12,
+      "sha256": "c2ea9f492bbf58aab971e75108e1db7910ad39b7e580175872318e4ff8a8e4d9"
+    },
+    {
+      "id": "Engenharia-Reversa/tests/conformance/readiness/electron/package.json:2",
+      "path": "02_repositorios/Engenharia-Reversa/tests/conformance/readiness/electron/package.json",
+      "line": 2,
+      "sha256": "519c45de37ee712c467eaf7d3927e70b9ff999fa41446cd3e28eefb958b1191f"
+    },
+    {
+      "id": "Engenharia-Reversa/tests/conformance/readiness/electron/package.json:3",
+      "path": "02_repositorios/Engenharia-Reversa/tests/conformance/readiness/electron/package.json",
+      "line": 3,
+      "sha256": "519c45de37ee712c467eaf7d3927e70b9ff999fa41446cd3e28eefb958b1191f"
+    },
+    {
+      "id": "Engenharia-Reversa/tests/conformance/readiness/javascript-cli/package.json:2",
+      "path": "02_repositorios/Engenharia-Reversa/tests/conformance/readiness/javascript-cli/package.json",
+      "line": 2,
+      "sha256": "66b88b6c2e204544575a0c3c0a9314933bfa81e2d53305991b1d602db9b6c81b"
+    },
+    {
+      "id": "Engenharia-Reversa/tests/conformance/readiness/javascript-cli/package.json:3",
+      "path": "02_repositorios/Engenharia-Reversa/tests/conformance/readiness/javascript-cli/package.json",
+      "line": 3,
+      "sha256": "66b88b6c2e204544575a0c3c0a9314933bfa81e2d53305991b1d602db9b6c81b"
+    },
+    {
+      "id": "Engenharia-Reversa/website/public/examples/notes-electron/package.json:2",
+      "path": "02_repositorios/Engenharia-Reversa/website/public/examples/notes-electron/package.json",
+      "line": 2,
+      "sha256": "fe6a362255690ca5744ce40b633e5fe0bb2915e774972be2def6fd11ee6aeca7"
+    },
+    {
+      "id": "Engenharia-Reversa/website/public/examples/notes-electron/package.json:3",
+      "path": "02_repositorios/Engenharia-Reversa/website/public/examples/notes-electron/package.json",
+      "line": 3,
+      "sha256": "fe6a362255690ca5744ce40b633e5fe0bb2915e774972be2def6fd11ee6aeca7"
+    },
+    {
+      "id": "Engenharia-Reversa/website/requirements.txt:2",
+      "path": "02_repositorios/Engenharia-Reversa/website/requirements.txt",
+      "line": 2,
+      "sha256": "2d361490ddc822c4a362760da117a90b95bfc45cafe843c98b6a3905d10c827e"
+    },
+    {
+      "id": "Engenharia-Reversa/website/requirements.txt:4",
+      "path": "02_repositorios/Engenharia-Reversa/website/requirements.txt",
+      "line": 4,
+      "sha256": "2d361490ddc822c4a362760da117a90b95bfc45cafe843c98b6a3905d10c827e"
+    },
+    {
+      "id": "FreePDFReader/Cargo.toml:4",
+      "path": "02_repositorios/FreePDFReader/Cargo.toml",
+      "line": 4,
+      "sha256": "d283b6775131329d8a8ba86b8547f308c6c8600e11ef9d3977b1f611c77b02ab"
+    },
+    {
+      "id": "FreePDFReader/Cargo.toml:6",
+      "path": "02_repositorios/FreePDFReader/Cargo.toml",
+      "line": 6,
+      "sha256": "d283b6775131329d8a8ba86b8547f308c6c8600e11ef9d3977b1f611c77b02ab"
+    },
+    {
+      "id": "FreePDFReader/PORTABLE.md:45",
+      "path": "02_repositorios/FreePDFReader/PORTABLE.md",
+      "line": 45,
+      "sha256": "bb7d6fcb0deba9db04ecfa3ccda745658db6017dc7fcaef94f63ac2509e02b1c"
+    },
+    {
+      "id": "FreePDFReader/README.md:3",
+      "path": "02_repositorios/FreePDFReader/README.md",
+      "line": 3,
+      "sha256": "0f1a61d65f1302f6c2028d5671c49e5683886bdca4c49f77f5af3b17002ead3b"
+    },
+    {
+      "id": "FreePDFReader/crates/freepdfreader-ai/Cargo.toml:2",
+      "path": "02_repositorios/FreePDFReader/crates/freepdfreader-ai/Cargo.toml",
+      "line": 2,
+      "sha256": "d9d10dd16a39a20b1ed0c9219047b702779ca42b07c67c6d225f3a712a4bed5f"
+    },
+    {
+      "id": "FreePDFReader/crates/freepdfreader-ai/src/engine.rs:84",
+      "path": "02_repositorios/FreePDFReader/crates/freepdfreader-ai/src/engine.rs",
+      "line": 84,
+      "sha256": "b2d08193612b8d2d8bbe0f4d7074fd5dc94240430545b1c89c528657a341bf2b"
+    },
+    {
+      "id": "FreePDFReader/crates/freepdfreader-core/Cargo.toml:2",
+      "path": "02_repositorios/FreePDFReader/crates/freepdfreader-core/Cargo.toml",
+      "line": 2,
+      "sha256": "4f22c4fa46efe33fc431366dd6ab30c89263f915734c9a2d5d2ad8257754240d"
+    },
+    {
+      "id": "FreePDFReader/crates/freepdfreader-core/src/document.rs:138",
+      "path": "02_repositorios/FreePDFReader/crates/freepdfreader-core/src/document.rs",
+      "line": 138,
+      "sha256": "2367d5994781fcfa5b89455b1c3f1819e56738fd4aced5ac443647b02a15110c"
+    },
+    {
+      "id": "FreePDFReader/crates/freepdfreader-core/src/document.rs:48",
+      "path": "02_repositorios/FreePDFReader/crates/freepdfreader-core/src/document.rs",
+      "line": 48,
+      "sha256": "2367d5994781fcfa5b89455b1c3f1819e56738fd4aced5ac443647b02a15110c"
+    },
+    {
+      "id": "FreePDFReader/crates/freepdfreader-ui/Cargo.toml:2",
+      "path": "02_repositorios/FreePDFReader/crates/freepdfreader-ui/Cargo.toml",
+      "line": 2,
+      "sha256": "b5a0ecb81528afc3de6dbb7dba899456baf15555c94da3fca56c19c091bdeafe"
+    },
+    {
+      "id": "FreePDFReader/crates/xtask/Cargo.toml:2",
+      "path": "02_repositorios/FreePDFReader/crates/xtask/Cargo.toml",
+      "line": 2,
+      "sha256": "cb807181128e35b4a21a279f0b84147ca4addb4af3e81b6a785504d125f2a742"
+    },
+    {
+      "id": "FreePDFReader/src/main.rs:267",
+      "path": "02_repositorios/FreePDFReader/src/main.rs",
+      "line": 267,
+      "sha256": "2b8ea65e6d5e1ac0580c78e8e43e77f85fe067141c2ce4242972e11f5fa01b29"
+    },
+    {
+      "id": "RemoveWindowsAI/Documentation.md:23",
+      "path": "02_repositorios/RemoveWindowsAI/Documentation.md",
+      "line": 23,
+      "sha256": "d4627c1a8f7a01f87b0bd7461f865dc0482650ac2b7d19a6316032f502cde3c5"
+    },
+    {
+      "id": "RemoveWindowsAI/Documentation.md:51",
+      "path": "02_repositorios/RemoveWindowsAI/Documentation.md",
+      "line": 51,
+      "sha256": "d4627c1a8f7a01f87b0bd7461f865dc0482650ac2b7d19a6316032f502cde3c5"
+    },
+    {
+      "id": "RemoveWindowsAI/README.md:1",
+      "path": "02_repositorios/RemoveWindowsAI/README.md",
+      "line": 1,
+      "sha256": "5cbf60c4f6699d47b541a9316bb4b49f95ba745734f34d758282405714639c76"
+    },
+    {
+      "id": "RemoveWindowsAI/RemoveAI-UpdateCleanup.ps1:147",
+      "path": "02_repositorios/RemoveWindowsAI/RemoveAI-UpdateCleanup.ps1",
+      "line": 147,
+      "sha256": "f8064e325d33b77e3f8983bea7b9ed753938061beaa5e9974f2c95ab35a4fe92"
+    },
+    {
+      "id": "RemoveWindowsAI/RemoveAI-UpdateCleanup.ps1:65",
+      "path": "02_repositorios/RemoveWindowsAI/RemoveAI-UpdateCleanup.ps1",
+      "line": 65,
+      "sha256": "f8064e325d33b77e3f8983bea7b9ed753938061beaa5e9974f2c95ab35a4fe92"
+    },
+    {
+      "id": "RemoveWindowsAI/RemoveWindowsAi.ps1:51",
+      "path": "02_repositorios/RemoveWindowsAI/RemoveWindowsAi.ps1",
+      "line": 51,
+      "sha256": "3adfd4ad59a83ad5a27635aeb11a1cb434239a42bf919395501f338db95206d5"
+    },
+    {
+      "id": "dark-videos-mining-fix/README.md:1",
+      "path": "02_repositorios/dark-videos-mining-fix/README.md",
+      "line": 1,
+      "sha256": "438e5a6444ab9d684d446eb626f85fef1b0cfdc7fe723df2fd494dbef86b0c34"
+    },
+    {
+      "id": "dark-videos-mining-fix/README.md:3",
+      "path": "02_repositorios/dark-videos-mining-fix/README.md",
+      "line": 3,
+      "sha256": "438e5a6444ab9d684d446eb626f85fef1b0cfdc7fe723df2fd494dbef86b0c34"
+    },
+    {
+      "id": "dark-videos-mining-fix/README.md:9",
+      "path": "02_repositorios/dark-videos-mining-fix/README.md",
+      "line": 9,
+      "sha256": "438e5a6444ab9d684d446eb626f85fef1b0cfdc7fe723df2fd494dbef86b0c34"
+    },
+    {
+      "id": "dark-videos-mining-fix/backend/app/db/base.py:11",
+      "path": "02_repositorios/dark-videos-mining-fix/backend/app/db/base.py",
+      "line": 11,
+      "sha256": "03f061ac2ff26403119af819312eea7010cf85f06574e9ca7ca0d37369504f97"
+    },
+    {
+      "id": "dark-videos-mining-fix/backend/app/modules/mining/metadata_policy.py:53",
+      "path": "02_repositorios/dark-videos-mining-fix/backend/app/modules/mining/metadata_policy.py",
+      "line": 53,
+      "sha256": "16537d20885e6936428a0cf78a9aff298e3193f72e3ca76c6a38d4e9c675235f"
+    },
+    {
+      "id": "dark-videos-mining-fix/backend/pyproject.toml:10",
+      "path": "02_repositorios/dark-videos-mining-fix/backend/pyproject.toml",
+      "line": 10,
+      "sha256": "153e0e6039edce0914712050bb27c9cefcf28ea10b48bcea65947b8ec284c7ac"
+    },
+    {
+      "id": "dark-videos-mining-fix/backend/pyproject.toml:11",
+      "path": "02_repositorios/dark-videos-mining-fix/backend/pyproject.toml",
+      "line": 11,
+      "sha256": "153e0e6039edce0914712050bb27c9cefcf28ea10b48bcea65947b8ec284c7ac"
+    },
+    {
+      "id": "dark-videos-mining-fix/backend/pyproject.toml:12",
+      "path": "02_repositorios/dark-videos-mining-fix/backend/pyproject.toml",
+      "line": 12,
+      "sha256": "153e0e6039edce0914712050bb27c9cefcf28ea10b48bcea65947b8ec284c7ac"
+    },
+    {
+      "id": "dark-videos-mining-fix/backend/pyproject.toml:13",
+      "path": "02_repositorios/dark-videos-mining-fix/backend/pyproject.toml",
+      "line": 13,
+      "sha256": "153e0e6039edce0914712050bb27c9cefcf28ea10b48bcea65947b8ec284c7ac"
+    },
+    {
+      "id": "dark-videos-mining-fix/backend/pyproject.toml:14",
+      "path": "02_repositorios/dark-videos-mining-fix/backend/pyproject.toml",
+      "line": 14,
+      "sha256": "153e0e6039edce0914712050bb27c9cefcf28ea10b48bcea65947b8ec284c7ac"
+    },
+    {
+      "id": "dark-videos-mining-fix/backend/pyproject.toml:15",
+      "path": "02_repositorios/dark-videos-mining-fix/backend/pyproject.toml",
+      "line": 15,
+      "sha256": "153e0e6039edce0914712050bb27c9cefcf28ea10b48bcea65947b8ec284c7ac"
+    },
+    {
+      "id": "dark-videos-mining-fix/backend/pyproject.toml:16",
+      "path": "02_repositorios/dark-videos-mining-fix/backend/pyproject.toml",
+      "line": 16,
+      "sha256": "153e0e6039edce0914712050bb27c9cefcf28ea10b48bcea65947b8ec284c7ac"
+    },
+    {
+      "id": "dark-videos-mining-fix/backend/pyproject.toml:17",
+      "path": "02_repositorios/dark-videos-mining-fix/backend/pyproject.toml",
+      "line": 17,
+      "sha256": "153e0e6039edce0914712050bb27c9cefcf28ea10b48bcea65947b8ec284c7ac"
+    },
+    {
+      "id": "dark-videos-mining-fix/backend/pyproject.toml:18",
+      "path": "02_repositorios/dark-videos-mining-fix/backend/pyproject.toml",
+      "line": 18,
+      "sha256": "153e0e6039edce0914712050bb27c9cefcf28ea10b48bcea65947b8ec284c7ac"
+    },
+    {
+      "id": "dark-videos-mining-fix/backend/pyproject.toml:19",
+      "path": "02_repositorios/dark-videos-mining-fix/backend/pyproject.toml",
+      "line": 19,
+      "sha256": "153e0e6039edce0914712050bb27c9cefcf28ea10b48bcea65947b8ec284c7ac"
+    },
+    {
+      "id": "dark-videos-mining-fix/backend/pyproject.toml:2",
+      "path": "02_repositorios/dark-videos-mining-fix/backend/pyproject.toml",
+      "line": 2,
+      "sha256": "153e0e6039edce0914712050bb27c9cefcf28ea10b48bcea65947b8ec284c7ac"
+    },
+    {
+      "id": "dark-videos-mining-fix/backend/pyproject.toml:20",
+      "path": "02_repositorios/dark-videos-mining-fix/backend/pyproject.toml",
+      "line": 20,
+      "sha256": "153e0e6039edce0914712050bb27c9cefcf28ea10b48bcea65947b8ec284c7ac"
+    },
+    {
+      "id": "dark-videos-mining-fix/backend/pyproject.toml:21",
+      "path": "02_repositorios/dark-videos-mining-fix/backend/pyproject.toml",
+      "line": 21,
+      "sha256": "153e0e6039edce0914712050bb27c9cefcf28ea10b48bcea65947b8ec284c7ac"
+    },
+    {
+      "id": "dark-videos-mining-fix/backend/pyproject.toml:22",
+      "path": "02_repositorios/dark-videos-mining-fix/backend/pyproject.toml",
+      "line": 22,
+      "sha256": "153e0e6039edce0914712050bb27c9cefcf28ea10b48bcea65947b8ec284c7ac"
+    },
+    {
+      "id": "dark-videos-mining-fix/backend/pyproject.toml:23",
+      "path": "02_repositorios/dark-videos-mining-fix/backend/pyproject.toml",
+      "line": 23,
+      "sha256": "153e0e6039edce0914712050bb27c9cefcf28ea10b48bcea65947b8ec284c7ac"
+    },
+    {
+      "id": "dark-videos-mining-fix/backend/pyproject.toml:24",
+      "path": "02_repositorios/dark-videos-mining-fix/backend/pyproject.toml",
+      "line": 24,
+      "sha256": "153e0e6039edce0914712050bb27c9cefcf28ea10b48bcea65947b8ec284c7ac"
+    },
+    {
+      "id": "dark-videos-mining-fix/backend/pyproject.toml:25",
+      "path": "02_repositorios/dark-videos-mining-fix/backend/pyproject.toml",
+      "line": 25,
+      "sha256": "153e0e6039edce0914712050bb27c9cefcf28ea10b48bcea65947b8ec284c7ac"
+    },
+    {
+      "id": "dark-videos-mining-fix/backend/pyproject.toml:26",
+      "path": "02_repositorios/dark-videos-mining-fix/backend/pyproject.toml",
+      "line": 26,
+      "sha256": "153e0e6039edce0914712050bb27c9cefcf28ea10b48bcea65947b8ec284c7ac"
+    },
+    {
+      "id": "dark-videos-mining-fix/backend/pyproject.toml:27",
+      "path": "02_repositorios/dark-videos-mining-fix/backend/pyproject.toml",
+      "line": 27,
+      "sha256": "153e0e6039edce0914712050bb27c9cefcf28ea10b48bcea65947b8ec284c7ac"
+    },
+    {
+      "id": "dark-videos-mining-fix/backend/pyproject.toml:28",
+      "path": "02_repositorios/dark-videos-mining-fix/backend/pyproject.toml",
+      "line": 28,
+      "sha256": "153e0e6039edce0914712050bb27c9cefcf28ea10b48bcea65947b8ec284c7ac"
+    },
+    {
+      "id": "dark-videos-mining-fix/backend/pyproject.toml:3",
+      "path": "02_repositorios/dark-videos-mining-fix/backend/pyproject.toml",
+      "line": 3,
+      "sha256": "153e0e6039edce0914712050bb27c9cefcf28ea10b48bcea65947b8ec284c7ac"
+    },
+    {
+      "id": "dark-videos-mining-fix/backend/pyproject.toml:5",
+      "path": "02_repositorios/dark-videos-mining-fix/backend/pyproject.toml",
+      "line": 5,
+      "sha256": "153e0e6039edce0914712050bb27c9cefcf28ea10b48bcea65947b8ec284c7ac"
+    },
+    {
+      "id": "dark-videos-mining-fix/backend/pyproject.toml:7",
+      "path": "02_repositorios/dark-videos-mining-fix/backend/pyproject.toml",
+      "line": 7,
+      "sha256": "153e0e6039edce0914712050bb27c9cefcf28ea10b48bcea65947b8ec284c7ac"
+    },
+    {
+      "id": "dark-videos-mining-fix/backend/pyproject.toml:8",
+      "path": "02_repositorios/dark-videos-mining-fix/backend/pyproject.toml",
+      "line": 8,
+      "sha256": "153e0e6039edce0914712050bb27c9cefcf28ea10b48bcea65947b8ec284c7ac"
+    },
+    {
+      "id": "dark-videos-mining-fix/backend/pyproject.toml:9",
+      "path": "02_repositorios/dark-videos-mining-fix/backend/pyproject.toml",
+      "line": 9,
+      "sha256": "153e0e6039edce0914712050bb27c9cefcf28ea10b48bcea65947b8ec284c7ac"
+    },
+    {
+      "id": "dark-videos-mining-fix/package.py:60",
+      "path": "02_repositorios/dark-videos-mining-fix/package.py",
+      "line": 60,
+      "sha256": "5cd7d7263aff02f9f1e1ac8fd2b7fdc75720b33799401df8e3586fbe17eef2e6"
+    },
+    {
+      "id": "dark-videos-mining-fix/run_checks.py:25",
+      "path": "02_repositorios/dark-videos-mining-fix/run_checks.py",
+      "line": 25,
+      "sha256": "ce50f53b593d7c5bc0a9eee64ccadb6e9e733e975e98fd33cee447f1b40284c1"
+    },
+    {
+      "id": "dark-videos/README.md:1",
+      "path": "02_repositorios/dark-videos/README.md",
+      "line": 1,
+      "sha256": "77ba8145676f0cef7900b14035cefb86e5bd488ba8f9005e097aee90b2a5967a"
+    },
+    {
+      "id": "dark-videos/README.md:16",
+      "path": "02_repositorios/dark-videos/README.md",
+      "line": 16,
+      "sha256": "77ba8145676f0cef7900b14035cefb86e5bd488ba8f9005e097aee90b2a5967a"
+    },
+    {
+      "id": "dark-videos/README.md:57",
+      "path": "02_repositorios/dark-videos/README.md",
+      "line": 57,
+      "sha256": "77ba8145676f0cef7900b14035cefb86e5bd488ba8f9005e097aee90b2a5967a"
+    },
+    {
+      "id": "dark-videos/backend/app/modules/learning/langgraph_flow.py:28",
+      "path": "02_repositorios/dark-videos/backend/app/modules/learning/langgraph_flow.py",
+      "line": 28,
+      "sha256": "c114d5cc45acaa1c58b9f22d3a8d9c354ac172d0b9639d65a072191fdf15cc56"
+    },
+    {
+      "id": "dark-videos/backend/app/modules/learning/ncm.py:53",
+      "path": "02_repositorios/dark-videos/backend/app/modules/learning/ncm.py",
+      "line": 53,
+      "sha256": "1f59f08f391c69463bccc85d93be6ba09e3d91b9235c2f2c838b8182f72a0c63"
+    },
+    {
+      "id": "dark-videos/backend/app/modules/learning/retrieval.py:128",
+      "path": "02_repositorios/dark-videos/backend/app/modules/learning/retrieval.py",
+      "line": 128,
+      "sha256": "e6194d11fb676e1119d740bf8b789854f48096da6342b49f83113aaeb59ae538"
+    },
+    {
+      "id": "dark-videos/backend/app/modules/learning/retrieval.py:18",
+      "path": "02_repositorios/dark-videos/backend/app/modules/learning/retrieval.py",
+      "line": 18,
+      "sha256": "e6194d11fb676e1119d740bf8b789854f48096da6342b49f83113aaeb59ae538"
+    },
+    {
+      "id": "dark-videos/backend/app/modules/learning/retrieval.py:69",
+      "path": "02_repositorios/dark-videos/backend/app/modules/learning/retrieval.py",
+      "line": 69,
+      "sha256": "e6194d11fb676e1119d740bf8b789854f48096da6342b49f83113aaeb59ae538"
+    },
+    {
+      "id": "dark-videos/backend/app/modules/publishing/tasks.py:17",
+      "path": "02_repositorios/dark-videos/backend/app/modules/publishing/tasks.py",
+      "line": 17,
+      "sha256": "2cadeea2e5cef925526b4b7617f5b30f2cd5f5b1f5085963376965266f3e0e3e"
+    },
+    {
+      "id": "dark-videos/backend/pyproject.toml:10",
+      "path": "02_repositorios/dark-videos/backend/pyproject.toml",
+      "line": 10,
+      "sha256": "2dde8fde14d31c9aad0505270b852ac3d5b4facabdf7938cbc311c46e0d51b6f"
+    },
+    {
+      "id": "dark-videos/backend/pyproject.toml:11",
+      "path": "02_repositorios/dark-videos/backend/pyproject.toml",
+      "line": 11,
+      "sha256": "2dde8fde14d31c9aad0505270b852ac3d5b4facabdf7938cbc311c46e0d51b6f"
+    },
+    {
+      "id": "dark-videos/backend/pyproject.toml:12",
+      "path": "02_repositorios/dark-videos/backend/pyproject.toml",
+      "line": 12,
+      "sha256": "2dde8fde14d31c9aad0505270b852ac3d5b4facabdf7938cbc311c46e0d51b6f"
+    },
+    {
+      "id": "dark-videos/backend/pyproject.toml:13",
+      "path": "02_repositorios/dark-videos/backend/pyproject.toml",
+      "line": 13,
+      "sha256": "2dde8fde14d31c9aad0505270b852ac3d5b4facabdf7938cbc311c46e0d51b6f"
+    },
+    {
+      "id": "dark-videos/backend/pyproject.toml:14",
+      "path": "02_repositorios/dark-videos/backend/pyproject.toml",
+      "line": 14,
+      "sha256": "2dde8fde14d31c9aad0505270b852ac3d5b4facabdf7938cbc311c46e0d51b6f"
+    },
+    {
+      "id": "dark-videos/backend/pyproject.toml:15",
+      "path": "02_repositorios/dark-videos/backend/pyproject.toml",
+      "line": 15,
+      "sha256": "2dde8fde14d31c9aad0505270b852ac3d5b4facabdf7938cbc311c46e0d51b6f"
+    },
+    {
+      "id": "dark-videos/backend/pyproject.toml:16",
+      "path": "02_repositorios/dark-videos/backend/pyproject.toml",
+      "line": 16,
+      "sha256": "2dde8fde14d31c9aad0505270b852ac3d5b4facabdf7938cbc311c46e0d51b6f"
+    },
+    {
+      "id": "dark-videos/backend/pyproject.toml:17",
+      "path": "02_repositorios/dark-videos/backend/pyproject.toml",
+      "line": 17,
+      "sha256": "2dde8fde14d31c9aad0505270b852ac3d5b4facabdf7938cbc311c46e0d51b6f"
+    },
+    {
+      "id": "dark-videos/backend/pyproject.toml:18",
+      "path": "02_repositorios/dark-videos/backend/pyproject.toml",
+      "line": 18,
+      "sha256": "2dde8fde14d31c9aad0505270b852ac3d5b4facabdf7938cbc311c46e0d51b6f"
+    },
+    {
+      "id": "dark-videos/backend/pyproject.toml:19",
+      "path": "02_repositorios/dark-videos/backend/pyproject.toml",
+      "line": 19,
+      "sha256": "2dde8fde14d31c9aad0505270b852ac3d5b4facabdf7938cbc311c46e0d51b6f"
+    },
+    {
+      "id": "dark-videos/backend/pyproject.toml:2",
+      "path": "02_repositorios/dark-videos/backend/pyproject.toml",
+      "line": 2,
+      "sha256": "2dde8fde14d31c9aad0505270b852ac3d5b4facabdf7938cbc311c46e0d51b6f"
+    },
+    {
+      "id": "dark-videos/backend/pyproject.toml:20",
+      "path": "02_repositorios/dark-videos/backend/pyproject.toml",
+      "line": 20,
+      "sha256": "2dde8fde14d31c9aad0505270b852ac3d5b4facabdf7938cbc311c46e0d51b6f"
+    },
+    {
+      "id": "dark-videos/backend/pyproject.toml:21",
+      "path": "02_repositorios/dark-videos/backend/pyproject.toml",
+      "line": 21,
+      "sha256": "2dde8fde14d31c9aad0505270b852ac3d5b4facabdf7938cbc311c46e0d51b6f"
+    },
+    {
+      "id": "dark-videos/backend/pyproject.toml:22",
+      "path": "02_repositorios/dark-videos/backend/pyproject.toml",
+      "line": 22,
+      "sha256": "2dde8fde14d31c9aad0505270b852ac3d5b4facabdf7938cbc311c46e0d51b6f"
+    },
+    {
+      "id": "dark-videos/backend/pyproject.toml:23",
+      "path": "02_repositorios/dark-videos/backend/pyproject.toml",
+      "line": 23,
+      "sha256": "2dde8fde14d31c9aad0505270b852ac3d5b4facabdf7938cbc311c46e0d51b6f"
+    },
+    {
+      "id": "dark-videos/backend/pyproject.toml:24",
+      "path": "02_repositorios/dark-videos/backend/pyproject.toml",
+      "line": 24,
+      "sha256": "2dde8fde14d31c9aad0505270b852ac3d5b4facabdf7938cbc311c46e0d51b6f"
+    },
+    {
+      "id": "dark-videos/backend/pyproject.toml:25",
+      "path": "02_repositorios/dark-videos/backend/pyproject.toml",
+      "line": 25,
+      "sha256": "2dde8fde14d31c9aad0505270b852ac3d5b4facabdf7938cbc311c46e0d51b6f"
+    },
+    {
+      "id": "dark-videos/backend/pyproject.toml:26",
+      "path": "02_repositorios/dark-videos/backend/pyproject.toml",
+      "line": 26,
+      "sha256": "2dde8fde14d31c9aad0505270b852ac3d5b4facabdf7938cbc311c46e0d51b6f"
+    },
+    {
+      "id": "dark-videos/backend/pyproject.toml:27",
+      "path": "02_repositorios/dark-videos/backend/pyproject.toml",
+      "line": 27,
+      "sha256": "2dde8fde14d31c9aad0505270b852ac3d5b4facabdf7938cbc311c46e0d51b6f"
+    },
+    {
+      "id": "dark-videos/backend/pyproject.toml:28",
+      "path": "02_repositorios/dark-videos/backend/pyproject.toml",
+      "line": 28,
+      "sha256": "2dde8fde14d31c9aad0505270b852ac3d5b4facabdf7938cbc311c46e0d51b6f"
+    },
+    {
+      "id": "dark-videos/backend/pyproject.toml:3",
+      "path": "02_repositorios/dark-videos/backend/pyproject.toml",
+      "line": 3,
+      "sha256": "2dde8fde14d31c9aad0505270b852ac3d5b4facabdf7938cbc311c46e0d51b6f"
+    },
+    {
+      "id": "dark-videos/backend/pyproject.toml:40",
+      "path": "02_repositorios/dark-videos/backend/pyproject.toml",
+      "line": 40,
+      "sha256": "2dde8fde14d31c9aad0505270b852ac3d5b4facabdf7938cbc311c46e0d51b6f"
+    },
+    {
+      "id": "dark-videos/backend/pyproject.toml:41",
+      "path": "02_repositorios/dark-videos/backend/pyproject.toml",
+      "line": 41,
+      "sha256": "2dde8fde14d31c9aad0505270b852ac3d5b4facabdf7938cbc311c46e0d51b6f"
+    },
+    {
+      "id": "dark-videos/backend/pyproject.toml:5",
+      "path": "02_repositorios/dark-videos/backend/pyproject.toml",
+      "line": 5,
+      "sha256": "2dde8fde14d31c9aad0505270b852ac3d5b4facabdf7938cbc311c46e0d51b6f"
+    },
+    {
+      "id": "dark-videos/backend/pyproject.toml:7",
+      "path": "02_repositorios/dark-videos/backend/pyproject.toml",
+      "line": 7,
+      "sha256": "2dde8fde14d31c9aad0505270b852ac3d5b4facabdf7938cbc311c46e0d51b6f"
+    },
+    {
+      "id": "dark-videos/backend/pyproject.toml:8",
+      "path": "02_repositorios/dark-videos/backend/pyproject.toml",
+      "line": 8,
+      "sha256": "2dde8fde14d31c9aad0505270b852ac3d5b4facabdf7938cbc311c46e0d51b6f"
+    },
+    {
+      "id": "dark-videos/backend/pyproject.toml:9",
+      "path": "02_repositorios/dark-videos/backend/pyproject.toml",
+      "line": 9,
+      "sha256": "2dde8fde14d31c9aad0505270b852ac3d5b4facabdf7938cbc311c46e0d51b6f"
+    },
+    {
+      "id": "dark-videos/frontend/package.json:15",
+      "path": "02_repositorios/dark-videos/frontend/package.json",
+      "line": 15,
+      "sha256": "7537378a33fc50c9c38a87538c9e71761f55366ff4175f1dafe4e06c100c7c35"
+    },
+    {
+      "id": "dark-videos/frontend/package.json:16",
+      "path": "02_repositorios/dark-videos/frontend/package.json",
+      "line": 16,
+      "sha256": "7537378a33fc50c9c38a87538c9e71761f55366ff4175f1dafe4e06c100c7c35"
+    },
+    {
+      "id": "dark-videos/frontend/package.json:2",
+      "path": "02_repositorios/dark-videos/frontend/package.json",
+      "line": 2,
+      "sha256": "7537378a33fc50c9c38a87538c9e71761f55366ff4175f1dafe4e06c100c7c35"
+    },
+    {
+      "id": "dark-videos/frontend/package.json:20",
+      "path": "02_repositorios/dark-videos/frontend/package.json",
+      "line": 20,
+      "sha256": "7537378a33fc50c9c38a87538c9e71761f55366ff4175f1dafe4e06c100c7c35"
+    },
+    {
+      "id": "dark-videos/frontend/package.json:21",
+      "path": "02_repositorios/dark-videos/frontend/package.json",
+      "line": 21,
+      "sha256": "7537378a33fc50c9c38a87538c9e71761f55366ff4175f1dafe4e06c100c7c35"
+    },
+    {
+      "id": "dark-videos/frontend/package.json:22",
+      "path": "02_repositorios/dark-videos/frontend/package.json",
+      "line": 22,
+      "sha256": "7537378a33fc50c9c38a87538c9e71761f55366ff4175f1dafe4e06c100c7c35"
+    },
+    {
+      "id": "dark-videos/frontend/package.json:23",
+      "path": "02_repositorios/dark-videos/frontend/package.json",
+      "line": 23,
+      "sha256": "7537378a33fc50c9c38a87538c9e71761f55366ff4175f1dafe4e06c100c7c35"
+    },
+    {
+      "id": "dark-videos/frontend/package.json:24",
+      "path": "02_repositorios/dark-videos/frontend/package.json",
+      "line": 24,
+      "sha256": "7537378a33fc50c9c38a87538c9e71761f55366ff4175f1dafe4e06c100c7c35"
+    },
+    {
+      "id": "dark-videos/frontend/package.json:25",
+      "path": "02_repositorios/dark-videos/frontend/package.json",
+      "line": 25,
+      "sha256": "7537378a33fc50c9c38a87538c9e71761f55366ff4175f1dafe4e06c100c7c35"
+    },
+    {
+      "id": "dark-videos/frontend/package.json:26",
+      "path": "02_repositorios/dark-videos/frontend/package.json",
+      "line": 26,
+      "sha256": "7537378a33fc50c9c38a87538c9e71761f55366ff4175f1dafe4e06c100c7c35"
+    },
+    {
+      "id": "dark-videos/frontend/package.json:28",
+      "path": "02_repositorios/dark-videos/frontend/package.json",
+      "line": 28,
+      "sha256": "7537378a33fc50c9c38a87538c9e71761f55366ff4175f1dafe4e06c100c7c35"
+    },
+    {
+      "id": "dark-videos/frontend/package.json:29",
+      "path": "02_repositorios/dark-videos/frontend/package.json",
+      "line": 29,
+      "sha256": "7537378a33fc50c9c38a87538c9e71761f55366ff4175f1dafe4e06c100c7c35"
+    },
+    {
+      "id": "dark-videos/frontend/package.json:3",
+      "path": "02_repositorios/dark-videos/frontend/package.json",
+      "line": 3,
+      "sha256": "7537378a33fc50c9c38a87538c9e71761f55366ff4175f1dafe4e06c100c7c35"
+    },
+    {
+      "id": "dark-videos/frontend/package.json:31",
+      "path": "02_repositorios/dark-videos/frontend/package.json",
+      "line": 31,
+      "sha256": "7537378a33fc50c9c38a87538c9e71761f55366ff4175f1dafe4e06c100c7c35"
+    },
+    {
+      "id": "dark-videos/frontend/package.json:33",
+      "path": "02_repositorios/dark-videos/frontend/package.json",
+      "line": 33,
+      "sha256": "7537378a33fc50c9c38a87538c9e71761f55366ff4175f1dafe4e06c100c7c35"
+    },
+    {
+      "id": "dark-videos/frontend/package.json:34",
+      "path": "02_repositorios/dark-videos/frontend/package.json",
+      "line": 34,
+      "sha256": "7537378a33fc50c9c38a87538c9e71761f55366ff4175f1dafe4e06c100c7c35"
+    },
+    {
+      "id": "dark-videos/frontend/package.json:37",
+      "path": "02_repositorios/dark-videos/frontend/package.json",
+      "line": 37,
+      "sha256": "7537378a33fc50c9c38a87538c9e71761f55366ff4175f1dafe4e06c100c7c35"
+    },
+    {
+      "id": "enterprise-llm-finetuning/pyproject.toml:19",
+      "path": "02_repositorios/enterprise-llm-finetuning/pyproject.toml",
+      "line": 19,
+      "sha256": "d147503026bf729796f64f2d673c13ac9158b727856b42b409f636a8bb1fec1c"
+    },
+    {
+      "id": "enterprise-llm-finetuning/pyproject.toml:20",
+      "path": "02_repositorios/enterprise-llm-finetuning/pyproject.toml",
+      "line": 20,
+      "sha256": "d147503026bf729796f64f2d673c13ac9158b727856b42b409f636a8bb1fec1c"
+    },
+    {
+      "id": "enterprise-llm-finetuning/pyproject.toml:21",
+      "path": "02_repositorios/enterprise-llm-finetuning/pyproject.toml",
+      "line": 21,
+      "sha256": "d147503026bf729796f64f2d673c13ac9158b727856b42b409f636a8bb1fec1c"
+    },
+    {
+      "id": "enterprise-llm-finetuning/pyproject.toml:24",
+      "path": "02_repositorios/enterprise-llm-finetuning/pyproject.toml",
+      "line": 24,
+      "sha256": "d147503026bf729796f64f2d673c13ac9158b727856b42b409f636a8bb1fec1c"
+    },
+    {
+      "id": "enterprise-llm-finetuning/pyproject.toml:26",
+      "path": "02_repositorios/enterprise-llm-finetuning/pyproject.toml",
+      "line": 26,
+      "sha256": "d147503026bf729796f64f2d673c13ac9158b727856b42b409f636a8bb1fec1c"
+    },
+    {
+      "id": "enterprise-llm-finetuning/pyproject.toml:27",
+      "path": "02_repositorios/enterprise-llm-finetuning/pyproject.toml",
+      "line": 27,
+      "sha256": "d147503026bf729796f64f2d673c13ac9158b727856b42b409f636a8bb1fec1c"
+    },
+    {
+      "id": "enterprise-llm-finetuning/pyproject.toml:28",
+      "path": "02_repositorios/enterprise-llm-finetuning/pyproject.toml",
+      "line": 28,
+      "sha256": "d147503026bf729796f64f2d673c13ac9158b727856b42b409f636a8bb1fec1c"
+    },
+    {
+      "id": "enterprise-llm-finetuning/pyproject.toml:29",
+      "path": "02_repositorios/enterprise-llm-finetuning/pyproject.toml",
+      "line": 29,
+      "sha256": "d147503026bf729796f64f2d673c13ac9158b727856b42b409f636a8bb1fec1c"
+    },
+    {
+      "id": "enterprise-llm-finetuning/pyproject.toml:30",
+      "path": "02_repositorios/enterprise-llm-finetuning/pyproject.toml",
+      "line": 30,
+      "sha256": "d147503026bf729796f64f2d673c13ac9158b727856b42b409f636a8bb1fec1c"
+    },
+    {
+      "id": "enterprise-llm-finetuning/pyproject.toml:31",
+      "path": "02_repositorios/enterprise-llm-finetuning/pyproject.toml",
+      "line": 31,
+      "sha256": "d147503026bf729796f64f2d673c13ac9158b727856b42b409f636a8bb1fec1c"
+    },
+    {
+      "id": "enterprise-llm-finetuning/pyproject.toml:32",
+      "path": "02_repositorios/enterprise-llm-finetuning/pyproject.toml",
+      "line": 32,
+      "sha256": "d147503026bf729796f64f2d673c13ac9158b727856b42b409f636a8bb1fec1c"
+    },
+    {
+      "id": "enterprise-llm-finetuning/pyproject.toml:33",
+      "path": "02_repositorios/enterprise-llm-finetuning/pyproject.toml",
+      "line": 33,
+      "sha256": "d147503026bf729796f64f2d673c13ac9158b727856b42b409f636a8bb1fec1c"
+    },
+    {
+      "id": "enterprise-llm-finetuning/pyproject.toml:34",
+      "path": "02_repositorios/enterprise-llm-finetuning/pyproject.toml",
+      "line": 34,
+      "sha256": "d147503026bf729796f64f2d673c13ac9158b727856b42b409f636a8bb1fec1c"
+    },
+    {
+      "id": "enterprise-llm-finetuning/pyproject.toml:35",
+      "path": "02_repositorios/enterprise-llm-finetuning/pyproject.toml",
+      "line": 35,
+      "sha256": "d147503026bf729796f64f2d673c13ac9158b727856b42b409f636a8bb1fec1c"
+    },
+    {
+      "id": "enterprise-llm-finetuning/pyproject.toml:36",
+      "path": "02_repositorios/enterprise-llm-finetuning/pyproject.toml",
+      "line": 36,
+      "sha256": "d147503026bf729796f64f2d673c13ac9158b727856b42b409f636a8bb1fec1c"
+    },
+    {
+      "id": "enterprise-llm-finetuning/pyproject.toml:37",
+      "path": "02_repositorios/enterprise-llm-finetuning/pyproject.toml",
+      "line": 37,
+      "sha256": "d147503026bf729796f64f2d673c13ac9158b727856b42b409f636a8bb1fec1c"
+    },
+    {
+      "id": "enterprise-llm-finetuning/pyproject.toml:38",
+      "path": "02_repositorios/enterprise-llm-finetuning/pyproject.toml",
+      "line": 38,
+      "sha256": "d147503026bf729796f64f2d673c13ac9158b727856b42b409f636a8bb1fec1c"
+    },
+    {
+      "id": "enterprise-llm-finetuning/src/application/usecases/train_pipeline.py:147",
+      "path": "02_repositorios/enterprise-llm-finetuning/src/application/usecases/train_pipeline.py",
+      "line": 147,
+      "sha256": "18cb9fa3b87894d774cd354ff8ef278c6dff9938362c318fa50b6f4bdc211927"
+    },
+    {
+      "id": "enterprise-llm-finetuning/src/application/usecases/train_pipeline.py:31",
+      "path": "02_repositorios/enterprise-llm-finetuning/src/application/usecases/train_pipeline.py",
+      "line": 31,
+      "sha256": "18cb9fa3b87894d774cd354ff8ef278c6dff9938362c318fa50b6f4bdc211927"
+    },
+    {
+      "id": "enterprise-llm-finetuning/src/application/usecases/train_pipeline.py:347",
+      "path": "02_repositorios/enterprise-llm-finetuning/src/application/usecases/train_pipeline.py",
+      "line": 347,
+      "sha256": "18cb9fa3b87894d774cd354ff8ef278c6dff9938362c318fa50b6f4bdc211927"
+    },
+    {
+      "id": "enterprise-llm-finetuning/src/application/usecases/train_pipeline.py:59",
+      "path": "02_repositorios/enterprise-llm-finetuning/src/application/usecases/train_pipeline.py",
+      "line": 59,
+      "sha256": "18cb9fa3b87894d774cd354ff8ef278c6dff9938362c318fa50b6f4bdc211927"
+    },
+    {
+      "id": "enterprise-llm-finetuning/src/domain/schemas/config_schema.py:102",
+      "path": "02_repositorios/enterprise-llm-finetuning/src/domain/schemas/config_schema.py",
+      "line": 102,
+      "sha256": "c0e8837e0d00b788b4d43c9fa13d43ceb5c6513f9278cd57d79157a2ccc0cb99"
+    },
+    {
+      "id": "enterprise-llm-finetuning/src/infrastructure/factories/trainer_factory.py:15",
+      "path": "02_repositorios/enterprise-llm-finetuning/src/infrastructure/factories/trainer_factory.py",
+      "line": 15,
+      "sha256": "34755777293d5b2d30c779f0bb552076862320572cbd18ab8dc1cd2921fc6f85"
+    },
+    {
+      "id": "enterprise-llm-finetuning/src/infrastructure/llm_model_loader/transformers_llm_model_loader.py:87",
+      "path": "02_repositorios/enterprise-llm-finetuning/src/infrastructure/llm_model_loader/transformers_llm_model_loader.py",
+      "line": 87,
+      "sha256": "c968681df8a020fcb53efc81b895b26621fadf493f0526e87b8a88da3c58b3e4"
+    },
+    {
+      "id": "enterprise-llm-finetuning/src/infrastructure/rag/faiss_rag_pipeline.py:244",
+      "path": "02_repositorios/enterprise-llm-finetuning/src/infrastructure/rag/faiss_rag_pipeline.py",
+      "line": 244,
+      "sha256": "f1735f737c42d0fe13a4b1c898579e80e80c49c55742992ce345afb3896163ad"
+    },
+    {
+      "id": "enterprise-llm-finetuning/src/infrastructure/trainer/ppo_trainer.py:20",
+      "path": "02_repositorios/enterprise-llm-finetuning/src/infrastructure/trainer/ppo_trainer.py",
+      "line": 20,
+      "sha256": "526eb4f25a2a199a253c421f35a6c48c3627d1827414741d351833aeff12d510"
+    },
+    {
+      "id": "enterprise-llm-finetuning/src/presentation/cli.py:73",
+      "path": "02_repositorios/enterprise-llm-finetuning/src/presentation/cli.py",
+      "line": 73,
+      "sha256": "627bf66fb9e3a5d45d3eaea074a5c85d628b57b9acc035cbc32da0aba381277d"
+    },
+    {
+      "id": "ibunny/AGENTS.md:62",
+      "path": "02_repositorios/ibunny/AGENTS.md",
+      "line": 62,
+      "sha256": "d3437b825e482f6f4d5fd3fc97495d67174f98d37be856110943973cbf9f00a3"
+    },
+    {
+      "id": "ibunny/README.md:3",
+      "path": "02_repositorios/ibunny/README.md",
+      "line": 3,
+      "sha256": "b09ccd9e9e043f0d41cddda788535d588913c713e277350d5ee6eba641b87405"
+    },
+    {
+      "id": "ibunny/README.md:73",
+      "path": "02_repositorios/ibunny/README.md",
+      "line": 73,
+      "sha256": "b09ccd9e9e043f0d41cddda788535d588913c713e277350d5ee6eba641b87405"
+    },
+    {
+      "id": "ibunny/apps/client/pubspec.yaml:12",
+      "path": "02_repositorios/ibunny/apps/client/pubspec.yaml",
+      "line": 12,
+      "sha256": "f87da112c769e7cab1bb8192a492c8f27a47543d16dfbc2975e3c3ec232122a8"
+    },
+    {
+      "id": "ibunny/apps/client/pubspec.yaml:4",
+      "path": "02_repositorios/ibunny/apps/client/pubspec.yaml",
+      "line": 4,
+      "sha256": "f87da112c769e7cab1bb8192a492c8f27a47543d16dfbc2975e3c3ec232122a8"
+    },
+    {
+      "id": "ibunny/apps/client/pubspec.yaml:7",
+      "path": "02_repositorios/ibunny/apps/client/pubspec.yaml",
+      "line": 7,
+      "sha256": "f87da112c769e7cab1bb8192a492c8f27a47543d16dfbc2975e3c3ec232122a8"
+    },
+    {
+      "id": "ibunny/apps/client/pubspec.yaml:8",
+      "path": "02_repositorios/ibunny/apps/client/pubspec.yaml",
+      "line": 8,
+      "sha256": "f87da112c769e7cab1bb8192a492c8f27a47543d16dfbc2975e3c3ec232122a8"
+    },
+    {
+      "id": "ibunny/services/api/go.mod:1",
+      "path": "02_repositorios/ibunny/services/api/go.mod",
+      "line": 1,
+      "sha256": "60506173e82b1afa46cfabf4f30f0e0de7c60e64594cb3587cdb36950cd6b781"
+    },
+    {
+      "id": "ibunny/services/api/go.mod:3",
+      "path": "02_repositorios/ibunny/services/api/go.mod",
+      "line": 3,
+      "sha256": "60506173e82b1afa46cfabf4f30f0e0de7c60e64594cb3587cdb36950cd6b781"
+    },
+    {
+      "id": "ibunny/services/api/internal/adapters/http/server.go:38",
+      "path": "02_repositorios/ibunny/services/api/internal/adapters/http/server.go",
+      "line": 38,
+      "sha256": "29aca20621a253dd12cddae61fd138767210a159a99a0b43ab9a70242ed77dde"
+    },
+    {
+      "id": "ibunny/services/api/internal/adapters/postgres/store.go:3",
+      "path": "02_repositorios/ibunny/services/api/internal/adapters/postgres/store.go",
+      "line": 3,
+      "sha256": "61a81cb388f8a81b352108832ea9efd4eea209ced0e31f8375dc89eeced2047b"
+    },
+    {
+      "id": "ibunny/services/runner/cmd/runner/main.go:22",
+      "path": "02_repositorios/ibunny/services/runner/cmd/runner/main.go",
+      "line": 22,
+      "sha256": "0fc9c925f9dd7cf23636d305953107f104354b499f97c607f6e723d1722843ed"
+    },
+    {
+      "id": "ibunny/services/runner/go.mod:1",
+      "path": "02_repositorios/ibunny/services/runner/go.mod",
+      "line": 1,
+      "sha256": "04bb96ea7fc3794773c7ca1b241eee264cc4f965b95a89404a8261f605c7d05e"
+    },
+    {
+      "id": "ibunny/services/runner/go.mod:3",
+      "path": "02_repositorios/ibunny/services/runner/go.mod",
+      "line": 3,
+      "sha256": "04bb96ea7fc3794773c7ca1b241eee264cc4f965b95a89404a8261f605c7d05e"
+    },
+    {
+      "id": "laya/README.md:16",
+      "path": "02_repositorios/laya/README.md",
+      "line": 16,
+      "sha256": "2d2aa16273146b01d86216dc278adccbf3d8f80aced87e3c3d1d8016c923946e"
+    },
+    {
+      "id": "laya/README.md:45",
+      "path": "02_repositorios/laya/README.md",
+      "line": 45,
+      "sha256": "2d2aa16273146b01d86216dc278adccbf3d8f80aced87e3c3d1d8016c923946e"
+    },
+    {
+      "id": "laya/README.md:8",
+      "path": "02_repositorios/laya/README.md",
+      "line": 8,
+      "sha256": "2d2aa16273146b01d86216dc278adccbf3d8f80aced87e3c3d1d8016c923946e"
+    },
+    {
+      "id": "laya/docs/architecture.md:47",
+      "path": "02_repositorios/laya/docs/architecture.md",
+      "line": 47,
+      "sha256": "958fbbd4c9f19db995fb562aac31ac98aaca85dc14504030b5b15aa98a6efbd5"
+    },
+    {
+      "id": "laya/engine/laya/db/sqlite.py:79",
+      "path": "02_repositorios/laya/engine/laya/db/sqlite.py",
+      "line": 79,
+      "sha256": "3f4e43f662d41ebfd19daa3d6fc240d915f6084f401502ac3d050474214c7f05"
+    },
+    {
+      "id": "laya/engine/laya/main.py:38",
+      "path": "02_repositorios/laya/engine/laya/main.py",
+      "line": 38,
+      "sha256": "95002d8cdcfe366c049d61cbab45640cc5a22340da2b163642a844a194536359"
+    },
+    {
+      "id": "laya/engine/laya/retrieval.py:64",
+      "path": "02_repositorios/laya/engine/laya/retrieval.py",
+      "line": 64,
+      "sha256": "7eee7bd2da909a199e7b807b7a422a9d8f7d37d100755900027a80b30ce328c6"
+    },
+    {
+      "id": "laya/engine/requirements.txt:11",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 11,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/engine/requirements.txt:12",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 12,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/engine/requirements.txt:13",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 13,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/engine/requirements.txt:14",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 14,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/engine/requirements.txt:17",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 17,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/engine/requirements.txt:20",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 20,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/engine/requirements.txt:21",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 21,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/engine/requirements.txt:24",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 24,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/engine/requirements.txt:27",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 27,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/engine/requirements.txt:28",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 28,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/engine/requirements.txt:29",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 29,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/engine/requirements.txt:30",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 30,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/engine/requirements.txt:35",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 35,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/engine/requirements.txt:40",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 40,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/engine/requirements.txt:41",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 41,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/engine/requirements.txt:48",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 48,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/engine/requirements.txt:51",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 51,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/engine/requirements.txt:52",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 52,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/engine/requirements.txt:53",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 53,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/engine/requirements.txt:54",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 54,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/engine/requirements.txt:57",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 57,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/engine/requirements.txt:58",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 58,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/engine/requirements.txt:64",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 64,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/engine/requirements.txt:67",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 67,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/engine/requirements.txt:68",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 68,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/engine/requirements.txt:69",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 69,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/engine/requirements.txt:73",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 73,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/engine/requirements.txt:78",
+      "path": "02_repositorios/laya/engine/requirements.txt",
+      "line": 78,
+      "sha256": "026800deaab040e051f08b3e4fa37835d1bde59903b5c57c02d7c86b5c64d124"
+    },
+    {
+      "id": "laya/ui/package.json:18",
+      "path": "02_repositorios/laya/ui/package.json",
+      "line": 18,
+      "sha256": "b09cb69763bf440961a3a83a50ca7548f1d559f3bb964d71047324da7277cfb4"
+    },
+    {
+      "id": "laya/ui/package.json:2",
+      "path": "02_repositorios/laya/ui/package.json",
+      "line": 2,
+      "sha256": "b09cb69763bf440961a3a83a50ca7548f1d559f3bb964d71047324da7277cfb4"
+    },
+    {
+      "id": "laya/ui/package.json:20",
+      "path": "02_repositorios/laya/ui/package.json",
+      "line": 20,
+      "sha256": "b09cb69763bf440961a3a83a50ca7548f1d559f3bb964d71047324da7277cfb4"
+    },
+    {
+      "id": "laya/ui/package.json:21",
+      "path": "02_repositorios/laya/ui/package.json",
+      "line": 21,
+      "sha256": "b09cb69763bf440961a3a83a50ca7548f1d559f3bb964d71047324da7277cfb4"
+    },
+    {
+      "id": "laya/ui/package.json:22",
+      "path": "02_repositorios/laya/ui/package.json",
+      "line": 22,
+      "sha256": "b09cb69763bf440961a3a83a50ca7548f1d559f3bb964d71047324da7277cfb4"
+    },
+    {
+      "id": "laya/ui/package.json:23",
+      "path": "02_repositorios/laya/ui/package.json",
+      "line": 23,
+      "sha256": "b09cb69763bf440961a3a83a50ca7548f1d559f3bb964d71047324da7277cfb4"
+    },
+    {
+      "id": "laya/ui/package.json:24",
+      "path": "02_repositorios/laya/ui/package.json",
+      "line": 24,
+      "sha256": "b09cb69763bf440961a3a83a50ca7548f1d559f3bb964d71047324da7277cfb4"
+    },
+    {
+      "id": "laya/ui/package.json:25",
+      "path": "02_repositorios/laya/ui/package.json",
+      "line": 25,
+      "sha256": "b09cb69763bf440961a3a83a50ca7548f1d559f3bb964d71047324da7277cfb4"
+    },
+    {
+      "id": "laya/ui/package.json:26",
+      "path": "02_repositorios/laya/ui/package.json",
+      "line": 26,
+      "sha256": "b09cb69763bf440961a3a83a50ca7548f1d559f3bb964d71047324da7277cfb4"
+    },
+    {
+      "id": "laya/ui/package.json:27",
+      "path": "02_repositorios/laya/ui/package.json",
+      "line": 27,
+      "sha256": "b09cb69763bf440961a3a83a50ca7548f1d559f3bb964d71047324da7277cfb4"
+    },
+    {
+      "id": "laya/ui/package.json:28",
+      "path": "02_repositorios/laya/ui/package.json",
+      "line": 28,
+      "sha256": "b09cb69763bf440961a3a83a50ca7548f1d559f3bb964d71047324da7277cfb4"
+    },
+    {
+      "id": "laya/ui/package.json:29",
+      "path": "02_repositorios/laya/ui/package.json",
+      "line": 29,
+      "sha256": "b09cb69763bf440961a3a83a50ca7548f1d559f3bb964d71047324da7277cfb4"
+    },
+    {
+      "id": "laya/ui/package.json:30",
+      "path": "02_repositorios/laya/ui/package.json",
+      "line": 30,
+      "sha256": "b09cb69763bf440961a3a83a50ca7548f1d559f3bb964d71047324da7277cfb4"
+    },
+    {
+      "id": "laya/ui/package.json:31",
+      "path": "02_repositorios/laya/ui/package.json",
+      "line": 31,
+      "sha256": "b09cb69763bf440961a3a83a50ca7548f1d559f3bb964d71047324da7277cfb4"
+    },
+    {
+      "id": "laya/ui/package.json:32",
+      "path": "02_repositorios/laya/ui/package.json",
+      "line": 32,
+      "sha256": "b09cb69763bf440961a3a83a50ca7548f1d559f3bb964d71047324da7277cfb4"
+    },
+    {
+      "id": "laya/ui/package.json:33",
+      "path": "02_repositorios/laya/ui/package.json",
+      "line": 33,
+      "sha256": "b09cb69763bf440961a3a83a50ca7548f1d559f3bb964d71047324da7277cfb4"
+    },
+    {
+      "id": "laya/ui/package.json:37",
+      "path": "02_repositorios/laya/ui/package.json",
+      "line": 37,
+      "sha256": "b09cb69763bf440961a3a83a50ca7548f1d559f3bb964d71047324da7277cfb4"
+    },
+    {
+      "id": "laya/ui/package.json:4",
+      "path": "02_repositorios/laya/ui/package.json",
+      "line": 4,
+      "sha256": "b09cb69763bf440961a3a83a50ca7548f1d559f3bb964d71047324da7277cfb4"
+    },
+    {
+      "id": "laya/ui/package.json:40",
+      "path": "02_repositorios/laya/ui/package.json",
+      "line": 40,
+      "sha256": "b09cb69763bf440961a3a83a50ca7548f1d559f3bb964d71047324da7277cfb4"
+    },
+    {
+      "id": "laya/ui/package.json:41",
+      "path": "02_repositorios/laya/ui/package.json",
+      "line": 41,
+      "sha256": "b09cb69763bf440961a3a83a50ca7548f1d559f3bb964d71047324da7277cfb4"
+    },
+    {
+      "id": "laya/ui/package.json:42",
+      "path": "02_repositorios/laya/ui/package.json",
+      "line": 42,
+      "sha256": "b09cb69763bf440961a3a83a50ca7548f1d559f3bb964d71047324da7277cfb4"
+    },
+    {
+      "id": "laya/ui/src-tauri/Cargo.toml:2",
+      "path": "02_repositorios/laya/ui/src-tauri/Cargo.toml",
+      "line": 2,
+      "sha256": "65015586d157ed49e426fed21cf29a9f35c274e09ebb19d26b179c5c98fc67b6"
+    },
+    {
+      "id": "laya/ui/src-tauri/Cargo.toml:28",
+      "path": "02_repositorios/laya/ui/src-tauri/Cargo.toml",
+      "line": 28,
+      "sha256": "65015586d157ed49e426fed21cf29a9f35c274e09ebb19d26b179c5c98fc67b6"
+    },
+    {
+      "id": "laya/ui/src-tauri/Cargo.toml:3",
+      "path": "02_repositorios/laya/ui/src-tauri/Cargo.toml",
+      "line": 3,
+      "sha256": "65015586d157ed49e426fed21cf29a9f35c274e09ebb19d26b179c5c98fc67b6"
+    },
+    {
+      "id": "laya/ui/src-tauri/Cargo.toml:8",
+      "path": "02_repositorios/laya/ui/src-tauri/Cargo.toml",
+      "line": 8,
+      "sha256": "65015586d157ed49e426fed21cf29a9f35c274e09ebb19d26b179c5c98fc67b6"
+    },
+    {
+      "id": "laya/ui/src-tauri/Cargo.toml:9",
+      "path": "02_repositorios/laya/ui/src-tauri/Cargo.toml",
+      "line": 9,
+      "sha256": "65015586d157ed49e426fed21cf29a9f35c274e09ebb19d26b179c5c98fc67b6"
+    },
+    {
+      "id": "ncm/README.md:66",
+      "path": "02_repositorios/ncm/README.md",
+      "line": 66,
+      "sha256": "3169dd04ee1b642f98da41e162b1eba0655607adb526cabeccfed53600ae5056"
+    },
+    {
+      "id": "ncm/README.md:87",
+      "path": "02_repositorios/ncm/README.md",
+      "line": 87,
+      "sha256": "3169dd04ee1b642f98da41e162b1eba0655607adb526cabeccfed53600ae5056"
+    },
+    {
+      "id": "ncm/README.md:91",
+      "path": "02_repositorios/ncm/README.md",
+      "line": 91,
+      "sha256": "3169dd04ee1b642f98da41e162b1eba0655607adb526cabeccfed53600ae5056"
+    },
+    {
+      "id": "ncm/evaluate.py:9",
+      "path": "02_repositorios/ncm/evaluate.py",
+      "line": 9,
+      "sha256": "edd0d5a09edba7f190f184f442b5001061f843225bf126e926fa7c91992a05f1"
+    },
+    {
+      "id": "ncm/models/next_concept.py:521",
+      "path": "02_repositorios/ncm/models/next_concept.py",
+      "line": 521,
+      "sha256": "3dcae313cedf2e33ecb9a046d1ad9ec4336962c9221375ba5f7dd9be3d25b04e"
+    },
+    {
+      "id": "ncm/models/next_concept.py:65",
+      "path": "02_repositorios/ncm/models/next_concept.py",
+      "line": 65,
+      "sha256": "3dcae313cedf2e33ecb9a046d1ad9ec4336962c9221375ba5f7dd9be3d25b04e"
+    },
+    {
+      "id": "ncm/models/quant.py:228",
+      "path": "02_repositorios/ncm/models/quant.py",
+      "line": 228,
+      "sha256": "44315b9662fb28ea3db9a7c0d14556df49e80e706df9a460792a4a9d82549949"
+    },
+    {
+      "id": "ncm/requirements.txt:1",
+      "path": "02_repositorios/ncm/requirements.txt",
+      "line": 1,
+      "sha256": "c6b8e13ab1169e538dce44c297393631b8cbbde1704e92c3ef53a1cb23254300"
+    },
+    {
+      "id": "ncm/requirements.txt:2",
+      "path": "02_repositorios/ncm/requirements.txt",
+      "line": 2,
+      "sha256": "c6b8e13ab1169e538dce44c297393631b8cbbde1704e92c3ef53a1cb23254300"
+    },
+    {
+      "id": "ncm/requirements.txt:3",
+      "path": "02_repositorios/ncm/requirements.txt",
+      "line": 3,
+      "sha256": "c6b8e13ab1169e538dce44c297393631b8cbbde1704e92c3ef53a1cb23254300"
+    },
+    {
+      "id": "ncm/requirements.txt:4",
+      "path": "02_repositorios/ncm/requirements.txt",
+      "line": 4,
+      "sha256": "c6b8e13ab1169e538dce44c297393631b8cbbde1704e92c3ef53a1cb23254300"
+    },
+    {
+      "id": "ncm/requirements.txt:5",
+      "path": "02_repositorios/ncm/requirements.txt",
+      "line": 5,
+      "sha256": "c6b8e13ab1169e538dce44c297393631b8cbbde1704e92c3ef53a1cb23254300"
+    },
+    {
+      "id": "ncm/requirements.txt:6",
+      "path": "02_repositorios/ncm/requirements.txt",
+      "line": 6,
+      "sha256": "c6b8e13ab1169e538dce44c297393631b8cbbde1704e92c3ef53a1cb23254300"
+    },
+    {
+      "id": "ncm/requirements.txt:7",
+      "path": "02_repositorios/ncm/requirements.txt",
+      "line": 7,
+      "sha256": "c6b8e13ab1169e538dce44c297393631b8cbbde1704e92c3ef53a1cb23254300"
+    },
+    {
+      "id": "ncm/requirements.txt:8",
+      "path": "02_repositorios/ncm/requirements.txt",
+      "line": 8,
+      "sha256": "c6b8e13ab1169e538dce44c297393631b8cbbde1704e92c3ef53a1cb23254300"
+    },
+    {
+      "id": "ncm/requirements.txt:9",
+      "path": "02_repositorios/ncm/requirements.txt",
+      "line": 9,
+      "sha256": "c6b8e13ab1169e538dce44c297393631b8cbbde1704e92c3ef53a1cb23254300"
+    },
+    {
+      "id": "ncm/tokenization/vqvae_tokenizer.py:7",
+      "path": "02_repositorios/ncm/tokenization/vqvae_tokenizer.py",
+      "line": 7,
+      "sha256": "a41215ad73e626c30882d1e9fa5bcd7753ced73307516fae0ec9815325445fc1"
+    },
+    {
+      "id": "pdfcraft/Cargo.toml:11",
+      "path": "02_repositorios/pdfcraft/Cargo.toml",
+      "line": 11,
+      "sha256": "43ddeb56432db47ac85647767f9663acdc87799cfaf60308622b02e3226bcd24"
+    },
+    {
+      "id": "pdfcraft/Cargo.toml:8",
+      "path": "02_repositorios/pdfcraft/Cargo.toml",
+      "line": 8,
+      "sha256": "43ddeb56432db47ac85647767f9663acdc87799cfaf60308622b02e3226bcd24"
+    },
+    {
+      "id": "pdfcraft/Cargo.toml:9",
+      "path": "02_repositorios/pdfcraft/Cargo.toml",
+      "line": 9,
+      "sha256": "43ddeb56432db47ac85647767f9663acdc87799cfaf60308622b02e3226bcd24"
+    },
+    {
+      "id": "pdfcraft/README.md:14",
+      "path": "02_repositorios/pdfcraft/README.md",
+      "line": 14,
+      "sha256": "9aba7a6dbe76c7083ba3a5093adf1b726fdf9eab6b178dd79dc2622c7febc300"
+    },
+    {
+      "id": "pdfcraft/apps/pdfcraft-cli/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/apps/pdfcraft-cli/Cargo.toml",
+      "line": 2,
+      "sha256": "2efe2ff02efc793fb79031287d689e1b3c9225b9d3b76c89d6bb98afd76db3f8"
+    },
+    {
+      "id": "pdfcraft/apps/pdfcraft-cli/src/main.rs:103",
+      "path": "02_repositorios/pdfcraft/apps/pdfcraft-cli/src/main.rs",
+      "line": 103,
+      "sha256": "a18249d9adaa83aae81fb03208e48ad2641b24b927de942d89253e8df0c10f96"
+    },
+    {
+      "id": "pdfcraft/apps/pdfcraft-web/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/apps/pdfcraft-web/Cargo.toml",
+      "line": 2,
+      "sha256": "fc0e3c1398f687670df8dd48d609f16edceec7b8fffa82cc8ccb862d8af72900"
+    },
+    {
+      "id": "pdfcraft/apps/pdfcraft/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/apps/pdfcraft/Cargo.toml",
+      "line": 2,
+      "sha256": "e016f7dd9361ae9f6ca0edd98190490a226fe8307921617b7df1d68617aed482"
+    },
+    {
+      "id": "pdfcraft/apps/pdfcraft/src/main.rs:163",
+      "path": "02_repositorios/pdfcraft/apps/pdfcraft/src/main.rs",
+      "line": 163,
+      "sha256": "7b6b8438f50aa8504cdd9db7fa45a7c081d8288b5498db8b95cc8faf675920aa"
+    },
+    {
+      "id": "pdfcraft/crates/a11y/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/a11y/Cargo.toml",
+      "line": 2,
+      "sha256": "03d0c3157eb78f0100d1e58502807a7e73166dc2b0aca78cb25429b2aded79a1"
+    },
+    {
+      "id": "pdfcraft/crates/annot/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/annot/Cargo.toml",
+      "line": 2,
+      "sha256": "ec2891c2fffbd1694a806848a7d8053d66d4db57da9d2d40e057da0fc41abae8"
+    },
+    {
+      "id": "pdfcraft/crates/audit/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/audit/Cargo.toml",
+      "line": 2,
+      "sha256": "b1b506cf45bb5babcf4d33032a3756fce92a0ebb0c1b133b8d32562045e534bb"
+    },
+    {
+      "id": "pdfcraft/crates/automation/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/automation/Cargo.toml",
+      "line": 2,
+      "sha256": "0cea5f863d2415122451f22c90ae3556b8ab5be473c95d198151a531080393b9"
+    },
+    {
+      "id": "pdfcraft/crates/automation/README.md:3",
+      "path": "02_repositorios/pdfcraft/crates/automation/README.md",
+      "line": 3,
+      "sha256": "997882b87321c6ff58b621e64162177f9a1a81d51adc0e27047c8d419de4a846"
+    },
+    {
+      "id": "pdfcraft/crates/automation/src/lib.rs:168",
+      "path": "02_repositorios/pdfcraft/crates/automation/src/lib.rs",
+      "line": 168,
+      "sha256": "d3a44b8965b0b2ef7399884f62840442d24940e6c8b1e2860dbc3e1387d6acc5"
+    },
+    {
+      "id": "pdfcraft/crates/automation/src/lib.rs:6",
+      "path": "02_repositorios/pdfcraft/crates/automation/src/lib.rs",
+      "line": 6,
+      "sha256": "d3a44b8965b0b2ef7399884f62840442d24940e6c8b1e2860dbc3e1387d6acc5"
+    },
+    {
+      "id": "pdfcraft/crates/compare/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/compare/Cargo.toml",
+      "line": 2,
+      "sha256": "52948abadb7b73b58b387349e51c88e2379fae418f4e5ed7894d257a5fc9b1be"
+    },
+    {
+      "id": "pdfcraft/crates/content/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/content/Cargo.toml",
+      "line": 2,
+      "sha256": "caf220c2230d07cd0ebcfe54cc294a80c68be3aaf50893e266b7ea4f7c1c5e37"
+    },
+    {
+      "id": "pdfcraft/crates/cos/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/cos/Cargo.toml",
+      "line": 2,
+      "sha256": "e4a59442b1f329944a7fa764c311fefe9799f28fa01e931d4de1caa9f64a15e8"
+    },
+    {
+      "id": "pdfcraft/crates/create/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/create/Cargo.toml",
+      "line": 2,
+      "sha256": "b2f78184d7a05dc4648658de809b262791e1296c8274f1ba9cc903a7efbc4e6d"
+    },
+    {
+      "id": "pdfcraft/crates/crypt/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/crypt/Cargo.toml",
+      "line": 2,
+      "sha256": "df7f69cdd35e6b4a6f956cf4a6a3bbfaa157558cb588955502764c03abc2c87c"
+    },
+    {
+      "id": "pdfcraft/crates/edit/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/edit/Cargo.toml",
+      "line": 2,
+      "sha256": "9e1b7948c711e736ef617bcb3fdf7c86a607b8ed39153514b47849a88189d2ba"
+    },
+    {
+      "id": "pdfcraft/crates/engine/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/engine/Cargo.toml",
+      "line": 2,
+      "sha256": "6011017a333f0720dc29622136f0d4605608abdb9cbd3f63dc4d9d4bd4ec3e32"
+    },
+    {
+      "id": "pdfcraft/crates/engine/src/lib.rs:331",
+      "path": "02_repositorios/pdfcraft/crates/engine/src/lib.rs",
+      "line": 331,
+      "sha256": "4d80a462f57e3e15e7fa6d1c0e194941df50c43d9b47947b37a615d3520bee52"
+    },
+    {
+      "id": "pdfcraft/crates/export/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/export/Cargo.toml",
+      "line": 2,
+      "sha256": "1cf7382538b623e4f33445657329d1121c8b4070274d05b81f8f23a93443e9c9"
+    },
+    {
+      "id": "pdfcraft/crates/filters/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/filters/Cargo.toml",
+      "line": 2,
+      "sha256": "949c655338256330fd9ed81e56c20938050f8bbff56bd5be9d92955ea27e70bf"
+    },
+    {
+      "id": "pdfcraft/crates/filters/fuzz/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/filters/fuzz/Cargo.toml",
+      "line": 2,
+      "sha256": "35934e19270c221abcda33373eeec86ec9cd51e2815f4ca3803ff63faf75e01e"
+    },
+    {
+      "id": "pdfcraft/crates/filters/fuzz/Cargo.toml:3",
+      "path": "02_repositorios/pdfcraft/crates/filters/fuzz/Cargo.toml",
+      "line": 3,
+      "sha256": "35934e19270c221abcda33373eeec86ec9cd51e2815f4ca3803ff63faf75e01e"
+    },
+    {
+      "id": "pdfcraft/crates/filters/fuzz/Cargo.toml:5",
+      "path": "02_repositorios/pdfcraft/crates/filters/fuzz/Cargo.toml",
+      "line": 5,
+      "sha256": "35934e19270c221abcda33373eeec86ec9cd51e2815f4ca3803ff63faf75e01e"
+    },
+    {
+      "id": "pdfcraft/crates/fonts/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/fonts/Cargo.toml",
+      "line": 2,
+      "sha256": "15b9e81dbd05494b67156fb5815f0bbf8e53509cb62a3054fe56e48e9af077d1"
+    },
+    {
+      "id": "pdfcraft/crates/forms/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/forms/Cargo.toml",
+      "line": 2,
+      "sha256": "fd7a103270e4cc81811182daac54cc0b578aafc137481b2a3fdc6e646c75ddd0"
+    },
+    {
+      "id": "pdfcraft/crates/geom/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/geom/Cargo.toml",
+      "line": 2,
+      "sha256": "de5ff455324a829671fc4ccfc1e18b80c92e7352f45f3baf05fa5019971666dd"
+    },
+    {
+      "id": "pdfcraft/crates/js/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/js/Cargo.toml",
+      "line": 2,
+      "sha256": "00b31a9abb64600e9427b3be7ae54b03753ad64a23f709aefa9c8e00503d5c8f"
+    },
+    {
+      "id": "pdfcraft/crates/measure/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/measure/Cargo.toml",
+      "line": 2,
+      "sha256": "6912bce534ec1e95c72b83a9b5f51aef30a14cf1f5d2973bf44698d9d87d5f4c"
+    },
+    {
+      "id": "pdfcraft/crates/model/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/model/Cargo.toml",
+      "line": 2,
+      "sha256": "c6371c4f93444615f4b3437c01ee4664333f56cbc83c475aade3fac9788c46a1"
+    },
+    {
+      "id": "pdfcraft/crates/ocr/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/ocr/Cargo.toml",
+      "line": 2,
+      "sha256": "1dbad72047c515b3b430b6ffb9995121da4a1015c39a51f2db43d515b483f60b"
+    },
+    {
+      "id": "pdfcraft/crates/optimize/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/optimize/Cargo.toml",
+      "line": 2,
+      "sha256": "f74e741b306ea52ba62b513ee4dbfbec4a0b04cf4820b1287d945b80e4d6203d"
+    },
+    {
+      "id": "pdfcraft/crates/organize/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/organize/Cargo.toml",
+      "line": 2,
+      "sha256": "78d072fe81c0bea6ef56f88ad32fa7653961756f66aa76f167ee4b42233d88d3"
+    },
+    {
+      "id": "pdfcraft/crates/platform/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/platform/Cargo.toml",
+      "line": 2,
+      "sha256": "041a643986458951789e57289e6d6ab98378dccd95789f52eeddcec6e6de972b"
+    },
+    {
+      "id": "pdfcraft/crates/preflight/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/preflight/Cargo.toml",
+      "line": 2,
+      "sha256": "cb9f69708597aece78069eba26d428ee113a5b61b18b858098800591bd225089"
+    },
+    {
+      "id": "pdfcraft/crates/print/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/print/Cargo.toml",
+      "line": 2,
+      "sha256": "b7525a42e48cbc4fa0ffd8a598be3d04c929755ed5579eab6d4d43e8da84d05f"
+    },
+    {
+      "id": "pdfcraft/crates/redact/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/redact/Cargo.toml",
+      "line": 2,
+      "sha256": "6661d057970bb1d8d7b4f61506541a87b3052b11c0350d6d0ea70752e3be2478"
+    },
+    {
+      "id": "pdfcraft/crates/render/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/render/Cargo.toml",
+      "line": 2,
+      "sha256": "78c39bc98d825a5e201a7ef79aa86e7eae813ae6a2b17aee078593f66e7665fa"
+    },
+    {
+      "id": "pdfcraft/crates/sign/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/sign/Cargo.toml",
+      "line": 2,
+      "sha256": "299f3ec259ad32c4fe9ceea47ac413beacdaa9971dd6db39a90a64b1a3adc50e"
+    },
+    {
+      "id": "pdfcraft/crates/ui-egui/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/ui-egui/Cargo.toml",
+      "line": 2,
+      "sha256": "fd369a9b577b612ec81969460a0c4a72590a7411b609e2b0bc1f7a82af375c02"
+    },
+    {
+      "id": "pdfcraft/crates/ui-egui/Cargo.toml:7",
+      "path": "02_repositorios/pdfcraft/crates/ui-egui/Cargo.toml",
+      "line": 7,
+      "sha256": "fd369a9b577b612ec81969460a0c4a72590a7411b609e2b0bc1f7a82af375c02"
+    },
+    {
+      "id": "pdfcraft/crates/xfa/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/xfa/Cargo.toml",
+      "line": 2,
+      "sha256": "393d2191f9ba241b6b0c1c3d71898bc4259354bc9486963305c414e84339f035"
+    },
+    {
+      "id": "pdfcraft/crates/xfdf/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/crates/xfdf/Cargo.toml",
+      "line": 2,
+      "sha256": "a5b0c3117dbf931d78f268d4a483654ca33d1a94ed36ef6175db787f2c9a0342"
+    },
+    {
+      "id": "pdfcraft/xtask/Cargo.toml:2",
+      "path": "02_repositorios/pdfcraft/xtask/Cargo.toml",
+      "line": 2,
+      "sha256": "4927a79db3efb8c426a3c46427f76218228d07cabbe6779e0eb8e83c3003d12e"
+    },
+    {
+      "id": "pdfcraft/xtask/Cargo.toml:3",
+      "path": "02_repositorios/pdfcraft/xtask/Cargo.toml",
+      "line": 3,
+      "sha256": "4927a79db3efb8c426a3c46427f76218228d07cabbe6779e0eb8e83c3003d12e"
+    },
+    {
+      "id": "pdfcraft/xtask/Cargo.toml:4",
+      "path": "02_repositorios/pdfcraft/xtask/Cargo.toml",
+      "line": 4,
+      "sha256": "4927a79db3efb8c426a3c46427f76218228d07cabbe6779e0eb8e83c3003d12e"
+    },
+    {
+      "id": "post_training_llms/examples/run_dpo.py:13",
+      "path": "02_repositorios/post_training_llms/examples/run_dpo.py",
+      "line": 13,
+      "sha256": "d9f52874cb6bf20dcb742c261f9aaf3608fd55fb7a67a634e3fecbd5a4e32e12"
+    },
+    {
+      "id": "post_training_llms/requirements.txt:10",
+      "path": "02_repositorios/post_training_llms/requirements.txt",
+      "line": 10,
+      "sha256": "cb4db9240954b4cd68076717747323d48efb638bd031a1986fe5d27cc4751d62"
+    },
+    {
+      "id": "post_training_llms/requirements.txt:13",
+      "path": "02_repositorios/post_training_llms/requirements.txt",
+      "line": 13,
+      "sha256": "cb4db9240954b4cd68076717747323d48efb638bd031a1986fe5d27cc4751d62"
+    },
+    {
+      "id": "post_training_llms/requirements.txt:14",
+      "path": "02_repositorios/post_training_llms/requirements.txt",
+      "line": 14,
+      "sha256": "cb4db9240954b4cd68076717747323d48efb638bd031a1986fe5d27cc4751d62"
+    },
+    {
+      "id": "post_training_llms/requirements.txt:15",
+      "path": "02_repositorios/post_training_llms/requirements.txt",
+      "line": 15,
+      "sha256": "cb4db9240954b4cd68076717747323d48efb638bd031a1986fe5d27cc4751d62"
+    },
+    {
+      "id": "post_training_llms/requirements.txt:16",
+      "path": "02_repositorios/post_training_llms/requirements.txt",
+      "line": 16,
+      "sha256": "cb4db9240954b4cd68076717747323d48efb638bd031a1986fe5d27cc4751d62"
+    },
+    {
+      "id": "post_training_llms/requirements.txt:19",
+      "path": "02_repositorios/post_training_llms/requirements.txt",
+      "line": 19,
+      "sha256": "cb4db9240954b4cd68076717747323d48efb638bd031a1986fe5d27cc4751d62"
+    },
+    {
+      "id": "post_training_llms/requirements.txt:2",
+      "path": "02_repositorios/post_training_llms/requirements.txt",
+      "line": 2,
+      "sha256": "cb4db9240954b4cd68076717747323d48efb638bd031a1986fe5d27cc4751d62"
+    },
+    {
+      "id": "post_training_llms/requirements.txt:20",
+      "path": "02_repositorios/post_training_llms/requirements.txt",
+      "line": 20,
+      "sha256": "cb4db9240954b4cd68076717747323d48efb638bd031a1986fe5d27cc4751d62"
+    },
+    {
+      "id": "post_training_llms/requirements.txt:23",
+      "path": "02_repositorios/post_training_llms/requirements.txt",
+      "line": 23,
+      "sha256": "cb4db9240954b4cd68076717747323d48efb638bd031a1986fe5d27cc4751d62"
+    },
+    {
+      "id": "post_training_llms/requirements.txt:24",
+      "path": "02_repositorios/post_training_llms/requirements.txt",
+      "line": 24,
+      "sha256": "cb4db9240954b4cd68076717747323d48efb638bd031a1986fe5d27cc4751d62"
+    },
+    {
+      "id": "post_training_llms/requirements.txt:27",
+      "path": "02_repositorios/post_training_llms/requirements.txt",
+      "line": 27,
+      "sha256": "cb4db9240954b4cd68076717747323d48efb638bd031a1986fe5d27cc4751d62"
+    },
+    {
+      "id": "post_training_llms/requirements.txt:28",
+      "path": "02_repositorios/post_training_llms/requirements.txt",
+      "line": 28,
+      "sha256": "cb4db9240954b4cd68076717747323d48efb638bd031a1986fe5d27cc4751d62"
+    },
+    {
+      "id": "post_training_llms/requirements.txt:3",
+      "path": "02_repositorios/post_training_llms/requirements.txt",
+      "line": 3,
+      "sha256": "cb4db9240954b4cd68076717747323d48efb638bd031a1986fe5d27cc4751d62"
+    },
+    {
+      "id": "post_training_llms/requirements.txt:31",
+      "path": "02_repositorios/post_training_llms/requirements.txt",
+      "line": 31,
+      "sha256": "cb4db9240954b4cd68076717747323d48efb638bd031a1986fe5d27cc4751d62"
+    },
+    {
+      "id": "post_training_llms/requirements.txt:34",
+      "path": "02_repositorios/post_training_llms/requirements.txt",
+      "line": 34,
+      "sha256": "cb4db9240954b4cd68076717747323d48efb638bd031a1986fe5d27cc4751d62"
+    },
+    {
+      "id": "post_training_llms/requirements.txt:35",
+      "path": "02_repositorios/post_training_llms/requirements.txt",
+      "line": 35,
+      "sha256": "cb4db9240954b4cd68076717747323d48efb638bd031a1986fe5d27cc4751d62"
+    },
+    {
+      "id": "post_training_llms/requirements.txt:36",
+      "path": "02_repositorios/post_training_llms/requirements.txt",
+      "line": 36,
+      "sha256": "cb4db9240954b4cd68076717747323d48efb638bd031a1986fe5d27cc4751d62"
+    },
+    {
+      "id": "post_training_llms/requirements.txt:4",
+      "path": "02_repositorios/post_training_llms/requirements.txt",
+      "line": 4,
+      "sha256": "cb4db9240954b4cd68076717747323d48efb638bd031a1986fe5d27cc4751d62"
+    },
+    {
+      "id": "post_training_llms/requirements.txt:5",
+      "path": "02_repositorios/post_training_llms/requirements.txt",
+      "line": 5,
+      "sha256": "cb4db9240954b4cd68076717747323d48efb638bd031a1986fe5d27cc4751d62"
+    },
+    {
+      "id": "post_training_llms/requirements.txt:6",
+      "path": "02_repositorios/post_training_llms/requirements.txt",
+      "line": 6,
+      "sha256": "cb4db9240954b4cd68076717747323d48efb638bd031a1986fe5d27cc4751d62"
+    },
+    {
+      "id": "post_training_llms/requirements.txt:9",
+      "path": "02_repositorios/post_training_llms/requirements.txt",
+      "line": 9,
+      "sha256": "cb4db9240954b4cd68076717747323d48efb638bd031a1986fe5d27cc4751d62"
+    },
+    {
+      "id": "post_training_llms/src/training/rl_trainer.py:15",
+      "path": "02_repositorios/post_training_llms/src/training/rl_trainer.py",
+      "line": 15,
+      "sha256": "000aa046619ccef5df445115f6366f70ee549c806b617427c3fbf8f97cd65099"
+    },
+    {
+      "id": "post_training_llms/src/training/rl_trainer.py:50",
+      "path": "02_repositorios/post_training_llms/src/training/rl_trainer.py",
+      "line": 50,
+      "sha256": "000aa046619ccef5df445115f6366f70ee549c806b617427c3fbf8f97cd65099"
+    },
+    {
+      "id": "post_training_llms/src/training/rl_trainer.py:9",
+      "path": "02_repositorios/post_training_llms/src/training/rl_trainer.py",
+      "line": 9,
+      "sha256": "000aa046619ccef5df445115f6366f70ee549c806b617427c3fbf8f97cd65099"
+    },
+    {
+      "id": "post_training_llms/src/training/sft_trainer.py:10",
+      "path": "02_repositorios/post_training_llms/src/training/sft_trainer.py",
+      "line": 10,
+      "sha256": "ba0a039d635a562d3eb6cf1f1cbeaf980edd085b238ed50c1e36201e74faf81f"
+    },
+    {
+      "id": "rag-and-fine-tuning-demo/fine_tuning/train_gemma.py:21",
+      "path": "02_repositorios/rag-and-fine-tuning-demo/fine_tuning/train_gemma.py",
+      "line": 21,
+      "sha256": "85fcd7db4ac819e7513caf6d92151f0f9c21ed783cd986c9d0fd06cb58592c21"
+    },
+    {
+      "id": "rag-and-fine-tuning-demo/hybrid/hybrid_system.py:13",
+      "path": "02_repositorios/rag-and-fine-tuning-demo/hybrid/hybrid_system.py",
+      "line": 13,
+      "sha256": "50a4ff5415aef751db414042e510a51dc776297ba6320621627b914d960791f4"
+    },
+    {
+      "id": "rag-and-fine-tuning-demo/hybrid/hybrid_system.py:20",
+      "path": "02_repositorios/rag-and-fine-tuning-demo/hybrid/hybrid_system.py",
+      "line": 20,
+      "sha256": "50a4ff5415aef751db414042e510a51dc776297ba6320621627b914d960791f4"
+    },
+    {
+      "id": "rag-and-fine-tuning-demo/hybrid/hybrid_system.py:23",
+      "path": "02_repositorios/rag-and-fine-tuning-demo/hybrid/hybrid_system.py",
+      "line": 23,
+      "sha256": "50a4ff5415aef751db414042e510a51dc776297ba6320621627b914d960791f4"
+    },
+    {
+      "id": "rag-and-fine-tuning-demo/rag/rag_system.py:16",
+      "path": "02_repositorios/rag-and-fine-tuning-demo/rag/rag_system.py",
+      "line": 16,
+      "sha256": "f95ef9b3b74391b0bb2a7bc18dd864d24a0a2eee783470fc85e50029299f3332"
+    },
+    {
+      "id": "rag-and-fine-tuning-demo/rag/rag_system.py:23",
+      "path": "02_repositorios/rag-and-fine-tuning-demo/rag/rag_system.py",
+      "line": 23,
+      "sha256": "f95ef9b3b74391b0bb2a7bc18dd864d24a0a2eee783470fc85e50029299f3332"
+    },
+    {
+      "id": "rag-and-fine-tuning-demo/rag/rag_system.py:40",
+      "path": "02_repositorios/rag-and-fine-tuning-demo/rag/rag_system.py",
+      "line": 40,
+      "sha256": "f95ef9b3b74391b0bb2a7bc18dd864d24a0a2eee783470fc85e50029299f3332"
+    },
+    {
+      "id": "rag-and-fine-tuning-demo/rag/rag_system.py:43",
+      "path": "02_repositorios/rag-and-fine-tuning-demo/rag/rag_system.py",
+      "line": 43,
+      "sha256": "f95ef9b3b74391b0bb2a7bc18dd864d24a0a2eee783470fc85e50029299f3332"
+    },
+    {
+      "id": "rag-and-fine-tuning-demo/rag/rag_system.py:63",
+      "path": "02_repositorios/rag-and-fine-tuning-demo/rag/rag_system.py",
+      "line": 63,
+      "sha256": "f95ef9b3b74391b0bb2a7bc18dd864d24a0a2eee783470fc85e50029299f3332"
+    },
+    {
+      "id": "rag-and-fine-tuning-demo/requirements.txt:1",
+      "path": "02_repositorios/rag-and-fine-tuning-demo/requirements.txt",
+      "line": 1,
+      "sha256": "1b2303e4051b7b74be9d63be6a06e299a564b6390c74d4a024ef8e4c3b0078f8"
+    },
+    {
+      "id": "rag-and-fine-tuning-demo/requirements.txt:10",
+      "path": "02_repositorios/rag-and-fine-tuning-demo/requirements.txt",
+      "line": 10,
+      "sha256": "1b2303e4051b7b74be9d63be6a06e299a564b6390c74d4a024ef8e4c3b0078f8"
+    },
+    {
+      "id": "rag-and-fine-tuning-demo/requirements.txt:11",
+      "path": "02_repositorios/rag-and-fine-tuning-demo/requirements.txt",
+      "line": 11,
+      "sha256": "1b2303e4051b7b74be9d63be6a06e299a564b6390c74d4a024ef8e4c3b0078f8"
+    },
+    {
+      "id": "rag-and-fine-tuning-demo/requirements.txt:12",
+      "path": "02_repositorios/rag-and-fine-tuning-demo/requirements.txt",
+      "line": 12,
+      "sha256": "1b2303e4051b7b74be9d63be6a06e299a564b6390c74d4a024ef8e4c3b0078f8"
+    },
+    {
+      "id": "rag-and-fine-tuning-demo/requirements.txt:13",
+      "path": "02_repositorios/rag-and-fine-tuning-demo/requirements.txt",
+      "line": 13,
+      "sha256": "1b2303e4051b7b74be9d63be6a06e299a564b6390c74d4a024ef8e4c3b0078f8"
+    },
+    {
+      "id": "rag-and-fine-tuning-demo/requirements.txt:14",
+      "path": "02_repositorios/rag-and-fine-tuning-demo/requirements.txt",
+      "line": 14,
+      "sha256": "1b2303e4051b7b74be9d63be6a06e299a564b6390c74d4a024ef8e4c3b0078f8"
+    },
+    {
+      "id": "rag-and-fine-tuning-demo/requirements.txt:15",
+      "path": "02_repositorios/rag-and-fine-tuning-demo/requirements.txt",
+      "line": 15,
+      "sha256": "1b2303e4051b7b74be9d63be6a06e299a564b6390c74d4a024ef8e4c3b0078f8"
+    },
+    {
+      "id": "rag-and-fine-tuning-demo/requirements.txt:16",
+      "path": "02_repositorios/rag-and-fine-tuning-demo/requirements.txt",
+      "line": 16,
+      "sha256": "1b2303e4051b7b74be9d63be6a06e299a564b6390c74d4a024ef8e4c3b0078f8"
+    },
+    {
+      "id": "rag-and-fine-tuning-demo/requirements.txt:17",
+      "path": "02_repositorios/rag-and-fine-tuning-demo/requirements.txt",
+      "line": 17,
+      "sha256": "1b2303e4051b7b74be9d63be6a06e299a564b6390c74d4a024ef8e4c3b0078f8"
+    },
+    {
+      "id": "rag-and-fine-tuning-demo/requirements.txt:18",
+      "path": "02_repositorios/rag-and-fine-tuning-demo/requirements.txt",
+      "line": 18,
+      "sha256": "1b2303e4051b7b74be9d63be6a06e299a564b6390c74d4a024ef8e4c3b0078f8"
+    },
+    {
+      "id": "rag-and-fine-tuning-demo/requirements.txt:2",
+      "path": "02_repositorios/rag-and-fine-tuning-demo/requirements.txt",
+      "line": 2,
+      "sha256": "1b2303e4051b7b74be9d63be6a06e299a564b6390c74d4a024ef8e4c3b0078f8"
+    },
+    {
+      "id": "rag-and-fine-tuning-demo/requirements.txt:3",
+      "path": "02_repositorios/rag-and-fine-tuning-demo/requirements.txt",
+      "line": 3,
+      "sha256": "1b2303e4051b7b74be9d63be6a06e299a564b6390c74d4a024ef8e4c3b0078f8"
+    },
+    {
+      "id": "rag-and-fine-tuning-demo/requirements.txt:4",
+      "path": "02_repositorios/rag-and-fine-tuning-demo/requirements.txt",
+      "line": 4,
+      "sha256": "1b2303e4051b7b74be9d63be6a06e299a564b6390c74d4a024ef8e4c3b0078f8"
+    },
+    {
+      "id": "rag-and-fine-tuning-demo/requirements.txt:5",
+      "path": "02_repositorios/rag-and-fine-tuning-demo/requirements.txt",
+      "line": 5,
+      "sha256": "1b2303e4051b7b74be9d63be6a06e299a564b6390c74d4a024ef8e4c3b0078f8"
+    },
+    {
+      "id": "rag-and-fine-tuning-demo/requirements.txt:6",
+      "path": "02_repositorios/rag-and-fine-tuning-demo/requirements.txt",
+      "line": 6,
+      "sha256": "1b2303e4051b7b74be9d63be6a06e299a564b6390c74d4a024ef8e4c3b0078f8"
+    },
+    {
+      "id": "rag-and-fine-tuning-demo/requirements.txt:7",
+      "path": "02_repositorios/rag-and-fine-tuning-demo/requirements.txt",
+      "line": 7,
+      "sha256": "1b2303e4051b7b74be9d63be6a06e299a564b6390c74d4a024ef8e4c3b0078f8"
+    },
+    {
+      "id": "rag-and-fine-tuning-demo/requirements.txt:8",
+      "path": "02_repositorios/rag-and-fine-tuning-demo/requirements.txt",
+      "line": 8,
+      "sha256": "1b2303e4051b7b74be9d63be6a06e299a564b6390c74d4a024ef8e4c3b0078f8"
+    },
+    {
+      "id": "rag-and-fine-tuning-demo/requirements.txt:9",
+      "path": "02_repositorios/rag-and-fine-tuning-demo/requirements.txt",
+      "line": 9,
+      "sha256": "1b2303e4051b7b74be9d63be6a06e299a564b6390c74d4a024ef8e4c3b0078f8"
+    },
+    {
+      "id": "rag-finetuning/docker-compose.yml:3",
+      "path": "02_repositorios/rag-finetuning/docker-compose.yml",
+      "line": 3,
+      "sha256": "9ecab3681f518ce19db7d6fb7c091d7d345aafe83906ce6f9e58250ca63f7701"
+    },
+    {
+      "id": "rag-finetuning/feature_repo/__init__.py:4",
+      "path": "02_repositorios/rag-finetuning/feature_repo/__init__.py",
+      "line": 4,
+      "sha256": "e2b993e5f97d2f418451e5df4096681128db154e29c17f263b4b889f8b69c0da"
+    },
+    {
+      "id": "rag-finetuning/feature_repo/__init__.py:5",
+      "path": "02_repositorios/rag-finetuning/feature_repo/__init__.py",
+      "line": 5,
+      "sha256": "e2b993e5f97d2f418451e5df4096681128db154e29c17f263b4b889f8b69c0da"
+    },
+    {
+      "id": "rag-finetuning/feature_repo/feature_store.yaml:6",
+      "path": "02_repositorios/rag-finetuning/feature_repo/feature_store.yaml",
+      "line": 6,
+      "sha256": "7facbbce6af29329d62a6b00c68c164c32c2cb96351fbd4dee0743a7fbdc1734"
+    },
+    {
+      "id": "rag-finetuning/kubeflow_embedding_training.py:116",
+      "path": "02_repositorios/rag-finetuning/kubeflow_embedding_training.py",
+      "line": 116,
+      "sha256": "90ca30a39ed00bb834d77658937729138f867ad5e9a7ad1033ecc85e1fff02ab"
+    },
+    {
+      "id": "rag-finetuning/kubeflow_embedding_training.py:138",
+      "path": "02_repositorios/rag-finetuning/kubeflow_embedding_training.py",
+      "line": 138,
+      "sha256": "90ca30a39ed00bb834d77658937729138f867ad5e9a7ad1033ecc85e1fff02ab"
+    },
+    {
+      "id": "rag-finetuning/kubeflow_embedding_training.py:155",
+      "path": "02_repositorios/rag-finetuning/kubeflow_embedding_training.py",
+      "line": 155,
+      "sha256": "90ca30a39ed00bb834d77658937729138f867ad5e9a7ad1033ecc85e1fff02ab"
+    },
+    {
+      "id": "rag-finetuning/kubeflow_embedding_training.py:16",
+      "path": "02_repositorios/rag-finetuning/kubeflow_embedding_training.py",
+      "line": 16,
+      "sha256": "90ca30a39ed00bb834d77658937729138f867ad5e9a7ad1033ecc85e1fff02ab"
+    },
+    {
+      "id": "rag-finetuning/pyproject.toml:10",
+      "path": "02_repositorios/rag-finetuning/pyproject.toml",
+      "line": 10,
+      "sha256": "ede4540fe257320439beee7096f882b166e287566caa7fa14a31aeb09c87d514"
+    },
+    {
+      "id": "rag-finetuning/pyproject.toml:11",
+      "path": "02_repositorios/rag-finetuning/pyproject.toml",
+      "line": 11,
+      "sha256": "ede4540fe257320439beee7096f882b166e287566caa7fa14a31aeb09c87d514"
+    },
+    {
+      "id": "rag-finetuning/pyproject.toml:12",
+      "path": "02_repositorios/rag-finetuning/pyproject.toml",
+      "line": 12,
+      "sha256": "ede4540fe257320439beee7096f882b166e287566caa7fa14a31aeb09c87d514"
+    },
+    {
+      "id": "rag-finetuning/pyproject.toml:13",
+      "path": "02_repositorios/rag-finetuning/pyproject.toml",
+      "line": 13,
+      "sha256": "ede4540fe257320439beee7096f882b166e287566caa7fa14a31aeb09c87d514"
+    },
+    {
+      "id": "rag-finetuning/pyproject.toml:14",
+      "path": "02_repositorios/rag-finetuning/pyproject.toml",
+      "line": 14,
+      "sha256": "ede4540fe257320439beee7096f882b166e287566caa7fa14a31aeb09c87d514"
+    },
+    {
+      "id": "rag-finetuning/pyproject.toml:15",
+      "path": "02_repositorios/rag-finetuning/pyproject.toml",
+      "line": 15,
+      "sha256": "ede4540fe257320439beee7096f882b166e287566caa7fa14a31aeb09c87d514"
+    },
+    {
+      "id": "rag-finetuning/pyproject.toml:16",
+      "path": "02_repositorios/rag-finetuning/pyproject.toml",
+      "line": 16,
+      "sha256": "ede4540fe257320439beee7096f882b166e287566caa7fa14a31aeb09c87d514"
+    },
+    {
+      "id": "rag-finetuning/pyproject.toml:2",
+      "path": "02_repositorios/rag-finetuning/pyproject.toml",
+      "line": 2,
+      "sha256": "ede4540fe257320439beee7096f882b166e287566caa7fa14a31aeb09c87d514"
+    },
+    {
+      "id": "rag-finetuning/pyproject.toml:3",
+      "path": "02_repositorios/rag-finetuning/pyproject.toml",
+      "line": 3,
+      "sha256": "ede4540fe257320439beee7096f882b166e287566caa7fa14a31aeb09c87d514"
+    },
+    {
+      "id": "rag-finetuning/pyproject.toml:6",
+      "path": "02_repositorios/rag-finetuning/pyproject.toml",
+      "line": 6,
+      "sha256": "ede4540fe257320439beee7096f882b166e287566caa7fa14a31aeb09c87d514"
+    },
+    {
+      "id": "rag-finetuning/pyproject.toml:8",
+      "path": "02_repositorios/rag-finetuning/pyproject.toml",
+      "line": 8,
+      "sha256": "ede4540fe257320439beee7096f882b166e287566caa7fa14a31aeb09c87d514"
+    },
+    {
+      "id": "rag-finetuning/pyproject.toml:9",
+      "path": "02_repositorios/rag-finetuning/pyproject.toml",
+      "line": 9,
+      "sha256": "ede4540fe257320439beee7096f882b166e287566caa7fa14a31aeb09c87d514"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:10",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 10,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:13",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 13,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:14",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 14,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:15",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 15,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:16",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 16,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:17",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 17,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:2",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 2,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:20",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 20,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:21",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 21,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:22",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 22,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:25",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 25,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:26",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 26,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:27",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 27,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:3",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 3,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:30",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 30,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:31",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 31,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:32",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 32,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:33",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 33,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:36",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 36,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:37",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 37,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:38",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 38,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:39",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 39,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:4",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 4,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:40",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 40,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:47",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 47,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:48",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 48,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:49",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 49,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:50",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 50,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:51",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 51,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:52",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 52,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:53",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 53,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:54",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 54,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:55",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 55,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:58",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 58,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:59",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 59,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:60",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 60,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:61",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 61,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:64",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 64,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:65",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 65,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:68",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 68,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:69",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 69,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:7",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 7,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:70",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 70,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:71",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 71,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:72",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 72,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:73",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 73,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:76",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 76,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:77",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 77,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:78",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 78,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:79",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 79,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:8",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 8,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:80",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 80,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:81",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 81,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:82",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 82,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:83",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 83,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "rag-finetuning/requirements.txt:9",
+      "path": "02_repositorios/rag-finetuning/requirements.txt",
+      "line": 9,
+      "sha256": "affe5fb657b98f837cd76661f05d5f3cd6d11f64972d95aee6e91db50a3b18e6"
+    },
+    {
+      "id": "remove-onedrive/README.md:1",
+      "path": "02_repositorios/remove-onedrive/README.md",
+      "line": 1,
+      "sha256": "d5bb8d20613d3ff835e0f9d0dad493e44661460b749b89a1c18860d7483ea2d2"
+    },
+    {
+      "id": "remove-onedrive/Remove-OneDrive.ps1:129",
+      "path": "02_repositorios/remove-onedrive/Remove-OneDrive.ps1",
+      "line": 129,
+      "sha256": "48a209918f54e64ae8c1da8f672792bd10c0798cfabd4216d29ffc123b2de560"
+    },
+    {
+      "id": "remove-onedrive/Remove-OneDrive.ps1:159",
+      "path": "02_repositorios/remove-onedrive/Remove-OneDrive.ps1",
+      "line": 159,
+      "sha256": "48a209918f54e64ae8c1da8f672792bd10c0798cfabd4216d29ffc123b2de560"
+    },
+    {
+      "id": "remove-onedrive/Remove-OneDrive.ps1:179",
+      "path": "02_repositorios/remove-onedrive/Remove-OneDrive.ps1",
+      "line": 179,
+      "sha256": "48a209918f54e64ae8c1da8f672792bd10c0798cfabd4216d29ffc123b2de560"
+    },
+    {
+      "id": "remove-onedrive/Remove-OneDrive.ps1:69",
+      "path": "02_repositorios/remove-onedrive/Remove-OneDrive.ps1",
+      "line": 69,
+      "sha256": "48a209918f54e64ae8c1da8f672792bd10c0798cfabd4216d29ffc123b2de560"
+    },
+    {
+      "id": "remove-onedrive/Remove-OneDrive.ps1:7",
+      "path": "02_repositorios/remove-onedrive/Remove-OneDrive.ps1",
+      "line": 7,
+      "sha256": "48a209918f54e64ae8c1da8f672792bd10c0798cfabd4216d29ffc123b2de560"
+    },
+    {
+      "id": "remove-onedrive/Remove-OneDrive.ps1:75",
+      "path": "02_repositorios/remove-onedrive/Remove-OneDrive.ps1",
+      "line": 75,
+      "sha256": "48a209918f54e64ae8c1da8f672792bd10c0798cfabd4216d29ffc123b2de560"
+    }
+  ],
+  "policy": "Somente caminho, linha e hash; nenhum trecho de código ou credencial copiado."
+}

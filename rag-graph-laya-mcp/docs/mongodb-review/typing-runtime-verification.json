@@ -1,0 +1,299 @@
+{
+  "status": "PASS",
+  "updated_at": "2026-10-15T18:18:40.184Z",
+  "owner": "codenavi-agent",
+  "source_checkout": "02_repositorios/DiabeticsresearchJEV",
+  "baseline": {
+    "strict_mypy_errors": 48,
+    "source_files": 86,
+    "pytest_passed": 92,
+    "ruff": "PASS"
+  },
+  "final": {
+    "strict_mypy_errors": 0,
+    "source_files": 86,
+    "pytest_passed": 100,
+    "ruff": "PASS",
+    "strict_configuration_weakened": false,
+    "new_dependencies": []
+  },
+  "runtime": {
+    "status": "PASS",
+    "before": {
+      "api_pid": 46548,
+      "model_pid": 48360
+    },
+    "restarted": [
+      {
+        "restarted": "model_pid",
+        "pid": 11760,
+        "recovered_stale_receipt": true
+      },
+      {
+        "restarted": "api_pid",
+        "pid": 64068
+      }
+    ],
+    "biomedical_launcher_pid": 32248,
+    "loaded": {
+      "pid": 49000,
+      "modules": {
+        "diabeticsresearchjev.interfaces.api": {
+          "path": "E:\\Github\\ai-assistent-universal-coder\\02_repositorios\\DiabeticsresearchJEV\\src\\diabeticsresearchjev\\interfaces\\api.py",
+          "sha256": "ea9a48d2345fda8439665f80267381a9893562d256b35940a0982173514dfb26"
+        },
+        "diabeticsresearchjev.interfaces.graphql": {
+          "path": "E:\\Github\\ai-assistent-universal-coder\\02_repositorios\\DiabeticsresearchJEV\\src\\diabeticsresearchjev\\interfaces\\graphql.py",
+          "sha256": "34c40fea9a208daaa3db5bdf6beb22ebf21ff7b67049d14b62c1cdddc9c2828a"
+        },
+        "diabeticsresearchjev.infrastructure.services": {
+          "path": "E:\\Github\\ai-assistent-universal-coder\\02_repositorios\\DiabeticsresearchJEV\\src\\diabeticsresearchjev\\infrastructure\\services.py",
+          "sha256": "83bc419888e444ce47c10017e9571c9460c13e7791b72f063fd4b8f85173a7bc"
+        }
+      }
+    },
+    "health": {
+      "biomedical": {
+        "status": "HEALTHY",
+        "system": "DiabeticsresearchJEV",
+        "version": "0.2.0",
+        "jev_engine": "v2.0-biomedical-active",
+        "registered_hypotheses_count": 3,
+        "curated_evidence_count": 4,
+        "curated_loci_count": 8,
+        "curated_molecules_count": 5
+      },
+      "model": {
+        "object": "list",
+        "data": [
+          {
+            "id": "Qwen/Qwen3-4B-Instruct-2507",
+            "object": "model"
+          },
+          {
+            "id": "intfloat/multilingual-e5-base",
+            "object": "model"
+          }
+        ],
+        "weights_loaded": false,
+        "paused": false
+      },
+      "mcp": {
+        "server": "rag-graph-laya",
+        "version": "0.1.0",
+        "protocol": "MCP stdio",
+        "versions": {
+          "mcp": "2.3.0",
+          "graphiti-core": "0.30.2",
+          "laya": "0.4.7",
+          "torch": "2.14.1+cu130",
+          "transformers": "5.19.0",
+          "trl": "1.15.0",
+          "peft": "0.21.2",
+          "bitsandbytes": "0.50.2"
+        },
+        "model": {
+          "available": true,
+          "models": {
+            "object": "list",
+            "data": [
+              {
+                "id": "Qwen/Qwen3-4B-Instruct-2507",
+                "object": "model"
+              },
+              {
+                "id": "intfloat/multilingual-e5-base",
+                "object": "model"
+              }
+            ],
+            "weights_loaded": false,
+            "paused": false
+          }
+        },
+        "neo4j": {
+          "configured": true,
+          "available": true
+        },
+        "state": "E:\\Github\\ai-assistent-universal-coder\\rag-graph-laya-mcp\\.state",
+        "external_models_enabled": false,
+        "human_review": "required before reviewed test quality or promotion claims"
+      }
+    },
+    "graphql_introspection": {
+      "data": {
+        "__typename": "Query"
+      }
+    },
+    "ui_http_status": {
+      "http://127.0.0.1:8765/": 200,
+      "http://127.0.0.1:8000/ui/graph": 200,
+      "http://127.0.0.1:8000/ui/live": 200
+    },
+    "preserved_datastore_processes": {
+      "27017": {
+        "pid": 30980,
+        "created": 1791974990.58189
+      },
+      "7687": {
+        "pid": 61308,
+        "created": 1792062411.3663263
+      },
+      "7474": {
+        "pid": 61308,
+        "created": 1792062411.3663263
+      }
+    },
+    "collector_or_training_started": false
+  },
+  "listeners": {
+    "8000": {
+      "pid": 49000,
+      "create_time": 1792088013.7060204,
+      "host": "127.0.0.1"
+    },
+    "8008": {
+      "pid": 68372,
+      "create_time": 1792088009.566083,
+      "host": "127.0.0.1"
+    },
+    "8765": {
+      "pid": 66624,
+      "create_time": 1792088011.6859624,
+      "host": "127.0.0.1"
+    },
+    "27017": {
+      "pid": 30980,
+      "create_time": 1791974990.58189,
+      "host": "127.0.0.1"
+    },
+    "7474": {
+      "pid": 61308,
+      "create_time": 1792062411.3663263,
+      "host": "127.0.0.1"
+    },
+    "7687": {
+      "pid": 61308,
+      "create_time": 1792062411.3663263,
+      "host": "127.0.0.1"
+    }
+  },
+  "live_mongo": {
+    "counts": {
+      "documents": 1,
+      "chunks": 1,
+      "search_terms": 3560,
+      "scrape_runs": 1,
+      "scrape_progress": 3,
+      "kg_entities": 0,
+      "kg_triples": 0,
+      "kg_communities": 0,
+      "training_samples": 0,
+      "training_runs": 0,
+      "eval_results": 0,
+      "model_registry": 0,
+      "knowledge_probes": 0,
+      "replay_buffer": 0,
+      "lsh_bands": 16,
+      "hypotheses": 0,
+      "molecules": 0,
+      "trial_reports": 0,
+      "learning_events": 1
+    },
+    "counts_unchanged": true,
+    "corpus_fingerprint_unchanged": true,
+    "inspection_read_only": true
+  },
+  "changed_existing_source_files": [
+    {
+      "path": "src/diabeticsresearchjev/interfaces/graphql.py",
+      "before_sha256": "df7093db5b8c27432cdf5e4a2d4cbc3b142efcb4004e9bcd5b1c52361470e306",
+      "after_sha256": "34c40fea9a208daaa3db5bdf6beb22ebf21ff7b67049d14b62c1cdddc9c2828a"
+    },
+    {
+      "path": "src/diabeticsresearchjev/infrastructure/scraper/markup.py",
+      "before_sha256": "c6fc1af292ce1e683f6f4275b65e38eb3cd3300a21432656cc4bc9c1e8d0067a",
+      "after_sha256": "cc29b8cc5b98a7b8b3f26ecc33f03e16f008d24b0a4658c753080911d6f382e2"
+    },
+    {
+      "path": "src/diabeticsresearchjev/infrastructure/storage/object_store.py",
+      "before_sha256": "fde00d8d697444ac3d9358a77103c13ff708834244d68ceaf39d399131f429a5",
+      "after_sha256": "00662e1389f9587be9c6dfd754d4b3f2a970ef7ee6c249fd4522d193d85a1663"
+    },
+    {
+      "path": "src/diabeticsresearchjev/infrastructure/storage/vector_store.py",
+      "before_sha256": "5bb1cd345848b6fe116de5bc5f53ebf9f0daef81344a64934d4d8e64fb5650de",
+      "after_sha256": "94a16bbeab281d3cd35e3591d3ef49635c105f8748a5e1763722ed115f934f37"
+    },
+    {
+      "path": "src/diabeticsresearchjev/infrastructure/scraper/connectors/chemistry.py",
+      "before_sha256": "b1606a096255ae0fa301e712284015d749fe3a862606e31d1076139eb0b72af1",
+      "after_sha256": "4b47d7bf067c078921dd28f88ab467550e45bb6e21a50f86d95d970099ca2321"
+    },
+    {
+      "path": "src/diabeticsresearchjev/infrastructure/scraper/connectors/guidelines.py",
+      "before_sha256": "93ff5dce70f0e676979eb23f2095a243785e2a283fc72c96f781c5d8e85a6ac8",
+      "after_sha256": "45a3a589a459f0de497ce8f1f28f5fc14d24da2e5f5b9024b11db827127434f2"
+    },
+    {
+      "path": "src/diabeticsresearchjev/infrastructure/scraper/connectors/literature.py",
+      "before_sha256": "d4c1ed56691b4e19019d927c9aa36101d5a1264796443021329eb3b173f95bec",
+      "after_sha256": "e19441587382b823a87b5bf1224355ea90076ba1ca017721ff1761be2ba2cebb"
+    },
+    {
+      "path": "src/diabeticsresearchjev/infrastructure/scraper/connectors/omics.py",
+      "before_sha256": "ffd7c66b305d1d66ac5381d9f0530fb3f64f75a0514a03c46624ccfd333b1e8c",
+      "after_sha256": "2fc5ce518c0805df628bff24092c33db391e5ff446e07f79cf9fe0f1ddf916a4"
+    },
+    {
+      "path": "src/diabeticsresearchjev/infrastructure/scraper/connectors/regulatory.py",
+      "before_sha256": "e2545813adb51251e69dd068572c448fed75679545f074df726c4a1d3a212d5f",
+      "after_sha256": "bdc45c668e8576acbdbbd0cf8b6021c51aafc7150fa873ea09a1e675969e0460"
+    },
+    {
+      "path": "src/diabeticsresearchjev/application/discovery/evidence_mapper.py",
+      "before_sha256": "6c7aa01d122430ed84375067fcefaea5c5899e50637dc47cf2a32abf9e6de1a2",
+      "after_sha256": "076de72ae8a0934a66fa65348d932f5b984802c55afcc860d71f4e656af6cfe7"
+    },
+    {
+      "path": "src/diabeticsresearchjev/application/gates/sample_gate.py",
+      "before_sha256": "093c2635af104b0ce5f6c9215b4cb3240d310d5ed1f9952b22d6f8963908c7c3",
+      "after_sha256": "7e19f6e5a868fad0594bec4a088a1d7d2f1d0dd9d927801e54047c75d73cd710"
+    },
+    {
+      "path": "src/diabeticsresearchjev/application/knowledge/graphrag.py",
+      "before_sha256": "af2fe8c1b3a90e51bf89de1e99710949006676be405cc2563c981a0c92d5bc77",
+      "after_sha256": "37817c17c36eeaed9ab7042e2f1fb6f2504cb12a20bd884b8e0d275f174126e2"
+    },
+    {
+      "path": "src/diabeticsresearchjev/application/rag/embedder.py",
+      "before_sha256": "9d1e16139cdd97212dd03adf5276cc556e72531c1a3b93eca0d95a80cce280a7",
+      "after_sha256": "500d1df4c47c5eab7eb6b7789fb65aa039e834549e284dfea535f7bb10f469da"
+    },
+    {
+      "path": "src/diabeticsresearchjev/application/text/language.py",
+      "before_sha256": "f27db15b9325f5e33700379ec80010201781dedc20c4c4edec4f9eb6b1a1dcf0",
+      "after_sha256": "83645f4602fd1252b26ed08749b9099a08706ac4352733258d339627808b91c2"
+    }
+  ],
+  "added_files": [
+    "scripts/run_api.py",
+    "tests/test_typed_boundaries.py"
+  ],
+  "preserved_original_source_test_files": 83,
+  "old_checkout_modified": false,
+  "model_training": false,
+  "collector_started": false,
+  "workspace_runtime_gate": {
+    "status": "PASS",
+    "canonical_skills": 308,
+    "native_discovery": 311,
+    "skill_entries": 841,
+    "max_skill_lines": 99,
+    "errors": []
+  },
+  "limitations": [
+    "Dependency deprecation warnings remain (Starlette/httpx and Chroma/asyncio).",
+    "Model endpoint is ready; weights remain lazy/unloaded. No fresh inference or training claimed.",
+    "Biomedical training rights, holdout review and paired real-model evaluation remain pending."
+  ]
+}

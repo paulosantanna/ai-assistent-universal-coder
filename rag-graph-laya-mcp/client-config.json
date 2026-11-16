@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "rag-graph-laya": {
+      "command": "python",
+      "args": ["E:/Github/ai-assistent-universal-coder/rag-graph-laya-mcp/server.py"]
+    }
+  }
+}

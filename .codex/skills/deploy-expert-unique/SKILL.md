@@ -1,6 +1,6 @@
 ---
 name: deploy-expert-unique
-description: Apply the unique governed AWS deployment pipeline contract for AIHealthResearch, including branch promotion, Google OSV CVE, CodeQL SAST, Python security and deploy validators. Use when the user requests deploy expert unique or invokes deploy-expert-unique. Do NOT use for unrelated languages, domains or production deployment.
+description: "AIHealthResearch AWS deploy contract: branch promotion, OSV, CodeQL, validators. Use for AIHealthResearch deploys. Do NOT use for other projects."
 license: CC-BY-4.0
 metadata:
   author: AEOS

@@ -1,0 +1,153 @@
+{
+  "status": "APPLIED_WITH_PREEXISTING_TYPE_ERRORS",
+  "updated": "2026-10-15",
+  "project": "02_repositorios/DiabeticsresearchJEV",
+  "source_corrections": [
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6"
+  ],
+  "tests": {
+    "baseline_passed": 66,
+    "frozen_original_regressions_failed": 13,
+    "final_passed": 92,
+    "hardening_regressions": 26,
+    "native_chroma_temporary_store": true
+  },
+  "ruff": "PASS",
+  "mypy": {
+    "baseline_errors": 52,
+    "current_errors": 48,
+    "added_errors": [],
+    "resolved_errors": 4,
+    "status": "PASS_NO_NEW_ERRORS"
+  },
+  "live_data": {
+    "status": "PASS",
+    "updated_at": "2026-10-15T17:53:19.158Z",
+    "live_counts_unchanged": true,
+    "corpus_fingerprint_unchanged": true,
+    "database_writes": false,
+    "model_training": false,
+    "eligibility": {
+      "observed_documents": 1,
+      "retrieval_eligible": 1,
+      "training_rights_verified": 0
+    },
+    "changed_existing_source_files": [
+      "src/diabeticsresearchjev/domain/training.py",
+      "src/diabeticsresearchjev/infrastructure/storage/repositories.py",
+      "src/diabeticsresearchjev/infrastructure/storage/vector_store.py",
+      "src/diabeticsresearchjev/application/eval/suite.py",
+      "src/diabeticsresearchjev/application/gates/promotion.py",
+      "src/diabeticsresearchjev/application/knowledge/graphrag.py",
+      "src/diabeticsresearchjev/application/knowledge/graph_service.py",
+      "src/diabeticsresearchjev/application/rag/indexer.py",
+      "src/diabeticsresearchjev/application/rag/retriever.py",
+      "src/diabeticsresearchjev/application/scraping/orchestrator.py",
+      "src/diabeticsresearchjev/application/training/continual.py",
+      "src/diabeticsresearchjev/application/training/dataset.py",
+      "src/diabeticsresearchjev/application/training/trainer.py"
+    ],
+    "unexpected_source_changes": [],
+    "preserved_original_source_and_test_files": 82
+  },
+  "source_hashes": {
+    "src/diabeticsresearchjev/domain/training.py": {
+      "before": "86110eaaa998b28d2fdc9567fe88ad30e9432ebdb5791bec873051841faaf7ec",
+      "after": "9649674b20252c917a8add13a88f917b1fc6b6f696ca2ab1ec24e94f57350e98"
+    },
+    "src/diabeticsresearchjev/infrastructure/storage/repositories.py": {
+      "before": "7ae260e850e1c5ff51c3c6b3205148cfe22986ef8c17f2b36faf0658401e05a1",
+      "after": "e1ef54e9f31fde6b47c10598a47011016bbc57ac20b6d05707877630e71b60bb"
+    },
+    "src/diabeticsresearchjev/infrastructure/storage/vector_store.py": {
+      "before": "fa60f1b4110235d6180e006985d5235a622f552bc0268db7cbd8c58f8c2b7f57",
+      "after": "5bb1cd345848b6fe116de5bc5f53ebf9f0daef81344a64934d4d8e64fb5650de"
+    },
+    "src/diabeticsresearchjev/application/eval/suite.py": {
+      "before": "36ac0ab810f247d49a43c54859a715800873143dd27307dddb991dadbeee1083",
+      "after": "7e19e713f7e60737155150fd9e61a82dad6ba040ce6c0b7c2328b1e0e5c15352"
+    },
+    "src/diabeticsresearchjev/application/gates/promotion.py": {
+      "before": "2abe5eabdd2113ea06dbe49a2521fef140926f32bb50df2e40bf3b20f7adea00",
+      "after": "bbfdaa18a776735f2c926a6aa48c0c8b0da680848fbbe6f96852785439cc2896"
+    },
+    "src/diabeticsresearchjev/application/knowledge/graphrag.py": {
+      "before": "42ae9c254af3b7f55659bfe4bdb215f9ffebde923b0c6af05912d3b99702c3f5",
+      "after": "af2fe8c1b3a90e51bf89de1e99710949006676be405cc2563c981a0c92d5bc77"
+    },
+    "src/diabeticsresearchjev/application/knowledge/graph_service.py": {
+      "before": "76fdb204e1493a1c4e97441915eeb8bd5d9ea4c10b03c52e3beec9a2b310a00b",
+      "after": "2d9e0497ffcc0a7f7515dc83fbcd54fd98409a392f269be9c1797fb35af48c4c"
+    },
+    "src/diabeticsresearchjev/application/rag/indexer.py": {
+      "before": "df4476f2f1fa94ff3f1aa77cefd7977b307d8d8d2225f0f04f78bced03c760da",
+      "after": "c555714b6726c68fa3d3b8957d6511b1e5996d11345b428348629700726eab45"
+    },
+    "src/diabeticsresearchjev/application/rag/retriever.py": {
+      "before": "ba658f614c3f852d9cb925fefa434b8a9729281f151d4f2984cac71c2fec3ebf",
+      "after": "d02ba3b8c7843fef92fddee0d585dfe37caccba4f633a8c4e613606333bc82b9"
+    },
+    "src/diabeticsresearchjev/application/scraping/orchestrator.py": {
+      "before": "df79fab072a7b7bb662f13b8a321faad9a0d593b3decb1d57cb41fb2de70356e",
+      "after": "65b70d5d9889b089c4f8a1071268eda6bb718b003287fe75e7297430981e8132"
+    },
+    "src/diabeticsresearchjev/application/training/continual.py": {
+      "before": "87043286132853d5bd573cce7d355cd46b5e8f817b622a13d81465217962ae71",
+      "after": "24dac839e7309c36a86d6be392fc3502b23cf142a9012ced83638a4fac9278a6"
+    },
+    "src/diabeticsresearchjev/application/training/dataset.py": {
+      "before": "0a32af6d9ae0027b2bdc90abff0a35d6e9387290b8dda437e16dc930a82ef569",
+      "after": "647aaf8748da372efe5312ab43eafa00036e7708403ddb2b8aaeaae8c4f5ae47"
+    },
+    "src/diabeticsresearchjev/application/training/trainer.py": {
+      "before": "a4c04caf2cd2040c4cee6729d4419173f1bf971545184e83fb64f65f4090f280",
+      "after": "b1eaab6e22ecb4e411c6023e63b59e8336567e0a9b653f1a5f7a6efb0d66d365"
+    },
+    "src/diabeticsresearchjev/domain/evidence_policy.py": {
+      "before": null,
+      "after": "1712d241cbae43f221ea33ae621b1502675022720babce974ba9319acfc80a19"
+    },
+    "tests/test_flow_hardening.py": {
+      "before": null,
+      "after": "ee808ff3d5d5a033e9e6de9904025296d5176cae145b3410fc4f9e138f219f38"
+    }
+  },
+  "runtime_restarted": false,
+  "model_training_performed": false,
+  "new_dependencies": 0,
+  "remaining_data_gates": [
+    "Verified training rights",
+    "Sufficient disjoint study families",
+    "Human-reviewed holdout",
+    "Paired real-model evaluator before promotion"
+  ],
+  "scope_limit": "Corrections apply to inspected checkout; MongoDB-to-technical-MCP projection and corpus expansion remain separate work",
+  "workspace_gate": {
+    "status": "PASS",
+    "errors": 0,
+    "counts": {
+      "active": 308,
+      "aliases": 3,
+      "tlc": 94,
+      "upstream_files": 789,
+      "images": 770,
+      "distinct_images": 389,
+      "discovery": 311,
+      "skill_entries": 841,
+      "local_links": 2937,
+      "max_lines": 99,
+      "additional_images": 77,
+      "impeccable_resources": 154,
+      "python": 106,
+      "javascript": 145,
+      "changed_skills_assessed": 7
+    },
+    "scope": "Structural, integrity, distribution, syntax and declared protocol gates; not a certification of enterprise effectiveness"
+  },
+  "preexisting_readme_bytes_preserved": true
+}

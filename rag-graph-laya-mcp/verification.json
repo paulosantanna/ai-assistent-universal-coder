@@ -1,0 +1,112 @@
+{
+  "sources_acquired": 33,
+  "graph": {
+    "nodes": 88,
+    "visible_edges": 45,
+    "fully_indexed_documents": 3
+  },
+  "experiments": [
+    {
+      "experiment_id": "29bcb81705714fe08d514c4fc09aab7e",
+      "flow": "laya",
+      "dataset_id": "6e1072d3904f46339bddd3ee718d1b0b",
+      "epochs": 2,
+      "seed": 42,
+      "base_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+      "baseline": {
+        "strategy": {
+          "accuracy": 0.52,
+          "ece": 0.1904775,
+          "count": 200
+        },
+        "relevance": {
+          "accuracy": 0.395,
+          "ece": 0.25505800000000006,
+          "count": 200
+        },
+        "latency_ms": 16.769673000089824
+      },
+      "candidate": {
+        "strategy": {
+          "accuracy": 1.0,
+          "ece": 0.0,
+          "count": 200
+        },
+        "relevance": {
+          "accuracy": 1.0,
+          "ece": 0.0,
+          "count": 200
+        },
+        "latency_ms": 11.51923400000669
+      },
+      "loss_backend": null,
+      "checkpoint_hashes": {
+        "model.safetensors": "7119bbdee87ab57c47d1805fbac70d137104f487eb499630b0f336b06ad10797",
+        "questions.json": "09598a9e249be5c4d79b8b6673be805065ea332b1b62451d309faa73c06d90ba",
+        "rl_agent_config.json": "00d345a261aa34ca78f6779b066b15104fc9e014d4910fc553e467c72627ff19",
+        "train_report.json": "91fce8b84461f1c6e24f22824858b9d2b705d9b97709516984e4bab62dc3b330",
+        "checkpoint_latest/model.safetensors": "7119bbdee87ab57c47d1805fbac70d137104f487eb499630b0f336b06ad10797",
+        "checkpoint_latest/questions.json": "09598a9e249be5c4d79b8b6673be805065ea332b1b62451d309faa73c06d90ba",
+        "checkpoint_latest/rl_agent_config.json": "00d345a261aa34ca78f6779b066b15104fc9e014d4910fc553e467c72627ff19",
+        "checkpoint_latest/train_report.json": "91fce8b84461f1c6e24f22824858b9d2b705d9b97709516984e4bab62dc3b330",
+        "encoder/config.json": "3ceae14d210557b47abcde2768b27afbb2131974f9c4dd714f2236fd9ee54981",
+        "tokenizer/tokenizer.json": "dbba919c6e5e492bc22beb80abb64e6fcc7e8744dc696e8388b8c977767afa4b",
+        "tokenizer/tokenizer_config.json": "5f36fa307ecb9e70c9b058ca0621530f6bd3e89b371c4d6c0279c48d9dbd2629",
+        "checkpoint_latest/encoder/config.json": "3ceae14d210557b47abcde2768b27afbb2131974f9c4dd714f2236fd9ee54981",
+        "checkpoint_latest/tokenizer/tokenizer.json": "dbba919c6e5e492bc22beb80abb64e6fcc7e8744dc696e8388b8c977767afa4b",
+        "checkpoint_latest/tokenizer/tokenizer_config.json": "babcecba0d1f4fbdc4ed104d1b2e7cc4c429d114fc2998086224a8b98ec40ce9"
+      },
+      "promoted": false,
+      "human_test_review": "pending",
+      "selection_set": "validation; synthetic correlated templates; no production-effectiveness claim"
+    },
+    {
+      "experiment_id": "a61b06bb89124da9bbe23b0fc915527f",
+      "flow": "llm",
+      "dataset_id": "6e1072d3904f46339bddd3ee718d1b0b",
+      "epochs": 2,
+      "seed": 42,
+      "base_revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+      "baseline": {
+        "reference_token_f1": 0.1469883579009106,
+        "citation_format_validity": 0.675,
+        "negative_abstention": 0.15,
+        "count": 200,
+        "latency_ms": 2374.713344000047,
+        "scope": "Reference overlap and citation format, not verified entailment or factual correctness"
+      },
+      "candidate": {
+        "reference_token_f1": 1.0,
+        "citation_format_validity": 0.79,
+        "negative_abstention": 1.0,
+        "count": 200,
+        "latency_ms": 3876.742652499961,
+        "scope": "Reference overlap and citation format, not verified entailment or factual correctness"
+      },
+      "loss_backend": "Transformers causal cross entropy; completion-masked labels; no Triton",
+      "checkpoint_hashes": {
+        "adapter_config.json": "f4bb30f3df5df98a889e518a1ba0e015d3d70369225d1471d382f118cb7db483",
+        "adapter_model.safetensors": "d9aba7180b896bec4602a06b0e0d0f105bdc62e0bd62a6ebf50ca28691808821",
+        "chat_template.jinja": "0ab115e84509e86db2bb05a63edf63778ae7fe624972cdfa982b1e59053d6710",
+        "README.md": "76ef8b6e2f82d85409b5a6c50dbc3030bc799b96d4e1a7eca1ac08b9c9c5b52b",
+        "tokenizer.json": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506",
+        "tokenizer_config.json": "54806acbdd5711e423c6f69911e24e63b639c8bc3ed12273131d2166cde360d1",
+        "training_args.bin": "20b4efc24b52c79493f99b21f102bba031d485184d82aa28756fa519ff572d1c"
+      },
+      "promoted": false,
+      "human_test_review": "pending",
+      "selection_set": "validation; synthetic correlated templates; no production-effectiveness claim"
+    }
+  ],
+  "pending_flows": [],
+  "human_review": "pending; no automatic approval or promotion",
+  "dataset": {
+    "id": "6e1072d3904f46339bddd3ee718d1b0b",
+    "per_flow": 2000,
+    "train": 1600,
+    "validation": 200,
+    "test": 200,
+    "human_review_per_flow": 100
+  },
+  "retrieval_comparison_limit": "Three public queries/two indexed documents; fixed order, mixed cold/warm latency; not a performance ranking"
+}

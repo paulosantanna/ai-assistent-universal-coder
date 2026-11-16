@@ -1,0 +1,480 @@
+{
+  "updated_at": "2026-10-15T17:24:41.222Z",
+  "scope": "read-only current-state review; no document values exported",
+  "database": "DiabeticJev",
+  "counts": {
+    "documents": 1,
+    "chunks": 1,
+    "search_terms": 3560,
+    "scrape_runs": 1,
+    "scrape_progress": 3,
+    "kg_entities": 0,
+    "kg_triples": 0,
+    "kg_communities": 0,
+    "training_samples": 0,
+    "training_runs": 0,
+    "eval_results": 0,
+    "model_registry": 0,
+    "knowledge_probes": 0,
+    "replay_buffer": 0,
+    "lsh_bands": 16,
+    "hypotheses": 0,
+    "molecules": 0,
+    "trial_reports": 0,
+    "learning_events": 1
+  },
+  "document_checks": {
+    "with_full_text": 0,
+    "with_abstract": 1,
+    "with_title": 1,
+    "explicit_license": 0,
+    "open_access_true": 1,
+    "retracted_true": 0,
+    "indexed_true": 0,
+    "graph_extracted_true": 0,
+    "with_provenance": 1,
+    "with_valid_http_url": 1,
+    "possible_fixture_marker": 0,
+    "abstract_characters": 74,
+    "full_text_characters": 0,
+    "duplicate_hits": 0,
+    "indexed_without_chunks": 0,
+    "gate_status_counts": {
+      "accepted": 1,
+      "quarantined": 0,
+      "rejected": 0
+    },
+    "fingerprints_sha256_format": 1,
+    "jev_gate_bools": {}
+  },
+  "chunk_checks": {
+    "embedded_true": 0,
+    "orphan_document": 0,
+    "empty_text": 0,
+    "invalid_bounds": 0,
+    "sha256_text_match": 0,
+    "sha256_document_text_match": 1,
+    "sha256_format": 1,
+    "exact_abstract_slice": 0,
+    "exact_ingestion_body_slice": 0,
+    "whitespace_normalized_body_slice": 1,
+    "characters": 149
+  },
+  "nested_schema": {
+    "jev_gate": [
+      {
+        "field": "gate",
+        "type": "string"
+      },
+      {
+        "field": "status",
+        "type": "string"
+      },
+      {
+        "field": "score",
+        "type": "number"
+      },
+      {
+        "field": "deductions",
+        "type": "array"
+      },
+      {
+        "field": "labels",
+        "type": "object"
+      }
+    ],
+    "provenance": [
+      {
+        "field": "source_id",
+        "type": "string"
+      },
+      {
+        "field": "source_record_id",
+        "type": "string"
+      },
+      {
+        "field": "query_term",
+        "type": "string"
+      },
+      {
+        "field": "query_lang",
+        "type": "string"
+      }
+    ],
+    "structured": []
+  },
+  "scraping": {
+    "runs": [
+      {
+        "status": "interrupted",
+        "stats_shape": [
+          {
+            "field": "terms",
+            "type": "number"
+          },
+          {
+            "field": "jobs",
+            "type": "number"
+          },
+          {
+            "field": "records",
+            "type": "number"
+          },
+          {
+            "field": "ingested",
+            "type": "number"
+          },
+          {
+            "field": "duplicates",
+            "type": "number"
+          },
+          {
+            "field": "quarantined",
+            "type": "number"
+          },
+          {
+            "field": "errors",
+            "type": "number"
+          },
+          {
+            "field": "skipped",
+            "type": "number"
+          },
+          {
+            "field": "by_source",
+            "type": "object"
+          }
+        ],
+        "stats_numeric": {
+          "terms": 3560,
+          "jobs": 32,
+          "records": 1,
+          "ingested": 1,
+          "duplicates": 0,
+          "quarantined": 0,
+          "errors": 0,
+          "skipped": 92011
+        },
+        "params_shape": [
+          {
+            "field": "terms",
+            "type": "number"
+          },
+          {
+            "field": "sources",
+            "type": "array"
+          },
+          {
+            "field": "limit",
+            "type": "number"
+          },
+          {
+            "field": "since_year",
+            "type": "number"
+          },
+          {
+            "field": "until",
+            "type": "string"
+          },
+          {
+            "field": "dry_run",
+            "type": "boolean"
+          }
+        ]
+      }
+    ],
+    "progress": [
+      {
+        "status": "done",
+        "exhausted": true,
+        "has_error": false,
+        "error_class": "none",
+        "totals_numeric": {
+          "duplicates": 0,
+          "ingested": 0,
+          "records": 0
+        }
+      },
+      {
+        "status": "done",
+        "exhausted": true,
+        "has_error": false,
+        "error_class": "none",
+        "totals_numeric": {
+          "duplicates": 0,
+          "ingested": 0,
+          "records": 0
+        }
+      },
+      {
+        "status": "done",
+        "exhausted": true,
+        "has_error": false,
+        "error_class": "none",
+        "totals_numeric": {
+          "duplicates": 0,
+          "ingested": 0,
+          "records": 0
+        }
+      }
+    ]
+  },
+  "indexes": {
+    "documents": [
+      {
+        "fields": [
+          "_id"
+        ],
+        "unique": false,
+        "type": "other"
+      },
+      {
+        "fields": [
+          "fingerprint"
+        ],
+        "unique": true,
+        "type": "other"
+      },
+      {
+        "fields": [
+          "doi"
+        ],
+        "unique": true,
+        "type": "other"
+      },
+      {
+        "fields": [
+          "pmid"
+        ],
+        "unique": true,
+        "type": "other"
+      },
+      {
+        "fields": [
+          "pmcid"
+        ],
+        "unique": true,
+        "type": "other"
+      },
+      {
+        "fields": [
+          "nct_id"
+        ],
+        "unique": true,
+        "type": "other"
+      },
+      {
+        "fields": [
+          "source_ids"
+        ],
+        "unique": false,
+        "type": "other"
+      },
+      {
+        "fields": [
+          "language"
+        ],
+        "unique": false,
+        "type": "other"
+      },
+      {
+        "fields": [
+          "doc_type"
+        ],
+        "unique": false,
+        "type": "other"
+      },
+      {
+        "fields": [
+          "subgroups"
+        ],
+        "unique": false,
+        "type": "other"
+      },
+      {
+        "fields": [
+          "jev_gate.status"
+        ],
+        "unique": false,
+        "type": "other"
+      },
+      {
+        "fields": [
+          "created_at"
+        ],
+        "unique": false,
+        "type": "other"
+      },
+      {
+        "fields": [
+          "indexed"
+        ],
+        "unique": false,
+        "type": "other"
+      },
+      {
+        "fields": [
+          "graph_extracted"
+        ],
+        "unique": false,
+        "type": "other"
+      },
+      {
+        "fields": [
+          "_fts",
+          "_ftsx"
+        ],
+        "unique": false,
+        "type": "text"
+      }
+    ],
+    "chunks": [
+      {
+        "fields": [
+          "_id"
+        ],
+        "unique": false,
+        "type": "other"
+      },
+      {
+        "fields": [
+          "chunk_hash"
+        ],
+        "unique": true,
+        "type": "other"
+      },
+      {
+        "fields": [
+          "document_id",
+          "ordinal"
+        ],
+        "unique": false,
+        "type": "other"
+      },
+      {
+        "fields": [
+          "embedded"
+        ],
+        "unique": false,
+        "type": "other"
+      },
+      {
+        "fields": [
+          "_fts",
+          "_ftsx"
+        ],
+        "unique": false,
+        "type": "text"
+      }
+    ],
+    "search_terms": [
+      {
+        "fields": [
+          "_id"
+        ],
+        "unique": false,
+        "type": "other"
+      },
+      {
+        "fields": [
+          "term_norm",
+          "lang"
+        ],
+        "unique": true,
+        "type": "other"
+      },
+      {
+        "fields": [
+          "category"
+        ],
+        "unique": false,
+        "type": "other"
+      },
+      {
+        "fields": [
+          "subgroups"
+        ],
+        "unique": false,
+        "type": "other"
+      }
+    ]
+  },
+  "search_term_languages": [
+    {
+      "language": "en",
+      "count": 2300
+    },
+    {
+      "language": "pt",
+      "count": 151
+    },
+    {
+      "language": "es",
+      "count": 109
+    },
+    {
+      "language": "ja",
+      "count": 100
+    },
+    {
+      "language": "ar",
+      "count": 100
+    },
+    {
+      "language": "de",
+      "count": 100
+    },
+    {
+      "language": "fr",
+      "count": 100
+    },
+    {
+      "language": "hi",
+      "count": 100
+    },
+    {
+      "language": "it",
+      "count": 100
+    },
+    {
+      "language": "ko",
+      "count": 100
+    },
+    {
+      "language": "ru",
+      "count": 100
+    },
+    {
+      "language": "zh",
+      "count": 100
+    },
+    {
+      "language": "tr",
+      "count": 100
+    }
+  ],
+  "duplicate_normalized_term_groups": 0,
+  "counts_after": {
+    "documents": 1,
+    "chunks": 1,
+    "search_terms": 3560,
+    "scrape_runs": 1,
+    "scrape_progress": 3,
+    "kg_entities": 0,
+    "kg_triples": 0,
+    "kg_communities": 0,
+    "training_samples": 0,
+    "training_runs": 0,
+    "eval_results": 0,
+    "model_registry": 0,
+    "knowledge_probes": 0,
+    "replay_buffer": 0,
+    "lsh_bands": 16,
+    "hypotheses": 0,
+    "molecules": 0,
+    "trial_reports": 0,
+    "learning_events": 1
+  },
+  "counts_stable": true,
+  "corpus_fingerprint": "ffa6b049d01bd43be461cc6c9157b5c0d3271429a67ec9300b3a73e059f23e64"
+}

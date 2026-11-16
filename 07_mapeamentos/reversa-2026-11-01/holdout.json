@@ -1,0 +1,68 @@
+{
+  "label": "avaliação exploratória manual não independente; fontes esperadas por caminho",
+  "count": 12,
+  "recall_at_10": 0.25,
+  "recall_at_5": 0.16666666666666666,
+  "cases": [
+    {
+      "question": "Qual arquivo salva hashes dos arquivos instalados?",
+      "expected_path": "lib/installer/manifest.js",
+      "rank": null
+    },
+    {
+      "question": "Como detectar quais engines estão instaladas?",
+      "expected_path": "lib/installer/detector.js",
+      "rank": null
+    },
+    {
+      "question": "Como a atualização lida com arquivos modificados?",
+      "expected_path": "lib/commands/update.js",
+      "rank": 9
+    },
+    {
+      "question": "Quais pastas o framework permite escrever?",
+      "expected_path": "lib/installer/policy.js",
+      "rank": 1
+    },
+    {
+      "question": "Como remover instalação e manter especificações?",
+      "expected_path": "lib/commands/uninstall.js",
+      "rank": null
+    },
+    {
+      "question": "Qual comando exporta diagramas Mermaid?",
+      "expected_path": "lib/commands/export-diagrams.js",
+      "rank": null
+    },
+    {
+      "question": "Onde ficam dados do projeto e fases pendentes?",
+      "expected_path": "templates/state.json",
+      "rank": null
+    },
+    {
+      "question": "Quais são as dependências e requisitos de Node?",
+      "expected_path": "package.json",
+      "rank": null
+    },
+    {
+      "question": "Como funciona a escrita de skills e arquivos de entrada?",
+      "expected_path": "lib/installer/writer.js",
+      "rank": null
+    },
+    {
+      "question": "Como ocorre a seleção de times e agentes?",
+      "expected_path": "lib/installer/prompts.js",
+      "rank": 4
+    },
+    {
+      "question": "Que tipos de projetos o ciclo forward aceita?",
+      "expected_path": "agents/reversa-forward/SKILL.md",
+      "rank": null
+    },
+    {
+      "question": "Qual é a licença do bundle impeccable?",
+      "expected_path": "agents/impeccable/LICENSE",
+      "rank": null
+    }
+  ]
+}

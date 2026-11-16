@@ -1,0 +1,20 @@
+Dimensao;Autoregressivo_LLM;Diffusion_LM;NCM;Evidencia
+Unidade de geracao;1 token;sequencia inteira (ruido->dado);1 nivel coarse-to-fine (todos os codigos do nivel em paralelo);[C] next_concept.py:659-694
+Ordem;estritamente causal token a token;global iterativa;grosso->fino hierarquica;[C] quant.py levels; [X] paper
+Passos sequenciais por geracao;~1 por token (dezenas a centenas);M (dezenas a centenas);K = numero de niveis (9-32 nas tasks liberadas);[C] generate(); [X] blog (Sudoku=12 NFE)
+Custo por passo;cresce com o contexto (KV-cache ajuda);sequencia inteira em todo passo;cresce com o nivel; passos iniciais muito curtos;[X] blog; [C] generate()
+Paralelismo intra-passo;nenhum entre tokens;tokens em paralelo (mas custo de passo cheio);todas as posicoes do nivel em paralelo;[C] next_concept.py:690-694
+Planejamento global;emergente, sem etapa de plano;refino global iterativo;explicito: esboco latente antes do detalhe;[X] blog (hipotese + Sudoku)
+Exemplo de comprimento (XSum);~60 tokens gerados um a um;sequencia inteira refinada M vezes;9 passes cobrindo 4..48 posicoes;[C] config/eval/xsum.yaml
+genPPL LM1B (mesma escala);nao reportado no paper como comparacao principal;baseline forte (DLM);melhor que o DLM mais forte, 21x mais rapido (H100 SXM);[X] paper/blog - NAO reproduzido
+genPPL OpenWebText;nao reportado;baseline forte;comparavel, 10x mais rapido;[X] paper/blog - NAO reproduzido
+ROUGE-L XSum;nao reportado;baseline forte;igualado, 31x mais rapido;[X] paper/blog - NAO reproduzido
+Sudoku hard (%resolvido);1.0;MDLM 30.2 / DUO 58.4 / FMLM+ 81.3;86.1 (12 NFE);[X] blog; [C] REPRODUZIDO 2026-10-21: 86.25 (1725/2000)
+Tempo de treino (tokens);ecossistema consolidadado;mais passes de dados;~4.9x (LM1B) e ~4x (OWT) menos que DLM forte;[X] blog
+Test-time scaling;via amostragem/self-consistency;candidatos limitados pelo custo;MBR com mais candidatos no mesmo wall-clock;[X] blog
+Alinhamento a instrucoes / chat;extensivo (SFT/RLHF);emergente;inexistente no release;[C] repo sem treino/instrucao
+Escala demonstrada;centenas de bilhoes de parametros;bilhoes;97M / 317M / 725M (LM1B);[X] blog
+Release de codigo;variado;variado;inferencia/avaliacao apenas (sem treino, sem baselines);[C] arvore + .gitignore:219-221
+Ecossistema de serving;maduro (batching, KV-cache, quantizacao);em formacao;imatura (repo de pesquisa; KV-cache so sem query_level0);[C] next_concept.py:523-524
+Natureza do "token";token de texto;token de texto;codigo latente multiescala (codebooks por nivel; nao sao palavras);[C] quant.py; [X] blog
+Licenca e disponibilidade;variada;variada;MIT; checkpoints no HF (hazyresearch/ncm);[R] README.md:38-56,110

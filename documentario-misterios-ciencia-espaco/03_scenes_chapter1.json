@@ -1,0 +1,117 @@
+{
+  "chapter": 1,
+  "title": "O Eco do Big Bang - A Radiação Cósmica de Fundo",
+  "duration_seconds": 600,
+  "scenes": [
+    {
+      "scene": 1,
+      "chapter": 1,
+      "title": "O Ruído que Não Devia Existir",
+      "narration": "Em 1964, no laboratório Bell em Nova Jérsei, dois radioastrônomos apontavam uma antena gigantesca para o céu vazio. Arno Penzias e Robert Wilson buscavam fontes de ruído que pudessem atrapalhar comunicações por satélite. O que encontraram mudou a cosmologia para sempre: um chiado persistente, vindo de todas as direções, com temperatura de cerca de três kelvins. Não importava para onde apontassem a antena — o sinal estava lá. Eles limparam a antena, removeram pombos e seus ninhos, mas o ruído permanecia. Não era defeito do equipamento. Não era interferência terrestre. Era luz do próprio universo, viajando há treze bilhões e oitocentos milhões de anos.",
+      "visual": "Antena de buzina do Bell Labs em Holmdel, Nova Jérsei, 1964. Câmera aproxima-se da estrutura metálica branca contra céu azul. Corte para Penzias e Wilson em jalecos brancos, anotando dados em pranchetas. Detalhe: termômetro marcando 3,5 K. Animação: ondas de rádio invisíveis convergindo para a antena de todas as direções do céu.",
+      "duration_seconds": 60,
+      "claims": ["cmb-discovery", "penzias-wilson-nobel"],
+      "transition": "fade",
+      "sd_prompt": "1964 Bell Labs horn antenna in Holmdel New Jersey, massive white metal horn structure against blue sky, two scientists in white lab coats with clipboards, vintage 1960s radio astronomy equipment, thermometer showing 3.5 Kelvin, radio waves visualized as subtle concentric ripples converging from all directions, documentary cinematic lighting, 8K resolution"
+    },
+    {
+      "scene": 2,
+      "chapter": 1,
+      "title": "A Luz Mais Antiga do Universo",
+      "narration": "Essa radiação é o eco do Big Bang. Quando o universo tinha trezentos e oitenta mil anos, era uma sopa quente e densa de partículas e luz. Os fótons não conseguiam viajar livremente — colidiam constantemente com elétrons livres. Mas quando a temperatura caiu para cerca de três mil kelvins, elétrons e prótons se combinaram pela primeira vez, formando átomos de hidrogênio neutro. O universo tornou-se transparente. Aqueles fótons, liberados de repente, viajam desde então, esticados pela expansão cósmica. Hoje chegam a nós como micro-ondas, com temperatura de dois virgula setenta e dois cinco kelvins. É a fotografia mais antiga que temos do cosmos.",
+      "visual": "Animação cosmológica: universo primordial como plasma brilhante e opaco. Transição: elétrons e prótons se combinando em átomos de hidrogênio (visualização quântica). O universo "clareia" — fótons partindo em linhas retas. Expansão esticando comprimento de onda: luz visível → infravermelho → micro-ondas. Termômetro cósmico: 3000 K → 2,725 K.",
+      "duration_seconds": 60,
+      "claims": ["cmb-discovery", "planck-cmb-results"],
+      "transition": "cut",
+      "sd_prompt": "Cosmological animation: early universe as hot dense glowing plasma, opaque yellow-orange soup. Transition: electrons and protons combining into neutral hydrogen atoms, quantum visualization with particle tracks. Universe becoming transparent - photons traveling in straight lines as white streaks. Cosmic expansion stretching wavelength: visible light (rainbow) to infrared (red glow) to microwaves (invisible, shown as subtle grid distortion). Cosmic thermometer graphic: 3000 K to 2.725 K. Scientific visualization style, 8K"
+    },
+    {
+      "scene": 3,
+      "chapter": 1,
+      "title": "COBE: A Primeira Foto do Bebê Universo",
+      "narration": "Em 1989, a NASA lançou o satélite COBE — Cosmic Background Explorer. Seu instrumento FIRAS mediu o espectro da radiação de fundo com precisão de uma parte em dez mil. O resultado: um corpo negro perfeito. A curva teórica e os dados experimentais se sobrepunham exatamente. Não havia desvios. Isso confirmou que a radiação tinha origem térmica no universo primordial. O segundo instrumento, DMR, detectou pela primeira vez as anisotropias — minúsculas flutuações de temperatura, da ordem de dez milionésimos de kelvin. Eram as sementes de todas as estruturas que vemos hoje: galáxias, aglomerados, a teia cósmica. George Smoot e John Mather receberam o Nobel de 2006 por essa descoberta.",
+      "visual": "Satélite COBE em órbita, painéis solares abertos. Gráfico FIRAS: curva teórica (linha vermelha) e pontos de dados (azuis) perfeitamente sobrepostos. Mapa DMR: elipsoide com manchas vermelhas e azuis sutis — primeiras anisotropias. Retrato de Smoot e Mather com medalhas Nobel.",
+      "duration_seconds": 60,
+      "claims": ["cmb-discovery", "planck-cmb-results"],
+      "transition": "cut",
+      "sd_prompt": "COBE satellite in Earth orbit with solar panels deployed, Earth limb below. FIRAS graph: perfect blackbody curve (red theoretical line) with blue data points exactly overlapping, precision 1 part in 10,000. DMR map: oval projection of sky with subtle red/blue temperature fluctuations (10^-5 K). George Smoot and John Mather holding Nobel medals, 2006 ceremony. Documentary style, scientific accuracy, 8K"
+    },
+    {
+      "scene": 4,
+      "chapter": 1,
+      "title": "WMAP e a Precisão da Cosmologia",
+      "narration": "O WMAP — Wilkinson Microwave Anisotropy Probe — lançado em 2001, levou a precisão a outro patamar. Mapeou todo o céu com resolução angular de treze minutos de arco, trinta e cinco vezes melhor que o COBE. Determinou a idade do universo em treze vírgula oito bilhões de anos, com incerteza de menos de um por cento. Mediu a geometria: o universo é plano, com curvatura zero dentro da margem de erro. Deu-nos a receita cósmica: quatro vírgula nove por cento de matéria comum — átomos, estrelas, nós. Vinte e seis vírgula cinco por cento de matéria escura. Sessenta e oito vírgula cinco por cento de energia escura. O WMAP transformou a cosmologia de ciência qualitativa em ciência de precisão.",
+      "visual": "Satélite WMAP em órbita L2. Mapa de anisotropias de alta resolução: padrão de manchas quentes e frias mais nítido. Gráficos de barras: composição do universo (4,9% / 26,5% / 68,5%). Diagrama: triângulo em espaço plano (soma dos ângulos = 180°). Cronômetro cósmico: 13,80 ± 0,02 bilhões de anos.",
+      "duration_seconds": 60,
+      "claims": ["planck-cmb-results"],
+      "transition": "cut",
+      "sd_prompt": "WMAP spacecraft at L2 Lagrange point, Earth-Moon system in background. High-resolution CMB anisotropy map: sharp hot/cold spot pattern across full sky (Mollweide projection). Pie chart or bar graph: universe composition - 4.9% ordinary matter (atoms), 26.5% dark matter, 68.5% dark energy. Geometry diagram: triangle in flat space with angles summing to 180 degrees. Cosmic age display: 13.80 ± 0.02 billion years. Clean scientific visualization, 8K"
+    },
+    {
+      "scene": 5,
+      "chapter": 1,
+      "title": "Planck: O Limite da Luz Primordial",
+      "narration": "O satélite Planck, da Agência Espacial Europeia, operou de 2009 a 2013. Seus detectores, resfriados a décimos de grau acima do zero absoluto, atingiram a sensibilidade fundamental limitada pelo próprio ruído quântico dos fótons da CMB. O mapa final, publicado em 2018, é a imagem definitiva da luz primordial — até que uma missão futura mesure a polarização modo-B da inflação. Planck confirmou o modelo padrão Lambda-CDM com precisão sem precedentes. Mas também revelou tensões: a constante de Hubble medida na CMB (sessenta e sete vírgula quatro) difere das medições locais (setenta e três). E mostrou anomalias em grandes escalas angulares — assimetria hemisférica, ponto frio — que o modelo padrão não prevê. A luz mais antiga ainda guarda segredos.",
+      "visual": "Satélite Planck com escudo térmico. Detectores a 0,1 K — animação de refrigeração por diluição. Mapa Planck 2018: anisotropias em detalhe exquisito. Gráfico tensão Hubble: duas barras (67,4 vs 73) não se sobrepondo. Mapa de anomalias: hemisférios com poder diferente, ponto frio destacado.",
+      "duration_seconds": 60,
+      "claims": ["planck-cmb-results", "hubble-tension"],
+      "transition": "cut",
+      "sd_prompt": "Planck satellite with large thermal shield, spacecraft at L2. Dilution refrigerator animation: detectors cooling to 0.1 Kelvin. Planck 2018 CMB map: exquisite detail anisotropies in Mollweide projection. Hubble tension graph: two non-overlapping bars - CMB (67.4 km/s/Mpc) vs local (73 km/s/Mpc) with error bars. Anomaly map: hemispherical power asymmetry highlighted, Cold Spot circled. ESA mission aesthetic, 8K scientific visualization"
+    },
+    {
+      "scene": 6,
+      "chapter": 1,
+      "title": "O Que a CMB Nos Diz Sobre a Inflação",
+      "narration": "As flutuações na CMB não são aleatórias — seguem um padrão estatístico preciso. O espectro de potência angular mostra picos acústicos: oscilações no plasma primordial, como ondas sonoras no fogo do Big Bang. A posição do primeiro pico confirma geometria plana. A razão entre picos dá a densidade de bárions e matéria escura. E a inclinação do espectro — quase invariante de escala, com índice espectral n_s ≈ 0,965 — é a assinatura da inflação cósmica: uma expansão exponencial nos primeiros dez elevado a menos trinta e dois segundos. A inflação estica flutuações quânticas microscópicas para escalas cósmicas, semeando a estrutura do universo. Mas a inflação também prevê ondas gravitacionais primordiais, que deixariam impressão digital na polarização modo-B. Ainda não as vimos.",
+      "visual": "Gráfico espectro de potência angular: eixo l (momento angular) vs D_l (potência). Picos acústicos numerados (1º, 2º, 3º). Animação: ondas sonoras no plasma primordial. Índice espectral n_s = 0,965 mostrado. Polarização modo-B: padrão de redemoinho (curl) vs modo-E (gradiente). Busca atual: BICEP/Keck, Simons Observatory, CMB-S4.",
+      "duration_seconds": 60,
+      "claims": ["planck-cmb-results", "inflation-theory", "primordial-gravitational-waves"],
+      "transition": "cut",
+      "sd_prompt": "Angular power spectrum graph: multipole l (x-axis) vs D_l (y-axis) with clear acoustic peaks labeled 1st, 2nd, 3rd. Animation: sound waves in primordial plasma - compression and rarefaction zones. Spectral index n_s = 0.965 displayed. Polarization visualization: E-mode (gradient-like radial/tangential patterns) vs B-mode (swirling curl patterns). Current experiments: BICEP/Keck at South Pole, Simons Observatory in Chile, CMB-S4 future. Scientific diagram style, 8K"
+    },
+    {
+      "scene": 7,
+      "chapter": 1,
+      "title": "A Receita do Universo: Matéria Comum",
+      "narration": "Quatro vírgula nove por cento. É tudo o que a tabela periódica conhece. Prótons, nêutrons, elétrons — a matéria bariônica. Estrelas, planetas, gases interestelares, você, eu, cada átomo do seu corpo. Mas mesmo essa fração minúscula tem mistérios. Onde está metade da matéria bariônica prevista pelo Big Bang? Não está em estrelas, nem em gás quente de aglomerados. Parte esconde-se em filamentos tênues e quentes da teia cósmica — o meio intergaláctico quente, detectado em raios-X e absorção ultravioleta. O resto pode estar em halos de galáxias, gás frio demais para brilhar. Contar átomos no universo é um censo incompleto.",
+      "visual": "Tabela periódica destacando elementos primordiais (H, He, Li). Visualização: teia cósmica com filamentos brilhantes. Metade da matéria bariônica "perdida" — setas apontando para filamentos tênues (WHIM). Espectro de absorção UV (linhas Lyman-alfa). Raio-X de aglomerados mostrando gás quente.",
+      "duration_seconds": 60,
+      "claims": ["planck-cmb-results", "dark-matter-evidence"],
+      "transition": "cut",
+      "sd_prompt": "Periodic table highlighting primordial elements H, He, Li. Cosmic web visualization: vast filamentary structure with galaxies as nodes, filaments glowing faintly. Missing baryons: arrows pointing to Warm-Hot Intergalactic Medium (WHIM) filaments. UV absorption spectrum showing Lyman-alpha forest lines. X-ray view of galaxy cluster showing hot intracluster gas. 4.9% label prominent. Cinematic cosmology visualization, 8K"
+    },
+    {
+      "scene": 8,
+      "chapter": 1,
+      "title": "A Sombra da Matéria Escura",
+      "narration": "Vinte e seis vírgula cinco por cento. Não emite luz. Não absorve luz. Não reflete luz. Só revela-se pela gravidade. Vera Rubin, nos anos setenta, mediu velocidades de estrelas em galáxias espirais. Esperava que, como no sistema solar, estrelas mais distantes do centro orbitassem mais devagar. Encontrou o oposto: curvas de rotação planas. A gravidade do disco visível não basta para segurar as estrelas externas. Algo invisível — um halo massivo — estende-se muito além das estrelas. Lente gravitacional confirma: massa onde não há luz. A CMB exige matéria escura para formar estrutura no tempo observado. Sem ela, o universo seria liso demais. Sabemos o que não é: não é bárions, não é neutrinos comuns, não é buracos negros de massa estelar em quantidade suficiente. O que é, permanece o maior enigma da física de partículas.",
+      "visual": "Vera Rubin no observatório, espectrógrafo em mãos. Gráfico curva de rotação: velocidade constante vs lei de Kepler (decrescente). Halo de matéria escura invisível (renderizado em azul translúcido) envolvendo galáxia espiral. Lente gravitacional: arco de galáxia distante distorcido por massa invisível. Simulação: estrutura cósmica COM vs SEM matéria escura.",
+      "duration_seconds": 60,
+      "claims": ["dark-matter-evidence", "vera-rubin-rotation-curves", "planck-cmb-results"],
+      "transition": "cut",
+      "sd_prompt": "Vera Rubin at telescope with spectrograph, 1970s setting. Galaxy rotation curve graph: flat velocity curve (solid line) vs Keplerian decline (dashed line). Spiral galaxy with translucent blue dark matter halo extending far beyond visible disk. Gravitational lensing: distant galaxy arcs distorted by invisible mass. Side-by-side simulation: cosmic structure formation WITH dark matter (filamentary web) vs WITHOUT (smooth, no structure). Documentary historical + scientific visualization, 8K"
+    },
+    {
+      "scene": 9,
+      "chapter": 1,
+      "title": "A Força que Estica o Espaço",
+      "narration": "Sessenta e oito vírgula cinco por cento. Energia escura. Não agrupa. Não forma estrutura. Só empurra. Em 1998, duas equipes independentes — Supernova Cosmology Project e High-z Supernova Search Team — observaram supernovas tipo Ia distantes. Eram mais tênues que o esperado. O universo não está apenas expandindo — está acelerando. Algo com pressão negativa, propriedade da energia do vácuo, domina a dinâmica cósmica. A constante cosmológica de Einstein, que ele chamou de 'maior erro da minha vida', voltou como candidata principal. Mas a densidade de energia do vácuo prevista pela teoria quântica de campos é cento e vinte ordens de magnitude maior que a observada. A 'pior previsão da história da física'. Quintessência? Modificação da gravidade? Ainda não sabemos.",
+      "visual": "Duas equipes: Perlmutter/Schmidt/Riess (fotos Nobel 2011). Diagrama: supernova tipo Ia como vela padrão. Gráfico magnitude vs redshift: dados acima da curva de desaceleração. Constante cosmológica Λ: equação de estado w = -1. Vácuo quântico: flutuações virtuais, discrepância 10^120. Universo acelerando: galáxias se afastando cada vez mais rápido.",
+      "duration_seconds": 60,
+      "claims": ["dark-energy-discovery", "supernova-cosmology", "vacuum-catastrophe", "planck-cmb-results"],
+      "transition": "fade",
+      "sd_prompt": "Saul Perlmutter, Brian Schmidt, Adam Riess at Nobel 2011 ceremony. Type Ia supernova as standard candle: light curve diagram. Hubble diagram: magnitude vs redshift showing data points above decelerating curve (accelerating universe). Cosmological constant equation: w = -1. Quantum vacuum fluctuations visualization with 10^120 discrepancy label. Accelerating expansion: galaxies receding with increasing velocity vectors. 8K scientific documentary style"
+    },
+    {
+      "scene": 10,
+      "chapter": 1,
+      "title": "O Mapa que Ainda Não Está Completo",
+      "narration": "A radiação cósmica de fundo nos deu o modelo padrão da cosmologia: Lambda-CDM. Seis parâmetros explicam quase tudo que observamos. Mas as rachaduras aparecem. A tensão de Hubble persiste. As anomalias em grandes escalas na CMB não desaparecem com mais dados. A natureza da matéria escura e da energia escura — noventa e cinco por cento do universo — permanece desconhecida. A inflação é a melhor teoria para o início, mas falta sua evidência definitiva: o modo-B. E a singularidade inicial — o 'começo' — é onde a relatividade geral falha e a gravidade quântica deve assumir. A luz mais antiga viajou treze bilhões de anos para nos contar a história. Mas o final da história — e a verdadeira física por trás dela — ainda estamos aprendendo a ler.",
+      "visual": "Resumo visual: parâmetros Lambda-CDM (6 caixas). Rachaduras: tensão Hubble (gráfico), anomalias CMB (mapa), matéria/energia escura (ícones de interrogação). Inflação: seta apontando para modo-B (ainda não detectado). Singularidade: equações de Einstein quebrando (tensor métrico → infinito). Pergunta final projetada no céu: 'O que vem depois do modelo padrão?'",
+      "duration_seconds": 60,
+      "claims": ["planck-cmb-results", "hubble-tension", "inflation-theory", "quantum-gravity-problem", "dark-matter-evidence", "dark-energy-discovery"],
+      "transition": "fade",
+      "sd_prompt": "Lambda-CDM summary: 6 parameter boxes with values. Cracks appearing: Hubble tension graph, CMB anomaly map, dark matter/energy question mark icons. Inflation arrow pointing to B-mode detection (empty, 'not yet detected'). Singularity: Einstein field equations breaking down, metric tensor → infinity. Final question projected on cosmic backdrop: 'What comes after the standard model?' Cinematic, philosophical tone, 8K"
+    }
+  ]
+}

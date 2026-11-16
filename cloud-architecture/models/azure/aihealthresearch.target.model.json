@@ -1,0 +1,75 @@
+{
+  "schema": "cloud-architecture-model/v1",
+  "provider": "azure",
+  "project": {
+    "name": "AIHealthResearch",
+    "kind": "api-platform",
+    "source": "equivalente Azure do modelo-alvo AWS (cloud-architecture/models/aws/aihealthresearch.target.model.json)"
+  },
+  "environment": "prod",
+  "regions": { "primary": "brazilsouth", "dr": null, "note": "sem geo-redundancia de backup em brazilsouth: DR exige outra regiao (decisao pendente)" },
+  "network": { "private_only": true, "availability_zones": 2, "note": "PostgreSQL com integracao de VNet; Private Endpoints a verificar para AI Search e Blob" },
+  "compute": [
+    {
+      "name": "api",
+      "service": "container-apps",
+      "scale_to_zero": false,
+      "scale_metric": "http",
+      "ingress": "internal",
+      "instances": 2,
+      "note": "SSE: validar ingresso e keepalive com carga"
+    }
+  ],
+  "data": [
+    {
+      "name": "governance-db",
+      "kind": "postgres",
+      "service": "postgres-flexible",
+      "ha": "same-zone",
+      "backup_retention_days": 35,
+      "backup_geo_redundant": false,
+      "public_access": false,
+      "encryption": "platform-managed (CMK a verificar)",
+      "note": "HA com redundancia de zona bloqueado para servidor novo em brazilsouth (pagina oficial)"
+    },
+    {
+      "name": "search",
+      "kind": "search",
+      "service": "ai-search-hybrid",
+      "latency_ms_target": 50,
+      "note": "BM25 e vetor com RRF; precos do AI Search nao estao no snapshot"
+    },
+    {
+      "name": "evidence-lake",
+      "kind": "audit-archive",
+      "service": "blob-storage",
+      "immutability": "locked",
+      "immutability_level": "container",
+      "retention_days": 365,
+      "versioning": true,
+      "note": "politica por tempo bloqueada apos teste; nao pode ser encurtada depois"
+    }
+  ],
+  "ml": [
+    {
+      "name": "model-endpoint",
+      "service": "azure-ml-online",
+      "scale_to_zero": false,
+      "instances": 1,
+      "traffic": "intermittent",
+      "latency_p95_target_s": 15,
+      "note": "escala a zero nao documentada no extrato oficial: tratar como sempre ligado e agendar"
+    }
+  ],
+  "llm": { "external_endpoint": false },
+  "constraints": { "external_llm_allowed": false },
+  "identity": { "ci_auth": "oidc", "secrets_manager": "managed" },
+  "observability": { "log_analytics_gb_month": 5, "telemetry": "azure-monitor-opentelemetry-distro-java" },
+  "data_classification": "personal",
+  "cost_items": [],
+  "unverified_costs": [
+    "nenhum total Azure nesta rodada: a comparacao direta com AWS exige a calculadora oficial e regras de cobranca ociosa (nao verificadas)",
+    "GPU Azure NV36ads A10 v5: US$ 6,40/h em brazilsouth (snapshot) com 36 vCPUs; nao e equivalente 1:1 ao ml.g5.xlarge (4 vCPUs, US$ 2,394/h)",
+    "AI Search, Private Endpoints, Key Vault e Front Door: nao precificados"
+  ]
+}

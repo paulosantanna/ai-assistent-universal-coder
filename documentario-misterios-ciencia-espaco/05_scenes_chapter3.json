@@ -1,0 +1,117 @@
+{
+  "chapter": 3,
+  "title": "Onde Estão Todos? - O Paradoxo de Fermi e a Busca por Vida",
+  "duration_seconds": 600,
+  "scenes": [
+    {
+      "scene": 1,
+      "chapter": 3,
+      "title": "A Pergunta do Almoço em Los Alamos",
+      "narration": "Verão de 1950. Los Alamos. Enrico Fermi, Emil Konopinski, Edward Teller e Herbert York caminham para o almoço. A conversa gira em torno de discos voadores e viagem interestelar. De repente, Fermi para e pergunta: 'Mas onde está todo mundo?'. A lógica era implacável: a galáxia tem dez bilhões de anos. Civilizações tecnológicas, se existissem, teriam tempo de sobra para colonizar toda a Via Láctea — mesmo em velocidades sub-luz, a colonização levaria apenas alguns milhões de anos. A idade do universo é treze bilhões e oitocentos milhões de anos. Deveríamos ver evidências por toda parte: sondas, estruturas, sinais de rádio. Mas o céu está silencioso. Essa pergunta, feita casualmente no almoço, tornou-se o Paradoxo de Fermi — o maior enigma da astrobiologia.",
+      "visual": "Los Alamos 1950: quatro físicos caminhando (Fermi, Konopinski, Teller, York). Balão de pensamento: galáxia com ondas de colonização se expandindo. Cronologia: 10 bi anos (galáxia) vs 13,8 bi (universo) vs poucos milhões (colonização). Céu noturno: silêncio de rádio. Equação de Drake surgindo como resposta estruturada à pergunta.",
+      "duration_seconds": 60,
+      "claims": ["fermi-paradox", "drake-equation"],
+      "transition": "fade",
+      "sd_prompt": "Los Alamos 1950: four physicists walking to lunch (Fermi, Konopinski, Teller, York) in period attire. Thought bubble: Milky Way galaxy with colonization wavefront expanding. Timeline graphic: galaxy age 10 Gyr, universe age 13.8 Gyr, colonization time few Myr. Night sky: radio silence visualization. Drake Equation emerging as structured response. Historical documentary style, 8K"
+    },
+    {
+      "scene": 2,
+      "chapter": 3,
+      "title": "A Equação que Organiza a Ignorância",
+      "narration": "Em 1961, Frank Drake organizou a primeira conferência SETI em Green Bank. Para estruturar a discussão, escreveu na lousa: N = R* × fp × ne × fl × fi × fc × L. R*: taxa de formação de estrelas. fp: fração com planetas. ne: planetas na zona habitável por sistema. fl: fração onde vida surge. fi: fração que desenvolve inteligência. fc: fração que desenvolve tecnologia detectável. L: longevidade de civilizações tecnológicas. A equação não resolve — organiza nossa ignorância. Em 1961, só R* era razoavelmente conhecido. Hoje, Kepler e TESS deram-nos fp ≈ 1 (planetas são regra, não exceção) e ne ~ 0,2 a 0,5. Mas fl, fi, fc, L permanecem quase totalmente desconhecidos. A equação de Drake é um espelho: mostra o que não sabemos.",
+      "visual": "Frank Drake em Green Bank 1961, escrevendo equação na lousa. Cada termo da equação com ícone e valor atual/incerteza. R* ~ 1-2/ano (bem conhecido). fp ≈ 1 (Kepler). ne ~ 0,2-0,5. fl, fi, fc, L: grandes interrogações. Produto: N = ? (pode ser 0, pode ser milhões).",
+      "duration_seconds": 60,
+      "claims": ["drake-equation", "exoplanet-statistics"],
+      "transition": "cut",
+      "sd_prompt": "Frank Drake at Green Bank 1961 writing Drake Equation on blackboard. Each term with icon and current value/uncertainty: R* ~1-2/yr (well known), fp ≈ 1 (Kepler), ne ~0.2-0.5, fl/fi/fc/L = large question marks. Product N = ? (could be 0, could be millions). Clean infographic, 8K"
+    },
+    {
+      "scene": 3,
+      "chapter": 3,
+      "title": "O Grande Filtro: Onde Está a Barreira?",
+      "narration": "Robin Hanson, em 1996, reformulou o paradoxo: a vida passa por uma série de passos evolutivos — química pré-biótica, replicadores simples, células procariontes, eucariogênese, multicelularidade, inteligência, tecnologia, expansão interestelar. O fato de não vermos ninguém implica que pelo menos um desses passos é extremamente improvável — um 'Grande Filtro'. A pergunta crucial: o filtro está atrás de nós ou à nossa frente? Se está atrás (abiogênese, eucariogênese), somos raros, talvez únicos na galáxia. Se está à frente (autodestruição nuclear, IA desalinhada, catástrofe ambiental, física desconhecida), civilizações tecnológicas são efêmeras. L, o último termo da equação de Drake, seria pequeno. Encontrar vida microbiana em Marte ou Europa seria má notícia: sugeriria que o filtro está à frente. O silêncio do cosmos pode ser um aviso.",
+      "visual": "Escada evolutiva de Hanson: passos da abiogênese à expansão interestelar. Grande Filtro como barra vermelha grossa em um dos degraus. Dois cenários: Filtro no passado (somos sortudos/raro) vs Filtro no futuro (somos condenados). L (longevidade) pequeno. Marte/Europa: descoberta de vida microbiana = sinal de alerta.",
+      "duration_seconds": 60,
+      "claims": ["great-filter", "fermi-paradox", "drake-equation"],
+      "transition": "cut",
+      "sd_prompt": "Hanson's evolutionary ladder: steps from abiogenesis to interstellar expansion. Great Filter as thick red bar on one step. Two scenarios: Filter in past (we are lucky/rare) vs Filter in future (we are doomed). L (longevity) small. Mars/Europa: microbial life discovery = warning sign. 8K conceptual visualization"
+    },
+    {
+      "scene": 4,
+      "chapter": 3,
+      "title": "A Revolução dos Exoplanetas",
+      "narration": "Até 1995, não sabíamos se planetas eram raros. Em outubro desse ano, Mayor e Queloz anunciaram 51 Pegasi b — um Júpiter quente orbitando uma estrela tipo Sol em 4 dias. Nobel 2019. O telescópio Kepler (2009-2018) mudou tudo: monitorou 150 mil estrelas, encontrou milhares de trânsitos. Estatística clara: planetas são a regra. Estrelas tipo Sol: 20-50% têm planetas na zona habitável. Anãs vermelhas (75% das estrelas): quase todas têm planetas, muitos na zona habitável, mas sujeitos a flares violentos e bloqueio de maré. A Via Láctea pode ter trezentos milhões de planetas potencialmente habitáveis. O termo fp da equação de Drake ≈ 1. O termo ne > 0. O palco está montado. A peça — a vida — ainda não vimos.",
+      "visual": "51 Peg b descoberta 1995 (Mayor/Queloz Nobel 2019). Kepler: campo de visão, curvas de luz de trânsito. Estatísticas: ocorrência de planetas por tipo estelar. Mapa da Via Láctea: 300 milhões de planetas habitáveis estimados. Anãs vermelhas: zona habitável próxima, flares, bloqueio de maré.",
+      "duration_seconds": 60,
+      "claims": ["exoplanet-statistics", "drake-equation"],
+      "transition": "cut",
+      "sd_prompt": "51 Peg b discovery 1995 (Mayor/Queloz, Nobel 2019). Kepler field of view, transit light curves. Statistics: planet occurrence by stellar type. Milky Way map: 300 million potentially habitable planets. Red dwarfs: habitable zone close-in, flares, tidal locking. 8K"
+    },
+    {
+      "scene": 5,
+      "chapter": 3,
+      "title": "JWST: Lendo Atmosferas de Mundos Distantes",
+      "narration": "O Telescópio Espacial James Webb, lançado em dezembro de 2021, abriu uma nova janela: espectroscopia de transmissão de atmosferas de exoplanetas. Quando um planeta transita sua estrela, a luz estelar filtra pela atmosfera. Moléculas deixam impressões digitais: vapor de água, dióxido de carbono, metano, monóxido de carbono, possivelmente ozônio. JWST observou WASP-96b (vapor de água claro), WASP-39b (primeira detecção de CO2 em exoplaneta), K2-18b (metano, CO2, e possível dimetil sulfeto). O sistema TRAPPIST-1: sete planetas terrestres, três na zona habitável. JWST começou a caracterizar suas atmosferas. Estamos, pela primeira vez, cheirando o ar de mundos alienígenas.",
+      "visual": "JWST em órbita L2, espelho dourado desplegado. Espectroscopia de transmissão: luz estelar filtrando por atmosfera, espectro com linhas de absorção (H2O, CO2, CH4). WASP-96b, WASP-39b, K2-18b espectros reais. TRAPPIST-1: sete planetas, zona habitável sombreada. Atmosferas sendo 'lidas'.",
+      "duration_seconds": 60,
+      "claims": ["jwst-atmospheres", "k2-18b-biosignatures", "exoplanet-statistics"],
+      "transition": "cut",
+      "sd_prompt": "JWST at L2 with deployed golden mirror. Transmission spectroscopy: starlight filtering through exoplanet atmosphere, spectrum with absorption lines (H2O, CO2, CH4). Real spectra: WASP-96b (water), WASP-39b (CO2 first detection), K2-18b (CH4, CO2, possible DMS). TRAPPIST-1 system: 7 terrestrial planets, 3 in habitable zone. 8K"
+    },
+    {
+      "scene": 6,
+      "chapter": 3,
+      "title": "K2-18b e o Cheiro da Vida?",
+      "narration": "K2-18b: super-Terra ou mini-Netuno, 8,6 massas terrestres, 2,6 raios terrestres, na zona habitável de uma anã vermelha a 124 anos-luz. Em 2023, observações do JWST (NIRISS, NIRSpec) detectaram metano e dióxido de carbono — e uma possível detecção de dimetil sulfeto (DMS). Na Terra, DMS é produzido quase exclusivamente por fitoplâncton marinho. É uma biossinatura candidata. Mas a interpretação é debatida: a atmosfera pode ser rica em hidrogênio (tipo Netuno), sem superfície líquida. O DMS pode ter origem abiótica desconhecida. A estatística é marginal (2-3 sigma). Não é anúncio de vida. Mas é a primeira vez que vemos uma molécula associada à vida em um exoplaneta na zona habitável. A busca por biossinaturas entrou na era observacional.",
+      "visual": "K2-18b: renderização artística (oceano hiceano? atmosfera H2/He?). Espectro JWST: picos de CH4, CO2, possível DMS. Na Terra: fitoplâncton produzindo DMS. Debate: mundo hiceano (oceano sob H2) vs mini-Netuno (sem superfície). Significância estatística: 2-3 sigma. 'Não é vida confirmada — é pista intrigante.'",
+      "duration_seconds": 60,
+      "claims": ["k2-18b-biosignatures", "jwst-atmospheres"],
+      "transition": "cut",
+      "sd_prompt": "K2-18b artistic rendering: hycean world (ocean under H2 atmosphere) vs mini-Neptune. JWST spectrum: CH4, CO2 peaks, possible DMS feature. Earth: phytoplankton producing DMS. Debate visualization: hycean vs mini-Neptune models. Statistical significance: 2-3 sigma label. 'Not confirmed life — intriguing clue.' 8K"
+    },
+    {
+      "scene": 7,
+      "chapter": 3,
+      "title": "SETI: Ouvindo o Silêncio",
+      "narration": "A busca por inteligência extraterrestre (SETI) começou em 1960 com o Projeto Ozma de Frank Drake: radiotelescópio de 26 metros apontado para Tau Ceti e Epsilon Eridani. Nada. Desde então, a sensibilidade aumentou bilhões de vezes. Breakthrough Listen (2015, $100 milhões): usa Green Bank (100m), Parkes (64m), MeerKAT (64 antenas), FAST (500m na China). Varre 1 a 10 GHz, bilhões de canais, com resolução de hertz. Alvos: estrelas próximas, plano galáctico, galáxias. Busca por sinais de banda estreita (artificiais), pulsos ópticos (laser), artefatos. Até 2024: zero tecnossinais confirmados. O Sinal Wow! (1977, 1420 MHz, 72s, nunca repetido) permanece o candidato mais intrigante — mas provavelmente não era ET. O silêncio é ensurdecedor.",
+      "visual": "Projeto Ozma 1960: radiotelescópio Green Bank 26m. Breakthrough Listen: array de telescópios (Green Bank, Parkes, MeerKAT, FAST). Espectrograma: varredura bilhões de canais, busca banda estreita. Sinal Wow!: espectrograma original (6EQUJ5), 1420,4556 MHz, 72s. 'Zero tecnossinais confirmados' em destaque.",
+      "duration_seconds": 60,
+      "claims": ["fermi-paradox", "wow-signal", "breakthrough-listen", "technosignatures"],
+      "transition": "cut",
+      "sd_prompt": "Project Ozma 1960: Green Bank 26m telescope. Breakthrough Listen: telescope array (Green Bank 100m, Parkes 64m, MeerKAT 64 dishes, FAST 500m). Spectrogram: billions of channels scanned, narrowband search. Wow! Signal: original printout (6EQUJ5), 1420.4556 MHz, 72 seconds. 'Zero confirmed technosignatures' prominent. 8K"
+    },
+    {
+      "scene": 8,
+      "chapter": 3,
+      "title": "Além do Rádio: Tecnossinais",
+      "narration": "A busca moderna expande-se além do rádio. Tecnossinais: qualquer evidência de tecnologia. Estruturas megastruturas: esferas de Dyson (excesso infravermelho), anéis de Dyson, enxames. Buscas no WISE e Gaia não encontraram candidatos claros. Estrela de Tabby (KIC 8462852): escurecimentos anômalos de até 22% — explicados por poeira, não megastrutura. Poluição atmosférica: CFCs, NO2 em atmosferas de exoplanetas — JWST pode detectar. Lasers interestelares: pulsos ópticos de alta potência (Pan-STARRS, VERITAS buscam). Artefatos: sondas interestelares no sistema solar (busca por objetos com aceleração não-gravitacional). 'Oumuamua (2017): aceleração anômala, formato alongado 10:1. Hipótese de vela solar (Loeb) controversa. A ausência de evidência não é evidência de ausência — mas o silêncio persiste.",
+      "visual": "Esfera de Dyson: renderização, excesso IR. WISE/Gaia buscas: null result. Tabby's Star: curva de luz com dips anômalos, modelo de poeira. Atmosfera com CFCs/NO2: assinatura espectral. Laser interestelar: pulso óptico. 'Oumuamua: objeto alongado 10:1, aceleração não-gravitacional. Hipótese vela solar (Loeb) vs iceberg H2 vs fragmento planetário.",
+      "duration_seconds": 60,
+      "claims": ["technosignatures", "dyon-spheres", "interstellar-objects"],
+      "transition": "cut",
+      "sd_prompt": "Dyson sphere rendering with IR excess. WISE/Gaia searches: null result. Tabby's Star (KIC 8462852): light curve with anomalous dips up to 22%, dust model fit. Exoplanet atmosphere with CFCs/NO2 spectral signature. Interstellar laser pulse. Oumuamua: elongated 10:1 object, non-gravitational acceleration. Solar sail hypothesis (Loeb) vs H2 iceberg vs planetary fragment. 8K"
+    },
+    {
+      "scene": 9,
+      "chapter": 3,
+      "title": "Vida no Nosso Quintal: Marte, Europa, Encelado, Titã",
+      "narration": "Antes de ir às estrelas, olhamos ao lado. Marte: teve água líquida há bilhões de anos. Perseverance (2021) explora cratera Jezero, antigo delta. Detectou matéria orgânica em rochas sedimentares — mas origem (biótica vs abiótica) indeterminada. Amostras coletadas para retorno futuro. Europa (Júpiter) e Encelado (Saturno): oceanos globais sob gelo. Encelado ejeta plumas com vapor, sais, orgânicos (Cassini). Europa Clipper (lançamento 2024) investigará habitabilidade. Oceano de Europa pode ter duas vezes a água da Terra. Titã: ciclo do metano, lagos de metano/etano, química orgânica complexa (tolinas). Dragonfly (2028) voará sobre dunas de Titã. Se a vida surgiu independentemente duas vezes no mesmo sistema solar, fl ≈ 1 — vida é inevitável onde condições permitem.",
+      "visual": "Marte: Perseverance em Jezero, rocha com orgânicos, tubos de amostra. Europa: casco de gelo, oceano global, Europa Clipper. Encelado: plumas jorrando do polo sul, Cassini voando através. Titã: lagos de metano/etano (Cassini RADAR), Dragonfly rotorcraft. 'Segunda gênese = vida é regra'.",
+      "duration_seconds": 60,
+      "claims": ["mars-life-evidence", "europa-enceladus-oceans", "titans-methane-cycle"],
+      "transition": "cut",
+      "sd_prompt": "Mars: Perseverance at Jezero crater, sedimentary rock with organics, sample tubes. Europa: icy shell, global ocean, Europa Clipper spacecraft. Enceladus: south polar plumes, Cassini flying through. Titan: methane/ethane lakes (Cassini RADAR), Dragonfly rotorcraft on dunes. 'Second genesis = life is common' label. 8K"
+    },
+    {
+      "scene": 10,
+      "chapter": 3,
+      "title": "A Resposta que Ainda Esperamos",
+      "narration": "O paradoxo de Fermi persiste. A equação de Drake tem dois termos bem medidos (fp, ne) e cinco incógnitas. O Grande Filtro assombra: estamos sozinhos porque a vida é rara, ou porque a tecnologia é autodestrutiva? Exoplanetas mostraram que o palco é vasto. JWST começou a ler os roteiros atmosféricos. SETI ouviu bilhões de canais — silêncio. Nosso sistema solar oferece quatro alvos primários para segunda gênese. A resposta pode vir amanhã — uma biossinatura em espectro JWST, um sinal em Breakthrough Listen, uma micróbio em amostra de Marte. Ou o silêncio pode durar séculos. Fermi perguntou 'onde está todo mundo?' em 1950. Setenta e seis anos depois, a mesa continua vazia. Mas pela primeira vez, estamos olhando nos lugares certos, com as ferramentas certas.",
+      "visual": "Resumo visual: Equação de Drake com fp, ne preenchidos; fl, fi, fc, L em branco. Grande Filtro: seta dupla (passado/futuro). JWST espectro com biossinatura candidata (DMS?). Breakthrough Listen: espectrograma vazio. Sistema solar: 4 alvos (Marte, Europa, Encelado, Titã). Relógio cósmico: 1950 → 2026 → ?. 'A busca continua.'",
+      "duration_seconds": 60,
+      "claims": ["fermi-paradox", "drake-equation", "great-filter", "jwst-atmospheres", "breakthrough-listen", "mars-life-evidence", "europa-enceladus-oceans", "titans-methane-cycle"],
+      "transition": "fade",
+      "sd_prompt": "Drake Equation summary: fp, ne filled; fl, fi, fc, L blank. Great Filter: double arrow (past/future). JWST spectrum with candidate biosignature (DMS?). Breakthrough Listen: empty spectrogram. Solar system: 4 targets (Mars, Europa, Enceladus, Titan). Cosmic clock: 1950 → 2026 → ?. 'The search continues.' 8K"
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "schema": "cloud-architecture-model/v1",
+  "provider": "aws",
+  "project": {
+    "name": "AIHealthResearch",
+    "kind": "api-platform",
+    "source": "02_repositorios/AIHealthResearch/infra (foundation.json, workloads.json, render_stack.py) e docs/ARCHITECTURE.md"
+  },
+  "environment": "prod",
+  "regions": { "primary": "sa-east-1" },
+  "audience_regions": ["BR"],
+  "network": {
+    "private_only": true,
+    "interface_endpoints": 9,
+    "gateway_endpoints": 1,
+    "availability_zones": 2,
+    "nat_gateways": 0,
+    "source": "render_stack.py: loop de 8 endpoints de interface + monitoring e sagemaker.runtime; S3 gateway"
+  },
+  "compute": [
+    {
+      "name": "api",
+      "service": "ecs-service-fargate",
+      "arch": "x86_64",
+      "vcpu": 2,
+      "memory_gb": 8,
+      "instances": 2,
+      "load_balancer": "internal-alb",
+      "source": "render_stack.py: Task Cpu 2048 Memory 8192; Service DesiredCount 2; AssignPublicIp DISABLED"
+    },
+    {
+      "name": "fetcher",
+      "service": "lambda",
+      "vpc": false,
+      "source": "render_stack.py: Fetcher sem VpcConfig (saida publica); escreve em S3 incoming com KMS"
+    },
+    {
+      "name": "workers",
+      "service": "lambda",
+      "vpc": true,
+      "source": "render_stack.py: Worker, Importer e Stopper com VpcConfig em sub-redes privadas"
+    }
+  ],
+  "data": [
+    {
+      "name": "governance-db",
+      "kind": "postgres",
+      "service": "aurora-postgresql",
+      "instances": 2,
+      "instance_class": "db.r6g.large",
+      "multi_az": true,
+      "deletion_protection": true,
+      "backup_retention_days": 35,
+      "public_access": false,
+      "encryption": "kms-cmk",
+      "storage_gb": 100,
+      "source": "render_stack.py: DBCluster, DbInstance0 e DbInstance1 (AZs 0 e 1); armazenamento de 100 GB e premissa"
+    },
+    {
+      "name": "search",
+      "kind": "search",
+      "service": "opensearch-managed",
+      "data_nodes": 2,
+      "data_node_type": "r6g.large.search",
+      "dedicated_masters": 3,
+      "master_type": "m6g.large.search",
+      "ebs_gb_per_node": 100,
+      "ebs_type": "gp3",
+      "zone_awareness": true,
+      "latency_ms_target": 50,
+      "encryption": "kms-cmk",
+      "source": "render_stack.py: ClusterConfig r6g.large.search x2, DedicatedMasterCount 3, EBS gp3 100 GB"
+    },
+    {
+      "name": "evidence-lake",
+      "kind": "audit-archive",
+      "service": "s3",
+      "versioning": true,
+      "immutability": "governance",
+      "retention_days": 365,
+      "encryption": "kms-cmk",
+      "storage_gb": 100,
+      "source": "foundation.json: ObjectLockEnabled true com DefaultRetention GOVERNANCE 365 dias"
+    }
+  ],
+  "ml": [
+    {
+      "name": "model-endpoint",
+      "service": "sagemaker-realtime",
+      "instance_type": "ml.g5.xlarge (premissa: ModelInstanceType nao tem padrao no template)",
+      "instances": 2,
+      "always_on": true,
+      "traffic": "intermittent",
+      "latency_p95_target_s": 15,
+      "source": "workloads.json: EndpointConfig InitialInstanceCount 2; render_stack.py: ModelInstanceType sem default"
+    },
+    {
+      "name": "training",
+      "service": "sagemaker-training",
+      "instance_type": "ml.g5.xlarge (premissa)",
+      "hours_per_day": 4,
+      "days_per_month": 30,
+      "training_spot": false,
+      "checkpoints": false,
+      "source": "PRODUCTION_PLAN.md: janela de 14.400 s (4 h) por dia"
+    }
+  ],
+  "llm": { "external_endpoint": false },
+  "constraints": { "external_llm_allowed": false },
+  "identity": { "ci_auth": "unknown", "user_auth": "cognito", "secrets_manager": "managed" },
+  "observability": {
+    "log_retention_days": 90,
+    "traces_destination": "unknown",
+    "traces_auth": "unknown",
+    "log_analytics_gb_month": 0,
+    "source": "render_stack.py: RetentionInDays 90"
+  },
+  "data_classification": "personal",
+  "cost_items": [
+    { "sku": "aws.sa-east-1.vpc_endpoint_interface_hour", "units_per_month": 13140, "note": "9 endpoints x 2 AZ x 730 h" },
+    { "sku": "aws.sa-east-1.aurora_pg_r6g_large_hour", "units_per_month": 1460, "note": "2 instancias x 730 h" },
+    { "sku": "aws.sa-east-1.aurora_pg_storage_gb_month", "units_per_month": 100, "note": "premissa: 100 GB" },
+    { "sku": "aws.sa-east-1.opensearch_r6g_large_hour", "units_per_month": 1460, "note": "2 data nodes x 730 h" },
+    { "sku": "aws.sa-east-1.opensearch_m6g_large_hour", "units_per_month": 2190, "note": "3 dedicated masters x 730 h" },
+    { "sku": "aws.sa-east-1.opensearch_gp3_gb_month", "units_per_month": 200, "note": "2 x 100 GB gp3" },
+    { "sku": "aws.sa-east-1.fargate_x86_vcpu_hour", "units_per_month": 2920, "note": "2 tarefas x 2 vCPU x 730 h" },
+    { "sku": "aws.sa-east-1.fargate_x86_gb_hour", "units_per_month": 11680, "note": "2 tarefas x 8 GB x 730 h" },
+    { "sku": "aws.sa-east-1.alb_hour", "units_per_month": 730, "note": "1 ALB" },
+    { "sku": "aws.sa-east-1.alb_lcu_hour", "units_per_month": 730, "note": "premissa: 1 LCU constante" },
+    { "sku": "aws.sa-east-1.sagemaker_hosting_ml_g5_xlarge_hour", "units_per_month": 1460, "note": "2 instancias sempre ligadas x 730 h (como no CFN)" },
+    { "sku": "aws.sa-east-1.sagemaker_training_ml_g5_xlarge_hour", "units_per_month": 120, "note": "4 h/dia x 30 dias (teto da janela)" },
+    { "sku": "aws.sa-east-1.cloudwatch_logs_ingest_gb", "units_per_month": 5, "note": "premissa: 5 GB/mes de logs" },
+    { "sku": "aws.sa-east-1.secrets_manager_secret_month", "units_per_month": 5, "note": "premissa: 5 segredos" },
+    { "sku": "aws.sa-east-1.s3_standard_gb_month", "units_per_month": 100, "note": "premissa: 100 GB em S3 Standard" }
+  ],
+  "unverified_costs": [
+    "KMS: chaves gerenciadas pelo cliente (nao verificado no snapshot: AWSKMS nao retornou na Price List publica)",
+    "Cognito, Lambda, EventBridge Scheduler, SQS, ECR: nao precificados nesta rodada",
+    "armazenamento de logs do CloudWatch e dados de saida: nao precificados",
+    "NAT Gateway: nao existe neste desenho (nat_gateways 0)"
+  ]
+}

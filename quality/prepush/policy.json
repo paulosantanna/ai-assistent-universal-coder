@@ -1,0 +1,33 @@
+{
+  "cve_export_max_age_hours": 72,
+  "executable_max_age_days": 90,
+  "require_signature": false,
+  "exclude_prefixes": [
+    "00_skills/",
+    "02_repositorios/",
+    "07_mapeamentos/",
+    ".work/",
+    "node_modules/",
+    ".git/",
+    "target/",
+    "dist/",
+    ".tools/",
+    ".aeos/",
+    "quality/prepush/tests/",
+    "quality/prepush/catalogs/"
+  ],
+  "osv_exports": {
+    "PyPI": "https://osv-vulnerabilities.storage.googleapis.com/PyPI/all.zip",
+    "npm": "https://osv-vulnerabilities.storage.googleapis.com/npm/all.zip",
+    "crates.io": "https://osv-vulnerabilities.storage.googleapis.com/crates.io/all.zip",
+    "Go": "https://osv-vulnerabilities.storage.googleapis.com/Go/all.zip"
+  },
+  "registries": {
+    "PyPI": "https://pypi.org/pypi/{name}/json",
+    "npm": "https://registry.npmjs.org/{name}/latest",
+    "crates.io": "https://crates.io/api/v1/crates/{name}",
+    "Go": "https://proxy.golang.org/{name}/@latest"
+  },
+  "endoflife": "https://endoflife.date/api/{product}.json",
+  "osv_query": "https://api.osv.dev/v1/querybatch"
+}

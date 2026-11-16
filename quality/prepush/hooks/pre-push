@@ -1,0 +1,12 @@
+#!/bin/sh
+# Blocks the push unless every prepush backend returns pass.
+root=$(git rev-parse --show-toplevel) || exit 2
+cd "$root" || exit 2
+if command -v python >/dev/null 2>&1; then
+  exec python quality/prepush/prepush.py --repo "$root"
+fi
+if command -v py >/dev/null 2>&1; then
+  exec py -3 quality/prepush/prepush.py --repo "$root"
+fi
+echo "prepush: Python nao encontrado; push bloqueado" >&2
+exit 2

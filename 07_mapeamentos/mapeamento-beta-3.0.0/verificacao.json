@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "mapping_version": "3.0.0-beta",
+  "checked_at": "2026-10-27T04:14:09.792130+00:00",
+  "repositories": 17,
+  "source_files_rehashed": 9152,
+  "evidence_locators": 577,
+  "matrix_rows": 238,
+  "local_links_checked": 819,
+  "source_and_git_preserved": true,
+  "duration_seconds": 2.799,
+  "verification_scope": "Static source hashes, Git state, coverage, locators, matrix and links. No target tests/runtime executed. Sequential self-verification.",
+  "limitations": [
+    "Known-pattern artifact secret scan is not a comprehensive secrets audit.",
+    "Excluded source trees are outside the preservation/hash claim."
+  ],
+  "errors": []
+}

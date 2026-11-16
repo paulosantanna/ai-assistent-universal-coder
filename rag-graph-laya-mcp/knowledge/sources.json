@@ -1,0 +1,655 @@
+{
+  "version": 1,
+  "scope": "Expandable primary-source inventory; discovery is not acquisition or empirical validation",
+  "sources": [
+    {
+      "id": "rag-paper",
+      "family": "rag-foundations",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "url": "https://arxiv.org/abs/2005.11401",
+      "author": "Lewis et al.",
+      "license": "Check article license",
+      "training_allowed": false,
+      "topics": [
+        "rag",
+        "parametric-memory",
+        "retrieval"
+      ]
+    },
+    {
+      "id": "graphrag-paper",
+      "family": "microsoft-graphrag",
+      "title": "From Local to Global: A Graph RAG Approach to Query-Focused Summarization",
+      "url": "https://arxiv.org/abs/2404.16130",
+      "author": "Edge et al.",
+      "license": "CC-BY-4.0",
+      "training_allowed": true,
+      "topics": [
+        "communities",
+        "global-search",
+        "graphrag"
+      ]
+    },
+    {
+      "id": "graphrag-survey",
+      "family": "graph-surveys",
+      "title": "Retrieval-Augmented Generation with Graphs",
+      "url": "https://arxiv.org/abs/2501.00309",
+      "author": "Paper authors",
+      "license": "Check article license",
+      "training_allowed": false,
+      "topics": [
+        "survey",
+        "retriever",
+        "organizer"
+      ]
+    },
+    {
+      "id": "graph-rag-survey",
+      "family": "graph-surveys",
+      "title": "Graph Retrieval-Augmented Generation: A Survey",
+      "url": "https://arxiv.org/abs/2408.08921",
+      "author": "Paper authors",
+      "license": "Check article license",
+      "training_allowed": false,
+      "topics": [
+        "survey",
+        "graphs",
+        "evaluation"
+      ]
+    },
+    {
+      "id": "microsoft-graphrag",
+      "family": "microsoft-graphrag",
+      "title": "Microsoft GraphRAG implementation",
+      "repo": "microsoft/graphrag",
+      "file": "README.md",
+      "url": "https://github.com/microsoft/graphrag",
+      "author": "Microsoft",
+      "license": "MIT",
+      "training_allowed": true,
+      "topics": [
+        "entities",
+        "communities",
+        "global-search"
+      ],
+      "license_evidence": {
+        "url": "https://api.github.com/repos/microsoft/graphrag/license?ref=5faaaf4f5685fa2056fa8c3bf9342cb089f2942f",
+        "blob_sha": "9e841e7a26e4eb057b24511e7b92d42b257a80e5",
+        "spdx_id": "MIT"
+      }
+    },
+    {
+      "id": "lightrag",
+      "family": "lightrag",
+      "title": "LightRAG implementation",
+      "repo": "HKUDS/LightRAG",
+      "file": "README.md",
+      "url": "https://github.com/HKUDS/LightRAG",
+      "author": "HKUDS",
+      "license": "MIT",
+      "training_allowed": true,
+      "topics": [
+        "dual-level",
+        "incremental",
+        "graph"
+      ],
+      "license_evidence": {
+        "url": "https://api.github.com/repos/HKUDS/LightRAG/license?ref=aaebfe1bb8d55deb6a4304d357a3bf4c92fcd40a",
+        "blob_sha": "ff0c29b4790f767e8abdc14f43ca0495330e89e4",
+        "spdx_id": "MIT"
+      }
+    },
+    {
+      "id": "lightrag-paper",
+      "family": "lightrag",
+      "title": "LightRAG: Simple and Fast Retrieval-Augmented Generation",
+      "url": "https://arxiv.org/abs/2410.05779",
+      "author": "Guo et al.",
+      "license": "Check article license",
+      "training_allowed": false,
+      "topics": [
+        "retrieval",
+        "graph",
+        "benchmark"
+      ]
+    },
+    {
+      "id": "graphiti",
+      "family": "graphiti",
+      "title": "Graphiti temporal knowledge graph",
+      "repo": "getzep/graphiti",
+      "file": "README.md",
+      "url": "https://github.com/getzep/graphiti",
+      "author": "Zep",
+      "license": "Apache-2.0",
+      "training_allowed": true,
+      "topics": [
+        "temporal",
+        "incremental",
+        "hybrid",
+        "contradictions"
+      ],
+      "license_evidence": {
+        "url": "https://api.github.com/repos/getzep/graphiti/license?ref=aca369364226a666ca541b061ff2a1a54b80f2ff",
+        "blob_sha": "5feb0d9d299a1107adfa8331306b13cc0eff2d78",
+        "spdx_id": "Apache-2.0"
+      }
+    },
+    {
+      "id": "neo4j-graphrag",
+      "family": "neo4j",
+      "title": "Neo4j GraphRAG Python",
+      "repo": "neo4j/neo4j-graphrag-python",
+      "file": "README.md",
+      "url": "https://github.com/neo4j/neo4j-graphrag-python",
+      "author": "Neo4j",
+      "license": "Apache-2.0",
+      "training_allowed": true,
+      "topics": [
+        "cypher",
+        "hybrid",
+        "pipeline"
+      ],
+      "license_evidence": {
+        "url": "https://api.github.com/repos/neo4j/neo4j-graphrag-python/license?ref=18b728b2d803b6a6970a6c09639b43a39b356f4b",
+        "blob_sha": "cb000d19ad1e06be5b749a116383703a4af34a8c",
+        "spdx_id": "NOASSERTION",
+        "text_url": "https://raw.githubusercontent.com/neo4j/neo4j-graphrag-python/18b728b2d803b6a6970a6c09639b43a39b356f4b/LICENSE.txt",
+        "text_sha256": "b5af49080affa3f5cbf3ff6ba560f59f3fbc3a00544cc270ab216a5e0e114f5b",
+        "observed_license_text": "Apache-2.0",
+        "method": "License text inspected; GitHub SPDX may be NOASSERTION"
+      },
+      "license_scope": "Root LICENSE.txt declares Apache-2.0 by default and identifies some PSF-2.0 licensed code. Acquired README only; not a blanket license claim for every file."
+    },
+    {
+      "id": "falkordb-graphrag",
+      "family": "falkordb",
+      "title": "FalkorDB GraphRAG SDK",
+      "repo": "FalkorDB/GraphRAG-SDK",
+      "file": "README.md",
+      "url": "https://github.com/FalkorDB/GraphRAG-SDK",
+      "author": "FalkorDB",
+      "license": "Apache-2.0",
+      "training_allowed": true,
+      "topics": [
+        "ontology",
+        "graph",
+        "sdk"
+      ],
+      "license_evidence": {
+        "url": "https://api.github.com/repos/FalkorDB/GraphRAG-SDK/license?ref=35e67a0b27fdcc7f2c28508b09e86169851a8187",
+        "blob_sha": "f1cb7fb2e19310bab9cd761221deb21a8229bf58",
+        "spdx_id": "Apache-2.0"
+      }
+    },
+    {
+      "id": "memgraph",
+      "family": "memgraph",
+      "title": "Memgraph AI toolkit",
+      "repo": "memgraph/ai-toolkit",
+      "file": "README.md",
+      "url": "https://github.com/memgraph/ai-toolkit",
+      "author": "Memgraph",
+      "license": "MIT",
+      "training_allowed": false,
+      "topics": [
+        "graph",
+        "mcp",
+        "integration"
+      ],
+      "license_evidence": {
+        "url": "https://api.github.com/repos/memgraph/ai-toolkit/license?ref=0276cceb4c34b17864bb0ff41af93583f705a0fc",
+        "blob_sha": "3f187a66f37bc12367d675cbc47215291d9cbf02",
+        "spdx_id": "MIT"
+      }
+    },
+    {
+      "id": "llamaindex",
+      "family": "llamaindex",
+      "title": "LlamaIndex",
+      "repo": "run-llama/llama_index",
+      "file": "README.md",
+      "url": "https://github.com/run-llama/llama_index",
+      "author": "LlamaIndex",
+      "license": "MIT",
+      "training_allowed": true,
+      "topics": [
+        "property-graph",
+        "index",
+        "retrieval"
+      ],
+      "license_evidence": {
+        "url": "https://api.github.com/repos/run-llama/llama_index/license?ref=619d74664e8404612038bc15a1a40c686037277c",
+        "blob_sha": "e6074042d0391061b7d7d45d21e6693ae108daec",
+        "spdx_id": "MIT"
+      }
+    },
+    {
+      "id": "langchain",
+      "family": "langchain",
+      "title": "LangChain",
+      "repo": "langchain-ai/langchain",
+      "file": "README.md",
+      "url": "https://github.com/langchain-ai/langchain",
+      "author": "LangChain",
+      "license": "MIT",
+      "training_allowed": true,
+      "topics": [
+        "rag",
+        "retriever",
+        "integration"
+      ],
+      "license_evidence": {
+        "url": "https://api.github.com/repos/langchain-ai/langchain/license?ref=84ba23c414eca6bf6f6ebd1394a3006378113540",
+        "blob_sha": "3957738673765912ca83a0048f833e095d61e087",
+        "spdx_id": "MIT"
+      }
+    },
+    {
+      "id": "haystack",
+      "family": "haystack",
+      "title": "Haystack",
+      "repo": "deepset-ai/haystack",
+      "file": "README.md",
+      "url": "https://github.com/deepset-ai/haystack",
+      "author": "deepset",
+      "license": "Apache-2.0",
+      "training_allowed": true,
+      "topics": [
+        "pipeline",
+        "evaluation",
+        "retriever"
+      ],
+      "license_evidence": {
+        "url": "https://api.github.com/repos/deepset-ai/haystack/license?ref=c7d947202a5e4d662fdb8eaca6f87cf444715611",
+        "blob_sha": "6fb66d8d5fa55912ee80f4fdab94cab99140c448",
+        "spdx_id": "NOASSERTION",
+        "text_url": "https://raw.githubusercontent.com/deepset-ai/haystack/c7d947202a5e4d662fdb8eaca6f87cf444715611/LICENSE",
+        "text_sha256": "3f0a3af7e9b0f3b6358aaa3c7501ab522a67dc5483b870e9a8b3db41ea42e249",
+        "observed_license_text": "Apache-2.0",
+        "method": "License text inspected; GitHub SPDX may be NOASSERTION"
+      }
+    },
+    {
+      "id": "ragflow",
+      "family": "ragflow",
+      "title": "RAGFlow",
+      "repo": "infiniflow/ragflow",
+      "file": "README.md",
+      "url": "https://github.com/infiniflow/ragflow",
+      "author": "InfiniFlow",
+      "license": "Apache-2.0",
+      "training_allowed": true,
+      "topics": [
+        "parsing",
+        "rag",
+        "graph"
+      ],
+      "license_evidence": {
+        "url": "https://api.github.com/repos/infiniflow/ragflow/license?ref=4dfcab718dc062caa24c62cd92ca2df5b8acfe9c",
+        "blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+        "spdx_id": "Apache-2.0"
+      }
+    },
+    {
+      "id": "laya",
+      "family": "laya",
+      "title": "Laya official SDK",
+      "repo": "NandhaKishorM/laya",
+      "file": "README.md",
+      "url": "https://github.com/NandhaKishorM/laya",
+      "author": "Convai Innovations",
+      "license": "Apache-2.0",
+      "training_allowed": true,
+      "topics": [
+        "choice",
+        "score",
+        "noul",
+        "rlcd",
+        "calibration",
+        "mcp"
+      ],
+      "license_evidence": {
+        "url": "https://api.github.com/repos/NandhaKishorM/laya/license?ref=4ac226d5ee88ed6df8db288a05c766d7a34ee682",
+        "blob_sha": "d9a10c0d8e868ebf8da0b3dc95bb0be634c34bfe",
+        "spdx_id": "Apache-2.0"
+      }
+    },
+    {
+      "id": "laya-train",
+      "family": "laya",
+      "title": "Laya training implementation",
+      "repo": "NandhaKishorM/laya",
+      "file": "laya/train.py",
+      "url": "https://github.com/NandhaKishorM/laya/blob/main/laya/train.py",
+      "author": "Convai Innovations",
+      "license": "Apache-2.0",
+      "training_allowed": true,
+      "topics": [
+        "rlcd",
+        "dataset",
+        "finetune"
+      ],
+      "license_evidence": {
+        "url": "https://api.github.com/repos/NandhaKishorM/laya/license?ref=4ac226d5ee88ed6df8db288a05c766d7a34ee682",
+        "blob_sha": "d9a10c0d8e868ebf8da0b3dc95bb0be634c34bfe",
+        "spdx_id": "Apache-2.0"
+      }
+    },
+    {
+      "id": "laya-evals",
+      "family": "laya",
+      "title": "Laya evaluation implementation",
+      "repo": "NandhaKishorM/laya",
+      "file": "laya/evals.py",
+      "url": "https://github.com/NandhaKishorM/laya/blob/main/laya/evals.py",
+      "author": "Convai Innovations",
+      "license": "Apache-2.0",
+      "training_allowed": true,
+      "topics": [
+        "accuracy",
+        "ece",
+        "baseline"
+      ],
+      "license_evidence": {
+        "url": "https://api.github.com/repos/NandhaKishorM/laya/license?ref=4ac226d5ee88ed6df8db288a05c766d7a34ee682",
+        "blob_sha": "d9a10c0d8e868ebf8da0b3dc95bb0be634c34bfe",
+        "spdx_id": "Apache-2.0"
+      }
+    },
+    {
+      "id": "trl",
+      "family": "huggingface-training",
+      "title": "TRL post-training",
+      "repo": "huggingface/trl",
+      "file": "README.md",
+      "url": "https://github.com/huggingface/trl",
+      "author": "Hugging Face",
+      "license": "Apache-2.0",
+      "training_allowed": true,
+      "topics": [
+        "sft",
+        "llm",
+        "trainer"
+      ],
+      "license_evidence": {
+        "url": "https://api.github.com/repos/huggingface/trl/license?ref=f952015d450534ca61ba346e14d5949e26dbb26a",
+        "blob_sha": "f577b7741dfb5c6af119f250971549dd7750acb9",
+        "spdx_id": "Apache-2.0"
+      }
+    },
+    {
+      "id": "peft",
+      "family": "huggingface-training",
+      "title": "PEFT",
+      "repo": "huggingface/peft",
+      "file": "README.md",
+      "url": "https://github.com/huggingface/peft",
+      "author": "Hugging Face",
+      "license": "Apache-2.0",
+      "training_allowed": true,
+      "topics": [
+        "lora",
+        "qlora",
+        "dora"
+      ],
+      "license_evidence": {
+        "url": "https://api.github.com/repos/huggingface/peft/license?ref=e8e8a7c40af177652ad88a3682d64e0480f5f919",
+        "blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+        "spdx_id": "Apache-2.0"
+      }
+    },
+    {
+      "id": "bitsandbytes",
+      "family": "huggingface-training",
+      "title": "bitsandbytes",
+      "repo": "bitsandbytes-foundation/bitsandbytes",
+      "file": "README.md",
+      "url": "https://github.com/bitsandbytes-foundation/bitsandbytes",
+      "author": "bitsandbytes contributors",
+      "license": "MIT",
+      "training_allowed": true,
+      "topics": [
+        "quantization",
+        "cuda",
+        "memory"
+      ],
+      "license_evidence": {
+        "url": "https://api.github.com/repos/bitsandbytes-foundation/bitsandbytes/license?ref=833649043474794b8fe7a4136e0c40faf077b2e0",
+        "blob_sha": "b96dcb0480a0b0be0727976e5202a1e7b23edc3f",
+        "spdx_id": "MIT"
+      }
+    },
+    {
+      "id": "ragas",
+      "family": "rag-evaluation",
+      "title": "Ragas evaluation",
+      "repo": "explodinggradients/ragas",
+      "file": "README.md",
+      "url": "https://github.com/explodinggradients/ragas",
+      "author": "Ragas contributors",
+      "license": "Apache-2.0",
+      "training_allowed": true,
+      "topics": [
+        "faithfulness",
+        "evaluation",
+        "testset"
+      ],
+      "license_evidence": {
+        "text_url": "https://raw.githubusercontent.com/explodinggradients/ragas/298b68274234c060deacab3cf5fb52aa3a20e885/LICENSE",
+        "text_sha256": "664b930830f291c2936ab30bcd6ef9ca6c9c7384cc475ae0c526156a27d5a6c6",
+        "observed_license_text": "Apache-2.0",
+        "method": "License text inspected; GitHub SPDX may be NOASSERTION"
+      }
+    },
+    {
+      "id": "qdrant",
+      "family": "qdrant",
+      "title": "Qdrant vector search",
+      "repo": "qdrant/qdrant",
+      "file": "README.md",
+      "url": "https://github.com/qdrant/qdrant",
+      "author": "Qdrant",
+      "license": "Apache-2.0",
+      "training_allowed": true,
+      "topics": [
+        "vectors",
+        "filters",
+        "hybrid"
+      ],
+      "license_evidence": {
+        "url": "https://api.github.com/repos/qdrant/qdrant/license?ref=016542aa5deb6c66380bb137badf73d54f742bde",
+        "blob_sha": "456fb05e0e936f439cf42c517b19797dafd53ff9",
+        "spdx_id": "Apache-2.0"
+      }
+    },
+    {
+      "id": "milvus",
+      "family": "milvus",
+      "title": "Milvus vector database",
+      "repo": "milvus-io/milvus",
+      "file": "README.md",
+      "url": "https://github.com/milvus-io/milvus",
+      "author": "Milvus contributors",
+      "license": "Apache-2.0",
+      "training_allowed": true,
+      "topics": [
+        "vectors",
+        "retrieval",
+        "scale"
+      ],
+      "license_evidence": {
+        "url": "https://api.github.com/repos/milvus-io/milvus/license?ref=47a3c929fff381b58fd736b19f07641b1df2fd53",
+        "blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+        "spdx_id": "Apache-2.0"
+      }
+    },
+    {
+      "id": "weaviate",
+      "family": "weaviate",
+      "title": "Weaviate",
+      "repo": "weaviate/weaviate",
+      "file": "README.md",
+      "url": "https://github.com/weaviate/weaviate",
+      "author": "Weaviate",
+      "license": "BSD-3-Clause",
+      "training_allowed": true,
+      "topics": [
+        "hybrid",
+        "vector",
+        "search"
+      ],
+      "license_evidence": {
+        "url": "https://api.github.com/repos/weaviate/weaviate/license?ref=3ea41a468974661a97097b41e71493cfa11fd291",
+        "blob_sha": "0f1793ed2924dc269e88d1991377d448a0c9354e",
+        "spdx_id": "NOASSERTION"
+      },
+      "license_scope": "Acquired README is outside wl and covered by BSD-3-Clause; wl subtree has separate enterprise terms. Not a blanket repository license."
+    },
+    {
+      "id": "cytoscape",
+      "family": "visualization",
+      "title": "Cytoscape.js",
+      "repo": "cytoscape/cytoscape.js",
+      "file": "README.md",
+      "url": "https://github.com/cytoscape/cytoscape.js",
+      "author": "Cytoscape contributors",
+      "license": "MIT",
+      "training_allowed": true,
+      "topics": [
+        "graph",
+        "visualization",
+        "interaction"
+      ],
+      "license_evidence": {
+        "url": "https://api.github.com/repos/cytoscape/cytoscape.js/license?ref=7ba634095d8954089ee5dc09ada0030f2dca134c",
+        "blob_sha": "22fcccd7b6699b0d202f678cd6d846b0edd5ca8a",
+        "spdx_id": "NOASSERTION",
+        "text_url": "https://raw.githubusercontent.com/cytoscape/cytoscape.js/7ba634095d8954089ee5dc09ada0030f2dca134c/LICENSE",
+        "text_sha256": "a29c0d78a54de204b78357976c3d272a573b8592d0478b9db07af3f1da31a65a",
+        "observed_license_text": "MIT",
+        "method": "License text inspected; GitHub SPDX may be NOASSERTION"
+      }
+    },
+    {
+      "id": "langchain-vectorstores",
+      "family": "langchain",
+      "title": "Langchain Vectorstores",
+      "repo": "langchain-ai/langchain",
+      "file": "libs/core/langchain_core/vectorstores/base.py",
+      "url": "https://github.com/langchain-ai/langchain/blob/master/libs/core/langchain_core/vectorstores/base.py",
+      "author": "LangChain",
+      "license": "MIT",
+      "training_allowed": true,
+      "topics": [
+        "retrieval",
+        "vector-store",
+        "api"
+      ],
+      "license_evidence": {
+        "url": "https://api.github.com/repos/langchain-ai/langchain/license?ref=84ba23c414eca6bf6f6ebd1394a3006378113540",
+        "blob_sha": "3957738673765912ca83a0048f833e095d61e087",
+        "spdx_id": "MIT"
+      }
+    },
+    {
+      "id": "langchain-retrievers",
+      "family": "langchain",
+      "title": "Langchain Retrievers",
+      "repo": "langchain-ai/langchain",
+      "file": "libs/core/langchain_core/retrievers.py",
+      "url": "https://github.com/langchain-ai/langchain/blob/master/libs/core/langchain_core/retrievers.py",
+      "author": "LangChain",
+      "license": "MIT",
+      "training_allowed": true,
+      "topics": [
+        "retriever",
+        "api",
+        "callbacks"
+      ],
+      "license_evidence": {
+        "url": "https://api.github.com/repos/langchain-ai/langchain/license?ref=84ba23c414eca6bf6f6ebd1394a3006378113540",
+        "blob_sha": "3957738673765912ca83a0048f833e095d61e087",
+        "spdx_id": "MIT"
+      }
+    },
+    {
+      "id": "langchain-text-splitters",
+      "family": "langchain",
+      "title": "Langchain Text Splitters",
+      "repo": "langchain-ai/langchain",
+      "file": "libs/text-splitters/langchain_text_splitters/base.py",
+      "url": "https://github.com/langchain-ai/langchain/blob/master/libs/text-splitters/langchain_text_splitters/base.py",
+      "author": "LangChain",
+      "license": "MIT",
+      "training_allowed": true,
+      "topics": [
+        "chunking",
+        "metadata",
+        "token-budget"
+      ],
+      "license_evidence": {
+        "url": "https://api.github.com/repos/langchain-ai/langchain/license?ref=84ba23c414eca6bf6f6ebd1394a3006378113540",
+        "blob_sha": "3957738673765912ca83a0048f833e095d61e087",
+        "spdx_id": "MIT"
+      }
+    },
+    {
+      "id": "rag-paper-full",
+      "family": "rag-foundations",
+      "title": "RAG original paper — full PDF",
+      "url": "https://arxiv.org/pdf/2005.11401",
+      "author": "Original paper authors",
+      "license": "Check article license",
+      "training_allowed": false,
+      "topics": [
+        "rag",
+        "graphrag",
+        "full-paper"
+      ]
+    },
+    {
+      "id": "graphrag-paper-full",
+      "family": "microsoft-graphrag",
+      "title": "Microsoft GraphRAG paper — full PDF",
+      "url": "https://arxiv.org/pdf/2404.16130",
+      "author": "Original paper authors",
+      "license": "CC-BY-4.0",
+      "training_allowed": true,
+      "topics": [
+        "rag",
+        "graphrag",
+        "full-paper"
+      ]
+    },
+    {
+      "id": "lightrag-paper-full",
+      "family": "lightrag",
+      "title": "LightRAG paper — full PDF",
+      "url": "https://arxiv.org/pdf/2410.05779",
+      "author": "Original paper authors",
+      "license": "Check article license",
+      "training_allowed": false,
+      "topics": [
+        "rag",
+        "graphrag",
+        "full-paper"
+      ]
+    },
+    {
+      "id": "graphrag-survey-full",
+      "family": "graph-surveys",
+      "title": "GraphRAG survey — full PDF",
+      "url": "https://arxiv.org/pdf/2501.00309",
+      "author": "Original paper authors",
+      "license": "Check article license",
+      "training_allowed": false,
+      "topics": [
+        "rag",
+        "graphrag",
+        "full-paper"
+      ]
+    }
+  ]
+}

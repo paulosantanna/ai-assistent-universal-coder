@@ -1,0 +1,50 @@
+[project]
+name = "rag-graph-laya-mcp"
+version = "0.1.0"
+description = "Local-first, source-backed GraphRAG and Laya MCP of codenavi-agent"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "mcp==2.3.0",
+  "fastapi==0.143.1",
+  "uvicorn==0.54.0",
+  "httpx>=0.28.1,<1",
+  "beautifulsoup4>=4.13,<5",
+  "pypdf>=6,<7",
+  "graphiti-core==0.30.2",
+]
+
+[project.optional-dependencies]
+training = [
+  "laya==0.4.7",
+  "torch==2.14.1",
+  "transformers==5.19.0",
+  "trl==1.15.0",
+  "peft==0.21.2",
+  "bitsandbytes==0.50.2",
+  "datasets>=4,<6",
+  "accelerate>=1,<2",
+  "sentence-transformers>=5,<6",
+  "psutil==7.2.2",
+]
+test = ["pytest>=8,<10", "pytest-asyncio>=1,<2", "ruff>=0.14,<1"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+
+[tool.uv]
+package = false
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cu130", marker = "sys_platform == 'win32' or sys_platform == 'linux'" }]

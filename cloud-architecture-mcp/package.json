@@ -1,0 +1,15 @@
+{
+  "name": "@aeos/cloud-architecture-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Governed, read-only AWS and Azure architecture MCP servers over stdio. No SDK dependency, no cloud credentials.",
+  "scripts": {
+    "aws": "node providers/aws/server.mjs",
+    "azure": "node providers/azure/server.mjs",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

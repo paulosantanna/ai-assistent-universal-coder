@@ -1,0 +1,8 @@
+{
+  "version": "2026.11.09",
+  "reviewed_at": "2026-11-09T19:40:00Z",
+  "aligned_upstream": "v8.30.1",
+  "upstream": "https://api.github.com/repos/gitleaks/gitleaks/releases/latest",
+  "secret_pattern": "\\b(?:gh[pousr]_[A-Za-z0-9]{30,255}|github_pat_[A-Za-z0-9_]{50,255}|sk-(?:proj-)?[A-Za-z0-9_-]{40,255}|(?:AKIA|ASIA)[A-Z0-9]{16})\\b|-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----",
+  "credential_names": [".env", "Cookies", "auth.json", "credentials.json", "id_rsa", "id_ed25519"]
+}

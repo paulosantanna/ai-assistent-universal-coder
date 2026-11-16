@@ -1,0 +1,80 @@
+{
+  "documentary": "Mistérios da Ciência e do Espaço",
+  "total_duration_seconds": 5400,
+  "total_chapters": 9,
+  "chapter_duration_seconds": 600,
+  "chapters": [
+    {
+      "number": 1,
+      "title": "O Eco do Big Bang - A Radiação Cósmica de Fundo",
+      "duration_seconds": 600,
+      "scenes": 10,
+      "summary": "Da descoberta acidental de Penzias e Wilson ao satélite Planck: como a luz mais antiga do universo revela sua composição, idade e geometria. O que a CMB nos diz sobre matéria escura, energia escura e os primeiros instantes.",
+      "key_topics": ["Descoberta da CMB (1964)", "Satélites COBE, WMAP, Planck", "Idade do universo: 13,8 bi anos", "Composição: 4,9% matéria comum, 26,5% matéria escura, 68,5% energia escura", "Anisotropias e sementes de estrutura"]
+    },
+    {
+      "number": 2,
+      "title": "O Invisível que Governa - Matéria Escura e Energia Escura",
+      "duration_seconds": 600,
+      "scenes": 10,
+      "summary": "95% do universo é escuro. As curvas de rotação de Vera Rubin, lente gravitacional, supernovas tipo Ia e a aceleração cósmica. O que sabemos, o que suspeitamos e os candidatos: WIMPs, áxions, neutrinos estéreis, buracos negros primordiais.",
+      "key_topics": ["Evidências da matéria escura", "Curvas de rotação galácticas", "Descoberta da energia escura (1998)", "Supernovas tipo Ia como velas padrão", "Candidatos: WIMPs, áxions, buracos negros primordiais", "Tensão de Hubble"]
+    },
+    {
+      "number": 3,
+      "title": "Onde Estão Todos? - O Paradoxo de Fermi e a Busca por Vida",
+      "duration_seconds": 600,
+      "scenes": 10,
+      "summary": "A equação de Drake, o Grande Filtro, exoplanetas na zona habitável, biossinaturas com JWST. K2-18b e o debate sobre dimetil sulfeto. SETI, Breakthrough Listen, tecnossinais e a possibilidade de esferas de Dyson.",
+      "key_topics": ["Paradoxo de Fermi", "Equação de Drake", "Grande Filtro (Hanson)", "Estatísticas de exoplanetas (Kepler, TESS)", "JWST e atmosferas de exoplanetas", "K2-18b e possíveis biossinaturas", "SETI e tecnossinais", "Esferas de Dyson"]
+    },
+    {
+      "number": 4,
+      "title": "Buracos Negros: Onde a Física Quebra - Informação, Firewalls e Holografia",
+      "duration_seconds": 600,
+      "scenes": 10,
+      "summary": "Radiação Hawking, paradoxo da informação, firewall (AMPS), princípio holográfico e AdS/CFT. A informação escapa ou é destruída? O espaço-tempo é emergente? O que LIGO nos ensinou sobre fusões de buracos negros.",
+      "key_topics": ["Radiação Hawking e evaporação", "Paradoxo da informação", "Firewall paradox (AMPS)", "Princípio holográfico", "AdS/CFT e correspondência", "Ondas gravitacionais de fusões (LIGO)", "GW170817: astronomia multi-mensageira"]
+    },
+    {
+      "number": 5,
+      "title": "A Realidade Quântica - Emaranhamento, Medição e Muitos Mundos",
+      "duration_seconds": 600,
+      "scenes": 10,
+      "summary": "Desigualdades de Bell, testes sem brechas (Nobel 2022), problema da medição, interpretação de muitos mundos, decoerência. A realidade existe antes da observação? O que o emaranhamento nos diz sobre espaço-tempo (ER=EPR).",
+      "key_topics": ["Desigualdades de Bell", "Testes sem brechas (2015)", "Nobel 2022: Aspect, Clauser, Zeilinger", "Problema da medição", "Interpretação de Muitos Mundos (Everett)", "Decoerência", "ER=EPR: emaranhamento = geometria"]
+    },
+    {
+      "number": 6,
+      "title": "A Origem da Vida - Do Químico ao Vivo",
+      "duration_seconds": 600,
+      "scenes": 10,
+      "summary": "Ventos hidrotermais, mundo RNA, panspermia, homociralidade. Marte (Perseverance), Europa, Encelado, Titã. A vida é inevitável ou um acidente cósmico? Biologia quântica: coerência na fotossíntese, bússola quântica dos pássaros.",
+      "key_topics": ["Hipótese de ventos hidrotermais alcalinos", "Mundo RNA", "Panspermia", "Homociralidade", "Marte: Perseverance e busca de biossinaturas", "Europa e Encelado: oceanos ocultos", "Titã: ciclo do metano", "Biologia quântica: fotossíntese e magnetorrecepção"]
+    },
+    {
+      "number": 7,
+      "title": "O Multiverso e a Afinação Fina - Inflação, Paisagem de Cordas e Constantes",
+      "duration_seconds": 600,
+      "scenes": 10,
+      "summary": "Inflação cósmica, inflação eterna, multiverso de Tegmark (4 níveis), paisagem de cordas (10^500 vacua), constante cosmológica (problema de 120 ordens). Afinação fina: coincidência ou seleção antrópica?",
+      "key_topics": ["Inflação cósmica", "Inflação eterna e multiverso", "Classificação de Tegmark (4 níveis)", "Paisagem de cordas", "Problema da constante cosmológica (120 ordens)", "Afinação fina e princípio antrópico", "Simulação (Bostrom)"]
+    },
+    {
+      "number": 8,
+      "title": "Consciência, Livre-Arbítrio e a Natureza da Realidade",
+      "duration_seconds": 600,
+      "scenes": 10,
+      "summary": "Problema difícil da consciência (Chalmers), IIT (Φ), GWT (espaço de trabalho global), neurociência do livre-arbítrio (Libet). Universo computacional (Lloyd), hipótese da simulação. A consciência é fundamental ou emergente?",
+      "key_topics": ["Problema difícil da consciência", "IIT (Tononi) - informação integrada Φ", "GWT (Baars/Dehaene) - espaço de trabalho global", "Experimento de Libet e livre-arbítrio", "Universo como computador quântico (Lloyd)", "Hipótese da simulação (Bostrom)", "Panpsiquismo"]
+    },
+    {
+      "number": 9,
+      "title": "O Futuro do Cosmos e as Perguntas que Ficam",
+      "duration_seconds": 600,
+      "scenes": 10,
+      "summary": "Eras do universo: estelífera, degenerada, buracos negros, escura. Decaimento do próton, morte térmica, cosmologia cíclica (Penrose). As grandes questões em aberto: unificação, matéria/antimatéria, seta do tempo, significado da existência.",
+      "key_topics": ["Eras do universo (Adams & Laughlin)", "Decaimento do próton (Super-K, Hyper-K)", "Morte térmica", "Cosmologia Cíclica Conforme (Penrose)", "Assimetria matéria-antimatéria (Sakharov)", "Neutrinos: massas e natureza", "Gravidade quântica: cordas vs laços", "Perguntas finais abertas"]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "scope":"Small public-source functional comparison; not a statistically representative RAG benchmark",
+  "cases":[
+    {"query":"How does Graphiti integrate incremental updates without recomputing the whole graph?","expected_source_ids":["graphiti"]},
+    {"query":"What components organize graph structured retrieval augmented generation?","expected_source_ids":["graphrag-survey"]},
+    {"query":"Graphiti context graphs track how facts change over time","expected_source_ids":["graphiti"]}
+  ]
+}

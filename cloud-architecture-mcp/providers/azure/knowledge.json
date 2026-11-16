@@ -1,0 +1,210 @@
+{
+  "provider": "azure",
+  "as_of": "2026-11-14",
+  "scope": "Padroes de arquitetura Azure para APIs, dados, busca, arquivo de auditoria, ML, observabilidade, release e precos. Cada padrao e armadilha cita claims do evidence/claims.json. Precos estao em providers/azure/prices.json.",
+  "method": "claims de Microsoft Learn (WebFetch, extrato) e de paginas oficiais (WebSearch). JEV (Noul) e triagem, nao prova. Regiao: Brazil South (brazilsouth) quando nao indicado.",
+  "patterns": [
+    {
+      "id": "az.api.container-apps",
+      "title": "API HTTP e jobs em Azure Container Apps com ingresso interno",
+      "category": "compute",
+      "use_when": "API HTTP, SSE ou jobs agendados sem GPU, com ingresso interno e escala por evento ou HTTP.",
+      "components": ["Container Apps (consumo ou dedicado)", "ingresso interno (VNet)", "Container Apps Jobs para agendamento", "Log Analytics"],
+      "cost_levers": ["escala a zero por HTTP ou evento, nao por CPU ou memoria", "plano dedicado quando a carga e continua", "preco de vCPU por segundo ativo em brazilsouth (snapshot)"],
+      "claims": ["az-aca-scale-zero", "az-aca-cpu-no-zero", "az-aca-internal-ingress"],
+      "notes": "Container Apps Jobs (agendamento) esta na visao geral da pagina oficial, sem claim JEV separado."
+    },
+    {
+      "id": "az.db.postgres-flexible",
+      "title": "PostgreSQL Flexible Server em VNet privada com backup e pausa para nao producao",
+      "category": "database",
+      "use_when": "Dados relacionais com integridade e auditoria, em rede privada.",
+      "components": ["PostgreSQL Flexible Server com integracao de VNet (acesso publico negado)", "HA com redundancia de zona quando disponivel na regiao", "backup de 7 a 35 dias", "PgBouncer integrado"],
+      "cost_levers": ["parar o servidor interrompe a cobranca de computacao (ate 7 dias)", "computacao burstable para desenvolvimento", "reservas (nao verificadas no dossie)"],
+      "claims": ["az-pg-vnet-no-public", "az-pg-backup-35", "az-pg-zr-sync", "az-pg-stop-billing"],
+      "notes": "Em Brazil South, HA com redundancia de zona para servidores novos esta temporariamente bloqueado; usar HA na mesma zona e validar."
+    },
+    {
+      "id": "az.search.ai-search-hybrid",
+      "title": "Busca hibrida (BM25 e vetor) com Azure AI Search",
+      "category": "search",
+      "use_when": "Recuperacao com palavras exatas e semantica, com filtros por tenant.",
+      "components": ["Azure AI Search com indice de texto e vetor", "consulta hibrida com RRF", "ranker semantico opcional"],
+      "cost_levers": ["ranker semantico e opcional e tem custo proprio (nao verificado no snapshot)"],
+      "claims": ["az-search-hybrid-rrf"],
+      "notes": "Precos do AI Search nao estao no snapshot de precos (linhas coletadas, SKU nao extraido)."
+    },
+    {
+      "id": "az.archive.blob-immutable",
+      "title": "Arquivo de auditoria com Blob Storage imutavel (WORM)",
+      "category": "archive",
+      "use_when": "Trilha de auditoria ou evidencia que nao pode ser alterada ou apagada antes do prazo.",
+      "components": ["conta de Blob com politica de retencao por tempo bloqueada", "versionamento quando a politica for no nivel de versao", "exportacao da trilha de auditoria de politica"],
+      "cost_levers": ["sem cobranca extra por capacidade para dados imutaveis", "custo de versoes se o versionamento for habilitado"],
+      "claims": ["az-blob-worm", "az-blob-no-capacity-charge", "az-blob-version-worm-needs-versioning"],
+      "notes": "Politica nao bloqueada e so para teste; apos bloqueio, nao e possivel reduzir o periodo."
+    },
+    {
+      "id": "az.ml.online-or-batch",
+      "title": "Inferencia de modelo local em Azure ML: online para carga continua, batch para carga programada",
+      "category": "ml",
+      "use_when": "Modelo com pesos locais em GPU.",
+      "components": ["endpoint online gerenciado (compute e rede cobrados, sem sobretaxa)", "endpoint batch para carga programada (escala a zero: verificar antes de usar)", "rede gerenciada isolada"],
+      "cost_levers": ["endpoint online paga o compute mesmo sem trafego (escala a zero nao documentada no extrato)", "GPU A10 NV36ads v5 em brazilsouth: US$ 6,40/h (snapshot), o dobro de eastus"],
+      "claims": ["az-aml-online-no-surcharge"],
+      "notes": "Escala a zero em endpoint batch nao foi verificada nesta rodada. Nao comparar diretamente com ml.g5.xlarge: a instancia Azure tem 36 vCPUs."
+    },
+    {
+      "id": "az.obs.app-insights-otel",
+      "title": "Telemetria com Azure Monitor OpenTelemetry Distro para Java",
+      "category": "observability",
+      "use_when": "Aplicacao Java com OpenTelemetry em producao no Azure.",
+      "components": ["Azure Monitor OpenTelemetry Distro para Java", "Application Insights", "connection string por ambiente"],
+      "cost_levers": ["Log Analytics analitico custa US$ 4,60/GB em brazilsouth (snapshot), 5 vezes o CloudWatch de sa-east-1"],
+      "claims": ["az-monitor-java-distro"],
+      "notes": "Custo por GB exige retencao e amostragem medidas."
+    },
+    {
+      "id": "az.release.artifact-signing",
+      "title": "Assinatura de executavel Windows com Artifact Signing (quando elegivel)",
+      "category": "release",
+      "use_when": "Distribuicao de executavel Windows fora da Microsoft Store, com elegibilidade verificada.",
+      "components": ["conta e perfil de certificado do Artifact Signing", "validacao de identidade publica", "integracao com GitHub Actions"],
+      "cost_levers": ["plano Basic: US$ 9,99/mes ate 5.000 assinaturas (pagina oficial)"],
+      "claims": ["az-signing-ga", "az-signing-basic-price"],
+      "notes": "Validacao publica para indivíduos e restrita a EUA e Canada; organizacoes em lista de paises. Brasil nao consta na lista verificada em 2026-11-14."
+    },
+    {
+      "id": "az.framework.well-architected",
+      "title": "Revisao com Azure Well-Architected Framework de cinco pilares",
+      "category": "governance",
+      "use_when": "Revisao formal de arquitetura Azure.",
+      "components": ["Reliability", "Security", "Cost Optimization", "Operational Excellence", "Performance Efficiency"],
+      "cost_levers": [],
+      "claims": ["az-waf-five-pillars"],
+      "notes": "Sustentabilidade aparece como carga de trabalho, nao como pilar."
+    },
+    {
+      "id": "az.pricing.retail-api",
+      "title": "Snapshot de precos pela Azure Retail Prices API",
+      "category": "pricing",
+      "use_when": "Estimar custo com precos publicos, sem credenciais.",
+      "components": ["https://prices.azure.com/api/retail/prices", "filtros por serviceName, armRegionName, priceType", "paginacao NextPageLink"],
+      "cost_levers": ["comparar regioes (brazilsouth contra eastus) antes de escolher"],
+      "claims": ["az-retail-prices-unauth", "az-retail-prices-1000-page"],
+      "notes": "Precos sao de lista (sem desconto de reserva ou Savings Plan)."
+    }
+  ],
+  "pitfalls": [
+    {
+      "id": "P-AZ-01",
+      "title": "HA com redundancia de zona em Brazil South para servidor novo",
+      "wrong_assumption": "PostgreSQL com HA zonal esta disponivel em qualquer regiao com zonas.",
+      "correct_fact": "Em Brazil South, novos servidores com HA de redundancia de zona estao temporariamente bloqueados (pagina oficial, 2026-11-14).",
+      "rule_ids": ["AZ-001"],
+      "claims": ["az-pg-brazilsouth-zr-blocked", "az-pg-zr-sync"],
+      "trap_claims": []
+    },
+    {
+      "id": "P-AZ-02",
+      "title": "Backup geo-redundante em Brazil South",
+      "wrong_assumption": "Backup geo-redundante existe em todas as regioes do PostgreSQL Flexible.",
+      "correct_fact": "A tabela oficial marca Brazil South sem backup geo-redundante.",
+      "rule_ids": ["AZ-002"],
+      "claims": ["az-pg-backup-35"],
+      "trap_claims": ["az-pg-brazilsouth-geo-trap"]
+    },
+    {
+      "id": "P-AZ-03",
+      "title": "Artifact Signing para publicador individual no Brasil",
+      "wrong_assumption": "Artifact Signing esta disponivel para qualquer desenvolvedor.",
+      "correct_fact": "Validacao publica para indivíduos e restrita a EUA e Canada; a lista de organizacoes nao inclui o Brasil.",
+      "rule_ids": ["AZ-003"],
+      "claims": ["az-signing-ga"],
+      "trap_claims": ["az-signing-brazil-individual-trap"]
+    },
+    {
+      "id": "P-AZ-04",
+      "title": "Container Apps escalando a zero por CPU ou memoria",
+      "wrong_assumption": "Qualquer regra de escala de Container Apps chega a zero.",
+      "correct_fact": "Aplicacoes escaladas por carga de CPU ou memoria nao escalam a zero; use HTTP ou evento.",
+      "rule_ids": ["AZ-004"],
+      "claims": ["az-aca-cpu-no-zero", "az-aca-scale-zero"],
+      "trap_claims": ["az-aca-cpu-zero-trap"]
+    },
+    {
+      "id": "P-AZ-05",
+      "title": "Endpoint online do Azure ML tratado como escala a zero",
+      "wrong_assumption": "Endpoint gerenciado do Azure ML para a inferencia nao cobra quando ocioso.",
+      "correct_fact": "O extrato oficial cobra compute e rede do endpoint online; escala a zero nao esta documentada nesse extrato.",
+      "rule_ids": ["AZ-005"],
+      "claims": ["az-aml-online-no-surcharge"],
+      "trap_claims": ["az-aml-online-scale-zero-absence"]
+    },
+    {
+      "id": "P-AZ-06",
+      "title": "Politica WORM desbloqueada no arquivo de auditoria",
+      "wrong_assumption": "Politica de retencao pode ser apagada depois de testada.",
+      "correct_fact": "Politica bloqueada nao pode ser apagada nem reduzida; o bloqueio deve ser feito logo apos o teste.",
+      "rule_ids": ["AZ-006"],
+      "claims": ["az-blob-worm"],
+      "trap_claims": ["az-blob-locked-no-delete-trap"]
+    },
+    {
+      "id": "P-AZ-07",
+      "title": "Custo de Log Analytics ignorado",
+      "wrong_assumption": "Logs no Log Analytics custam o mesmo que logs no CloudWatch.",
+      "correct_fact": "Analytics Logs Data Ingestion em brazilsouth: US$ 4,60/GB no snapshot de precos (sem nivel de compromisso).",
+      "rule_ids": ["AZ-007"],
+      "claims": [],
+      "trap_claims": [],
+      "evidence_note": "Preco do snapshot Azure Retail Prices (meter Analytics Logs Data Ingestion, brazilsouth, 2026-11-14)."
+    },
+    {
+      "id": "P-AZ-08",
+      "title": "Sustentabilidade tratada como pilar do Azure WAF",
+      "wrong_assumption": "Azure WAF tem seis pilares, incluindo sustentabilidade.",
+      "correct_fact": "Azure WAF tem cinco pilares; sustentabilidade e uma carga de trabalho.",
+      "rule_ids": [],
+      "claims": ["az-waf-five-pillars"],
+      "trap_claims": ["az-waf-sustainability-trap"]
+    },
+    {
+      "id": "P-AZ-09",
+      "title": "Azure OpenAI como LLM contra a regra do projeto",
+      "wrong_assumption": "Um servico gerenciado de LLM do Azure e aceitavel para inferencia governada.",
+      "correct_fact": "O AIHealthResearch proibe endpoint externo de LLM, embedding ou juiz em workloads governados (ARCHITECTURE.md, regra 1).",
+      "rule_ids": ["AZ-009"],
+      "claims": [],
+      "trap_claims": [],
+      "project_sources": ["02_repositorios/AIHealthResearch/docs/ARCHITECTURE.md (Non-Negotiable Boundaries, regra 1)"]
+    },
+    {
+      "id": "P-AZ-10",
+      "title": "WORM por versao sem versionamento",
+      "wrong_assumption": "A politica por versao funciona sem versionamento habilitado.",
+      "correct_fact": "A politica por versao exige versionamento habilitado na conta.",
+      "rule_ids": ["AZ-011"],
+      "claims": ["az-blob-version-worm-needs-versioning"],
+      "trap_claims": []
+    },
+    {
+      "id": "P-AZ-11",
+      "title": "Repositorio arquivado do Azure MCP como referencia",
+      "wrong_assumption": "O servidor oficial do Azure MCP esta em Azure/azure-mcp.",
+      "correct_fact": "O repositorio Azure/azure-mcp foi arquivado em 25 de agosto de 2025; o desenvolvimento esta em microsoft/mcp (v3.0.0, 2026-10-12).",
+      "rule_ids": [],
+      "claims": ["az-mcp-official-repo", "az-mcp-v3-date"],
+      "trap_claims": ["az-mcp-v3-date-trap"]
+    },
+    {
+      "id": "P-AZ-12",
+      "title": "Banco de dados com acesso publico",
+      "wrong_assumption": "O PostgreSQL pode ficar exposto para facilitar acesso de desenvolvimento.",
+      "correct_fact": "Com integracao de VNet, o acesso publico e negado; servidores so sao alcancados por IP privado.",
+      "rule_ids": ["AZ-008"],
+      "claims": ["az-pg-vnet-no-public"],
+      "trap_claims": []
+    }
+  ]
+}

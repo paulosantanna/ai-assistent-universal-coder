@@ -1,0 +1,249 @@
+{
+  "provider": "aws",
+  "as_of": "2026-11-14",
+  "scope": "Padroes de arquitetura AWS para APIs, dados, ML, rede, CDN, CI e observabilidade. Cada padrao e armadilha cita claims do evidence/claims.json. Precos estao em providers/aws/prices.json.",
+  "method": "claims verificados em documentacao oficial da AWS (aws___search_documentation, trechos verbatim) e triados pelo JEV (Noul). JEV e triagem, nao prova.",
+  "patterns": [
+    {
+      "id": "aws.api.ecs-express",
+      "title": "API HTTP sem estado em Fargate com ECS Express Mode",
+      "category": "compute",
+      "use_when": "API HTTP ou SSE sem GPU, com trafego variavel, que precisa de ALB, HTTPS e auto scaling sem gerenciar servidores.",
+      "components": ["ECS Express Mode (Fargate)", "ALB criado pelo Express (interno se as sub-redes forem privadas)", "ECR multi-arquitetura", "Secrets Manager", "CloudWatch Logs"],
+      "cost_levers": ["Fargate ARM64 (preco sa-east-1 do snapshot: vCPU e GB cerca de 20% menores que x86)", "Compute Savings Plans cobrem Fargate", "rightsizing de vCPU e memoria"],
+      "claims": ["aws-ecs-express-recommended", "aws-ecs-express-no-charge", "aws-fargate-arm64-setting", "aws-sp-compute-up-to-66"],
+      "notes": "Sub-redes privadas geram ALB interno; a primeira aplicacao Express de uma VPC define o tipo de balanceador da VPC. Verificar timeout do ALB para SSE com teste de carga (nao verificado no dossie)."
+    },
+    {
+      "id": "aws.db.aurora-postgresql",
+      "title": "Aurora PostgreSQL: provisionado Multi-AZ em producao, Serverless v2 com pausa em nao producao",
+      "category": "database",
+      "use_when": "Dados transacionais relacionais com auditoria e integridade.",
+      "components": ["Aurora PostgreSQL (2 instancias em AZs distintas em producao)", "KMS CMK", "protecao contra exclusao", "backup de 35 dias (AIHealthResearch usa 35)"],
+      "cost_levers": ["Serverless v2 com minimo 0 ACU em ambientes sem uso continuo (pausa apos 300 s a 86.400 s)", "minimo de 0,5 ACU ou mais desativa a pausa", "medir antes de trocar provisionado por Serverless v2 em producao"],
+      "claims": ["aws-aurora-sv2-zero-acu", "aws-aurora-sv2-min-half-disables-pause", "aws-aurora-sv2-pause-window"],
+      "notes": "Latencia de retomada apos pausa nao foi medida no dossie; nao usar pausa em producao sem benchmark."
+    },
+    {
+      "id": "aws.search.opensearch-managed-hybrid",
+      "title": "OpenSearch gerenciado multi-AZ para BM25 e vetores em producao",
+      "category": "search",
+      "use_when": "Recuperacao hibrida com latencia baixa e filtros por tenant, em producao.",
+      "components": ["OpenSearch Service (domínio multi-AZ)", "3 dedicated masters em producao", "gp3 por no", "KMS"],
+      "cost_levers": ["dedicated masters sao custo de resiliencia; reduzir para numero par quebra o quorum", "Serverless com minimo 0 OCU para ambiente sem uso continuo, sabendo da latencia de partida"],
+      "claims": ["aws-opensearch-3-masters", "aws-opensearch-serverless-min-zero"],
+      "notes": "O GA do OpenSearch Serverless provisionava 4 OCUs no primeiro collection (historico, nao atual)."
+    },
+    {
+      "id": "aws.vector.s3-vectors",
+      "title": "S3 Vectors para corpus grande com consulta pouco frequente",
+      "category": "search",
+      "use_when": "Muitos vetores, consultas moderadas, latencia de cerca de 100 ms ou mais aceitavel.",
+      "components": ["bucket de vetores S3 Vectors", "SSE-KMS com chave gerenciada pelo cliente", "tags para custo"],
+      "cost_levers": ["cobranca por armazenamento e por consulta; consultas acima de 10 milhoes de vetores tem reducao de ate 80% (vendor, junho de 2026)"],
+      "claims": ["aws-s3-vectors-ga", "aws-s3-vectors-kms"],
+      "notes": "Nao usar quando a latencia alvo for menor que 100 ms."
+    },
+    {
+      "id": "aws.network.private-endpoints",
+      "title": "VPC privada com gateway endpoint S3 e interface endpoints so onde a carga exige",
+      "category": "network",
+      "use_when": "Workloads em sub-redes privadas sem saida livre a internet.",
+      "components": ["gateway endpoint S3 (sem custo)", "interface endpoints apenas para servicos chamados pela carga", "security groups restritos"],
+      "cost_levers": ["cada interface endpoint cobra por hora em cada AZ e por GB processado", "no sa-east-1 do snapshot, US$ 0,021/h por endpoint por AZ"],
+      "claims": ["aws-vpce-hourly-per-az", "aws-vpce-data-processing", "aws-s3-gateway-free", "aws-nat-hourly-and-gb"],
+      "notes": "Preco de NAT Gateway em sa-east-1 nao esta no snapshot; verificar antes de comparar com endpoints."
+    },
+    {
+      "id": "aws.cdn.static-distribution",
+      "title": "Distribuicao estatica com S3 privado e CloudFront (OAC) para publico no Brasil",
+      "category": "delivery",
+      "use_when": "Downloads ou atualizacoes de aplicativo sem backend.",
+      "components": ["bucket S3 privado com Block Public Access", "CloudFront com Origin Access Control", "PriceClass_All para cobrir a America do Sul", "free tier do CloudFront: 1 TB e 10 milhoes de requisicoes por mes"],
+      "cost_levers": ["origem em us-east-1 e mais barata para armazenar (S3 Standard US$ 0,023/GB-mes contra US$ 0,0405 em sa-east-1)"],
+      "claims": ["aws-cf-priceclassall-sa", "aws-cf-priceclass100-no-sa"],
+      "notes": "Free tier do CloudFront verificado na pagina oficial de precos (sempre gratuito, 1 TB e 10M requisicoes)."
+    },
+    {
+      "id": "aws.ci.github-oidc-deploy",
+      "title": "Deploy a partir do GitHub Actions com OIDC, sem chaves estaticas",
+      "category": "identity",
+      "use_when": "Qualquer pipeline que publique artefatos ou faca deploy na AWS.",
+      "components": ["provedor OIDC do GitHub na conta", "role com trust policy que restringe sub (repositorio, branch ou environment) e ref", "permissao minima por prefixo"],
+      "cost_levers": ["sem custo adicional"],
+      "claims": ["aws-oidc-no-static-keys", "aws-oidc-sub-required"],
+      "notes": "IAM rejeita trust policy OIDC do GitHub que nao restrinja sub."
+    },
+    {
+      "id": "aws.obs.otlp-cloudwatch",
+      "title": "Telemetria OTLP: agente CloudWatch para metricas e logs; traces com SigV4",
+      "category": "observability",
+      "use_when": "Aplicacao com OpenTelemetry em producao na AWS.",
+      "components": ["agente CloudWatch com receptor OTLP (HTTP padrao 127.0.0.1:4318)", "ADOT ou agente para traces (SigV4)", "retencao de logs definida"],
+      "cost_levers": ["ingestao de logs custa US$ 0,90/GB em sa-east-1 (snapshot), 1,8 vezes o preco da Virginia"],
+      "claims": ["aws-cwotlp-metrics-bearer"],
+      "notes": "Bearer token funciona para metricas e logs; o endpoint OTLP de traces do X-Ray nao aceita bearer (verificado)."
+    },
+    {
+      "id": "aws.ml.sagemaker-inference-and-training",
+      "title": "Inferencia de modelo local com async scale-to-zero e treino com Spot e checkpoint",
+      "category": "ml",
+      "use_when": "Modelo com pesos locais em GPU, carga intermitente ou janela de treino diaria.",
+      "components": ["SageMaker asynchronous inference (scale-to-zero) para carga intermitente", "SageMaker Training com Managed Spot e checkpoint em S3", "Flexible Training Plans para janela de capacidade reservada", "rede isolada e KMS"],
+      "cost_levers": ["endpoint real-time sempre ligado paga a hora de GPU sem trafego", "Spot de treino com ate 90% de economia sobre sob demanda (teto, nao garantia)"],
+      "claims": ["aws-sagemaker-async-zero", "aws-sagemaker-spot-90"],
+      "notes": "ml.g5.xlarge em sa-east-1: US$ 2,394/h (hospedagem) e US$ 2,1375/h (treino), snapshot 2026-11-14."
+    },
+    {
+      "id": "aws.framework.well-architected",
+      "title": "Revisao com Well-Architected Framework de seis pilares",
+      "category": "governance",
+      "use_when": "Qualquer revisao formal de arquitetura AWS.",
+      "components": ["Operational Excellence", "Security", "Reliability", "Performance Efficiency", "Cost Optimization", "Sustainability"],
+      "cost_levers": [],
+      "claims": ["aws-wa-six-pillars"],
+      "notes": "Sustentabilidade e pilar na AWS (diferente do Azure WAF, que tem cinco pilares)."
+    }
+  ],
+  "pitfalls": [
+    {
+      "id": "P-AWS-01",
+      "title": "App Runner em servico novo",
+      "wrong_assumption": "App Runner e a opcao mais simples para API em container.",
+      "correct_fact": "App Runner esta fechado a novos clientes; a migracao recomendada e ECS Express Mode.",
+      "rule_ids": ["AWS-001"],
+      "claims": ["aws-apprunner-closed", "aws-ecs-express-recommended"],
+      "trap_claims": []
+    },
+    {
+      "id": "P-AWS-02",
+      "title": "CloudFront PriceClass_100 ou 200 para publico no Brasil",
+      "wrong_assumption": "PriceClass_200 cobre a America do Sul.",
+      "correct_fact": "Somente PriceClass_All inclui a America do Sul; PriceClass_100 e 200 nao incluem.",
+      "rule_ids": ["AWS-002"],
+      "claims": ["aws-cf-priceclassall-sa", "aws-cf-priceclass100-no-sa"],
+      "trap_claims": ["aws-cf-priceclass200-sa-trap"]
+    },
+    {
+      "id": "P-AWS-03",
+      "title": "Endpoints de interface sem contar o custo por AZ",
+      "wrong_assumption": "Endpoint de interface custa pouco porque e um servico.",
+      "correct_fact": "Cada endpoint cobra por hora em cada AZ, mesmo ocioso, e por GB processado.",
+      "rule_ids": ["AWS-003"],
+      "claims": ["aws-vpce-hourly-per-az", "aws-vpce-data-processing", "aws-s3-gateway-free"],
+      "trap_claims": []
+    },
+    {
+      "id": "P-AWS-04",
+      "title": "Endpoint de GPU sempre ligado para carga intermitente",
+      "wrong_assumption": "Endpoint real-time e o padrao para qualquer inferencia.",
+      "correct_fact": "Async com scale-to-zero cobra apenas enquanto processa; real-time paga a hora mesmo sem trafego.",
+      "rule_ids": ["AWS-005"],
+      "claims": ["aws-sagemaker-async-zero"],
+      "trap_claims": []
+    },
+    {
+      "id": "P-AWS-05",
+      "title": "Dedicated masters do OpenSearch reduzidos para economizar",
+      "wrong_assumption": "Dois masters bastam para dois data nodes.",
+      "correct_fact": "A AWS recomenda tres dedicated masters em producao; numero par nao tem quorum tolerante.",
+      "rule_ids": ["AWS-004"],
+      "claims": ["aws-opensearch-3-masters"],
+      "trap_claims": ["aws-opensearch-2-masters-trap"]
+    },
+    {
+      "id": "P-AWS-06",
+      "title": "Endpoint externo de LLM contra a regra do projeto",
+      "wrong_assumption": "Um servico gerenciado de LLM e aceitavel para a mesma funcao.",
+      "correct_fact": "O AIHealthResearch proibe endpoint externo de LLM, embedding ou juiz em workloads governados (ARCHITECTURE.md, regra 1).",
+      "rule_ids": ["AWS-008"],
+      "claims": [],
+      "trap_claims": [],
+      "project_sources": ["02_repositorios/AIHealthResearch/docs/ARCHITECTURE.md (Non-Negotiable Boundaries, regra 1)"]
+    },
+    {
+      "id": "P-AWS-07",
+      "title": "Traces com bearer token no X-Ray",
+      "wrong_assumption": "Um mesmo token bearer serve para metricas, logs e traces.",
+      "correct_fact": "Bearer funciona para metricas e logs; traces no endpoint OTLP do X-Ray nao aceitam bearer.",
+      "rule_ids": ["AWS-007"],
+      "claims": ["aws-cwotlp-metrics-bearer"],
+      "trap_claims": ["aws-cwotlp-traces-bearer-trap"]
+    },
+    {
+      "id": "P-AWS-08",
+      "title": "S3 Vectors para busca de baixa latencia",
+      "wrong_assumption": "S3 Vectors substitui um indice vetorial de baixa latencia.",
+      "correct_fact": "A documentacao recomenda S3 Vectors quando latencia de cerca de 100 ms ou mais e aceitavel.",
+      "rule_ids": ["AWS-012"],
+      "claims": ["aws-s3-vectors-ga"],
+      "trap_claims": ["aws-s3-vectors-latency-trap"],
+      "evidence_note": "A recomendacao de latencia esta no trecho verbatim da mesma pagina usada no controle negativo; leitura manual."
+    },
+    {
+      "id": "P-AWS-09",
+      "title": "Treino Spot sem checkpoint",
+      "wrong_assumption": "Spot dispensa checkpoint em jobs longos.",
+      "correct_fact": "A AWS recomenda checkpoint com Managed Spot, salvo jobs que terminam rapido.",
+      "rule_ids": ["AWS-013"],
+      "claims": ["aws-sagemaker-spot-90"],
+      "trap_claims": ["aws-sagemaker-spot-no-checkpoint-trap"]
+    },
+    {
+      "id": "P-AWS-10",
+      "title": "CI com chaves estaticas de IAM",
+      "wrong_assumption": "Chaves de usuario IAM no secret do CI sao suficientes.",
+      "correct_fact": "OIDC do GitHub troca o token por credenciais temporarias, sem chave de longo prazo.",
+      "rule_ids": ["AWS-006"],
+      "claims": ["aws-oidc-no-static-keys", "aws-oidc-sub-required"],
+      "trap_claims": []
+    },
+    {
+      "id": "P-AWS-11",
+      "title": "Fargate em x86 quando ARM64 e viavel",
+      "wrong_assumption": "x86 e a unica opcao para imagens Python ou Rust.",
+      "correct_fact": "Fargate aceita ARM64 por configuracao; o snapshot de precos mostra cerca de 20% menos por vCPU e GB em sa-east-1. Exige imagem multi-arquitetura testada.",
+      "rule_ids": ["AWS-015"],
+      "claims": ["aws-fargate-arm64-setting"],
+      "trap_claims": []
+    },
+    {
+      "id": "P-AWS-12",
+      "title": "Usar numeros de Graviton de 2021 como atuais",
+      "wrong_assumption": "Graviton2 entrega 40% melhor preco-desempenho em Fargate, logo o mesmo vale para Graviton atual.",
+      "correct_fact": "O numero de 40% e de anuncio de 2021 para Graviton2. Medir com a geracao e a carga reais.",
+      "rule_ids": [],
+      "claims": ["aws-fargate-graviton2-price-perf"],
+      "trap_claims": [],
+      "evidence_note": "Claim supported as historical (2021 launch statement)."
+    },
+    {
+      "id": "P-AWS-13",
+      "title": "Cinco pilares no AWS Well-Architected",
+      "wrong_assumption": "O AWS WAF tem cinco pilares, como o Azure.",
+      "correct_fact": "O AWS Well-Architected tem seis pilares, incluindo Sustainability.",
+      "rule_ids": [],
+      "claims": ["aws-wa-six-pillars"],
+      "trap_claims": ["aws-wa-five-pillars-trap"]
+    },
+    {
+      "id": "P-AWS-14",
+      "title": "Aurora Serverless v2 com minimo de 2 ACU para pausar",
+      "wrong_assumption": "A pausa exige minimo de 2 ACU.",
+      "correct_fact": "A pausa automatica exige minimo de 0 ACU; minimo de 0,5 ACU ou mais desativa a pausa.",
+      "rule_ids": [],
+      "claims": ["aws-aurora-sv2-zero-acu", "aws-aurora-sv2-min-half-disables-pause"],
+      "trap_claims": ["aws-aurora-sv2-min-2acu-trap"]
+    },
+    {
+      "id": "P-AWS-15",
+      "title": "Custo de NAT Gateway ignorado",
+      "wrong_assumption": "Saida para internet por NAT nao tem custo fixo relevante.",
+      "correct_fact": "NAT cobra por hora disponivel e por GB processado.",
+      "rule_ids": [],
+      "claims": ["aws-nat-hourly-and-gb"],
+      "trap_claims": [],
+      "evidence_note": "O preco de NAT em sa-east-1 nao esta no snapshot de precos; medir antes de decidir."
+    }
+  ]
+}

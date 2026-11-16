@@ -1,0 +1,49 @@
+{
+  "skill": "rag-laya-expert",
+  "package_hash": "6433554aadd8641775d263eb9f21ba6dfe569325a92a5d87e69766b91241d462",
+  "positive_triggers": [
+    "RAG-Laya-expert",
+    "RAG com Laya",
+    "GraphRAG com Laya"
+  ],
+  "negative_scope": [
+    "standalone graph drawing",
+    "arbitrary action execution",
+    "production deployment"
+  ],
+  "verification": {
+    "kind": "structural-and-syntax",
+    "runtime_evaluated": false,
+    "routing": "Static wording assessment; not measured trigger accuracy"
+  },
+  "effectiveness": "Runtime test evidence is reported separately; no enterprise accuracy claim",
+  "rubric": {
+    "source": "00_skills/(creation)/skill-architect/references/quality-checklist.md",
+    "weights": {
+      "routing": 20,
+      "procedure": 25,
+      "examples": 15,
+      "errors": 15,
+      "disclosure": 15,
+      "verification": 10
+    },
+    "ratings": {
+      "routing": 4,
+      "procedure": 4,
+      "examples": 4,
+      "errors": 4,
+      "disclosure": 5,
+      "verification": 4
+    },
+    "score": 83.0,
+    "evidence": {
+      "routing": "00_skills/(development)/rag-laya-expert/SKILL.md:description; three positive and three negative scope phrases",
+      "procedure": "references/procedure.md and six ordered workflow steps; real prerequisites and stop conditions",
+      "examples": "references/examples.md contains three concrete requests/actions/observable outputs and a negative boundary",
+      "errors": "references/runtime.md and examples.md identify provider, permission, data and review failures",
+      "disclosure": "workspace validator: resolved modules and physical line limit; retained original RAG resources linked",
+      "verification": "references/evaluation.md plus runtime README/verification ledger; no generalized enterprise score"
+    },
+    "limit": "Diagnostic instruction-quality rubric; no measured routing accuracy or deployment authorization"
+  }
+}

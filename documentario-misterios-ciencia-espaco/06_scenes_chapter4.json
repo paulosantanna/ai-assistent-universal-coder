@@ -1,0 +1,117 @@
+{
+  "chapter": 4,
+  "title": "Buracos Negros: Onde a Física Quebra - Informação, Firewalls e Holografia",
+  "duration_seconds": 600,
+  "scenes": [
+    {
+      "scene": 1,
+      "chapter": 4,
+      "title": "O Buraco que Não é Buraco",
+      "narration": "Buraco negro não é um buraco no espaço — é uma região onde a gravidade venceu tudo. A relatividade geral de Einstein prevê: se massa suficiente colapsa em volume pequeno o bastante, forma-se horizonte de eventos. Nada escapa, nem a luz. No centro, singularidade: curvatura infinita, densidade infinita, onde as leis da física conhecidas falham. Por décadas, buracos negros foram curiosidades matemáticas. Mas a astronomia os encontrou: Cygnus X-1 (1971), primeiro candidato estelar. Sagitário A* (centro da Via Láctea): 4 milhões de massas solares, imagem do horizonte de eventos (Event Horizon Telescope, 2019). Buracos negros são reais. E são laboratórios onde a relatividade geral e a mecânica quântica colidem frontalmente.",
+      "visual": "Cygnus X-1: sistema binário, acreção, raios-X. Sagitário A*: órbitas de estrelas (S2) provando massa central. EHT 2019: primeira imagem do horizonte de eventos (sombra do buraco negro). Animação: horizonte de eventos não é superfície física — é fronteira causal. Singularidade no centro: ponto onde GR falha.",
+      "duration_seconds": 60,
+      "claims": ["gravitational-waves", "black-hole-info-paradox"],
+      "transition": "fade",
+      "sd_prompt": "Cygnus X-1 binary system: black hole accreting from companion, X-ray emission. Sagittarius A*: stellar orbits (S2) around invisible 4M sun mass. EHT 2019 image: shadow of M87* black hole, ring of light. Animation: event horizon as causal boundary, not physical surface. Singularity at center: GR breakdown. 8K"
+    },
+    {
+      "scene": 2,
+      "chapter": 4,
+      "title": "Hawking: Buracos Negros Não São Negros",
+      "narration": "Em 1974, Stephen Hawking aplicou teoria quântica de campos em espaço-tempo curvo. Resultado chocante: buracos negros emitem radiação térmica. Pares partícula-antipartícula formam-se perto do horizonte; um cai, o outro escapa. O buraco negro perde massa, evapora. Temperatura inversamente proporcional à massa: buraco negro solar ~60 nanokelvin (mais frio que CMB), tempo de evaporação ~10^67 anos. Buracos negros primordiais pequenos seriam quentes e brilhantes. A radiação Hawking é puramente térmica — não carrega informação sobre o que caiu. E aqui nasce o paradoxo: se o buraco negro evapora completamente, a informação que caiu nele é destruída. Mas a mecânica quântica é unitária — informação nunca se perde. Algo tem que ceder.",
+      "visual": "Hawking 1974: pares partícula-antipartícula no horizonte. Um cai (energia negativa), outro escapa (radiação Hawking). Gráfico: temperatura vs massa (hiperbole). Buraco negro solar: 60 nK, evaporação 10^67 anos. Radiação térmica: espectro de corpo negro puro — sem informação. Paradoxo: unitaridade vs evaporação completa.",
+      "duration_seconds": 60,
+      "claims": ["hawking-radiation", "black-hole-info-paradox"],
+      "transition": "cut",
+      "sd_prompt": "Hawking 1974: particle-antiparticle pairs at horizon. One falls (negative energy), one escapes (Hawking radiation). Graph: temperature vs mass (hyperbola). Solar mass BH: 60 nK, evaporation 10^67 years. Thermal radiation: pure blackbody spectrum — no information. Paradox: unitarity vs complete evaporation. 8K"
+    },
+    {
+      "scene": 3,
+      "chapter": 4,
+      "title": "O Paradoxo da Informação: Quarenta Anos de Briga",
+      "narration": "O paradoxo da informação tem três protagonistas: a relatividade geral (espaço-tempo suave, horizonte não-especial), a mecânica quântica (unitaridade, informação conservada), e a termodinâmica (buraco negro tem entropia, temperatura). Hawking (1976) argumentou: informação é perdida — a mecânica quântica deve ser modificada. 't Hooft e Susskind (1990s): princípio holográfico — informação 3D codificada na borda 2D do horizonte. A correspondência AdS/CFT (Maldacena, 1997) deu realização concreta: gravidade em Anti-de Sitter = teoria de campo conforme na borda. Unitariedade preservada na borda → informação preservada no volume. Mas como a informação sai do buraco negro? Com a radiação Hawking? Como? O debate dura até hoje.",
+      "visual": "Triângulo do paradoxo: GR (espaço-tempo suave), QM (unitaridade), Termodinâmica (entropia/temperatura). Hawking 1976: 'informação perdida'. Susskind/'t Hooft: princípio holográfico — informação no horizonte. AdS/CFT: Maldacena 1997, dualidade volume/borda. 'Como a informação sai?' — pergunta aberta.",
+      "duration_seconds": 60,
+      "claims": ["black-hole-info-paradox", "ads-cft-holography", "hawking-radiation"],
+      "transition": "cut",
+      "sd_prompt": "Paradox triangle: GR (smooth spacetime), QM (unitarity), Thermodynamics (entropy/temperature). Hawking 1976: 'information lost'. Susskind/'t Hooft: holographic principle — info on horizon. AdS/CFT: Maldacena 1997, bulk/boundary duality. 'How does information escape?' open question. 8K"
+    },
+    {
+      "scene": 4,
+      "chapter": 4,
+      "title": "O Firewall: O Horizonte que Queima",
+      "narration": "Em 2012, Almheiri, Marolf, Polchinski e Sully (AMPS) lançaram uma bomba: assumindo unitaridade, equivalência de Einstein (horizonte não-especial) e teoria de campo efetiva — os três não podem valer juntos. Se a radiação Hawking é purificadora (unitária), o parceiro do par emaranhado que cai no buraco negro deve ser... o que? A monogamia do emaranhamento proíbe triplas. Resultado: o horizonte não é suave. Existe um 'firewall' — cortina de partículas de alta energia que incinera quem cruza. Ou desistimos da equivalência de Einstein (horizonte é lugar especial), ou da teoria de campo efetiva, ou da unitaridade. Nenhuma opção é palatável. O paradoxo do firewall reacendeu o debate: o espaço-tempo em si pode ser emergente do emaranhamento quântico.",
+      "visual": "AMPS 2012: três postulados (unitaridade, equivalência Einstein, QFT efetiva) — escolha dois. Monogamia do emaranhamento: A emaranhado com B (radiação antiga) e C (parceiro novo) — impossível. Firewall: parede de alta energia no horizonte. Equivalência de Einstein violada: horizonte É especial. ER=EPR: emaranhamento = ponte de Einstein-Rosen (wormhole).",
+      "duration_seconds": 60,
+      "claims": ["firewall-paradox", "black-hole-info-paradox", "quantum-entanglement"],
+      "transition": "cut",
+      "sd_prompt": "AMPS 2012: three postulates (unitarity, Einstein equivalence, effective QFT) — pick two. Entanglement monogamy: A entangled with B (early radiation) and C (new partner) — impossible. Firewall: high-energy wall at horizon. Einstein equivalence violated: horizon IS special. ER=EPR: entanglement = Einstein-Rosen bridge (wormhole). 8K"
+    },
+    {
+      "scene": 5,
+      "chapter": 4,
+      "title": "Holografia: O Universo como Holograma",
+      "narration": "O princípio holográfico, nascido da termodinâmica de buracos negros (Bekenstein-Hawking: entropia = área/4), afirma: toda informação em um volume 3D pode ser codificada em sua borda 2D. A correspondência AdS/CFT é a realização mais concreta: gravidade quântica em espaço Anti-de Sitter (d+1 dimensões) é equivalente a teoria de campo conforme na borda (d dimensões). O dicionário: operadores na borda ↔ campos no volume; emaranhamento na borda ↔ geometria no volume (RT formula: entropia de emaranhamento = área de superfície mínima). Isso sugere: espaço-tempo não é fundamental — emerge do emaranhamento quântico. 'ER = EPR' (Maldacena-Susskind, 2013): ponte de Einstein-Rosen (wormhole) = par emaranhado de Einstein-Podolsky-Rosen. Geometria = emaranhamento.",
+      "visual": "Entropia de Bekenstein-Hawking: S = A/4 (em unidades de Planck). AdS/CFT: volume (AdS) ↔ borda (CFT). Dicionário: operadores ↔ campos. Fórmula RT: entropia de emaranhamento = área superfície mínima. ER=EPR: wormhole = par emaranhado. Espaço-tempo emergente do emaranhamento.",
+      "duration_seconds": 60,
+      "claims": ["ads-cft-holography", "black-hole-info-paradox", "quantum-entanglement"],
+      "transition": "cut",
+      "sd_prompt": "Bekenstein-Hawking entropy: S = A/4 (Planck units). AdS/CFT: bulk (AdS) ↔ boundary (CFT). Dictionary: boundary operators ↔ bulk fields. RT formula: entanglement entropy = minimal surface area. ER=EPR: wormhole = entangled pair. Spacetime emerging from entanglement. 8K theoretical physics visualization"
+    },
+    {
+      "scene": 6,
+      "chapter": 4,
+      "title": "LIGO: Ouvindo Buracos Negros Colidirem",
+      "narration": "Em 14 de setembro de 2015, o LIGO detectou GW150914: dois buracos negros (29 e 36 massas solares) fundindo-se a 1,3 bilhão de anos-luz. A onda gravitacional esticou e comprimiu o espaço-tempo por uma fração de próton. Primeira detecção direta de ondas gravitacionais — Nobel 2017 (Weiss, Barish, Thorne). Desde então: dezenas de fusões BH-BH. Massas, spins, taxas de fusão. Teste de relatividade geral em regime forte: concordância perfeita. Nenhum sinal de 'ecos' pós-fusão que indicassem estrutura no horizonte (firewall, fuzzball, etc.). Os buracos negros do LIGO são 'carecas' — descritos apenas por massa, spin, carga (teorema do 'sem cabelo'). A relatividade geral passa no teste mais extremo.",
+      "visual": "LIGO: interferômetro 4km, espelhos como massas de teste. GW150914: sinal 'chirp' (frequência subindo). Massas: 29 + 36 M_sol → 62 M_sol final (3 M_sol radiadas em energia). Mapa de fusões BH-BH (catálogo GWTC). Teste GR: fase da onda vs previsão — concordância. 'Sem ecos' = horizonte liso. Teorema sem cabelo: M, J, Q apenas.",
+      "duration_seconds": 60,
+      "claims": ["gravitational-waves", "gw170817-multimessenger", "black-hole-info-paradox"],
+      "transition": "cut",
+      "sd_prompt": "LIGO: 4km interferometer, test mass mirrors. GW150914: chirp signal (frequency sweeping up). Masses: 29 + 36 solar masses → 62 final (3 radiated as energy). GWTC catalog map: BH-BH mergers. GR test: waveform phase vs prediction — match. 'No echoes' = smooth horizon. No-hair theorem: M, J, Q only. 8K"
+    },
+    {
+      "scene": 7,
+      "chapter": 4,
+      "title": "GW170817: Astronomia Multi-Mensageira Nasce",
+      "narration": "17 de agosto de 2017. LIGO/Virgo detectam fusão de estrelas de nêutrons (GW170817). 1,7 segundos depois, Fermi e INTEGRAL detectam explosão de raios-gama. Seguem-se dias de observação em todo espectro: raio-X, UV, óptico, infravermelho, rádio. Primeira vez que vemos o mesmo evento em ondas gravitacionais E luz. Confirmações históricas: (1) Velocidade da gravidade = velocidade da luz (precisão 10^-15). (2) Origem de elementos pesados (r-processo): kilonova AT2017gfo mostrou assinaturas de lantânidos/actínidos — ouro, platina, urânio forjados na fusão. (3) Medição independente de H₀ = 70 km/s/Mpc (entre valores CMB e locais). A astronomia multi-mensageira chegou para ficar.",
+      "visual": "Cronologia GW170817: GW (LIGO/Virgo) → 1,7s → GRB (Fermi/INTEGRAL) → dias → kilonova multi-comprimento de onda. Velocidade gravidade = c (10^-15). Kilonova: espectro com lantânidos/actínidos (ouro, platina). H₀ medição: 70 km/s/Mpc (entre 67,4 e 73). Astronomy multi-mensageira: ícones GW + EM.",
+      "duration_seconds": 60,
+      "claims": ["gw170817-multimessenger", "gravitational-waves"],
+      "transition": "cut",
+      "sd_prompt": "GW170817 timeline: GW detection → 1.7s → GRB (Fermi/INTEGRAL) → days → multi-wavelength kilonova. Speed of gravity = c (10^-15 precision). Kilonova spectrum: lanthanides/actinides (gold, platinum). H0 measurement: 70 km/s/Mpc (between 67.4 and 73). Multi-messenger astronomy icons: GW + EM. 8K"
+    },
+    {
+      "scene": 8,
+      "chapter": 4,
+      "title": "Ondas Gravitacionais Primordiais: O Eco da Inflação",
+      "narration": "A inflação cósmica prevê ondas gravitacionais primordiais — flutuações quânticas do espaço-tempo esticadas para escalas cósmicas. Elas deixariam assinatura única na CMB: polarização modo-B (padrão de redemoinho, curl). BICEP2 (2014) anunciou detecção — mas era poeira galáctica. A busca continua: BICEP/Keck (Polo Sul), Simons Observatory (Chile), CMB-S4 (futuro). Detecção de modo-B primordial confirmaria inflação e daria a escala de energia (~10^16 GeV). Também testaria teorias de cordas (cordas cósmicas produzem modo-B). O fundo estocástico de ondas gravitacionais (nanohertz a hertz) é alvo de Pulsar Timing Arrays (NANOGrav, EPTA, PPTA, IPTA) e futuros detectores espaciais (LISA, 2037). A gravidade abre janelas que a luz não alcança.",
+      "visual": "Inflação: flutuações quânticas → ondas gravitacionais primordiais. CMB polarização: modo-E (gradiente) vs modo-B (curl/redemoinho). BICEP2 2014: anúncio e retractação (poeira). Experimentos atuais: BICEP/Keck, Simons Observatory, CMB-S4. Pulsar Timing Arrays (NANOGrav): nanohertz. LISA (2037): milihertz. Janelas gravitacionais do universo.",
+      "duration_seconds": 60,
+      "claims": ["primordial-gravitational-waves", "inflation-theory", "gravitational-waves"],
+      "transition": "cut",
+      "sd_prompt": "Inflation: quantum fluctuations → primordial gravitational waves. CMB polarization: E-mode (gradient) vs B-mode (curl/swirl). BICEP2 2014: announcement and retraction (dust). Current experiments: BICEP/Keck, Simons Observatory, CMB-S4. Pulsar Timing Arrays (NANOGrav): nanohertz. LISA (2037): millihertz. Gravitational wave windows across spectrum. 8K"
+    },
+    {
+      "scene": 9,
+      "chapter": 4,
+      "title": "Buracos Negros como Computadores Quânticos",
+      "narration": "A conexão entre buracos negros e informação quântica vai além do paradoxo. A entropia de Bekenstein-Hawking (S = A/4) é a entropia máxima que uma região pode conter — limite de Bekenstein. Um buraco negro é o sistema mais 'desordenado' possível para sua área. Scrambling time (tempo de embaralhamento): informação jogada no buraco negro espalha-se por todo o horizonte em tempo ~ M log M. Buracos negros são os scramblers mais rápidos da natureza. Complexidade quântica: o volume interior do buraco negro (ou wormhole ER) cresce linearmente por tempo exponencial — dual à complexidade do estado quântico na borda (complexity = volume / action). Buracos negros podem ser os computadores quânticos definitivos. A física da informação e a gravidade são a mesma coisa.",
+      "visual": "Limite de Bekenstein: entropia máxima = A/4. Scrambling time: t ~ M log M — fastest scramblers. Complexity = Volume (wormhole interior growing linearly). Dualidade: complexidade quântica na borda ↔ volume no interior. 'It from qubit': espaço-tempo do emaranhamento. Buraco negro como computador quântico universal.",
+      "duration_seconds": 60,
+      "claims": ["black-hole-info-paradox", "ads-cft-holography", "quantum-entanglement"],
+      "transition": "cut",
+      "sd_prompt": "Bekenstein bound: max entropy = A/4. Scrambling time: t ~ M log M — fastest scramblers in nature. Complexity = Volume (wormhole interior growing linearly for exponential time). Duality: quantum complexity on boundary ↔ volume in interior. 'It from qubit': spacetime from entanglement. Black hole as ultimate quantum computer. 8K"
+    },
+    {
+      "scene": 10,
+      "chapter": 4,
+      "title": "O Que Resta do Paradoxo",
+      "narration": "Quarenta e oito anos após Hawking, o paradoxo da informação não está resolvido. AdS/CFT sugere que a informação escapa na radiação — mas o mecanismo no espaço-tempo de nosso universo (dS, não AdS) é desconhecido. Firewall? Complementaridade de buraco negro (Susskind: observadores diferentes veem histórias diferentes, sem contradição observável)? Ilhas quânticas (Page curve derivada via réplica de wormholes em gravidade semiclássica, 2019-2020 — progresso real, mas em modelos simplificados)? LIGO não vê ecos. O horizonte parece liso. A informação escapa subtilmente na radiação Hawking, codificada em correlações quânticas complexas? Ou a unitariedade falha? O buraco negro guarda o segredo da unificação. Resolver o paradoxo pode exigir a teoria completa da gravidade quântica. Estamos ouvindo o universo nos dar pistas — GW150914, GW170817, EHT, CMB. A resposta está na interseção do muito grande e do muito pequeno.",
+      "visual": "Status do paradoxo: AdS/CFT (sim, em AdS), nosso universo (dS, desconhecido). Firewall? Complementaridade? Ilhas quânticas (Page curve 2019-2020, modelos toy). LIGO: sem ecos, horizonte liso. EHT: sombra consistente com GR. Pista final: gravidade quântica necessária. Interseção: muito grande (cosmologia) + muito pequeno (quântico). 'O buraco negro guarda o segredo.'",
+      "duration_seconds": 60,
+      "claims": ["black-hole-info-paradox", "firewall-paradox", "ads-cft-holography", "gravitational-waves", "quantum-gravity-problem"],
+      "transition": "fade",
+      "sd_prompt": "Paradox status: AdS/CFT (yes in AdS), our universe (dS, unknown). Firewall? Complementarity? Quantum islands (Page curve 2019-2020, toy models). LIGO: no echoes, smooth horizon. EHT: shadow consistent with GR. Final clue: quantum gravity needed. Intersection: very large (cosmology) + very small (quantum). 'Black hole holds the secret.' 8K"
+    }
+  ]
+}

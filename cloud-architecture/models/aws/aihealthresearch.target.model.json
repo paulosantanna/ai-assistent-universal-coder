@@ -1,0 +1,142 @@
+{
+  "schema": "cloud-architecture-model/v1",
+  "provider": "aws",
+  "project": {
+    "name": "AIHealthResearch",
+    "kind": "api-platform",
+    "source": "modelo-alvo derivado de cloud-architecture/models/aws/aihealthresearch.as-is.model.json; mantem as fronteiras de docs/ARCHITECTURE.md"
+  },
+  "environment": "prod",
+  "regions": { "primary": "sa-east-1", "note": "residencia dos dados e latencia; us-east-1 custaria menos (ver custo do snapshot)" },
+  "audience_regions": ["BR"],
+  "network": {
+    "private_only": true,
+    "interface_endpoints": 9,
+    "gateway_endpoints": 1,
+    "availability_zones": 2,
+    "nat_gateways": 0,
+    "note": "endpoints mantidos: cada um precisa ser justificado pela carga (AWS-003)"
+  },
+  "compute": [
+    {
+      "name": "api",
+      "service": "ecs-express",
+      "arch": "arm64",
+      "vcpu": 2,
+      "memory_gb": 8,
+      "instances": 2,
+      "load_balancer": "internal-alb",
+      "note": "ECS Express Mode com sub-redes privadas provisiona ALB interno; imagem multi-arquitetura exigida; primeira aplicacao Express da VPC define o tipo de balanceador"
+    },
+    {
+      "name": "fetcher",
+      "service": "lambda",
+      "vpc": false,
+      "note": "mantido fora da VPC, como no CFN: saida publica para PubMed, Europe PMC, ClinicalTrials e Crossref"
+    },
+    {
+      "name": "workers",
+      "service": "lambda",
+      "vpc": true,
+      "note": "mantidos na VPC privada, como no CFN"
+    }
+  ],
+  "data": [
+    {
+      "name": "governance-db",
+      "kind": "postgres",
+      "service": "aurora-postgresql",
+      "instances": 2,
+      "instance_class": "db.r6g.large",
+      "multi_az": true,
+      "deletion_protection": true,
+      "backup_retention_days": 35,
+      "public_access": false,
+      "encryption": "kms-cmk",
+      "storage_gb": 100,
+      "note": "producao mantida; Serverless v2 so se o benchmark justificar (ver documento)"
+    },
+    {
+      "name": "search",
+      "kind": "search",
+      "service": "opensearch-managed",
+      "data_nodes": 2,
+      "data_node_type": "r6g.large.search",
+      "dedicated_masters": 3,
+      "master_type": "m6g.large.search",
+      "ebs_gb_per_node": 100,
+      "ebs_type": "gp3",
+      "zone_awareness": true,
+      "latency_ms_target": 50,
+      "encryption": "kms-cmk",
+      "note": "3 dedicated masters mantidos: recomendacao AWS para producao"
+    },
+    {
+      "name": "evidence-lake",
+      "kind": "audit-archive",
+      "service": "s3",
+      "versioning": true,
+      "immutability": "compliance",
+      "retention_days": 365,
+      "encryption": "kms-cmk",
+      "storage_gb": 100,
+      "note": "compliance: irreversivel no periodo; exige ADR antes de bloquear"
+    }
+  ],
+  "ml": [
+    {
+      "name": "model-endpoint",
+      "service": "sagemaker-realtime",
+      "instance_type": "ml.g5.xlarge (premissa)",
+      "instances": 1,
+      "always_on": false,
+      "schedule": "8 h por dia util, 22 dias por mes (premissa: validar com logs reais de uso)",
+      "traffic": "intermittent",
+      "latency_p95_target_s": 15,
+      "note": "p95 de 15 s nao tolera cold start de minutos: agenda de capacidade em vez de scale-to-zero"
+    },
+    {
+      "name": "training",
+      "service": "sagemaker-training",
+      "instance_type": "ml.g5.xlarge (premissa)",
+      "hours_per_day": 4,
+      "days_per_month": 30,
+      "training_spot": true,
+      "checkpoints": true,
+      "note": "Managed Spot com checkpoint em S3; desconto de 70% como premissa de planejamento (a AWS diz ate 90%)"
+    }
+  ],
+  "llm": { "external_endpoint": false },
+  "constraints": { "external_llm_allowed": false },
+  "identity": { "ci_auth": "oidc", "user_auth": "cognito", "secrets_manager": "managed" },
+  "observability": {
+    "log_retention_days": 30,
+    "traces_destination": "cloudwatch",
+    "traces_auth": "sigv4",
+    "log_analytics_gb_month": 0,
+    "note": "logs de aplicacao 30 dias; trilha de auditoria fica no S3 em compliance por 365 dias"
+  },
+  "data_classification": "personal",
+  "cost_items": [
+    { "sku": "aws.sa-east-1.vpc_endpoint_interface_hour", "units_per_month": 13140, "note": "mantido: 9 endpoints x 2 AZ x 730 h" },
+    { "sku": "aws.sa-east-1.aurora_pg_r6g_large_hour", "units_per_month": 1460, "note": "producao mantida: 2 x 730 h" },
+    { "sku": "aws.sa-east-1.aurora_pg_storage_gb_month", "units_per_month": 100, "note": "premissa: 100 GB" },
+    { "sku": "aws.sa-east-1.opensearch_r6g_large_hour", "units_per_month": 1460, "note": "mantido: 2 data nodes" },
+    { "sku": "aws.sa-east-1.opensearch_m6g_large_hour", "units_per_month": 2190, "note": "mantido: 3 dedicated masters" },
+    { "sku": "aws.sa-east-1.opensearch_gp3_gb_month", "units_per_month": 200, "note": "mantido" },
+    { "sku": "aws.sa-east-1.fargate_arm_vcpu_hour", "units_per_month": 2920, "note": "ARM64: 2 tarefas x 2 vCPU x 730 h" },
+    { "sku": "aws.sa-east-1.fargate_arm_gb_hour", "units_per_month": 11680, "note": "ARM64: 2 tarefas x 8 GB x 730 h" },
+    { "sku": "aws.sa-east-1.alb_hour", "units_per_month": 730, "note": "1 ALB interno" },
+    { "sku": "aws.sa-east-1.alb_lcu_hour", "units_per_month": 730, "note": "premissa: 1 LCU constante" },
+    { "sku": "aws.sa-east-1.sagemaker_hosting_ml_g5_xlarge_hour", "units_per_month": 176, "note": "1 instancia x 8 h x 22 dias (agenda)" },
+    { "sku": "aws.sa-east-1.sagemaker_training_ml_g5_xlarge_hour", "units_per_month": 120, "factor": 0.3, "note": "Spot com fator de planejamento de 0,3 do preco sob demanda (premissa)" },
+    { "sku": "aws.sa-east-1.cloudwatch_logs_ingest_gb", "units_per_month": 5, "note": "premissa: 5 GB/mes" },
+    { "sku": "aws.sa-east-1.secrets_manager_secret_month", "units_per_month": 5, "note": "premissa: 5 segredos" },
+    { "sku": "aws.sa-east-1.s3_standard_gb_month", "units_per_month": 100, "note": "premissa: 100 GB" }
+  ],
+  "unverified_costs": [
+    "lever B3 (fora do total): Aurora Serverless v2 com 0,5 ACU minimo em 2 instancias seria cerca de US$ 183/mes contra US$ 803; exige benchmark de carga antes",
+    "KMS, Cognito, Lambda, EventBridge, SQS e ECR: nao precificados nesta rodada",
+    "armazenamento de logs e transferencia de saida: nao precificados"
+  ]
+}

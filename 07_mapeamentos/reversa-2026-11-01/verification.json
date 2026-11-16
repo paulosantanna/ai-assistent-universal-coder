@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "sqlite_integrity": "ok",
+  "chunks_checked": 1403,
+  "diagnostic_recall_at_10": 1.0,
+  "cases": [
+    {
+      "query": "files-manifest sha256 hashFile",
+      "expected_path": "lib/installer/manifest.js",
+      "rank": 1
+    },
+    {
+      "query": "getWritableFolders allowLegacyEdits",
+      "expected_path": "lib/installer/policy.js",
+      "rank": 1
+    },
+    {
+      "query": "detectEngines ENGINES skillsDir",
+      "expected_path": "lib/installer/detector.js",
+      "rank": 2
+    },
+    {
+      "query": "createReversaDir Writer installSkill",
+      "expected_path": "lib/installer/writer.js",
+      "rank": 4
+    },
+    {
+      "query": "fetchLatestVersion registry.npmjs.org",
+      "expected_path": "lib/commands/update.js",
+      "rank": 1
+    },
+    {
+      "query": "MMDC_TIMEOUT_MS runMmdc",
+      "expected_path": "lib/commands/export-diagrams.js",
+      "rank": 1
+    },
+    {
+      "query": "created_files modifiedFiles removeOutput",
+      "expected_path": "lib/commands/uninstall.js",
+      "rank": 1
+    },
+    {
+      "query": "MIGRATION_AGENT_IDS DISCOVERY_CORE",
+      "expected_path": "lib/installer/prompts.js",
+      "rank": 1
+    }
+  ],
+  "errors": [],
+  "limits": "Consultas diagnósticas por caminho, pequenas e não independentes; não medem resposta gerada, pertinência geral ou faithfulness."
+}

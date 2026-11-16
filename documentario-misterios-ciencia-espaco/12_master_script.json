@@ -1,0 +1,69 @@
+{
+  "documentary": "Mistérios da Ciência e do Espaço",
+  "total_duration_minutes": 90,
+  "total_duration_seconds": 5400,
+  "language": "pt-BR",
+  "chapters": 9,
+  "scenes_per_chapter": 10,
+  "total_scenes": 90,
+  "target_words_per_minute": 125,
+  "target_total_words": 11250,
+  "chapters_data": [
+    {
+      "number": 1,
+      "title": "O Eco do Big Bang - A Radiação Cósmica de Fundo",
+      "file": "03_scenes_chapter1.json",
+      "duration_seconds": 600
+    },
+    {
+      "number": 2,
+      "title": "O Invisível que Governa - Matéria Escura e Energia Escura",
+      "file": "04_scenes_chapter2.json",
+      "duration_seconds": 600
+    },
+    {
+      "number": 3,
+      "title": "Onde Estão Todos? - O Paradoxo de Fermi e a Busca por Vida",
+      "file": "05_scenes_chapter3.json",
+      "duration_seconds": 600
+    },
+    {
+      "number": 4,
+      "title": "Buracos Negros: Onde a Física Quebra - Informação, Firewalls e Holografia",
+      "file": "06_scenes_chapter4.json",
+      "duration_seconds": 600
+    },
+    {
+      "number": 5,
+      "title": "A Realidade Quântica - Emaranhamento, Medição e Muitos Mundos",
+      "file": "07_scenes_chapter5.json",
+      "duration_seconds": 600
+    },
+    {
+      "number": 6,
+      "title": "A Origem da Vida - Do Químico ao Vivo",
+      "file": "08_scenes_chapter6.json",
+      "duration_seconds": 600
+    },
+    {
+      "number": 7,
+      "title": "O Multiverso e a Afinação Fina - Inflação, Paisagem de Cordas e Constantes",
+      "file": "09_scenes_chapter7.json",
+      "duration_seconds": 600
+    },
+    {
+      "number": 8,
+      "title": "Consciência, Livre-Arbítrio e a Natureza da Realidade",
+      "file": "10_scenes_chapter8.json",
+      "duration_seconds": 600
+    },
+    {
+      "number": 9,
+      "title": "O Futuro do Cosmos e as Perguntas que Ficam",
+      "file": "11_scenes_chapter9.json",
+      "duration_seconds": 600
+    }
+  ],
+  "fact_ledger_file": "01_fact-ledger.json",
+  "chapter_outline_file": "02_chapter-outline.json"
+}
