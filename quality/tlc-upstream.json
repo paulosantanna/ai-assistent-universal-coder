@@ -1,7 +1,7 @@
 {
   "repository": "tech-leads-club/agent-skills",
-  "commit": "e74dc8a7e8d59bb36f267afd089580e0858e224a",
-  "checked_at": "2026-11-15",
+  "commit": "fb02f17d15f40f5410bf0706a79d9226a31b82ce",
+  "checked_at": "2026-11-19",
   "controls": {
     "CONTRIBUTING.md": "2721a01b4bb20557f8e9ad7d88e6d2e6f13186490b8e0450c1a0a826c07bb97d",
     "tools/validate-skills.ts": "f3a2a8751e2923aa2017fd72fbda32af2a963d8b4d1a7213837f57f81c3aa5e6",
