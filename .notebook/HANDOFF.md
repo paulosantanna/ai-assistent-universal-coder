@@ -1,3 +1,14 @@
+## always-on agents — módulo local, sem Ollama — 2026-11-24
+
+Updated: 2026-11-24. Entry point: `00_skills/(tooling)/always-on-agents/SKILL.md`. Evidence: `python scripts/run_tests.py` (27 OK); `python quality/validate.py` PASS.
+
+- Objetivo: a próxima conversa cria workers do mesmo host e do mesmo modelo, só com código, e eles morrem depois da revisão.
+- Estado verificado: Grok e GLM perguntam e ficam em 3 processos por geração. Lista gratuita nasce vazia. Ollama é recusado. Nota dura abaixo de 9.5 vira 9.0.
+- Bloqueio: os binários `agent` e `opencode` não estavam no PATH desta máquina. `--execute` só deve rodar onde esses CLIs existem.
+- Próxima ação: na janela Cursor, `python -m always_on plan --host cursor --model <slug visível> --task "..."`. Na janela OpenCode, troque o host e o modelo. Se a saída for 4, mostre só `question` e pare.
+
+---
+
 ## CI master — Node 26 no prepush — 2026-11-16
 
 Updated: 2026-11-16. Entry point: `.github/workflows/prepush-gate.yml`. Evidence: simulação do backend `language` com o Node 24.22.2 da imagem Ubuntu (endoflife ciclo atual 26, patch 26.13.1) produz `language-outdated`; o mesmo check com 26.13.1 passa. `quality/validate.py --runtime` PASS local com Python 3.15 e PyYAML 6.0.3.

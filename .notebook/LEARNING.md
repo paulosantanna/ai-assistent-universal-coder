@@ -1,3 +1,12 @@
+## Nota 9.5 com checagens iguais deixa uma falha dura passar — 2026-11-24
+
+Updated: 2026-11-24. Entry point: `00_skills/(tooling)/always-on-agents/scripts/always_on/domain/score.py`. Evidence: `scripts/tests/test_request.py` (`test_missing_negative_proof_is_below_9_5_even_if_someone_claims_10`).
+
+- Trigger: vinte checagens de 0.5 e aceite em 19. Uma prova negativa ausente ainda soma 9.5.
+- Root cause: o piso numérico trata falta de prova como a mesma folga de uma citação incompleta.
+- Fix/prevention: checagem dura que falha limita a nota a 9.0. A única folga de 9.5 é a citação dos pilares.
+- Reuse scope: qualquer nota mínima que também declare falhas intoleráveis.
+
 ## Link relativo no grafo de skills precisa existir no checkout publicado — 2026-11-16
 
 Updated: 2026-11-16. Entry point: `00_skills/(creation)/skill-factory/scripts/validate-workspace.py` (`markdown_links`). Evidence: anotação `skill-contract` em `rag-graph-laya-mcp/docs/mongodb-review/APPLIED.md` no run `43953048760`.

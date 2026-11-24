@@ -1,3 +1,14 @@
+## Workers always-on — mesmo host, mesmo modelo, sem Ollama — 2026-11-24
+
+Updated: 2026-11-24. Entry point: `00_skills/(tooling)/always-on-agents/SKILL.md`. Evidence: `.notebook/always-on-agents.md`.
+
+- Decision: o worker é um processo do CLI da janela (`agent` ou `opencode run`), sob `codenavi-agent`. Não é identidade nova. Resume é proibido.
+- Fact: Grok 4.7 e GLM-5.3 têm preço publicado (xAI e Z.ai, páginas lidas em 2026-11-24). Os dois perguntam antes de nascer e a autorização vale uma geração de três processos.
+- Fact: `scripts/free-models.json` começa vazio. Marcador pago vence qualquer declaração gratuita. Ollama é recusado.
+- Limit: o slug exato dentro do Cursor não foi listado aqui; o binário `agent` não estava instalado. A janela passa o id que ela já mostra.
+
+---
+
 ## Arquitetura cloud AWS e Azure — fatos verificados — 2026-11-14
 
 Updated: 2026-11-14. Entry point: `cloud-architecture/README.md`. Evidence: `cloud-architecture-mcp/evidence/claims.json`, `cloud-architecture-mcp/providers/*/prices.json`, `02_repositorios/AIHealthResearch/infra/*`.

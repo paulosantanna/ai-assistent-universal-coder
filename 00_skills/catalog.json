@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updated": "2026-11-16",
+  "updated": "2026-11-24",
   "governance": "CodENavi Full Workspace v2",
   "skills": [
     {
@@ -171,6 +171,19 @@
       "source": "tlc",
       "lines": 59,
       "sha256": "e7d62f1f51c55b82cb6ac0a619bc40a2c4c4483b4af6843f2bfb6bb3d19466c4"
+    },
+    {
+      "id": "always-on-agents",
+      "aliases": [],
+      "path": "00_skills/(tooling)/always-on-agents/SKILL.md",
+      "category": "tooling",
+      "description": "Code-only same-model workers. Use for always-on agents or agentes always-on. Do NOT use for Ollama, paid unlimited spawn, or new agent identities.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "medium",
+      "runtime_binding": "instruction_only",
+      "source": "workspace",
+      "lines": 48,
+      "sha256": "3f18fb5f0ad61106b77e94f7ce6dfa26e5ab9257ce8ab2237d0eeb93be921d93"
     },
     {
       "id": "angular-20-expert",

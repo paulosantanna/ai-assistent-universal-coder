@@ -1,3 +1,15 @@
+# always-on agents — 2026-11-24
+
+Updated: 2026-11-24. Entry point: `00_skills/(tooling)/always-on-agents/scripts/run_tests.py`.
+
+- [x] BRIEFING: workers locais, sem Ollama, mesmo modelo da janela, silêncio, pago pergunta, 9.5, spec-driven e revisores.
+- [x] RECON: skill ausente; Cursor headless e OpenCode `run` lidos; preços de Grok 4.7 e GLM-5.3 lidos; pilares no AGENTS.md do Tech Leads Club.
+- [x] EXECUTE: pacote `always-on-agents` com domínio, argv, gate e CLI JSON.
+- [x] VERIFY: 27 testes do pedido, exit 0. `quality/validate.py` PASS, 325 skills, 1 skill nova avaliada.
+- [x] DEBRIEF: notebook atualizado. Binários `agent` e `opencode` ausentes; nenhum worker pago foi iniciado.
+
+---
+
 # CI master 66737bb9 — enterprise gate e prepush — 2026-11-16
 
 Updated: 2026-11-16. Entry point: `quality/capabilities.json`, `quality/skills-baseline.json`, `rag-graph-laya-mcp/pyproject.toml`.

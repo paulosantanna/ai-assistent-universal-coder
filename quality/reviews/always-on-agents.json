@@ -1,0 +1,25 @@
+{
+  "skill": "always-on-agents",
+  "package_hash": "bb98eef9e26fa87e67d9364b9263ef9b8a125e662c313052930e203a7c8b3371",
+  "positive_triggers": [
+    "always-on agents",
+    "agentes always-on",
+    "Code-only same-model"
+  ],
+  "negative_scope": [
+    "Ollama",
+    "paid unlimited spawn",
+    "new agent identities"
+  ],
+  "source": {
+    "repository": "workspace",
+    "date": "2026-11-24",
+    "path": "00_skills/(tooling)/always-on-agents/SKILL.md"
+  },
+  "verification": {
+    "kind": "structural-and-syntax",
+    "runtime_evaluated": false,
+    "routing": "Static wording assessment; no measured trigger accuracy"
+  },
+  "effectiveness": "Not measured; structural acceptance does not establish enterprise performance"
+}

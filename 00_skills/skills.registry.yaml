@@ -1961,3 +1961,9 @@ skills:
   risk_level: high
   mission: 'TLC rule for Dark Videos media (spec-driven, Spotify). Use for media creation with a role skill. Do NOT use as substitute or to upload mined files.'
   capabilities: []
+- id: always-on-agents
+  path: 00_skills/(tooling)/always-on-agents/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Code-only same-model workers. Use for always-on agents or agentes always-on. Do NOT use for Ollama, paid unlimited spawn, or new agent identities.'
+  capabilities: []

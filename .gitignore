@@ -13,6 +13,7 @@ target/
 .gradle/
 .DS_Store
 .aeos/
+.always-on/
 .tools/*
 !.tools/bin/
 !.tools/bin/mvn

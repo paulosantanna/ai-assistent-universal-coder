@@ -1,0 +1,11 @@
+{
+  "lens": "the-fool",
+  "self_verified": true,
+  "verdict": "SEGUIR COM AJUSTE",
+  "threats": [
+    "agent --force foi pedido porque o headless do Cursor recusa teste sem isso. O sandbox está no argv e não foi executado nesta máquina, onde o binário agent não existe.",
+    "O pai da conversa pode passar um id gratuito enquanto a conta do host cobra outro modelo. O módulo não lê a tela do Cursor nem do OpenCode.",
+    "Nenhum worker Grok ou GLM foi iniciado. A nota 10 do teste é do executor gravado, não de um CLI pago."
+  ],
+  "owner": "codenavi-agent"
+}

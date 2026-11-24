@@ -321,6 +321,7 @@ Entry point: [contrato](STANDARD.md), [catálogo](catalog.json), [esteira](../qu
 ## tooling
 
 - [acta-aurea]((tooling)/acta-aurea/SKILL.md) — Turn an authorized meeting/call video (Teams/OBS .mkv/.mp4) into the complete offline pack: transcript, named speakers, topics, minutes, summary, glossary, subtitles and HTML player. Use for analisar essa call, gerar ata, transcreva a reunião or transcreva esse vídeo de reunião, even when only transcription is named. Do NOT use for a bare audio file with no meeting/speakers/pack (vox-aurum), live dictation or generic report design.
+- [always-on-agents]((tooling)/always-on-agents/SKILL.md) — Code-only same-model workers.
 - [automation-orchestrator]((tooling)/automation-orchestrator/SKILL.md) — Design deterministic, idempotent multi-step engineering automations using existing AEOS skills/tools.
 - [chrome-devtools]((tooling)/chrome-devtools/SKILL.md) — Browser debugging, performance profiling, and automation via Chrome DevTools MCP.
 - [conflict-detector]((tooling)/conflict-detector/SKILL.md) — Detect read/write/tool/approval/resource conflicts before parallel execution.
