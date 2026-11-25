@@ -10,6 +10,7 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
+from urllib.parse import urlsplit
 
 
 class TransportError(Exception):
@@ -29,11 +30,23 @@ class Response:
         return self.headers.get(name.lower())
 
 
+def github_api_token() -> str:
+    """Actions runners share the anonymous 60/hour bucket and GitHub answers 403."""
+    for name in ("GITHUB_TOKEN", "GH_TOKEN"):
+        value = os.environ.get(name, "").strip()
+        if value:
+            return value
+    return ""
+
+
 class UrllibTransport:
     def request(self, method, url, body=None, headers=None, timeout=30):
         hdrs = {"User-Agent": "codenavi-prepush", "Accept": "application/json"}
         if headers:
             hdrs.update(headers)
+        token = github_api_token()
+        if token and urlsplit(url).hostname == "api.github.com" and not any(key.lower() == "authorization" for key in hdrs):
+            hdrs["Authorization"] = f"Bearer {token}"
         data = None
         if body is not None:
             data = body if isinstance(body, bytes) else json.dumps(body).encode("utf-8")

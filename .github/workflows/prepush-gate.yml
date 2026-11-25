@@ -31,4 +31,6 @@ jobs:
       - name: Contract tests
         run: python -m unittest discover -s quality/prepush/tests -v
       - name: Live gate
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: python quality/prepush/prepush.py --repo .

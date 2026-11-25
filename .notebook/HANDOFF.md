@@ -6,7 +6,17 @@ Updated: 2026-11-25. Entry point: `00_skills/(tooling)/always-on-agents/SKILL.md
 - Resolução: as duas histórias do notebook ficam; o catálogo da master ganha só `always-on-agents`.
 - Verificado aqui: bibliotecas, CVE, SAST, executáveis e segurança do prepush passam. O backend `language` falha neste ambiente (Node 22.23.4, Python 3.12.3).
 - CI do SHA `2aef4f09`: prepush `45672744803` e enterprise `45672744687`, ambos success. `mergeable_state` clean contra `master` `1cebb6bd`.
-- Próximo: merge do PR 59 na master. Binários `agent` e `opencode` continuam fora desta verificação.
+- O PR 59 entrou na master em `fafa5466` às 15:16 (America/Sao_Paulo). Binários `agent` e `opencode` continuam fora desta verificação.
+
+---
+
+## prepush — token na API do GitHub — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `quality/prepush/backends/common.py`. Evidence: run `45673468579`.
+
+- O push da master bloqueou o prepush: semgrep-rules e gitleaks responderam HTTP 403. Os outros backends passaram.
+- O transporte agora autentica só `api.github.com` com `GITHUB_TOKEN` ou `GH_TOKEN`. O workflow entrega `github.token` no passo ao vivo.
+- Verificado: `python3 -m unittest discover -s quality/prepush/tests -v`. O 403 do runner não se reproduz nesta máquina, que ainda tem cota anônima.
 
 ---
 

@@ -1,3 +1,13 @@
+# Prepush 403 na API do GitHub — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `quality/prepush/backends/common.py`. Evidence: https://github.com/paulosantanna/ai-assistent-universal-coder/actions/runs/45673468579
+
+- [x] RECON: run `45673468579` no SHA `fafa5466`. `sast-upstream-unreachable` e `security-upstream-unreachable`, ambos HTTP 403. Demais backends em pass.
+- [x] EXECUTE: Bearer só em `api.github.com`; workflow passa `github.token` no passo ao vivo.
+- [x] VERIFY: 16 testes de contrato do prepush, exit 0.
+
+---
+
 # PR 59 — always-on agents na master — 2026-11-25
 
 Updated: 2026-11-25. Entry point: `00_skills/(tooling)/always-on-agents/SKILL.md`.

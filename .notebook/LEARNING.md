@@ -1,3 +1,12 @@
+## API do GitHub sem token toma 403 no Actions — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `quality/prepush/backends/common.py` (`github_api_token`). Evidence: run `45673468579`; limite anônimo observado em 60.
+
+- Trigger: o mesmo prepush passa no pull request e bloqueia no push da master, só nas URLs `api.github.com`.
+- Root cause: o runner compartilhado esgota o balde anônimo e o GitHub responde 403. OSV e os registros continuam acessíveis.
+- Fix/prevention: enviar `Authorization: Bearer` apenas para o host `api.github.com`, com o `github.token` do job. Não anexar o token a outro host.
+- Reuse scope: qualquer chamada a `api.github.com` feita de um runner sem identidade.
+
 ## Catálogo de skill em PR atrasado conflita no cabeçalho, não no pacote — 2026-11-25
 
 Updated: 2026-11-25. Entry point: `quality/registry.py` (`sync_distribution`). Evidence: merge de `cursor/always-on-agents-a9da` em `1cebb6bd`; `quality/validate.py` PASS.

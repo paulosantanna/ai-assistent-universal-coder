@@ -1,14 +1,16 @@
 import json
+import os
 import subprocess
 import sys
 import tempfile
 import unittest
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from backends.common import Response, TransportError, load_json
+from backends.common import Response, TransportError, UrllibTransport, load_json
 from backends.executables import check as check_executables
 from backends.pe import build_pe, parse_pe
 from backends.sast import check as check_sast
@@ -241,6 +243,40 @@ class PrepushTests(unittest.TestCase):
                 self.assertEqual(backend["status"], "pass")
             else:
                 self.assertEqual(backend["status"], "blocked", backend["id"])
+
+    def test_github_token_stays_on_api_github(self):
+        captured = []
+
+        class Res:
+            status = 200
+            headers = {}
+
+            def read(self):
+                return b"{}"
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *_args):
+                return False
+
+        def fake_urlopen(req, timeout=30):
+            captured.append((req.full_url, req.get_header("Authorization")))
+            return Res()
+
+        transport = UrllibTransport()
+        with patch.dict(os.environ, {"GITHUB_TOKEN": "ghs_testtoken", "GH_TOKEN": ""}, clear=False):
+            with patch("urllib.request.urlopen", fake_urlopen):
+                transport.request("GET", "https://api.github.com/repos/gitleaks/gitleaks/releases/latest")
+                transport.request("GET", "https://pypi.org/pypi/demo/json")
+                transport.request("GET", "https://api.github.com/rate_limit", headers={"Authorization": "Bearer already"})
+        self.assertEqual(captured[0][1], "Bearer ghs_testtoken")
+        self.assertIsNone(captured[1][1])
+        self.assertEqual(captured[2][1], "Bearer already")
+        with patch.dict(os.environ, {"GITHUB_TOKEN": "", "GH_TOKEN": "ghs_fallback"}, clear=False):
+            with patch("urllib.request.urlopen", fake_urlopen):
+                transport.request("GET", "https://api.github.com/rate_limit")
+        self.assertEqual(captured[3][1], "Bearer ghs_fallback")
 
     def test_hook_install_uses_lf(self):
         subprocess.run(["git", "init", str(self.root)], check=True, capture_output=True)
