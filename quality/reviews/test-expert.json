@@ -1,0 +1,24 @@
+{
+  "skill": "test-expert",
+  "package_hash": "2f9495736ed57bddcce813024c9c1d5a81a54cb6b7db928e89e8fac7ccbed150",
+  "positive_triggers": [
+    "test-expert",
+    "qa-expert",
+    "test plan"
+  ],
+  "negative_scope": [
+    "exploit payloads",
+    "invented oracles",
+    "unit-only proof"
+  ],
+  "source": {
+    "repository": "local",
+    "retrieved": "2026-11-25"
+  },
+  "verification": {
+    "kind": "structural-and-syntax",
+    "runtime_evaluated": false,
+    "routing": "Static wording assessment; no measured trigger accuracy"
+  },
+  "effectiveness": "Not measured; structural acceptance does not establish enterprise performance"
+}

@@ -45,7 +45,7 @@
       "protocol": "incomplete",
       "owner": "codenavi-agent",
       "reason": "Manifest refers to missing Python server and project metadata",
-      "baseline_hash": "e7f5426631d9a6c253e316c3d0b180ba3919d4b00d7246da2abd0f62ab1511c8",
+      "baseline_hash": "0558ba69e96599b206ba3c82c7fc58eb5886993c02a7752edf568c9713afe4a2",
       "secret_policy": "runtime-references-only",
       "smoke": null
     },
@@ -664,6 +664,252 @@
             },
             "required": [
               "items"
+            ],
+            "additionalProperties": false
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "qa-expert-mcp",
+      "path": "qa-expert-mcp",
+      "state": "active",
+      "protocol": "jsonrpc-stdio",
+      "owner": "codenavi-agent",
+      "secret_policy": "runtime-references-only",
+      "command": [
+        "python",
+        "server.py"
+      ],
+      "entrypoint": "server.py",
+      "tools": [
+        {
+          "name": "list_categories",
+          "description": "Lista categorias de teste com o estado da fonte. Nao escolhe uma categoria.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": [],
+            "additionalProperties": false
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "get_category",
+          "description": "Devolve uma categoria e as fontes ja lidas. Id desconhecido falha.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "list_tools",
+          "description": "Lista ferramentas de teste com quando, onde, por que e como, sem linha de comando.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": [],
+            "additionalProperties": false
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "get_tool",
+          "description": "Detalha uma ferramenta de teste a partir da pagina oficial ja lida.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "plan_checks",
+          "description": "Sem categoria, devolve so a lista para o operador escolher. Com categoria sem fonte, nao inventa checks.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "category": {
+                "type": "string"
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "list_questions",
+          "description": "Perguntas de refinamento ou release somente quando ha fonte. Caso contrario, recusa inventar.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "pentexpert-mcp",
+      "path": "pentexpert-mcp",
+      "state": "active",
+      "protocol": "jsonrpc-stdio",
+      "owner": "codenavi-agent",
+      "secret_policy": "runtime-references-only",
+      "command": [
+        "python",
+        "server.py"
+      ],
+      "entrypoint": "server.py",
+      "tools": [
+        {
+          "name": "plan_assessment",
+          "description": "Sem autorizacao escrita devolve so o checklist. Pedido de payload, comando ou reproducao e recusado.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "request": {
+                "type": "string"
+              },
+              "written_authorization": {
+                "type": "object",
+                "properties": {
+                  "authorizer": {
+                    "type": "string"
+                  },
+                  "scope": {
+                    "type": "string"
+                  },
+                  "date": {
+                    "type": "string"
+                  },
+                  "rules_of_engagement": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "authorizer",
+                  "scope",
+                  "date",
+                  "rules_of_engagement"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "list_topics",
+          "description": "Lista topicos de avaliacao com o estado da fonte. Nao inclui passo de ataque.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": [],
+            "additionalProperties": false
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "get_topic",
+          "description": "Devolve impacto, pergunta de controle, evidencia e correcao. Nao devolve reproducao.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "list_tools",
+          "description": "Lista o proposito das ferramentas citadas, sem modo de uso ofensivo.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": [],
+            "additionalProperties": false
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "get_tool",
+          "description": "Devolve o proposito lido da fonte oficial. Nao devolve comando.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
             ],
             "additionalProperties": false
           },

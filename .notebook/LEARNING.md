@@ -1,3 +1,30 @@
+## Catálogo de skill em PR atrasado conflita no cabeçalho, não no pacote — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `quality/registry.py` (`sync_distribution`). Evidence: merge de `cursor/always-on-agents-a9da` em `1cebb6bd`; `quality/validate.py` PASS.
+
+- Trigger: a master e o PR editam `catalog.json`, `INDEX.md`, `skills.registry.yaml` e o topo do `.notebook/`.
+- Root cause: os dois lados registram skills diferentes nos mesmos arquivos gerados.
+- Fix/prevention: unir as seções do notebook; manter o catálogo da master e acrescentar a skill nova; regenerar índice e registry com `sync_distribution`.
+- Reuse scope: qualquer PR de skill que ficou atrás de outro registro no catálogo.
+
+## Skill sem licença não entra como cópia integral — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `00_skills/(video)/remotion-best-practices/references/provenance.md`. Evidence: `gh api repos/remotion-dev/skills` devolveu `license: null` em 2026-11-25.
+
+- Trigger: o usuário pede para internalizar uma skill pública cujo repositório não declara licença.
+- Root cause: copiar os ensaios e assets seria redistribuir texto sem licença detectada, e o entrypoint ainda quebraria o teto de 100 linhas.
+- Fix/prevention: reescrever as regras lidas, apontar a documentação oficial e registrar o que ficou de fora.
+- Reuse scope: qualquer pacote de skill de terceiro sem licença SPDX ou arquivo LICENSE.
+
+## Skill NVIDIA longa não entra no catálogo como arquivo único — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `00_skills/(creation)/skill-factory/scripts/validate-workspace.py`. Evidence: `validate-workspace.py` PASS depois da adaptação das 45 skills; o corpo original passava de 100 linhas e apontava para arquivos fora do pacote.
+
+- Trigger: importar uma skill cujo `SKILL.md` passa de 100 linhas físicas ou liga para `../../scripts` e `AGENTS.md` de outro repositório.
+- Root cause: o validador conta todas as linhas do entrypoint e segue cada link Markdown local até um arquivo versionado.
+- Fix/prevention: entrypoint curto com gates; procedimento em `references/`; link quebrado vira texto; assinatura OMS e eval não copiados não contam como verificação.
+- Reuse scope: qualquer pacote de skill de terceiros acima do teto de linhas ou com referências fora da pasta.
+
 ## Nota 9.5 com checagens iguais deixa uma falha dura passar — 2026-11-24
 
 Updated: 2026-11-24. Entry point: `00_skills/(tooling)/always-on-agents/scripts/always_on/domain/score.py`. Evidence: `scripts/tests/test_request.py` (`test_missing_negative_proof_is_below_9_5_even_if_someone_claims_10`).

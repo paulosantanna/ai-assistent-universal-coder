@@ -1,3 +1,57 @@
+# PR 59 — always-on agents na master — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `00_skills/(tooling)/always-on-agents/SKILL.md`.
+
+- [x] RECON: base já era `master`; bloqueio era conflito com `1cebb6bd` e prepush `libraries` no SHA antigo `9725813a`.
+- [x] EXECUTE: merge de `origin/master`; notebook unido; catálogo, índice e registry com `always-on-agents` e as skills da master.
+- [x] VERIFY: 27 testes OK; `quality/validate.py` PASS (373, 4 skills avaliadas); prepush `libraries` 0 achados.
+- [ ] CI do PR no GitHub com Node 26 e Python 3.15. Aqui o `language` falha porque o processo é Node 22.23.4 e Python 3.12.3.
+
+---
+
+# Pins diretos do gate de bibliotecas — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `quality/prepush/backends/libraries.py`.
+
+- [x] RECON: o prepush dos PRs 60 e 61 falhou em pins que já estavam na master: PyYAML, vitest, fastapi, pypdf, graphiti-core, laya, transformers, trl, peft, ruff, undici, `@types/react`, `@types/node`.
+- [x] EXECUTE: pins e locks atualizados para o registro daquele momento. `laya` 0.5.4 ainda exporta `load`, `TrainConfig`, `dry_run` e `finetune`.
+- [x] VERIFY: backend `libraries` local com 0 achados; `quality/validate.py` PASS. O gate completo de CVE não rodou aqui.
+
+---
+
+# Remotion best practices — leitura e padrão TLC — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `00_skills/(video)/remotion-best-practices/SKILL.md`.
+
+- [x] RECON: clone raso `a3f4098a`; 133 arquivos; sem LICENSE.
+- [x] EXECUTE: entrada de 46 linhas, procedure, tópicos oficiais, inventário de effects, exemplos e defeitos.
+- [x] VERIFY: validador do workspace PASS (327 skills, 0 erros) e `quality/validate.py` PASS.
+- [x] Fora de escopo: `npx remotion studio` e `npx remotion render` não foram executados.
+
+---
+
+# NVIDIA skills — leitura, depuração e padrão TLC — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `00_skills/(rag-systems)/rag-blueprint/SKILL.md`.
+
+- [x] RECON: clone raso de NVIDIA/skills em `e34173c2`; as 45 pastas existem.
+- [x] EXECUTE: entrada TLC de até 100 linhas, gates, procedimento adaptado, módulos upstream com links locais reparados, nove temas.
+- [x] VERIFY: `validate-workspace.py` PASS (371 skills, 0 erros) e `quality/validate.py` PASS. Segredos no padrão do gate: 0.
+- [x] Fora de escopo verificado: GPU, cluster, DICOM real, câmera e serviços NVIDIA hospedados.
+
+---
+
+# fixall — QA, pentest e playbook — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `playbooks/fixall/PLAYBOOK.md`.
+
+- [x] RECON: MCPs não estavam no workspace nem na lista de repositórios de `paulosantanna`.
+- [x] EXECUTE: servidores só leitura, skills TLC, playbook e validadores Python.
+- [x] VERIFY: 18 testes OK; `quality/validate.py` estrutural PASS.
+- [!] `--runtime` bloqueado neste ambiente: binário `python` ausente.
+
+---
+
 # always-on agents — 2026-11-24
 
 Updated: 2026-11-24. Entry point: `00_skills/(tooling)/always-on-agents/scripts/run_tests.py`.

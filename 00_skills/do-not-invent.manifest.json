@@ -283,6 +283,22 @@
         "invent a passing check"
       ]
     },
+    "test-expert": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "invent a passing check"
+      ]
+    },
+    "pentests-expert": {
+      "where": [
+        "body"
+      ],
+      "clauses": [
+        "invent a payload"
+      ]
+    },
     "web-quality-audit": {
       "where": [
         "body"

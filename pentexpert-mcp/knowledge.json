@@ -1,0 +1,205 @@
+{
+  "retrieved": "2026-11-25",
+  "jev": {
+    "available": false,
+    "reason": "Nenhuma chave TypeSafe/JEV estava configurada em 2026-11-25. Nenhuma pontuacao foi atribuida."
+  },
+  "topics": [
+    {
+      "id": "authorization",
+      "title": "Autorizacao escrita",
+      "status": "sourced",
+      "impact": "Sem autorizacao escrita, o plano fica limitado ao checklist.",
+      "control_question": "O registro tem autor, escopo, data e regras de engajamento, todos nao vazios?",
+      "evidence": "O objeto written_authorization recebido nesta chamada, ou a ausencia dele.",
+      "remediation": "Obter a autorizacao escrita antes de pedir qualquer campo alem do checklist.",
+      "sources": [{"url": "operator-contract", "retrieved": "2026-11-25", "excerpt": "Contrato pedido pelo operador para este MCP."}]
+    },
+    {
+      "id": "rules-of-engagement",
+      "title": "Regras de engajamento",
+      "status": "sourced",
+      "impact": "Sem regras de engajamento, nao ha limite escrito do que pode ser exercitado.",
+      "control_question": "As regras nomeiam alvo, janela e o que fica fora do teste?",
+      "evidence": "O texto do campo rules_of_engagement. Este servidor nao amplia esse texto.",
+      "remediation": "Completar as regras antes de sair do checklist.",
+      "sources": [{"url": "operator-contract", "retrieved": "2026-11-25", "excerpt": "Contrato pedido pelo operador para este MCP."}]
+    },
+    {
+      "id": "ptes",
+      "title": "PTES",
+      "status": "source_unavailable",
+      "impact": "As fases do PTES nao foram copiadas porque a fonte nao abriu.",
+      "control_question": "Qual pagina do PTES o operador consegue abrir agora?",
+      "evidence": "http://www.pentest-standard.org/index.php/Main_Page retornou HTTP 502; https falhou no TLS; https://raw.githubusercontent.com/pentest-standard/docs/main/README.md retornou HTTP 404. Tudo em 2026-11-25.",
+      "remediation": "Nao usar uma lista de fases ate uma fonte abrir. O apendice G do WSTG, lido no mesmo dia, cita NIST SP 800-115 e OSSTMM, nao uma lista de fases do PTES.",
+      "sources": [
+        {"url": "https://wstg.owasp.org/latest/19-Appendix/G-Penetration_Testing_Methodologies", "retrieved": "2026-11-25", "excerpt": "O apendice nomeia NIST SP 800-115 e OSSTMM."}
+      ]
+    },
+    {
+      "id": "wstg-activities",
+      "title": "Atividades do WSTG",
+      "status": "sourced",
+      "impact": "Atividade de teste ausente deixa uma faixa do guia sem cobertura observavel.",
+      "control_question": "Qual atividade desta lista foi de fato executada e onde esta o registro?",
+      "evidence": "Nomes lidos em https://wstg.owasp.org/latest/03-The_OWASP_Testing_Framework/0-The_Web_Security_Testing_Framework em 2026-11-25: Requirements and Policy Review; Design, Architecture, and Threat Modeling; Code-Level Review and Analysis; Dynamic and Penetration Testing; Continuous Integration Pipeline Testing; Continuous and Crowd-Sourced Testing; Bug Bounty Programs as a Testing Technique; Human-AI Collaborative Testing.",
+      "remediation": "Registrar a atividade faltante com evidencia, sem transformar o nome da atividade em procedimento.",
+      "sources": [{"url": "https://wstg.owasp.org/latest/03-The_OWASP_Testing_Framework/0-The_Web_Security_Testing_Framework", "retrieved": "2026-11-25"}]
+    },
+    {
+      "id": "wstg-chapters",
+      "title": "Capitulos do WSTG",
+      "status": "sourced",
+      "impact": "Capitulo nao mapeado fica sem pergunta de controle.",
+      "control_question": "O relatorio aponta qual capitulo de 0 a 18 cobre cada achado?",
+      "evidence": "Indice lido em https://wstg.owasp.org/latest/ em 2026-11-25: 0 Foreword, 1 About, 2 Introduction, 3 The OWASP Testing Framework, 4 Introduction and Objectives, 5 Information Gathering, 6 Configuration and Deployment Management, 7 Identity Management, 8 Authentication, 9 Authorization, 10 Session Management, 11 Injection, 12 Error Handling, 13 Weak Cryptography, 14 Business Logic, 15 Client-side, 16 API Testing, 17 WebAssembly Testing, 18 Reporting.",
+      "remediation": "Associar o achado ao capitulo e a correcao do controle, sem reproduzir o teste.",
+      "sources": [{"url": "https://wstg.owasp.org/latest/", "retrieved": "2026-11-25"}]
+    },
+    {
+      "id": "asvs-5",
+      "title": "ASVS 5",
+      "status": "sourced",
+      "impact": "Requisito de verificacao sem capitulo nao pode ser dado como cumprido.",
+      "control_question": "O requisito citado usa capitulo, secao e numero, como o proprio ASVS descreve a referencia?",
+      "evidence": "ASVS 5.0.0, May 2025, lido em https://raw.githubusercontent.com/OWASP/ASVS/v5.0.0/5.0/en/0x01-Frontispiece.md. Capitulos lidos na arvore v5.0.0: V1 Encoding and Sanitization, V2 Validation and Business Logic, V3 Web Frontend Security, V4 API and Web Service, V5 File Handling, V6 Authentication, V7 Session Management, V8 Authorization, V9 Self-contained Tokens, V10 OAuth and OIDC, V11 Cryptography, V12 Secure Communication, V13 Configuration, V14 Data Protection, V15 Secure Coding and Architecture, V16 Security Logging and Error Handling, V17 WebRTC.",
+      "remediation": "Implementar o requisito numerado do capitulo correspondente. Este servidor nao copia o texto do requisito.",
+      "sources": [{"url": "https://github.com/OWASP/ASVS/tree/v5.0.0/5.0/en", "retrieved": "2026-11-25"}]
+    },
+    {
+      "id": "report",
+      "title": "Relatorio",
+      "status": "sourced",
+      "impact": "Achado sem impacto, pergunta, evidencia e correcao nao entra no relatorio deste servidor.",
+      "control_question": "Cada item tem exatamente impacto, pergunta de controle, evidencia e correcao?",
+      "evidence": "O capitulo 18 Reporting existe no indice do WSTG lido em 2026-11-25. O formato dos quatro campos e o contrato do operador.",
+      "remediation": "Completar o campo que falta. Nao acrescentar reprodução.",
+      "sources": [{"url": "https://wstg.owasp.org/latest/18-Reporting/", "retrieved": "2026-11-25"}]
+    },
+    {
+      "id": "owasp-web-2025",
+      "title": "OWASP Top 10 web 2025",
+      "status": "sourced",
+      "impact": "Risco da lista 2025 nao verificado permanece como pergunta aberta, nao como falha provada.",
+      "control_question": "Qual item A01 a A10 tem evidencia ja coletada, sem novo pedido de reproducao?",
+      "evidence": "Lista lida em https://owasp.org/Top10/2025/ em 2026-11-25: A01 Broken Access Control, A02 Security Misconfiguration, A03 Software Supply Chain Failures, A04 Cryptographic Failures, A05 Injection, A06 Insecure Design, A07 Authentication Failures, A08 Software or Data Integrity Failures, A09 Security Logging and Alerting Failures, A10 Mishandling of Exceptional Conditions.",
+      "remediation": "Corrigir o controle do item que tiver evidencia. Nao gerar um caso de ataque.",
+      "sources": [{"url": "https://owasp.org/Top10/2025/", "retrieved": "2026-11-25"}]
+    },
+    {
+      "id": "owasp-api-2023",
+      "title": "OWASP API Top 10 2023",
+      "status": "sourced",
+      "impact": "Risco de API de 2023 nao verificado permanece como pergunta aberta.",
+      "control_question": "Qual item API1 a API10 tem evidencia ja coletada?",
+      "evidence": "Lista lida em https://owasp.org/API-Security/editions/2023/en/0x11-t10/ em 2026-11-25: API1 Broken Object Level Authorization, API2 Broken Authentication, API3 Broken Object Property Level Authorization, API4 Unrestricted Resource Consumption, API5 Broken Function Level Authorization, API6 Unrestricted Access to Sensitive Business Flows, API7 Server Side Request Forgery, API8 Security Misconfiguration, API9 Improper Inventory Management, API10 Unsafe Consumption of APIs.",
+      "remediation": "Corrigir o controle do item evidenciado. Nao gerar pedido nem comando.",
+      "sources": [{"url": "https://owasp.org/API-Security/editions/2023/en/0x11-t10/", "retrieved": "2026-11-25"}]
+    },
+    {
+      "id": "owasp-llm-2025",
+      "title": "OWASP LLM Top 10 2025",
+      "status": "sourced",
+      "impact": "Risco de LLM de 2025 nao verificado permanece como pergunta aberta.",
+      "control_question": "Qual item LLM01 a LLM10 tem evidencia ja coletada?",
+      "evidence": "Lista lida em https://genai.owasp.org/llm-top-10/ em 2026-11-25: LLM01 Prompt Injection, LLM02 Sensitive Information Disclosure, LLM03 Supply Chain, LLM04 Data and Model Poisoning, LLM05 Improper Output Handling, LLM06 Excessive Agency, LLM07 System Prompt Leakage, LLM08 Vector and Embedding Weaknesses, LLM09 Misinformation, LLM10 Unbounded Consumption.",
+      "remediation": "Reduzir o risco do item evidenciado no desenho da aplicacao. Nao fornecer exemplo de injecao.",
+      "sources": [{"url": "https://genai.owasp.org/llm-top-10/", "retrieved": "2026-11-25"}]
+    },
+    {
+      "id": "rag-failures",
+      "title": "Criterios de falha de RAG",
+      "status": "sourced",
+      "impact": "Uma resposta de RAG pode falhar em um dos sete pontos do artigo mesmo quando o modelo responde.",
+      "control_question": "O caso cai em qual dos sete pontos, e qual e a evidencia da resposta e do contexto?",
+      "evidence": "Artigo lido em https://arxiv.org/html/2401.05856 em 2026-11-25: FP1 Missing Content, FP2 Missed the Top Ranked Documents, FP3 Not in Context, FP4 Not Extracted, FP5 Wrong Format, FP6 Incorrect Specificity, FP7 Incomplete. O pedido citava oito criterios; o oitavo nao esta nessa fonte.",
+      "remediation": "Tratar o ponto observado no indice, no contexto ou na extracao. Nao inventar um oitavo ponto.",
+      "sources": [{"url": "https://arxiv.org/html/2401.05856", "retrieved": "2026-11-25"}]
+    },
+    {
+      "id": "masvs",
+      "title": "MASVS",
+      "status": "sourced",
+      "impact": "Controle movel fora do grupo MASVS correspondente fica sem verificacao nomeada.",
+      "control_question": "O achado movel aponta qual grupo MASVS?",
+      "evidence": "Grupos lidos em https://mas.owasp.org/MASVS/ em 2026-11-25: MASVS-STORAGE, MASVS-CRYPTO, MASVS-AUTH, MASVS-NETWORK, MASVS-PLATFORM, MASVS-CODE, MASVS-RESILIENCE, MASVS-PRIVACY.",
+      "remediation": "Cumprir o controle do grupo. A lista MASWE lida na mesma pagina nao e reproduzida aqui.",
+      "sources": [{"url": "https://mas.owasp.org/MASVS/", "retrieved": "2026-11-25"}]
+    },
+    {
+      "id": "aws-account",
+      "title": "Conta AWS",
+      "status": "sourced",
+      "impact": "O usuario raiz tem acesso completo a servicos e recursos da conta.",
+      "control_question": "O usuario raiz e usado somente em tarefas que exigem permissao de raiz?",
+      "evidence": "Texto lido em https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html em 2026-11-25: ao criar a conta, existe uma identidade de login com acesso completo, chamada AWS account root user. A pagina manda usar o raiz somente nas tarefas que exigem esse nivel e seguir as praticas recomendadas.",
+      "remediation": "Seguir as praticas de usuario raiz citadas pela propria pagina. Este servidor nao lista essas tarefas nem um caminho de acesso.",
+      "sources": [{"url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html", "retrieved": "2026-11-25"}]
+    }
+  ],
+  "tools": [
+    {
+      "id": "zap",
+      "name": "ZAP",
+      "status": "sourced",
+      "purpose": "Zed Attack Proxy (ZAP), descrito na pagina inicial como o scanner de aplicacao web de codigo aberto mais usado. O WSTG cita ZAP como ferramenta DAST ao lado do Burp Suite.",
+      "sources": [
+        {"url": "https://www.zaproxy.org/", "retrieved": "2026-11-25"},
+        {"url": "https://wstg.owasp.org/latest/03-The_OWASP_Testing_Framework/0-The_Web_Security_Testing_Framework", "retrieved": "2026-11-25"}
+      ]
+    },
+    {
+      "id": "burp",
+      "name": "Burp",
+      "status": "sourced",
+      "purpose": "A pagina da PortSwigger lida tem o titulo Burp - Web Application Security, Testing, & Scanning. O WSTG cita Burp Suite como ferramenta DAST ao lado do ZAP.",
+      "sources": [
+        {"url": "https://portswigger.net/burp", "retrieved": "2026-11-25"},
+        {"url": "https://wstg.owasp.org/latest/03-The_OWASP_Testing_Framework/0-The_Web_Security_Testing_Framework", "retrieved": "2026-11-25"}
+      ]
+    },
+    {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "status": "sourced",
+      "purpose": "O README lido em https://raw.githubusercontent.com/semgrep/semgrep/v1.125.0/README.md descreve o projeto como code scanning at ludicrous speed.",
+      "sources": [{"url": "https://github.com/semgrep/semgrep", "retrieved": "2026-11-25"}]
+    },
+    {
+      "id": "sonarqube",
+      "name": "SonarQube",
+      "status": "sourced",
+      "purpose": "A documentacao lida diz que SonarQube Server 2026.5 provides automated code quality and security reviews.",
+      "sources": [{"url": "https://docs.sonarsource.com/sonarqube-server/latest/", "retrieved": "2026-11-25"}]
+    },
+    {
+      "id": "trufflehog",
+      "name": "TruffleHog",
+      "status": "sourced",
+      "purpose": "O repositorio lido descreve TruffleHog como Find, verify, and analyze leaked credentials.",
+      "sources": [{"url": "https://github.com/trufflesecurity/trufflehog", "retrieved": "2026-11-25"}]
+    },
+    {
+      "id": "dependency-check",
+      "name": "Dependency-Check",
+      "status": "sourced",
+      "purpose": "A pagina OWASP lida diz que Dependency-Check is a Software Composition Analysis (SCA) tool suite that identifies project dependencies and checks if there are any known, publicly disclosed, vulnerabilities.",
+      "sources": [{"url": "https://owasp.org/www-project-dependency-check/", "retrieved": "2026-11-25"}]
+    },
+    {
+      "id": "snyk",
+      "name": "Snyk",
+      "status": "sourced",
+      "purpose": "A documentacao lida diz: Scan, prioritize, and fix vulnerabilities in your code, open-source dependencies, container images, and cloud configurations.",
+      "sources": [{"url": "https://docs.snyk.io/", "retrieved": "2026-11-25"}]
+    },
+    {
+      "id": "threat-dragon",
+      "name": "Threat Dragon",
+      "status": "sourced",
+      "purpose": "A pagina OWASP lida diz que Threat Dragon is a free, open-source, cross-platform threat modeling application used to draw threat modeling diagrams and to list threats for elements in the diagram.",
+      "sources": [{"url": "https://owasp.org/www-project-threat-dragon/", "retrieved": "2026-11-25"}]
+    }
+  ]
+}

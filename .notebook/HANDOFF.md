@@ -1,3 +1,47 @@
+## always-on agents — encaixe na master — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `00_skills/(tooling)/always-on-agents/SKILL.md`. Evidence: `python3 scripts/run_tests.py` (27 OK); `python3 quality/validate.py` PASS (373 skills).
+
+- O PR 59 não entrava na master: `mergeable_state` dirty contra `1cebb6bd` (pins, NVIDIA, Remotion, fixall) e o prepush antigo falhava em bibliotecas já corrigidas na master.
+- Resolução: as duas histórias do notebook ficam; o catálogo da master ganha só `always-on-agents`.
+- Verificado aqui: bibliotecas, CVE, SAST, executáveis e segurança do prepush passam. O backend `language` falha neste ambiente (Node 22.23.4, Python 3.12.3); o CI da master instala Node 26 e Python 3.15.
+- Próximo: o CI do PR contra a master. Binários `agent` e `opencode` continuam fora desta verificação.
+
+---
+
+## Remotion best practices — reescrita TLC — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `00_skills/(video)/remotion-best-practices/SKILL.md`.
+
+- Entregue: uma skill, não as 14 skills irmãs. Fonte lida: `remotion-dev/skills` `a3f4098a`, rótulo 4.0.547.
+- O repositório não declara licença. Ensaios, assets e a chave Algolia não foram copiados.
+- Verificado: `validate-workspace.py` e `quality/validate.py` PASS. Studio e render não rodaram.
+- Próximo: ao usar a skill, ler a versão instalada no projeto e a página `.md` oficial antes de um API que possa ter mudado.
+
+---
+
+## NVIDIA skills — adaptação TLC por tema — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `00_skills/INDEX.md`. Evidence: `python3 quality/validate.py` PASS (sem `--runtime`).
+
+- Entregue: 45 skills de NVIDIA/skills `e34173c2` reescritas no contrato TLC e colocadas em nove pastas de tema.
+- Não instaladas pelo instalador NVIDIA. Assinaturas OMS, evals e scripts de deploy não foram copiados.
+- Verificado: `validate-workspace.py` PASS, 0 erros; `quality/validate.py` PASS. Nenhum job de GPU, cluster ou clínico foi executado.
+- Próximo: usar cada skill só no checkout do produto correspondente; irmãos NuRec e TAO platform continuam de fora.
+
+---
+
+## fixall — skills de teste e pentest, MCPs e playbook — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `playbooks/fixall/PLAYBOOK.md`.
+
+- Entregue: `qa-expert-mcp`, `pentexpert-mcp`, `test-expert` (alias `qa-expert`), `pentests-expert` e o playbook `fixall`.
+- `tests-expert` permanece o charter funcional e de ponta a ponta.
+- Verificado: 18 testes locais e `python3 quality/validate.py` estrutural PASS. `--runtime` não rodou aqui: não existe o binário `python`.
+- Próximo: no CI, `python quality/validate.py --runtime`. O envio ao GitHub desta sessão segue o contrato do agente; o playbook, quando executado, pergunta antes de subir se o pedido não disser.
+
+---
+
 ## always-on agents — módulo local, sem Ollama — 2026-11-24
 
 Updated: 2026-11-24. Entry point: `00_skills/(tooling)/always-on-agents/SKILL.md`. Evidence: `python scripts/run_tests.py` (27 OK); `python quality/validate.py` PASS.

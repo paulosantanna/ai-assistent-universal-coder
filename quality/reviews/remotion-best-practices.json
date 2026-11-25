@@ -1,0 +1,53 @@
+{
+  "skill": "remotion-best-practices",
+  "package_hash": "9c0e8bdbeaf3994633ce7821b4fada4c624ace52c0801c51886fb98c82c51542",
+  "positive_triggers": [
+    "Remotion",
+    "remotion studio",
+    "composition"
+  ],
+  "negative_scope": [
+    "unrelated React apps",
+    "FFmpeg-only editing",
+    "unconfirmed cloud render"
+  ],
+  "source": "remotion-dev/skills@a3f4098a TLC rewrite",
+  "verification": {
+    "kind": "structural-and-syntax",
+    "runtime_evaluated": false,
+    "routing": "Static wording assessment; no measured trigger accuracy"
+  },
+  "effectiveness": "Not measured; structural acceptance does not establish enterprise performance",
+  "rubric": {
+    "source": "00_skills/(creation)/skill-architect/references/quality-checklist.md",
+    "weights": {
+      "routing": 20,
+      "procedure": 25,
+      "examples": 15,
+      "errors": 15,
+      "disclosure": 15,
+      "verification": 10
+    },
+    "ratings": {
+      "routing": 4,
+      "procedure": 4,
+      "examples": 4,
+      "errors": 4,
+      "disclosure": 4,
+      "verification": 3
+    },
+    "score": 78.0,
+    "before": {
+      "ratings": {
+        "routing": 3,
+        "procedure": 4,
+        "examples": 2,
+        "errors": 3,
+        "disclosure": 2,
+        "verification": 2
+      },
+      "score": 56.0
+    },
+    "limit": "Diagnostic rubric. Studio and render were not executed."
+  }
+}

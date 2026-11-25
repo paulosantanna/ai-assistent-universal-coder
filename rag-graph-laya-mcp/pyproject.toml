@@ -5,21 +5,21 @@ description = "Local-first, source-backed GraphRAG and Laya MCP of codenavi-agen
 requires-python = ">=3.15"
 dependencies = [
   "mcp==2.3.0",
-  "fastapi==0.163.1",
+  "fastapi==0.165.0",
   "uvicorn==0.54.0",
   "httpx==0.28.1",
   "beautifulsoup4==4.15.0",
-  "pypdf==7.1.0",
-  "graphiti-core==0.31.2",
+  "pypdf==7.1.1",
+  "graphiti-core==0.32.1",
 ]
 
 [project.optional-dependencies]
 training = [
-  "laya==0.4.35",
+  "laya==0.5.4",
   "torch==2.15.0",
-  "transformers==5.23.0",
-  "trl==1.18.0",
-  "peft==0.21.3",
+  "transformers==5.24.1",
+  "trl==1.19.0",
+  "peft==0.22.0",
   "bitsandbytes==0.50.2",
   "datasets==5.2.0",
   "accelerate==1.16.0",
@@ -29,7 +29,7 @@ training = [
 test = [
   "pytest==9.2.0",
   "pytest-asyncio==1.5.0",
-  "ruff==0.17.5",
+  "ruff==0.17.6",
 ]
 
 [tool.pytest.ini_options]

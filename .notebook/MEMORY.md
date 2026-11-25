@@ -1,3 +1,29 @@
+## Remotion best practices — fatos da reescrita — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `.notebook/remotion-best-practices.md`.
+
+- Fact: `remotion-dev/skills` no commit `a3f4098a` não tem licença no GitHub. O pacote `remotion-best-practices` é um roteador de 120 linhas que embute as outras skills, inclusive uma segunda árvore de mapas.
+- Decision: a skill do workspace é uma reescrita TLC em `00_skills/(video)/remotion-best-practices/`. A página oficial em `.md` manda no detalhe da API.
+- Fact: `npx skills update remotion-best-practices` substituiria este pacote pelos arquivos upstream. A procedure proíbe esse comando aqui.
+
+## NVIDIA skills adaptadas ao TLC — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `.notebook/nvidia-skills-tlc.md`.
+
+- Fact: as 45 skills pedidas existem em https://github.com/NVIDIA/skills no commit `e34173c2efbe5ced223f39903bd4806d8ac13d7d` (2026-11-25). Licença Apache-2.0, ou Apache-2.0 e CC-BY-4.0.
+- Decision: a cópia deste workspace não é NVIDIA-verified. A entrada canônica fica em `00_skills/(tema)/<id>/SKILL.md`, com o corpo operacional em `references/procedure.md` e a documentação longa em `references/upstream/`.
+- Fact: `nemo-rl-session-memory` é memória de sessão de código, não treino NeMo RL. No workspace o quarteto `.notebook/` continua sendo o registro.
+- Limit: nenhum comando de GPU, Slurm, DICOM real ou VSS foi executado nesta adaptação.
+
+## fixall — MCPs e skills de QA e pentest — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `.notebook/fixall.md`.
+
+- Fact: `qa-expert-mcp` e `pentexpert-mcp` não estavam no workspace nem na lista de repositórios de `paulosantanna` em 2026-11-25. Foram escritos aqui. Sem chave TypeSafe, nenhuma pontuação JEV foi gravada.
+- Fact: o artigo https://arxiv.org/html/2401.05856 lista sete falhas de RAG. O oitavo pedido não foi inventado.
+- Fact: o PTES não abriu nesse dia (HTTP 502, falha TLS e README 404). As fases não foram armazenadas.
+- Decision: `test-expert` cobre as categorias; `qa-expert` é alias; `tests-expert` continua o charter funcional e de ponta a ponta. O playbook `fixall` não envia ao GitHub se o pedido não autorizar.
+
 ## Workers always-on — mesmo host, mesmo modelo, sem Ollama — 2026-11-24
 
 Updated: 2026-11-24. Entry point: `00_skills/(tooling)/always-on-agents/SKILL.md`. Evidence: `.notebook/always-on-agents.md`.
@@ -6,6 +32,7 @@ Updated: 2026-11-24. Entry point: `00_skills/(tooling)/always-on-agents/SKILL.md
 - Fact: Grok 4.7 e GLM-5.3 têm preço publicado (xAI e Z.ai, páginas lidas em 2026-11-24). Os dois perguntam antes de nascer e a autorização vale uma geração de três processos.
 - Fact: `scripts/free-models.json` começa vazio. Marcador pago vence qualquer declaração gratuita. Ollama é recusado.
 - Limit: o slug exato dentro do Cursor não foi listado aqui; o binário `agent` não estava instalado. A janela passa o id que ela já mostra.
+- Fact: em 2026-11-25 o pacote entrou no catálogo da master `1cebb6bd` sem alterar os pins daquele SHA. O catálogo ficou com 373 skills e só `always-on-agents` a mais.
 
 ---
 
