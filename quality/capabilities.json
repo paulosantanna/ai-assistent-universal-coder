@@ -45,7 +45,7 @@
       "protocol": "incomplete",
       "owner": "codenavi-agent",
       "reason": "Manifest refers to missing Python server and project metadata",
-      "baseline_hash": "e7f5426631d9a6c253e316c3d0b180ba3919d4b00d7246da2abd0f62ab1511c8",
+      "baseline_hash": "0558ba69e96599b206ba3c82c7fc58eb5886993c02a7752edf568c9713afe4a2",
       "secret_policy": "runtime-references-only",
       "smoke": null
     },
