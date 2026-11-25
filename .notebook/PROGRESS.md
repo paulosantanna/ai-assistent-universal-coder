@@ -1,3 +1,14 @@
+# Remotion best practices — leitura e padrão TLC — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `00_skills/(video)/remotion-best-practices/SKILL.md`.
+
+- [x] RECON: clone raso `a3f4098a`; 133 arquivos; sem LICENSE.
+- [x] EXECUTE: entrada de 46 linhas, procedure, tópicos oficiais, inventário de effects, exemplos e defeitos.
+- [x] VERIFY: validador do workspace PASS (327 skills, 0 erros) e `quality/validate.py` PASS.
+- [x] Fora de escopo: `npx remotion studio` e `npx remotion render` não foram executados.
+
+---
+
 # fixall — QA, pentest e playbook — 2026-11-25
 
 Updated: 2026-11-25. Entry point: `playbooks/fixall/PLAYBOOK.md`.

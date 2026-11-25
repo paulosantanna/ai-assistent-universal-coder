@@ -1979,3 +1979,9 @@ skills:
   risk_level: medium
   mission: 'Route a test by sourced category and evidence. Use for test-expert, qa-expert or a test plan. Do NOT use for exploit payloads, invented oracles or unit-only proof.'
   capabilities: []
+- id: remotion-best-practices
+  path: 00_skills/(video)/remotion-best-practices/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Write frame-driven Remotion videos and open Studio. Use for remotion studio or a composition. Do NOT use for unrelated React apps."
+  capabilities: []

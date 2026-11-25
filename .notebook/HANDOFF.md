@@ -1,3 +1,14 @@
+## Remotion best practices — reescrita TLC — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `00_skills/(video)/remotion-best-practices/SKILL.md`.
+
+- Entregue: uma skill, não as 14 skills irmãs. Fonte lida: `remotion-dev/skills` `a3f4098a`, rótulo 4.0.547.
+- O repositório não declara licença. Ensaios, assets e a chave Algolia não foram copiados.
+- Verificado: `validate-workspace.py` e `quality/validate.py` PASS. Studio e render não rodaram.
+- Próximo: ao usar a skill, ler a versão instalada no projeto e a página `.md` oficial antes de um API que possa ter mudado.
+
+---
+
 ## fixall — skills de teste e pentest, MCPs e playbook — 2026-11-25
 
 Updated: 2026-11-25. Entry point: `playbooks/fixall/PLAYBOOK.md`.
