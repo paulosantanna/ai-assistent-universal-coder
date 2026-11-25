@@ -47,6 +47,7 @@ Last updated: 2026-11-13
 - [repositorios-skills](repositorios-skills.md) — mapa estático dos 11 projetos × skills, fontes e relatório offline | graph | repositorios, skills, mapping
 - [tlc-skills](tlc-skills.md) — 302-package catalog, new photo structure and verified installation boundaries | patterns | skills, tlc, migration
 - [csharp-expert](csharp-expert.md) — C# 14 / .NET 10.0.12 TLC skill; id is csharp-expert | domain | csharp, dotnet, expert
+- [fixall](fixall.md) — playbook fixall e MCPs de QA e pentest só com fonte lida | patterns | qa, pentest, playbook
 - [tests-expert](tests-expert.md) — user-request oracle for real functional and e2e checks after a change | domain | tests, e2e, oracle
 - [architecture-knowledge](architecture-knowledge.md) — ADR/ADL/ASR/AKM TLC-format skills + offline architecture-knowledge MCP | domain | adr, architecture, mcp
 - [rag-node-mcp](rag-node-mcp.md) — TLC repo causal map + governed offline RAG Node.js MCP | domain | rag, nodejs, mcp

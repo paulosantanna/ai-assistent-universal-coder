@@ -1,3 +1,14 @@
+# fixall — QA, pentest e playbook — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `playbooks/fixall/PLAYBOOK.md`.
+
+- [x] RECON: MCPs não estavam no workspace nem na lista de repositórios de `paulosantanna`.
+- [x] EXECUTE: servidores só leitura, skills TLC, playbook e validadores Python.
+- [x] VERIFY: 18 testes OK; `quality/validate.py` estrutural PASS.
+- [!] `--runtime` bloqueado neste ambiente: binário `python` ausente.
+
+---
+
 # CI master 66737bb9 — enterprise gate e prepush — 2026-11-16
 
 Updated: 2026-11-16. Entry point: `quality/capabilities.json`, `quality/skills-baseline.json`, `rag-graph-laya-mcp/pyproject.toml`.

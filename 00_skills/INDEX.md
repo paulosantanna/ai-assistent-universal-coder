@@ -262,6 +262,8 @@ Entry point: [contrato](STANDARD.md), [catálogo](catalog.json), [esteira](../qu
 - [react-best-practices]((quality)/react-best-practices/SKILL.md) — React and Next.js performance optimization guidelines from Vercel Engineering.
 - [release-readiness-judge]((quality)/release-readiness-judge/SKILL.md) — Validate release readiness using deterministic gates.
 - [seo]((quality)/seo/SKILL.md) — Optimize for search engine visibility and ranking.
+- [qa-expert]((quality)/test-expert/SKILL.md) — Route a test by sourced category and evidence. Use for test-expert, qa-expert or a test plan.
+- [test-expert]((quality)/test-expert/SKILL.md) — Route a test by sourced category and evidence. Use for test-expert, qa-expert or a test plan.
 - [test-gap-analyzer]((quality)/test-gap-analyzer/SKILL.md) — Analyze the gap between source code and test coverage — identifying untested modules, functions, and edge cases.
 - [test-generation]((quality)/test-generation/SKILL.md) — Detect test gaps and generate proposed tests in sandbox.
 - [test-strategy-architect]((quality)/test-strategy-architect/SKILL.md) — Build test strategy across unit/integration/contract/e2e/security/performance.
@@ -304,6 +306,7 @@ Entry point: [contrato](STANDARD.md), [catálogo](catalog.json), [esteira](../qu
 - [mantis-threat-model]((security)/mantis-threat-model/SKILL.md) — Synthesizes trust boundaries, attack surfaces, and attacker profiles into a living threat model. Use as Stage B of the Knowledge Base generation process, reading architecture and entity definitions from the KB. Don't use for analyzing source code or extracting raw learnings from JSONL files.
 - [mcp-poisoning-evaluator]((security)/mcp-poisoning-evaluator/SKILL.md) — Evaluate MCP descriptions and responses for instruction injection, tool poisoning and authority escalation within defensive scope.
 - [package-trust-engineer]((security)/package-trust-engineer/SKILL.md) — Verify packages, manifests, quarantine and promotion.
+- [pentests-expert]((security)/pentests-expert/SKILL.md) — Return impact, a control question, evidence and a fix. Use for pentests-expert or a security checklist.
 - [policy-bypass-evaluator]((security)/policy-bypass-evaluator/SKILL.md) — Evaluate whether explicit policy boundaries reject bypass scenarios without weakening permissions or acceptance criteria.
 - [policy-hardening-auditor]((security)/policy-hardening-auditor/SKILL.md) — Audit whether policies cover critical unsafe paths and fail closed.
 - [redaction-evaluator]((security)/redaction-evaluator/SKILL.md) — Evaluate redaction behavior across authorized outputs and identify sensitive-value leakage or excessive data removal.

@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updated": "2026-11-16",
+  "updated": "2026-11-25",
   "governance": "CodENavi Full Workspace v2",
   "skills": [
     {
@@ -2743,6 +2743,19 @@
       "sha256": "5b20ca78618596d6d81fdc6b6c32f1e7dc8cdf180648d4d222f794ef3833b8a5"
     },
     {
+      "id": "pentests-expert",
+      "aliases": [],
+      "path": "00_skills/(security)/pentests-expert/SKILL.md",
+      "category": "security",
+      "description": "Return impact, a control question, evidence and a fix. Use for pentests-expert or a security checklist. Do NOT use for payloads, exploit commands or reproduction.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "workspace",
+      "lines": 49,
+      "sha256": "e7e3ef4fa9880d289ea4e2f7f6126466247e97ecfb5509f822ccf14493ed9c6d"
+    },
+    {
       "id": "perf-astro",
       "aliases": [],
       "path": "00_skills/(performance)/perf-astro/SKILL.md",
@@ -3783,6 +3796,21 @@
       "sha256": "6e0c4d70c016389c1e666aee3deeb88aca59e9a8c8b9ea330e433ebf14ba8a9f"
     },
     {
+      "id": "test-expert",
+      "aliases": [
+        "qa-expert"
+      ],
+      "path": "00_skills/(quality)/test-expert/SKILL.md",
+      "category": "quality",
+      "description": "Route a test by sourced category and evidence. Use for test-expert, qa-expert or a test plan. Do NOT use for exploit payloads, invented oracles or unit-only proof.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "medium",
+      "runtime_binding": "instruction_only",
+      "source": "workspace",
+      "lines": 49,
+      "sha256": "d126ef21eca69123aef5e225c178919dda5fad096cdb2908da26133985821d8a"
+    },
+    {
       "id": "test-gap-analyzer",
       "aliases": [],
       "path": "00_skills/(quality)/test-gap-analyzer/SKILL.md",
@@ -3844,8 +3872,8 @@
       "risk_level": "medium",
       "runtime_binding": "instruction_only",
       "source": "workspace",
-      "lines": 55,
-      "sha256": "0f6745598d9a5086ba579382603e31bb955ff7baacf0a2c10efad26eaf0b87e8"
+      "lines": 57,
+      "sha256": "1efcfa0cf115dd4b964b4c000f36989de1af55cdf8df6d9c66e3c61b7d508d70"
     },
     {
       "id": "the-fool",

@@ -1,3 +1,12 @@
+## fixall — MCPs e skills de QA e pentest — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `.notebook/fixall.md`.
+
+- Fact: `qa-expert-mcp` e `pentexpert-mcp` não estavam no workspace nem na lista de repositórios de `paulosantanna` em 2026-11-25. Foram escritos aqui. Sem chave TypeSafe, nenhuma pontuação JEV foi gravada.
+- Fact: o artigo https://arxiv.org/html/2401.05856 lista sete falhas de RAG. O oitavo pedido não foi inventado.
+- Fact: o PTES não abriu nesse dia (HTTP 502, falha TLS e README 404). As fases não foram armazenadas.
+- Decision: `test-expert` cobre as categorias; `qa-expert` é alias; `tests-expert` continua o charter funcional e de ponta a ponta. O playbook `fixall` não envia ao GitHub se o pedido não autorizar.
+
 ## Arquitetura cloud AWS e Azure — fatos verificados — 2026-11-14
 
 Updated: 2026-11-14. Entry point: `cloud-architecture/README.md`. Evidence: `cloud-architecture-mcp/evidence/claims.json`, `cloud-architecture-mcp/providers/*/prices.json`, `02_repositorios/AIHealthResearch/infra/*`.

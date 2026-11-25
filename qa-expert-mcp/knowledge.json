@@ -1,0 +1,440 @@
+{
+  "retrieved": "2026-11-25",
+  "jev": {
+    "available": false,
+    "reason": "Nenhuma chave TypeSafe/JEV estava configurada em 2026-11-25. Nenhuma pontuacao foi atribuida."
+  },
+  "categories": [
+    {
+      "id": "test-level",
+      "name": "Nivel de teste",
+      "status": "label_only",
+      "checks": [],
+      "sources": [],
+      "gap": "O glossario ISTQB em https://glossary.istqb.org/en_US/term/test-level respondeu 200 com casca de 1466 bytes e sem definicao, em 2026-11-25."
+    },
+    {
+      "id": "functional",
+      "name": "Funcional",
+      "status": "label_only",
+      "checks": [],
+      "sources": [],
+      "gap": "A pagina do glossario ISTQB para functional-testing veio vazia de definicao em 2026-11-25."
+    },
+    {
+      "id": "non-functional",
+      "name": "Nao funcional",
+      "status": "label_only",
+      "checks": [],
+      "sources": [],
+      "gap": "Nenhuma definicao oficial nao vazia foi lida em 2026-11-25."
+    },
+    {
+      "id": "black-box",
+      "name": "Caixa-preta",
+      "status": "label_only",
+      "checks": [],
+      "sources": [],
+      "gap": "A pagina do glossario ISTQB para black-box-testing veio vazia de definicao em 2026-11-25."
+    },
+    {
+      "id": "white-box",
+      "name": "Caixa-branca",
+      "status": "label_only",
+      "checks": [],
+      "sources": [],
+      "gap": "A pagina do glossario ISTQB para white-box-testing veio vazia de definicao em 2026-11-25."
+    },
+    {
+      "id": "confirmation",
+      "name": "Confirmacao",
+      "status": "label_only",
+      "checks": [],
+      "sources": [],
+      "gap": "A pagina do glossario ISTQB para confirmation-testing veio vazia de definicao em 2026-11-25."
+    },
+    {
+      "id": "regression",
+      "name": "Regressao",
+      "status": "label_only",
+      "checks": [],
+      "sources": [],
+      "gap": "A pagina do glossario ISTQB para regression-testing veio vazia de definicao em 2026-11-25."
+    },
+    {
+      "id": "pyramid",
+      "name": "Piramide de testes",
+      "status": "sourced",
+      "checks": [
+        "A suite tem muitos testes pequenos e rapidos e poucos testes de ponta a ponta?",
+        "A suite evitou o formato de sorvete, dificil de manter e lento de rodar?"
+      ],
+      "sources": [
+        {
+          "url": "https://martinfowler.com/articles/practical-test-pyramid.html",
+          "retrieved": "2026-11-25",
+          "excerpt": "Write lots of small and fast unit tests. Write some more coarse-grained tests and very few high-level tests that test your application from end to end. Watch out that you don't end up with a test ice-cream cone."
+        }
+      ]
+    },
+    {
+      "id": "risk",
+      "name": "Risco",
+      "status": "label_only",
+      "checks": [],
+      "sources": [],
+      "gap": "A pagina do glossario ISTQB para risk-based-testing veio vazia de definicao em 2026-11-25."
+    },
+    {
+      "id": "partition",
+      "name": "Particao de equivalencia",
+      "status": "label_only",
+      "checks": [],
+      "sources": [],
+      "gap": "A pagina do glossario ISTQB para equivalence-partitioning veio vazia de definicao em 2026-11-25."
+    },
+    {
+      "id": "boundary",
+      "name": "Valor limite",
+      "status": "label_only",
+      "checks": [],
+      "sources": [],
+      "gap": "A pagina do glossario ISTQB para boundary-value-analysis veio vazia de definicao em 2026-11-25."
+    },
+    {
+      "id": "decision",
+      "name": "Tabela de decisao",
+      "status": "label_only",
+      "checks": [],
+      "sources": [],
+      "gap": "A pagina do glossario ISTQB para decision-table-testing veio vazia de definicao em 2026-11-25."
+    },
+    {
+      "id": "state",
+      "name": "Transicao de estado",
+      "status": "label_only",
+      "checks": [],
+      "sources": [],
+      "gap": "A pagina do glossario ISTQB para state-transition-testing veio vazia de definicao em 2026-11-25."
+    },
+    {
+      "id": "exploratory",
+      "name": "Exploratorio",
+      "status": "heading_only",
+      "checks": [],
+      "sources": [
+        {
+          "url": "https://martinfowler.com/articles/practical-test-pyramid.html",
+          "retrieved": "2026-11-25",
+          "excerpt": "A pagina tem o titulo Exploratory Testing. O paragrafo dessa secao nao foi extraido; a definicao nao esta armazenada."
+        }
+      ]
+    },
+    {
+      "id": "single-endpoint",
+      "name": "Um unico endpoint",
+      "status": "label_only",
+      "checks": [],
+      "sources": [
+        {
+          "url": "https://spec.openapis.org/oas/latest.html",
+          "retrieved": "2026-11-25",
+          "excerpt": "A pagina lida e OpenAPI Specification v3.2.1, de 10 September 2026. Ela nao foi usada para inventar um metodo de teste de um unico endpoint."
+        }
+      ]
+    },
+    {
+      "id": "contract-openapi",
+      "name": "Contrato OpenAPI",
+      "status": "sourced",
+      "checks": [
+        "O contrato conferido e a OpenAPI Specification v3.2.1 datada de 10 September 2026, ou o operador apontou outra versao lida?"
+      ],
+      "sources": [
+        {
+          "url": "https://spec.openapis.org/oas/latest.html",
+          "retrieved": "2026-11-25",
+          "excerpt": "OpenAPI Specification v3.2.1. 10 September 2026. Copyright 2026 the Linux Foundation."
+        }
+      ]
+    },
+    {
+      "id": "contract-pact",
+      "name": "Contrato Pact",
+      "status": "sourced",
+      "checks": [
+        "O teste afirma que as mensagens entre aplicacoes obedecem ao contrato compartilhado, sem subir o sistema inteiro so para isso?"
+      ],
+      "sources": [
+        {
+          "url": "https://docs.pact.io/",
+          "retrieved": "2026-11-25",
+          "excerpt": "Pact is a code-first tool for testing HTTP and message integrations using contract tests. Contract tests assert that inter-application messages conform to a shared understanding that is documented in a contract."
+        }
+      ]
+    },
+    {
+      "id": "browser",
+      "name": "Navegador",
+      "status": "sourced",
+      "checks": [
+        "O check de navegador aponta para Playwright, Cypress ou Selenium, com a pagina oficial correspondente?"
+      ],
+      "sources": [
+        {
+          "url": "https://playwright.dev/docs/intro",
+          "retrieved": "2026-11-25",
+          "excerpt": "A pagina abriu em Installation. O indice lista Writing tests, API testing e Accessibility testing."
+        },
+        {
+          "url": "https://docs.cypress.io/app/get-started/why-cypress",
+          "retrieved": "2026-11-25",
+          "excerpt": "Titulo: Why Cypress? End-to-end, component & accessibility testing."
+        },
+        {
+          "url": "https://www.selenium.dev/documentation/webdriver/",
+          "retrieved": "2026-11-25",
+          "excerpt": "Titulo: WebDriver | Selenium. A pagina documenta WebDriver."
+        }
+      ]
+    },
+    {
+      "id": "mobile",
+      "name": "Mobile",
+      "status": "sourced",
+      "checks": [
+        "O check de UI Android usa Espresso, o de Xcode usa XCTest, ou o de mais de uma plataforma usa Appium, conforme a fonte da ferramenta?"
+      ],
+      "sources": [
+        {
+          "url": "https://developer.android.com/training/testing/espresso",
+          "retrieved": "2026-11-25",
+          "excerpt": "Use Espresso to write concise, beautiful, and reliable Android UI tests."
+        },
+        {
+          "url": "https://developer.apple.com/tutorials/data/documentation/xctest.md",
+          "retrieved": "2026-11-25",
+          "excerpt": "Create and run unit tests, performance tests, and UI tests for your Xcode project."
+        },
+        {
+          "url": "https://appium.io/docs/en/latest/intro/appium/",
+          "retrieved": "2026-11-25",
+          "excerpt": "Appium is an open-source project and ecosystem of related software, designed to facilitate UI automation of many app platforms."
+        }
+      ]
+    },
+    {
+      "id": "load",
+      "name": "Carga",
+      "status": "sourced",
+      "checks": [
+        "A ferramenta de carga citada e k6 ou JMeter, e o objetivo declarado e desempenho, nao um teste funcional disfarçado?"
+      ],
+      "sources": [
+        {
+          "url": "https://grafana.com/docs/k6/latest/",
+          "retrieved": "2026-11-25",
+          "excerpt": "Grafana k6 is an open-source, developer-friendly, and extensible performance testing tool."
+        },
+        {
+          "url": "https://jmeter.apache.org/usermanual/get-started.html",
+          "retrieved": "2026-11-25",
+          "excerpt": "O manual separa Test plan building, Load Test running e CLI Mode."
+        }
+      ]
+    },
+    {
+      "id": "accessibility",
+      "name": "Acessibilidade",
+      "status": "sourced",
+      "checks": [
+        "O motor citado e axe-core, com as regras WCAG que o proprio projeto declara?"
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/dequelabs/axe-core/blob/develop/README.md",
+          "retrieved": "2026-11-25",
+          "excerpt": "Axe is an accessibility testing engine for websites and other HTML-based user interfaces. Axe-core has different types of rules, for WCAG 2.0, 2.1, 2.2 on level A, AA and AAA."
+        }
+      ]
+    },
+    {
+      "id": "data",
+      "name": "Dados",
+      "status": "label_only",
+      "checks": [],
+      "sources": [],
+      "gap": "Nenhuma fonte de preparo de dados de teste foi lida em 2026-11-25."
+    },
+    {
+      "id": "defect",
+      "name": "Defeito",
+      "status": "sourced",
+      "checks": [
+        "O defeito de seguranca esta registrado como defeito de codigo ou de desenho, como o prefácio do WSTG pede aos gerentes?"
+      ],
+      "sources": [
+        {
+          "url": "https://wstg.owasp.org/latest/",
+          "retrieved": "2026-11-25",
+          "excerpt": "Project Managers should treat security issues as bugs in code and design, and plan accordingly."
+        }
+      ]
+    },
+    {
+      "id": "security-requirement",
+      "name": "Seguranca como requisito",
+      "status": "sourced",
+      "checks": [
+        "O testador ampliou os casos com o WSTG em vez de tratar seguranca como atividade separada do teste?"
+      ],
+      "sources": [
+        {
+          "url": "https://wstg.owasp.org/latest/",
+          "retrieved": "2026-11-25",
+          "excerpt": "Software testers and QA should use this guide to expand the test cases they apply."
+        }
+      ]
+    },
+    {
+      "id": "llm-rag",
+      "name": "Qualidade de LLM e RAG",
+      "status": "sourced",
+      "checks": [
+        "O caso observa qual destes sete pontos falha: Missing Content, Missed the Top Ranked Documents, Not in Context, Not Extracted, Wrong Format, Incorrect Specificity, Incomplete?"
+      ],
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2401.05856",
+          "retrieved": "2026-11-25",
+          "excerpt": "Seven Failure Points When Engineering a Retrieval Augmented Generation System. FP1 Missing Content. FP2 Missed the Top Ranked Documents. FP3 Not in Context. FP4 Not Extracted. FP5 Wrong Format. FP6 Incorrect Specificity. FP7 Incomplete."
+        }
+      ],
+      "gap": "O pedido falava em oito criterios. Esta fonte lista sete. O oitavo nao foi lido e nao foi criado."
+    }
+  ],
+  "tools": [
+    {
+      "id": "playwright",
+      "name": "Playwright",
+      "status": "sourced",
+      "when": "Quando o check e de navegador, API ou acessibilidade e a pagina oficial lista essas secoes.",
+      "where": "Navegador e API de teste do proprio Playwright.",
+      "why": "O indice lido em 2026-11-25 lista Writing tests, API testing e Accessibility testing.",
+      "how": "Ler essas secoes na documentacao oficial. Este servidor nao guarda linha de comando.",
+      "sources": [{"url": "https://playwright.dev/docs/intro", "retrieved": "2026-11-25"}]
+    },
+    {
+      "id": "cypress",
+      "name": "Cypress",
+      "status": "sourced",
+      "when": "Quando o check e fim a fim, de componente ou de acessibilidade no Cypress.",
+      "where": "Aplicacao web coberta pelo Cypress.",
+      "why": "O titulo lido foi Why Cypress? End-to-end, component & accessibility testing.",
+      "how": "Seguir a documentacao oficial citada. Este servidor nao guarda linha de comando.",
+      "sources": [{"url": "https://docs.cypress.io/app/get-started/why-cypress", "retrieved": "2026-11-25"}]
+    },
+    {
+      "id": "selenium",
+      "name": "Selenium",
+      "status": "sourced",
+      "when": "Quando o check dirige um navegador pela API WebDriver.",
+      "where": "Navegador controlado por WebDriver.",
+      "why": "A pagina lida documenta WebDriver.",
+      "how": "Ler https://www.selenium.dev/documentation/webdriver/. Este servidor nao guarda linha de comando.",
+      "sources": [{"url": "https://www.selenium.dev/documentation/webdriver/", "retrieved": "2026-11-25"}]
+    },
+    {
+      "id": "postman-newman",
+      "name": "Postman/Newman",
+      "status": "sourced",
+      "when": "Quando uma collection Postman precisa rodar pela CLI, inclusive em CI.",
+      "where": "Collection HTTP ja existente.",
+      "why": "A pagina lida tem os titulos Install Newman, Run a collection with Newman e Use Newman in CI.",
+      "how": "Seguir essa pagina. Este servidor nao guarda a linha do Newman.",
+      "sources": [{"url": "https://learning.postman.com/docs/collections/using-newman-cli/command-line-integration-with-newman/", "retrieved": "2026-11-25"}]
+    },
+    {
+      "id": "pact",
+      "name": "Pact",
+      "status": "sourced",
+      "when": "Quando a integracao HTTP ou de mensagem precisa provar o contrato compartilhado.",
+      "where": "Mensagens entre aplicacoes.",
+      "why": "A introducao define Pact como ferramenta code-first de contract tests.",
+      "how": "Ler https://docs.pact.io/. Este servidor nao guarda exemplo de codigo.",
+      "sources": [{"url": "https://docs.pact.io/", "retrieved": "2026-11-25"}]
+    },
+    {
+      "id": "k6",
+      "name": "k6",
+      "status": "sourced",
+      "when": "Quando a pergunta e de desempenho e a ferramenta escolhida e o k6.",
+      "where": "Carga contra um alvo autorizado de teste.",
+      "why": "A documentacao descreve o k6 como ferramenta de teste de desempenho.",
+      "how": "Ler https://grafana.com/docs/k6/latest/. Este servidor nao guarda script de carga.",
+      "sources": [{"url": "https://grafana.com/docs/k6/latest/", "retrieved": "2026-11-25"}]
+    },
+    {
+      "id": "jmeter",
+      "name": "JMeter",
+      "status": "sourced",
+      "when": "Quando o plano de carga e o do Apache JMeter.",
+      "where": "Plano de teste do JMeter, construido e depois executado como carga.",
+      "why": "O manual separa a montagem do plano da execucao da carga e do modo CLI.",
+      "how": "Ler o Getting Started oficial. Este servidor nao guarda parametro de carga.",
+      "sources": [{"url": "https://jmeter.apache.org/usermanual/get-started.html", "retrieved": "2026-11-25"}]
+    },
+    {
+      "id": "espresso",
+      "name": "Espresso",
+      "status": "sourced",
+      "when": "Quando o check e de UI Android.",
+      "where": "Aplicacao Android.",
+      "why": "A pagina diz para usar Espresso em testes de UI Android.",
+      "how": "Ler https://developer.android.com/training/testing/espresso. Este servidor nao guarda o exemplo de codigo.",
+      "sources": [{"url": "https://developer.android.com/training/testing/espresso", "retrieved": "2026-11-25"}]
+    },
+    {
+      "id": "xcuitest",
+      "name": "XCUITest",
+      "status": "sourced",
+      "when": "Quando o check de UI, unidade ou desempenho e de um projeto Xcode.",
+      "where": "Projeto Xcode, pelo framework XCTest.",
+      "why": "A pagina XCTest diz que ele cria testes de unidade, desempenho e UI.",
+      "how": "Ler a documentacao XCTest. O nome XCUITest nao teve pagina propria com frase extraida alem do framework XCTest.",
+      "sources": [{"url": "https://developer.apple.com/tutorials/data/documentation/xctest.md", "retrieved": "2026-11-25"}]
+    },
+    {
+      "id": "appium",
+      "name": "Appium",
+      "status": "sourced",
+      "when": "Quando a mesma automacao de UI precisa cobrir mais de uma plataforma.",
+      "where": "Plataformas moveis cobertas pelo ecossistema Appium.",
+      "why": "A documentacao apresenta o Appium como automacao de UI de muitas plataformas.",
+      "how": "Ler a pagina How Does Appium Work. Este servidor nao guarda capability nem comando.",
+      "sources": [{"url": "https://appium.io/docs/en/latest/intro/appium/", "retrieved": "2026-11-25"}]
+    },
+    {
+      "id": "axe-core",
+      "name": "axe-core",
+      "status": "sourced",
+      "when": "Quando a interface HTML precisa de regras de acessibilidade automatizadas.",
+      "where": "Sites e outras interfaces HTML.",
+      "why": "O README define o axe como motor de teste de acessibilidade, com regras WCAG 2.0, 2.1 e 2.2.",
+      "how": "Ler o README oficial. Este servidor nao guarda chamada de API.",
+      "sources": [{"url": "https://github.com/dequelabs/axe-core/blob/develop/README.md", "retrieved": "2026-11-25"}]
+    }
+  ],
+  "questions": {
+    "refinement": {
+      "status": "unavailable",
+      "reason": "Nenhuma lista oficial de perguntas de refinamento foi lida em 2026-11-25.",
+      "questions": []
+    },
+    "release": {
+      "status": "unavailable",
+      "reason": "A pagina de Fowler tem o titulo Putting Tests Into Your Deployment Pipeline, mas o texto dessa secao nao foi extraido. Nenhuma pergunta de release foi criada.",
+      "questions": []
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "skill": "tests-expert",
+  "package_hash": "ec10a1b8b80fcf636973e72c837bd7c00475d4e9d17d1b0bd4dbc9a78c02e815",
+  "positive_triggers": [
+    "functional and e2e",
+    "new features",
+    "e2e tests"
+  ],
+  "negative_scope": [
+    "unit tests",
+    "coverage",
+    "edited expectation"
+  ],
+  "source": {
+    "repository": "local",
+    "retrieved": "2026-11-25"
+  },
+  "verification": {
+    "kind": "structural-and-syntax",
+    "runtime_evaluated": false,
+    "routing": "Static wording assessment; no measured trigger accuracy"
+  },
+  "effectiveness": "Not measured; structural acceptance does not establish enterprise performance"
+}

@@ -1,3 +1,14 @@
+## fixall — skills de teste e pentest, MCPs e playbook — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `playbooks/fixall/PLAYBOOK.md`.
+
+- Entregue: `qa-expert-mcp`, `pentexpert-mcp`, `test-expert` (alias `qa-expert`), `pentests-expert` e o playbook `fixall`.
+- `tests-expert` permanece o charter funcional e de ponta a ponta.
+- Verificado: 18 testes locais e `python3 quality/validate.py` estrutural PASS. `--runtime` não rodou aqui: não existe o binário `python`.
+- Próximo: no CI, `python quality/validate.py --runtime`. O envio ao GitHub desta sessão segue o contrato do agente; o playbook, quando executado, pergunta antes de subir se o pedido não disser.
+
+---
+
 ## CI master — Node 26 no prepush — 2026-11-16
 
 Updated: 2026-11-16. Entry point: `.github/workflows/prepush-gate.yml`. Evidence: simulação do backend `language` com o Node 24.22.2 da imagem Ubuntu (endoflife ciclo atual 26, patch 26.13.1) produz `language-outdated`; o mesmo check com 26.13.1 passa. `quality/validate.py --runtime` PASS local com Python 3.15 e PyYAML 6.0.3.

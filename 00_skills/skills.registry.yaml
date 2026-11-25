@@ -1961,3 +1961,21 @@ skills:
   risk_level: high
   mission: 'TLC rule for Dark Videos media (spec-driven, Spotify). Use for media creation with a role skill. Do NOT use as substitute or to upload mined files.'
   capabilities: []
+- id: pentests-expert
+  path: 00_skills/(security)/pentests-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: 'Return impact, a control question, evidence and a fix. Use for pentests-expert or a security checklist. Do NOT use for payloads, exploit commands or reproduction.'
+  capabilities: []
+- id: qa-expert
+  path: 00_skills/(quality)/test-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Route a test by sourced category and evidence. Use for test-expert, qa-expert or a test plan. Do NOT use for exploit payloads, invented oracles or unit-only proof.'
+  capabilities: []
+- id: test-expert
+  path: 00_skills/(quality)/test-expert/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: 'Route a test by sourced category and evidence. Use for test-expert, qa-expert or a test plan. Do NOT use for exploit payloads, invented oracles or unit-only proof.'
+  capabilities: []

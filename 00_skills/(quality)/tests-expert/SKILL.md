@@ -14,6 +14,8 @@ Governance: CodENavi Full Workspace v2 (BRIEFING→DEBRIEF); skill of `codenavi-
 
 The user request is the only oracle. The running application is what you observe. Module map: `references/INDEX.md`.
 
+Categorias, ferramentas e o contrato novo estão em [test-expert](../test-expert/SKILL.md). Este pacote continua o charter funcional e de ponta a ponta. Do not invent a passing check.
+
 ## Automatic use
 
 Run this skill after application code is written or changed to fix a bug, before declaring that work done, even if the user never said "test". A new context window reads `.aeos/tests-expert/RESUME.md` first when it exists. Failure handling and exit codes: `references/failure-memory.md`.
