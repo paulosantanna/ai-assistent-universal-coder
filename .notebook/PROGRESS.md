@@ -5,7 +5,7 @@ Updated: 2026-11-25. Entry point: `00_skills/(tooling)/always-on-agents/SKILL.md
 - [x] RECON: base já era `master`; bloqueio era conflito com `1cebb6bd` e prepush `libraries` no SHA antigo `9725813a`.
 - [x] EXECUTE: merge de `origin/master`; notebook unido; catálogo, índice e registry com `always-on-agents` e as skills da master.
 - [x] VERIFY: 27 testes OK; `quality/validate.py` PASS (373, 4 skills avaliadas); prepush `libraries` 0 achados.
-- [ ] CI do PR no GitHub com Node 26 e Python 3.15. Aqui o `language` falha porque o processo é Node 22.23.4 e Python 3.12.3.
+- [x] CI do SHA `2aef4f09`: prepush `45672744803` e enterprise `45672744687`, success. PR `mergeable_state` clean na `master`. O `language` local continua vermelho só porque o processo daqui é Node 22.23.4 e Python 3.12.3.
 
 ---
 

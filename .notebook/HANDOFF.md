@@ -4,8 +4,9 @@ Updated: 2026-11-25. Entry point: `00_skills/(tooling)/always-on-agents/SKILL.md
 
 - O PR 59 não entrava na master: `mergeable_state` dirty contra `1cebb6bd` (pins, NVIDIA, Remotion, fixall) e o prepush antigo falhava em bibliotecas já corrigidas na master.
 - Resolução: as duas histórias do notebook ficam; o catálogo da master ganha só `always-on-agents`.
-- Verificado aqui: bibliotecas, CVE, SAST, executáveis e segurança do prepush passam. O backend `language` falha neste ambiente (Node 22.23.4, Python 3.12.3); o CI da master instala Node 26 e Python 3.15.
-- Próximo: o CI do PR contra a master. Binários `agent` e `opencode` continuam fora desta verificação.
+- Verificado aqui: bibliotecas, CVE, SAST, executáveis e segurança do prepush passam. O backend `language` falha neste ambiente (Node 22.23.4, Python 3.12.3).
+- CI do SHA `2aef4f09`: prepush `45672744803` e enterprise `45672744687`, ambos success. `mergeable_state` clean contra `master` `1cebb6bd`.
+- Próximo: merge do PR 59 na master. Binários `agent` e `opencode` continuam fora desta verificação.
 
 ---
 
