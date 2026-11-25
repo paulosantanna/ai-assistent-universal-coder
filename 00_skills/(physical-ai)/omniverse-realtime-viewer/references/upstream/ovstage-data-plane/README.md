@@ -1,0 +1,70 @@
+<!-- Adapted for the TLC workspace from NVIDIA/skills@e34173c2efbe skills/omniverse-realtime-viewer/references/ovstage-data-plane/README.md. License unchanged. Not an NVIDIA-verified copy. -->
+
+# ovstage Data Plane
+
+Use this reference for hierarchy queries, property inspection, live transforms,
+camera updates, render-product settings, material effects, cloning, and
+CPU/GPU tensor exchange.
+
+## Commands, queries, and DTOs
+
+Keep a narrow runtime adapter. Commands receive canonical USD paths and values,
+resolve them through the active stage path dictionary, assign an ordinal, and
+return only an acknowledgement/generation. Queries return copied DTOs containing
+a canonical path, value/schema summary, stage generation, and observed ordinal.
+
+Never make renderer attribute APIs the source of scene truth. Use ovstage for
+prim discovery, hierarchy, scalar/array reads, writes, maps, and clones. Keep
+renderer APIs for renderer outputs, pick queues, and renderer-owned selection
+configuration.
+
+Direct `renderer.write_attribute()`, `bind_attribute()`, `map_attribute()`,
+`query_prims()`, and `read_attribute()` are standalone compatibility APIs in
+ovrtx. Do not call them to mutate transforms, material/effect values, or
+stage-data viewer state while ovrtx is attached to an OVStage. Renderer-owned
+picking and selection-outline configuration still belongs to ovrtx.
+
+## Transform and interaction writes
+
+Label every transform as authored, composed-local, or world intent. Convert
+world-space interaction intent through the parent before writing runtime state.
+For persistent product edits, use the app's non-destructive session/authoring
+policy; do not silently overwrite the user asset.
+
+Every render-visible write follows the runtime publication protocol: write at
+`N`, wait, advance the floor, then render `N`. Rebuild cached material/prim maps
+on a stage-generation change.
+
+For `omni:xform`, use row-major `float64` matrices with translation in row
+`[3][0..2]`. OVStage write inputs and map-creation dtypes use one 16-lane
+element per prim (`shape=[N]`, lanes `16`, `AttributeSemantic.MATRIX`).
+Read/map outputs instead use scalar lanes and explicit component axes:
+vectors `[N,3]`, matrices `[N,4,4]`, with explicit strides. Honor the returned
+shape and strides; do not reuse an output descriptor as a write descriptor
+without the selected runtime's tensor-to-write conversion helper.
+
+Use `PrimMode.UPSERT` for app-owned runtime attributes unless the feature
+requires insert-only behavior. Use session/composite USD for persistent
+non-destructive authored state; never silently author transform, material, or
+viewer-setting state back into the user's USD asset.
+
+## Device-produced updates
+
+For a CUDA or other device producer, read OVStage's current
+[device-placement guidance](https://github.com/NVIDIA-Omniverse/ovstage/blob/main/docs/scene/device_placement.rst)
+and owning upstream skills before choosing APIs. Probe the selected runtime's
+supported operations, placements, dtypes, and shapes; fixed-shape transform
+support does not imply array-valued mesh support. Upstream owns placement,
+stream/event, map/commit, and completion mechanics.
+
+The application still owns the producer clock and runtime publication. Retain
+producer buffers until the supported completion boundary, publish completed
+updates before the renderer consumes them, and arbitrate manual/animation writes
+through the same transform model. A procedural GPU oscillator demonstrates a
+producer handoff; it does not establish physics-solver correctness.
+
+## Tensor lifetime
+
+Use the pinned runtime's DLPack contracts. Source buffers must survive until the
+operation completes. Copy values that leave the runtime boundary; UI and WebRTC
+messages never own a live stage tensor or mapped view.

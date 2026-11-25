@@ -1,3 +1,12 @@
+## NVIDIA skills adaptadas ao TLC — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `.notebook/nvidia-skills-tlc.md`.
+
+- Fact: as 45 skills pedidas existem em https://github.com/NVIDIA/skills no commit `e34173c2efbe5ced223f39903bd4806d8ac13d7d` (2026-11-25). Licença Apache-2.0, ou Apache-2.0 e CC-BY-4.0.
+- Decision: a cópia deste workspace não é NVIDIA-verified. A entrada canônica fica em `00_skills/(tema)/<id>/SKILL.md`, com o corpo operacional em `references/procedure.md` e a documentação longa em `references/upstream/`.
+- Fact: `nemo-rl-session-memory` é memória de sessão de código, não treino NeMo RL. No workspace o quarteto `.notebook/` continua sendo o registro.
+- Limit: nenhum comando de GPU, Slurm, DICOM real ou VSS foi executado nesta adaptação.
+
 ## fixall — MCPs e skills de QA e pentest — 2026-11-25
 
 Updated: 2026-11-25. Entry point: `.notebook/fixall.md`.

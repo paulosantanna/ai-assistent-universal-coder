@@ -1,0 +1,53 @@
+{
+  "skill": "nemo-rl-session-memory",
+  "package_hash": "7ac59ad750ede5d75f4745fb1a6fd816f4d7d82f705208f2fda7af5b0c5de405",
+  "positive_triggers": [
+    "session memory",
+    "handoff",
+    "checkpoint"
+  ],
+  "negative_scope": [
+    "NeMo RL training",
+    "short one-off commands",
+    "secret storage"
+  ],
+  "source": "NVIDIA/skills@e34173c2efbe TLC adaptation",
+  "verification": {
+    "kind": "structural-and-syntax",
+    "runtime_evaluated": false,
+    "routing": "Static wording assessment; no measured trigger accuracy"
+  },
+  "effectiveness": "Not measured. Structural acceptance does not establish GPU, cluster, or clinical performance.",
+  "rubric": {
+    "source": "00_skills/(creation)/skill-architect/references/quality-checklist.md",
+    "weights": {
+      "routing": 20,
+      "procedure": 25,
+      "examples": 15,
+      "errors": 15,
+      "disclosure": 15,
+      "verification": 10
+    },
+    "ratings": {
+      "routing": 4,
+      "procedure": 4,
+      "examples": 4,
+      "errors": 4,
+      "disclosure": 4,
+      "verification": 3
+    },
+    "score": 78.0,
+    "before": {
+      "ratings": {
+        "routing": 4,
+        "procedure": 4,
+        "examples": 2,
+        "errors": 2,
+        "disclosure": 2,
+        "verification": 2
+      },
+      "score": 58.0
+    },
+    "limit": "Diagnostic instruction-quality rubric. No measured routing accuracy and no NVIDIA verification of the adaptation."
+  }
+}

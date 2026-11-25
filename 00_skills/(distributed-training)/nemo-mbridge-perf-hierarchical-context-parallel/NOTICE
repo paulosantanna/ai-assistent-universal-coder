@@ -1,0 +1,7 @@
+NVIDIA/skills adaptation
+Upstream: https://github.com/NVIDIA/skills @e34173c2efbe5ced223f39903bd4806d8ac13d7d
+Path: skills/nemo-mbridge-perf-hierarchical-context-parallel
+Copyright (c) 2026 NVIDIA Corporation. All rights reserved.
+License: Apache-2.0
+Modifications: Tech Lead Club / CodENavi structure, safety gates, link repair, and theme placement.
+This adaptation is not NVIDIA-verified.

@@ -1,0 +1,53 @@
+{
+  "skill": "dali-dynamic-mode",
+  "package_hash": "d7be26e37ff5929ee1b19ae267a3fbacbab4b30fe403a91038495e37de1b7015",
+  "positive_triggers": [
+    "dali dynamic",
+    "ndd",
+    "dynamic-mode"
+  ],
+  "negative_scope": [
+    "cuDF dataframes",
+    "static pipeline-only edits",
+    "model training"
+  ],
+  "source": "NVIDIA/skills@e34173c2efbe TLC adaptation",
+  "verification": {
+    "kind": "structural-and-syntax",
+    "runtime_evaluated": false,
+    "routing": "Static wording assessment; no measured trigger accuracy"
+  },
+  "effectiveness": "Not measured. Structural acceptance does not establish GPU, cluster, or clinical performance.",
+  "rubric": {
+    "source": "00_skills/(creation)/skill-architect/references/quality-checklist.md",
+    "weights": {
+      "routing": 20,
+      "procedure": 25,
+      "examples": 15,
+      "errors": 15,
+      "disclosure": 15,
+      "verification": 10
+    },
+    "ratings": {
+      "routing": 4,
+      "procedure": 4,
+      "examples": 4,
+      "errors": 4,
+      "disclosure": 4,
+      "verification": 3
+    },
+    "score": 78.0,
+    "before": {
+      "ratings": {
+        "routing": 2,
+        "procedure": 4,
+        "examples": 4,
+        "errors": 4,
+        "disclosure": 2,
+        "verification": 2
+      },
+      "score": 62.0
+    },
+    "limit": "Diagnostic instruction-quality rubric. No measured routing accuracy and no NVIDIA verification of the adaptation."
+  }
+}

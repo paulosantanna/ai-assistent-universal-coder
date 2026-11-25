@@ -4,6 +4,19 @@
   "governance": "CodENavi Full Workspace v2",
   "skills": [
     {
+      "id": "accelerated-computing-cudf",
+      "aliases": [],
+      "path": "00_skills/(gpu-data)/accelerated-computing-cudf/SKILL.md",
+      "category": "gpu-data",
+      "description": "Accelerate pandas with cuDF or dask-cuDF. Use for cudf joins or GPU dataframes. Do NOT use for model training.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "medium",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "4654360c1bddfa5b3d1eb10b436bd646dc7bd5a17a61efee79c4fc406fbf49eb"
+    },
+    {
       "id": "acta-aurea",
       "aliases": [],
       "path": "00_skills/(tooling)/acta-aurea/SKILL.md",
@@ -773,6 +786,19 @@
       "sha256": "f907760d683912ea36a2cd86c1155490014e3d1daf0c98459e557d62ccc9caa2"
     },
     {
+      "id": "dali-dynamic-mode",
+      "aliases": [],
+      "path": "00_skills/(gpu-data)/dali-dynamic-mode/SKILL.md",
+      "category": "gpu-data",
+      "description": "Write DALI dynamic-mode pipelines in ndd. Use for dali dynamic mode or ndd. Do NOT use for static pipeline-only edits.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "medium",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "ee72e2a4175dbc9814bd0d946689714d2a1061223af7624958ec1d3755a3cc22"
+    },
+    {
       "id": "dark-videos-knowledge-base",
       "aliases": [],
       "path": "00_skills/(development)/dark-videos-knowledge-base/SKILL.md",
@@ -799,6 +825,19 @@
       "sha256": "889c346c69b60ddb7a4db307fe895477c61baf0eb92faf99cc3457426ea9315e"
     },
     {
+      "id": "data-designer",
+      "aliases": [],
+      "path": "00_skills/(synthetic-data)/data-designer/SKILL.md",
+      "category": "synthetic-data",
+      "description": "Build a synthetic dataset with Data Designer. Use for synthetic data or a data-designer pipeline. Do NOT use for real PHI.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "medium",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "1f27234d7d896e20bacbfa5ada72d4acdbc8d920cdcecefbc4e9d13ab31544a1"
+    },
+    {
       "id": "database-architecture-planner",
       "aliases": [],
       "path": "00_skills/(architecture)/database-architecture-planner/SKILL.md",
@@ -823,6 +862,19 @@
       "source": "tlc",
       "lines": 48,
       "sha256": "e95c6da50f96e9b7106f866f6c0fba0510c337993a99800505b198ca6c7d9fbf"
+    },
+    {
+      "id": "deepstream-dev",
+      "aliases": [],
+      "path": "00_skills/(video-analytics)/deepstream-dev/SKILL.md",
+      "category": "video-analytics",
+      "description": "Build DeepStream pipelines with pyservicemaker. Use for deepstream or GStreamer inference. Do NOT use for VSS search.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "5c97a28b2fcc7e6f1ede437352bfc9d7c25019eb54e77ead0f26b7d2a8a252fc"
     },
     {
       "id": "delegation-auditor",
@@ -916,6 +968,32 @@
       "sha256": "da0ce72003b2b07e6c1f31980b4a54cc6133ad881fabca5fe01418cc6579b05f"
     },
     {
+      "id": "dicom-metadata-extract",
+      "aliases": [],
+      "path": "00_skills/(clinical-ai)/dicom-metadata-extract/SKILL.md",
+      "category": "clinical-ai",
+      "description": "Extract DICOM metadata without pixels. Use for dicom metadata extract. Do NOT use for diagnosis or series QA.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "81c4112ccd1b61cf25c05eb5116c9c8856e89421356d30b65a67cd44420f3f80"
+    },
+    {
+      "id": "dicom-series-preflight",
+      "aliases": [],
+      "path": "00_skills/(clinical-ai)/dicom-series-preflight/SKILL.md",
+      "category": "clinical-ai",
+      "description": "Preflight a DICOM series before training. Use for dicom series preflight. Do NOT use for metadata-only extract.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "77aad23182da2e121bd40d5ad41e0ebcabe81369575c7f74707c89210501dfac"
+    },
+    {
       "id": "diff-reviewer",
       "aliases": [],
       "path": "00_skills/(quality)/diff-reviewer/SKILL.md",
@@ -927,6 +1005,58 @@
       "source": "workspace",
       "lines": 77,
       "sha256": "7f5f7087e35682a481ddbcfb2c396c7698188ed2d443cb5847b3a0ae2c7757e6"
+    },
+    {
+      "id": "digital-health-clinical-asr-build",
+      "aliases": [],
+      "path": "00_skills/(clinical-ai)/digital-health-clinical-asr-build/SKILL.md",
+      "category": "clinical-ai",
+      "description": "Build a clinical ASR term manifest. Use for clinical asr build or IPA tags. Do NOT use for scoring.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "5d15b76289983ac1cb54f7b35299c56a0e417503ec5f623206061ad275d61608"
+    },
+    {
+      "id": "digital-health-clinical-asr-eval",
+      "aliases": [],
+      "path": "00_skills/(clinical-ai)/digital-health-clinical-asr-eval/SKILL.md",
+      "category": "clinical-ai",
+      "description": "Score a clinical ASR manifest with KER. Use for clinical asr eval or a score. Do NOT use for fine-tuning.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "d61ac908347ffb4a04ce4218cbfe0ade4be4049a54cff87faac96ec560fd80dc"
+    },
+    {
+      "id": "digital-health-clinical-asr-finetune",
+      "aliases": [],
+      "path": "00_skills/(clinical-ai)/digital-health-clinical-asr-finetune/SKILL.md",
+      "category": "clinical-ai",
+      "description": "Fine-tune Parakeet when KER stays high. Use for clinical asr finetune. Do NOT use for setup.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "39ba29f3f7832260843c9cd0b8dfa570d3f8708d87bce96f98bb474cee78f03a"
+    },
+    {
+      "id": "digital-health-clinical-asr-setup",
+      "aliases": [],
+      "path": "00_skills/(clinical-ai)/digital-health-clinical-asr-setup/SKILL.md",
+      "category": "clinical-ai",
+      "description": "Set up the clinical ASR flywheel host. Use for clinical asr setup or NVCF. Do NOT use for scoring or fine-tune.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "406cbde4119501f658f41f04cf30dd15405ac92f870bd7493936e4be6ee9b0f7"
     },
     {
       "id": "docker-devcontainer-engineer",
@@ -1116,6 +1246,19 @@
       "source": "tlc",
       "lines": 45,
       "sha256": "5ebd3ed6a594b814f62f15636e3f80a40f5c1b8a95f85f2f090f9f2b9b2bd8f0"
+    },
+    {
+      "id": "dynamo-recipe-runner",
+      "aliases": [],
+      "path": "00_skills/(inference-serving)/dynamo-recipe-runner/SKILL.md",
+      "category": "inference-serving",
+      "description": "Select and deploy an existing Dynamo Kubernetes recipe. Use for dynamo recipe or GPU serving. Do NOT use for training.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "c3047eeb3b4829f44e2d64088562e48104818b38b253330a5c70c8d8ab1cafbf"
     },
     {
       "id": "dynatrace-observability-staff",
@@ -2327,6 +2470,19 @@
       "sha256": "2ac6c59d97cd63465a788da0ca9bd9778c58076d8ead448de6dfdacf56edbeb5"
     },
     {
+      "id": "mcore-linting-and-formatting",
+      "aliases": [],
+      "path": "00_skills/(distributed-training)/mcore-linting-and-formatting/SKILL.md",
+      "category": "distributed-training",
+      "description": "Lint and format Megatron-LM before a PR. Use for mcore lint, autoformat.sh, or ruff. Do NOT use for training.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "low",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "46c83a579dd54b5a6fdb680cf262e897c01833b669c1e1fb888d1baa6c36d254"
+    },
+    {
       "id": "mcp-discovery",
       "aliases": [],
       "path": "00_skills/(tooling)/mcp-discovery/SKILL.md",
@@ -2496,6 +2652,214 @@
       "sha256": "302dcfbb9d8e2f9a7fcec9bcca1b8cbe1166124df44fb20da4507a7556564a4c"
     },
     {
+      "id": "nemo-automodel-distributed-training",
+      "aliases": [],
+      "path": "00_skills/(distributed-training)/nemo-automodel-distributed-training/SKILL.md",
+      "category": "distributed-training",
+      "description": "Configure NeMo AutoModel distributed training. Use for automodel FSDP or tensor parallel. Do NOT use for lint-only.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "c9538880ddb45f9ce6e0faee799f1c5c5d590595d32109b4906e1a2a07daeb82"
+    },
+    {
+      "id": "nemo-mbridge-mlm-bridge-training",
+      "aliases": [],
+      "path": "00_skills/(distributed-training)/nemo-mbridge-mlm-bridge-training/SKILL.md",
+      "category": "distributed-training",
+      "description": "Run Megatron-LM and Bridge correlation training. Use for mlm bridge training. Do NOT use for lint.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "abcc1b2807a8745f875e9c7c2c20a4503f4716bd7cdf6ab131675df547e30454"
+    },
+    {
+      "id": "nemo-mbridge-multi-node-slurm",
+      "aliases": [],
+      "path": "00_skills/(distributed-training)/nemo-mbridge-multi-node-slurm/SKILL.md",
+      "category": "distributed-training",
+      "description": "Turn a single-node run into a Slurm sbatch job. Use for multi-node slurm. Do NOT use for single-GPU lint.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "c6d20e41bb4822722fe5f1674bf70d541f3faed4f091a55381effd3b7440b832"
+    },
+    {
+      "id": "nemo-mbridge-perf-cpu-offloading",
+      "aliases": [],
+      "path": "00_skills/(distributed-training)/nemo-mbridge-perf-cpu-offloading/SKILL.md",
+      "category": "distributed-training",
+      "description": "Offload optimizer or activations to CPU. Use for cpu offloading. Do NOT use for CUDA graphs.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "medium",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "78bbab8f5ab79d85323f2b1d0b812322f4b42974082cd0bfe043329e172fcfe4"
+    },
+    {
+      "id": "nemo-mbridge-perf-cuda-graphs",
+      "aliases": [],
+      "path": "00_skills/(distributed-training)/nemo-mbridge-perf-cuda-graphs/SKILL.md",
+      "category": "distributed-training",
+      "description": "Enable CUDA graphs in Megatron Bridge. Use for cuda graphs, graph capture, or TE. Do NOT use for Slurm setup.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "medium",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "c8150eaf5d9d42fd58745b2daecbc215f023ab24a6e8f7b8eb224bd9e269ba43"
+    },
+    {
+      "id": "nemo-mbridge-perf-hierarchical-context-parallel",
+      "aliases": [],
+      "path": "00_skills/(distributed-training)/nemo-mbridge-perf-hierarchical-context-parallel/SKILL.md",
+      "category": "distributed-training",
+      "description": "Enable hierarchical context parallel (HCP). Use for hierarchical context parallel. Do NOT use for sequence packing.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "medium",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "28a3537456d2bfb69b414e9eea71e913442d5ab1265bdc997f69e9a6808b8e94"
+    },
+    {
+      "id": "nemo-mbridge-perf-memory-tuning",
+      "aliases": [],
+      "path": "00_skills/(distributed-training)/nemo-mbridge-perf-memory-tuning/SKILL.md",
+      "category": "distributed-training",
+      "description": "Tune Megatron Bridge memory before speed. Use for memory tuning, OOM, or recompute. Do NOT use for CUDA graphs.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "medium",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "11e54cc54eaee4b210a2cde3b4af3c3de1a5af6f23733bbc75a2b226d3795b56"
+    },
+    {
+      "id": "nemo-mbridge-perf-moe-dispatcher-selection",
+      "aliases": [],
+      "path": "00_skills/(distributed-training)/nemo-mbridge-perf-moe-dispatcher-selection/SKILL.md",
+      "category": "distributed-training",
+      "description": "Pick an MoE token dispatcher. Use for moe dispatcher, DeepEP, or alltoall. Do NOT use for parallelism sizing.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "medium",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "23f892fc0e915d00bd9a2cb8cfc7828bbee90aa7ef602eee194938cc990261f9"
+    },
+    {
+      "id": "nemo-mbridge-perf-moe-hardware-configs",
+      "aliases": [],
+      "path": "00_skills/(distributed-training)/nemo-mbridge-perf-moe-hardware-configs/SKILL.md",
+      "category": "distributed-training",
+      "description": "Seed MoE configs from a hardware playbook. Use for moe hardware configs or H100. Do NOT use as measured proof.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "medium",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "0e5a31bd6601c72e519315e61f7856112972a7ba97cc4e0dec23efb9784d10d7"
+    },
+    {
+      "id": "nemo-mbridge-perf-moe-optimization-workflow",
+      "aliases": [],
+      "path": "00_skills/(distributed-training)/nemo-mbridge-perf-moe-optimization-workflow/SKILL.md",
+      "category": "distributed-training",
+      "description": "Optimize MoE training from measured evidence. Use for moe optimization workflow. Do NOT use for hardware seed tables.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "303d8a1566ad0e0358fe042b8459c0b511245f3ad1346cf7e53d1a2026306517"
+    },
+    {
+      "id": "nemo-mbridge-perf-moe-vlm-training",
+      "aliases": [],
+      "path": "00_skills/(distributed-training)/nemo-mbridge-perf-moe-vlm-training/SKILL.md",
+      "category": "distributed-training",
+      "description": "Train multimodal MoE VLMs in Megatron Bridge. Use for moe vlm training. Do NOT use for text-only dense models.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "b1691ba5b822657550e5a42f2efe6300eef269e5f7d49dfa5ea34775d08a89cc"
+    },
+    {
+      "id": "nemo-mbridge-perf-parallelism-strategies",
+      "aliases": [],
+      "path": "00_skills/(distributed-training)/nemo-mbridge-perf-parallelism-strategies/SKILL.md",
+      "category": "distributed-training",
+      "description": "Choose Megatron Bridge parallelism. Use for parallelism strategies or TP DP PP. Do NOT use for lint.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "medium",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "b511f80b803d52d808178c5e20bf83e6809546026fb84e2ef86a17a537ab5a8b"
+    },
+    {
+      "id": "nemo-mbridge-perf-sequence-packing",
+      "aliases": [],
+      "path": "00_skills/(distributed-training)/nemo-mbridge-perf-sequence-packing/SKILL.md",
+      "category": "distributed-training",
+      "description": "Pack sequences for long-context training. Use for sequence packing or packed data. Do NOT use for CPU offload.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "medium",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "899e064e9a7113f8103b619b798158ac8c419093c7029e7401fc3df4e72342b8"
+    },
+    {
+      "id": "nemo-mbridge-perf-tp-dp-comm-overlap",
+      "aliases": [],
+      "path": "00_skills/(distributed-training)/nemo-mbridge-perf-tp-dp-comm-overlap/SKILL.md",
+      "category": "distributed-training",
+      "description": "Overlap TP, DP, and PP communication. Use for comm overlap. Do NOT use for CUDA graphs.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "medium",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "b4bd04306d1cfcb17076073a91e9a4c71833ab08cfdad707e419e8a7cde65963"
+    },
+    {
+      "id": "nemo-mbridge-resiliency",
+      "aliases": [],
+      "path": "00_skills/(distributed-training)/nemo-mbridge-resiliency/SKILL.md",
+      "category": "distributed-training",
+      "description": "Add fault tolerance and restart to Bridge. Use for training resiliency or stragglers. Do NOT use for lint.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "245e5e544d6881233c49cc6774fbe203b9a362539fca4abc6e1cc4c2d3e4fded"
+    },
+    {
+      "id": "nemo-rl-session-memory",
+      "aliases": [],
+      "path": "00_skills/(agent-memory)/nemo-rl-session-memory/SKILL.md",
+      "category": "agent-memory",
+      "description": "Checkpoint long coding sessions for resume. Use for session memory, handoff, or a checkpoint. Do NOT use for training.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "medium",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "74ce83dd1e7cb184a7855cc1c7c9364ff670dbcc156a5e9619ac22632628e4bd"
+    },
+    {
       "id": "nestjs-modular-monolith",
       "aliases": [],
       "path": "00_skills/(development)/nestjs-modular-monolith/SKILL.md",
@@ -2546,6 +2910,45 @@
       "source": "workspace",
       "lines": 34,
       "sha256": "728e2e85bab27f72c78e593acb147ebc1c31d7849239f6a4ba9bd7651b3af7eb"
+    },
+    {
+      "id": "nv-generate-mr-brain",
+      "aliases": [],
+      "path": "00_skills/(clinical-ai)/nv-generate-mr-brain/SKILL.md",
+      "category": "clinical-ai",
+      "description": "Generate synthetic brain MRI volumes. Use for mr brain generation. Do NOT use for clinical diagnosis.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "9162ee02ad5a4b7daeff993b5f686a18e02788205bb34e0999878df4b8773421"
+    },
+    {
+      "id": "nv-generate-mr-brain-finetune",
+      "aliases": [],
+      "path": "00_skills/(clinical-ai)/nv-generate-mr-brain-finetune/SKILL.md",
+      "category": "clinical-ai",
+      "description": "Fine-tune NV-Generate MR-Brain on local NIfTI. Use for mr brain finetune. Do NOT use for CT segmentation.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "767f43d95b72d6dd5ddd06ed8b6a443c5ef59358889f64ff533d3ee5f27d2b05"
+    },
+    {
+      "id": "nv-segment-ct-finetune",
+      "aliases": [],
+      "path": "00_skills/(clinical-ai)/nv-segment-ct-finetune/SKILL.md",
+      "category": "clinical-ai",
+      "description": "Fine-tune NV-Segment-CT VISTA3D on NIfTI. Use for ct segmentation finetune. Do NOT use for MRI generation.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "2bfb49134399500bc5e673aba8f3be7adda0fa0e7cc2966fd78a572e5a76f705"
     },
     {
       "id": "nx-ci-monitor",
@@ -2637,6 +3040,32 @@
       "source": "workspace",
       "lines": 50,
       "sha256": "4126a122f10e1dd029d4b1396ace7b9f8e89657e4b60d06e42b9ce87fcf4838f"
+    },
+    {
+      "id": "omniverse-cad-to-simready",
+      "aliases": [],
+      "path": "00_skills/(physical-ai)/omniverse-cad-to-simready/SKILL.md",
+      "category": "physical-ai",
+      "description": "Turn CAD into a SimReady USD package. Use for cad to simready or prop packaging. Do NOT use for NuRec.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "1a11a79840aa796d0c90ceff343e459c9d7d3ca97642029a725f9bb5f1b926bb"
+    },
+    {
+      "id": "omniverse-realtime-viewer",
+      "aliases": [],
+      "path": "00_skills/(physical-ai)/omniverse-realtime-viewer/SKILL.md",
+      "category": "physical-ai",
+      "description": "Route an Omniverse realtime viewer change. Use for realtime viewer, XR, or USD streaming. Do NOT use for CAD conversion.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "medium",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "fb1d997aa3fbaacb7fb850f87c769d0f42a54ca25ab2d8bf8d82f40cc884a22e"
     },
     {
       "id": "openshift-observability-staff",
@@ -2819,6 +3248,45 @@
       "source": "workspace",
       "lines": 42,
       "sha256": "4514912264c851c124b5daf1013a94aeaaa458a3b651f476a1c1070c4ca497cd"
+    },
+    {
+      "id": "physical-ai-defect-image-generation",
+      "aliases": [],
+      "path": "00_skills/(synthetic-data)/physical-ai-defect-image-generation/SKILL.md",
+      "category": "synthetic-data",
+      "description": "Generate inspection defect images. Use for defect image generation. Do NOT use for clinical scans.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "2d12d048d36380b45de76be2ef8b882a333b223e76a62c8840db17b05ee21573"
+    },
+    {
+      "id": "physical-ai-neural-reconstruction",
+      "aliases": [],
+      "path": "00_skills/(physical-ai)/physical-ai-neural-reconstruction/SKILL.md",
+      "category": "physical-ai",
+      "description": "Route NuRec reconstruction to the right step. Use for nurec or neural reconstruction. Do NOT use for SimReady.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "491cd1e32d3aacf93d8874fd491ed2022d11c48277f89d1b0187b5bebda88df5"
+    },
+    {
+      "id": "physical-ai-video-data-augmentation",
+      "aliases": [],
+      "path": "00_skills/(synthetic-data)/physical-ai-video-data-augmentation/SKILL.md",
+      "category": "synthetic-data",
+      "description": "Augment physical-AI video on an authorized flow. Use for video augmentation or cosmos. Do NOT use for live cameras.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "a1321d0c8806148a7b06bc65c3f7a8f5a5a288daa4fbf17002603c0882ebde0a"
     },
     {
       "id": "playbook-factory-generator",
@@ -3042,6 +3510,32 @@
       "sha256": "0bcae286170017c4df02ea7bb972099830ce9c38c5ccf1ba790a029f641f0dc8"
     },
     {
+      "id": "rag-blueprint",
+      "aliases": [],
+      "path": "00_skills/(rag-systems)/rag-blueprint/SKILL.md",
+      "category": "rag-systems",
+      "description": "Deploy or configure the NVIDIA RAG Blueprint. Use for rag blueprint deploy or troubleshoot. Do NOT use for model training.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "1f3e03df0fb4b70b7ab2af6924f8a12f78727cb1b447937dc408ecf4ba550fa4"
+    },
+    {
+      "id": "rag-eval",
+      "aliases": [],
+      "path": "00_skills/(rag-systems)/rag-eval/SKILL.md",
+      "category": "rag-systems",
+      "description": "Score an on-disk RAG corpus and train.json. Use for rag eval or retrieval metrics. Do NOT use for deployment.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "medium",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "c9219b1d65fbac7c7a9fd4371c680826c154b6354adc4cd126854fb8e318f625"
+    },
+    {
       "id": "rag-expert",
       "aliases": [],
       "path": "00_skills/(development)/rag-expert/SKILL.md",
@@ -3066,6 +3560,19 @@
       "description": "Orchestrate evaluated RAG and GraphRAG with Laya decisions. Use for RAG or GraphRAG with Laya. Do NOT use for standalone graph drawing.",
       "lines": 47,
       "sha256": "9252a1696ac9b9453a663cf0a7ce9fa03852b6c89501ea42eda302f2c8fa9b9a"
+    },
+    {
+      "id": "rag-perf",
+      "aliases": [],
+      "path": "00_skills/(rag-systems)/rag-perf/SKILL.md",
+      "category": "rag-systems",
+      "description": "Benchmark RAG latency and throughput from a config. Use for rag perf or a latency run. Do NOT use for training.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "medium",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "2536b96617f5e85c4eaa824acda6dd6d3e962e54a73f730f6deb4d20964e107c"
     },
     {
       "id": "ragraph-expert",
@@ -3770,6 +4277,19 @@
       "sha256": "0ea726897433ec1647b6347ff042bba9540bc7486ae20df18982d179f080b9db"
     },
     {
+      "id": "tao-finetune-huggingface-model",
+      "aliases": [],
+      "path": "00_skills/(distributed-training)/tao-finetune-huggingface-model/SKILL.md",
+      "category": "distributed-training",
+      "description": "Fine-tune a Hugging Face model with TAO. Use for tao finetune. Do NOT use for Megatron training.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "797d6e14f2886e8e60b794813d792f5a265834f2380e69556f45cf7ad2070050"
+    },
+    {
       "id": "task-graph-builder",
       "aliases": [],
       "path": "00_skills/(tooling)/task-graph-builder/SKILL.md",
@@ -3926,6 +4446,19 @@
       "source": "workspace",
       "lines": 68,
       "sha256": "6b00bf954718ea09a95e7f760e3b301a6d58c03a4a6da81565dda4f8d72138c6"
+    },
+    {
+      "id": "tilegym-adding-cutile-kernel",
+      "aliases": [],
+      "path": "00_skills/(gpu-data)/tilegym-adding-cutile-kernel/SKILL.md",
+      "category": "gpu-data",
+      "description": "Add a cuTile kernel to TileGym. Use for cutile kernel or tilegym ops. Do NOT use for cuDF.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "medium",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "260ab90b338612aaac2c747f114bdc67189b7400b94d655883021dcc2a462a89"
     },
     {
       "id": "tlc-discover",
@@ -4147,6 +4680,58 @@
       "source": "photographic",
       "lines": 37,
       "sha256": "66b79677c93f6f629b56b56696c071442d0f8d627d56c6c074b7f6f73c92caf0"
+    },
+    {
+      "id": "vss-ask-video",
+      "aliases": [],
+      "path": "00_skills/(video-analytics)/vss-ask-video/SKILL.md",
+      "category": "video-analytics",
+      "description": "Ask one question of a video on authorized VSS. Use for vss ask video. Do NOT use for archive search.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "403f1931bba2b2a04369d7910ba68669e98f7821bda944e98de0f602ab87d3ac"
+    },
+    {
+      "id": "vss-query-analytics",
+      "aliases": [],
+      "path": "00_skills/(video-analytics)/vss-query-analytics/SKILL.md",
+      "category": "video-analytics",
+      "description": "Query read-only VSS analytics. Use for vss query analytics or incidents. Do NOT use for video summarization.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "5d6094d23d515290890d74231d845afec9e1173fbf639b1750d08d9d9fd51e24"
+    },
+    {
+      "id": "vss-search-archive",
+      "aliases": [],
+      "path": "00_skills/(video-analytics)/vss-search-archive/SKILL.md",
+      "category": "video-analytics",
+      "description": "Search an authorized VSS archive or RTSP index. Use for vss search archive. Do NOT use for summarization.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "0a22eb6873d55342b2fd31f402eb5fccf7e5ce5d5a7ad4704f36552e2fe16529"
+    },
+    {
+      "id": "vss-summarize-video",
+      "aliases": [],
+      "path": "00_skills/(video-analytics)/vss-summarize-video/SKILL.md",
+      "category": "video-analytics",
+      "description": "Summarize a video on an authorized VSS deployment. Use for vss summarize. Do NOT use for archive search.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "nvidia-skills",
+      "lines": 45,
+      "sha256": "0ff07401f021e0f0a5260eb2dfa2e4761c473fd51786611654079e53350cee8f"
     },
     {
       "id": "vuln-obsol-recon",

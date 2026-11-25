@@ -1979,3 +1979,273 @@ skills:
   risk_level: medium
   mission: 'Route a test by sourced category and evidence. Use for test-expert, qa-expert or a test plan. Do NOT use for exploit payloads, invented oracles or unit-only proof.'
   capabilities: []
+- id: accelerated-computing-cudf
+  path: 00_skills/(gpu-data)/accelerated-computing-cudf/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: "Accelerate pandas with cuDF or dask-cuDF. Use for cudf joins or GPU dataframes. Do NOT use for model training."
+  capabilities: []
+- id: dali-dynamic-mode
+  path: 00_skills/(gpu-data)/dali-dynamic-mode/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: "Write DALI dynamic-mode pipelines in ndd. Use for dali dynamic mode or ndd. Do NOT use for static pipeline-only edits."
+  capabilities: []
+- id: data-designer
+  path: 00_skills/(synthetic-data)/data-designer/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: "Build a synthetic dataset with Data Designer. Use for synthetic data or a data-designer pipeline. Do NOT use for real PHI."
+  capabilities: []
+- id: deepstream-dev
+  path: 00_skills/(video-analytics)/deepstream-dev/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Build DeepStream pipelines with pyservicemaker. Use for deepstream or GStreamer inference. Do NOT use for VSS search."
+  capabilities: []
+- id: dicom-metadata-extract
+  path: 00_skills/(clinical-ai)/dicom-metadata-extract/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Extract DICOM metadata without pixels. Use for dicom metadata extract. Do NOT use for diagnosis or series QA."
+  capabilities: []
+- id: dicom-series-preflight
+  path: 00_skills/(clinical-ai)/dicom-series-preflight/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Preflight a DICOM series before training. Use for dicom series preflight. Do NOT use for metadata-only extract."
+  capabilities: []
+- id: digital-health-clinical-asr-build
+  path: 00_skills/(clinical-ai)/digital-health-clinical-asr-build/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Build a clinical ASR term manifest. Use for clinical asr build or IPA tags. Do NOT use for scoring."
+  capabilities: []
+- id: digital-health-clinical-asr-eval
+  path: 00_skills/(clinical-ai)/digital-health-clinical-asr-eval/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Score a clinical ASR manifest with KER. Use for clinical asr eval or a score. Do NOT use for fine-tuning."
+  capabilities: []
+- id: digital-health-clinical-asr-finetune
+  path: 00_skills/(clinical-ai)/digital-health-clinical-asr-finetune/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Fine-tune Parakeet when KER stays high. Use for clinical asr finetune. Do NOT use for setup."
+  capabilities: []
+- id: digital-health-clinical-asr-setup
+  path: 00_skills/(clinical-ai)/digital-health-clinical-asr-setup/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Set up the clinical ASR flywheel host. Use for clinical asr setup or NVCF. Do NOT use for scoring or fine-tune."
+  capabilities: []
+- id: dynamo-recipe-runner
+  path: 00_skills/(inference-serving)/dynamo-recipe-runner/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Select and deploy an existing Dynamo Kubernetes recipe. Use for dynamo recipe or GPU serving. Do NOT use for training."
+  capabilities: []
+- id: mcore-linting-and-formatting
+  path: 00_skills/(distributed-training)/mcore-linting-and-formatting/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: low
+  mission: "Lint and format Megatron-LM before a PR. Use for mcore lint, autoformat.sh, or ruff. Do NOT use for training."
+  capabilities: []
+- id: nemo-automodel-distributed-training
+  path: 00_skills/(distributed-training)/nemo-automodel-distributed-training/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Configure NeMo AutoModel distributed training. Use for automodel FSDP or tensor parallel. Do NOT use for lint-only."
+  capabilities: []
+- id: nemo-mbridge-mlm-bridge-training
+  path: 00_skills/(distributed-training)/nemo-mbridge-mlm-bridge-training/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Run Megatron-LM and Bridge correlation training. Use for mlm bridge training. Do NOT use for lint."
+  capabilities: []
+- id: nemo-mbridge-multi-node-slurm
+  path: 00_skills/(distributed-training)/nemo-mbridge-multi-node-slurm/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Turn a single-node run into a Slurm sbatch job. Use for multi-node slurm. Do NOT use for single-GPU lint."
+  capabilities: []
+- id: nemo-mbridge-perf-cpu-offloading
+  path: 00_skills/(distributed-training)/nemo-mbridge-perf-cpu-offloading/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: "Offload optimizer or activations to CPU. Use for cpu offloading. Do NOT use for CUDA graphs."
+  capabilities: []
+- id: nemo-mbridge-perf-cuda-graphs
+  path: 00_skills/(distributed-training)/nemo-mbridge-perf-cuda-graphs/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: "Enable CUDA graphs in Megatron Bridge. Use for cuda graphs, graph capture, or TE. Do NOT use for Slurm setup."
+  capabilities: []
+- id: nemo-mbridge-perf-hierarchical-context-parallel
+  path: 00_skills/(distributed-training)/nemo-mbridge-perf-hierarchical-context-parallel/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: "Enable hierarchical context parallel (HCP). Use for hierarchical context parallel. Do NOT use for sequence packing."
+  capabilities: []
+- id: nemo-mbridge-perf-memory-tuning
+  path: 00_skills/(distributed-training)/nemo-mbridge-perf-memory-tuning/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: "Tune Megatron Bridge memory before speed. Use for memory tuning, OOM, or recompute. Do NOT use for CUDA graphs."
+  capabilities: []
+- id: nemo-mbridge-perf-moe-dispatcher-selection
+  path: 00_skills/(distributed-training)/nemo-mbridge-perf-moe-dispatcher-selection/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: "Pick an MoE token dispatcher. Use for moe dispatcher, DeepEP, or alltoall. Do NOT use for parallelism sizing."
+  capabilities: []
+- id: nemo-mbridge-perf-moe-hardware-configs
+  path: 00_skills/(distributed-training)/nemo-mbridge-perf-moe-hardware-configs/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: "Seed MoE configs from a hardware playbook. Use for moe hardware configs or H100. Do NOT use as measured proof."
+  capabilities: []
+- id: nemo-mbridge-perf-moe-optimization-workflow
+  path: 00_skills/(distributed-training)/nemo-mbridge-perf-moe-optimization-workflow/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Optimize MoE training from measured evidence. Use for moe optimization workflow. Do NOT use for hardware seed tables."
+  capabilities: []
+- id: nemo-mbridge-perf-moe-vlm-training
+  path: 00_skills/(distributed-training)/nemo-mbridge-perf-moe-vlm-training/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Train multimodal MoE VLMs in Megatron Bridge. Use for moe vlm training. Do NOT use for text-only dense models."
+  capabilities: []
+- id: nemo-mbridge-perf-parallelism-strategies
+  path: 00_skills/(distributed-training)/nemo-mbridge-perf-parallelism-strategies/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: "Choose Megatron Bridge parallelism. Use for parallelism strategies or TP DP PP. Do NOT use for lint."
+  capabilities: []
+- id: nemo-mbridge-perf-sequence-packing
+  path: 00_skills/(distributed-training)/nemo-mbridge-perf-sequence-packing/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: "Pack sequences for long-context training. Use for sequence packing or packed data. Do NOT use for CPU offload."
+  capabilities: []
+- id: nemo-mbridge-perf-tp-dp-comm-overlap
+  path: 00_skills/(distributed-training)/nemo-mbridge-perf-tp-dp-comm-overlap/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: "Overlap TP, DP, and PP communication. Use for comm overlap. Do NOT use for CUDA graphs."
+  capabilities: []
+- id: nemo-mbridge-resiliency
+  path: 00_skills/(distributed-training)/nemo-mbridge-resiliency/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Add fault tolerance and restart to Bridge. Use for training resiliency or stragglers. Do NOT use for lint."
+  capabilities: []
+- id: nemo-rl-session-memory
+  path: 00_skills/(agent-memory)/nemo-rl-session-memory/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: "Checkpoint long coding sessions for resume. Use for session memory, handoff, or a checkpoint. Do NOT use for training."
+  capabilities: []
+- id: nv-generate-mr-brain
+  path: 00_skills/(clinical-ai)/nv-generate-mr-brain/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Generate synthetic brain MRI volumes. Use for mr brain generation. Do NOT use for clinical diagnosis."
+  capabilities: []
+- id: nv-generate-mr-brain-finetune
+  path: 00_skills/(clinical-ai)/nv-generate-mr-brain-finetune/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Fine-tune NV-Generate MR-Brain on local NIfTI. Use for mr brain finetune. Do NOT use for CT segmentation."
+  capabilities: []
+- id: nv-segment-ct-finetune
+  path: 00_skills/(clinical-ai)/nv-segment-ct-finetune/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Fine-tune NV-Segment-CT VISTA3D on NIfTI. Use for ct segmentation finetune. Do NOT use for MRI generation."
+  capabilities: []
+- id: omniverse-cad-to-simready
+  path: 00_skills/(physical-ai)/omniverse-cad-to-simready/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Turn CAD into a SimReady USD package. Use for cad to simready or prop packaging. Do NOT use for NuRec."
+  capabilities: []
+- id: omniverse-realtime-viewer
+  path: 00_skills/(physical-ai)/omniverse-realtime-viewer/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: "Route an Omniverse realtime viewer change. Use for realtime viewer, XR, or USD streaming. Do NOT use for CAD conversion."
+  capabilities: []
+- id: physical-ai-defect-image-generation
+  path: 00_skills/(synthetic-data)/physical-ai-defect-image-generation/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Generate inspection defect images. Use for defect image generation. Do NOT use for clinical scans."
+  capabilities: []
+- id: physical-ai-neural-reconstruction
+  path: 00_skills/(physical-ai)/physical-ai-neural-reconstruction/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Route NuRec reconstruction to the right step. Use for nurec or neural reconstruction. Do NOT use for SimReady."
+  capabilities: []
+- id: physical-ai-video-data-augmentation
+  path: 00_skills/(synthetic-data)/physical-ai-video-data-augmentation/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Augment physical-AI video on an authorized flow. Use for video augmentation or cosmos. Do NOT use for live cameras."
+  capabilities: []
+- id: rag-blueprint
+  path: 00_skills/(rag-systems)/rag-blueprint/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Deploy or configure the NVIDIA RAG Blueprint. Use for rag blueprint deploy or troubleshoot. Do NOT use for model training."
+  capabilities: []
+- id: rag-eval
+  path: 00_skills/(rag-systems)/rag-eval/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: "Score an on-disk RAG corpus and train.json. Use for rag eval or retrieval metrics. Do NOT use for deployment."
+  capabilities: []
+- id: rag-perf
+  path: 00_skills/(rag-systems)/rag-perf/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: "Benchmark RAG latency and throughput from a config. Use for rag perf or a latency run. Do NOT use for training."
+  capabilities: []
+- id: tao-finetune-huggingface-model
+  path: 00_skills/(distributed-training)/tao-finetune-huggingface-model/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Fine-tune a Hugging Face model with TAO. Use for tao finetune. Do NOT use for Megatron training."
+  capabilities: []
+- id: tilegym-adding-cutile-kernel
+  path: 00_skills/(gpu-data)/tilegym-adding-cutile-kernel/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: medium
+  mission: "Add a cuTile kernel to TileGym. Use for cutile kernel or tilegym ops. Do NOT use for cuDF."
+  capabilities: []
+- id: vss-ask-video
+  path: 00_skills/(video-analytics)/vss-ask-video/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Ask one question of a video on authorized VSS. Use for vss ask video. Do NOT use for archive search."
+  capabilities: []
+- id: vss-query-analytics
+  path: 00_skills/(video-analytics)/vss-query-analytics/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Query read-only VSS analytics. Use for vss query analytics or incidents. Do NOT use for video summarization."
+  capabilities: []
+- id: vss-search-archive
+  path: 00_skills/(video-analytics)/vss-search-archive/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Search an authorized VSS archive or RTSP index. Use for vss search archive. Do NOT use for summarization."
+  capabilities: []
+- id: vss-summarize-video
+  path: 00_skills/(video-analytics)/vss-summarize-video/SKILL.md
+  owner_agent: codenavi-agent
+  risk_level: high
+  mission: "Summarize a video on an authorized VSS deployment. Use for vss summarize. Do NOT use for archive search."
+  capabilities: []

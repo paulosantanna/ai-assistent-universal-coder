@@ -1,0 +1,53 @@
+{
+  "skill": "vss-search-archive",
+  "package_hash": "4179377ba933c4e5308e04266055b3ec6a758efcd9118566d4f8c5f6d255b8f5",
+  "positive_triggers": [
+    "vss search",
+    "archive",
+    "RTSP"
+  ],
+  "negative_scope": [
+    "summarization",
+    "fresh-clip Q&A",
+    "camera discovery"
+  ],
+  "source": "NVIDIA/skills@e34173c2efbe TLC adaptation",
+  "verification": {
+    "kind": "structural-and-syntax",
+    "runtime_evaluated": false,
+    "routing": "Static wording assessment; no measured trigger accuracy"
+  },
+  "effectiveness": "Not measured. Structural acceptance does not establish GPU, cluster, or clinical performance.",
+  "rubric": {
+    "source": "00_skills/(creation)/skill-architect/references/quality-checklist.md",
+    "weights": {
+      "routing": 20,
+      "procedure": 25,
+      "examples": 15,
+      "errors": 15,
+      "disclosure": 15,
+      "verification": 10
+    },
+    "ratings": {
+      "routing": 4,
+      "procedure": 4,
+      "examples": 4,
+      "errors": 4,
+      "disclosure": 4,
+      "verification": 3
+    },
+    "score": 78.0,
+    "before": {
+      "ratings": {
+        "routing": 4,
+        "procedure": 4,
+        "examples": 2,
+        "errors": 4,
+        "disclosure": 2,
+        "verification": 2
+      },
+      "score": 64.0
+    },
+    "limit": "Diagnostic instruction-quality rubric. No measured routing accuracy and no NVIDIA verification of the adaptation."
+  }
+}

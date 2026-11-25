@@ -1,3 +1,14 @@
+## NVIDIA skills — adaptação TLC por tema — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `00_skills/INDEX.md`. Evidence: `python3 quality/validate.py` PASS (sem `--runtime`).
+
+- Entregue: 45 skills de NVIDIA/skills `e34173c2` reescritas no contrato TLC e colocadas em nove pastas de tema.
+- Não instaladas pelo instalador NVIDIA. Assinaturas OMS, evals e scripts de deploy não foram copiados.
+- Verificado: `validate-workspace.py` PASS, 0 erros; `quality/validate.py` PASS. Nenhum job de GPU, cluster ou clínico foi executado.
+- Próximo: usar cada skill só no checkout do produto correspondente; irmãos NuRec e TAO platform continuam de fora.
+
+---
+
 ## fixall — skills de teste e pentest, MCPs e playbook — 2026-11-25
 
 Updated: 2026-11-25. Entry point: `playbooks/fixall/PLAYBOOK.md`.

@@ -1,3 +1,12 @@
+## Skill NVIDIA longa não entra no catálogo como arquivo único — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `00_skills/(creation)/skill-factory/scripts/validate-workspace.py`. Evidence: `validate-workspace.py` PASS depois da adaptação das 45 skills; o corpo original passava de 100 linhas e apontava para arquivos fora do pacote.
+
+- Trigger: importar uma skill cujo `SKILL.md` passa de 100 linhas físicas ou liga para `../../scripts` e `AGENTS.md` de outro repositório.
+- Root cause: o validador conta todas as linhas do entrypoint e segue cada link Markdown local até um arquivo versionado.
+- Fix/prevention: entrypoint curto com gates; procedimento em `references/`; link quebrado vira texto; assinatura OMS e eval não copiados não contam como verificação.
+- Reuse scope: qualquer pacote de skill de terceiros acima do teto de linhas ou com referências fora da pasta.
+
 ## Link relativo no grafo de skills precisa existir no checkout publicado — 2026-11-16
 
 Updated: 2026-11-16. Entry point: `00_skills/(creation)/skill-factory/scripts/validate-workspace.py` (`markdown_links`). Evidence: anotação `skill-contract` em `rag-graph-laya-mcp/docs/mongodb-review/APPLIED.md` no run `43953048760`.

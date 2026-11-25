@@ -1,3 +1,14 @@
+# NVIDIA skills — leitura, depuração e padrão TLC — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `00_skills/(rag-systems)/rag-blueprint/SKILL.md`.
+
+- [x] RECON: clone raso de NVIDIA/skills em `e34173c2`; as 45 pastas existem.
+- [x] EXECUTE: entrada TLC de até 100 linhas, gates, procedimento adaptado, módulos upstream com links locais reparados, nove temas.
+- [x] VERIFY: `validate-workspace.py` PASS (371 skills, 0 erros) e `quality/validate.py` PASS. Segredos no padrão do gate: 0.
+- [x] Fora de escopo verificado: GPU, cluster, DICOM real, câmera e serviços NVIDIA hospedados.
+
+---
+
 # fixall — QA, pentest e playbook — 2026-11-25
 
 Updated: 2026-11-25. Entry point: `playbooks/fixall/PLAYBOOK.md`.
