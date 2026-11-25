@@ -3,7 +3,7 @@
 Updated: 2026-11-25
 Entry point: [contrato](STANDARD.md), [catálogo](catalog.json), [esteira](../quality/README.md).
 
-371 pacotes canônicos. Adaptações herdam AGENTS.md; disponibilidade externa deve ser comprovada ao executar.
+372 pacotes canônicos. Adaptações herdam AGENTS.md; disponibilidade externa deve ser comprovada ao executar.
 
 ## agent-memory
 
@@ -434,6 +434,10 @@ Entry point: [contrato](STANDARD.md), [catálogo](catalog.json), [esteira](../qu
 - [vox-aurum]((tooling)/vox-aurum/SKILL.md) — Transcribe authorized bare audio offline with local Whisper. Use for offline transcription. Do NOT use for meeting video (acta-aurea).
 - [whatsapp-simulator]((tooling)/whatsapp-simulator/SKILL.md) — Generate synthetic WhatsApp-style conversation fixtures for testing. Use for chat fixtures. Do NOT use for unapproved remote writes.
 - [workbench-profile-resolver]((tooling)/workbench-profile-resolver/SKILL.md) — Resolve the smallest compatible workbench profile from scope and constraints. Use for profile selection. Do NOT use for unapproved remote writes.
+
+## video
+
+- [remotion-best-practices]((video)/remotion-best-practices/SKILL.md) — Write frame-driven Remotion videos and open Studio. Use for remotion studio or a composition. Do NOT use for unrelated React apps.
 
 ## video-analytics
 

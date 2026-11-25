@@ -1,3 +1,12 @@
+## Skill sem licença não entra como cópia integral — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `00_skills/(video)/remotion-best-practices/references/provenance.md`. Evidence: `gh api repos/remotion-dev/skills` devolveu `license: null` em 2026-11-25.
+
+- Trigger: o usuário pede para internalizar uma skill pública cujo repositório não declara licença.
+- Root cause: copiar os ensaios e assets seria redistribuir texto sem licença detectada, e o entrypoint ainda quebraria o teto de 100 linhas.
+- Fix/prevention: reescrever as regras lidas, apontar a documentação oficial e registrar o que ficou de fora.
+- Reuse scope: qualquer pacote de skill de terceiro sem licença SPDX ou arquivo LICENSE.
+
 ## Skill NVIDIA longa não entra no catálogo como arquivo único — 2026-11-25
 
 Updated: 2026-11-25. Entry point: `00_skills/(creation)/skill-factory/scripts/validate-workspace.py`. Evidence: `validate-workspace.py` PASS depois da adaptação das 45 skills; o corpo original passava de 100 linhas e apontava para arquivos fora do pacote.

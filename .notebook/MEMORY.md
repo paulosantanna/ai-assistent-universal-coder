@@ -1,3 +1,11 @@
+## Remotion best practices — fatos da reescrita — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `.notebook/remotion-best-practices.md`.
+
+- Fact: `remotion-dev/skills` no commit `a3f4098a` não tem licença no GitHub. O pacote `remotion-best-practices` é um roteador de 120 linhas que embute as outras skills, inclusive uma segunda árvore de mapas.
+- Decision: a skill do workspace é uma reescrita TLC em `00_skills/(video)/remotion-best-practices/`. A página oficial em `.md` manda no detalhe da API.
+- Fact: `npx skills update remotion-best-practices` substituiria este pacote pelos arquivos upstream. A procedure proíbe esse comando aqui.
+
 ## NVIDIA skills adaptadas ao TLC — 2026-11-25
 
 Updated: 2026-11-25. Entry point: `.notebook/nvidia-skills-tlc.md`.

@@ -1,3 +1,24 @@
+# Pins diretos do gate de bibliotecas — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `quality/prepush/backends/libraries.py`.
+
+- [x] RECON: o prepush dos PRs 60 e 61 falhou em pins que já estavam na master: PyYAML, vitest, fastapi, pypdf, graphiti-core, laya, transformers, trl, peft, ruff, undici, `@types/react`, `@types/node`.
+- [x] EXECUTE: pins e locks atualizados para o registro daquele momento. `laya` 0.5.4 ainda exporta `load`, `TrainConfig`, `dry_run` e `finetune`.
+- [x] VERIFY: backend `libraries` local com 0 achados; `quality/validate.py` PASS. O gate completo de CVE não rodou aqui.
+
+---
+
+# Remotion best practices — leitura e padrão TLC — 2026-11-25
+
+Updated: 2026-11-25. Entry point: `00_skills/(video)/remotion-best-practices/SKILL.md`.
+
+- [x] RECON: clone raso `a3f4098a`; 133 arquivos; sem LICENSE.
+- [x] EXECUTE: entrada de 46 linhas, procedure, tópicos oficiais, inventário de effects, exemplos e defeitos.
+- [x] VERIFY: validador do workspace PASS (327 skills, 0 erros) e `quality/validate.py` PASS.
+- [x] Fora de escopo: `npx remotion studio` e `npx remotion render` não foram executados.
+
+---
+
 # NVIDIA skills — leitura, depuração e padrão TLC — 2026-11-25
 
 Updated: 2026-11-25. Entry point: `00_skills/(rag-systems)/rag-blueprint/SKILL.md`.

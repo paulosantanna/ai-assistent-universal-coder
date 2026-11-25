@@ -3679,6 +3679,19 @@
       "sha256": "24b3d9d03f50c050955ece2f4bc2e668abd6dc708e7b7502b443806b25f523c1"
     },
     {
+      "id": "remotion-best-practices",
+      "aliases": [],
+      "path": "00_skills/(video)/remotion-best-practices/SKILL.md",
+      "category": "video",
+      "description": "Write frame-driven Remotion videos and open Studio. Use for remotion studio or a composition. Do NOT use for unrelated React apps.",
+      "owner_agent": "codenavi-agent",
+      "risk_level": "high",
+      "runtime_binding": "instruction_only",
+      "source": "workspace",
+      "lines": 46,
+      "sha256": "d487df247dac4b5df6a238eee6dc584bf9951bc6b2443e0eb1507f753dea6c2d"
+    },
+    {
       "id": "render-deploy",
       "aliases": [],
       "path": "00_skills/(cloud)/render-deploy/SKILL.md",
